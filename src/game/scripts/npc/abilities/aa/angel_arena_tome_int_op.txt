@@ -3,7 +3,6 @@
     "angel_arena_tome_int_op"
     {
         "BaseClass"                                                            "ability_datadriven"
-        "ID"                                                                   "1189"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityCooldown"                                                      "20"
         "AbilityGoldCost"                                                      "50 100 150 200"

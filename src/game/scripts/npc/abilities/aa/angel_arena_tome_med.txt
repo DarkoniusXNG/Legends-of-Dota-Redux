@@ -4,7 +4,6 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_datadriven"
-        "ID"                            "1193"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityCooldown"               "70 60 50 20"
         "AbilityGoldCost"            "500 400 300 200"

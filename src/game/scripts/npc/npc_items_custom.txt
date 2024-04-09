@@ -5,7 +5,6 @@
 {
     "item_dummy"
     {
-        "ID"                            "1998"
         "BaseClass"                     "item_datadriven"
         "ItemPurchasable"               "0"
         "ItemCost"                      "0"
@@ -21,7 +20,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "1999"
         "BaseClass"                     "item_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "ItemBaseLevel"                 "1"
@@ -36,7 +34,6 @@
         "BaseClass"                     "item_datadriven"
         "AbilityTextureName"            "tiny_grow"
         "ItemPurchasable"              "0"
-        "ID"                            "2001"
         "Modifiers"
         {
             "modifier_survival_modifier"
@@ -63,7 +60,6 @@
     //    "BaseClass"                     "item_datadriven"
     //    "AbilityTextureName"            "item_winter_stocking"
     //    "ItemPurchasable"              "0"
-    //    "ID"                            "2002"
     //}
     
     // General
@@ -72,7 +68,6 @@
     "item_sprint"
     { 
     "BaseClass"                     "item_datadriven"
-    "ID"                            "1050"  //Valve's version of this item uses the ID "50".
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "Model"                         "models/props_gameplay/red_box.vmdl" 
     "Effect"                        "particles/generic_gameplay/dropped_item.vpcf"
@@ -184,7 +179,6 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "item_blink"
-        "ID"                            "2009"                                                     // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 
         // Stats
@@ -232,7 +226,6 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "BaseClass"                     "item_datadriven"
         "IsSellable"                    "0"
-        "ID"                            "2003"
         "ItemPurchasable"              "0"
 
         "Modifiers"
@@ -472,7 +465,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "2260"
         "BaseClass"                     "item_lua"
         "ScriptFile"                    "abilities/pocket_tower_test.lua"
         "AbilityTextureName"            "custom/item_pocket_tower"
@@ -496,7 +488,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "2261"
         "BaseClass"                     "item_lua"
         "ScriptFile"                    "items/pocket_tower_permanent.lua"
         "AbilityTextureName"            "custom/item_pocket_tower"
@@ -516,7 +507,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "2262"
         "BaseClass"                     "item_lua"
         "ScriptFile"                    "items/pocket_tower_permanent.lua"
         "AbilityTextureName"            "custom/item_pocket_tower"
@@ -536,7 +526,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "2263"
         "BaseClass"                     "item_lua"
         "ScriptFile"                    "items/pocket_tower_permanent.lua"
         "AbilityTextureName"            "custom/item_pocket_tower"
@@ -556,7 +545,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "2264"
         "BaseClass"                     "item_lua"
         "ScriptFile"                    "items/pocket_tower_permanent.lua"
         "AbilityTextureName"            "custom/item_pocket_tower"
@@ -576,7 +564,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "2265"
         "BaseClass"                     "item_lua"
         "ScriptFile"                    "items/pocket_tower_permanent.lua"
         "AbilityTextureName"            "custom/item_pocket_tower"
@@ -596,7 +583,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "2265"
         "BaseClass"                     "item_lua"
         "ScriptFile"                    "items/pocket_tower_permanent.lua"
         "AbilityTextureName"            "custom/item_pocket_tower"
@@ -1094,7 +1080,6 @@
 
     "item_consumable_redux"
     {
-        "ID"                            "99999"
         "ScriptFile"                    "abilities/items/consumable_baseclass.lua"
         "AbilityTextureName"            "item_consumable"
         "BaseClass"                     "item_lua"
@@ -1111,7 +1096,6 @@
 
     "item_assault_consumable"
     {
-        "ID"                            "2112"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
@@ -1171,7 +1155,6 @@
 
     "item_skadi_consumable"
     {
-         "ID"                            "2160"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
@@ -1238,7 +1221,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "2168"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
@@ -1281,7 +1263,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "2108"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
@@ -1436,7 +1417,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "2114"                                                       
         "ItemCost"                      "4800"
         "AbilityGoldCost"               "5000"
         "ItemPurchasable"              "0"
@@ -1476,7 +1456,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "2141"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
@@ -1518,7 +1497,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "2235"                                                     
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
@@ -1578,7 +1556,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "2135"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
@@ -1621,7 +1598,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "2232"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
@@ -1659,7 +1635,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "2139"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
@@ -1709,7 +1684,6 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "item_datadriven"
-        "ID"                            "1104"  //Valve's version of this item uses the ID "104".
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
@@ -1800,7 +1774,6 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "item_datadriven"
-        "ID"                            "2301"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -1912,7 +1885,6 @@
     "item_recipe_redux_silver"
     {
         "BaseClass"           "item_datadriven"
-        "ID"              "2302"
         "Model" "models/props_gameplay/recipe.mdl"
         "AbilityTextureName"      "item_recipe"
 
@@ -1932,7 +1904,6 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "item_datadriven"
-        "ID"                            "2303"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -2053,7 +2024,6 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "1001"
         "AbilityName"                   "item_treasure_chest"
         "BaseClass"                     "item_bag_of_gold"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_ITEM"
@@ -2155,7 +2125,6 @@
 
     "item_vladimir_consumable"
     {
-        "ID"                            "2081"
         "ScriptFile"                    "abilities/items/vladimir.lua"
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "item_vladmir"
@@ -2195,7 +2164,6 @@
 
     "item_echo_sabre_consumable"
     {
-        "ID"                            "2252"
         "ScriptFile"                    "abilities/items/echo_sabre.lua"
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "item_echo_sabre"
@@ -2257,7 +2225,6 @@
 
     "item_aeon_disk_consumable"
     {
-        "ID"                            "2256"
         "ScriptFile"                    "abilities/items/aeon_disk.lua"
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "item_aeon_disk"
@@ -2303,7 +2270,6 @@
 
     "item_kaya_consumable" // Disabled
     {
-        "ID"                            "2259"
         "ScriptFile"                    "abilities/items/kaya.lua"
         "AbilityTextureName"            "item_kaya"
         "BaseClass"                     "item_lua"
@@ -2384,7 +2350,6 @@
 
     "item_companion_consumable"
     {
-        "ID"                            "2279"
         "ScriptFile"                    "abilities/items/companion.lua"
         "AbilityTextureName"            "custom/item_companion_consumable"
         "BaseClass"                     "item_lua"
@@ -2421,7 +2386,6 @@
 
     "item_holy_locket_consumable"
     {
-        "ID"                            "2269"
         "ScriptFile"                    "abilities/items/holy_locket.lua"
         "AbilityTextureName"            "item_holy_locket"
         "BaseClass"                     "item_lua"

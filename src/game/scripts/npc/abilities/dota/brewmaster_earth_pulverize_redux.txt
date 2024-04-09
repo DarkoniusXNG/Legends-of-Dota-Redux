@@ -3,7 +3,6 @@
     "brewmaster_earth_pulverize_redux"
     {
         "BaseClass"                                                            "brewmaster_earth_pulverize"
-        "ID"                                                                   "54065406"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "MaxLevel"                                                             "7"
         "LevelsBetweenUpgrades"                                                "2"

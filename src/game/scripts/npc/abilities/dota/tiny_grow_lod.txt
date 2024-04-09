@@ -2,7 +2,6 @@
 {
     "tiny_grow_lod"
     {
-        "ID"                                                                   "9109"
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/tiny_grow_lod.lua"
         "AbilityTextureName"                                                   "tiny_grow"

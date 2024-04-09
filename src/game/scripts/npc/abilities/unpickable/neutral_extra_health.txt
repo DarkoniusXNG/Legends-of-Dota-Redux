@@ -1,7 +1,6 @@
 "DOTAAbilities" {
 	"neutral_extra_health" {
 		"BaseClass" "granite_golem_hp_aura"
-		"ID" "5656"
 		"MaxLevel" "4"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 

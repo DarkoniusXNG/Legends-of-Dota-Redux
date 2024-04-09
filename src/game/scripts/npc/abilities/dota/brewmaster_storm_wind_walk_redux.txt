@@ -3,7 +3,6 @@
     "brewmaster_storm_wind_walk_redux"
     {
         "BaseClass"                                                            "brewmaster_storm_wind_walk"
-        "ID"                                                                   "54105410"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "SpellDispellableType"                                                 "SPELL_DISPELLABLE_NO"
         "AbilityCooldown"                                                      "60 50 40 30 20 10 5"

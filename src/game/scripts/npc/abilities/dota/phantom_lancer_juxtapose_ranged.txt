@@ -2,7 +2,6 @@
 {
     "phantom_lancer_juxtapose_ranged"
     {
-        "ID"                                                                   "50675067"
         "BaseClass"                                                            "phantom_lancer_juxtapose"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"

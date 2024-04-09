@@ -2,7 +2,6 @@
 {
     "tiny_grow_lod_redux"
     {
-        "ID"                                                                   "9109"
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/tiny_grow_lod_redux.lua"
         "AbilityTextureName"                                                   "custom/tiny_grow_lod_redux"
