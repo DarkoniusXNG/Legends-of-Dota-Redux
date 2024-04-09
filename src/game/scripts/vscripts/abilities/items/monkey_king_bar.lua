@@ -99,7 +99,7 @@ function modifier_item_monkey_king_bar_consumable:DeclareFunctions()
   self.pierce_proc      = true
   self.pierce_records     = {}
 
-  return funcs`
+  return funcs
 end
 
 function modifier_item_monkey_king_bar_consumable:GetModifierAttackSpeedBonus_Constant()
