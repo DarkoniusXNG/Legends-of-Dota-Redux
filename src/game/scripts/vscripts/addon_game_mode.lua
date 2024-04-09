@@ -226,8 +226,7 @@ end
 _G.NeutralItems = {}
 function Activate()
     -- Print LoD version header
-    local versionFile = LoadKeyValues('addoninfo.txt')
-    local versionNumber = versionFile.version
+    local versionNumber = "3.1.2"
     print('\n\nDota 2 Redux is activating! (v'..versionNumber..')')
 
     -- Ensure LoD is compiled

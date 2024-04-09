@@ -11,7 +11,7 @@ StatsClient.ServerAddress = StatsClient.Debug and
     "http://localhost:5218/" or
     "https://fda7-84-193-151-123.ngrok-free.app/"
 
-StatsClient.GameVersion = LoadKeyValues('addoninfo.txt').version
+StatsClient.GameVersion = "3.1.2"
 StatsClient.SortedAbilityDataEntries = StatsClient.SortedAbilityDataEntries or {}
 
 function StatsClient:SubscribeToClientEvents()

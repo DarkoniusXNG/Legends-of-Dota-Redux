@@ -1,40 +1,49 @@
-"AddonInfo"
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	maps			"dota"
-
-	"IsPlayable"	"1"
-    "version"       "3.1.2"
-    "CheckAFKPlayers" "1"
-
-    "custom_702"
-    {
-        "MaxPlayers"                    "10"
-    }
-
-    "10_vs_10"
-    {
-        "MaxPlayers"                    "20"
-    }
-
-    "Default_Keys"
-    {
-        "01"
-        {
-            "Key" "F4"
-            "Command" "+F4Pressed"
-            "Name" "Toggle Shop"
-        }
-        "02"
-        {
-            "Key" "F5"
-            "Command" "+F5Pressed"
-            "Name" "Quickbuy"
-        }
-        "03"
-        {
-            "Key" "F8"
-            "Command" "+F8Pressed"
-            "Name" "Buy sticky item"
-        }
-    }
+	maps = 
+	[
+		"dota",
+	]
+	IsPlayable = 1
+	version = "3.1.2"
+	CheckAFKPlayers = false
+	Default_Keys = 
+	[
+		{
+			Key = "F4"
+			Command = "+F4Pressed"
+			Name = "Toggle Shop"
+		},
+		{
+			Key = "F5"
+			Command = "+F5Pressed"
+			Name = "Quickbuy"
+		},
+		{
+			Key = "F8"
+			Command = "+F8Pressed"
+			Name = "Buy sticky item"
+		},
+	]
+	map_options = 
+	[
+		{
+			MaxPlayers = 10
+			map = "dota"
+		},
+	]
+	HideInTools = false
+	IsTemplate = false
+	DefaultMap = "dota"
+	DisableIK = true
+	EnablePickRules = false
+	EventGame = false
+	hero_picker = null
+	HeroGuidesSupported = true
+	ForceDefaultGuide = false
+	MinimalPrecache = false
+	MinPlayers = 1
+	MaxPlayers = 10
+	PenaltiesEnabled = false
+	TeamCount = 2
 }
