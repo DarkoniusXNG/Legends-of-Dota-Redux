@@ -19,7 +19,7 @@ function StoreTalents()
 
     -- Get and order default talents
     local allHeroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
-    local abilitiesOverride = LoadKeyValues('scripts/npc/npc_abilities_override.txt')
+    local abilitiesOverride = GameRules.KVs["npc_abilities_override"]
     -- local oldabilities = LoadKeyValues('scripts/npc/npc_abilities_oldversion.txt')
     for hero,params in pairs(allHeroes) do
         -- Find first talent
@@ -254,7 +254,6 @@ function GetViableTalents(build)
             local t = v
             if type(t) == "table" then
                 for _,ab in pairs(t) do
-                    local bool = false
                     for K,V in pairs(build) do
                         if K ~= "hero" and ab == V then
                             ViableTalents[i][k] = ab
@@ -266,22 +265,22 @@ function GetViableTalents(build)
             else
                 for K,V in pairs(build) do
                     if K ~= "hero" and v == V then
-						if GameRules.KVs["npc_abilities"][k]["AbilitySpecial"] ~= nil then
+						if GetAbilityKeyValuesByName(v)["AbilitySpecial"] then
 							-- Old Format
 							ViableTalents[i][k] = {}
 							ViableTalents[i][k]["AbilityName"] = v
-							ViableTalents[i][k]["TalentValue"] = GameRules.KVs["npc_abilities"][k]["AbilitySpecial"]["01"]["value"]
+							ViableTalents[i][k]["TalentValue"] = GetAbilityKeyValuesByName(v)["AbilitySpecial"]["01"]["value"]
 							ViableTalents["count"..i] = ViableTalents["count"..i] + 1
 						else
 							-- New Format
-							local abilityValues = GameRules.KVs["npc_abilities"][v]["AbilityValues"]
+							local abilityValues = GetAbilityKeyValuesByName(v)["AbilityValues"]
 							for _k, _v in pairs(abilityValues) do
 								if type(_v) == "table" and _v[k] ~= nil then -- Seems talent values are always in a table
 									local val = _v[k]
 									print(v .. " " .. k .. " " .. val)
 									ViableTalents[i][k] = {}
 									ViableTalents[i][k]["AbilityName"] = v
-									ViableTalents[i][k]["TalentValue"] = _v[k]
+									ViableTalents[i][k]["TalentValue"] = val
 									ViableTalents["count"..i] = ViableTalents["count"..i] + 1
 								end
 							end

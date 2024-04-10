@@ -13,10 +13,10 @@ local Ingame = class({})
 
 local ts_entities = LoadKeyValues('scripts/kv/ts_entities.kv')
 GameRules.perks = LoadKeyValues('scripts/kv/perks.kv')
-for k,v in pairs(util:getAbilityKV()) do
+for k, v in pairs(util:getAbilityKV()) do
     if v and v["ReduxPerks"] then
         local abilityPerks = util:split(v["ReduxPerks"], " | ")
-        for _,perk in ipairs(abilityPerks) do
+        for _, perk in ipairs(abilityPerks) do
             local perk = string.lower(perk)
             GameRules.perks[perk] = GameRules.perks[perk] or {}
             GameRules.perks[perk][k] = true
@@ -42,49 +42,49 @@ function Ingame:init()
     self:initGlobalMutator()
 
     -- -- 10vs10 colors
-    self.playerColors = {}
-    self.playerColors[0] = { 57, 117, 231 }
-    self.playerColors[1]  = { 122, 241, 187 }
-    self.playerColors[2]  = { 172, 10, 174}
-    self.playerColors[3]  = { 243, 234, 33}
-    self.playerColors[4]  = { 240, 111, 19 }
-    self.playerColors[5] = { 100 * 2.55, 0, 0 }
-    self.playerColors[6]  = { 0, 25.88 * 2.55, 100 }
-    self.playerColors[7]  = { 9.8 * 2.55, 90.2  * 2.55, 72.55  * 2.55}
-    self.playerColors[8]  = { 32.94 * 2.55, 0, 50.59 * 2.55}
-    self.playerColors[9]  = { 100 * 2.55, 98.82 * 2.55, 0 }
-    self.playerColors[15]  = { 99.61 * 2.55, 72.94 * 2.55, 5.49 * 2.55}
-    self.playerColors[16]  = { 12.55 * 2.55, 75.3 * 2.55, 0 }
-    self.playerColors[17]  = { 252, 255, 236 }
-    self.playerColors[18]  = { 58.43 * 2.55, 58.82 * 2.55, 59.21 * 2.55 }
-    self.playerColors[19]  = { 49.41 * 2.55, 74.90 * 2.55, 94.51 * 2.55 }
+    self.playerColors                 = {}
+    self.playerColors[0]              = { 57, 117, 231 }
+    self.playerColors[1]              = { 122, 241, 187 }
+    self.playerColors[2]              = { 172, 10, 174 }
+    self.playerColors[3]              = { 243, 234, 33 }
+    self.playerColors[4]              = { 240, 111, 19 }
+    self.playerColors[5]              = { 100 * 2.55, 0, 0 }
+    self.playerColors[6]              = { 0, 25.88 * 2.55, 100 }
+    self.playerColors[7]              = { 9.8 * 2.55, 90.2 * 2.55, 72.55 * 2.55 }
+    self.playerColors[8]              = { 32.94 * 2.55, 0, 50.59 * 2.55 }
+    self.playerColors[9]              = { 100 * 2.55, 98.82 * 2.55, 0 }
+    self.playerColors[15]             = { 99.61 * 2.55, 72.94 * 2.55, 5.49 * 2.55 }
+    self.playerColors[16]             = { 12.55 * 2.55, 75.3 * 2.55, 0 }
+    self.playerColors[17]             = { 252, 255, 236 }
+    self.playerColors[18]             = { 58.43 * 2.55, 58.82 * 2.55, 59.21 * 2.55 }
+    self.playerColors[19]             = { 49.41 * 2.55, 74.90 * 2.55, 94.51 * 2.55 }
 
     -- When to increase respawn rates - 40 minutes
-    self.timeToIncreaseRespawnRate = 2400
+    self.timeToIncreaseRespawnRate    = 2400
     self.timeToIncreaseRepawnInterval = 600
 
     -- What time to disable team balancing mechanic - 20 minutes
-    self.timeToStopBalancingMechanic = 1200
+    self.timeToStopBalancingMechanic  = 1200
 
     -- These are optional votes that can enable or disable game mechanics
-    self.voteEnabledCheatMode = false
-    self.voteDoubleCreeps = false
-    self.voteDisableAntiKamikaze = false
-    self.voteDisableRespawnLimit = false
-    self.voteEnableFatOMeter = false
-    self.voteEnableRefresh = false
-    self.voteEnableBuilder = false
-    self.voteAntiRat = false
-    self.origianlRespawnRate = nil
-    self.timeImbalanceStarted = 0
-	self.radiantBalanceMoney = 0
-    self.direBalanceMoney = 0
-    self.radiantTotalBalanceMoney = 0
-    self.direTotalBalanceMoney = 0
-    self.shownCheats = {}
-    self.heard = {}
+    self.voteEnabledCheatMode         = false
+    self.voteDoubleCreeps             = false
+    self.voteDisableAntiKamikaze      = false
+    self.voteDisableRespawnLimit      = false
+    self.voteEnableFatOMeter          = false
+    self.voteEnableRefresh            = false
+    self.voteEnableBuilder            = false
+    self.voteAntiRat                  = false
+    self.origianlRespawnRate          = nil
+    self.timeImbalanceStarted         = 0
+    self.radiantBalanceMoney          = 0
+    self.direBalanceMoney             = 0
+    self.radiantTotalBalanceMoney     = 0
+    self.direTotalBalanceMoney        = 0
+    self.shownCheats                  = {}
+    self.heard                        = {}
 
-    self.botsInLateGameMode = false
+    self.botsInLateGameMode           = false
 
     -- Setup standard rules
     -- GameRules:GetGameModeEntity():SetTowerBackdoorProtectionEnabled(true)
@@ -102,11 +102,11 @@ function Ingame:init()
         CreateUnitByName('npc_precache_always', Vector(-10000, -10000, 0), false, nil, nil, 0)
     end)
 
-    CustomGameEventManager:RegisterListener( 'declined', function (eventSourceIndex)
+    CustomGameEventManager:RegisterListener('declined', function(eventSourceIndex)
         self:declined(eventSourceIndex)
     end)
 
-    CustomGameEventManager:RegisterListener( 'ask_custom_team_info', function(eventSourceIndex, args)
+    CustomGameEventManager:RegisterListener('ask_custom_team_info', function(eventSourceIndex, args)
         self:returnCustomTeams(eventSourceIndex, args)
     end)
 
@@ -131,29 +131,28 @@ function Ingame:init()
         local player = PlayerResource:GetPlayer(args.PlayerID)
         Say(player, util:secondsToClock(GameRules:GetDOTATime(false, true)), true)
     end)
-
 end
 
 function Ingame:OnPlayerReconnect(keys)
-    Timers:CreateTimer(function ()
+    Timers:CreateTimer(function()
         local player = PlayerResource:GetPlayer(keys.PlayerID)
         CustomGameEventManager:Send_ServerToAllClients("MakeNeutralItemsInShopColored", {})
-        CustomGameEventManager:Send_ServerToPlayer(player, "lodAttemptReconnect",{})
+        CustomGameEventManager:Send_ServerToPlayer(player, "lodAttemptReconnect", {})
     end, DoUniqueString('reconnect'), 4.0)
 end
 
 function Ingame:OnHeroLeveledUp(keys)
     -- Give abilitypoints to spend on the levels the game doesn't give.
-    local pID = keys.player -1
+    local pID = keys.player - 1
     local player = PlayerResource:GetPlayer(pID)
     local hero = player:GetAssignedHero()
 
-    local markedLevels = {[17]=true,[19]=true,[21]=true,[22]=true,[23]=true,[24]=true}
+    local markedLevels = { [17] = true, [19] = true, [21] = true, [22] = true, [23] = true, [24] = true }
     if markedLevels[keys.level] then
         hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
     end
 
-    local function GetXPForLevel( x )
+    local function GetXPForLevel(x)
         if x == 1 then
             return 100
         elseif x < 8 then
@@ -161,20 +160,20 @@ function Ingame:OnHeroLeveledUp(keys)
         elseif x == 8 then
             return 330
         else
-            return GetXPForLevel( x - 1 ) + 110
+            return GetXPForLevel(x - 1) + 110
         end
     end
 
     local level = hero:GetLevel()
 
 
-    hero:SetCustomDeathXP(GetXPForLevel( level ))
+    hero:SetCustomDeathXP(GetXPForLevel(level))
     -- print(hero:GetUnitName(), level, hero:GetDeathXP(), GetXPForLevel( level ))
 end
 
 function Ingame:OnModifierEvent(keys)
     print("MODIFIER EVENT")
-    for k,v in pairs(keys) do print(k,v) end
+    for k, v in pairs(keys) do print(k, v) end
 end
 
 function Ingame:OnPlayerPurchasedItem(keys)
@@ -198,51 +197,51 @@ function Ingame:OnPlayerPurchasedItem(keys)
         --    end
         --    if mangos then
         --        local refund = mangos:GetCost()
-                --hero:ModifyGold(refund, false, 0)
+        --hero:ModifyGold(refund, false, 0)
         --        mangos:RemoveSelf()
         --    end
         --    if clarity then
         --        local refund = clarity:GetCost() * clarity:GetCurrentCharges()
-                --hero:ModifyGold(refund, false, 0)
+        --hero:ModifyGold(refund, false, 0)
         --        clarity:RemoveSelf()
         --    end
         --    if faerie then
         --        local refund = faerie:GetCost()
-                --hero:ModifyGold(refund, false, 0)
+        --hero:ModifyGold(refund, false, 0)
         --        faerie:RemoveSelf()
         --    end
         --    if flask then
         --        local refund = flask:GetCost() * flask:GetCurrentCharges()
-                --hero:ModifyGold(refund, false, 0)
+        --hero:ModifyGold(refund, false, 0)
         --        flask:RemoveSelf()
         --    end
         --end
 
 
-            for slot =  DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
-                item = hero:GetItemInSlot(slot)
-                if item ~= nil then
-                    itemName = item:GetAbilityName()
-                    if itemName == keys.itemname then
-                        item:RemoveSelf()
-                        hero:AddItem(CreateItem(itemName, hero, hero))
-                        break
-                    end
+        for slot = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
+            item = hero:GetItemInSlot(slot)
+            if item ~= nil then
+                itemName = item:GetAbilityName()
+                if itemName == keys.itemname then
+                    item:RemoveSelf()
+                    hero:AddItem(CreateItem(itemName, hero, hero))
+                    break
                 end
             end
+        end
 
         -- Check if there is any remaining items in slot, if there is, it means their inventory is full
         local isFull = false
-        for slot =  DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
-                local item = hero:GetItemInSlot(slot)
-                if item ~= nil then
-                    isFull = true
-                end
+        for slot = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
+            local item = hero:GetItemInSlot(slot)
+            if item ~= nil then
+                isFull = true
             end
+        end
 
         -- If they have a full inventory, remove any tangos or branches to clear space
         if isFull then
-            for slot =  DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+            for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
                 item = hero:GetItemInSlot(slot)
                 if item ~= nil then
                     itemName = item:GetAbilityName()
@@ -254,7 +253,7 @@ function Ingame:OnPlayerPurchasedItem(keys)
             end
 
             -- Try to move items from stash to inventory again after we have cleared out some items
-            for slot =  DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
+            for slot = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
                 item = hero:GetItemInSlot(slot)
                 if item ~= nil then
                     itemName = item:GetAbilityName()
@@ -270,7 +269,7 @@ function Ingame:OnPlayerPurchasedItem(keys)
 
     if OptionManager:GetOption('banInvis') == 2 then
         local hero = PlayerResource:GetPlayer(keys.PlayerID):GetAssignedHero()
-        for i=0,11 do
+        for i = 0, 11 do
             local item = hero:GetItemInSlot(i)
             if item ~= nil then
                 if item:GetName() == "item_shadow_amulet" or item:GetName() == "item_invis_sword" or item:GetName() == "item_silver_edge" or item:GetName() == "item_glimmer_cape" then
@@ -285,17 +284,18 @@ function Ingame:OnPlayerPurchasedItem(keys)
 
 
     if OptionManager:GetOption('sharedXP') == 1 and keys.itemname == "item_tome_of_knowledge" then
-        for i=0,11 do
+        for i = 0, 11 do
             local item = hero:GetItemInSlot(i)
             if item:GetName() == "item_tome_of_knowledge" then
                 hero:RemoveItem(item)
 
-                for x=0,DOTA_MAX_TEAM do
-                    local pID = PlayerResource:GetNthPlayerIDOnTeam(hero:GetTeamNumber(),x)
+                for x = 0, DOTA_MAX_TEAM do
+                    local pID = PlayerResource:GetNthPlayerIDOnTeam(hero:GetTeamNumber(), x)
                     if PlayerResource:IsValidPlayerID(pID) then
                         local otherHero = PlayerResource:GetPlayer(pID):GetAssignedHero()
 
-                        otherHero:AddExperience(math.ceil(425 / util:GetActivePlayerCountForTeam(hero:GetTeamNumber())),0,false,false)
+                        otherHero:AddExperience(math.ceil(425 / util:GetActivePlayerCountForTeam(hero:GetTeamNumber())),
+                            0, false, false)
                     end
                 end
 
@@ -305,83 +305,100 @@ function Ingame:OnPlayerPurchasedItem(keys)
     end
 end
 
-function Ingame:OnPlayerLearnedAbility( keys )
+function Ingame:OnPlayerLearnedAbility(keys)
     local chargeTalents = {
         ["special_bonus_unique_ember_spirit_4"] = "ember_spirit_sleight_of_fist",
         ["special_bonus_unique_morphling_6"] = "morphling_waveform",
     }
     local abilityName = chargeTalents[keys.abilityname]
     if abilityName then
-        Timers:CreateTimer(0.3,function()
+        Timers:CreateTimer(0.3, function()
             local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
             if hero then
                 local talent = hero:FindAbilityByName(keys.abilityname)
                 local count = talent and talent:GetSpecialValueFor("value") or 0
-                local charges = hero:FindModifierByName("modifier_"..abilityName.."_charge_counter")
+                local charges = hero:FindModifierByName("modifier_" .. abilityName .. "_charge_counter")
                 if charges then
                     charges:SetStackCount(count)
                 end
             end
         end)
         -- Custom stat bonus talents
-        if string.find(abilityName,"special_bonus") and string.find(abilityName,"redux") then
+        if string.find(abilityName, "special_bonus") and string.find(abilityName, "redux") then
             local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
             if hero then
-                LinkLuaModifier("modifier_"..abilityName,"abilities/talents"..abilityName..".lua",LUA_MODIFIER_MOTION_NONE)
-                hero:AddNewModifier(hero,nil,"modifier_"..abilityName,{})
+                LinkLuaModifier("modifier_" .. abilityName, "abilities/talents" .. abilityName .. ".lua",
+                    LUA_MODIFIER_MOTION_NONE)
+                hero:AddNewModifier(hero, nil, "modifier_" .. abilityName, {})
             end
-        end
-    end
-end
-
-function IsNeutralItemByID(id)
-    for k,v in pairs(_G.NeutralItems) do
-        if tonumber(v["ID"]) == id then
-            v["name"] = k
-            return v
         end
     end
 end
 
 function Ingame:FilterExecuteOrder(filterTable)
     local order_type = filterTable.order_type
-    local units = filterTable["units"]
-    local issuer = filterTable["issuer_player_id_const"]
-    local unit = EntIndexToHScript(units["0"])
-    local ability = EntIndexToHScript(filterTable.entindex_ability)
-    local target = EntIndexToHScript(filterTable.entindex_target)
+    local units = filterTable.units
+    local issuer = filterTable.issuer_player_id_const
+	local ability_index = filterTable.entindex_ability
+	local target_index = filterTable.entindex_target
+	local unit
+	if units and units["0"] then
+		unit = EntIndexToHScript(units["0"])
+	end
+    local ability
+    if ability_index then
+        ability = EntIndexToHScript(ability_index)
+    end
+    local target
+    if target_index then
+        target = EntIndexToHScript(target_index)
+    end
 
-    if order_type == DOTA_UNIT_ORDER_GLYPH  then     
+    if order_type == DOTA_UNIT_ORDER_GLYPH then
         if RADIANTFORTIFIED and PlayerResource:GetSelectedHeroEntity(issuer):GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-            Notifications:Top(PlayerResource:GetPlayer(issuer),{text="Glyph already active",duration = 2})
+            Notifications:Top(PlayerResource:GetPlayer(issuer), { text = "Glyph already active", duration = 2 })
             return false
-        elseif DIREFORTIFIED and PlayerResource:GetSelectedHeroEntity(issuer):GetTeamNumber() == DOTA_TEAM_BADGUYS  then
-            Notifications:Top(PlayerResource:GetPlayer(issuer),{text="Glyph already active",duration = 2})
+        elseif DIREFORTIFIED and PlayerResource:GetSelectedHeroEntity(issuer):GetTeamNumber() == DOTA_TEAM_BADGUYS then
+            Notifications:Top(PlayerResource:GetPlayer(issuer), { text = "Glyph already active", duration = 2 })
             return false
         end
-    end      
+    end
 
-     if order_type == DOTA_UNIT_ORDER_PURCHASE_ITEM then
-         local playerId = filterTable.issuer_player_id_const
-         if filterTable["entindex_ability"] and IsNeutralItemByID(filterTable["entindex_ability"]) ~= nil then
-             if OptionManager:GetOption('neutralItems') == 0 then
-                 CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerId), "display_custom_error", { message = "#you_cannot_buy_neutral_item" })
-                 return false
-             end
-         end
-     end
-		
+    if order_type == DOTA_UNIT_ORDER_PURCHASE_ITEM then
+		local shop_item = filterTable.shop_item_name
+		local shop_item_name -- string
+		if type(shop_item) == 'string' then
+			shop_item_name = shop_item
+		else
+			shop_item_name = shop_item:GetName()
+		end
+		local item_kvs = GetAbilityKeyValuesByName(shop_item_name)
+		local isNeutral = false
+        if item_kvs then
+			local hasKey = item_kvs.ItemIsNeutralDrop
+			if hasKey then
+				isNeutral = tonumber(hasKey) == 1
+			end
+		end
+
+		if isNeutral and OptionManager:GetOption('neutralItems') == 0 then
+			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(issuer), "display_custom_error",
+			{ message = "#you_cannot_buy_neutral_item" })
+			return false
+		end
+    end
+
     -- if units[1] and order_type == DOTA_UNIT_ORDER_SELL_ITEM and ability and not units[1]:IsIllusion() and not units[1]:IsTempestDouble() then		
     --     PanoramaShop:SellItem(units[1], ability)		
     --     return false		
     -- end		
 
     -- Block Alchemists Innate, heroes should not have innate abilities
-  --  if ability and target then
-  --      if string.match(target:GetName(), "npc_dota_hero_") and ability:GetName() == "item_ultimate_scepter" and unit:GetUnitName() == "npc_dota_hero_alchemist" then
-  --          return false
-  --      end
-  --  end
+    --  if ability and target then
+    --      if string.match(target:GetName(), "npc_dota_hero_") and ability:GetName() == "item_ultimate_scepter" and unit:GetUnitName() == "npc_dota_hero_alchemist" then
+    --          return false
+    --      end
+    --  end
     if unit then
         if unit:IsRealHero() then
             local unitPlayerID = unit:GetPlayerID()
@@ -391,10 +408,10 @@ function Ingame:FilterExecuteOrder(filterTable)
             -- increase counter. If counter gets too high, it means they have been stuck in same position for a long time, do action to help them.
             if util:isPlayerBot(unitPlayerID) then
                 -- Bot Armlet Fix: Bots do not know how to use armlets so return false if they attempt to and put on cooldown
-             --   if ability and ability:GetName() == "item_armlet" then
-             --       ability:StartCooldown(200)
-             --       return false
-             --   end
+                --   if ability and ability:GetName() == "item_armlet" then
+                --       ability:StartCooldown(200)
+                --       return false
+                --   end
                 if OptionManager:GetOption('stupidBots') == 1 then
                     if unit.blocked == true then
                         return false
@@ -424,7 +441,7 @@ function Ingame:FilterExecuteOrder(filterTable)
 
                     -- Stuck at observer ward fix
                     if unit.StuckCounter > 50 then
-                        for i=0,11 do
+                        for i = 0, 11 do
                             local item = unit:GetItemInSlot(i)
                             if item and item:GetName() == "item_ward_observer" then
                                 unit:ModifyGold(item:GetCost() * item:GetCurrentCharges(), true, 0)
@@ -436,7 +453,7 @@ function Ingame:FilterExecuteOrder(filterTable)
 
                     -- Stuck at shop trying to get stash items, remove stash items. THIS IS A BAND-AID FIX. IMPROVE AT SOME POINT
                     if unit.StuckCounter > 150 and fixed == false then
-                        for slot =  DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
+                        for slot = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
                             item = unit:GetItemInSlot(slot)
                             if item ~= nil then
                                 item:RemoveSelf()
@@ -450,10 +467,9 @@ function Ingame:FilterExecuteOrder(filterTable)
                         unit:Kill(nil, nil)
                         return true
                     end
-
                 else
-                   unit.OldPosition = unit:GetAbsOrigin()
-                   unit.StuckCounter = 0
+                    unit.OldPosition = unit:GetAbsOrigin()
+                    unit.StuckCounter = 0
                 end
             end
             -- END BOT STUCK FIX
@@ -474,11 +490,12 @@ function Ingame:FilterExecuteOrder(filterTable)
                 end
             end
         end
-    end
+		
+		if unit:GetTeamNumber() ~= PlayerResource:GetCustomTeamAssignment(issuer) and PlayerResource:GetConnectionState(issuer) ~= 0 then
+			return false
+		end
+	end
 
-    if unit:GetTeamNumber() ~= PlayerResource:GetCustomTeamAssignment(issuer) and PlayerResource:GetConnectionState(issuer) ~= 0 then
-        return false
-    end
     -- Next Gen hackery
     filterTable = nextGenOrderFilter(filterTable)
 
@@ -502,13 +519,13 @@ function Ingame:onStart()
 
     -- Thinker to check for items that can be consumable and converts them if any are found to the consumable version
     if OptionManager:GetOption('consumeItems') == 1 then
-        Timers:CreateTimer(function ()
+        Timers:CreateTimer(function()
             this:CheckConsumableItems()
             return 1
         end, 'check_consumable_items', 1)
     end
 
---[[
+    --[[
     -- Thinker to check for bot upgrades
     Timers:CreateTimer(function ()
         this:botNeutralUpgrader()
@@ -516,21 +533,22 @@ function Ingame:onStart()
     end, 'check_bot_upgrades', 10)]]
 
     if OptionManager:GetOption('stacking') == 1 then
-        for k,Ent in pairs(Entities:FindAllByClassname("trigger_multiple")) do
-            if Ent:GetName():find("neutralcamp")~=nil then
-            Ent:Disable()
+        for k, Ent in pairs(Entities:FindAllByClassname("trigger_multiple")) do
+            if Ent:GetName():find("neutralcamp") ~= nil then
+                Ent:Disable()
             end
         end
     end
-    
-    if not randomLaneCreepSpawnerMade and OptionManager:GetOption("randomLaneCreeps") ~= 0 then
-            randomLaneCreepSpawnerMade = true
-            local randomLaneCreepSpawner = CreateUnitByName("npc_dummy_unit_imba",Vector(0,0,0),true,nil,nil,DOTA_TEAM_NEUTRALS)
-            randomLaneCreepSpawner:AddNewModifier(periodicDummyCastingUnit,nil,"modifier_random_lane_creep_spawner_mutator",{})
-            local a = randomLaneCreepSpawner:AddAbility("dummy_unit_state")
-            a:SetLevel(1)
 
-        end
+    if not randomLaneCreepSpawnerMade and OptionManager:GetOption("randomLaneCreeps") ~= 0 then
+        randomLaneCreepSpawnerMade = true
+        local randomLaneCreepSpawner = CreateUnitByName("npc_dummy_unit_imba", Vector(0, 0, 0), true, nil, nil,
+            DOTA_TEAM_NEUTRALS)
+        randomLaneCreepSpawner:AddNewModifier(periodicDummyCastingUnit, nil, "modifier_random_lane_creep_spawner_mutator",
+            {})
+        local a = randomLaneCreepSpawner:AddAbility("dummy_unit_state")
+        a:SetLevel(1)
+    end
 
     -- Force bots to take a defensive pose until the first tower has been destroyed. This is top stop bots from straight away pushing lanes when they hit level 6
     --Timers:CreateTimer(function ()
@@ -540,52 +558,50 @@ function Ingame:onStart()
 
     ---Enable and then quickly disable all vision. This fixes two problems. First it fixes the scoreboard missing enemy abilities, and second it fixes the issues of bots not moving until they see an enemy player.
     if Convars:GetBool("dota_all_vision") == false then
+        Timers:CreateTimer(function()
+            Convars:SetBool("dota_all_vision", true)
+        end, 'enable_all_vision_fix', 5)
 
-        Timers:CreateTimer(function ()
-               Convars:SetBool("dota_all_vision", true)
-            end, 'enable_all_vision_fix', 5)
-
-        Timers:CreateTimer(function ()
-               Convars:SetBool("dota_all_vision", false)
-            end, 'disable_all_vision_fix', 5.2)
-
+        Timers:CreateTimer(function()
+            Convars:SetBool("dota_all_vision", false)
+        end, 'disable_all_vision_fix', 5.2)
     end
 
     -- Remove powerup runes, spawned before 2 minutes
---    Timers:CreateTimer(function ()
---        if math.floor(GameRules:GetDOTATime(false, false)/60) < 0.2 then
---            local spawners = Entities:FindAllByClassname("dota_item_rune_spawner_powerup")
---            for k,v in ipairs(spawners) do
---                if v ~= nil then
---                    local nearbyRunes = Entities:FindAllByClassnameWithin("dota_item_rune", v:GetOrigin(), 400)
---                    for _,rune in ipairs(nearbyRunes) do
---                        if rune ~= nil then
---                            UTIL_Remove(rune)
---                        end
---                    end
---                end
---            end
---            return 0.1
---        end
---    end, 'removeRunes', 0.1)
+    --    Timers:CreateTimer(function ()
+    --        if math.floor(GameRules:GetDOTATime(false, false)/60) < 0.2 then
+    --            local spawners = Entities:FindAllByClassname("dota_item_rune_spawner_powerup")
+    --            for k,v in ipairs(spawners) do
+    --                if v ~= nil then
+    --                    local nearbyRunes = Entities:FindAllByClassnameWithin("dota_item_rune", v:GetOrigin(), 400)
+    --                    for _,rune in ipairs(nearbyRunes) do
+    --                        if rune ~= nil then
+    --                            UTIL_Remove(rune)
+    --                        end
+    --                    end
+    --                end
+    --            end
+    --            return 0.1
+    --        end
+    --    end, 'removeRunes', 0.1)
 
     --secondary fix for randomly not getting skill points for levels 18-24
     --  the other method is inconsistant
     Timers:CreateTimer(function()
         local heroes = HeroList:GetAllHeroes()
-        for _,hero in pairs(heroes) do
+        for _, hero in pairs(heroes) do
             if hero then
                 if hero:IsRealHero() then
-                    local level = hero:GetLevel()-1
+                    local level = hero:GetLevel() - 1
                     local points = hero:GetAbilityPoints()
-                    for i=0,23 do
+                    for i = 0, 23 do
                         local ab = hero:GetAbilityByIndex(i)
                         if ab then
                             points = points + ab:GetLevel()
                         end
                     end
                     if points < level then
-                        hero:SetAbilityPoints(level-points)
+                        hero:SetAbilityPoints(level - points)
                     end
                 end
             end
@@ -601,17 +617,17 @@ function Ingame:onStart()
 
         -- Notification to players that they can change builds ingame.
         Timers:CreateTimer(function()
-                GameRules:SendCustomMessage("#ingameBuilderNotification", 0, 0)
+            GameRules:SendCustomMessage("#ingameBuilderNotification", 0, 0)
         end, "builderReminder0", 10)
         -- Reminders for the players.
         Timers:CreateTimer(function()
-                GameRules:SendCustomMessage("#ingameBuilderReminder", 0, 0)
+            GameRules:SendCustomMessage("#ingameBuilderReminder", 0, 0)
         end, "builderReminder1", 300) -- 5 Mins
         Timers:CreateTimer(function()
-                GameRules:SendCustomMessage("#ingameBuilderReminder", 0, 0)
+            GameRules:SendCustomMessage("#ingameBuilderReminder", 0, 0)
         end, "builderReminder2", 600) -- 10 Mins
         Timers:CreateTimer(function()
-                GameRules:SendCustomMessage("#ingameBuilderReminder", 0, 0)
+            GameRules:SendCustomMessage("#ingameBuilderReminder", 0, 0)
         end, "builderReminder3", 1200) -- 20 Mins
     end
 
@@ -652,8 +668,8 @@ function Ingame:onStart()
 
     GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(Ingame, 'FilterExecuteOrder'), self)
     --GameRules:GetGameModeEntity():SetTrackingProjectileFilter(Dynamic_Wrap(Ingame, 'FilterProjectiles'), self)
-    GameRules:GetGameModeEntity():SetModifierGainedFilter(Dynamic_Wrap(Ingame, 'FilterModifiers'),self)
-    GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(Ingame, 'FilterDamage'),self)
+    GameRules:GetGameModeEntity():SetModifierGainedFilter(Dynamic_Wrap(Ingame, 'FilterModifiers'), self)
+    GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(Ingame, 'FilterDamage'), self)
     --GameRules:GetGameModeEntity():SetAbilityTuningValueFilter(Dynamic_Wrap(Ingame,"FilterValueTuning"),self)
 
 
@@ -673,8 +689,8 @@ function Ingame:onStart()
 
     ListenToGameEvent("dota_player_learned_ability", Dynamic_Wrap(Ingame, "OnPlayerLearnedAbility"), self)
 
-    ListenToGameEvent( "dota_holdout_revive_complete", Dynamic_Wrap( Ingame, "OnPlayerRevived" ), self )
-    
+    ListenToGameEvent("dota_holdout_revive_complete", Dynamic_Wrap(Ingame, "OnPlayerRevived"), self)
+
     -- Set it to no team balance
     self:setNoTeamBalanceNeeded()
 end
@@ -686,19 +702,19 @@ function Ingame:StartFatOMeter()
     local maxPlayers = 24
     fatData = {}
 
-    for playerID = 0, (maxPlayers-1) do
+    for playerID = 0, (maxPlayers - 1) do
         local hero = PlayerResource:GetSelectedHeroEntity(playerID)
         if hero and IsValidEntity(hero) then
             fatData[playerID] = {
                 defaultModelScale = hero:GetModelScale(), --this is NOT 1 for most heroes, although some are very close
-                prevScaleDifference = 0.0, --stored as difference so we can undo/change the effects without breaking other size-related code
-                modelScaleDifference = 0.0, --stored as difference so we can undo/change the effects without breaking other size-related code
+                prevScaleDifference = 0.0,                --stored as difference so we can undo/change the effects without breaking other size-related code
+                modelScaleDifference = 0.0,               --stored as difference so we can undo/change the effects without breaking other size-related code
                 targetScaleDifference = 0.0,
-                interpScaleDifference = 0, --interpolates between previous and target scale diff
+                interpScaleDifference = 0,                --interpolates between previous and target scale diff
                 maxScalePercent = constants.FAT_SCALING[PlayerResource:GetSelectedHeroName(playerID)] or 3.3,
-                lastNetWorth = 0, --stores net worth for gold mode, kill value calculation in kill mode, and level-1 in level mode
-                netWorthChange = 0, --stored for faster calculations on gold and levels
-                fatness = 0.0, -- 0-100, with 100 being maxScalePercent times default and 0 being default.
+                lastNetWorth = 0,                         --stores net worth for gold mode, kill value calculation in kill mode, and level-1 in level mode
+                netWorthChange = 0,                       --stored for faster calculations on gold and levels
+                fatness = 0.0,                            -- 0-100, with 100 being maxScalePercent times default and 0 being default.
             }
         end
     end
@@ -742,7 +758,6 @@ function Ingame:CommandNotification(command, message, cooldown)
     end
 end
 
-
 --[[function Ingame:fixRuneBug()
     ListenToGameEvent('game_rules_state_change', function(keys)
         local newState = GameRules:State_Get()
@@ -754,7 +769,7 @@ end
                     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
                     if hero and util:isPlayerBot(playerID) then
                         hero:MoveToPositionAggressive(Vector(0, 0, 0))
-                        
+
                         --local item = hero:FindItemInInventory("item_vambrace")
                         --item:Destroy()
                         --hero:AddItemByName("item_giants_ring")
@@ -763,55 +778,57 @@ end
             end, "botRune", 6)
         end
     end, nil)
-end]]--
+end]]
+      --
 --[[
 -- Upgrades bot neutral items over time
 function Ingame:botNeutralUpgrader()
-    for i=0,24 do    
+    for i=0,24 do
         if PlayerResource:IsValidTeamPlayerID(i) and util:isPlayerBot(i) then
             local hero = PlayerResource:GetSelectedHeroEntity(i)
             if hero and IsValidEntity(hero) then
-                local item1 = hero:FindItemByNameEverywhere("item_vambrace")    
+                local item1 = hero:FindItemByNameEverywhere("item_vambrace")
                         Destroy(item1)
                         hero:AddItemByName("item_giants_ring")
             end
         end
     end
-end]]--        
+end]]
+      --
 
 -- Upgrades bot neutral items over time
 --[[function Ingame:botNeutralUpgrader()
-    for playerID=0,DOTA_MAX_TEAM_PLAYERS-1 do    
+    for playerID=0,DOTA_MAX_TEAM_PLAYERS-1 do
         local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if hero and util:isPlayerBot(playerID) then
-                         
+
                 FindItemInInventory("item_vambrace")
                 self:Destroy()
                 hero:AddItemByName("item_giants_ring")
-                
+
             end
     end
-end]]--
+end]]
+      --
 
 -- Called every 0.1 second to check and convert consumable items into actual consumable items
 function Ingame:CheckConsumableItems()
-
     local itemTable = LoadKeyValues('scripts/kv/consumable_items.kv')
-    for i=0,24 do
+    for i = 0, 24 do
         if PlayerResource:IsValidTeamPlayerID(i) and not util:isPlayerBot(i) then
             local hero = PlayerResource:GetSelectedHeroEntity(i)
             if hero and IsValidEntity(hero) then
-                for i=0,14 do
+                for i = 0, 14 do
                     local hItem = hero:GetItemInSlot(i)
                     if hItem then
                         local name = hItem:GetAbilityName()
                         if itemTable[name] then
                             hero:RemoveItem(hItem)
                             if name == "item_vladmir" then name = "item_vladimir" end
-                            hero:AddItemByName(name.."_consumable")
-                            local item = hero:FindItemInInventory(name.."_consumable")
-                            local nSlot, hUseless = hero:FindItemByNameEverywhere(name.."_consumable")
-                            hero:SwapItems(i,nSlot)
+                            hero:AddItemByName(name .. "_consumable")
+                            local item = hero:FindItemInInventory(name .. "_consumable")
+                            local nSlot, hUseless = hero:FindItemByNameEverywhere(name .. "_consumable")
+                            hero:SwapItems(i, nSlot)
                             --break
                         end
                     end
@@ -830,7 +847,7 @@ function Ingame:FatOMeterThinker(dt)
     --FAT-O-METER GOLD MODE--
     if OptionManager:GetOption('useFatOMeter') == 1 then
         local lowestGain = 100000
-        for playerID = 0, (maxPlayers-1) do
+        for playerID = 0, (maxPlayers - 1) do
             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if fatData[playerID] then
                 local netWorth = PlayerResource:GetTotalEarnedGold(playerID)
@@ -852,15 +869,15 @@ function Ingame:FatOMeterThinker(dt)
         --Iterate back through calculated data to set up scaling.
         for playerID in pairs(fatData) do
             --Increase fatness at a rate of 1 per minute for every 100 gpm the player has over the worst player over 0, whichever is higher.
-            local weightGain = 0.01*(dt/60)*(fatData[playerID].netWorthChange - math.max(lowestGain, 0))
+            local weightGain = 0.01 * (dt / 60) * (fatData[playerID].netWorthChange - math.max(lowestGain, 0))
 
             --Net loss is fine, as long as the final value is clamped 0-100
-            fatData[playerID].fatness = math.max( math.min((fatData[playerID].fatness or 0) + weightGain, 100), 0)
+            fatData[playerID].fatness = math.max(math.min((fatData[playerID].fatness or 0) + weightGain, 100), 0)
         end
 
-    --FAT-O-METER KILLS MODE--
+        --FAT-O-METER KILLS MODE--
     elseif OptionManager:GetOption('useFatOMeter') == 2 then
-        for playerID = 0, (maxPlayers-1) do
+        for playerID = 0, (maxPlayers - 1) do
             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if fatData[playerID] then
                 local kills = PlayerResource:GetKills(playerID)
@@ -868,7 +885,7 @@ function Ingame:FatOMeterThinker(dt)
                 local assists = PlayerResource:GetAssists(playerID)
 
                 --Assists are weighted as quarter kills and deaths as negative quarter kills
-                fatData[playerID].lastNetWorth = 4*kills + assists - deaths
+                fatData[playerID].lastNetWorth = 4 * kills + assists - deaths
             end
         end
 
@@ -887,13 +904,12 @@ function Ingame:FatOMeterThinker(dt)
         local maxPct = fatData[playerID].maxScalePercent or 3.3 --Assume normal humanoid scale if not specified
 
         --This looks intimidating, but it's simply an arbitrary power scaling to diminish the effect of early growth while still ultimately reaching max at 100.
-        fatData[playerID].targetScaleDifference = default*(maxPct -1)*(math.pow(.17162*fatness, 1.62)/100)
+        fatData[playerID].targetScaleDifference = default * (maxPct - 1) * (math.pow(.17162 * fatness, 1.62) / 100)
         fatData[playerID].interpScaleDifference = 0
         fatData[playerID].prevScaleDifference = fatData[playerID].modelScaleDifference
 
         --print("Player "..playerID.." Initial: "..(fatData[playerID].prevScaleDifference).." Final: "..(fatData[playerID].targetScaleDifference))
     end
-
 end
 
 --Does interpolated, short-term size updates for Fat-O-Meter. Called often, don't do anything crazy in here. dt is measured in seconds, not ticks.
@@ -909,9 +925,9 @@ function Ingame:FatOMeterAnimate(dt)
         local prevDiff = fatData[playerID].prevScaleDifference or 0
 
         --target is lerped between initial and destination
-        interpDiff = math.min(interpDiff + 0.02*dt, 1)
+        interpDiff = math.min(interpDiff + 0.02 * dt, 1)
         fatData[playerID].interpScaleDifference = interpDiff
-        local target = prevDiff + interpDiff*(targetDiff-prevDiff)
+        local target = prevDiff + interpDiff * (targetDiff - prevDiff)
 
         --Actually do the scaling. Also check for any existing hero clones and modify them.
         local hero = PlayerResource:GetSelectedHeroEntity(playerID)
@@ -922,7 +938,7 @@ function Ingame:FatOMeterAnimate(dt)
             if hero:HasAbility('meepo_divided_we_stand') or hero:HasAbility('arc_warden_tempest_double') or hero:HasAbility('arc_warden_tempest_double_redux') then
                 local clones = Entities:FindAllByName(hero:GetClassname())
 
-                for k,heroClone in pairs(clones) do
+                for k, heroClone in pairs(clones) do
                     if heroClone:IsClone() and playerID == heroClone:GetPlayerID() then
                         hero:SetModelScale(default + target)
                     end
@@ -938,7 +954,7 @@ function Ingame:returnCustomTeams(eventSourceIndex, args)
     local customTeamAssignments = {};
 
     local cur_time = Time()
-    for playerID = 0, playerCount-1 do
+    for playerID = 0, playerCount - 1 do
         customTeamAssignments[playerID] = PlayerResource:GetCustomTeamAssignment(playerID);
         if PlayerResource:GetConnectionState(playerID) == 3 then
             if not dc_table[playerID] then
@@ -950,19 +966,19 @@ function Ingame:returnCustomTeams(eventSourceIndex, args)
     end
 
     local dc_timeout = {}
-    for i,v in pairs(dc_table) do
+    for i, v in pairs(dc_table) do
         if cur_time - v >= 120 then
             dc_timeout[#dc_timeout + 1] = i
         end
     end
 
-    CustomGameEventManager:Send_ServerToAllClients( "send_custom_team_info", {x = customTeamAssignments, y = dc_timeout} )
+    CustomGameEventManager:Send_ServerToAllClients("send_custom_team_info", { x = customTeamAssignments, y = dc_timeout })
 end
 
 function Ingame:switchTeam(eventSourceIndex, args)
     local this = self
     this:balancePlayer(args.swapID, args.newTeam)
-    Ingame:SetPlayerColors( )
+    Ingame:SetPlayerColors()
 end
 
 -- Balances a player onto another team
@@ -995,7 +1011,7 @@ function Ingame:balancePlayer(playerID, newTeam)
                 if hero:HasAbility('arc_warden_tempest_double') or hero:HasAbility('arc_warden_tempest_double_redux') then
                     local clones = Entities:FindAllByName(hero:GetClassname())
 
-                    for k,tempestDouble in pairs(clones) do
+                    for k, tempestDouble in pairs(clones) do
                         if tempestDouble:IsTempestDouble() and playerID == tempestDouble:GetPlayerID() then
                             tempestDouble:Kill(nil, nil)
                         end
@@ -1006,7 +1022,7 @@ function Ingame:balancePlayer(playerID, newTeam)
                 if hero:HasAbility('meepo_divided_we_stand') then
                     local clones = Entities:FindAllByName(hero:GetClassname())
 
-                    for k,meepoClone in pairs(clones) do
+                    for k, meepoClone in pairs(clones) do
                         if meepoClone:IsClone() and playerID == meepoClone:GetPlayerID() then
                             meepoClone:SetTimeUntilRespawn(1)
                         end
@@ -1088,7 +1104,7 @@ function Ingame:setTeamBalanceInfo(info)
         takeFromTeam = self.takeFromTeam
     })
 
-    print('balancing = '..self.takeFromTeam)
+    print('balancing = ' .. self.takeFromTeam)
 end
 
 -- Checks balance stuff in the next tick
@@ -1108,7 +1124,7 @@ function Ingame:checkBalanceTeams()
     local radiantPlayers = 0
     local direPlayers = 0
 
-    for playerID = 0,(maxPlayers-1) do
+    for playerID = 0, (maxPlayers - 1) do
         local state = PlayerResource:GetConnectionState(playerID)
 
         if state == 1 or state == 2 then
@@ -1143,113 +1159,115 @@ function Ingame:checkBalanceTeams()
 end
 
 function Ingame:balanceGold()
-	-- If game not started dont check balance
-	if (GameRules:GetDOTATime(false,false) == 0 or util:isCoop()) and not IsInToolsMode() then
-		return
-	end
+    -- If game not started dont check balance
+    if (GameRules:GetDOTATime(false, false) == 0 or util:isCoop()) and not IsInToolsMode() then
+        return
+    end
 
-	local RadiantPlayers = util:GetActivePlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-	local DirePlayers = util:GetActivePlayerCountForTeam(DOTA_TEAM_BADGUYS)
-	local losingTeam = nil
-	local fountainArea = nil
+    local RadiantPlayers = util:GetActivePlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+    local DirePlayers = util:GetActivePlayerCountForTeam(DOTA_TEAM_BADGUYS)
+    local losingTeam = nil
+    local fountainArea = nil
 
-	-- If balance returns, clear the slate
-	if RadiantPlayers == DirePlayers then
-		self.timeImbalanceStarted = 0
-		self.radiantBalanceMoney = 0
-		self.direBalanceMoney = 0
-		return
-	end
+    -- If balance returns, clear the slate
+    if RadiantPlayers == DirePlayers then
+        self.timeImbalanceStarted = 0
+        self.radiantBalanceMoney = 0
+        self.direBalanceMoney = 0
+        return
+    end
 
-	if RadiantPlayers < DirePlayers then
-		losingTeam = "goodGuys"
-		fountainArea = Vector(-6327.858398, -5892.900391, 384.000000)
-	else
-		losingTeam = "badGuys"
-		fountainArea = Vector(6234.006348, 5780.487305, 384.000000)
-	end
+    if RadiantPlayers < DirePlayers then
+        losingTeam = "goodGuys"
+        fountainArea = Vector(-6327.858398, -5892.900391, 384.000000)
+    else
+        losingTeam = "badGuys"
+        fountainArea = Vector(6234.006348, 5780.487305, 384.000000)
+    end
 
-	if self.timeImbalanceStarted == 0 then
-		self.timeImbalanceStarted = GameRules:GetDOTATime(false,false)
-	end
+    if self.timeImbalanceStarted == 0 then
+        self.timeImbalanceStarted = GameRules:GetDOTATime(false, false)
+    end
 
-	local timeSinceLastCheck = GameRules:GetDOTATime(false,false) - self.timeImbalanceStarted
-	--print(timeSinceLastCheck)
+    local timeSinceLastCheck = GameRules:GetDOTATime(false, false) - self.timeImbalanceStarted
+    --print(timeSinceLastCheck)
 
-	if timeSinceLastCheck > 180 then
-		local multiplier = 1
-		if losingTeam == "goodGuys" then
-			multiplier = DirePlayers - RadiantPlayers
-		else
-			multiplier = RadiantPlayers - DirePlayers
-		end
+    if timeSinceLastCheck > 180 then
+        local multiplier = 1
+        if losingTeam == "goodGuys" then
+            multiplier = DirePlayers - RadiantPlayers
+        else
+            multiplier = RadiantPlayers - DirePlayers
+        end
 
-		--local moneyToGive = (180 * multiplier) * OptionManager:GetOption('goldPerTick')
+        --local moneyToGive = (180 * multiplier) * OptionManager:GetOption('goldPerTick')
 
-		if losingTeam == "goodGuys" then
-			self.radiantBalanceMoney = self.radiantBalanceMoney + moneyToGive
-		else
-			self.direBalanceMoney = self.direBalanceMoney + moneyToGive
-		end
+        if losingTeam == "goodGuys" then
+            self.radiantBalanceMoney = self.radiantBalanceMoney + moneyToGive
+        else
+            self.direBalanceMoney = self.direBalanceMoney + moneyToGive
+        end
 
-		self.timeImbalanceStarted = GameRules:GetDOTATime(false,false)
-		--print(moneyToGive)
-		--print(self.radiantBalanceMoney)
-		--print(self.direBalanceMoney)
-	end
+        self.timeImbalanceStarted = GameRules:GetDOTATime(false, false)
+        --print(moneyToGive)
+        --print(self.radiantBalanceMoney)
+        --print(self.direBalanceMoney)
+    end
 
-	local moneySize = 10
-	if self.direBalanceMoney >= 200 or self.radiantBalanceMoney >= 200 then
-		moneySize = 20
-	end
+    local moneySize = 10
+    if self.direBalanceMoney >= 200 or self.radiantBalanceMoney >= 200 then
+        moneySize = 20
+    end
 
-	if self.radiantBalanceMoney >= moneySize * 10 or self.direBalanceMoney >= moneySize * 10 then
-		for playerID=0,24-1 do
-	      local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-	      if hero and PlayerResource:IsValidPlayerID(playerID) and IsValidEntity(hero) then
-	          local state = PlayerResource:GetConnectionState(playerID)
-	          if state == 1 or state == 2 then
-	          	if losingTeam == "goodGuys" and hero:GetTeam() == DOTA_TEAM_GOODGUYS and self.radiantBalanceMoney >= 1 then
-	          		--hero:ModifyGold(moneySize, false, 0)
-	          		SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, moneySize, nil)
-	          		self.radiantBalanceMoney = self.radiantBalanceMoney - moneySize
-                    self.radiantTotalBalanceMoney = self.radiantTotalBalanceMoney + moneySize
-	          	elseif losingTeam == "badGuys" and hero:GetTeam() == DOTA_TEAM_BADGUYS and self.direBalanceMoney >= 1 then
-	          		--hero:ModifyGold(moneySize, false, 0)
-	          		SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, moneySize, nil)
-	          		self.direBalanceMoney = self.direBalanceMoney - moneySize
-                    self.direTotalBalanceMoney = self.direTotalBalanceMoney + moneySize
-	          	end
-	          end
-	      end
-	    end
-	end
+    if self.radiantBalanceMoney >= moneySize * 10 or self.direBalanceMoney >= moneySize * 10 then
+        for playerID = 0, 24 - 1 do
+            local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+            if hero and PlayerResource:IsValidPlayerID(playerID) and IsValidEntity(hero) then
+                local state = PlayerResource:GetConnectionState(playerID)
+                if state == 1 or state == 2 then
+                    if losingTeam == "goodGuys" and hero:GetTeam() == DOTA_TEAM_GOODGUYS and self.radiantBalanceMoney >= 1 then
+                        --hero:ModifyGold(moneySize, false, 0)
+                        SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, moneySize, nil)
+                        self.radiantBalanceMoney = self.radiantBalanceMoney - moneySize
+                        self.radiantTotalBalanceMoney = self.radiantTotalBalanceMoney + moneySize
+                    elseif losingTeam == "badGuys" and hero:GetTeam() == DOTA_TEAM_BADGUYS and self.direBalanceMoney >= 1 then
+                        --hero:ModifyGold(moneySize, false, 0)
+                        SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, moneySize, nil)
+                        self.direBalanceMoney = self.direBalanceMoney - moneySize
+                        self.direTotalBalanceMoney = self.direTotalBalanceMoney + moneySize
+                    end
+                end
+            end
+        end
+    end
 
     -- Display message once every while, informing players of balance mechanic in use
     if self.heard["balanceGold"] ~= true and (self.radiantTotalBalanceMoney > 0 or self.direTotalBalanceMoney > 0) then
-
         if losingTeam == "goodGuys" then
-            GameRules:SendCustomMessage("Radiant Team has recieved the following total bonus gold due to team-imbalance: <font color=\'#FFDD2C\'>" .. self.radiantTotalBalanceMoney .. "</font>", 0, 0)
+            GameRules:SendCustomMessage(
+            "Radiant Team has recieved the following total bonus gold due to team-imbalance: <font color=\'#FFDD2C\'>" ..
+            self.radiantTotalBalanceMoney .. "</font>", 0, 0)
         else
-            GameRules:SendCustomMessage("Dire Team has recieved the following total bonus gold due to team-imbalance: <font color=\'#FFDD2C\'>" .. self.direTotalBalanceMoney .. "</font>", 0, 0)
+            GameRules:SendCustomMessage(
+            "Dire Team has recieved the following total bonus gold due to team-imbalance: <font color=\'#FFDD2C\'>" ..
+            self.direTotalBalanceMoney .. "</font>", 0, 0)
         end
 
 
         self.heard["balanceGold"] = true
 
         -- Show the warning again after 10 minutes
-        Timers:CreateTimer( function()
+        Timers:CreateTimer(function()
             self.heard["balanceGold"] = false
         end, DoUniqueString('showNotifAgain'), 600)
     end
-
 end
 
 -- Increases respawn rate if the game has been going longer than 40 minutes, increases every 10 minutes after that
 function Ingame:checkIfRespawnRate()
     if util:isSinglePlayerMode() then return end
     local respawnModifierPercentage = OptionManager:GetOption('respawnModifierPercentage')
-    if GameRules:GetDOTATime(false,false) > self.timeToIncreaseRespawnRate and respawnModifierPercentage < 50 and self.voteDisableRespawnLimit == false then
+    if GameRules:GetDOTATime(false, false) > self.timeToIncreaseRespawnRate and respawnModifierPercentage < 50 and self.voteDisableRespawnLimit == false then
         if self.origianlRespawnRate == nil then
             self.origianlRespawnRate = respawnModifierPercentage
         end
@@ -1257,12 +1275,13 @@ function Ingame:checkIfRespawnRate()
         if newRespawnRate > 50 then
             newRespawnRate = 50
         end
-        GameRules:SendCustomMessage("Game has been going for too long, respawn rates have increased by 10%. New respawn rate is " .. newRespawnRate .. "%. Use -enablerespawn (-er) to disable this safeguard.", 0, 0)
+        GameRules:SendCustomMessage(
+        "Game has been going for too long, respawn rates have increased by 10%. New respawn rate is " ..
+        newRespawnRate .. "%. Use -enablerespawn (-er) to disable this safeguard.", 0, 0)
         OptionManager:SetOption('respawnModifierPercentage', newRespawnRate)
 
         self.timeToIncreaseRespawnRate = self.timeToIncreaseRespawnRate + self.timeToIncreaseRepawnInterval
     end
-
 end
 
 -- Respawn modifier
@@ -1303,7 +1322,8 @@ function Ingame:handleRespawnModifier()
                     else
                         hero:SetTimeUntilRespawn(5)
                     end
-                return end
+                    return
+                end
                 local playerID = hero:GetPlayerID()
                 local mainHero = PlayerResource:GetSelectedHeroEntity(playerID)
                 if hero == mainHero or (hero:HasAbility("meepo_divided_we_stand") and hero:GetUnitName() == mainHero:GetUnitName() and hero:IsClone()) then
@@ -1337,26 +1357,26 @@ function Ingame:handleRespawnModifier()
                             --print(RespawnNotificationLevel)
                             if not util:isPlayerBot(playerID) then
                                 if util:isSinglePlayerMode() or Convars:GetBool("sv_cheats") or self.voteEnabledCheatMode then
-    	                            if not hero.RespawnNotificationLevel then
-    	                                hero.RespawnNotificationLevel = 0
-    	                            end
-    	                            if hero.RespawnNotificationLevel < 2 then
-    	                                if hero.RespawnNotificationLevel == 0 then
-    	                                    GameRules:SendCustomMessage('#respawnCheatNotification', 0, 0)
-    	                                    hero.RespawnNotificationLevel = 1
-    	                                elseif hero.RespawnNotificationLevel == 1 and timeLeft > 30 then
-    	                                    GameRules:SendCustomMessage('#respawnCheatNotification', 0, 0)
-    	                                    hero.RespawnNotificationLevel = 2
-    	                                end
-    	                            end
+                                    if not hero.RespawnNotificationLevel then
+                                        hero.RespawnNotificationLevel = 0
+                                    end
+                                    if hero.RespawnNotificationLevel < 2 then
+                                        if hero.RespawnNotificationLevel == 0 then
+                                            GameRules:SendCustomMessage('#respawnCheatNotification', 0, 0)
+                                            hero.RespawnNotificationLevel = 1
+                                        elseif hero.RespawnNotificationLevel == 1 and timeLeft > 30 then
+                                            GameRules:SendCustomMessage('#respawnCheatNotification', 0, 0)
+                                            hero.RespawnNotificationLevel = 2
+                                        end
+                                    end
                                 end
-                        	end
+                            end
 
                             -------
                             -- Imbalanced-Comepenstation Mechanic Start
                             -------
                             -- Do not trigger if game is coop or gametime is more than 20 minutes
-                            if not util:isCoop() and GameRules:GetDOTATime(false,false) < self.timeToStopBalancingMechanic then
+                            if not util:isCoop() and GameRules:GetDOTATime(false, false) < self.timeToStopBalancingMechanic then
                                 local herosTeam = util:GetActivePlayerCountForTeam(hero:GetTeamNumber())
                                 local opposingTeam = util:GetActivePlayerCountForTeam(otherTeam(hero:GetTeamNumber()))
                                 local difference = herosTeam - opposingTeam
@@ -1380,7 +1400,7 @@ function Ingame:handleRespawnModifier()
                                     self.heard["imbalancedTeams"] = true
 
                                     -- Show the warning again after 10 minutes
-                                    Timers:CreateTimer( function()
+                                    Timers:CreateTimer(function()
                                         self.heard["imbalancedTeams"] = false
                                     end, DoUniqueString('showNotifAgain'), 600)
                                 end
@@ -1406,9 +1426,15 @@ function Ingame:handleRespawnModifier()
                                         if not hero.KamikazeRating then
                                             hero.KamikazeRating = 1
                                         else
-                                            hero.KamikazeRating = hero.KamikazeRating +1
+                                            hero.KamikazeRating = hero.KamikazeRating + 1
                                             if hero.KamikazeRating > 2 then
-                                                GameRules:SendCustomMessage('Player '..PlayerResource:GetPlayerName(playerID)..' has died at least 3 times in the last ' .. allowableSecsBetweenDeaths .. " seconds. To prevent Kamikaze tactics, they have incured <font color=\'#FF4949\'>extra respawn time</font>. Use -enablekamikaze (-ek) to disable this safeguard." , 0, 0)
+                                                GameRules:SendCustomMessage(
+                                                'Player ' ..
+                                                PlayerResource:GetPlayerName(playerID) ..
+                                                ' has died at least 3 times in the last ' ..
+                                                allowableSecsBetweenDeaths ..
+                                                " seconds. To prevent Kamikaze tactics, they have incured <font color=\'#FF4949\'>extra respawn time</font>. Use -enablekamikaze (-ek) to disable this safeguard.",
+                                                    0, 0)
                                                 -- If they continue this strat, extra respawn peanlty increases by 10 seconds
                                                 if not hero.KamikazePenalty then
                                                     hero.KamikazePenalty = 1
@@ -1420,9 +1446,9 @@ function Ingame:handleRespawnModifier()
                                         end
 
                                         -- After the the allowable time between deaths, lower the rating
-                                        Timers:CreateTimer( function()
+                                        Timers:CreateTimer(function()
                                             if hero.KamikazeRating and hero.KamikazeRating > 0 then
-                                               hero.KamikazeRating = hero.KamikazeRating - 1
+                                                hero.KamikazeRating = hero.KamikazeRating - 1
                                             end
                                         end, DoUniqueString('lowerKamikazeRating'), allowableSecsBetweenDeaths)
                                     end
@@ -1437,20 +1463,21 @@ function Ingame:handleRespawnModifier()
                             ---------
 
                             if OptionManager:GetOption('resurrectAllies') == 1 then
-                                local numb = math.min(60,math.max(1,math.ceil(timeLeft/3)))
-                                
+                                local numb = math.min(60, math.max(1, math.ceil(timeLeft / 3)))
+
                                 -- If the number is higher than 3, reduce the time by 2 seconds
-                                if numb > 3 then 
+                                if numb > 3 then
                                     numb = numb - 2
                                 end
 
-                                local newItem = CreateItem("item_tombstone_"..numb,hero:GetPlayerOwner(),hero:GetPlayerOwner())
+                                local newItem = CreateItem("item_tombstone_" .. numb, hero:GetPlayerOwner(),
+                                    hero:GetPlayerOwner())
 
                                 newItem:SetPurchaseTime(0)
                                 newItem:SetPurchaser(hero)
 
-                                local tombstone = SpawnEntityFromTableSynchronous("dota_item_tombstone_drop",{})
-                                
+                                local tombstone = SpawnEntityFromTableSynchronous("dota_item_tombstone_drop", {})
+
                                 tombstone:SetContainedItem(newItem)
                                 if hero:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
                                     --tombstone:SetModel("models/heroes/phantom_assassin/arcana_tombstone2.vmdl")
@@ -1463,7 +1490,7 @@ function Ingame:handleRespawnModifier()
                             --------
                             -- Resurrect Mutator END
                             ---------
-                            
+
                             hero:SetTimeUntilRespawn(timeLeft)
 
                             -- Give 322 gold if enabled
@@ -1473,15 +1500,14 @@ function Ingame:handleRespawnModifier()
                                     opponentTeamKills = GetTeamHeroKills(otherTeam(hero:GetTeamNumber()))
 
                                     if myTeamKills < opponentTeamKills then
-                                        hero:ModifyGold(322,false,0)
-                                        SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, 322, nil)
+                                        hero:ModifyGold(322, false, 0)
+                                        SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, 322,
+                                            nil)
                                     end
-
                                 else
-                                    hero:ModifyGold(322,false,0)
+                                    hero:ModifyGold(322, false, 0)
                                     SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, 322, nil)
                                 end
-
                             end
                             -- Refresh cooldowns if enabled
                             if OptionManager:GetOption('refreshCooldownsOnDeath') == 1 or ingame.voteEnableRefresh == true then
@@ -1502,7 +1528,7 @@ function Ingame:handleRespawnModifier()
                             if hero:HasAbility('meepo_divided_we_stand') then
                                 local clones = Entities:FindAllByName(hero:GetClassname())
 
-                                for k,meepoClone in pairs(clones) do
+                                for k, meepoClone in pairs(clones) do
                                     if meepoClone:IsClone() and playerID == meepoClone:GetPlayerID() then
                                         meepoClone:SetTimeUntilRespawn(timeLeft)
                                     end
@@ -1522,9 +1548,9 @@ function Ingame:initGoldBalancer()
     self:recalculatePlayerCounts()
 
     -- Filter event
-    GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(Ingame, "FilterModifyGold" ), self)
-    GameRules:GetGameModeEntity():SetModifyExperienceFilter(Dynamic_Wrap(Ingame, "FilterModifyExperience" ), self)
-    GameRules:GetGameModeEntity():SetBountyRunePickupFilter(Dynamic_Wrap(Ingame, "BountyRunePickupFilter" ), self )
+    GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(Ingame, "FilterModifyGold"), self)
+    GameRules:GetGameModeEntity():SetModifyExperienceFilter(Dynamic_Wrap(Ingame, "FilterModifyExperience"), self)
+    GameRules:GetGameModeEntity():SetBountyRunePickupFilter(Dynamic_Wrap(Ingame, "BountyRunePickupFilter"), self)
 
     local this = self
 
@@ -1563,33 +1589,33 @@ function Ingame:recalculatePlayerCounts()
     local this = self
 
     if not pcall(function()
-        -- Default to no players
-        this.playersOnTeam = {
-            radiant = 0,
-            dire = 0
-        }
+            -- Default to no players
+            this.playersOnTeam = {
+                radiant = 0,
+                dire = 0
+            }
 
-        -- Work it out
-        for i=0,9 do
-            local connectionState = PlayerResource:GetConnectionState(i)
-            if connectionState == 1 or connectionState == 2 then
-                local teamID = PlayerResource:GetTeam(i)
+            -- Work it out
+            for i = 0, 9 do
+                local connectionState = PlayerResource:GetConnectionState(i)
+                if connectionState == 1 or connectionState == 2 then
+                    local teamID = PlayerResource:GetTeam(i)
 
-                if teamID == DOTA_TEAM_GOODGUYS then
-                    this.playersOnTeam.radiant = this.playersOnTeam.radiant + 1
-                elseif teamID == DOTA_TEAM_BADGUYS then
-                    this.playersOnTeam.dire = this.playersOnTeam.dire + 1
+                    if teamID == DOTA_TEAM_GOODGUYS then
+                        this.playersOnTeam.radiant = this.playersOnTeam.radiant + 1
+                    elseif teamID == DOTA_TEAM_BADGUYS then
+                        this.playersOnTeam.dire = this.playersOnTeam.dire + 1
+                    end
                 end
             end
-        end
 
-        -- Ensure never less than one
-        for k,v in pairs(this.playersOnTeam) do
-            if v <= 0 then
-                this.playersOnTeam[k] = 1
+            -- Ensure never less than one
+            for k, v in pairs(this.playersOnTeam) do
+                if v <= 0 then
+                    this.playersOnTeam[k] = 1
+                end
             end
-        end
-    end) then
+        end) then
         this.playersOnTeam = {
             radiant = 1,
             dire = 1
@@ -1645,7 +1671,7 @@ function Ingame:FilterModifyExperience(filterTable)
     --hotfix start: to stop the insane amount of EXP when heros with higher level then 28, kill other heros
     if math.abs(filterTable.experience) > 100000 then
         local Hero = PlayerResource:GetPlayer(filterTable.player_id_const):GetAssignedHero()
-        Hero:AddExperience(math.ceil(250 * expModifier / 100),0,false,false)
+        Hero:AddExperience(math.ceil(250 * expModifier / 100), 0, false, false)
         filterTable.experience = 0
         return true
     end
@@ -1661,12 +1687,13 @@ function Ingame:FilterModifyExperience(filterTable)
 
         if OptionManager:GetOption('sharedXP') == 1 then
             if filterTable.reason_const ~= 0 then
-                for i=0,DOTA_MAX_TEAM do
-                    local pID = PlayerResource:GetNthPlayerIDOnTeam(team,i)
+                for i = 0, DOTA_MAX_TEAM do
+                    local pID = PlayerResource:GetNthPlayerIDOnTeam(team, i)
                     if (PlayerResource:IsValidPlayerID(pID) or PlayerResource:GetConnectionState(pID) == 1) and PlayerResource:GetPlayer(pID) then
                         local otherHero = PlayerResource:GetPlayer(pID):GetAssignedHero()
 
-                        otherHero:AddExperience(math.ceil(filterTable.experience / util:GetActivePlayerCountForTeam(team)),0,false,false)
+                        otherHero:AddExperience(
+                        math.ceil(filterTable.experience / util:GetActivePlayerCountForTeam(team)), 0, false, false)
                     end
                 end
 
@@ -1689,14 +1716,15 @@ function Ingame:BountyRunePickupFilter(filterTable)
     if OptionManager:GetOption('sharedXP') == 1 then
         local team = PlayerResource:GetPlayer(filterTable.player_id_const):GetTeamNumber()
 
-        for i=0,DOTA_MAX_TEAM do
-            local pID = PlayerResource:GetNthPlayerIDOnTeam(team,i)
+        for i = 0, DOTA_MAX_TEAM do
+            local pID = PlayerResource:GetNthPlayerIDOnTeam(team, i)
             if PlayerResource:IsValidPlayerID(pID) then
                 local player = PlayerResource:GetPlayer(pID)
                 if player ~= nil then
                     local otherHero = player:GetAssignedHero()
 
-                    otherHero:AddExperience(math.ceil(filterTable.xp_bounty / util:GetActivePlayerCountForTeam(team)),0,false,false)
+                    otherHero:AddExperience(math.ceil(filterTable.xp_bounty / util:GetActivePlayerCountForTeam(team)), 0,
+                        false, false)
                     otherHero.expSkip = true
                 end
             end
@@ -1729,60 +1757,58 @@ end
 -- Buyback cooldowns
 function Ingame:checkBuybackStatus()
     ListenToGameEvent('npc_spawned',
-    function(keys)
-        local unit = EntIndexToHScript(keys.entindex)
+        function(keys)
+            local unit = EntIndexToHScript(keys.entindex)
 
-        if IsValidEntity(unit) then
-            if unit:IsRealHero() then
-                Timers:CreateTimer(
-                function()
-                    if IsValidEntity(unit) and OptionManager:GetOption('buybackCooldownConstant') ~= 420 then
-                        local buyBackLeft = unit:GetBuybackCooldownTime()
-                        if buyBackLeft >= 420 then
-                            local maxCooldown = OptionManager:GetOption('buybackCooldownConstant')
-                            if buyBackLeft > maxCooldown then
-                                unit:SetBuybackCooldownTime(maxCooldown)
+            if IsValidEntity(unit) then
+                if unit:IsRealHero() then
+                    Timers:CreateTimer(
+                        function()
+                            if IsValidEntity(unit) and OptionManager:GetOption('buybackCooldownConstant') ~= 420 then
+                                local buyBackLeft = unit:GetBuybackCooldownTime()
+                                if buyBackLeft >= 420 then
+                                    local maxCooldown = OptionManager:GetOption('buybackCooldownConstant')
+                                    if buyBackLeft > maxCooldown then
+                                        unit:SetBuybackCooldownTime(maxCooldown)
+                                    end
+                                end
+                            end
+                        end, DoUniqueString('buyback'), 0.1)
+
+                    if OptionManager:GetOption('randomOnDeath') == 1 and not unit:IsReincarnating() then
+                        local pID = unit:GetPlayerOwnerID()
+                        if not util:isPlayerBot(pID) then
+                            if not unit.randomOnDeath then
+                                unit.randomOnDeath = true
+                            else
+                                GameRules.pregame.selectedSkills[pID] = {}
+                                GameRules.pregame.selectedHeroes[pID] = GameRules.pregame:getRandomHero()
+                                GameRules.pregame.selectedPlayerAttr[pID] = ({ 'str', 'agi', 'int', 'all' })
+                                [math.random(1, 3)]
+                                if util:isPlayerBot(pID) and GameRules.pregame.botPlayers then
+                                    GameRules.pregame.botPlayers.all[pID] = {}
+                                    GameRules.pregame:generateBotBuilds(pID)
+
+                                    GameRules.pregame.selectedSkills[pID] = GameRules.pregame.botPlayers.all[pID].build
+                                    GameRules.pregame.selectedHeroes[pID] = GameRules.pregame.botPlayers.all[pID]
+                                    .heroName
+                                end
+                                GameRules.pregame:onPlayerReady(nil, { PlayerID = pID, randomOnDeath = true })
+                                if not util:isPlayerBot(pID) then
+                                    GameRules.pregame:applyExtraAbility(PlayerResource:GetSelectedHeroEntity(pID))
+                                end
                             end
                         end
                     end
-                end, DoUniqueString('buyback'), 0.1)
-
-                if OptionManager:GetOption('randomOnDeath') == 1 and not unit:IsReincarnating() then
-                    local pID = unit:GetPlayerOwnerID()
-                    if not util:isPlayerBot(pID) then
-                        if not unit.randomOnDeath then
-                            unit.randomOnDeath = true
-                        else
-                            
-                            GameRules.pregame.selectedSkills[pID] = {}
-                            GameRules.pregame.selectedHeroes[pID] = GameRules.pregame:getRandomHero()
-                            GameRules.pregame.selectedPlayerAttr[pID] = ({'str', 'agi', 'int', 'all'})[math.random(1,3)]
-                            if util:isPlayerBot(pID) and GameRules.pregame.botPlayers then
-                                GameRules.pregame.botPlayers.all[pID] = {}
-                                GameRules.pregame:generateBotBuilds(pID)
-
-                                GameRules.pregame.selectedSkills[pID] = GameRules.pregame.botPlayers.all[pID].build
-                                GameRules.pregame.selectedHeroes[pID] = GameRules.pregame.botPlayers.all[pID].heroName
-                            end
-                            GameRules.pregame:onPlayerReady(nil, {PlayerID = pID, randomOnDeath = true})
-                            if not util:isPlayerBot(pID) then
-                                GameRules.pregame:applyExtraAbility(PlayerResource:GetSelectedHeroEntity(pID))
-                            end
-                        end
-                    end
+                elseif CustomNetTables:GetTableValue("phase_ingame", "duel") and CustomNetTables:GetTableValue("phase_ingame", "duel").active == 1 and (string.match(unit:GetUnitName(), "badguys") or string.match(unit:GetUnitName(), "goodguys")) then
+                    unit:ForceKill(false)
                 end
-            elseif CustomNetTables:GetTableValue("phase_ingame","duel") and CustomNetTables:GetTableValue("phase_ingame","duel").active == 1 and (string.match(unit:GetUnitName(), "badguys") or string.match(unit:GetUnitName(), "goodguys")) then
-                unit:ForceKill(false)
             end
-        end
-    end, nil)
+        end, nil)
 end
 
 function Ingame:AddTowerBotController()
-
     ListenToGameEvent('game_rules_state_change', function(keys)
-
-
         local newState = GameRules:State_Get()
         -- If Towers are default amount (3), do not use bot controller because bots can handle them
         if newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS and OptionManager:GetOption('towerCount') ~= 3 then
@@ -1790,7 +1816,7 @@ function Ingame:AddTowerBotController()
             local direBots = false
             local radiantBots = false
             -- CHECK ALL PLAYERS TO SEE WHICH TEAM HAS BOT(S)
-            for playerID=0,(maxPlayers-1) do
+            for playerID = 0, (maxPlayers - 1) do
                 if util:isPlayerBot(playerID) and PlayerResource:GetTeam(playerID) == DOTA_TEAM_GOODGUYS then
                     radiantBots = true
                 elseif util:isPlayerBot(playerID) and PlayerResource:GetTeam(playerID) == DOTA_TEAM_BADGUYS then
@@ -1801,28 +1827,26 @@ function Ingame:AddTowerBotController()
             local towers = Entities:FindAllByClassname('npc_dota_tower')
 
             for _, tower in pairs(towers) do
-                    -- IF DIRE BOTS EXIST GIVE RADIANT TOWERS THE BOT CONTROLLER ABILITY
-                    if direBots and tower:GetTeam() == DOTA_TEAM_GOODGUYS then
-                        tower:AddAbility("imba_tower_ai_controller")
-                        tower:AddAbility("lone_druid_savage_roar_tower")
-                        local abilityController = tower:FindAbilityByName("imba_tower_ai_controller")
-                        local abilityRoar = tower:FindAbilityByName("lone_druid_savage_roar_tower")
-                        abilityController:SetLevel(1)
-                        abilityRoar:SetLevel(1)
+                -- IF DIRE BOTS EXIST GIVE RADIANT TOWERS THE BOT CONTROLLER ABILITY
+                if direBots and tower:GetTeam() == DOTA_TEAM_GOODGUYS then
+                    tower:AddAbility("imba_tower_ai_controller")
+                    tower:AddAbility("lone_druid_savage_roar_tower")
+                    local abilityController = tower:FindAbilityByName("imba_tower_ai_controller")
+                    local abilityRoar = tower:FindAbilityByName("lone_druid_savage_roar_tower")
+                    abilityController:SetLevel(1)
+                    abilityRoar:SetLevel(1)
                     -- IF RADIANT BOTS EXIST GIVE DIRE TOWERS THE BOT CONTROLLER ABILITY
-                    elseif radiantBots and tower:GetTeam() == DOTA_TEAM_BADGUYS then
-                        tower:AddAbility("imba_tower_ai_controller")
-                        tower:AddAbility("lone_druid_savage_roar_tower")
-                        local abilityController = tower:FindAbilityByName("imba_tower_ai_controller")
-                        local abilityRoar = tower:FindAbilityByName("lone_druid_savage_roar_tower")
-                        abilityController:SetLevel(1)
-                        abilityRoar:SetLevel(1)
-                    end
-
+                elseif radiantBots and tower:GetTeam() == DOTA_TEAM_BADGUYS then
+                    tower:AddAbility("imba_tower_ai_controller")
+                    tower:AddAbility("lone_druid_savage_roar_tower")
+                    local abilityController = tower:FindAbilityByName("imba_tower_ai_controller")
+                    local abilityRoar = tower:FindAbilityByName("lone_druid_savage_roar_tower")
+                    abilityController:SetLevel(1)
+                    abilityRoar:SetLevel(1)
                 end
+            end
         end
     end, nil)
-
 end
 
 function Ingame:loadTrollCombos()
@@ -1843,15 +1867,15 @@ function Ingame:loadTrollCombos()
 
     -- Loop over the banned combinations
     for skillName, group in pairs(tempBanList.BannedTowerCombinations) do
-        for skillName2,_ in pairs(group) do
+        for skillName2, _ in pairs(group) do
             banCombo(skillName, skillName2)
         end
     end
 
     -- Ban the group bans
-    for _,group in pairs(tempBanList.BannedTowerGroups) do
-        for skillName,__ in pairs(group) do
-            for skillName2,___ in pairs(group) do
+    for _, group in pairs(tempBanList.BannedTowerGroups) do
+        for skillName, __ in pairs(group) do
+            for skillName2, ___ in pairs(group) do
                 banCombo(skillName, skillName2)
             end
         end
@@ -1865,7 +1889,7 @@ function Ingame:giveAntiRatProtection()
 
     local radiantTowers = 0
     local direTowers = 0
-    for k,v in pairs(towers) do
+    for k, v in pairs(towers) do
         if not v:IsNull() and v:IsAlive() then
             if v:GetTeamNumber() == 2 and not v:HasModifier("modifier_redux_tower_ability") then
                 radiantTowers = radiantTowers + 1
@@ -1877,11 +1901,11 @@ function Ingame:giveAntiRatProtection()
     --print(radiantTowers)
     --print(direTowers)
     -- If either team's towers is at the point where anti-rat is disabled, do nothing.
-    if direTowers <= 5 or radiantTowers <=5 then
+    if direTowers <= 5 or radiantTowers <= 5 then
         return
     end
 
-    for k,v in pairs(towers) do
+    for k, v in pairs(towers) do
         table.insert(self.destroyedTowers, v)
         if string.match(v:GetUnitName(), "3") then
             v:AddAbility("tower_anti_rat"):SetLevel(1)
@@ -1899,7 +1923,8 @@ function Ingame:updateStrongTowers(tower)
         -- Main ability handling
         local difference = 0 -- will always be 0 anyway
         tower.strongTowerAbilities = tower.strongTowerAbilities or {}
-        local abName = PullTowerAbility(self.towerList, self.usedRandomTowers, self.banList, tower.strongTowerAbilities, difference, tower:GetLevel() * 10, tower)
+        local abName = PullTowerAbility(self.towerList, self.usedRandomTowers, self.banList, tower.strongTowerAbilities,
+            difference, tower:GetLevel() * 10, tower)
         if not tower:HasAbility(abName) and abName then
             tower:AddAbility(abName):SetLevel(1)
             self.usedRandomTowers[abName] = true
@@ -1923,7 +1948,7 @@ function Ingame:addStrongTowers()
             if OptionManager:GetOption('strongTowers') then
                 local maxPlayers = 24
                 local botsEnabled = false
-                for playerID=0,(maxPlayers-1) do
+                for playerID = 0, (maxPlayers - 1) do
                     if util:isPlayerBot(playerID) then
                         botsEnabled = true
                     end
@@ -1936,19 +1961,19 @@ function Ingame:addStrongTowers()
                 local handledTowers = {}
 
                 for _, tower in pairs(towers) do
-
-                        tower:SetBaseDamageMin((tower:GetBaseDamageMin() * 1.5))
-                        tower:SetBaseDamageMax((tower:GetBaseDamageMax() * 1.5))
-                        tower:SetBaseMaxHealth((tower:GetBaseMaxHealth() * 1.5))
-                        tower:SetMaxHealth((tower:GetMaxHealth() * 1.5))
-                        tower:SetHealth((tower:GetHealth() * 1.5))
-                        tower:SetPhysicalArmorBaseValue((tower:GetPhysicalArmorBaseValue() * 1.5))
+                    tower:SetBaseDamageMin((tower:GetBaseDamageMin() * 1.5))
+                    tower:SetBaseDamageMax((tower:GetBaseDamageMax() * 1.5))
+                    tower:SetBaseMaxHealth((tower:GetBaseMaxHealth() * 1.5))
+                    tower:SetMaxHealth((tower:GetMaxHealth() * 1.5))
+                    tower:SetHealth((tower:GetHealth() * 1.5))
+                    tower:SetPhysicalArmorBaseValue((tower:GetPhysicalArmorBaseValue() * 1.5))
 
                     if not handledTowers[tower] then
                         -- Main ability handling
                         local difference = 0 -- will always be 0 anyway
                         tower.strongTowerAbilities = tower.strongTowerAbilities or {}
-                        local abName = PullTowerAbility(self.towerList, self.usedRandomTowers, self.banList, tower.strongTowerAbilities, difference, tower:GetLevel() * 10, tower)
+                        local abName = PullTowerAbility(self.towerList, self.usedRandomTowers, self.banList,
+                            tower.strongTowerAbilities, difference, tower:GetLevel() * 10, tower)
                         if not tower:HasAbility(abName) and abName then
                             tower:AddAbility(abName):SetLevel(1)
                             self.usedRandomTowers[abName] = true
@@ -1960,9 +1985,11 @@ function Ingame:addStrongTowers()
                         if tower:GetLevel() < 4 then
                             local sisterTower = FindSisterTower(tower)
                             -- Sister ability handling
-                            difference = GetTowerAbilityPowerValue(sisterTower, self.towerList) - GetTowerAbilityPowerValue(tower, self.towerList)
+                            difference = GetTowerAbilityPowerValue(sisterTower, self.towerList) -
+                            GetTowerAbilityPowerValue(tower, self.towerList)
                             sisterTower.strongTowerAbilities = sisterTower.strongTowerAbilities or {}
-                            local sisterAbName = PullTowerAbility(self.towerList, self.usedRandomTowers, self.banList, tower.strongTowerAbilities, difference, sisterTower:GetLevel() * 10, tower)
+                            local sisterAbName = PullTowerAbility(self.towerList, self.usedRandomTowers, self.banList,
+                                tower.strongTowerAbilities, difference, sisterTower:GetLevel() * 10, tower)
                             if not tower:HasAbility(abName) and abName then
                                 sisterTower:AddAbility(sisterAbName):SetLevel(1)
                                 self.usedRandomTowers[sisterAbName] = true
@@ -1983,9 +2010,9 @@ function Ingame:addStrongTowers()
             end
         end
     end, nil)
-    ListenToGameEvent('dota_tower_kill', function (keys)
+    ListenToGameEvent('dota_tower_kill', function(keys)
         -- If a tower is destroyed, there is a 2/3 chance for bots to switch/stay in lategame behaviour. There is a 1/3 chance they will switch back to early game behaviour (but only for 3 minutes).
-        local switchAI = (RandomInt(1,3))
+        local switchAI = (RandomInt(1, 3))
         if switchAI == 1 then
             --print("bots are in early game behaviour")
             self.botsInLateGameMode = false
@@ -2006,7 +2033,7 @@ function Ingame:addStrongTowers()
             local direIsDead = 0
             local radiantIsDead = 0
 
-            for k,v in pairs(towers) do
+            for k, v in pairs(towers) do
                 if not v:IsNull() and v:IsAlive() and not v:HasModifier("modifier_redux_tower_permanent") then
                     if v:GetTeamNumber() == 2 then
                         radiantIsDead = radiantIsDead + 1
@@ -2016,7 +2043,7 @@ function Ingame:addStrongTowers()
                 end
             end
 
-            for k,v in pairs(towers) do
+            for k, v in pairs(towers) do
                 if string.match(v:GetUnitName(), "3") then
                     if radiantIsDead == 5 and v:GetTeamNumber() == 2 then
                         v:RemoveAbility("tower_anti_rat")
@@ -2043,13 +2070,13 @@ function Ingame:addStrongTowers()
                 -- add notification
                 GameRules:SendCustomMessage('radiantTowersUpgraded', 0, 0)
                 -- Only has a 50% chance to play sound because its kind of annoying if you hear it too much
-                local shouldPlaySound = (RandomInt(1,2))
+                local shouldPlaySound = (RandomInt(1, 2))
                 if shouldPlaySound == 1 then
                     EmitGlobalSound("powerup_01")
                 end
             else
                 GameRules:SendCustomMessage('direTowersUpgraded', 0, 0)
-                local shouldPlaySound = (RandomInt(1,2))
+                local shouldPlaySound = (RandomInt(1, 2))
                 if shouldPlaySound == 1 then
                     EmitGlobalSound("powerup_02")
                 end
@@ -2058,24 +2085,26 @@ function Ingame:addStrongTowers()
     end, nil)
 end
 
-function Ingame:UpgradeTower( tower )
+function Ingame:UpgradeTower(tower)
     -- Fetch tower abilities
-    for _,abName in pairs(tower.strongTowerAbilities) do
-		print(abName)
+    for _, abName in pairs(tower.strongTowerAbilities) do
+        print(abName)
         local upgradeAb = tower:FindAbilityByName(abName)
-		if upgradeAb:GetLevel() < upgradeAb:GetMaxLevel() then
-			upgradeAb:SetLevel( upgradeAb:GetLevel() + 1 )
-			return
-		end
+        if upgradeAb:GetLevel() < upgradeAb:GetMaxLevel() then
+            upgradeAb:SetLevel(upgradeAb:GetLevel() + 1)
+            return
+        end
     end
-	local sisterTower = FindSisterTower(tower)
-	local difference = 0
-	if sisterTower then
-		local difference = GetEquivalentTowerAbilityPowerValue(sisterTower, self.towerList, #tower.strongTowerAbilities) - GetTowerAbilityPowerValue(tower, self.towerList)
-	end
-	tower.strongTowerAbilities = tower.strongTowerAbilities or {}
-	local towerAbName = PullTowerAbility(self.towerList, self.usedRandomTowers, self.banList, tower.strongTowerAbilities, difference, tower:GetLevel() * 10, tower)
-	if towerAbName then
+    local sisterTower = FindSisterTower(tower)
+    local difference = 0
+    if sisterTower then
+        local difference = GetEquivalentTowerAbilityPowerValue(sisterTower, self.towerList, #tower.strongTowerAbilities) -
+        GetTowerAbilityPowerValue(tower, self.towerList)
+    end
+    tower.strongTowerAbilities = tower.strongTowerAbilities or {}
+    local towerAbName = PullTowerAbility(self.towerList, self.usedRandomTowers, self.banList, tower.strongTowerAbilities,
+        difference, tower:GetLevel() * 10, tower)
+    if towerAbName then
         tower:AddAbility(towerAbName):SetLevel(1)
         table.insert(tower.strongTowerAbilities, towerAbName)
         self.usedRandomTowers[towerAbName] = true
@@ -2086,7 +2115,7 @@ function Ingame:initGlobalMutator()
     ListenToGameEvent('game_rules_state_change', function(keys)
         local newState = GameRules:State_Get()
         if newState == DOTA_GAMERULES_STATE_PRE_GAME then
-            local globalUnit = CreateUnitByName("npc_global_mutator",Vector(0,0,0),false,nil,nil,20)
+            local globalUnit = CreateUnitByName("npc_global_mutator", Vector(0, 0, 0), false, nil, nil, 20)
             Timers:CreateTimer(function()
                 local globalAbility = globalUnit:AddAbility("global_mutator")
             end, DoUniqueString('addGlobalMutator'), 0.5)
@@ -2096,7 +2125,8 @@ end
 
 --[[targetPerks_projectile = {
     npc_dota_hero_puck_perk = true,
-}]]--
+}]]
+    --
 
 --[[function Ingame:FilterProjectiles(filterTable)
     --DeepPrintTable(projectile)
@@ -2111,19 +2141,19 @@ end
         filterTable = heroPerksProjectileFilter(filterTable) --Sending all the data to the heroPerksDamageFilter
     end
     return true
-  end]]--
+  end]]
+        --
 
 function Ingame:FilterValueTuning(filterTable)
-    local caster = EntIndexToHScript(filterTable["entindex_caster_const"]) 
-    local ability = EntIndexToHScript(filterTable["entindex_ability_const"]) 
+    local caster = EntIndexToHScript(filterTable["entindex_caster_const"])
+    local ability = EntIndexToHScript(filterTable["entindex_ability_const"])
     -- for k,v in pairs(filterTable) do
     --     print(k,v)
     -- end
     return true
 end
 
-
-function Ingame:FilterDamage( filterTable )
+function Ingame:FilterDamage(filterTable)
     local victim_index = filterTable["entindex_victim_const"]
     local attacker_index = filterTable["entindex_attacker_const"]
     local ability_index = filterTable["entindex_inflictor_const"]
@@ -2139,16 +2169,16 @@ function Ingame:FilterDamage( filterTable )
     local attacker = EntIndexToHScript(attacker_index)
 
     if ability_index then
-        ability = EntIndexToHScript( ability_index )
-        if ability:GetName() == "centaur_return"  and victim.IsBuilding and victim:IsBuilding() then
+        ability = EntIndexToHScript(ability_index)
+        if ability:GetName() == "centaur_return" and victim.IsBuilding and victim:IsBuilding() then
             filterTable["damage"] = 0
         end
         -- Stops abusive Combo of Diabloic Edict and multicast tearing down towers in seconds
-        if ability:GetName() == "leshrac_diabolic_edict"  and victim.IsBuilding and victim:IsBuilding() then
+        if ability:GetName() == "leshrac_diabolic_edict" and victim.IsBuilding and victim:IsBuilding() then
             local protection = victim:FindModifierByName("modifier_backdoor_protection_active")
 
             if protection then
-             filterTable["damage"] = 0
+                filterTable["damage"] = 0
             end
         end
     end
@@ -2157,12 +2187,12 @@ function Ingame:FilterDamage( filterTable )
         local protection = victim:FindModifierByName("modifier_backdoor_protection_active")
 
         if protection then
-         if self.heard["antiRatProtection"] ~= true then
-             GameRules:SendCustomMessage("#antiRatNotification", 0, 0)
-             self.heard["antiRatProtection"] = true
-         end
-         
-         filterTable["damage"] = 0
+            if self.heard["antiRatProtection"] ~= true then
+                GameRules:SendCustomMessage("#antiRatNotification", 0, 0)
+                self.heard["antiRatProtection"] = true
+            end
+
+            filterTable["damage"] = 0
         end
     end
 
@@ -2171,14 +2201,16 @@ function Ingame:FilterDamage( filterTable )
             victim.spiritLink_damage = nil
         else
             --print("Link Damage")
-            local link_blocked = victim:FindModifierByName("modifier_ancient_priestess_spirit_link"):LinkDamage(filterTable["damage"],filterTable["damage_type"],attacker,nil)
+            local link_blocked = victim:FindModifierByName("modifier_ancient_priestess_spirit_link"):LinkDamage(
+            filterTable["damage"], filterTable["damage_type"], attacker, nil)
             blocked_damage = blocked_damage + link_blocked
             filterTable["damage"] = filterTable["damage"] - link_blocked
         end
     end
 
     if victim:HasModifier("modifier_archmage_magic_barrier") then
-        local blocked = victim:FindModifierByName("modifier_archmage_magic_barrier"):GetBlockedDamage(filterTable["damage"])
+        local blocked = victim:FindModifierByName("modifier_archmage_magic_barrier"):GetBlockedDamage(filterTable
+        ["damage"])
         blocked_damage = blocked_damage + blocked
         filterTable["damage"] = filterTable["damage"] - blocked
     end
@@ -2188,7 +2220,8 @@ function Ingame:FilterDamage( filterTable )
     end
 
     if victim:HasModifier("modifier_ancient_priestess_ritual_protection") then
-        local blocked = victim:FindModifierByName("modifier_ancient_priestess_ritual_protection"):GetBlockDamage(filterTable["damage"])
+        local blocked = victim:FindModifierByName("modifier_ancient_priestess_ritual_protection"):GetBlockDamage(
+        filterTable["damage"])
         blocked_damage = blocked_damage + blocked
         filterTable["damage"] = filterTable["damage"] - blocked
     end
@@ -2201,7 +2234,7 @@ function Ingame:FilterDamage( filterTable )
         end
     end
 
-     -- Hero perks
+    -- Hero perks
     if not OptionManager:GetOption('disablePerks') then
         filterTable = heroPerksDamageFilter(filterTable)
     end
@@ -2215,18 +2248,18 @@ function Ingame:FilterDamage( filterTable )
     return true
 end
 
-LinkLuaModifier("modifier_rune_doubledamage_mutated_redux","abilities/mutators/super_runes.lua",LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_rune_arcane_mutated_redux","abilities/mutators/super_runes.lua",LUA_MODIFIER_MOTION_NONE)
-function AddRuneModifier(hero,name,duration)
-    
-    local m = hero:AddNewModifier(nil,nil,name,{duration = duration})
-    print(m,hero:GetUnitName(),name,duration)
+LinkLuaModifier("modifier_rune_doubledamage_mutated_redux", "abilities/mutators/super_runes.lua",
+    LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_rune_arcane_mutated_redux", "abilities/mutators/super_runes.lua", LUA_MODIFIER_MOTION_NONE)
+function AddRuneModifier(hero, name, duration)
+    local m = hero:AddNewModifier(nil, nil, name, { duration = duration })
+    print(m, hero:GetUnitName(), name, duration)
 end
 
 require('abilities/bash_reflect')
 require('abilities/bash_cooldown')
 
-function Ingame:FilterModifiers( filterTable )
+function Ingame:FilterModifiers(filterTable)
     local parent_index = filterTable["entindex_parent_const"]
     local caster_index = filterTable["entindex_caster_const"]
     local ability_index = filterTable["entindex_ability_const"]
@@ -2235,9 +2268,9 @@ function Ingame:FilterModifiers( filterTable )
     if not parent_index --[[or not caster_index -or not ability_index]] then
         return true
     end
-    
+
     local modifier_name = filterTable.name_const
-    local parent = EntIndexToHScript( parent_index )
+    local parent = EntIndexToHScript(parent_index)
     --if OptionManager:GetOption('superRunes') == 1 then
     --    if modifier_name == "modifier_rune_doubledamage_mutated_redux" then return true end
     --    if modifier_name == "modifier_rune_arcane_mutated_redux" then return true end
@@ -2257,9 +2290,9 @@ function Ingame:FilterModifiers( filterTable )
     if not caster_index or not ability_index then
         return true
     end
-    
-    local caster = EntIndexToHScript( caster_index )
-    local ability = EntIndexToHScript( ability_index ) or nil
+
+    local caster = EntIndexToHScript(caster_index)
+    local ability = EntIndexToHScript(ability_index) or nil
 
     -- Lazy fix for glaives of wisdom, Think of a better idea later.
 
@@ -2267,9 +2300,10 @@ function Ingame:FilterModifiers( filterTable )
         if RollPercentage(75) then
             return false
         end
-    end]]--
+    end]]
+          --
 
-     -- Hero perks
+    -- Hero perks
     if not OptionManager:GetOption('disablePerks') then
         filterTable = heroPerksModifierFilter(filterTable)
     end
@@ -2295,7 +2329,7 @@ function Ingame:FilterModifiers( filterTable )
             local original_duration = filterTable.duration
             local actually_duration = original_duration
             local tenacity = parent:GetIMBATenacity()
-            if parent:GetTeam() ~= caster:GetTeam() and filterTable.duration > 0 then --and tenacity ~= 0 then                
+            if parent:GetTeam() ~= caster:GetTeam() and filterTable.duration > 0 then --and tenacity ~= 0 then
                 actually_duration = actually_duration * (100 - tenacity) * 0.01
             end
 
@@ -2328,8 +2362,8 @@ function Ingame:FilterModifiers( filterTable )
     ReflectBashes(filterTable)
     -- Bash Cooldown
     if OptionManager:GetOption('antiBash') == 1 then
-        if not BashCooldown(filterTable) then 
-            return false 
+        if not BashCooldown(filterTable) then
+            return false
         end
     end
 
@@ -2337,22 +2371,23 @@ function Ingame:FilterModifiers( filterTable )
 end
 
 function Ingame:OnPlayerRevived(event)
-    local hRevivedHero = EntIndexToHScript( event.target )
-    local hReviverHero = EntIndexToHScript( event.caster )
+    local hRevivedHero = EntIndexToHScript(event.target)
+    local hReviverHero = EntIndexToHScript(event.caster)
     if hRevivedHero ~= nil and hRevivedHero:IsRealHero() then
-        hRevivedHero:SetHealth( hRevivedHero:GetMaxHealth() * 0.4 )
-        hRevivedHero:SetMana( hRevivedHero:GetMaxMana() * 0.4 )
-        EmitSoundOn( "Dungeon.HeroRevived", hRevivedHero )
+        hRevivedHero:SetHealth(hRevivedHero:GetMaxHealth() * 0.4)
+        hRevivedHero:SetMana(hRevivedHero:GetMaxMana() * 0.4)
+        EmitSoundOn("Dungeon.HeroRevived", hRevivedHero)
 
 
         local fInvulnDuration = 3
-        hRevivedHero:AddNewModifier( hRevivedHero, nil, "modifier_invulnerable", { duration = fInvulnDuration } )
-        hRevivedHero:AddNewModifier( hRevivedHero, nil, "modifier_omninight_guardian_angel", { duration = fInvulnDuration } )
+        hRevivedHero:AddNewModifier(hRevivedHero, nil, "modifier_invulnerable", { duration = fInvulnDuration })
+        hRevivedHero:AddNewModifier(hRevivedHero, nil, "modifier_omninight_guardian_angel",
+            { duration = fInvulnDuration })
     end
 end
 
-function Ingame:SetPlayerColors( )
-    for i=0,23 do
+function Ingame:SetPlayerColors()
+    for i = 0, 23 do
         if PlayerResource:IsValidPlayer(i) and self.playerColors[i] then
             local color = self.playerColors[i]
             PlayerResource:SetCustomPlayerColor(i, color[1], color[2], color[3])
@@ -2379,8 +2414,8 @@ function Ingame:botNeutralUpgrader()
         for i=0,23 do
             if util:isPlayerBot(keys.PlayerID) then
                 local vamb = hero:FindItemByName("item_vambrace")
-                    if vamb then 
-                        vamb:RemoveSelf()    
+                    if vamb then
+                        vamb:RemoveSelf()
                         CreateItem("item_giants_ring", nil, nil)
                     end
 
@@ -2392,7 +2427,8 @@ function Ingame:botNeutralUpgrader()
         end
     end
 end)
-end]]--
+end]]
+      --
 
 ingame = Ingame()
 

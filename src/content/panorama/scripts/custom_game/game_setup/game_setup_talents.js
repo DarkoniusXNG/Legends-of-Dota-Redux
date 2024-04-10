@@ -64,22 +64,16 @@ function AddTalentButton(id, talentData, talentName, parent, bHeader) {
 		talentText.style.fontSize = 30;
 		talentText.text = $.Localize(talentName);
 	} else {
-		const localizedString = $.Localize("#DOTA_Tooltip_ability_" + talentName, $.GetContextPanel());
-		if (localizedString.includes("[!s:value]")) {
-			talentText.text = localizedString.replace("[!s:value]", talentData["TalentValue"]);
-		} else {
-			talentText.text = localizedString;
-		}
 		talentText.talentName = talentName;
+		GameUI.SetupDOTATalentNameLabel(talentText, talentName);
 	}
 
 	//tooltip definition
-	var tooltipDescriptionKey = "#DOTA_Tooltip_ability_" + talentName + "_Description";
-	var tooltipDescriptionLocalized = $.Localize(tooltipDescriptionKey);
+	const tooltipDescription = $.Localize('#DOTA_Tooltip_Ability_' + talentName + '_Description', $.GetContextPanel());
 	//tooltip check
-	if ("#" + tooltipDescriptionLocalized != tooltipDescriptionKey) {
+	if (tooltipDescription !== '#DOTA_Tooltip_Ability_' + talentName + '_Description') {
 		talentButton.SetPanelEvent("onmouseover", function () {
-			$.DispatchEvent("DOTAShowTextTooltip", talentButton, tooltipDescriptionLocalized);
+			$.DispatchEvent("DOTAShowTextTooltip", talentButton, tooltipDescription);
 		});
 		talentButton.SetPanelEvent("onmouseout", function () {
 			$.DispatchEvent("DOTAHideTextTooltip");
