@@ -64,7 +64,7 @@ function tinker_rearm:OnChannelFinish(bInter)
 			"item_imba_sphere"
 		}
 	if not bInter then
-		for i = 0, 23 do
+		for i = 0, caster:GetAbilityCount() - 1 do
 			local ability = caster:GetAbilityByIndex(i)
 			if ability and ability.IsRefreshable and ability:IsRefreshable() then
 				ability:EndCooldown()

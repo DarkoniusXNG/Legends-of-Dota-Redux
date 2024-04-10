@@ -65,7 +65,7 @@ function modifier_npc_dota_hero_enigma_perk:OnHeroKilled(keys)
 			if ability and ability:GetName() == "en" then
 				-- Reduces remaining cooldown by 75%
 				local cooldownReduction = self.cooldownReduction
-				for i = 0, 15 do 
+				for i = 0, caster:GetAbilityCount() - 1 do
 					local ability = caster:GetAbilityByIndex(i)
 					if ability and not ability:IsCooldownReady() then
 						local cooldown = ability:GetCooldownTimeRemaining() * cooldownReduction

@@ -72,7 +72,7 @@ function modifier_imba_delightful_torment_thinker:OnTakeDamage( params )
 			local cooldown_reduction = self:GetAbility():GetSpecialValueFor("cooldown_reduction")
 
 			-- If a hero was damaged, reduce all ability cooldowns
-			for i = 0, 15 do
+			for i = 0, parent:GetAbilityCount() - 1 do
 				local current_ability = parent:GetAbilityByIndex(i)
 				if current_ability then
 					local cooldown_remaining = current_ability:GetCooldownTimeRemaining()

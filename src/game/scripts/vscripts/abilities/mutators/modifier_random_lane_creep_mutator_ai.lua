@@ -143,7 +143,6 @@ function modifier_random_lane_creep_mutator_ai.OnCreated(self,kv)
         return
     end
 
-
     --self.unit = EntIndexToHScript(kv.unit)
     local unit = self:GetParent()
     self.initPos = unit:GetAbsOrigin()

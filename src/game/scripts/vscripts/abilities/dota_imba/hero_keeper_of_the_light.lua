@@ -739,7 +739,7 @@ function imba_keeper_of_the_light_chakra_magic:OnSpellStart()
 			SendOverheadEventMessage(nil, OVERHEAD_ALERT_MANA_ADD, self.target, self.mana_restore, nil)
 		end
 		
-		for abilities = 0, 23 do
+		for abilities = 0, self.target:GetAbilityCount() - 1 do
 			local ability = self.target:GetAbilityByIndex(abilities)
 		
 			if ability and ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE and ability ~= self then
@@ -793,7 +793,7 @@ function imba_keeper_of_the_light_chakra_magic:OnSpellStart()
 				SendOverheadEventMessage(nil, OVERHEAD_ALERT_MANA_LOSS, self.target, self.mana_restore * inhibition_multiplier, nil)
 			end
 			
-			for abilities = 0, 23 do
+			for abilities = 0, self.target:GetAbilityCount() - 1 do
 				local ability = self.target:GetAbilityByIndex(abilities)
 			
 				if ability and ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE then

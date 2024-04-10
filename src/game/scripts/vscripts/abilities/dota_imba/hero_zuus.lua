@@ -1408,7 +1408,7 @@ function modifier_imba_zuus_thundergods_focus:OnCreated()
 		end
 
 		if self:GetCaster():HasTalent("special_bonus_imba_zuus_6") then 		
-			for i = 0, 7 do
+			for i = 0, DOTA_MAX_ABILITIES - 1 do
 				local ability = self:GetParent():GetAbilityByIndex(i)
 				if ability then
 					local remaining_cooldown = ability:GetCooldownTimeRemaining()

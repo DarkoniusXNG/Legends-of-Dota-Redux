@@ -175,7 +175,7 @@ function Debug:init()
         for i = 0, hero:GetAbilityCount() - 1 do
             local ability = hero:GetAbilityByIndex(i)
             if ability then
-                if ability:GetAbilityName():find('special_bonus_') then
+                if string.find(ability:GetAbilityName(), 'special_bonus_') and not DONOTREMOVE[ability:GetAbilityName()] then
                     UTIL_Remove(ability)
                     count = count + 1
                 end

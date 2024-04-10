@@ -21,7 +21,6 @@ function onHeroKill( event )
         local ability = caster:GetAbilityByIndex(i)
 		
 		if ability ~= nil and ability ~= event.ability then
-			local cooldown = ability:GetCooldown(event.ability:GetLevel())
 			local timeLeft = ability:GetCooldownTimeRemaining()
 			ability:EndCooldown()
 			ability:StartCooldown(timeLeft - cooldownReduction)

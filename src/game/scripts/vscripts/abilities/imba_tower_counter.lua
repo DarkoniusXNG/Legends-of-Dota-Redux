@@ -29,7 +29,7 @@ function modifier_imba_tower_counter:OnIntervalThink(keys)
 
     local power = 0
 
-    for i=0,23 do
+    for i = 0, caster:GetAbilityCount() - 1 do
         local ab = caster:GetAbilityByIndex(i)
 
         if ab and towers[ab:GetName()] then

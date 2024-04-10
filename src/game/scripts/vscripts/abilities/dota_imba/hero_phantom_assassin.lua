@@ -692,7 +692,7 @@ function modifier_imba_blur:OnHeroKilled(keys)
 	if not IsServer() then return end
 	
 	if keys.attacker == self:GetParent() and keys.target:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and self:GetAbility():IsTrained() then
-		for abilities = 0, 23 do
+		for abilities = 0, DOTA_MAX_ABILITIES - 1 do
 			local ability = self:GetParent():GetAbilityByIndex(abilities)
 		
 			if ability and ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE then

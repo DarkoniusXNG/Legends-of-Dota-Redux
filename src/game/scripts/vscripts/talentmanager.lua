@@ -46,27 +46,13 @@ function StoreTalents()
                         end
                     end
                 end
-                for i =1,8 do
-                    local n = talentIndex + i -1
-                    local t = math.ceil(i/2)
-                    if params["Ability"..n] then
-                        --local talentName = oldabilities[params["Ability"..n]]
-                        if talentName and talentName.TalentRequiredAbility and not TalentList[t][params["Ability"..n]] then
-                            TalentList[t][params["Ability"..n]] = talentName.TalentRequiredAbility
-                            TalentList["count"..t] = TalentList["count"..t] + 1
-                        elseif string.find(params["Ability"..n],"special_bonus_") and not string.find(params["Ability"..n],"special_bonus_unique") and not TalentList["basic"..t][params["Ability"..n]] then
-                            TalentList["basic"..t][params["Ability"..n]] = hero
-                            TalentList["basicCount"..t] = TalentList["basicCount"..t] + 1
-                        end
-                    end
-                end
             end
         end
     end
 
     -- Get all custom talents
     local customAbilities = LoadKeyValues('scripts/npc/npc_abilities_custom.txt')
-    for ability,params in pairs(customAbilities) do
+    for ability, params in pairs(customAbilities) do
         if type(params) == "table" then
             if params.TalentRank then
                 if params.TalentRequiredAbility and not TalentList[params.TalentRank][ability] then
@@ -342,7 +328,7 @@ function StartTrackingTalentLevels()
             if hero and not hero:IsNull() then
                 local first
                 local function isEven(n) return math.fmod(n,2) ==0 end
-                for j = 0,22 do
+                for j = 0, DOTA_MAX_ABILITIES - 1 do
                     local ability = hero:GetAbilityByIndex(j)
                     if ability and not ability:IsNull() and string.find(ability:GetAbilityName(),"special_bonus_") then
                         first = first or j
@@ -377,9 +363,9 @@ end
 
 function RemoveAllTalents(hero)
     print("REMOVING TALENTS")
-    for j = 0,22 do
+    for j = 0, DOTA_MAX_ABILITIES - 1 do
         local ability = hero:GetAbilityByIndex(j)
-        if ability and not ability:IsNull() and string.find(ability:GetAbilityName(),"special_bonus_") then
+        if ability and not ability:IsNull() and string.find(ability:GetAbilityName(), "special_bonus_") then
             hero:RemoveAbility(ability:GetAbilityName())
         end
     end

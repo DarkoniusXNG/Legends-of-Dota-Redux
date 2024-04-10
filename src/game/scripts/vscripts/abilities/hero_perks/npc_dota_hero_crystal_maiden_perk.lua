@@ -37,7 +37,7 @@ function modifier_npc_dota_hero_crystal_maiden_perk:OnCreated()
 
 	local aura = caster:FindAbilityByName("crystal_maiden_brilliance_aura")
 	
-	for i = 0,5 do
+	for i = 0, caster:GetAbilityCount() - 1 do
 		local ability = caster:GetAbilityByIndex(i)
 		if ability and ability:HasAbilityFlag("ice") then
 			if not aura then

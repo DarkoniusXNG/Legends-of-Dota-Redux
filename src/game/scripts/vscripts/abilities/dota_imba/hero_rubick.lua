@@ -451,7 +451,7 @@ function modifier_imba_rubick_spell_steal_controller:OnAbilityFullyCast(keys)
 			keys.unit:RemoveAbility(ex_talent:GetAbilityName())
 		end
 	end
-	for i=0, 23 do
+	for i = 0, target:GetAbilityCount() - 1 do
 		local talent = target:GetAbilityByIndex(i)
 		if talent ~= nil then
 			local name = talent:GetAbilityName()

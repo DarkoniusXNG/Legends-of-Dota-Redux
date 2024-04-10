@@ -34,7 +34,7 @@ function modifier_npc_dota_hero_clinkz_perk:OnCreated(keys)
 	if IsServer() then
 		local caster = self:GetCaster()
 		
-		for i = 0, 15 do 
+		for i = 0, caster:GetAbilityCount() - 1 do 
 			local ability = caster:GetAbilityByIndex(i)
 			if ability and ability:HasAbilityFlag("autocast_basic") then
 				ability:UpgradeAbility(true)

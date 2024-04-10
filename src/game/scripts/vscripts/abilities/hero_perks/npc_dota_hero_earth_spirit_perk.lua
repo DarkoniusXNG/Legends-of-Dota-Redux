@@ -53,7 +53,7 @@ end
 function modifier_npc_dota_hero_earth_spirit_perk:OnIntervalThink()
 	if IsServer() then
 		local spirit = self:GetParent()
-		for i=0, spirit:GetAbilityCount() do
+		for i = 0, spirit:GetAbilityCount() - 1 do
 			local skill = spirit:GetAbilityByIndex(i)
 			if skill and skill:HasAbilityFlag("earth") then
 				skill.spiritPerkLvl = skill.spiritPerkLvl or skill:GetLevel()

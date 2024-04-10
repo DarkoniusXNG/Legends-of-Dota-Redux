@@ -243,7 +243,7 @@ function CreateIllusion(target,caster,origin,duration,outgoing_damage,incoming_d
 	end
 
 	
-	for abilitySlot=0,15 do
+	for abilitySlot = 0, target:GetAbilityCount() - 1 do
 		local ability = target:GetAbilityByIndex(abilitySlot)
 		if ability ~= nil then 
 			local abilityLevel = ability:GetLevel()

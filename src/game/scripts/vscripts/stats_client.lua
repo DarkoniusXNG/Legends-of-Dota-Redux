@@ -258,20 +258,26 @@ function StatsClient:SetBans(playerID, value)
 end
 
 function StatsClient:Send(path, data, callback, retryCount, protocol, _currentRetry)
+    self.max_attempts = 8
+    self.attempts = self.attempts or 0
     local request = CreateHTTPRequestScriptVM(protocol or "POST", self.ServerAddress .. path)
     request:SetHTTPRequestHeaderValue("Auth-Key", StatsClient.AuthKey)
     request:SetHTTPRequestGetOrPostParameter("data", JSON:encode(data))
-	 request:Send(function(response)
+	request:Send(function(response)
         if response.StatusCode ~= 200 or not response.Body then
             print("error, status == " .. response.StatusCode)
             local currentRetry = (_currentRetry or 0) + 1
             if currentRetry < (retryCount or 0) then
                 Timers:CreateTimer(30, function()
                     print("Retry (" .. currentRetry .. ")")
-                    StatsClient:Send(path, data, callback, retryCount, protocol, currentRetry)
+                    StatsClient.attempts = StatsClient.attempts + 1
+                    if StatsClient.attempts <= StatsClient.max_attempts then
+                        StatsClient:Send(path, data, callback, retryCount, protocol, currentRetry)
+                    end
                 end)
             end
         else
+            StatsClient.attempts = 0
             local obj, pos, err = JSON:decode(response.Body, 1, nil)
             if callback then
                 callback(obj)

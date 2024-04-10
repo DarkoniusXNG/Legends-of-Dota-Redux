@@ -7,7 +7,7 @@ function item_companion_consumable:SecondLife( OnDeathKeys, BuffInfo )
 
 	unit:SetHealth(unit:GetMaxHealth())
 	unit:SetMana(unit:GetMaxMana())
-	for i=0,16 do
+	for i = 0, unit:GetAbilityCount() - 1 do
 		local ab = unit:GetAbilityByIndex(i)
 		if IsValidEntity(ab) and ab.EndCooldown then ab:EndCooldown() end
 		ab = unit:GetItemInSlot(i)

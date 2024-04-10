@@ -509,7 +509,7 @@ function imba_faceless_void_time_dilation:OnSpellStart()
 		if enemy:IsRealHero() then
 			-- Iterate through the enemies abilities
 			local abilities_on_cooldown = 0
-			for i = 0, 23 do
+			for i = 0, enemy:GetAbilityCount() - 1 do
 				local current_ability = enemy:GetAbilityByIndex(i)
 				if current_ability and not current_ability:IsPassive() and not current_ability:IsAttributeBonus() and not current_ability:IsCooldownReady() then
 					current_ability:StartCooldown( current_ability:GetCooldownTimeRemaining() + cd_increase )
@@ -552,7 +552,7 @@ function imba_faceless_void_time_dilation:OnSpellStart()
 
 		-- Iterate through the allies abilities
 		local abilities_on_cooldown = 0
-		for i = 0, 23 do
+		for i = 0, ally:GetAbilityCount() - 1 do
 			if chronocharges > 0 or caster:HasTalent("special_bonus_imba_faceless_void_7") then
 				local current_ability = ally:GetAbilityByIndex(i)
 
@@ -785,7 +785,7 @@ function modifier_imba_faceless_void_time_lock:GetModifierProcAttack_BonusDamage
 						local caster_cd_decrease	=	attacker:FindTalentValue("special_bonus_imba_faceless_void_4", "self_reduction")
 
 						-- Iterate through all of Void's abilities
-						for i = 0, 23 do
+						for i = 0, attacker:GetAbilityCount() - 1 do
 							local casterAbility = attacker:GetAbilityByIndex(i)
 							-- If there is an ability, it's learned, not a passive, not a talent/attribute bonus, and on cooldown, apply cooldown increase
 							if casterAbility and casterAbility:GetLevel() > 0 and not casterAbility:IsPassive() and not casterAbility:IsAttributeBonus() and not casterAbility:IsCooldownReady() then
@@ -823,7 +823,7 @@ function modifier_imba_faceless_void_time_lock:GetModifierProcAttack_BonusDamage
 					end
 
 					-- Iterate through all victims abilities
-					for i = 0, 23 do
+					for i = 0, target:GetAbilityCount() - 1 do
 						local targetAbility = target:GetAbilityByIndex(i)
 
 						-- If there is an ability, it's learned, not a passive, not a talent/attribute bonus, and on cooldown, apply cooldown increase
@@ -856,7 +856,7 @@ function modifier_imba_faceless_void_time_lock:GetModifierProcAttack_BonusDamage
 								local caster_cd_decrease	=	attacker:FindTalentValue("special_bonus_imba_faceless_void_4", "self_reduction")
 
 								-- Iterate through all of Void's abilities
-								for i = 0, 23 do
+								for i = 0, attacker:GetAbilityCount() - 1 do
 									local casterAbility = attacker:GetAbilityByIndex(i)
 									-- If there is an ability, it's learned, not a passive, not a talent/attribute bonus, and on cooldown, apply cooldown increase
 									if casterAbility and casterAbility:GetLevel() > 0 and not casterAbility:IsPassive() and not casterAbility:IsAttributeBonus() and not casterAbility:IsCooldownReady() then
@@ -893,7 +893,7 @@ function modifier_imba_faceless_void_time_lock:GetModifierProcAttack_BonusDamage
 							end
 
 							-- Iterate through all victims abilities
-							for i = 0, 23 do
+							for i = 0, enemy:GetAbilityCount() - 1 do
 								local enemyAbility = enemy:GetAbilityByIndex(i)
 								-- If there is an ability, it's learned, not a passive, not a talent/attribute bonus, and on cooldown, apply cooldown increase
 								if enemyAbility and enemyAbility:GetLevel() > 0 and not enemyAbility:IsPassive() and not enemyAbility:IsAttributeBonus() and not enemyAbility:IsCooldownReady() then
@@ -1463,7 +1463,7 @@ function modifier_imba_faceless_void_time_lock_720:ApplyTimeLock(target)
 	
 	-- IMBAfication: Lost In The Moment
 	-- Iterate through all the victim's abilities
-	for i = 0, 23 do
+	for i = 0, target:GetAbilityCount() - 1 do
 		local targetAbility = target:GetAbilityByIndex(i)
 
 		-- If there is an ability, it's learned, not a talent/attribute bonus, and on cooldown, apply cooldown increase

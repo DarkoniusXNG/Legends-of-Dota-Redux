@@ -48,7 +48,7 @@ function modifier_npc_dota_hero_elder_titan_perk:OnIntervalThink()
     if IsServer() then
         self.auras = 0
         local caster = self:GetCaster()
-        for i = 0, 15 do 
+        for i = 0, caster:GetAbilityCount() - 1 do 
             local ability = caster:GetAbilityByIndex(i)
             if ability and ability:HasAbilityFlag("aura") and ability:GetLevel() > 0 then
                 self.auras = self.auras + 1

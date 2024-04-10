@@ -662,7 +662,7 @@ function modifier_imba_fiery_soul:OnAbilityFullyCast( params )
 			parent:AddNewModifier(parent, self:GetAbility(), "modifier_imba_fiery_soul_counter", {duration = self:GetAbility():GetSpecialValueFor("duration")})
 
 			-- Fiery Soul ability cooldown reduction
-			for ability_id = 0, 15 do
+			for ability_id = 0, caster:GetAbilityCount() - 1 do
 				local caster_ability = caster:GetAbilityByIndex(ability_id)
 				if caster_ability then
 					local ability_name = caster_ability:GetAbilityName()

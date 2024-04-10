@@ -7596,7 +7596,7 @@ function Pregame:levelUpAbilities(hero)
 
     if points >= 1 then
         for p=1,points do
-            for i = 0, 23 do
+            for i = 0, DOTA_MAX_ABILITIES - 1 do
                 if upgrades >= points then
                     break
                 end
@@ -7691,7 +7691,7 @@ function Pregame:hookBotStuff()
 
                     -- Leveling the talents for bots
                     if keys.level == 10 then
-                        for i=1,23 do
+                        for i = 1, DOTA_MAX_ABILITIES - 1 do
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and string.find(ab:GetAbilityName(), "special_bonus") then
                                 local random = RandomInt(0,1)
@@ -7700,7 +7700,7 @@ function Pregame:hookBotStuff()
                             end
                         end
                     elseif keys.level == 15 then
-                        for i=1,23 do
+                        for i = 1, DOTA_MAX_ABILITIES - 1 do
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and string.find(ab:GetAbilityName(), "special_bonus") then
                                 local random = RandomInt(2,3)
@@ -7710,7 +7710,7 @@ function Pregame:hookBotStuff()
                         end
 
                     elseif keys.level == 20 then
-                        for i=1,23 do
+                        for i = 1, DOTA_MAX_ABILITIES - 1 do
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and string.find(ab:GetAbilityName(), "special_bonus") then
                                 local random = RandomInt(4,5)
@@ -7720,7 +7720,7 @@ function Pregame:hookBotStuff()
                         end
 
                     elseif keys.level == 25 then
-                        for i=1,23 do
+                        for i = 1, DOTA_MAX_ABILITIES - 1 do
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and string.find(ab:GetAbilityName(), "special_bonus") then
                                 local random = RandomInt(6,7)
@@ -8210,9 +8210,9 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                 end
             end
 
-            for i=0,23 do
+            for i = 0, DOTA_MAX_ABILITIES - 1 do
                 local ab = spawnedUnit:GetAbilityByIndex(i)
-                if ab and not string.match(ab:GetName(), "special") and not string.match(ab:GetName(), "perk") and customSlots[spawnedUnit:GetUnitName()] then
+                if ab and not string.match(ab:GetAbilityName(), "special_bonus") and not string.match(ab:GetName(), "perk") and customSlots[spawnedUnit:GetUnitName()] then
                     ab:SetHidden(false)
                 end
             end

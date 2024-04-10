@@ -168,7 +168,7 @@ function imba_tinker_rearm:OnChannelFinish( bInterrupted )
 					"item_imba_sphere"
 				}
 			-- Refresh abilities
-			for i = 0, 15 do
+			for i = 0, caster:GetAbilityCount() - 1 do
 				local current_ability = caster:GetAbilityByIndex(i)
 				local should_refresh = true
 

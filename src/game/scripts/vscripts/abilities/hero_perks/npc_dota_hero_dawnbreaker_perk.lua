@@ -45,7 +45,7 @@ end
 function modifier_npc_dota_hero_dawnbreaker_perk:OnIntervalThink()
 	if IsServer() then
 		local caster = self:GetParent()
-		for i=0, caster:GetAbilityCount() do
+		for i = 0, caster:GetAbilityCount() - 1 do
 			local skill = caster:GetAbilityByIndex(i)
 			if skill and skill:HasAbilityFlag("light") then
 				if not skill.perkLevel then skill.perkLevel = skill:GetLevel() end

@@ -3629,9 +3629,9 @@ function modifier_imba_tower_doppleganger_aura_buff:OnAttackLanded(keys)
 
 			-- Set the skill points to 0 and learn the skills of the caster
 			doppleganger:SetAbilityPoints(0)
-			for abilitySlot=0,15 do
+			for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
 				local ability = self.parent:GetAbilityByIndex(abilitySlot)
-				if ability ~= nil then
+				if ability then
 					local abilityLevel = ability:GetLevel()
 					local abilityName = ability:GetAbilityName()
 					local illusionAbility = doppleganger:FindAbilityByName(abilityName)

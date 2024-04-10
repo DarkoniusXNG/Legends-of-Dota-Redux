@@ -1845,7 +1845,7 @@ function modifier_imba_phoenix_supernova_caster_dummy:OnCreated()
 	self.abilities = {}
 	
 	if self:GetCaster() == self:GetParent() then
-		for slot = 0, 10 do
+		for slot = 0, DOTA_MAX_ABILITIES - 1 do
 			local ability = self:GetParent():GetAbilityByIndex(slot)
 			
 			if ability and ability:IsActivated() and (not self:GetParent():HasScepter() or (self:GetParent():HasScepter() and ability:GetName() ~= "imba_phoenix_sun_ray")) then
@@ -2259,10 +2259,10 @@ function modifier_imba_phoenix_supernova_egg_thinker:OnDeath( keys )
 end
 
 function modifier_imba_phoenix_supernova_egg_thinker:ResetUnit( unit )
-	for i=0,10 do
+	for i = 0, unit:GetAbilityCount() - 1 do
 		local abi = unit:GetAbilityByIndex(i)
 		if abi then
-			if abi:GetAbilityType() ~= 1 and not abi:IsItem() then
+			if abi:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE then
 				abi:EndCooldown()
 			end
 		end

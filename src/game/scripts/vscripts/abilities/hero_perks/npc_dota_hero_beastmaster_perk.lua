@@ -49,7 +49,7 @@ end
 function modifier_npc_dota_hero_beastmaster_perk:OnIntervalThink()
 	if IsServer() then
 		local maiden = self:GetParent()
-		for i=0, maiden:GetAbilityCount() do
+		for i = 0, maiden:GetAbilityCount() - 1 do
 			local skill = maiden:GetAbilityByIndex(i)
 			if skill and skill:HasAbilityFlag("neutral") then
 				if not skill.beastMasterPerkLvl then skill.beastMasterPerkLvl = skill:GetLevel() end

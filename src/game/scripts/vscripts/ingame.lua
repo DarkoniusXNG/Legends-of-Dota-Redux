@@ -594,7 +594,7 @@ function Ingame:onStart()
                 if hero:IsRealHero() then
                     local level = hero:GetLevel() - 1
                     local points = hero:GetAbilityPoints()
-                    for i = 0, 23 do
+                    for i = 0, DOTA_MAX_ABILITIES - 1 do
                         local ab = hero:GetAbilityByIndex(i)
                         if ab then
                             points = points + ab:GetLevel()
@@ -1511,7 +1511,7 @@ function Ingame:handleRespawnModifier()
                             end
                             -- Refresh cooldowns if enabled
                             if OptionManager:GetOption('refreshCooldownsOnDeath') == 1 or ingame.voteEnableRefresh == true then
-                                for i = 0, 15 do
+                                for i = 0, hero:GetAbilityCount()-1 do
                                     local ability = hero:GetAbilityByIndex(i)
                                     if ability then
                                         ability:EndCooldown()

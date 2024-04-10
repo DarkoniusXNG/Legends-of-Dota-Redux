@@ -220,7 +220,7 @@ end
 function InitializeInnateAbilities( hero )	
 
 	-- Cycle through all of the heroes' abilities, and upgrade the innates ones
-	for i = 0, 15 do		
+	for i = 0, hero:GetAbilityCount() - 1 do		
 		local current_ability = hero:GetAbilityByIndex(i)		
 		if current_ability and current_ability.IsInnateAbility then
 			if current_ability:IsInnateAbility() then
@@ -917,7 +917,7 @@ function CustomHeroAttachments(hero, illusion)
 	elseif hero_name == "npc_dota_hero_hell_empress" then
 		
 	elseif hero_name == "npc_dota_hero_scaldris" then
-		for i = 0, 24 do
+		for i = 0, hero:GetAbilityCount() - 1 do
 			if hero:GetAbilityByIndex(i) then
 				hero:RemoveAbility(hero:GetAbilityByIndex(i):GetAbilityName())
 			end
@@ -1501,7 +1501,7 @@ end
 
 function CheckTrollCombo(tower, newAbility, banList)
 	local build = {}
-	for i=0,23 do
+	for i = 0, DOTA_MAX_ABILITIES - 1 do
 		local ab = tower:GetAbilityByIndex(i)
 		if ab then
 			table.insert(build, ab:GetName())
@@ -1945,9 +1945,9 @@ function ApplyAllRandomOmgAbilities( hero )
 	end
 
 	-- Remove default abilities
-	for i = 0, 15 do
+	for i = 0, DOTA_MAX_ABILITIES - 1 do
 		local old_ability = hero:GetAbilityByIndex(i)
-		if old_ability then
+		if old_ability and not DONOTREMOVE[old_ability:GetAbilityName()] then
 			hero:RemoveAbility(old_ability:GetAbilityName())
 		end
 	end

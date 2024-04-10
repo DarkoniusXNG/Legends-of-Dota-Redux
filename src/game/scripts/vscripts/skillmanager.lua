@@ -384,9 +384,9 @@ function skillManager:ApplyBuild(hero, build, autoLevelSkills)
         playerID = hero:GetPlayerID()
 
         if hero and playerID and not util:isPlayerBot(playerID) then
-            for i=0,23 do
+            for i = 0, DOTA_MAX_ABILITIES - 1 do
                 local ab = hero:GetAbilityByIndex(i)
-                if ab then
+                if ab and not DONOTREMOVE[ab:GetAbilityName()] then
                     hero:RemoveAbility(ab:GetName())
                 end
             end
@@ -443,10 +443,10 @@ function skillManager:ApplyBuild(hero, build, autoLevelSkills)
 
 
             -- Handle cooldowns     
-            for i=0,hero:GetAbilityCount()-1 do     
-                local ab = hero:GetAbilityByIndex(i)        
+            for i = 0, hero:GetAbilityCount()-1 do
+                local ab = hero:GetAbilityByIndex(i)
                 if IsValidEntity(ab) then       
-                    local timeLeft = ab:GetCooldownTimeRemaining()      
+                    local timeLeft = ab:GetCooldownTimeRemaining()
                     if timeLeft > 0 then        
                         cooldownInfo[ab:GetClassname()] = Time() + timeLeft     
                     end     
@@ -462,9 +462,9 @@ function skillManager:ApplyBuild(hero, build, autoLevelSkills)
                 hero = PlayerResource:ReplaceHeroWith(playerID, build.hero, 0, 0)
                 UTIL_Remove(old)
                 if hero and playerID and not util:isPlayerBot(playerID) then
-                    for i=0,23 do
+                    for i = 0, DOTA_MAX_ABILITIES - 1 do
                         local ab = hero:GetAbilityByIndex(i)
-                        if ab then
+                        if ab and not DONOTREMOVE[ab:GetAbilityName()] then
                             hero:RemoveAbility(ab:GetName())
                         end
                     end
@@ -833,7 +833,7 @@ function skillManager:ApplyBuild(hero, build, autoLevelSkills)
         end     
     end     
     -- Handle cooldowns     
-    for i=0,hero:GetAbilityCount()-1 do     
+    for i = 0, hero:GetAbilityCount() - 1 do     
         local ab = hero:GetAbilityByIndex(i)
         if IsValidEntity(ab) then   
             if ab:GetName() == "generic_hidden" then

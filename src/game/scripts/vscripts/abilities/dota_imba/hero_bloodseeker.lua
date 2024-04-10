@@ -374,7 +374,7 @@ if IsServer() then
 	end
 	function modifier_imba_blood_bath_debuff_silence:OnDeath(params)
 		if params.unit == self:GetParent() and params.unit:IsRealHero() then
-			for i = 0, 16 do
+			for i = 0, DOTA_MAX_ABILITIES - 1 do
 				local ability = self:GetCaster():GetAbilityByIndex(i)
 				if ability and not ability:IsCooldownReady() then
 					local cd = ability:GetCooldownTimeRemaining()

@@ -1638,7 +1638,7 @@ function imba_juggernaut_omni_slash:OnSpellStart()
 			omnislash_image:HeroLevelUp(false)
 		end
 
-		for ability_id=0, 15 do
+		for ability_id = 0, omnislash_image:GetAbilityCount() - 1 do
 			local ability = omnislash_image:GetAbilityByIndex(ability_id)
 			if ability then
 				local caster_ability = self.caster:FindAbilityByName(ability:GetAbilityName())

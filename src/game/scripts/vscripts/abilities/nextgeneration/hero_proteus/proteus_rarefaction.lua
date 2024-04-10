@@ -18,7 +18,7 @@ function RarefactionCooldownReduction(keys)
 	local target = keys.target
 	
 	local cooldownreduction = ability:GetSpecialValueFor("cooldown_reduction")
-	for i = 0, 16 do
+	for i = 0, target:GetAbilityCount() - 1 do
 		local ability = target:GetAbilityByIndex(i)
 		if ability and ability:GetAbilityType() ~= 1 then
 			local cooldown = ability:GetCooldownTimeRemaining()

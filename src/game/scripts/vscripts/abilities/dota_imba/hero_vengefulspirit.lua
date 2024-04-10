@@ -1030,10 +1030,10 @@ function imba_vengefulspirit_nether_swap:OnOwnerDied()
 		-- 	end
 		-- end
 		super_illusion:SetAbilityPoints(0)
-		for abilitySlot=0,15 do
+		for abilitySlot = 0, super_illusion:GetAbilityCount() - 1 do
 			-- erase original ability
 			local ability_illusion = super_illusion:GetAbilityByIndex(abilitySlot)
-			if ability_illusion then
+			if ability_illusion and not DONOTREMOVE[ability_illusion:GetAbilityName()] then
 				super_illusion:RemoveAbilityByHandle( ability_illusion )
 			end
 

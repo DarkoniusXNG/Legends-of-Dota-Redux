@@ -1,3 +1,11 @@
+DONOTREMOVE = {
+	ability_capture = true,
+	ability_lamp_use = true,
+	ability_pluck_famango = true,
+	twin_gate_portal_warp = true,
+	twin_gate_portal_warp = true,
+}
+
 if not util then
     util = class({})
 end
@@ -620,21 +628,10 @@ function DebugCalls()
 end
 
 
-function CDOTA_BaseNPC:GetAbilityCount()
-    local count = 0
-    for i=0,23 do
-        if self:GetAbilityByIndex(i) then
-            count = count + 1
-        end
-    end
-    return count
-end
-
-
 function CDOTA_BaseNPC:GetUnsafeAbilitiesCount()
     local count = 0
     local randomKv = self.randomKv
-    for i=0,23 do
+    for i = 0, DOTA_MAX_ABILITIES - 1 do
         if self:GetAbilityByIndex(i) then
             local ability = self:GetAbilityByIndex(i)
             local name = ability:GetName()
@@ -916,16 +913,16 @@ function CDOTABaseAbility:CreateIllusions(hTarget,nIllusions,flDuration,flIncomi
             illusion:HeroLevelUp(false)
         end
 
-        for abilitySlot=0,23 do
+        for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
             local abilityTemp = caster:GetAbilityByIndex(abilitySlot)
 
-            if abilityTemp then
+            if abilityTemp and not DONOTREMOVE[abilityTemp:GetAbilityName()] then
                 illusion:RemoveAbility(abilityTemp:GetAbilityName())
             end
         end
 
         illusion:SetAbilityPoints(0)
-        for abilitySlot=0,23 do
+        for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
             local abilityTemp = hTarget:GetAbilityByIndex(abilitySlot)
 
             if abilityTemp then
@@ -957,15 +954,15 @@ end
 
 function CDOTA_BaseNPC:FixIllusion(source)
 
-    for abilitySlot=0,23 do
+    for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
         local abilityTemp = self:GetAbilityByIndex(abilitySlot)
 
-        if abilityTemp then
+        if abilityTemp and not DONOTREMOVE[abilityTemp:GetAbilityName()] then
             self:RemoveAbility(abilityTemp:GetAbilityName())
         end
     end
     self:SetAbilityPoints(0)
-    for abilitySlot=0,23 do
+    for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
         local abilityTemp = source:GetAbilityByIndex(abilitySlot)
 
         if abilityTemp then
@@ -985,7 +982,7 @@ end
 
 
 function CDOTA_BaseNPC:HasAbilityWithFlag(flag)
-    for i = 0, 23 do
+    for i = 0, DOTA_MAX_ABILITIES - 1 do
     local ability = self:GetAbilityByIndex(i)
     if ability and not ability:IsHidden() and ability:HasAbilityFlag(flag) then
       return true
