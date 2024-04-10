@@ -724,7 +724,7 @@ function modifier_imba_curse_of_avernus_passive:OnAttack(kv)
 			ApplyDamage({ victim = caster, attacker = caster, damage = self.damage, damage_type = DAMAGE_TYPE_PURE, damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION})
 			
 			-- Start cooldown
-			self.ability:UseResources(false, false, true)
+			self.ability:UseResources(false, false, false, true)
 		end
 	end
 end

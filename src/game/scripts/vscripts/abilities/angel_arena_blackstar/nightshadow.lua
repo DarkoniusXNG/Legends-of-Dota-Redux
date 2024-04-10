@@ -39,7 +39,7 @@ modifier_aabs_nightshadow = {
 						end
 					end
 				end
-				self:GetAbility():UseResources(false, false, true)
+				self:GetAbility():UseResources(false, false, false, true)
 			end
 		else
 			self:Destroy()

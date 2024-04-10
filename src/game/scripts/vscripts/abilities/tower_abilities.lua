@@ -972,7 +972,7 @@ function DeathPulse( keys )
 	-- Check if the ability should be cast
 	if #heroes >= 1 or #creeps >= 1 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_imba_tower_death_pulse_cast", {})
-		ability:UseResources(true, false, true)
+		ability:UseResources(true, false, false, true)
 
 	--[[	local pulse = caster:FindAbilityByName("necrolyte_death_pulse_tower")
 		if not pulse then

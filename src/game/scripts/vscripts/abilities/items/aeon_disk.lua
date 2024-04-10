@@ -115,7 +115,7 @@ modifier_item_aeon_disk_consumable = class({
 			if self:GetParent():GetHealth() <= self:GetParent():GetMaxHealth() * self:GetAbility():GetSpecialValueFor("aeon_disk_health_threshold_pct") * 0.01 then
 				self:GetParent():SetHealth(self:GetParent():GetHealth()+keys.damage)
 				if self:GetAbility():IsItem() then
-					self:GetAbility():UseResources(false, false, true)
+					self:GetAbility():UseResources(false, false, false, true)
 				else
 					self:SetDuration(90 * (1-self:GetParent():GetCooldownReduction()), true)
 				end

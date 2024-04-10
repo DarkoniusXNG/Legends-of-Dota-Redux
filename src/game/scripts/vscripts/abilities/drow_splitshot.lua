@@ -104,7 +104,7 @@ function modifier_drow_splitshot:OnAttackLanded( keys )
 		end
 	end
 
-	self:GetAbility():UseResources(true, false, true)
+	self:GetAbility():UseResources(true, true, false, true)
 end
 
 --not sure if this is the correct modifier property for this

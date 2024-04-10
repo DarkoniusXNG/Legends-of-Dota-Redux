@@ -341,7 +341,7 @@ function modifier_imba_luna_moon_glaive:GetModifierProcAttack_Feedback(keys)
 		end
 		
 		if self:GetAbility():IsCooldownReady() then
-			self:GetAbility():UseResources(false, false, true)
+			self:GetAbility():UseResources(false, false, false, true)
 		end
 	end
 end

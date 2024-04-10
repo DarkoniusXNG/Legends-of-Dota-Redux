@@ -96,7 +96,7 @@ function imba_clinkz_strafe:OnSpellStart()
 			
 			-- Renew cooldown so it would use the new time remaining variable
 			ability:EndCooldown()
-			ability:UseResources(false, false, true)
+			ability:UseResources(false, false, false, true)
 			
 			return 0
 		end
@@ -145,7 +145,7 @@ function imba_clinkz_strafe:OnSpellStart()
 
 			-- Renew cooldown so it would use the new time remaining variable
 			ability:EndCooldown()
-			ability:UseResources(false, false, true)
+			ability:UseResources(false, false, false, true)
 		end
 	end
 end
@@ -300,7 +300,7 @@ function modifier_imba_strafe_mount:OnRemoved()
 		-- Start cooldown, reduce it by the duration of the skill
 		if self:GetAbility():IsCooldownReady() then
 			self:GetAbility().time_remaining = self:GetRemainingTime()
-			self:GetAbility():UseResources(false, false, true)
+			self:GetAbility():UseResources(false, false, false, true)
 		end
 	end
 end
@@ -322,7 +322,7 @@ function modifier_imba_strafe_self_root:OnRemoved()
 		-- Start cooldown, reduce it by the duration of the skill
 		if self:GetAbility():IsCooldownReady() then
 			self:GetAbility().time_remaining = self:GetRemainingTime()
-			self:GetAbility():UseResources(false, false, true)
+			self:GetAbility():UseResources(false, false, false, true)
 		end
 	end
 end

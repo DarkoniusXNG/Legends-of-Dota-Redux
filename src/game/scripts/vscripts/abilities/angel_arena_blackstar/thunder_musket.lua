@@ -36,7 +36,7 @@ modifier_aabs_thunder_musket = {
 
 		if self:GetAbility() then
 			if self:GetAbility():IsCooldownReady() then
-				self:GetAbility():UseResources(false, false, true)
+				self:GetAbility():UseResources(false, false, false, true)
 
 				ApplyDamage({
 					attacker = self:GetParent(),

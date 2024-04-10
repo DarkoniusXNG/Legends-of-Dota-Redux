@@ -142,7 +142,7 @@ modifier_item_echo_sabre_consumable = class({
       keys.target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_item_echo_sabre_consumable_debuff", {duration = self:GetAbility():GetSpecialValueFor("slow_duration")})
     end
     if self:GetAbility():IsItem() then
-      self:GetAbility():UseResources(false, false, true)
+      self:GetAbility():UseResources(false, false, false, true)
     else
       self:SetDuration(5 * (1-self:GetParent():GetCooldownReduction()), true)
     end

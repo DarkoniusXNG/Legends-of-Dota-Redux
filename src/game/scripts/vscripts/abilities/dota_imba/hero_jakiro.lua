@@ -859,7 +859,7 @@ function modifier_imba_liquid_fire_caster:OnAttack(keys)
 			end
 
 			-- Start cooldown
-			ability:UseResources(false, false, true)
+			ability:UseResources(false, false, false, true)
 		end
 	end
 end
