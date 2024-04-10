@@ -15,7 +15,7 @@ function nyx_assassin_burrow_redux:OnAbilityPhaseStart()
 		caster:StartGesture(ACT_DOTA_CAST_ABILITY_4)	
 
 		-- Play burrow sound
-		EmitSoundOn(sound_burrow, caster)
+		caster:EmitSound(sound_burrow)
 
 		-- Add burrow particles
 		local particle_burrow_fx = ParticleManager:CreateParticle(particle_burrow, PATTACH_ABSORIGIN, caster)
@@ -24,7 +24,7 @@ function nyx_assassin_burrow_redux:OnAbilityPhaseStart()
 
 	else -- Unburrowing
 		-- Play unburrow sound
-		EmitSoundOn(sound_unburrow, caster)
+		caster:EmitSound(sound_unburrow)
 
 		-- Add unburrow particles
 		local particle_unburrow_fx = ParticleManager:CreateParticle(particle_unburrow, PATTACH_ABSORIGIN, caster)
@@ -66,12 +66,21 @@ end
 modifier_nyx_assassin_burrow_invis_override_redux = class({})
 
 function modifier_nyx_assassin_burrow_invis_override_redux:CheckState()
-	local state = {[MODIFIER_STATE_INVISIBLE] = false}
-	return state	
+	return {
+		[MODIFIER_STATE_INVISIBLE] = false,
+	}
 end
 
 function modifier_nyx_assassin_burrow_invis_override_redux:IsHidden()
-	return true	
+	return true
+end
+
+function  modifier_nyx_assassin_burrow_invis_override_redux:IsDebuff()
+	return false
+end
+
+function  modifier_nyx_assassin_burrow_invis_override_redux:IsPurgable()
+	return false
 end
 
 function modifier_nyx_assassin_burrow_invis_override_redux:GetPriority()
