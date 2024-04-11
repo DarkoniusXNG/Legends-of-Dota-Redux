@@ -1,5 +1,100 @@
     "DOTAAbilities"
     {	
+		"miniboss_radiance"
+		{
+			"MaxLevel"						"4"
+			"ReduxPerks"                    "neutral"
+			"AbilityValues"
+			{
+					"aura_radius"			"1200"
+					"aura_damage"			"30 50 70"
+					"aura_interval"			"0.2"
+			}
+		}
+		"roshan_revengeroar"
+		{
+			"MaxLevel"						"4"
+			"ReduxPerks"                    "neutral"
+			"AbilityManaCost"				"0"
+			"AbilityCooldown"				"20.0 18.0 16.0 14.0"
+			"AbilityCastPoint"				"0"
+			"AbilityValues"
+			{
+				"radius"			"900"
+				"damage"			"50 75 100 125"
+				"damage_pct"		"25"
+				"duration"			"8"
+				"damage_growth"		"10 15 20 25"
+			}
+		}
+
+		
+
+		"crystal_maiden_crystal_clone"
+		{
+			"ReduxPerks"                    "ice"
+			"MaxLevel"						"4"
+			"AbilityCooldown"				"10 9 8 7"
+			"AbilityManaCost"				"150"
+			"AbilityValues"
+			{
+				"hop_distance"				"275"
+				"hop_duration"				"0.3"
+				"clone_duration"			"5"
+				"frostbite_radius"			
+				{
+					"value"						"450 500 550 600"
+					"affected_by_aoe_increase"	"1"
+				}
+				
+				"anim_delay"				"0.02"
+				"clone_health"				"150"
+			}
+		}
+
+		"tidehunter_dead_in_the_water"
+		{
+			"ReduxPerks"                    "water"
+			"MaxLevel"						"4"
+			"AbilityCastRange"				"350"
+			"AbilityCastPoint"				"0.3"
+			"AbilityCooldown"				"25 22 19 16"
+	
+			"AbilityDamage"					"200 230 260 290"
+			"AbilityManaCost"				"80"
+	
+			// Special
+			//-------------------------------------------------------------------------------------------------------------
+			"AbilityValues"
+			{
+				"attacks_to_destroy"			"4"
+				"max_movement_speed"			"100"
+				"chain_length"					"350"
+				"duration"						"10"
+				"projectile_speed"				"1000"
+			}
+		}
+
+		"lone_druid_spirit_bear_fetch"
+		{
+			"ReduxPerks"                    "neutral"
+			"MaxLevel"					"4"
+			"AbilityCastPoint"				"0.2 0.2 0.2 0.2"
+			"AbilityCastRange"				"200 250 300 350"
+			"AbilityManaCost"				"75"
+			"AbilityValues"
+			{
+				"duration"				"2.5 2.75 3.0 3.25"
+				"drag_distance"			"200"
+				"break_distance"		"425"
+				"damage"				"300 325 350 375"
+				"self_slow"				"0"
+				"AbilityCooldown"		"30 25 20 15"
+				"tick_rate"			"0.5"
+	
+			}
+		}
+
 		"clinkz_burning_barrage"
 		{
 			"ReduxPerks"					"fire"
@@ -1046,10 +1141,30 @@
             "ReduxFlags"                                                           "disarm_break"
             "ReduxPerks"                                                           ""
         }
+
+		"brewmaster_void_astral_pull"
+		{	
+			"ReduxPerks"					"enemyMoving"
+			"MaxLevel"                      "3"
+			"AbilityCooldown"				"8.0"
+			"AbilityManaCost"				"50"
+			"AbilityValues"
+			{
+				"AbilityCastRange"			"150"
+				"damage"					"50 100 150"
+				"pull_distance"				"300 500 700"
+				"pull_duration"				"0.5"
+			}
+		}
+		
 		"brewmaster_fire_phase"
 		{
-            "MaxLevel"                                                             "1"
+            "MaxLevel"                                                             "3"
 			"ReduxCost"                                                            "40"
+			"AbilityValues"
+			{
+				"status_resistance"				"30 40 50"
+			}
         }
         "mudgolem_cloak_aura"
         {
