@@ -63,8 +63,9 @@
 			"AbilityValues"
 			{
 				"radius"			"900"
-        "damage"			"50 75 100 125"
+				"damage"			"50 75 100 125"
 				"damage_pct"		"25 30 35 40"
+				"duration"          "8"
 				"damage_growth"		"10 15 20 25"
 			}
 		}
@@ -116,7 +117,6 @@
 
 		"lone_druid_spirit_bear_fetch"
 		{
-
 			"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 			"OnCastbar"						"1"
 			"OnLearnbar"                    "1"
