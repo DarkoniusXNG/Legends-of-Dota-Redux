@@ -219,9 +219,9 @@ function Ingame:OnPlayerPurchasedItem(keys)
 
 
         for slot = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
-            item = hero:GetItemInSlot(slot)
-            if item ~= nil then
-                itemName = item:GetAbilityName()
+            local item = hero:GetItemInSlot(slot)
+            if item then
+                local itemName = item:GetAbilityName()
                 if itemName == keys.itemname then
                     item:RemoveSelf()
                     hero:AddItem(CreateItem(itemName, hero, hero))
@@ -234,7 +234,7 @@ function Ingame:OnPlayerPurchasedItem(keys)
         local isFull = false
         for slot = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
             local item = hero:GetItemInSlot(slot)
-            if item ~= nil then
+            if item then
                 isFull = true
             end
         end
@@ -242,9 +242,9 @@ function Ingame:OnPlayerPurchasedItem(keys)
         -- If they have a full inventory, remove any tangos or branches to clear space
         if isFull then
             for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-                item = hero:GetItemInSlot(slot)
-                if item ~= nil then
-                    itemName = item:GetAbilityName()
+                local item = hero:GetItemInSlot(slot)
+                if item then
+                    local itemName = item:GetAbilityName()
                     if itemName == "item_tango" or itemName == "item_branches" then
                         item:RemoveSelf()
                         break
@@ -254,9 +254,9 @@ function Ingame:OnPlayerPurchasedItem(keys)
 
             -- Try to move items from stash to inventory again after we have cleared out some items
             for slot = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
-                item = hero:GetItemInSlot(slot)
-                if item ~= nil then
-                    itemName = item:GetAbilityName()
+                local item = hero:GetItemInSlot(slot)
+                if item then
+                    local itemName = item:GetAbilityName()
                     if itemName == keys.itemname then
                         item:RemoveSelf()
                         hero:AddItem(CreateItem(itemName, hero, hero))
@@ -269,9 +269,9 @@ function Ingame:OnPlayerPurchasedItem(keys)
 
     if OptionManager:GetOption('banInvis') == 2 then
         local hero = PlayerResource:GetPlayer(keys.PlayerID):GetAssignedHero()
-        for i = 0, 11 do
+        for i = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
             local item = hero:GetItemInSlot(i)
-            if item ~= nil then
+            if item then
                 if item:GetName() == "item_shadow_amulet" or item:GetName() == "item_invis_sword" or item:GetName() == "item_silver_edge" or item:GetName() == "item_glimmer_cape" then
                     hero:ModifyGold(item:GetCost(), false, 0)
                     hero:RemoveItem(item)
@@ -282,24 +282,25 @@ function Ingame:OnPlayerPurchasedItem(keys)
         end
     end
 
-
     if OptionManager:GetOption('sharedXP') == 1 and keys.itemname == "item_tome_of_knowledge" then
-        for i = 0, 11 do
+        local hero = PlayerResource:GetPlayer(keys.PlayerID):GetAssignedHero()
+        for i = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
             local item = hero:GetItemInSlot(i)
-            if item:GetName() == "item_tome_of_knowledge" then
-                hero:RemoveItem(item)
+            if item then
+                if item:GetName() == "item_tome_of_knowledge" then
+                    hero:RemoveItem(item)
 
-                for x = 0, DOTA_MAX_TEAM do
-                    local pID = PlayerResource:GetNthPlayerIDOnTeam(hero:GetTeamNumber(), x)
-                    if PlayerResource:IsValidPlayerID(pID) then
-                        local otherHero = PlayerResource:GetPlayer(pID):GetAssignedHero()
+                    for x = 0, DOTA_MAX_TEAM do
+                        local pID = PlayerResource:GetNthPlayerIDOnTeam(hero:GetTeamNumber(), x)
+                        if PlayerResource:IsValidPlayerID(pID) then
+                            local otherHero = PlayerResource:GetPlayer(pID):GetAssignedHero()
 
-                        otherHero:AddExperience(math.ceil(425 / util:GetActivePlayerCountForTeam(hero:GetTeamNumber())),
-                            0, false, false)
+                            otherHero:AddExperience(math.ceil(425 / util:GetActivePlayerCountForTeam(hero:GetTeamNumber())),
+                                0, false, false)
+                        end
                     end
+                    break
                 end
-
-                break
             end
         end
     end
@@ -441,12 +442,14 @@ function Ingame:FilterExecuteOrder(filterTable)
 
                     -- Stuck at observer ward fix
                     if unit.StuckCounter > 50 then
-                        for i = 0, 11 do
+                        for i = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
                             local item = unit:GetItemInSlot(i)
-                            if item and item:GetName() == "item_ward_observer" then
-                                unit:ModifyGold(item:GetCost() * item:GetCurrentCharges(), true, 0)
-                                unit:RemoveItem(item)
-                                return true
+                            if item then
+                                if item:GetName() == "item_ward_observer" then
+                                    --unit:ModifyGold(item:GetCost() * item:GetCurrentCharges(), true, 0)
+                                    unit:RemoveItem(item)
+                                    return true
+                                end
                             end
                         end
                     end
@@ -454,8 +457,8 @@ function Ingame:FilterExecuteOrder(filterTable)
                     -- Stuck at shop trying to get stash items, remove stash items. THIS IS A BAND-AID FIX. IMPROVE AT SOME POINT
                     if unit.StuckCounter > 150 and fixed == false then
                         for slot = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
-                            item = unit:GetItemInSlot(slot)
-                            if item ~= nil then
+                            local item = unit:GetItemInSlot(slot)
+                            if item then
                                 item:RemoveSelf()
                                 return true
                             end
@@ -818,13 +821,12 @@ function Ingame:CheckConsumableItems()
         if PlayerResource:IsValidTeamPlayerID(i) and not util:isPlayerBot(i) then
             local hero = PlayerResource:GetSelectedHeroEntity(i)
             if hero and IsValidEntity(hero) then
-                for i = 0, 14 do
+                for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
                     local hItem = hero:GetItemInSlot(i)
                     if hItem then
                         local name = hItem:GetAbilityName()
                         if itemTable[name] then
                             hero:RemoveItem(hItem)
-                            if name == "item_vladmir" then name = "item_vladimir" end
                             hero:AddItemByName(name .. "_consumable")
                             local item = hero:FindItemInInventory(name .. "_consumable")
                             local nSlot, hUseless = hero:FindItemByNameEverywhere(name .. "_consumable")
@@ -1517,9 +1519,9 @@ function Ingame:handleRespawnModifier()
                                         ability:EndCooldown()
                                     end
                                 end
-                                for j = 0, 5 do
+                                for j = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
                                     local item = hero:GetItemInSlot(j)
-                                    if item and item:GetName() ~= "item_bloodstone" then
+                                    if item then
                                         item:EndCooldown()
                                     end
                                 end

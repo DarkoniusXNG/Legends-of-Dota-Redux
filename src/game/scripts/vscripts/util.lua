@@ -938,7 +938,7 @@ function CDOTABaseAbility:CreateIllusions(hTarget,nIllusions,flDuration,flIncomi
             end
         end
 
-        for itemSlot=0,8 do
+        for itemSlot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
             local item = hTarget:GetItemInSlot(itemSlot)
             if item then
                 local itemName = item:GetName()
@@ -1029,7 +1029,7 @@ function CDOTA_BaseNPC:IsSleeping()
 end
 
 function CDOTA_BaseNPC:FindItemByName(item_name)
-    for i=0,5 do
+    for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
         local item = self:GetItemInSlot(i)
         if item and item:GetAbilityName() == item_name then
             return item
@@ -1176,14 +1176,25 @@ function util:CreateVoting(votingName, initiator, duration, percent, onaccept, o
 end
 
 function CDOTA_BaseNPC:FindItemByNameEverywhere(item_name)
-    for i=0,14 do
+    for i = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
         local item = self:GetItemInSlot(i)
         if item and item:GetAbilityName() == item_name then
-            return i,item
+            return i, item
         end
     end
-    return nil,nil
-
+    local tp_scroll = self:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
+    if tp_scroll then
+        if tp_scroll:GetAbilityName() == item_name then
+            return DOTA_ITEM_TP_SCROLL, tp_scroll
+        end
+    end
+    local neutral_item = self:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+    if neutral_item then
+        if neutral_item:GetAbilityName() == item_name then
+            return DOTA_ITEM_NEUTRAL_SLOT, neutral_item
+        end
+    end
+    return nil, nil
 end
 
 function CDOTA_BaseNPC:PopupNumbers(target, pfx, color, lifetime, number, presymbol, postsymbol)

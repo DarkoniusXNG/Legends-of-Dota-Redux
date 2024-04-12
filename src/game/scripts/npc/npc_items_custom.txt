@@ -2039,7 +2039,7 @@
         "ItemSellable"                  "0"
     }
 
-    "item_vladimir_consumable"
+    "item_vladmir_consumable"
     {
         "ScriptFile"                    "abilities/items/vladimir.lua"
         "BaseClass"                     "item_lua"

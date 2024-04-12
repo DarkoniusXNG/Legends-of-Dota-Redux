@@ -234,6 +234,7 @@ function Pregame:init()
                 if not util:isCoop() then
                     self:setOption('lodOptionBanningUseBanList', 1, true)
                 end
+                local mapName = OptionManager:GetOption('mapname')
                 if mapName == 'all_allowed' or mapName == 'overthrow' then
                     self:setOption('lodOptionBanningUseBanList', 0, true)
                 end
@@ -979,8 +980,8 @@ function Pregame:getPlayerStats(playerID)
         playerInfo.g = math.floor(PlayerResource:GetGoldPerMin(playerID))               -- g            This player's gold per minute
         playerInfo.x = math.floor(PlayerResource:GetXPPerMin(playerID))                 -- x            This player's EXP per minute
         playerInfo.r = math.floor(PlayerResource:GetGold(playerID))                     -- r            How much gold this player currently has
-        for slotID=1,6 do
-            local item = hero:GetItemInSlot(slotID - 1)
+        for slotID = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6  do
+            local item = hero:GetItemInSlot(slotID)
 
             if item then
                 playerInfo['I' .. slotID] = item:GetAbilityName():gsub('item_', '')     -- I[1-6]       Items 1 - 6
@@ -1404,7 +1405,7 @@ function Pregame:onThink()
             for playerID = 0,23 do
                 local steamID = PlayerResource:GetSteamAccountID(playerID)
                 if steamID ~= 0 then
-                    hero = self.selectedHeroes[playerID]
+                    local hero = self.selectedHeroes[playerID]
                     if hero == nil then
                         local sound = self:getRandomSound('game_6_sec_remaining')
                         EmitAnnouncerSoundForPlayer(sound, playerID)
@@ -1438,7 +1439,7 @@ function Pregame:onThink()
                     for playerID = 0,23 do
                         local steamID = PlayerResource:GetSteamAccountID(playerID)
                         if steamID ~= 0 then
-                            hero = self.selectedHeroes[playerID]
+                            local hero = self.selectedHeroes[playerID]
                             if hero == nil then
                                 local sound = self:getRandomSound('game_6_sec_remaining')
                                 EmitAnnouncerSoundForPlayer(sound, playerID)
@@ -1709,7 +1710,7 @@ function Pregame:actualSpawnPlayer(forceID)
                 continueSpawning()
 
                 -- Did the spawning of this hero fail?
-                if not status2 then
+                if not status2 and err2 then
                     SendToServerConsole('say "Post this to the LoD comments section: '..err2:gsub('"',"''")..'"')
                 end
             end
@@ -1747,7 +1748,7 @@ function Pregame:actualSpawnPlayer(forceID)
     end)
 
     -- Did the spawning of this hero fail?
-    if not status then
+    if not status and err then
         SendToServerConsole('say "Post this to the LoD comments section: '..err:gsub('"',"''")..'"')
     end
 end
@@ -1845,7 +1846,7 @@ function Pregame:networkHeroes()
         end
     end
 
-    function prepareAbility( abilityName, tabName, abilityGroup )
+    local function prepareAbility( abilityName, tabName, abilityGroup )
         flagsInverse[abilityName] = flagsInverse[abilityName] or {}
         flagsInverse[abilityName].category = tabName
         if abilityGroup then
@@ -2018,7 +2019,7 @@ function Pregame:networkHeroes()
                 end
             else
                 local sn = 1
-                for i=1,23 do
+                for i=1,24 do
                     local abName = heroValues['Ability' .. i]
 
                     if abName ~= 'attribute_bonus' then
@@ -2029,7 +2030,7 @@ function Pregame:networkHeroes()
             end
 
             local sb = 1
-            for i=1,23 do
+            for i=1,24 do
                 local abName = heroValues['Ability' .. i]
 
                 if abName and string.match(abName, "special_bonus_") then
@@ -2045,7 +2046,7 @@ function Pregame:networkHeroes()
             allowedHeroes[heroName] = true
 
             -- Store the owners
-            for i=1,23 do
+            for i=1,24 do
                 if theData['Ability'..i] ~= nil then
                     self.abilityHeroOwner[theData['Ability'..i]] = heroName
                 end
@@ -2279,7 +2280,7 @@ function Pregame:onOptionChanged(eventSourceIndex, args)
 
         if voteRequiredOptions[optionName] and voteRequiredOptions[optionName].value == optionValue then
             self:setOption(optionName, voteRequiredOptions[optionName].value == 1 and 0 or 1)
-            util:CreateVoting(voteRequiredOptions[optionName].votingName, playerID, 20, percentNeeded, function()
+            util:CreateVoting(voteRequiredOptions[optionName].votingName, playerID, 20, 90, function()
                 self:setOption(optionName, voteRequiredOptions[optionName].value)
             end)
         else
@@ -3610,7 +3611,7 @@ function Pregame:isAllowed( abilityName )
     elseif cat == 'imba' then
         allowed = self.optionStore['lodOptionAdvancedImbaAbilities'] == 1
     elseif cat == 'superop' then
-        allowed = 1  -- The check if these abilities are allowed are processed elsewhere.
+        allowed = true  -- The check if these abilities are allowed are processed elsewhere.
     elseif cat == 'OP' then
         allowed = self.optionStore['lodOptionAdvancedOPAbilities'] == 0
     elseif cat == nil then
@@ -3643,20 +3644,20 @@ function Pregame:MultiplyNeutralUnit( unit, killer, mult, lastHits )
     local alreadySpawned = false
 
     for i = 2, mult do
-        clone = CreateUnitByName( unitName, loc, true, nil, nil, DOTA_TEAM_NEUTRALS )
+        local clone = CreateUnitByName( unitName, loc, true, nil, nil, DOTA_TEAM_NEUTRALS )
         clone:AddNewModifier(clone, nil, "modifier_kill", {duration = 120})
         clone:AddAbility("clone_token_ability")
     end
 end
 
--- Multiply neutral creep camps
+-- Multiply lane creeps
 function Pregame:MultiplyLaneUnit( unit, mult )
         local unitName = unit:GetUnitName()
 
         local loc = unit:GetAbsOrigin()
 
         for i = 2, mult do
-            clone = CreateUnitByName( unitName, loc, true, nil, nil, unit:GetTeam() )
+            local clone = CreateUnitByName( unitName, loc, true, nil, nil, unit:GetTeam() )
             clone:AddAbility("clone_token_ability")
             --Clones die after 120 seconds, this is a safety measure to prevent too many units being alive
             clone:AddNewModifier(clone, nil, "modifier_kill", {duration = 30})
@@ -3796,8 +3797,6 @@ function Pregame:precacheBuilds()
     local allSkills = {}
     local alreadyAdded = {}
 
-    local timerDelay = 0
-
     for k,v in pairs(self.selectedSkills) do
         for kk,vv in pairs(v) do
             if not alreadyAdded[vv] then
@@ -3814,75 +3813,11 @@ function Pregame:precacheBuilds()
         end
     end
 
-    local this = self
-
-    local totalToCache = #allPlayerIDs -- + #allSkills
-
-    function checkCachingComplete()
-        totalToCache = totalToCache - 1
-
-        if totalToCache == 0 then
-            donePrecaching = true
-
-            -- Tell clients
-            network:donePrecaching()
-
-            -- Check for ready
-            this:checkForReady()
-            return
-        end
-    end
-
-    function continueCachingHeroes()
-        Timers:CreateTimer(function()
-            if #allPlayerIDs <= 0 then
-                return
-            end
-
-            local playerID = table.remove(allPlayerIDs, 1)
-
-            if PlayerResource:IsValidPlayerID(playerID) then
-                local heroName = self.selectedHeroes[playerID]
-
-                if heroName then
-                    this.cachedPlayerHeroes[playerID] = true
-
-                    PrecacheUnitByNameAsync(heroName, function()
-                        checkCachingComplete()
-                        continueCachingHeroes()
-                    end, playerID)
-                else
-                    continueCachingHeroes()
-                end
-            else
-                continueCachingHeroes()
-            end
-        end, DoUniqueString('precacheHack'), 1.0)
-    end
-
-    function continueCaching()
-        --print('Continue caching!')
-
-        Timers:CreateTimer(function()
-            if #allSkills > 0 then
-                local abName = table.remove(allSkills, 1)
-
-                --print('Precaching ' .. abName)
-
-                SkillManager:precacheSkill(abName, function()
-                    -- Check if caching has completed
-                    checkCachingComplete()
-                end)
-
-                -- Keep Caching
-                continueCaching()
-            end
-        end, DoUniqueString('keepCaching'), timerDelay)
-    end
+    self.totalToCache = #allPlayerIDs -- + #allSkills
 
     -- Start caching process
-    -- continueCaching()
-    -- continueCachingHeroes()
+    -- self:continueCaching(allSkills)
+    -- self:continueCachingHeroes(allPlayerIDs)
 
     donePrecaching = true
 
@@ -3890,102 +3825,71 @@ function Pregame:precacheBuilds()
     network:donePrecaching()
 
     -- Check for ready
-    this:checkForReady()
+    self:checkForReady()
 end
 
+function Pregame:checkCachingComplete()
+    self.totalToCache = self.totalToCache - 1
 
+    if self.totalToCache == 0 then
+        donePrecaching = true
 
+        -- Tell clients
+        network:donePrecaching()
 
---[[function Pregame:precacheBuilds()
-    local allSkills = {}
-    local alreadyAdded = {}
-
-    local timerDelay = 0
-
-    for k,v in pairs(self.selectedSkills) do
-        for kk,vv in pairs(v) do
-            if not alreadyAdded[vv] then
-                alreadyAdded[vv] = true
-                table.insert(allSkills, vv)
-            end
-        end
+        -- Check for ready
+        self:checkForReady()
+        return
     end
+end
 
-    local allPlayerIDs = {}
-    for i=0,24 do
-        if PlayerResource:IsValidPlayerID(i) then
-            table.insert(allPlayerIDs, i)
-        end
-    end
-
+function Pregame:continueCachingHeroes(allPlayerIDs)
     local this = self
-
-    function continueCachingHeroes()
-        --print('continue caching hero')
-
-        -- Any more to cache?
+    Timers:CreateTimer(function()
         if #allPlayerIDs <= 0 then
-            donePrecaching = true
-
-            -- Tell clients
-            network:donePrecaching()
-
-            -- Check for ready
-            this:checkForReady()
             return
         end
 
         local playerID = table.remove(allPlayerIDs, 1)
 
         if PlayerResource:IsValidPlayerID(playerID) then
-            local heroName = self.selectedHeroes[playerID]
+            local heroName = this.selectedHeroes[playerID]
 
             if heroName then
-                -- Store that it is cached
-                cachedPlayerHeroes[playerID] = true
-
-                --print('Caching ' .. heroName)
+                this.cachedPlayerHeroes[playerID] = true
 
                 PrecacheUnitByNameAsync(heroName, function()
-                    -- Done caching
-                    Timers:CreateTimer(function()
-                        continueCachingHeroes()
-                    end, DoUniqueString('keepCaching'), timerDelay)
+                    this:checkCachingComplete()
+                    this:continueCachingHeroes(allPlayerIDs)
                 end, playerID)
             else
-                Timers:CreateTimer(function()
-                    continueCachingHeroes()
-                end, DoUniqueString('keepCaching'), timerDelay)
+                this:continueCachingHeroes(allPlayerIDs)
             end
         else
-            Timers:CreateTimer(function()
-                continueCachingHeroes()
-            end, DoUniqueString('keepCaching'), timerDelay)
+            this:continueCachingHeroes(allPlayerIDs)
         end
-    end
+    end, DoUniqueString('precacheHack'), 1.0)
+end
 
-    function continueCaching()
-        --print('Continue caching!')
+function Pregame:continueCaching(allSkills)
+    --print('Continue caching!')
+    local this = self
+    Timers:CreateTimer(function()
+        if #allSkills > 0 then
+            local abName = table.remove(allSkills, 1)
 
-        Timers:CreateTimer(function()
-            if #allSkills > 0 then
-                local abName = table.remove(allSkills, 1)
+            --print('Precaching ' .. abName)
 
-                --print('Precaching ' .. abName)
+            SkillManager:precacheSkill(abName, function()
+                -- Check if caching has completed
+                this:checkCachingComplete()
+            end)
 
-                SkillManager:precacheSkill(abName, continueCaching)
-            else
-                Timers:CreateTimer(function()
-                    continueCachingHeroes()
-                end, DoUniqueString('keepCaching'), timerDelay)
-            end
-        end, DoUniqueString('keepCaching'), timerDelay)
-    end
-
-    continueCaching()
-end]]--
-
-
+            -- Keep Caching
+            this:continueCaching(allSkills)
+        end
+    end, DoUniqueString('keepCaching'), 0)
+end
 
 -- Validates builds
 function Pregame:validateBuilds(specificID)
@@ -4239,13 +4143,6 @@ function Pregame:processOptions()
             end
         end
 
-        -- Banning Underpowered versions of abilities
-        if not disableBanLists and this.optionStore['lodOptionAdvancedOPAbilities'] == 0 then
-            --[[for abilityName,v in pairs(this.underpowered) do
-                this:banAbility(abilityName)
-            end]]
-        end
-
         -- Banning invis skills
         if not disableBanLists and this.optionStore['lodOptionBanningBanInvis'] > 0 then
             for abilityName,v in pairs(this.invisSkills) do
@@ -4373,6 +4270,8 @@ function Pregame:processOptions()
         -- Set runespawn times
         if OptionManager:GetOption("fastRunes") == 1 then
             GameRules:SetRuneSpawnTime(30)
+        else
+            GameRules:GetGameModeEntity():SetUseDefaultDOTARuneSpawnLogic(true)
         end
 
         -- Enable Universal Shop
@@ -4393,7 +4292,6 @@ function Pregame:processOptions()
             dummy:AddAbility("imba_tower_forest_generator")
             local treeAbility = dummy:FindAbilityByName("imba_tower_forest_generator")
             treeAbility:SetLevel(1)
-
         end
 
         if OptionManager:GetOption('maxHeroLevel') ~= 25 then
@@ -4548,7 +4446,6 @@ function Pregame:processOptions()
                 ['Bots: Unique Skills'] = this.optionStore['lodOptionBotsUniqueSkills'],
                 ['Bots: Radiant Difficulty'] = this.optionStore['lodOptionBotsRadiantDiff'],
                 ['Bots: Dire Difficulty'] = this.optionStore['lodOptionBotsDireDiff'],
-                ['Bots: Unique Skills'] = this.optionStore['lodOptionBotsUniqueSkills'],
                 ['Bots: Stupefy'] = this.optionStore['lodOptionBotsStupid'],
                 ['Bots: Same Hero'] = this.optionStore['lodOptionBotsSameHero'],
                 ['Bots: Allow Duplicates'] = this.optionStore['lodOptionBotsUnique'],      
@@ -4568,13 +4465,22 @@ function Pregame:processOptions()
     end)
 
     -- Did it fail?
-    if not status then
+    if not status and err then
         SendToServerConsole('say "Post this to the LoD comments section: '..err:gsub('"',"''")..'"')
     end
 end
 
 -- Validates, and then sets an option
 function Pregame:setOption(optionName, optionValue, force)
+    local player = PlayerResource:GetPlayer(0) -- defaults to first player
+    -- Find host
+	for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+        player = PlayerResource:GetPlayer(playerID)
+        if player and GameRules:PlayerHasCustomGameHostPrivileges(player) then
+            break
+        end
+    end
+
     -- option validator
 
     if not self.validOptions[optionName] then
@@ -4687,7 +4593,7 @@ function Pregame:setSelectedHero(playerID, heroName, force)
     -- Check forced stuff
     if not force then
         -- Is this hero banned?
-        -- Validate the ability isn't already banned
+        -- Validate the hero isn't already banned
         if self.bannedHeroes[heroName] then
             -- hero is banned
             network:sendNotification(player, {
@@ -4762,7 +4668,6 @@ function Pregame:setSelectedHero(playerID, heroName, force)
         EmitGlobalSound("Event.Click")
         -- Update the selected hero
         network:setSelectedHero(playerID, heroName)
-
     end
 end
 
@@ -4923,7 +4828,6 @@ function Pregame:onPlayerAskForHero(eventSourceIndex, args)
 
     -- Grab data
     local playerID = args.PlayerID
-    local player = PlayerResource:GetPlayer(playerID)
 
     self:actualSpawnPlayer(playerID)
 end
@@ -5214,11 +5118,11 @@ function Pregame:onPlayerReady(eventSourceIndex, args)
                     if hero:GetTeam() == DOTA_TEAM_BADGUYS then
                         local ent = Entities:FindByClassname(nil, "info_player_start_badguys")
                         hero:SetAbsOrigin(ent:GetAbsOrigin())
-                        hero:AddNewModifier(hero, nil, "modifier_phased", {Duration = 2})
+                        hero:AddNewModifier(hero, nil, "modifier_phased", {duration = 2})
                     elseif hero:GetTeam() == DOTA_TEAM_GOODGUYS then
                         local ent = Entities:FindByClassname(nil, "info_player_start_goodguys")
                         hero:SetAbsOrigin(ent:GetAbsOrigin())
-                        hero:AddNewModifier(hero, nil, "modifier_phased", {Duration = 2})
+                        hero:AddNewModifier(hero, nil, "modifier_phased", {duration = 2})
                     end
                 end
                 GameRules:SendCustomMessage('Player '..PlayerResource:GetPlayerName(playerID)..' just changed build.', 0, 0)
@@ -5263,7 +5167,6 @@ function Pregame:checkForReady()
         minTime = 0.5
     end
 
-
     local canFinishBanning = false
 
     -- If we are in the banning phase
@@ -5291,7 +5194,6 @@ function Pregame:checkForReady()
                 EmitAnnouncerSound(sound)
             end
         end
-
 
         -- Caching must complete first!
         if not donePrecaching then return end
@@ -5560,7 +5462,6 @@ function Pregame:onPlayerBan(eventSourceIndex, args, noNotification)
                 end
             end
 
-
             return
         end
 
@@ -5744,7 +5645,7 @@ function Pregame:onPlayerSelectRandomAbility(eventSourceIndex, args)
     end
 end
 
--- Tries to remove the ability in the giben slot.
+-- Tries to remove the ability in the given slot.
 function Pregame:removeSelectedAbility(playerID, slot, dontNetwork)
     -- Grab the player so we can push messages
     local player = PlayerResource:GetPlayer(playerID)
@@ -5791,7 +5692,7 @@ function Pregame:setSelectedAbility(playerID, slot, abilityName, dontNetwork)
             sort = 'lodDanger',
             text = 'lodFailedInvalidSlot'
         })
-        self:PlayAlert(PlayerID)
+        self:PlayAlert(playerID)
 
         return
     end
@@ -5851,6 +5752,7 @@ function Pregame:setSelectedAbility(playerID, slot, abilityName, dontNetwork)
         end
     end
 
+    local hero = self.selectedHeroes[playerID]
     if hero and GameRules.perks["heroAbilityPairs"][hero] == abilityName then
         network:sendNotification(player, {
             sort = 'lodDanger',
@@ -5862,7 +5764,6 @@ function Pregame:setSelectedAbility(playerID, slot, abilityName, dontNetwork)
 
     -- Don't allow picking banned abilities
     -- Unless they are paired
-    local hero = self.selectedHeroes[playerID]
     if self.bannedAbilities[abilityName] and not (hero and GameRules.perks["heroAbilityPairs"][hero] == abilityName) then
         -- Invalid ability name
         network:sendNotification(player, {
@@ -5942,7 +5843,7 @@ function Pregame:setSelectedAbility(playerID, slot, abilityName, dontNetwork)
         elseif cat == 'imba' then
             allowed = self.optionStore['lodOptionAdvancedImbaAbilities'] == 1
         elseif cat == 'superop' then
-            allowed = 1 -- The check if these abilities are allowed are processed elsewhere.
+            allowed = true -- The check if these abilities are allowed are processed elsewhere.
         elseif cat == 'OP' then
             allowed = self.optionStore['lodOptionAdvancedOPAbilities'] == 0
         end
@@ -6232,9 +6133,6 @@ function Pregame:onPlayerRemoveAbility(eventSourceIndex, args)
         return
     end
 
-
-
-
     local slot = math.floor(tonumber(args.slot))
     -- Is the ability locked to the hero?
     local abName  = self.selectedSkills[playerID][slot]
@@ -6424,10 +6322,6 @@ function Pregame:findRandomSkill(build, slotNumber, playerID, optionalFilter)
             shouldAdd = false
         end
 
-        if abilityName == 'sandking_caustic_finale' then
-            shouldAdd = false
-        end
-
         -- consider ulty count
         if shouldAdd and SkillManager:isUlt(abilityName) then
             if totalUlts >= maxUlts then
@@ -6509,7 +6403,7 @@ function Pregame:findRandomSkill(build, slotNumber, playerID, optionalFilter)
 
             
             if (SkillManager:isPassive(abilityName) or self.flags["semi_passive"][abilityName] ~= nil) then
-            powerfulPassives = powerfulPassives + 1
+                powerfulPassives = powerfulPassives + 1
             end
 
             if powerfulPassives >= 3 then
@@ -6702,7 +6596,7 @@ function Pregame:addExtraTowers()
 
                         if newTower then
                             -- Make it unkillable
-                            newTower:AddNewModifier(ent, nil, 'modifier_invulnerable', {})
+                            newTower:AddNewModifier(newTower, nil, 'modifier_invulnerable', {})
 
                             -- Store connection
                             self.towerConnectors[newTower] = prevTower
@@ -6752,6 +6646,7 @@ function Pregame:multiplyNeutrals()
             --GameRules:SendCustomMessage("multiplyneutrals", 0, 0)
             -- Grab the entity that was hurt
             local ent = EntIndexToHScript(keys.entindex_killed)
+            local attacker
             if keys.entindex_attacker ~= nil then
                 attacker = EntIndexToHScript( keys.entindex_attacker )
             end
@@ -6761,12 +6656,8 @@ function Pregame:multiplyNeutrals()
             -- Neutral Multiplier: Checks if hurt npc is neutral, dead, and if it doesnt have the clone token ability, and their is a valid attacker
             if IsValidEntity(attacker) then
                 if ent:GetTeamNumber() == DOTA_TEAM_NEUTRALS and (ent:GetHealth() <= 0  or not ent:IsAlive())and ent:GetName() == "npc_dota_creep_neutral" and ent:FindAbilityByName("clone_token_ability") == nil then
-
-                    local lastHits = PlayerResource:GetLastHits(attacker:GetOwner():GetPlayerID())
-                    local lastHits = PlayerResource:GetLastHits(attacker:GetOwner():GetPlayerID()) + 1
-                    --print(lastHits)
+                    local lastHits = math.max(PlayerResource:GetLastHits(attacker:GetOwner():GetPlayerID()), 1)
                     self:MultiplyNeutralUnit( ent, attacker, OptionManager:GetOption('neutralMultiply'), lastHits )
-
                 end
             end
 
@@ -6780,6 +6671,7 @@ function Pregame:multiplyLaneCreeps()
             --GameRules:SendCustomMessage("multiplylanecreeps", 0, 0)
             -- Grab the entity that was hurt
             local ent = EntIndexToHScript(keys.entindex_killed)
+            local attacker
             if keys.entindex_attacker ~= nil then
                 attacker = EntIndexToHScript( keys.entindex_attacker )
             end
@@ -6811,6 +6703,7 @@ function Pregame:darkMoonDrops()
 
             -- Grab the entity that was hurt
             local ent = EntIndexToHScript(keys.entindex_killed)
+            local attacker
             if keys.entindex_attacker ~= nil then
                 attacker = EntIndexToHScript( keys.entindex_attacker )
             end
@@ -6934,6 +6827,7 @@ function Pregame:DropGoldOnDeath()
 
             -- Grab the entity that was hurt
             local ent = EntIndexToHScript(keys.entindex_killed)
+            local attacker
             if keys.entindex_attacker ~= nil then
                 attacker = EntIndexToHScript( keys.entindex_attacker )
             end
@@ -6980,11 +6874,6 @@ function Pregame:preventCamping()
                 if ab then
                     ab:SetLevel(skillLevel)
                 end
-            end
-
-            local item = CreateItem('item_monkey_king_bar', fountain, fountain)
-            if item then
-                fountain:AddItem(item)
             end
         end
     end
@@ -7375,12 +7264,12 @@ function Pregame:getSkillforBot( botInfo, botSkills )
     local skills = botSkills[heroName]
     local isAdded
 
-    customSlots = {
+    CUSTOMSLOTS = {
         npc_dota_hero_nevermore = (maxSlots == 4 and 6 or 8)
     }
 
-    if customSlots[heroName] then
-        maxSlots = customSlots[heroName]
+    if CUSTOMSLOTS[heroName] then
+        maxSlots = CUSTOMSLOTS[heroName]
     end
 
     if skills then
@@ -7484,7 +7373,7 @@ function Pregame:isValidSkill( build, playerID, abilityName, slotNumber )
     local team = PlayerResource:GetTeam(playerID)
 
     -- Ensure we have a valid build
-    build = build or {}
+    local build = build or {}
 
     -- Grab the limits
     local maxRegulars = self.optionStore['lodOptionCommonMaxSkills']
@@ -7903,9 +7792,9 @@ function Pregame:applyExtraAbility( spawnedUnit )
 
         if OptionManager:GetOption('extraAbility') == 14 then
             -- Give an essence shift based on heros primary attribute
-            if spawnedUnit:GetPrimaryAttribute() == 0 then essenceshiftToGive = "slark_essence_shift_strength_lod"
-            elseif spawnedUnit:GetPrimaryAttribute() == 1 then essenceshiftToGive = "slark_essence_shift_agility_lod"
-            elseif spawnedUnit:GetPrimaryAttribute() == 2 then essenceshiftToGive = "slark_essence_shift_intellect_lod"
+            if spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH then essenceshiftToGive = "slark_essence_shift_strength_lod"
+            elseif spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_AGILITY then essenceshiftToGive = "slark_essence_shift_agility_lod"
+            elseif spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_INTELLECT then essenceshiftToGive = "slark_essence_shift_intellect_lod"
             end
         end
 
@@ -8072,7 +7961,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                     local chargesModifier = spawnedUnit:FindAbilityByName("special_bonus_unique_gyrocopter_1")
                     if chargesModifier and chargesModifier:GetLevel() > 0 then
                         if not spawnedUnit:FindModifierByName("modifier_gyrocopter_homing_missile_charge_counter") then
-                            spawnedUnit:AddNewModifier(spawnedUnit,nil,"modifier_gyrocopter_homing_missile_charge_counter",{duration = duration})
+                            spawnedUnit:AddNewModifier(spawnedUnit,nil,"modifier_gyrocopter_homing_missile_charge_counter",{})
                         end
                     else
                         -- If Hero has homing missle ability, it doesnt have the talent or doesnt have a level in it, and it has the modifier, remove modifier
@@ -8090,7 +7979,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                     local chargesModifier = spawnedUnit:FindAbilityByName("special_bonus_unique_shadow_demon_7")
                     if chargesModifier and chargesModifier:GetLevel() > 0 then
                         if not spawnedUnit:FindModifierByName("modifier_shadow_demon_disruption_charge_counter") then
-                            spawnedUnit:AddNewModifier(spawnedUnit,nil,"modifier_shadow_demon_disruption_charge_counter",{duration = duration})
+                            spawnedUnit:AddNewModifier(spawnedUnit,nil,"modifier_shadow_demon_disruption_charge_counter",{})
                         end
                     else
                         -- If Hero has homing missle ability, it doesnt have the talent or doesnt have a level in it, and it has the modifier, remove modifier
@@ -8205,14 +8094,14 @@ function Pregame:fixSpawnedHero( spawnedUnit )
             -- Find custom abilities to add AI modifiers
             for k,abilityName in pairs(this.selectedSkills[playerID]) do
                 if botAIModifier[abilityName] then
-                    abModifierName = "modifier_" .. abilityName .. "_ai"
+                    local abModifierName = "modifier_" .. abilityName .. "_ai"
                     spawnedUnit:AddNewModifier(spawnedUnit, nil, abModifierName, {})
                 end
             end
 
             for i = 0, DOTA_MAX_ABILITIES - 1 do
                 local ab = spawnedUnit:GetAbilityByIndex(i)
-                if ab and not string.match(ab:GetAbilityName(), "special_bonus") and not string.match(ab:GetName(), "perk") and customSlots[spawnedUnit:GetUnitName()] then
+                if ab and not string.match(ab:GetAbilityName(), "special_bonus") and not string.match(ab:GetName(), "perk") and CUSTOMSLOTS[spawnedUnit:GetUnitName()] then
                     ab:SetHidden(false)
                 end
             end
@@ -8226,7 +8115,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
 
     -- Toolsmode developer stuff to help test
     if IsInToolsMode() then
-        -- If setting is 1, everyone gets free scepter modifier, if its 2, only human players get the upgrade
         Timers:CreateTimer(function()
                 if IsValidEntity(spawnedUnit) then
                     if not util:isPlayerBot(playerID) then
@@ -8409,16 +8297,16 @@ function Pregame:fixSpawningIssues()
         local spawnedUnit = EntIndexToHScript(keys.entindex)
         
         -- Periodic Spell Cast
-        if not periodicDummyCastingUnitMade and OptionManager:GetOption("periodicSpellCast") == 1 then
+        if not this.periodicDummyCastingUnitMade and OptionManager:GetOption("periodicSpellCast") == 1 then
             -- Create dummy for periodic spellcast
-            periodicDummyCastingUnitMade = true
+            this.periodicDummyCastingUnitMade = true
             local periodicDummyCastingUnit = CreateUnitByName("npc_dummy_unit_imba",Vector(0,0,0),true,nil,nil,DOTA_TEAM_NEUTRALS)
             periodicDummyCastingUnit:AddNewModifier(periodicDummyCastingUnit,nil,"modifier_random_spell_mutator",{})
             local a = periodicDummyCastingUnit:AddAbility("dummy_unit_state")
             a:SetLevel(1)
         end
 
-        if self.wispSpawning then
+        if this.wispSpawning then
             if not self.selectedHeroes[spawnedUnit:GetPlayerOwnerID()] and spawnedUnit:IsRealHero() then
                 spawnedUnit:AddNoDraw()
                 spawnedUnit:AddNewModifier(spawnedUnit,nil,"modifier_tribune",{})
@@ -8497,7 +8385,7 @@ function Pregame:fixSpawningIssues()
                         if #filteredNearbyUnits > 1 then
                             for _, unit in pairs(filteredNearbyUnits) do
                                 if unit and unit.GetItemInSlot and unit:GetName() ~= "" and unit:GetLevel() == spawnedUnit:GetLevel() then
-                                    for j=0,8 do
+                                    for j = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
                                         if unit:GetItemInSlot(j) and spawnedUnit:GetItemInSlot(j) and unit:GetItemInSlot(j):GetAbilityName() == spawnedUnit:GetItemInSlot(j):GetAbilityName() then
                                             realHero = unit
                                             break
@@ -8519,16 +8407,6 @@ function Pregame:fixSpawningIssues()
                             print("Cant find real hero, not changing a thing")
                         end
                     end
-
-                    -- Hotfix: Remove the consumed octarines and replace with originals as the consumed ones are bugged. TODO: Fix buggy consumed version
-                    Timers:CreateTimer(function()
-                        if spawnedUnit:IsNull() then return end
-                        local consumeableOct = spawnedUnit:FindItemByName("item_octarine_core_consumable")
-                        if consumeableOct then
-                          spawnedUnit:RemoveItem(consumeableOct)
-                          spawnedUnit:AddItemByName('item_octarine_core')
-                        end
-                    end, DoUniqueString('replaceOctarine'), 0.5)
 
                     Timers:CreateTimer(function()
                         if IsValidEntity(spawnedUnit) then

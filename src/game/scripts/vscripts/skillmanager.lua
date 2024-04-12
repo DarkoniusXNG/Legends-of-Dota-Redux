@@ -420,7 +420,7 @@ function skillManager:ApplyBuild(hero, build, autoLevelSkills)
 
             -- Store items
             local items = {}
-            for i=0,11 do
+            for i = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
                 local item = hero:GetItemInSlot(i)
 
                 -- Sprint is a item only for Slardar, do not replace

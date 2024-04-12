@@ -737,7 +737,7 @@ function Commands:OnPlayerChat(keys)
                     end
                 end
 
-                for i = 0, 5 do
+                for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
                     local item = hero:GetItemInSlot( i )
                     if item then
                         item:EndCooldown()

@@ -231,7 +231,6 @@ function AddTalents(hero,build)
 end
 
 function GetViableTalents(build)
-    --for K,V in pairs(build) do print(K,V) end
     local ViableTalents = {}
     for i =1,4 do
         ViableTalents[i] = {}
@@ -285,6 +284,11 @@ function SendTalentsToClient(PID,data)
     PID = data.PlayerID
     local build = selectedSkills[PID]
     local talents = GetViableTalents(build)
+
+	print("====================================")
+	print("GetViableTalents")
+	DeepPrintTable(talents)
+	print("====================================")
 
     CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(PID), "send_viable_talents", talents )
 end
