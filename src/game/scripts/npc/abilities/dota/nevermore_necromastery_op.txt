@@ -4,7 +4,6 @@
     {
         "BaseClass"                                                            "nevermore_necromastery"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"OnCastbar"					"0"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"

@@ -118,8 +118,6 @@
 		"lone_druid_spirit_bear_fetch"
 		{
 			"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-			"OnCastbar"						"1"
-			"OnLearnbar"                    "1"
 
 			"ReduxPerks"                    "neutral"
 			"MaxLevel"					"4"

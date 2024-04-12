@@ -194,7 +194,7 @@ local nearbyHeroes = FindUnitsInRadius(self.roshan:GetTeamNumber(), self.roshan:
 					local item = CreateItem("item_imba_aegis", nil, nil)
 					local pos = self.roshan:GetAbsOrigin()
 					local drop = CreateItemOnPositionSync(pos, item)
-					item:LaunchLoot(false, 300, 0.5, pos)
+					item:LaunchLoot(false, 300, 0.5, pos, nil)
 
 					if GAME_ROSHAN_KILLS >= 2 then
 						print("Create Cheese!")
@@ -202,7 +202,7 @@ local nearbyHeroes = FindUnitsInRadius(self.roshan:GetTeamNumber(), self.roshan:
 							local item = CreateItem("item_imba_cheese", nil, nil)
 							local pos = self.roshan:GetAbsOrigin()
 							local drop = CreateItemOnPositionSync(pos, item)
-							item:LaunchLoot(false, 300, 0.5, pos + RandomVector(RandomInt(100, 150)))
+							item:LaunchLoot(false, 300, 0.5, pos + RandomVector(RandomInt(100, 150)), nil)
 						end
 					end
 					if GAME_ROSHAN_KILLS >= 3 then
@@ -211,7 +211,7 @@ local nearbyHeroes = FindUnitsInRadius(self.roshan:GetTeamNumber(), self.roshan:
 							local item = CreateItem("item_refresher_shard", nil, nil)
 							local pos = self.roshan:GetAbsOrigin()
 							local drop = CreateItemOnPositionSync(pos, item)
-							item:LaunchLoot(false, 300, 0.5, pos + RandomVector(RandomInt(100, 150)))
+							item:LaunchLoot(false, 300, 0.5, pos + RandomVector(RandomInt(100, 150)), nil)
 						end
 					end
 

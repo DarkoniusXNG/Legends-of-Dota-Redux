@@ -1054,7 +1054,7 @@ function CDOTA_BaseNPC:DropRapier(hItem, sNewItemName)
 		hRapier.x_pfx = ParticleManager:CreateParticle("particles/item/rapier/cursed_x.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(hRapier.x_pfx, 0, vLocation + vRandomVector)
 	end
-	hRapier:LaunchLoot(false, 250, 0.5, vLocation + vRandomVector)
+	hRapier:LaunchLoot(false, 250, 0.5, vLocation + vRandomVector, nil)
 end
 
 function CDOTA_BaseNPC:AddRangeIndicator(hCaster, hAbility, sAttribute, iRange, iRed, iGreen, iBlue, bShowOnCooldown, bShowAlways, bWithCastRangeIncrease, bRemoveOnDeath)

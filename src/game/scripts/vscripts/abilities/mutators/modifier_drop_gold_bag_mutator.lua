@@ -36,6 +36,6 @@ function modifier_drop_gold_bag_mutator.OnDeath(self,kv)
         if util:isPlayerBot(attacker:GetOwner():GetPlayerID()) then
             dropTarget = attacker:GetAbsOrigin()
         end
-        newItem:LaunchLoot(true, 600, 0.5, dropTarget)
+        newItem:LaunchLoot(true, 600, 0.5, dropTarget, nil)
     end
 end
