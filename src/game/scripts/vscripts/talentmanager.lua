@@ -3,9 +3,9 @@ function StoreTalents()
     TalentList = {}
     for i=1,4 do
         TalentList[i] = {}
-        TalentList["count"..i] = 1
+        TalentList["count"..i] = 1 -- why not 0?
         TalentList["basic"..i] = {}
-        TalentList["basicCount"..i] = 1
+        TalentList["basicCount"..i] = 1 -- why not 0?
     end
     Picked = {}
     PlayerTalents ={}
@@ -20,8 +20,7 @@ function StoreTalents()
     -- Get and order default talents
     local allHeroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
     local abilitiesOverride = GameRules.KVs["npc_abilities_override"]
-    -- local oldabilities = LoadKeyValues('scripts/npc/npc_abilities_oldversion.txt')
-    for hero,params in pairs(allHeroes) do
+    for hero, params in pairs(allHeroes) do
         -- Find first talent
         if type(params) == "table" then
             local talentIndex
@@ -34,12 +33,13 @@ function StoreTalents()
             if talentIndex then
                 for i =1,8 do
                     local n = talentIndex + i -1
-                    local t = math.ceil(i/2)
+                    local t = math.ceil(i/2) -- talent row (bottom is 1, top is 4)
                     if params["Ability"..n] then
-                        local talentName = abilitiesOverride[params["Ability"..n]]
-                        if talentName and talentName.TalentRequiredAbility and not TalentList[t][params["Ability"..n]] then
-                            TalentList[t][params["Ability"..n]] = talentName.TalentRequiredAbility
-                            TalentList["count"..t] = TalentList["count"..t] + 1
+                        local talent_kvs = abilitiesOverride[params["Ability"..n]] -- 'params["Ability"..n]' is the talent name
+						-- Add to the talent list only if TalentRequiredAbility kv exists and if not in the talent list already
+                        if talent_kvs and talent_kvs.TalentRequiredAbility and not TalentList[t][params["Ability"..n]] then
+                            TalentList[t][params["Ability"..n]] = talent_kvs.TalentRequiredAbility -- name of the ability that is improved by the talent
+                            TalentList["count"..t] = TalentList["count"..t] + 1 -- increases the counter
                         elseif util:IsTalent(params["Ability"..n]) and not string.find(params["Ability"..n],"special_bonus_unique") and not TalentList["basic"..t][params["Ability"..n]] then
                             TalentList["basic"..t][params["Ability"..n]] = hero
                             TalentList["basicCount"..t] = TalentList["basicCount"..t] + 1
@@ -58,24 +58,24 @@ function StoreTalents()
                 if params.TalentRequiredAbility and not TalentList[params.TalentRank][ability] then
                     TalentList[params.TalentRank][ability] = params.TalentRequiredAbility
                     TalentList["count"..params.TalentRank] = TalentList["count"..params.TalentRank] + 1
-                else
-                    if TalentList["basic"..params.TalentRank][ability] then
-                        TalentList["basic"..params.TalentRank][ability] = hero
-                        TalentList["basicCount"..params.TalentRank] = TalentList["basicCount"..params.TalentRank] + 1
-                    end
+                -- else
+                    -- if not TalentList["basic"..params.TalentRank][ability] then
+                        -- TalentList["basic"..params.TalentRank][ability] = hero
+                        -- TalentList["basicCount"..params.TalentRank] = TalentList["basicCount"..params.TalentRank] + 1
+                    -- end
                 end
             end
         end
     end
 end
 
-function AddTalents(hero,build)
+function AddTalents(hero, build)
     -- Get the viable talents
 
     hero.heroTalentList = hero.heroTalentList or {}
 
     local function HasTalent(talent)
-        for _,tal in pairs(hero.heroTalentList) do
+        for _, tal in pairs(hero.heroTalentList) do
             if tal == talent then
                 return true
             end
@@ -106,8 +106,6 @@ function AddTalents(hero,build)
     end
 
     local function FindHeroTalentFromList(nTalentRank)
-        
-
         for k,v in pairs(TalentList["basic"..nTalentRank]) do
             if v == hero:GetUnitName() then
                 local hasTalent = false
@@ -126,8 +124,6 @@ function AddTalents(hero,build)
         end
         --print("NOT RETURNING HERO")
     end
-
-    
 
     local function FindNormalTalentFromList(nTalentRank,otherTalent)
         local m = TalentList["basicCount"..nTalentRank]
@@ -232,44 +228,48 @@ end
 
 function GetViableTalents(build)
     local ViableTalents = {}
-    for i =1,4 do
+    for i = 1, 4 do
         ViableTalents[i] = {}
         ViableTalents["count"..i] = 0
-        for k,v in pairs(TalentList[i]) do
-            local t = v
-            if type(t) == "table" then
-                for _,ab in pairs(t) do
-                    for K,V in pairs(build) do
-                        if K ~= "hero" and ab == V then
-                            ViableTalents[i][k] = ab
+        for talentName, linkedAbilities in pairs(TalentList[i]) do
+            -- Check if multiple abilities are linked to talentName
+			if type(linkedAbilities) == "table" then
+                for _, linkedAbilityName in pairs(linkedAbilities) do
+                    for K, V in pairs(build) do
+                        if K ~= "hero" and linkedAbilityName == V then
+                            ViableTalents[i][talentName] = {}
+							ViableTalents[i][talentName]["AbilityName"] = linkedAbilityName
                             ViableTalents["count"..i] = ViableTalents["count"..i] + 1
                             break
                         end
                     end
                 end
             else
-                for K,V in pairs(build) do
-                    if K ~= "hero" and v == V then
-						if GetAbilityKeyValuesByName(v)["AbilitySpecial"] then
-							-- Old Format
-							ViableTalents[i][k] = {}
-							ViableTalents[i][k]["AbilityName"] = v
-							ViableTalents[i][k]["TalentValue"] = GetAbilityKeyValuesByName(v)["AbilitySpecial"]["01"]["value"]
-							ViableTalents["count"..i] = ViableTalents["count"..i] + 1
-						else
-							-- New Format
-							local abilityValues = GetAbilityKeyValuesByName(v)["AbilityValues"]
-							for _k, _v in pairs(abilityValues) do
-								if type(_v) == "table" and _v[k] ~= nil then -- Seems talent values are always in a table
-									local val = _v[k]
-									print(v .. " " .. k .. " " .. val)
-									ViableTalents[i][k] = {}
-									ViableTalents[i][k]["AbilityName"] = v
-									ViableTalents[i][k]["TalentValue"] = val
-									ViableTalents["count"..i] = ViableTalents["count"..i] + 1
-								end
-							end
-						end
+				-- Single ability is linked to talentName
+				local linkedAbilityName = linkedAbilities
+                for K, V in pairs(build) do
+                    if K ~= "hero" and linkedAbilityName == V then
+						-- if GetAbilityKeyValuesByName(linkedAbilityName)["AbilitySpecial"] then
+							-- -- Old Format
+							-- ViableTalents[i][talentName] = {}
+							-- ViableTalents[i][talentName]["AbilityName"] = linkedAbilityName
+							-- -- ViableTalents[i][talentName]["TalentValue"] = GetAbilityKeyValuesByName(talentName)["AbilitySpecial"]["01"]["value"]
+							-- ViableTalents["count"..i] = ViableTalents["count"..i] + 1
+						-- else
+							-- -- New Format
+							-- local abilityValues = GetAbilityKeyValuesByName(linkedAbilityName)["AbilityValues"]
+							-- for _, _v in pairs(abilityValues) do
+								-- if type(_v) == "table" then -- Seems talent values are always in a table
+									-- ViableTalents[i][talentName] = {}
+									-- ViableTalents[i][talentName]["AbilityName"] = linkedAbilityName
+									-- -- ViableTalents[i][talentName]["TalentValue"] = val
+									-- ViableTalents["count"..i] = ViableTalents["count"..i] + 1
+								-- end
+							-- end
+						-- end
+						ViableTalents[i][talentName] = {}
+						ViableTalents[i][talentName]["AbilityName"] = linkedAbilityName
+                        ViableTalents["count"..i] = ViableTalents["count"..i] + 1
                         break
                     end
                 end
@@ -284,11 +284,6 @@ function SendTalentsToClient(PID,data)
     PID = data.PlayerID
     local build = selectedSkills[PID]
     local talents = GetViableTalents(build)
-
-	print("====================================")
-	print("GetViableTalents")
-	DeepPrintTable(talents)
-	print("====================================")
 
     CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(PID), "send_viable_talents", talents )
 end
