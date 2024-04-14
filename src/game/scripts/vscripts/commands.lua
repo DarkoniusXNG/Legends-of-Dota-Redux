@@ -309,10 +309,10 @@ function Commands:OnPlayerChat(keys)
             local status2,err2 = pcall(function()
                 local talents = {}
 
-                for i = 0, 23 do
+                for i = 0, DOTA_MAX_ABILITIES - 1 do
                     if hero:GetAbilityByIndex(i) then 
                         local ability = hero:GetAbilityByIndex(i)
-                        if ability and string.match(ability:GetName(), "special_bonus_") then
+                        if ability and util:IsTalent(ability) then
                             local abName = ability:GetName()
                             table.insert(talents, abName)
                             hero:RemoveAbility(abName)
@@ -618,10 +618,10 @@ function Commands:OnPlayerChat(keys)
                     if findAbility then validAbility = true end
                 end
                 if validAbility then
-                    for i = 0, 23 do
+                    for i = 0, DOTA_MAX_ABILITIES - 1 do
                         if hero:GetAbilityByIndex(i) then 
                             local ability = hero:GetAbilityByIndex(i)
-                            if ability and string.match(ability:GetName(), "special_bonus_") then
+                            if ability and util:IsTalent(ability) then
                                 local abName = ability:GetName()
                                 hero:RemoveAbility(abName)
                             end

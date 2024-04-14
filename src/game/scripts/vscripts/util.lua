@@ -3,7 +3,7 @@ DONOTREMOVE = {
 	ability_lamp_use = true,
 	ability_pluck_famango = true,
 	twin_gate_portal_warp = true,
-	special_bonus_attributes = true,
+	--special_bonus_attributes = true,
 }
 
 if not util then
@@ -149,6 +149,31 @@ function util:isTargetSpell(name)
         return
     end
     return string.find(behavior, "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET")
+end
+
+-- Tells you if given spell is a talent
+function util:IsTalent(ability)
+    local ability_name
+    if type(ability) == "string" then
+        ability_name = ability
+        local ability_data = GetAbilityKeyValuesByName(ability_name)
+        if not ability_data then
+            print("util:IsTalent: Ability "..ability_name.." does not exist!")
+            return false
+        end
+    else
+        if not ability or ability:IsNull() then
+            print("util:IsTalent: Passed parameter does not exist!")
+            return false
+        end
+        if not ability.GetAbilityName then
+            print("util:IsTalent: Passed parameter is not an ability!")
+            return false
+        end
+        ability_name = ability:GetAbilityName()
+    end
+
+    return string.find(ability_name, "special_bonus_") and ability_name ~= "special_bonus_attributes"
 end
 
 function util:sortTable(input)

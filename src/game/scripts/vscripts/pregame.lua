@@ -2005,7 +2005,7 @@ function Pregame:networkHeroes()
             for i=1,24 do
                 local abName = heroValues['Ability' .. i]
 
-                if abName and string.match(abName, "special_bonus_") then
+                if abName and util:IsTalent(abName) then
                     theData['SpecialBonus'..tostring(math.ceil(sb / 2))] = theData['SpecialBonus'..tostring(math.ceil(sb / 2))] or {}
                     table.insert(theData['SpecialBonus'..tostring(math.ceil(sb / 2))], abName)
                     sb = sb + 1
@@ -7549,7 +7549,7 @@ function Pregame:hookBotStuff()
                     if keys.level == 10 then
                         for i = 1, DOTA_MAX_ABILITIES - 1 do
                             local ab = hero:GetAbilityByIndex(i)
-                            if ab and string.find(ab:GetAbilityName(), "special_bonus") then
+                            if ab and util:IsTalent(ab) then
                                 local random = RandomInt(0,1)
                                 hero:GetAbilityByIndex(i+random):UpgradeAbility(true)
                                 break
@@ -7558,7 +7558,7 @@ function Pregame:hookBotStuff()
                     elseif keys.level == 15 then
                         for i = 1, DOTA_MAX_ABILITIES - 1 do
                             local ab = hero:GetAbilityByIndex(i)
-                            if ab and string.find(ab:GetAbilityName(), "special_bonus") then
+                            if ab and util:IsTalent(ab) then
                                 local random = RandomInt(2,3)
                                 hero:GetAbilityByIndex(i+random):UpgradeAbility(true)
                                 break
@@ -7568,7 +7568,7 @@ function Pregame:hookBotStuff()
                     elseif keys.level == 20 then
                         for i = 1, DOTA_MAX_ABILITIES - 1 do
                             local ab = hero:GetAbilityByIndex(i)
-                            if ab and string.find(ab:GetAbilityName(), "special_bonus") then
+                            if ab and util:IsTalent(ab) then
                                 local random = RandomInt(4,5)
                                 hero:GetAbilityByIndex(i+random):UpgradeAbility(true)
                                 break
@@ -7578,7 +7578,7 @@ function Pregame:hookBotStuff()
                     elseif keys.level == 25 then
                         for i = 1, DOTA_MAX_ABILITIES - 1 do
                             local ab = hero:GetAbilityByIndex(i)
-                            if ab and string.find(ab:GetAbilityName(), "special_bonus") then
+                            if ab and util:IsTalent(ab) then
                                 local random = RandomInt(6,7)
                                 hero:GetAbilityByIndex(i+random):UpgradeAbility(true)
                                 break
@@ -7924,17 +7924,9 @@ function Pregame:fixSpawnedHero( spawnedUnit )
             -- 'No Charges' fix for Gyro Homing Missle
             if spawnedUnit:HasAbility('gyrocopter_homing_missile') then
                 Timers:CreateTimer(function()
-                    -- If the hero has the charges perk, and they have a level in it, check if they have modifier, if not, add it
-                    local chargesModifier = spawnedUnit:FindAbilityByName("special_bonus_unique_gyrocopter_1")
-                    if chargesModifier and chargesModifier:GetLevel() > 0 then
-                        if not spawnedUnit:FindModifierByName("modifier_gyrocopter_homing_missile_charge_counter") then
-                            spawnedUnit:AddNewModifier(spawnedUnit,nil,"modifier_gyrocopter_homing_missile_charge_counter",{})
-                        end
-                    else
-                        -- If Hero has homing missle ability, it doesnt have the talent or doesnt have a level in it, and it has the modifier, remove modifier
-                        if spawnedUnit:FindModifierByName("modifier_gyrocopter_homing_missile_charge_counter") then
-                            spawnedUnit:RemoveModifierByName("modifier_gyrocopter_homing_missile_charge_counter")
-                        end
+                    -- If Hero has homing missle ability, it doesnt have the talent or doesnt have a level in it, and it has the modifier, remove modifier
+                    if spawnedUnit:FindModifierByName("modifier_gyrocopter_homing_missile_charge_counter") then
+                        spawnedUnit:RemoveModifierByName("modifier_gyrocopter_homing_missile_charge_counter")
                     end
                 end, DoUniqueString('gyroFix'), 1)
             end

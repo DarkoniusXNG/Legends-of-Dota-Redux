@@ -318,7 +318,7 @@ function Ingame:OnPlayerLearnedAbility(keys)
             end
         end)
         -- Custom stat bonus talents
-        if string.find(abilityName, "special_bonus") and string.find(abilityName, "redux") then
+        if util:IsTalent(abilityName) and string.find(abilityName, "redux") then
             local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
             if hero then
                 LinkLuaModifier("modifier_" .. abilityName, "abilities/talents" .. abilityName .. ".lua",

@@ -26,7 +26,7 @@ function StoreTalents()
         if type(params) == "table" then
             local talentIndex
             for i=1,26 do
-                if params["Ability"..i] and string.find(params["Ability"..i],"special_bonus_") then
+                if params["Ability"..i] and util:IsTalent(params["Ability"..i]) then
                     talentIndex = i
                     break
                 end
@@ -40,7 +40,7 @@ function StoreTalents()
                         if talentName and talentName.TalentRequiredAbility and not TalentList[t][params["Ability"..n]] then
                             TalentList[t][params["Ability"..n]] = talentName.TalentRequiredAbility
                             TalentList["count"..t] = TalentList["count"..t] + 1
-                        elseif string.find(params["Ability"..n],"special_bonus_") and not string.find(params["Ability"..n],"special_bonus_unique") and not TalentList["basic"..t][params["Ability"..n]] then
+                        elseif util:IsTalent(params["Ability"..n]) and not string.find(params["Ability"..n],"special_bonus_unique") and not TalentList["basic"..t][params["Ability"..n]] then
                             TalentList["basic"..t][params["Ability"..n]] = hero
                             TalentList["basicCount"..t] = TalentList["basicCount"..t] + 1
                         end
@@ -334,12 +334,12 @@ function StartTrackingTalentLevels()
                 local function isEven(n) return math.fmod(n,2) ==0 end
                 for j = 0, DOTA_MAX_ABILITIES - 1 do
                     local ability = hero:GetAbilityByIndex(j)
-                    if ability and not ability:IsNull() and string.find(ability:GetAbilityName(),"special_bonus_") then
+                    if ability and not ability:IsNull() and util:IsTalent(ability) then
                         first = first or j
                         --print(j,first,isEven(first) == isEven(j))
                         if isEven(first) == isEven(j) then
                             local talent = hero:GetAbilityByIndex(j+1)
-                            if talent and not talent:IsNull() and string.find(ability:GetAbilityName(),"special_bonus_") then
+                            if talent and not talent:IsNull() and util:IsTalent(talent) then
                                 
                                 --talent:SetLevel(math.max(ability:GetLevel() , talent:GetLevel()))
                                 --ability:SetLevel(math.max(ability:GetLevel() , talent:GetLevel()))
@@ -351,7 +351,7 @@ function StartTrackingTalentLevels()
                             end
                         -- else
                         --     local talent = hero:GetAbilityByIndex(j-1)
-                        --     if talent and not talent:IsNull() and string.find(ability:GetAbilityName(),"special_bonus_") then
+                        --     if talent and not talent:IsNull() and util:IsTalent(talent) then
                         --         print("Levels",ability:GetLevel(),talent:GetLevel())
                         --         talent:SetLevel(math.max(ability:GetLevel() , talent:GetLevel()))
                         --         if talent:GetLevel() < ability:GetLevel()
@@ -369,7 +369,7 @@ function RemoveAllTalents(hero)
     print("REMOVING TALENTS")
     for j = 0, DOTA_MAX_ABILITIES - 1 do
         local ability = hero:GetAbilityByIndex(j)
-        if ability and not ability:IsNull() and string.find(ability:GetAbilityName(), "special_bonus_") then
+        if ability and not ability:IsNull() and util:IsTalent(ability) then
             hero:RemoveAbility(ability:GetAbilityName())
         end
     end

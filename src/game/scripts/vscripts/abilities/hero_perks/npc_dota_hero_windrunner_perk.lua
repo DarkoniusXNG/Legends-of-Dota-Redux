@@ -37,7 +37,7 @@ function modifier_npc_dota_hero_windrunner_perk:OnCreated(keys)
 		
 		for i = 0, caster:GetAbilityCount() - 1 do 
 			local ability = caster:GetAbilityByIndex(i)
-			if ability and ability:IsPassive() and ability:GetName() ~= "npc_dota_hero_windrunner_perk" and not string.find(ability:GetName(),"special_bonus") then
+			if ability and ability:IsPassive() and ability:GetName() ~= "npc_dota_hero_windrunner_perk" and not util:IsTalent(ability) then
 				self.noPassives = true
 				
 			end

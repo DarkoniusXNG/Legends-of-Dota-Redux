@@ -274,19 +274,10 @@ function imba_beastmaster_summon_boar:OnSpellStart()
 
 		-- Moar Boar talent
 		local boar_count = 1
-		if caster:HasAbility("special_bonus_unique_beastmaster_2") then
-			local talent_handler = caster:FindAbilityByName("special_bonus_unique_beastmaster_2")
-			if talent_handler and talent_handler:GetLevel() > 0 then
-				local additional_boars = talent_handler:GetSpecialValueFor("value")
-				if additional_boars then
-					boar_count = boar_count + additional_boars
-				end
-			end
-		end
 
 		for i = 1, boar_count do
 			-- Create boar
-			boar = CreateUnitByName(boar_name..boar_level, spawn_point, true, caster, caster, caster:GetTeamNumber())
+			local boar = CreateUnitByName(boar_name..boar_level, spawn_point, true, caster, caster, caster:GetTeamNumber())
 			boar:AddNewModifier(caster, self, "modifier_imba_beastmaster_boar", {})
 			boar:AddNewModifier(caster, self, "modifier_kill", {duration = boar_duration})
 

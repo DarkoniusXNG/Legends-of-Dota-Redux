@@ -7,6 +7,7 @@ function EatCreep ( keys )
 		local health = target:GetHealth()
 		target:Kill(ability, caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_creep_eaten", {duration = health / 20})
+		-- TODO: special_bonus_unique_doom_3 magic resist
 	end
 end
 
@@ -16,10 +17,6 @@ function CreepGold ( keys )
 	local player = PlayerResource:GetPlayer( pID )
 	local ability = keys.ability
 	local gold = ability:GetLevelSpecialValueFor("devour_gold", ability:GetLevel()) - 1
-
-	if caster:HasAbility("special_bonus_unique_doom_3") and caster:FindAbilityByName("special_bonus_unique_doom_3"):GetLevel() > 0 then
-		gold = gold + ability:GetSpecialValueFor("value")
-	end
 
 	if caster:IsAlive() then
 	    caster:ModifyGold(gold, false, 0)
