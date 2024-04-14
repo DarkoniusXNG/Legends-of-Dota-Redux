@@ -86,13 +86,6 @@ function Ingame:init()
 
     self.botsInLateGameMode           = false
 
-    -- Setup standard rules
-    -- GameRules:GetGameModeEntity():SetTowerBackdoorProtectionEnabled(true)
-
-    PrecacheUnitByNameAsync('npc_precache_npc_dota_hero_ogre_magi', function()
-        CreateUnitByName('npc_precache_npc_dota_hero_ogre_magi', Vector(-10000, -10000, 0), false, nil, nil, 0)
-    end)
-
     PrecacheUnitByNameAsync('npc_precache_wraithnight', function()
         CreateUnitByName('npc_precache_wraithnight', Vector(-10000, -10000, 0), false, nil, nil, 0)
     end)
@@ -570,24 +563,6 @@ function Ingame:onStart()
         end, 'disable_all_vision_fix', 5.2)
     end
 
-    -- Remove powerup runes, spawned before 2 minutes
-    --    Timers:CreateTimer(function ()
-    --        if math.floor(GameRules:GetDOTATime(false, false)/60) < 0.2 then
-    --            local spawners = Entities:FindAllByClassname("dota_item_rune_spawner_powerup")
-    --            for k,v in ipairs(spawners) do
-    --                if v ~= nil then
-    --                    local nearbyRunes = Entities:FindAllByClassnameWithin("dota_item_rune", v:GetOrigin(), 400)
-    --                    for _,rune in ipairs(nearbyRunes) do
-    --                        if rune ~= nil then
-    --                            UTIL_Remove(rune)
-    --                        end
-    --                    end
-    --                end
-    --            end
-    --            return 0.1
-    --        end
-    --    end, 'removeRunes', 0.1)
-
     --secondary fix for randomly not getting skill points for levels 18-24
     --  the other method is inconsistant
     Timers:CreateTimer(function()
@@ -669,11 +644,13 @@ function Ingame:onStart()
         --print(OptionManager:GetOption('useFatOMeter'))
     end
 
-    GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(Ingame, 'FilterExecuteOrder'), self)
-    --GameRules:GetGameModeEntity():SetTrackingProjectileFilter(Dynamic_Wrap(Ingame, 'FilterProjectiles'), self)
-    GameRules:GetGameModeEntity():SetModifierGainedFilter(Dynamic_Wrap(Ingame, 'FilterModifiers'), self)
-    GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(Ingame, 'FilterDamage'), self)
-    --GameRules:GetGameModeEntity():SetAbilityTuningValueFilter(Dynamic_Wrap(Ingame,"FilterValueTuning"),self)
+    local gamemode = GameRules:GetGameModeEntity()
+    -- Filters
+    gamemode:SetExecuteOrderFilter(Dynamic_Wrap(Ingame, 'FilterExecuteOrder'), self)
+    --gamemode:SetTrackingProjectileFilter(Dynamic_Wrap(Ingame, 'FilterProjectiles'), self)
+    gamemode:SetModifierGainedFilter(Dynamic_Wrap(Ingame, 'FilterModifiers'), self)
+    gamemode:SetDamageFilter(Dynamic_Wrap(Ingame, 'FilterDamage'), self)
+    --gamemode:SetAbilityTuningValueFilter(Dynamic_Wrap(Ingame,"FilterValueTuning"),self)
 
 
     ListenToGameEvent('modifier_event', Dynamic_Wrap(Ingame, 'OnModifierEvent'), self)
@@ -1432,7 +1409,7 @@ function Ingame:handleRespawnModifier()
                                             if hero.KamikazeRating > 2 then
                                                 GameRules:SendCustomMessage(
                                                 'Player ' ..
-                                                PlayerResource:GetPlayerName(playerID) ..
+                                                util:GetPlayerNameReliable(playerID) ..
                                                 ' has died at least 3 times in the last ' ..
                                                 allowableSecsBetweenDeaths ..
                                                 " seconds. To prevent Kamikaze tactics, they have incured <font color=\'#FF4949\'>extra respawn time</font>. Use -enablekamikaze (-ek) to disable this safeguard.",
@@ -1549,37 +1526,39 @@ function Ingame:initGoldBalancer()
     -- recalculate player team counts
     self:recalculatePlayerCounts()
 
+    local gamemode = GameRules:GetGameModeEntity()
+
     -- Filter event
-    GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(Ingame, "FilterModifyGold"), self)
-    GameRules:GetGameModeEntity():SetModifyExperienceFilter(Dynamic_Wrap(Ingame, "FilterModifyExperience"), self)
-    GameRules:GetGameModeEntity():SetBountyRunePickupFilter(Dynamic_Wrap(Ingame, "BountyRunePickupFilter"), self)
+    gamemode:SetModifyGoldFilter(Dynamic_Wrap(Ingame, "FilterModifyGold"), self)
+    gamemode:SetModifyExperienceFilter(Dynamic_Wrap(Ingame, "FilterModifyExperience"), self)
+    gamemode:SetBountyRunePickupFilter(Dynamic_Wrap(Ingame, "BountyRunePickupFilter"), self)
 
     local this = self
 
     -- Hook recalculations
     ListenToGameEvent('player_connect', function(keys)
-        GameRules:GetGameModeEntity():SetThink(function()
+        gamemode:SetThink(function()
             -- Recalculate the counts
             this:recalculatePlayerCounts()
         end, 'calcPlayerTotals', 1, nil)
     end, nil)
 
     ListenToGameEvent('player_connect_full', function(keys)
-        GameRules:GetGameModeEntity():SetThink(function()
+        gamemode:SetThink(function()
             -- Recalculate the counts
             this:recalculatePlayerCounts()
         end, 'calcPlayerTotals', 1, nil)
     end, nil)
 
     ListenToGameEvent('player_disconnect', function(keys)
-        GameRules:GetGameModeEntity():SetThink(function()
+        gamemode:SetThink(function()
             -- Recalculate the counts
             this:recalculatePlayerCounts()
         end, 'calcPlayerTotals', 1, nil)
     end, nil)
 
     ListenToGameEvent('game_rules_state_change', function(keys)
-        GameRules:GetGameModeEntity():SetThink(function()
+        gamemode:SetThink(function()
             -- Recalculate the counts
             this:recalculatePlayerCounts()
         end, 'calcPlayerTotals', 1, nil)
@@ -1916,7 +1895,9 @@ function Ingame:giveAntiRatProtection()
 end
 
 function Ingame:updateStrongTowers(tower)
-    self.towerList = LoadKeyValues('scripts/kv/towers.kv')
+    if not self.towerList then
+        self.towerList = LoadKeyValues('scripts/kv/towers.kv')
+    end
     self.usedRandomTowers = {}
 
     local handledTowers = {}
@@ -1955,8 +1936,9 @@ function Ingame:addStrongTowers()
                         botsEnabled = true
                     end
                 end
-
-                self.towerList = LoadKeyValues('scripts/kv/towers.kv')
+                if not self.towerList then
+                    self.towerList = LoadKeyValues('scripts/kv/towers.kv')
+                end
                 self.usedRandomTowers = {}
 
                 local towers = Entities:FindAllByClassname('npc_dota_tower')
@@ -2323,7 +2305,6 @@ function Ingame:FilterModifiers(filterTable)
         modifier_name = modifier_name,
     }
 
-    if modifier_name == "modifier_kill" then print("modifier_name = modifier_kill") end
     -- Tenacity
     if caster:GetTeamNumber() ~= parent:GetTeamNumber() and filterTable["duration"] > 0 then
         filterTable["duration"] = filterTable["duration"] * parent:GetTenacity(modifierEventTable)

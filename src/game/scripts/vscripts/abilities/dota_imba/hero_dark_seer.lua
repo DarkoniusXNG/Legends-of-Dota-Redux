@@ -17,15 +17,6 @@
 -- Editors:
 --     Elfansoer, 04.07.2019
 
-if IsClient() then
-    require('lib/util_imba_client')
-
-	-- Skip talent for now
-	function C_DOTABaseAbility:GetTalentSpecialValueFor( str )
-		return 0
-	end
-end
-
 -- for vacuum ability
 local function IsNearFountain( location, radius )
 	local buildings = FindUnitsInRadius(
@@ -128,7 +119,7 @@ function imba_dark_seer_vacuum:OnSpellStart()
 	for _, enemy in pairs(enemies) do
 		enemy:AddNewModifier(self:GetCaster(), self, "modifier_imba_dark_seer_vacuum", 
 		{
-			duration	= self:GetTalentSpecialValueFor("duration"),
+			duration	= self:GetSpecialValueFor("duration"),
 			x			= self:GetCursorPosition().x,
 			y			= self:GetCursorPosition().y
 		})
@@ -339,7 +330,7 @@ function imba_dark_seer_wormhole:OnSpellStart()
 		if not enemy:IsNull() and enemy:HasModifier("modifier_imba_dark_seer_vacuum_wormhole") and not enemy:HasModifier("modifier_imba_dark_seer_wormhole") and not IsNearFountain(enemy:GetAbsOrigin(), 1700) then
 			enemy:AddNewModifier(self:GetCaster(), self, "modifier_imba_dark_seer_wormhole", 
 			{
-				duration	= self:GetTalentSpecialValueFor("duration"),
+				duration	= self:GetSpecialValueFor("duration"),
 				x			= self:GetCursorPosition().x,
 				y			= self:GetCursorPosition().y
 			})
@@ -497,7 +488,7 @@ end
 
 function modifier_imba_dark_seer_ion_shell:OnCreated()
 	self.radius						= self:GetAbility():GetSpecialValueFor("radius")
-	self.damage_per_second			= self:GetAbility():GetTalentSpecialValueFor("damage_per_second")
+	self.damage_per_second			= self:GetAbility():GetSpecialValueFor("damage_per_second")
 	self.proton_explosion_radius	= self:GetAbility():GetSpecialValueFor("proton_explosion_radius")
 	self.proton_damage_pct			= self:GetAbility():GetSpecialValueFor("proton_damage_pct")
 
@@ -519,7 +510,7 @@ end
 
 function modifier_imba_dark_seer_ion_shell:OnRefresh()
 	self.radius				= self:GetAbility():GetSpecialValueFor("radius")
-	self.damage_per_second	= self:GetAbility():GetTalentSpecialValueFor("damage_per_second")
+	self.damage_per_second	= self:GetAbility():GetSpecialValueFor("damage_per_second")
 	
 	if not IsServer() then return end
 	
@@ -541,7 +532,7 @@ function modifier_imba_dark_seer_ion_shell:OnIntervalThink()
 			
 			-- This is to retroactively upgrade any existing Ion Shells with talent acquisition
 			if self:GetAbility() then
-				self.damage_per_second	= self:GetAbility():GetTalentSpecialValueFor("damage_per_second")
+				self.damage_per_second	= self:GetAbility():GetSpecialValueFor("damage_per_second")
 			end
 			
 			local damageTable = {
@@ -734,7 +725,7 @@ end
 function modifier_imba_dark_seer_wall_of_replica:OnCreated(params)
 	self.width					= self:GetAbility():GetSpecialValueFor("width")
 	self.thickness				= 50 -- Why is this not in vanilla AbilitySpecials?
-	self.slow_duration			= self:GetAbility():GetTalentSpecialValueFor("slow_duration")
+	self.slow_duration			= self:GetAbility():GetSpecialValueFor("slow_duration")
 	self.movement_slow			= self:GetAbility():GetSpecialValueFor("movement_slow")
 	self.scepter_rotation_speed	= self:GetAbility():GetSpecialValueFor("scepter_rotation_speed")
 	
@@ -836,7 +827,7 @@ function modifier_imba_dark_seer_wall_of_replica:OnIntervalThink()
 	
 	-- This is to retroactively upgrade any existing walls with talent acquisition
 	if self:GetAbility() then
-		self.slow_duration			= self:GetAbility():GetTalentSpecialValueFor("slow_duration")
+		self.slow_duration			= self:GetAbility():GetSpecialValueFor("slow_duration")
 	end
 	
 	for _, enemy in pairs(enemies) do

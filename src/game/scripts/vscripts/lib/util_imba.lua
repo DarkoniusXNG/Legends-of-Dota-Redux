@@ -2624,23 +2624,7 @@ end
 
 -- Returns an unit's existing increased cast range modifiers
 function GetCastRangeIncrease( unit )
-	local cast_range_increase = 0
-	
-	-- From items
-	if unit:HasModifier("modifier_item_imba_elder_staff_range") then
-		cast_range_increase = cast_range_increase + 300
-	elseif unit:HasModifier("modifier_item_imba_aether_lens_range") then
-		cast_range_increase = cast_range_increase + 225
-	end
-
-	-- From talents
-	for talent_name,cast_range_bonus in pairs(CAST_RANGE_TALENTS) do
-		if unit:FindAbilityByName(talent_name) and unit:FindAbilityByName(talent_name):GetLevel() > 0 then
-			cast_range_increase = cast_range_increase + cast_range_bonus
-		end
-	end
-
-	return cast_range_increase
+	return unit:GetCastRangeBonus()
 end
 
 -- Safely modify BAT while storing the unit's original value

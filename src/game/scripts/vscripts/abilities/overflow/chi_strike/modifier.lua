@@ -43,7 +43,7 @@ function chi_strike_mod:OnAttack (keys)
 		hAbility.original_target = keys.target
 		if hAbility.chi_on == nil or hAbility.chi_on == false then
 			self:DoProjectile()
-			hAbility:StartCooldown(hAbility:GetTrueCooldown(hAbility:GetLevel()))
+			hAbility:StartCooldown(hAbility:GetTrueCooldown())
 		end
 	end
 	end
@@ -63,7 +63,7 @@ function chi_strike_mod:DoProjectile()
 	local hCaster = self:GetParent()
 	EmitSoundOnLocationWithCaster(hCaster:GetAbsOrigin(), "Hero_Magnataur.ShockWave.Cast", hCaster)
 	local hAbility = self:GetAbility()
-	local bonus_range = hCaster:GetCastRangeIncrease()
+	local bonus_range = hCaster:GetCastRangeBonus()
 	local range = hAbility:GetCastRange(hCaster:GetAbsOrigin(),hAbility.original_target) + bonus_range
 	--local range = hAbility:GetSpecialValueFor("range")
 	local speed = hAbility:GetSpecialValueFor("speed") + bonus_range

@@ -17,17 +17,6 @@
 -- Editors:
 --     Elfansoer, 24.06.2019
 
-if IsClient() then
-    require('lib/util_imba_client')
-
-	-- Skip talent for now
-	function C_DOTABaseAbility:GetTalentSpecialValueFor( str )
-		return 0
-	end
-end
-
-
-
 LinkLuaModifier("modifier_imba_rattletrap_battery_assault", "abilities/dota_imba/hero_rattletrap", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_rattletrap_battery_assault_fragmentation_rend", "abilities/dota_imba/hero_rattletrap", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_rattletrap_battery_assault_percussive_maint_aura", "abilities/dota_imba/hero_rattletrap", LUA_MODIFIER_MOTION_NONE)
@@ -101,7 +90,7 @@ end
 function modifier_imba_rattletrap_battery_assault:OnCreated()
 	-- AbilitySpecials
 	self.radius		= self:GetAbility():GetSpecialValueFor("radius")
-	self.interval	= self:GetAbility():GetTalentSpecialValueFor("interval")
+	self.interval	= self:GetAbility():GetSpecialValueFor("interval")
 	
 	self.fragmentation_mult		= self:GetAbility():GetSpecialValueFor("fragmentation_mult")
 	self.fragmentation_damage	= self:GetAbility():GetSpecialValueFor("fragmentation_damage")
@@ -253,7 +242,7 @@ function modifier_imba_rattletrap_battery_assault_percussive_maint_aura:IsHidden
 function modifier_imba_rattletrap_battery_assault_percussive_maint_aura:IsAura() 				return true end
 function modifier_imba_rattletrap_battery_assault_percussive_maint_aura:IsAuraActiveOnDeath() 	return false end
 
-function modifier_imba_rattletrap_battery_assault_percussive_maint_aura:GetAuraRadius()			return self:GetAbility():GetTalentSpecialValueFor("percussive_maint_radius") end
+function modifier_imba_rattletrap_battery_assault_percussive_maint_aura:GetAuraRadius()			return self:GetAbility():GetSpecialValueFor("percussive_maint_radius") end
 function modifier_imba_rattletrap_battery_assault_percussive_maint_aura:GetAuraSearchFlags()	return DOTA_UNIT_TARGET_FLAG_NONE end
 function modifier_imba_rattletrap_battery_assault_percussive_maint_aura:GetAuraSearchTeam()		return DOTA_UNIT_TARGET_TEAM_FRIENDLY end
 function modifier_imba_rattletrap_battery_assault_percussive_maint_aura:GetAuraSearchType()		return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_OTHER end
@@ -426,7 +415,7 @@ function modifier_imba_rattletrap_power_cogs:OnCreated(params)
 		self.damage					= self:GetAbility():GetSpecialValueFor("damage")
 		self.mana_burn				= self:GetAbility():GetSpecialValueFor("mana_burn")
 		self.attacks_to_destroy		= self:GetAbility():GetSpecialValueFor("attacks_to_destroy")
-		self.push_length			= self:GetAbility():GetTalentSpecialValueFor("push_length")
+		self.push_length			= self:GetAbility():GetSpecialValueFor("push_length")
 		self.push_duration			= self:GetAbility():GetSpecialValueFor("push_duration")
 		self.trigger_distance		= self:GetAbility():GetSpecialValueFor("trigger_distance")
 		self.rotational_speed		= self:GetAbility():GetSpecialValueFor("rotational_speed")
@@ -895,7 +884,7 @@ function imba_rattletrap_rocket_flare:OnSpellStart()
 		local rocket_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(rocket_particle, 0, self:GetCaster():GetAttachmentOrigin(self:GetCaster():ScriptLookupAttachment("attach_rocket")))
 		ParticleManager:SetParticleControl(rocket_particle, 1, self:GetCursorPosition())
-		ParticleManager:SetParticleControl(rocket_particle, 2, Vector(self:GetTalentSpecialValueFor("speed"), 0, 0))
+		ParticleManager:SetParticleControl(rocket_particle, 2, Vector(self:GetSpecialValueFor("speed"), 0, 0))
 		
 		local rocket =
 			{
@@ -903,7 +892,7 @@ function imba_rattletrap_rocket_flare:OnSpellStart()
 				Source 				= self:GetCaster(),
 				Ability 			= self,
 				--EffectName 			= "particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare.vpcf", // IDK why this works as a projectile but you have to use it like a particle anyways and split everything up ugh
-				iMoveSpeed			= self:GetTalentSpecialValueFor("speed"),
+				iMoveSpeed			= self:GetSpecialValueFor("speed"),
 				vSourceLoc 			= self:GetCaster():GetAttachmentOrigin(self:GetCaster():ScriptLookupAttachment("attach_rocket")),
 				bDrawsOnMinimap 	= true,
 				bDodgeable 			= true,
@@ -949,7 +938,7 @@ function imba_rattletrap_rocket_flare:OnSpellStart()
 					local rocket_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare.vpcf", PATTACH_CUSTOMORIGIN, nil)
 					ParticleManager:SetParticleControl(rocket_particle, 0, self:GetCaster():GetAttachmentOrigin(self:GetCaster():ScriptLookupAttachment("attach_rocket")))
 					ParticleManager:SetParticleControl(rocket_particle, 1, random_position)
-					ParticleManager:SetParticleControl(rocket_particle, 2, Vector(self:GetTalentSpecialValueFor("speed"), 0, 0))
+					ParticleManager:SetParticleControl(rocket_particle, 2, Vector(self:GetSpecialValueFor("speed"), 0, 0))
 					
 					local rocket =
 						{
@@ -957,7 +946,7 @@ function imba_rattletrap_rocket_flare:OnSpellStart()
 							Source 				= self:GetCaster(),
 							Ability 			= self,
 							--EffectName 			= "particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare.vpcf", // IDK why this works as a projectile but you have to use it like a particle anyways and split everything up ugh
-							iMoveSpeed			= self:GetTalentSpecialValueFor("speed"),
+							iMoveSpeed			= self:GetSpecialValueFor("speed"),
 							vSourceLoc 			= self:GetCaster():GetAttachmentOrigin(self:GetCaster():ScriptLookupAttachment("attach_rocket")),
 							bDrawsOnMinimap 	= true,
 							bDodgeable 			= true,

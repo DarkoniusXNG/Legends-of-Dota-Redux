@@ -5,9 +5,7 @@ function ThrillInitialize( keys )
 		caster.caster_altitude = 0
 		view_distance = ability:GetLevelSpecialValueFor("bonus_camera_view", (ability:GetLevel() - 1))
 		bonus_vision = ability:GetLevelSpecialValueFor("bonus_vision", (ability:GetLevel() - 1))
-		-- GameRules:GetGameModeEntity():SetCameraDistanceOverride( camera_distance )
 
-		
 		caster.caster_altitude = GetGroundHeight(caster:GetAbsOrigin(), caster)
 		caster.camera_distance = 1200
 		caster.start_bonus = 0

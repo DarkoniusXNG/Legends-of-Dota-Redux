@@ -19,12 +19,12 @@ function RandomGet(keys)
 		ability.randomAb = GetNextAbility(caster.randomSelection)
 		randomAb = caster:AddAbility(ability.randomAb)
 		if not randomAb then
-			if 3 <= caster:GetUnsafeAbilitiesCount() or caster:GetAbilityCount() > 13  then
+			if 3 <= caster:GetUnsafeAbilitiesCount() then
 				ability.randomAb = GetNextAbility(caster.randomSafeSelection)
 				while caster.ownedSkill[ability.randomAb] do
 					ability.randomAb = GetNextAbility(caster.randomSafeSelection)
 				end
-			randomAb = caster:AddAbility(ability.randomAb)
+				randomAb = caster:AddAbility(ability.randomAb)
 			end
 		end
 	end
@@ -147,7 +147,7 @@ function RandomInit(keys)
 			local exAb = caster:FindAbilityByName(exclusion)
 			if not exAb:IsHidden() then
 				caster.ownedSkill[exclusion] = true
-			elseif exAb:GetName() ~= "attribute_bonus" and mainAbilities[exclusion] == nil and OptionManager:GetOption('mapname') ~= "custom_bot" then -- do not remove attribute bonus or subabilities (exclude bots for now)
+			elseif not DONOTREMOVE[exclusion] and mainAbilities[exclusion] == nil and OptionManager:GetOption('mapname') ~= "custom_bot" then -- do not remove attribute bonus or subabilities (exclude bots for now)
 				caster:RemoveAbility(exclusion)
 			end
 		end

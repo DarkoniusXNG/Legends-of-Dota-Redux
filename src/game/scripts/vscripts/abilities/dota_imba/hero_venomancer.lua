@@ -18,20 +18,6 @@
 --     suthernfriend, 03.02.2018
 --     Elfansoer, 17.08.2019
 
-if IsClient() then
-    require('lib/util_imba_client')
-
-	-- define gettalent
-	function C_DOTABaseAbility:GetTalentSpecialValueFor( str )
-		return self:GetSpecialValueFor( str )
-	end
-else
-	-- define gettalent
-	function CDOTABaseAbility:GetTalentSpecialValueFor( str )
-		return self:GetSpecialValueFor( str )
-	end
-end
-
 CreateEmptyTalents("venomancer")
 
 -------------------------------------------
@@ -155,7 +141,7 @@ end
 
 function modifier_imba_toxicity_debuff:GetModifierMagicalResistanceBonus()
 	-- elfansoer: fix toxicity not giving appropriate bonus
-	-- return (self:GetAbility():GetTalentSpecialValueFor("magic_amp_pct") * self:GetStackCount()) * (-1)
+	-- return (self:GetAbility():GetSpecialValueFor("magic_amp_pct") * self:GetStackCount()) * (-1)
 	return (self:GetAbility():GetSpecialValueFor("magic_amp_pct") * self:GetStackCount()) * (-1)
 end
 
@@ -367,7 +353,7 @@ end
 
 function modifier_imba_venomous_gale:OnCreated()
 	self.ability = self:GetAbility()
-	self.movement_slow = self.ability:GetTalentSpecialValueFor("movement_slow")
+	self.movement_slow = self.ability:GetSpecialValueFor("movement_slow")
 	self.tick_interval = self.ability:GetSpecialValueFor("tick_interval")
 	self.tick_damage = self.ability:GetSpecialValueFor("tick_damage")
 	self.counter = 0
@@ -843,7 +829,7 @@ function imba_venomancer_poison_nova:OnSpellStart()
 		-- Parameters
 		local index = 0
 		local radius = self:GetSpecialValueFor("radius")
-		local duration = self:GetTalentSpecialValueFor("duration")
+		local duration = self:GetSpecialValueFor("duration")
 		local main_damage
 		if caster:HasScepter() then
 			main_damage = self:GetSpecialValueFor("main_damage_scepter")

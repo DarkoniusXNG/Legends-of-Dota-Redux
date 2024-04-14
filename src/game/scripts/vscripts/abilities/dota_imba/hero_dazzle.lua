@@ -17,15 +17,6 @@
 --     suthernfriend, 03.02.2018
 --     Elfansoer, 04.07.2019
 
-if IsClient() then
-    require('lib/util_imba_client')
-
-	-- Skip talent for now
-	function C_DOTABaseAbility:GetTalentSpecialValueFor( str )
-		return 0
-	end
-end
-
 ---------------------------------------------------------------------
 -------------------------	Poison Touch	-------------------------
 ---------------------------------------------------------------------

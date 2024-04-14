@@ -17,16 +17,6 @@
 --     suthernfriend, 03.02.2018
 --     Elfansoer, 24.07.2019
 
-if IsClient() then
-    require('lib/util_imba_client')
-
-	function C_DOTABaseAbility:GetTalentSpecialValueFor( text )
-		return 0
-	end
-end
-
-CreateEmptyTalents('juggernaut')
-
 -- Elfansoer: fix missing imba battlepass reference (throughout file)
 
 -- JUGGERNAUT SPECIFIC UTILITY FUNCTIONS --
@@ -59,8 +49,8 @@ function imba_juggernaut_blade_fury:OnSpellStart()
 	-- Fix the infinite radius in custom, but benefits the use of Refresher
 	if self:GetCaster():HasModifier("modifier_imba_juggernaut_blade_fury") then
 		local buff = self:GetCaster():FindModifierByName("modifier_imba_juggernaut_blade_fury")
-		if buff.radius >= (self:GetTalentSpecialValueFor("effect_radius") * 2) then
-		buff.radius = self:GetTalentSpecialValueFor("effect_radius")
+		if buff.radius >= (self:GetSpecialValueFor("effect_radius") * 2) then
+		buff.radius = self:GetSpecialValueFor("effect_radius")
 		end
 	end
 
@@ -98,13 +88,13 @@ function modifier_imba_juggernaut_blade_fury:GetModifierAura()			return "modifie
 
 function modifier_imba_juggernaut_blade_fury:OnCreated()
 	self.original_caster = self:GetCaster()
-	self.dps = self:GetAbility():GetTalentSpecialValueFor("damage_per_sec")
-	self.radius = self:GetAbility():GetTalentSpecialValueFor("effect_radius")
-	self.tick = self:GetAbility():GetTalentSpecialValueFor("damage_tick")
-	self.deflect_chance = self:GetAbility():GetTalentSpecialValueFor("deflect_chance")
+	self.dps = self:GetAbility():GetSpecialValueFor("damage_per_sec")
+	self.radius = self:GetAbility():GetSpecialValueFor("effect_radius")
+	self.tick = self:GetAbility():GetSpecialValueFor("damage_tick")
+	self.deflect_chance = self:GetAbility():GetSpecialValueFor("deflect_chance")
 	self.deflect = true
 
-	self.damage_penalty	= self:GetAbility():GetTalentSpecialValueFor("damage_penalty")
+	self.damage_penalty	= self:GetAbility():GetSpecialValueFor("damage_penalty")
 
 	if IsServer() then
 		if self:GetCaster():IsAlive() then
@@ -168,8 +158,8 @@ function modifier_imba_juggernaut_blade_fury:OnIntervalThink()
 				damage = damage + (wind_dance:GetStackCount() * self.original_caster:FindTalentValue("special_bonus_imba_juggernaut_6","dps") * self.tick)
 			end
 			-- Crit Chance
-			local crit = self.bladedance:GetTalentSpecialValueFor("crit_damage") / 100
-			local chance = self.bladedance:GetTalentSpecialValueFor("crit_chance")			
+			local crit = self.bladedance:GetSpecialValueFor("crit_damage") / 100
+			local chance = self.bladedance:GetSpecialValueFor("crit_chance")			
 			if RollPercentage( chance + self.prng - math.floor( (chance - 5)/chance ) ) then
 				self.prng = 0
 
@@ -377,7 +367,7 @@ function modifier_imba_juggernaut_blade_fury_succ:HorizontalMotion()
 		caster_position = self.caster:GetAbsOrigin()
 		
 		-- The Succ radius 
-		self.radius = self:GetAbility():GetTalentSpecialValueFor("effect_radius")
+		self.radius = self:GetAbility():GetSpecialValueFor("effect_radius")
 		local succ_radius = self.radius * self.caster:FindTalentValue("special_bonus_imba_juggernaut_1")
 		
 		-- Direction
@@ -518,13 +508,13 @@ function imba_juggernaut_healing_ward:OnSpellStart()
 	end)
 
 	-- Increase the ward's health, if appropriate
-	SetCreatureHealth(healing_ward, self:GetTalentSpecialValueFor("health"), true)
+	SetCreatureHealth(healing_ward, self:GetSpecialValueFor("health"), true)
 
 	-- Prevent nearby units from getting stuck
 	ResolveNPCPositions(healing_ward:GetAbsOrigin(), healing_ward:GetHullRadius() + healing_ward:GetCollisionPadding())
 
 	-- Apply the Healing Ward duration modifier
-	healing_ward:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetTalentSpecialValueFor("duration")})
+	healing_ward:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("duration")})
 
 	-- Grant the Healing Ward its abilities
 	-- elfansoer: fix healing ward got 2 abilities
@@ -562,7 +552,7 @@ function imba_juggernaut_healing_ward_passive:OnSpellStart()
 	-- Transform ward into totem
 	caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_NONE)
 	caster:SetModel("models/items/juggernaut/ward/dc_wardupate/dc_wardupate.vmdl")
-	SetCreatureHealth(caster, self:GetTalentSpecialValueFor("health_totem"), true)
+	SetCreatureHealth(caster, self:GetSpecialValueFor("health_totem"), true)
 	caster:FindModifierByName("modifier_imba_juggernaut_healing_ward_passive"):ForceRefresh()
 end
 
@@ -571,9 +561,9 @@ modifier_imba_juggernaut_healing_ward_passive = modifier_imba_juggernaut_healing
 
 function modifier_imba_juggernaut_healing_ward_passive:OnCreated()
 	if IsTotem(self:GetParent()) then
-		self.radius = self:GetAbility():GetTalentSpecialValueFor("heal_radius_totem")
+		self.radius = self:GetAbility():GetSpecialValueFor("heal_radius_totem")
 	else
-		self.radius = self:GetAbility():GetTalentSpecialValueFor("heal_radius")
+		self.radius = self:GetAbility():GetSpecialValueFor("heal_radius")
 	end
 
 	if IsServer() then
@@ -585,7 +575,7 @@ function modifier_imba_juggernaut_healing_ward_passive:OnCreated()
 		-- Attach ambient particle
 		self:GetCaster().healing_ward_ambient_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/juggernaut_healing_ward.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 		ParticleManager:SetParticleControl(self:GetCaster().healing_ward_ambient_pfx, 0, self:GetCaster():GetAbsOrigin() + Vector(0, 0, 100))
-		ParticleManager:SetParticleControl(self:GetCaster().healing_ward_ambient_pfx, 1, Vector(self:GetAbility():GetTalentSpecialValueFor("heal_radius"), 1, 1))
+		ParticleManager:SetParticleControl(self:GetCaster().healing_ward_ambient_pfx, 1, Vector(self:GetAbility():GetSpecialValueFor("heal_radius"), 1, 1))
 		ParticleManager:SetParticleControlEnt(self:GetCaster().healing_ward_ambient_pfx, 2, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
 
 		EmitSoundOn("Hero_Juggernaut.HealingWard.Loop", self:GetParent())
@@ -595,9 +585,9 @@ end
 
 function modifier_imba_juggernaut_healing_ward_passive:OnRefresh()	
 	if IsTotem(self:GetParent()) then
-		self.radius = self:GetAbility():GetTalentSpecialValueFor("heal_radius_totem")
+		self.radius = self:GetAbility():GetSpecialValueFor("heal_radius_totem")
 	else
-		self.radius = self:GetAbility():GetTalentSpecialValueFor("heal_radius")
+		self.radius = self:GetAbility():GetSpecialValueFor("heal_radius")
 	end
 
 	if IsServer() then
@@ -612,7 +602,7 @@ function modifier_imba_juggernaut_healing_ward_passive:OnRefresh()
 		self:GetCaster().healing_ward_ambient_pfx = nil
 		self:GetCaster().healing_ward_ambient_pfx = ParticleManager:CreateParticle("particles/econ/items/juggernaut/bladekeeper_healing_ward/juggernaut_healing_ward_dc.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 		ParticleManager:SetParticleControl(self:GetCaster().healing_ward_ambient_pfx, 0, self:GetCaster():GetAbsOrigin() + Vector(0, 0, 100))
-		ParticleManager:SetParticleControl(self:GetCaster().healing_ward_ambient_pfx, 1, Vector(self:GetAbility():GetTalentSpecialValueFor("heal_radius_totem"), 1, 1))
+		ParticleManager:SetParticleControl(self:GetCaster().healing_ward_ambient_pfx, 1, Vector(self:GetAbility():GetSpecialValueFor("heal_radius_totem"), 1, 1))
 		ParticleManager:SetParticleControlEnt(self:GetCaster().healing_ward_ambient_pfx, 2, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
 	end
 end
@@ -805,13 +795,13 @@ end
 
 function imba_juggernaut_blade_dance:GetCastRange()
 	if self:GetBehavior() ~= DOTA_ABILITY_BEHAVIOR_PASSIVE then
-		return self:GetTalentSpecialValueFor("active_distance")
+		return self:GetSpecialValueFor("active_distance")
 	end
 	return 0
 end
 
 function imba_juggernaut_blade_dance:GetCooldown()
-	return self:GetTalentSpecialValueFor("active_cooldown")
+	return self:GetSpecialValueFor("active_cooldown")
 end
 
 LinkLuaModifier("modifier_imba_juggernaut_blade_dance_empowered_slice", "abilities/dota_imba/hero_juggernaut", LUA_MODIFIER_MOTION_NONE)
@@ -860,10 +850,10 @@ function modifier_imba_juggernaut_blade_dance_empowered_slice:OnCreated()
 		end
 		
 		if not self.max_attack_count then
-		self.max_attack_count = self:GetAbility():GetTalentSpecialValueFor("secret_blade_max_hits")
+		self.max_attack_count = self:GetAbility():GetSpecialValueFor("secret_blade_max_hits")
 		end
-		self.speed = self:GetAbility():GetTalentSpecialValueFor("active_speed")
-		self.maxDistance = self:GetAbility():GetTalentSpecialValueFor("active_distance")
+		self.speed = self:GetAbility():GetSpecialValueFor("active_speed")
+		self.maxDistance = self:GetAbility():GetSpecialValueFor("active_distance")
 		self.distance_left = ( self.endPoint - self.caster:GetAbsOrigin() ):Length2D()
 		self.direction = ( self.endPoint - self.caster:GetAbsOrigin() ):Normalized()
 		self.distance_limit = self.maxDistance - ( self.endPoint - self.initialPos ):Length2D()		
@@ -1279,8 +1269,8 @@ function modifier_imba_juggernaut_blade_dance_passive:OnCreated()
 	end
 
 	self:StartIntervalThink(1)
-	self.crit = self:GetAbility():GetTalentSpecialValueFor("crit_damage")
-	self.chance = self:GetAbility():GetTalentSpecialValueFor("crit_chance")
+	self.crit = self:GetAbility():GetSpecialValueFor("crit_damage")
+	self.chance = self:GetAbility():GetSpecialValueFor("crit_chance")
 	self.critProc = false
 
 	-- Turn unit target passive, tooltip purposes
@@ -1289,8 +1279,8 @@ function modifier_imba_juggernaut_blade_dance_passive:OnCreated()
 end
 
 function modifier_imba_juggernaut_blade_dance_passive:OnRefresh()
-	self.crit = self:GetAbility():GetTalentSpecialValueFor("crit_damage")
-	self.chance = self:GetAbility():GetTalentSpecialValueFor("crit_chance")
+	self.crit = self:GetAbility():GetSpecialValueFor("crit_damage")
+	self.chance = self:GetAbility():GetSpecialValueFor("crit_chance")
 end
 
 function modifier_imba_juggernaut_blade_dance_passive:OnIntervalThink() -- account for talents being skilled
@@ -1383,7 +1373,7 @@ function modifier_imba_juggernaut_blade_dance_passive:HandleWindDance(bCrit)
 
 		local wind_dance = self:GetCaster():FindModifierByName("modifier_imba_juggernaut_blade_dance_wind_dance")
 		if bCrit then
-			if not wind_dance then wind_dance = self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_imba_juggernaut_blade_dance_wind_dance", {duration = self:GetAbility():GetTalentSpecialValueFor("bonus_duration")}) end
+			if not wind_dance then wind_dance = self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_imba_juggernaut_blade_dance_wind_dance", {duration = self:GetAbility():GetSpecialValueFor("bonus_duration")}) end
 			wind_dance:ForceRefresh()
 		elseif wind_dance then
 			wind_dance:SetDuration(wind_dance:GetDuration(), true) -- does not roll refresh
@@ -1400,7 +1390,7 @@ function modifier_imba_juggernaut_blade_dance_passive:HandleSecretBlade()
 
 		local secret_blade = self:GetCaster():FindModifierByName("modifier_imba_juggernaut_blade_dance_secret_blade")
 		
-		if not secret_blade then secret_blade = self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_imba_juggernaut_blade_dance_secret_blade", {duration = self:GetAbility():GetTalentSpecialValueFor("secret_blade_duration")}) end
+		if not secret_blade then secret_blade = self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_imba_juggernaut_blade_dance_secret_blade", {duration = self:GetAbility():GetSpecialValueFor("secret_blade_duration")}) end
 		secret_blade:ForceRefresh()
 	end
 end
@@ -1433,13 +1423,13 @@ function modifier_imba_juggernaut_blade_dance_wind_dance:GetTexture()
 	return "juggernaut_blade_dance" end
 
 function modifier_imba_juggernaut_blade_dance_wind_dance:OnCreated()
-	self.agi = self:GetAbility():GetTalentSpecialValueFor("bonus_agi")
-	self.ms = self:GetAbility():GetTalentSpecialValueFor("bonus_ms")
+	self.agi = self:GetAbility():GetSpecialValueFor("bonus_agi")
+	self.ms = self:GetAbility():GetSpecialValueFor("bonus_ms")
 end
 
 function modifier_imba_juggernaut_blade_dance_wind_dance:OnRefresh()
-	self.agi = self:GetAbility():GetTalentSpecialValueFor("bonus_agi")
-	self.ms = self:GetAbility():GetTalentSpecialValueFor("bonus_ms")
+	self.agi = self:GetAbility():GetSpecialValueFor("bonus_agi")
+	self.ms = self:GetAbility():GetSpecialValueFor("bonus_ms")
 	if IsServer() then
 		self:IncrementStackCount()
 		self:GetParent():CalculateStatBonus()
@@ -1479,13 +1469,13 @@ function modifier_imba_juggernaut_blade_dance_secret_blade:OnStackCountChanged()
 	if IsServer() then -- why? ? ? ? ? (Preserve the question marks ! ! ! ! ! ? ? ? ? ? )
 		self:GetParent():CalculateStatBonus()
 		serverCheck = 1
-		if self:GetStackCount() == self:GetAbility():GetTalentSpecialValueFor("active_min_stacks") then
+		if self:GetStackCount() == self:GetAbility():GetSpecialValueFor("active_min_stacks") then
 		self:GetParent():EmitSound("Imba.JuggernautLightsaber")
 		end
 	end
 
 	-- elfansoer: fix blade dance can be cast at 2 stacks (supposed to be 5)
-	-- if self:GetStackCount() + serverCheck >= self:GetAbility():GetTalentSpecialValueFor("active_min_stacks") and self:GetAbility():GetBehavior() ~= DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IMMEDIATE  then -- inject function calls clientside and serverside
+	-- if self:GetStackCount() + serverCheck >= self:GetAbility():GetSpecialValueFor("active_min_stacks") and self:GetAbility():GetBehavior() ~= DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IMMEDIATE  then -- inject function calls clientside and serverside
 
 	if self:GetStackCount() + serverCheck >= self:GetAbility():GetSpecialValueFor("active_min_stacks") and self:GetAbility():GetBehavior() ~= DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IMMEDIATE  then -- inject function calls clientside and serverside
 		-- Change behavior
@@ -1493,7 +1483,7 @@ function modifier_imba_juggernaut_blade_dance_secret_blade:OnStackCountChanged()
 		self:GetAbility():GetBehavior()
 		self:GetAbility():GetCastRange(self:GetCaster(), self:GetCaster():GetAbsOrigin())
 		self:GetAbility():GetCooldown()
-	elseif self:GetStackCount() + serverCheck < self:GetAbility():GetTalentSpecialValueFor("active_min_stacks") and self:GetAbility():GetBehavior() == DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IMMEDIATE  then
+	elseif self:GetStackCount() + serverCheck < self:GetAbility():GetSpecialValueFor("active_min_stacks") and self:GetAbility():GetBehavior() == DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IMMEDIATE  then
 		self:GetAbility().GetBehavior = function() return DOTA_ABILITY_BEHAVIOR_PASSIVE end
 		self:GetAbility():GetBehavior()
 		self:GetAbility():GetCastRange(self:GetCaster(), self:GetCaster():GetAbsOrigin())
@@ -1848,7 +1838,7 @@ end
 function modifier_imba_omni_slash_talent:GetModifierBaseAttack_BonusDamage()
 	self.caster = self:GetCaster()
 	self.hero_agility = self.caster:GetAgility()
-	self.base_bonus_damage = self:GetAbility():GetTalentSpecialValueFor("bonus_damage_att")
+	self.base_bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage_att")
 
 	if self.hero_agility then
 		local bonus_damage = self.hero_agility * self.base_bonus_damage * 0.01
@@ -1899,8 +1889,8 @@ function modifier_imba_omni_slash_caster:OnCreated()
 	self.caster = self:GetCaster()
 	self.parent = self:GetParent()
 	self.ability = self:GetAbility()
-	self.base_bonus_damage = self:GetAbility():GetTalentSpecialValueFor("bonus_damage_att")
-	self.minimum_damage = self:GetAbility():GetTalentSpecialValueFor("min_damage")
+	self.base_bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage_att")
+	self.minimum_damage = self:GetAbility():GetSpecialValueFor("min_damage")
 	self.last_enemy = nil
 
 	if not self:GetAbility() then

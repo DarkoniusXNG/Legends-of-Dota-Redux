@@ -19,7 +19,7 @@ function spell_reflect_mod:GetReflectSpell(keys)
 		if hAbility:GetLevel() < 1 then return false end
 		if keys.ability:GetCaster():GetTeam() == self:GetCaster():GetTeam() then return false end
 		if hAbility:IsCooldownReady() then
-			hAbility:StartCooldown(hAbility:GetTrueCooldown(hAbility:GetLevel()))
+			hAbility:StartCooldown(hAbility:GetTrueCooldown())
 			self:Reflect(keys)
 		end
 		return 1

@@ -7,11 +7,8 @@ function duskDota:_InitduskDota()
 
   -- Setup rules
   -- GameRules:SetHeroRespawnEnabled( ENABLE_HERO_RESPAWN )
-  -- GameRules:SetUseUniversalShopMode( UNIVERSAL_SHOP_MODE )
   -- GameRules:SetSameHeroSelectionEnabled( ALLOW_SAME_HERO_SELECTION )
   -- GameRules:SetHeroSelectionTime( HERO_SELECTION_TIME )
-  -- GameRules:SetPreGameTime( PRE_GAME_TIME)
-  -- GameRules:SetPostGameTime( POST_GAME_TIME )
   -- GameRules:SetTreeRegrowTime( TREE_REGROW_TIME )
   -- GameRules:SetUseCustomHeroXPValues ( USE_CUSTOM_XP_VALUES )
   -- GameRules:SetGoldPerTick(GOLD_PER_TICK)
@@ -165,7 +162,6 @@ function duskDota:_CaptureduskDota()
     -- mode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
 
     -- --mode:SetBotThinkingEnabled( USE_STANDARD_DOTA_BOT_THINKING )
-    -- mode:SetTowerBackdoorProtectionEnabled( true )
 
     -- mode:SetFogOfWarDisabled(DISABLE_FOG_OF_WAR_ENTIRELY)
     -- mode:SetGoldSoundDisabled( DISABLE_GOLD_SOUNDS )
@@ -173,9 +169,6 @@ function duskDota:_CaptureduskDota()
 
     -- mode:SetAlwaysShowPlayerInventory( SHOW_ONLY_PLAYER_INVENTORY )
     -- mode:SetAnnouncerDisabled( DISABLE_ANNOUNCER )
-    -- if FORCE_PICKED_HERO ~= nil then
-    --   mode:SetCustomGameForceHero( FORCE_PICKED_HERO )
-    -- end
     -- mode:SetFixedRespawnTime( FIXED_RESPAWN_TIME ) 
     -- mode:SetFountainConstantManaRegen( FOUNTAIN_CONSTANT_MANA_REGEN )
     -- mode:SetFountainPercentageHealthRegen( FOUNTAIN_PERCENTAGE_HEALTH_REGEN )

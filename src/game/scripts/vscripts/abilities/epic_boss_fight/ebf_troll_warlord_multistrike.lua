@@ -161,7 +161,6 @@ function Fervor(keys)
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 	local modifier = keys.modifier
-	local standard_cap = GameRules:GetGameModeEntity():GetMaximumAttackSpeed()
 	local max_stacks = ability:GetLevelSpecialValueFor("max_stacks", ability_level)
 	local chance = ability:GetLevelSpecialValueFor("chance_per_stack", ability_level)
 	local duration = ability:GetSpecialValueFor("stack_duration")

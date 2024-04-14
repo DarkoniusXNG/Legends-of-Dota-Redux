@@ -20,13 +20,6 @@
 --	   AltiV, 08.08.2018
 --     Elfansoer, 10.08.2019
 
-if IsClient() then
-    -- require('lib/util_imba_client')
-	function C_DOTABaseAbility:GetTalentSpecialValueFor( field )
-		return self:GetSpecialValueFor( field )
-	end
-end
-
 CreateEmptyTalents("necrolyte")
 
 -------------------------------------------
@@ -254,7 +247,7 @@ function imba_necrolyte_death_pulse:GetAbilityTextureName()
 end
 
 function imba_necrolyte_death_pulse:GetCastRange( location , target)
-	return self:GetTalentSpecialValueFor("radius")
+	return self:GetSpecialValueFor("radius")
 end
 
 function imba_necrolyte_death_pulse:OnSpellStart()
@@ -263,7 +256,7 @@ function imba_necrolyte_death_pulse:OnSpellStart()
 		local caster_loc = caster:GetAbsOrigin()
 
 		-- Parameters
-		local radius = self:GetTalentSpecialValueFor("radius")
+		local radius = self:GetSpecialValueFor("radius")
 		local damage = self:GetSpecialValueFor("damage")
 		local heal_amp = 1 + (caster:GetSpellAmplification(false) * 0.01)
 		local base_heal = self:GetSpecialValueFor("base_heal")
@@ -397,7 +390,7 @@ function imba_necrolyte_ghost_shroud:OnSpellStart()
 
 		-- Params
 		local duration = self:GetSpecialValueFor("duration")
-		local radius = self:GetTalentSpecialValueFor("radius")
+		local radius = self:GetSpecialValueFor("radius")
 		local healing_amp_pct = self:GetSpecialValueFor("healing_amp_pct")
 		local slow_pct = self:GetSpecialValueFor("slow_pct")
 
@@ -411,7 +404,7 @@ function imba_necrolyte_ghost_shroud:OnSpellStart()
 end
 
 function imba_necrolyte_ghost_shroud:GetCastRange( location , target)
-	return self:GetTalentSpecialValueFor("radius")
+	return self:GetSpecialValueFor("radius")
 end
 
 function imba_necrolyte_ghost_shroud:IsHiddenWhenStolen()
@@ -720,11 +713,11 @@ function modifier_imba_heartstopper_aura_damage:OnCreated()
 		self.parent	= self:GetParent()
 	
 		self.radius = self:GetAbility():GetSpecialValueFor("radius")
-		self.damage_pct = self:GetAbility():GetTalentSpecialValueFor("damage_pct")
-		self.tick_rate	= self:GetAbility():GetTalentSpecialValueFor("tick_rate")
+		self.damage_pct = self:GetAbility():GetSpecialValueFor("damage_pct")
+		self.tick_rate	= self:GetAbility():GetSpecialValueFor("tick_rate")
 		
 		if self:GetParent():CanEntityBeSeenByMyTeam(self:GetCaster()) then
-			self:SetStackCount(self:GetAbility():GetTalentSpecialValueFor("heal_reduce_pct"))
+			self:SetStackCount(self:GetAbility():GetSpecialValueFor("heal_reduce_pct"))
 		end
 		
 		if not self.timer then
@@ -740,7 +733,7 @@ function modifier_imba_heartstopper_aura_damage:OnIntervalThink()
 		
 		-- Jank way of hiding modifier if the caster is invisible (client/server issues...as usual)
 		if self:GetParent():CanEntityBeSeenByMyTeam(caster) then
-			self:SetStackCount(self:GetAbility():GetTalentSpecialValueFor("heal_reduce_pct"))
+			self:SetStackCount(self:GetAbility():GetSpecialValueFor("heal_reduce_pct"))
 		else
 			self:SetStackCount(0)
 		end
@@ -770,7 +763,7 @@ end
 
 function modifier_imba_heartstopper_aura_damage:GetModifierHPRegenAmplify_Percentage()
 	if self:GetAbility() ~= nil then
-		return ( self:GetAbility():GetTalentSpecialValueFor("heal_reduce_pct") * (-1) )
+		return ( self:GetAbility():GetSpecialValueFor("heal_reduce_pct") * (-1) )
 	end
 end
 
@@ -992,8 +985,8 @@ end
 
 function modifier_imba_reapers_scythe_debuff:OnCreated( params )
 	local ability = self:GetAbility()
-	self.damage_reduction_pct = ability:GetTalentSpecialValueFor("damage_reduction_pct") * (-1)
-	self.spellpower_reduction = ability:GetTalentSpecialValueFor("spellpower_reduction") * (-1)
+	self.damage_reduction_pct = ability:GetSpecialValueFor("damage_reduction_pct") * (-1)
+	self.spellpower_reduction = ability:GetSpecialValueFor("spellpower_reduction") * (-1)
 end
 
 function modifier_imba_reapers_scythe_debuff:IsDebuff()

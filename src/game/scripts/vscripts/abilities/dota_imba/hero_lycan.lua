@@ -17,14 +17,6 @@
 --     suthernfriend, 03.02.2018
 --     Elfansoer, 10.08.2019
 
-if IsClient() then
-    require('lib/util_imba_client')
-
-	function C_DOTABaseAbility:GetTalentSpecialValueFor( field )
-		return self:GetSpecialValueFor( field )
-	end
-end
-
 CreateEmptyTalents("lycan")
 
 ---------------------------------------------------
@@ -1122,7 +1114,7 @@ function modifier_imba_shapeshift:OnCreated()
     -- Ability specials
     self.night_vision_bonus = self.ability:GetSpecialValueFor("night_vision_bonus")
     self.absolute_speed = self.ability:GetSpecialValueFor("absolute_speed")
-    self.crit_chance = self.ability:GetTalentSpecialValueFor("crit_chance")
+    self.crit_chance = self.ability:GetSpecialValueFor("crit_chance")
     self.crit_damage = self.ability:GetSpecialValueFor("crit_damage")       
     self.certain_crit_cooldown = self.ability:GetSpecialValueFor("certain_crit_cooldown")
 		

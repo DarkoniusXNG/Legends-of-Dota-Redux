@@ -11,18 +11,6 @@ local constants = require('constants')
 -- Keeps track of what skills a given hero has
 local currentSkillList = {}
 
--- Contains ability info
-local mainAbList = LoadKeyValues('scripts/npc/npc_abilities.txt')
-local customAbList = LoadKeyValues('scripts/npc/npc_abilities_custom.txt')
-
--- Calculate attributes on skills (channelled, etc, for multicast)
-util:SetupSpellProperties(mainAbList)
-
--- Merge custom abilities into main abiltiies file
-for k,v in pairs(customAbList) do
-    mainAbList[k] = v
-end
-
 -- Contains info on heroes
 local heroListKV = LoadKeyValues('scripts/npc/npc_heroes.txt')
 
@@ -914,32 +902,40 @@ function skillManager:hasTooMany(build, maxCount, checkFunction)
 end
 
 -- Returns true if a skill is an ultimate
-function skillManager:isUlt(skillName)
-    -- Check if it is tagged as an ulty
-    if mainAbList[skillName] and mainAbList[skillName].AbilityType and mainAbList[skillName].AbilityType == 'DOTA_ABILITY_TYPE_ULTIMATE' then
-        return true
+function skillManager:isUlt(name)
+    local ability_data = GetAbilityKeyValuesByName(name)
+    if not ability_data then
+        print("skillManager:isUlt: Ability "..name.." does not exist!")
+        return
     end
-
-    -- Secondary KV check
-    if util:getAbilityKV(skillName, "AbilityType") and string.match(util:getAbilityKV(skillName, "AbilityType"), 'DOTA_ABILITY_TYPE_ULTIMATE') then
-        return true
+    local ability_type = ability_data.AbilityType
+    if not ability_type then
+        -- If ability type is ommited it's usually a basic ability
+        -- But we can check behavior too
+        local behavior = ability_data.AbilityBehavior
+        if not behavior then
+            print("skillManager:isUlt: Ability "..name.." does not have a behavior!")
+            return false
+        end
+        return string.find(behavior, "DOTA_ABILITY_TYPE_ULTIMATE")
     end
-
-    -- Behavior check
-    if util:getAbilityKV(skillName, "AbilityBehavior") and string.match(util:getAbilityKV(skillName, "AbilityBehavior"), 'DOTA_ABILITY_TYPE_ULTIMATE') then
-        return true
-    end
-
-    return false
+    return string.find(ability_type, "DOTA_ABILITY_TYPE_ULTIMATE")
 end
 
 -- Returns true if a skill is a passive
-function skillManager:isPassive(skillName)
-    if mainAbList[skillName] and mainAbList[skillName].AbilityBehavior and string.match(mainAbList[skillName].AbilityBehavior, 'DOTA_ABILITY_BEHAVIOR_PASSIVE') and not string.match(mainAbList[skillName].AbilityBehavior, 'DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE') then
-        return true
+function skillManager:isPassive(name)
+    local ability_data = GetAbilityKeyValuesByName(name)
+    if not ability_data then
+        print("skillManager:isPassive: Ability "..name.." does not exist!")
+        return
+    end
+    local behavior = ability_data.AbilityBehavior
+    if not behavior then
+        print("skillManager:isPassive: Ability "..name.." does not have a behavior!")
+        return
     end
 
-    return false
+    return string.find(behavior, 'DOTA_ABILITY_BEHAVIOR_PASSIVE') and not string.find(behavior, 'DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE')
 end
 
 -- Attempt to store the precacher of everything

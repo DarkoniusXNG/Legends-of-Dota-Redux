@@ -467,8 +467,8 @@ end
 
 function modifier_ghost_revenant_ghost_immolation_debuff:OnCreated()
 	if IsServer() then
-		self.interval_time = self:GetAbility():GetTalentSpecialValueFor("tick_time") -- must be int
-		self.hp_loss_pct = self:GetAbility():GetTalentSpecialValueFor("hp_loss_pct")
+		self.interval_time = self:GetAbility():GetSpecialValueFor("tick_time") -- must be int
+		self.hp_loss_pct = self:GetAbility():GetSpecialValueFor("hp_loss_pct")
 		self:StartIntervalThink(self.interval_time)
 		self.lose_hp = false
 	end

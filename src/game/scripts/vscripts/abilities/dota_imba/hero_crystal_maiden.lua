@@ -18,15 +18,6 @@
 --     suthernfriend, 03.02.2018
 --     Elfansoer, 24.06.2019
 
-if IsClient() then
-    require('lib/util_imba_client')
-
-	-- Skip talent for now
-	function C_DOTABaseAbility:GetTalentSpecialValueFor( str )
-		return 0
-	end
-end
-
 ---------------------------------
 -- 		   Arcane Dynamo       --
 ---------------------------------

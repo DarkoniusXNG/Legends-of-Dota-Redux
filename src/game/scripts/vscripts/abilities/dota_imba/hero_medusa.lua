@@ -17,14 +17,6 @@
 -- Editors:
 --     Elfansoer, 10.08.2019
 
-if IsClient() then
-    require('lib/util_imba_client')
-
-	function C_DOTABaseAbility:GetTalentSpecialValueFor( field )
-		return self:GetSpecialValueFor( field )
-	end
-end
-
 CreateEmptyTalents("medusa")
 
 LinkLuaModifier("modifier_imba_medusa_split_shot", "abilities/dota_imba/hero_medusa", LUA_MODIFIER_MOTION_NONE)
@@ -142,7 +134,7 @@ function modifier_imba_medusa_split_shot:OnAttack(keys)
 				
 				target_number = target_number + 1
 				
-				if target_number >= self:GetAbility():GetTalentSpecialValueFor("arrow_count") then
+				if target_number >= self:GetAbility():GetSpecialValueFor("arrow_count") then
 					break
 				end
 			end
@@ -382,7 +374,7 @@ function imba_medusa_mystic_snake:OnProjectileHit_ExtraData(hTarget, vLocation, 
 			if hTarget:GetMana() and hTarget:GetMaxMana() and not hTarget:IsIllusion() then 
 				-- Store amount of mana before stealing some
 				local target_mana 	= hTarget:GetMana()
-				local mana_to_steal	= hTarget:GetMaxMana() * self:GetTalentSpecialValueFor("snake_mana_steal") * 0.01
+				local mana_to_steal	= hTarget:GetMaxMana() * self:GetSpecialValueFor("snake_mana_steal") * 0.01
 				
 				hTarget:ReduceMana(mana_to_steal)
 				
@@ -743,7 +735,7 @@ function imba_medusa_stone_gaze:OnSpellStart()
 	
 	self:GetCaster():EmitSound("Hero_Medusa.StoneGaze.Cast")
 	
-	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_imba_medusa_stone_gaze", {duration = self:GetTalentSpecialValueFor("duration")})
+	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_imba_medusa_stone_gaze", {duration = self:GetSpecialValueFor("duration")})
 end
 
 -------------------------
@@ -754,7 +746,7 @@ function modifier_imba_medusa_stone_gaze:IsPurgable()	return false end
 
 function modifier_imba_medusa_stone_gaze:OnCreated()
 	self.radius					= self:GetAbility():GetSpecialValueFor("radius")
-	self.stone_duration			= self:GetAbility():GetTalentSpecialValueFor("stone_duration")
+	self.stone_duration			= self:GetAbility():GetSpecialValueFor("stone_duration")
 	self.face_duration			= self:GetAbility():GetSpecialValueFor("face_duration")
 	self.vision_cone			= self:GetAbility():GetSpecialValueFor("vision_cone") -- It's 0.08715 in the abilityspecial for some reason...w/e I'll just use it
 	self.bonus_physical_damage	= self:GetAbility():GetSpecialValueFor("bonus_physical_damage")

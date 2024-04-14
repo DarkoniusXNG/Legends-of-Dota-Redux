@@ -461,11 +461,9 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
                             local reduction = lvl * -1
 
                             -- Octarine Core fix
-                            --if GameRules:isSource1() then
-                                if hero:HasModifier('modifier_item_octarine_core') or hero:HasModifier("modifier_item_octarine_core_consumable") then
-                                    reduction = reduction * 0.75
-                                end
-                            --end
+                            if hero:HasModifier('modifier_item_octarine_core') or hero:HasModifier("modifier_item_octarine_core_consumable") then
+                                reduction = reduction * 0.75
+                            end
 
                             local timeRemaining = ab:GetCooldownTimeRemaining()
                             local newCooldown = timeRemaining + reduction
@@ -499,12 +497,8 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
                         if ab then
                             local reduction = lvl * -4
 
-                            -- Octarine Core fix
-                            --if GameRules:isSource1() then
-                                if hero:HasModifier('modifier_item_octarine_core') or hero:HasModifier("modifier_item_octarine_core_consumable") then
-                                    reduction = reduction * 0.75
-                                end
-                            --end
+                            -- Cooldown reduction fix
+                            reduction = reduction * hero:GetCooldownReduction()
 
                             local timeRemaining = ab:GetCooldownTimeRemaining()
                             local newCooldown = timeRemaining + reduction
@@ -563,7 +557,7 @@ ListenToGameEvent('entity_hurt', function(keys)
                             redirect_range_tooltip_scepter = ab:GetSpecialValueFor('redirect_range_tooltip_scepter')
                         })
 							-- Apply the cooldown 
-							local cd = ab:GetTrueCooldown(lvl-1)
+							local cd = ab:GetTrueCooldown()
                             ab:StartCooldown(cd)
                     end    
             elseif ab2 and ab2:IsCooldownReady() and not ent:PassivesDisabled() then  

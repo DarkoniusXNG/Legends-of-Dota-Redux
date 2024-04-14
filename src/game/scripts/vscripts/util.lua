@@ -3,7 +3,7 @@ DONOTREMOVE = {
 	ability_lamp_use = true,
 	ability_pluck_famango = true,
 	twin_gate_portal_warp = true,
-	twin_gate_portal_warp = true,
+	special_bonus_attributes = true,
 }
 
 if not util then
@@ -13,16 +13,10 @@ end
 -- A store of player names
 local storedNames = {}
 
--- Create list of spells with certain attributes
-local chanelledSpells = {}
-local targetSpells = {}
-local regularSpells = LoadKeyValues('scripts/npc/npc_abilities.txt')
-
 -- Grab steamid data
 util.contributors = util.contributors or LoadKeyValues('scripts/kv/contributors.kv')
 util.patrons = util.patrons or LoadKeyValues('scripts/kv/patrons.kv')
 util.patreon_features = util.patreon_features or LoadKeyValues('scripts/kv/patreon_features.kv')
-util.bannedKV = util.bannedKV or LoadKeyValues('scripts/kv/banned.kv')
 
 function CDOTABaseAbility:GetTalentSpecialValueFor(value)
     local base = self:GetSpecialValueFor(value)
@@ -50,20 +44,15 @@ end
 function util:GetPlayerNameReliable(playerID)
     -- Ensure player resource is ready
     if not PlayerResource then
-        return 'PlayerResource not loaded!'
+        print("PlayerResource not loaded!")
+        return 'Unknown'
     end
 
     -- Grab their steamID
     local steamID = tostring(PlayerResource:GetSteamAccountID(playerID) or -1)
 
-    -- Return the name we have set, or call the normal function
+    -- Return the name we have set, or call the normal function (GetPlayerName doesn't work)
     return storedNames[steamID] or PlayerResource:GetPlayerName(playerID)
-end
-
--- Round number
-function util:round(num, idp)
-    if num >= 0 then return math.floor(num+.5)
-    else return math.ceil(num-.5) end
 end
 
 -- Store player names
@@ -132,65 +121,35 @@ function util:DeepCopy(orig)
     return copy
 end
 
--- Sets up spell properties
-function util:SetupSpellProperties(abs)
-    for k,v in pairs(abs) do
-        if k ~= 'Version' and k ~= 'ability_base' then
-            if v.AbilityBehavior then
-                -- Check if this spell is channelled
-                if string.match(v.AbilityBehavior, 'DOTA_ABILITY_BEHAVIOR_CHANNELLED') then
-                    chanelledSpells[k] = true
-                end
-
-                -- Check if this spell is target based
-                if string.match(v.AbilityBehavior, 'DOTA_ABILITY_BEHAVIOR_UNIT_TARGET') then
-                    targetSpells[k] = true
-                end
-            end
-        end
-    end
-
-    -- techies remote mines are channeled
-    --chanelledSpells['techies_remote_mines'] = true
-end
-
 -- Tells you if a given spell is channelled or not
-function util:isChannelled(skillName)
-    if chanelledSpells[skillName] then
-        return true
+function util:isChannelled(name)
+    local ability_data = GetAbilityKeyValuesByName(name)
+    if not ability_data then
+        print("util:isChannelled: Ability "..name.." does not exist!")
+        return
     end
-
-    return false
+    local behavior = ability_data.AbilityBehavior
+    if not behavior then
+        print("util:isChannelled: Ability "..name.." does not have a behavior!")
+        return
+    end
+    return string.find(behavior, "DOTA_ABILITY_BEHAVIOR_CHANNELLED")
 end
 
 -- Tells you if a given spell is target based one or not
-function util:isTargetSpell(skillName)
-    if targetSpells[skillName] then
-        return true
+function util:isTargetSpell(name)
+    local ability_data = GetAbilityKeyValuesByName(name)
+    if not ability_data then
+        print("util:isTargetSpell: Ability "..name.." does not exist!")
+        return
     end
-
-    return false
+    local behavior = ability_data.AbilityBehavior
+    if not behavior then
+        print("util:isTargetSpell: Ability "..name.." does not have a behavior!")
+        return
+    end
+    return string.find(behavior, "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET")
 end
-
--- Picks a random rune
---[[function util:pickRandomRune()
-    local validRunes = {
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
-    }
-
-    return validRunes[math.random(#validRunes)]
-end]]--
-
 
 function util:sortTable(input)
     local array = {}
@@ -228,7 +187,7 @@ end
 
 -- Returns true if a player is bot
 function util:isPlayerBot(playerID)
-    return PlayerResource:GetSteamAccountID(playerID) == 0
+    return PlayerResource:GetSteamAccountID(playerID) == 0 or PlayerResource:IsFakeClient(playerID)
 end
 
 -- Returns a player's premium rank
@@ -255,12 +214,9 @@ function util:getPremiumRank(playerID)
         end
     end
 
-    -- TODO: Check dota tickets
-
     -- They are not
     return totalPremium
 end
-
 
 function isPlayerHost(player)
     if type(player) == 'number' then
@@ -277,7 +233,7 @@ function setPlayerHost(oldHost, newHost)
 end
 
 function getPlayerHost()
-    for i=0,DOTA_MAX_PLAYERS do
+    for i = 0, DOTA_MAX_PLAYERS - 1 do
         if PlayerResource:IsValidPlayer(i) then
             local player = PlayerResource:GetPlayer(i)
             if player and player.isHost then
@@ -286,7 +242,6 @@ function getPlayerHost()
         end
     end
 end
-
 
 function util:GetActivePlayerCountForTeam(team)
     local number = 0
@@ -316,29 +271,14 @@ function util:secondsToClock(seconds)
   if seconds <= 0 then
     return "00:00";
   else
-    mins = string.format("%02.f", math.floor(seconds/60));
-    secs = string.format("%02.f", math.floor(seconds - mins *60));
+    local mins = string.format("%02.f", math.floor(seconds/60));
+    local secs = string.format("%02.f", math.floor(seconds - mins *60));
     return mins..":"..secs
   end
 end
 
--- Returns if a player is a time burger
-function util:isTimeBurgler(playerID)
-    local allTimeBurglers = util.bannedKV.timeburglers
-
-    local steamID = PlayerResource:GetSteamAccountID(playerID)
-
-    return allTimeBurglers[tostring(steamID)] ~= nil
-end
-
 -- Returns a player's voting power
 function util:getVotingPower(playerID)
-    -- Are they a time burgler?
-    if self:isTimeBurgler(playerID) then
-        -- Time burglers get one less vote
-        return self:getPremiumRank(playerID)
-    end
-
     return self:getPremiumRank(playerID) + 1
 end
 
@@ -499,7 +439,7 @@ function util:getDaysInPreviousMonths(currentMonth)
     local total = 0
 
     for i=1,(currentMonth-1) do
-        total = total + daysInMonth[i] or 0
+        total = total + daysInMonth[i]
     end
 
     return total
@@ -565,12 +505,22 @@ function CDOTABaseAbility:GetAbilityLifeTime(buffer)
             for l,m in pairs(v) do
                 for o,p in pairs(m) do
                     if string.match(o, "duration") then -- look for the highest duration keyvalue
-                        checkDuration = self:GetLevelSpecialValueFor(o, -1)
+                        local checkDuration = self:GetLevelSpecialValueFor(o, -1)
                         if checkDuration > duration then duration = checkDuration end
                     elseif string.match(o, "delay") then -- look for a delay for spells without duration but do have a delay
-                        checkDelay = self:GetLevelSpecialValueFor(o, -1)
+                        local checkDelay = self:GetLevelSpecialValueFor(o, -1)
                         if checkDelay > duration then delay = checkDelay end
-          end
+                    end
+                end
+            end
+        elseif k == "AbilityValues" then
+            for l, m in pairs(v) do
+                if string.match(l, "duration") then
+                    local checkDuration = self:GetLevelSpecialValueFor(l, -1)
+                    if checkDuration > duration then duration = checkDuration end
+                elseif string.match(l, "delay") then
+                    local checkDelay = self:GetLevelSpecialValueFor(l, -1)
+                    if checkDelay > duration then delay = checkDelay end
                 end
             end
         end
@@ -589,12 +539,12 @@ function CDOTABaseAbility:GetAbilityLifeTime(buffer)
     local bounces = self:GetLevelSpecialValueFor("jump_count", -1)
     delay = self:GetLevelSpecialValueFor("jump_delay", -1) * bounces
   elseif self:GetName() == "furion_wrath_of_nature" then
-    local bounces = self:GetLevelSpecialValueFor("max_targets_scepter", -1)
+    local bounces = self:GetLevelSpecialValueFor("max_targets", -1)
     delay = self:GetLevelSpecialValueFor("jump_delay", -1) * bounces
   elseif self:GetName() == "death_prophet_exorcism" then
     local distance = self:GetLevelSpecialValueFor("max_distance", -1) + 2000 -- add spirit break distance to be sure
     delay = distance / self:GetLevelSpecialValueFor("spirit_speed", -1)
-  elseif self:GetName() == "necrolyse_death_pulse" then
+  elseif self:GetName() == "necrolyte_death_pulse" then
     local distance = self:GetLevelSpecialValueFor("area_of_effect", -1) + 2000 -- add blink range + buffer zone to be safe
     delay = distance / self:GetLevelSpecialValueFor("projectile_speed", -1)
   elseif self:GetName() == "spirit_breaker_charge_of_darkness" then
@@ -635,7 +585,7 @@ function CDOTA_BaseNPC:GetUnsafeAbilitiesCount()
         if self:GetAbilityByIndex(i) then
             local ability = self:GetAbilityByIndex(i)
             local name = ability:GetName()
-            if not randomKv["Safe"][name] and name ~= "attribute_bonus" and not self.ownedSkill[name] then
+            if not randomKv["Safe"][name] and not self.ownedSkill[name] then
                 count = count + 1
             end
         end
@@ -643,27 +593,18 @@ function CDOTA_BaseNPC:GetUnsafeAbilitiesCount()
     return count
 end
 
-
-function CDOTA_BaseNPC:GetCastRangeIncrease()
- local range = 0
- local stack_range = 0
- for _, parent_modifier in pairs(self:FindAllModifiers()) do
-   if parent_modifier.GetModifierCastRangeBonus then
-     range = math.max(range,parent_modifier:GetModifierCastRangeBonus())
-   end
-   if parent_modifier.GetModifierCastRangeBonusStacking then
-     stack_range = stack_range + parent_modifier:GetModifierCastRangeBonusStacking()
-   end
- end
- local hTalent = nil
- for talent_name,talent_range_bonus in pairs(CAST_RANGE_TALENTS) do
-   hTalent = self:FindAbilityByName(talent_name)
-   if hTalent ~= nil and hTalent:GetLevel() > 0 then
-     stack_range = stack_range + talent_range_bonus
-   end
-   hTalent = nil
- end
- return range + stack_range
+function CDOTA_BaseNPC:GetSafeAbilitiesCount()
+    local count = 0
+    for i = 0, DOTA_MAX_ABILITIES - 1 do
+        local ability = self:GetAbilityByIndex(i)
+        if ability then
+            local name = ability:GetName()
+            if not DONOTREMOVE[name] then
+                count = count + 1
+            end
+        end
+    end
+    return count
 end
 
 function CDOTABaseAbility:GetTrueCooldown()
@@ -672,37 +613,10 @@ function CDOTABaseAbility:GetTrueCooldown()
   local hero = self:GetCaster()
   local mabWitch = hero:FindAbilityByName('death_prophet_witchcraft')
   if mabWitch then cooldown = cooldown - mabWitch:GetLevel() end
-  local cooldown_reduct = 0
-  local cooldown_reduct_stack = 0
-  for k,v in pairs(hero:FindAllModifiers()) do
-      if v.GetModifierPercentageCooldown then
-        cooldown_reduct = math.max(cooldown_reduct,v:GetModifierPercentageCooldown())
-      end
-      if v.GetModifierPercentageCooldownStacking then
-        cooldown_reduct_stack = cooldown_reduct_stack + v:GetModifierPercentageCooldownStacking()
-      end
-  end
-  cooldown = cooldown * math.max(0.01,(1 - (cooldown_reduct + cooldown_reduct_stack)*0.01))
+  
+  cooldown = cooldown * hero:GetCooldownReduction()
   return cooldown
 end
-
-function CDOTA_BaseNPC:GetCooldownReduction()
-  if Convars:GetBool('dota_ability_debug') then return 0 end
-  local hero = self
-
-  local cooldown_reduct = 0
-  local cooldown_reduct_stack = 0
-  for k,v in pairs(hero:FindAllModifiers()) do
-      if v.GetModifierPercentageCooldown then
-        cooldown_reduct = math.max(cooldown_reduct,v:GetModifierPercentageCooldown())
-      end
-      if v.GetModifierPercentageCooldownStacking then
-        cooldown_reduct_stack = cooldown_reduct_stack + v:GetModifierPercentageCooldownStacking()
-      end
-  end
-  return math.max(0.01,(1 - (cooldown_reduct + cooldown_reduct_stack)*0.01))
-end
-
 
 -- modifierEventTable = {
 --     caster = caster,
@@ -806,9 +720,9 @@ function CDOTABaseAbility:HasAbilityFlag(flag)
 end
 
 function util:split(s, delimiter)
-    result = {};
+    local result = {};
     for match in (s..delimiter):gmatch("(.-)"..delimiter) do
-        table.insert(result, match);
+        table.insert(result, match)
     end
     return result;
 end
@@ -828,9 +742,8 @@ function util:anyBots()
 end
 
 function util:isSinglePlayerMode()
-    local maxPlayerID = 24
     local count = 0
-    for playerID=0,(maxPlayerID-1) do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS -1 do
         if not self:isPlayerBot(playerID) then
             count = count + 1
             if count > 1 then return false end
@@ -843,7 +756,7 @@ end
 function util:checkPickedHeroes( builds )
     local players = {}
 
-    for i=0,23 do
+    for i = 0, DOTA_MAX_TEAM_PLAYERS -1 do
         local ply = PlayerResource:GetPlayer(i)
         if ply then
             if not builds[i] then
@@ -869,91 +782,7 @@ function util:isCoop()
     end
 end
 
-function CDOTABaseAbility:CreateIllusions(hTarget,nIllusions,flDuration,flIncomingDamage,flOutgoingDamage,flRadius)
-    local caster = self:GetCaster()
-    local ability = self
-    local player = caster:GetPlayerOwnerID()
-    if not flRadius then flRadius = 50 end
-    local illusions = {}
-    local vRandomSpawnPos = {
-        Vector( flRadius, 0, 0 ),
-        Vector( 0, flRadius, 0 ),
-        Vector( -flRadius, 0, 0 ),
-        Vector( 0, -flRadius, 0 ),
-    }
-
-    for i=#vRandomSpawnPos, 2, -1 do
-      local j = RandomInt( 1, i )
-      vRandomSpawnPos[i], vRandomSpawnPos[j] = vRandomSpawnPos[j], vRandomSpawnPos[i]
-    end
-    for i =1, nIllusions do
-        if not vRandomSpawnPos or #vRandomSpawnPos == 0 then
-            vRandomSpawnPos[1] = RandomVector(flRadius)
-        end
-        local illusion = CreateUnitByName(hTarget:GetUnitName(),hTarget:GetAbsOrigin() +vRandomSpawnPos[1],true,caster,caster:GetOwner(),caster:GetTeamNumber())
-        table.remove(vRandomSpawnPos, 1)
-        illusion:MakeIllusion()
-        illusion:SetControllableByPlayer(player,true)
-        illusion:SetPlayerID(player)
-        illusion:SetHealth(hTarget:GetHealth())
-        illusion:SetMana(hTarget:GetMana())
-        illusion:AddNewModifier(caster, ability, "modifier_illusion", {duration = flDuration, outgoing_damage=flOutgoingDamage, incoming_damage = flIncomingDamage})
-
-        --make sure this unit actually has stats
-        if illusion.GetStrength then
-            --copy over all the stat modifiers from the original hero
-            for k,v in pairs(hTarget:FindAllModifiersByName("modifier_stats_tome")) do
-                local instance = illusion:AddNewModifier(illusion, v:GetAbility(), "modifier_stats_tome", {stat = v.stat})
-                instance:SetStackCount(v:GetStackCount())
-            end
-        end
-
-        local level = hTarget:GetLevel()
-        for i=1,level-1 do
-            illusion:HeroLevelUp(false)
-        end
-
-        for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
-            local abilityTemp = caster:GetAbilityByIndex(abilitySlot)
-
-            if abilityTemp and not DONOTREMOVE[abilityTemp:GetAbilityName()] then
-                illusion:RemoveAbility(abilityTemp:GetAbilityName())
-            end
-        end
-
-        illusion:SetAbilityPoints(0)
-        for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
-            local abilityTemp = hTarget:GetAbilityByIndex(abilitySlot)
-
-            if abilityTemp then
-                illusion:AddAbility(abilityTemp:GetAbilityName())
-                local abilityLevel = abilityTemp:GetLevel()
-                if abilityLevel > 0 then
-                    local abilityName = abilityTemp:GetAbilityName()
-                    local illusionAbility = illusion:FindAbilityByName(abilityName)
-                    if illusionAbility then
-                        illusionAbility:SetLevel(abilityLevel)
-                    end
-                end
-            end
-        end
-
-        for itemSlot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
-            local item = hTarget:GetItemInSlot(itemSlot)
-            if item then
-                local itemName = item:GetName()
-                local newItem = CreateItem(itemName, illusion,illusion)
-                illusion:AddItem(newItem)
-            end
-        end
-        table.insert(illusions,illusion)
-    end
-    ResolveNPCPositions(hTarget:GetAbsOrigin(),flRadius*1.05)
-    return illusions
-end
-
 function CDOTA_BaseNPC:FixIllusion(source)
-
     for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
         local abilityTemp = self:GetAbilityByIndex(abilitySlot)
 
@@ -966,7 +795,6 @@ function CDOTA_BaseNPC:FixIllusion(source)
         local abilityTemp = source:GetAbilityByIndex(abilitySlot)
 
         if abilityTemp then
-
             self:AddAbility(abilityTemp:GetAbilityName())
             local abilityLevel = abilityTemp:GetLevel()
             if abilityLevel > 0 then
@@ -980,23 +808,32 @@ function CDOTA_BaseNPC:FixIllusion(source)
     end
 end
 
-
 function CDOTA_BaseNPC:HasAbilityWithFlag(flag)
     for i = 0, DOTA_MAX_ABILITIES - 1 do
-    local ability = self:GetAbilityByIndex(i)
-    if ability and not ability:IsHidden() and ability:HasAbilityFlag(flag) then
-      return true
+        local ability = self:GetAbilityByIndex(i)
+        if ability then
+            return ability:HasAbilityFlag(flag)
+        end
     end
-  end
-  return false
+    return false
 end
 
 function CDOTABaseAbility:IsCustomAbility()
-    return IsCustomAbilityByName(self:GetAbilityName())
+	local ability_kvs = GetAbilityKeyValuesByName(self:GetAbilityName())
+	if not ability_kvs then
+		print("IsCustomAbility: Ability "..self:GetAbilityName().." does not exist.")
+		return
+	end
+	return ability_kvs.BaseClass ~= nil
 end
 
 function IsCustomAbilityByName(name)
-    return regularSpells[name:gsub("_lod", ""):gsub("_redux", "")] == nil
+	local ability_kvs = GetAbilityKeyValuesByName(name)
+	if not ability_kvs then
+		print("IsCustomAbilityByName: Ability "..name.." does not exist.")
+		return
+	end
+	return ability_kvs.BaseClass ~= nil
 end
 
 function CDOTA_BaseNPC:HasUnitFlag(flag)
@@ -1004,7 +841,7 @@ function CDOTA_BaseNPC:HasUnitFlag(flag)
 end
 
 function GetRandomAbilityFromListForPerk(flag)
-    numberOfValues = 0
+    local numberOfValues = 0
     local localTable = {}
 
     -- Getting the number of abilities and recreating the table
@@ -1269,16 +1106,15 @@ function util:getToggleIgnores()
     return toIgnore
 end
 
-local abilityKVs = {}
 function util:getAbilityKV(ability, key)
     if key then
-        if abilityKVs[ability] then
-            return abilityKVs[ability][key]
+        if self.abilityKVs[ability] then
+            return self.abilityKVs[ability][key]
         end
     elseif ability then
-        return abilityKVs[ability]
+        return self.abilityKVs[ability]
     else
-        return abilityKVs
+        return self.abilityKVs
     end
 end
 
@@ -1310,27 +1146,6 @@ function util:tableCount(t)
     return counter
 end
 
--- Function to get the original ability values to be used
-function StoreSpecialKeyValues(object,ability,abilityName)
-  if not ABILITIES_TXT then
-    ABILITIES_TXT = LoadKeyValues("scripts/npc/npc_abilities.txt")
-    ITEMS_TXT = LoadKeyValues("scripts/npc/items.txt")
-    --for k,v in pairs(LoadKeyValues("scripts/npc/npc_abilities_override.txt")) do ABILITIES_TXT[k] = v end
-    --for k,v in pairs(LoadKeyValues("scripts/npc/npc_abilities_custom.txt")) do ABILITIES_TXT[k] = v end
-  end
-
-  if not ability then ability = object end
-
-  for k,v in pairs(ABILITIES_TXT[abilityName]["AbilitySpecial"]) do
-    for K,V in pairs(v) do
-      if K ~= "var_type" and K ~= "LinkedSpecialBonus" then
-        local array = StringToArray(V)
-        object[tostring(K)] = tonumber(array[ability:GetLevel()]) or tonumber(array[#array])
-      end
-    end
-  end
-end
-
 function StringToArray(inputString, seperator)
   if not seperator then seperator = " " end
   local array={}
@@ -1342,20 +1157,6 @@ function StringToArray(inputString, seperator)
   end
   return array
 end
-function GenerateTalentAbilityList()
-		local tab = LoadKeyValues("scripts/npc/npc_abilities.txt")
-		for k,v in pairs(tab) do
-			if type(v) ~= "number" then
-				if v.AbilitySpecial then
-					for K,V in pairs(v.AbilitySpecial) do
-						if V.LinkedSpecialBonus then
-							print("'"..V.LinkedSpecialBonus.."'","'"..k.."'")
-						end
-					end
-				end
-			end
-		end
-	end
 
 (function()
     toIgnore = { -- These are abilities that wont trigger essence aura (among other things)
@@ -1374,20 +1175,20 @@ function GenerateTalentAbilityList()
         elder_titan_return_spirit = true,
     }
 
-    abilityKVs = LoadKeyValues('scripts/npc/npc_abilities.txt')
+    util.abilityKVs = LoadKeyValues('scripts/npc/npc_abilities.txt')
     local absOverride = LoadKeyValues('scripts/npc/npc_abilities_override.txt')
     local absCustom = LoadKeyValues('scripts/npc/npc_abilities_custom.txt')
 
-    util:MergeTables(abilityKVs, absOverride)
-    util:MergeTables(abilityKVs, absCustom)
+    util:MergeTables(util.abilityKVs, absOverride)
+    util:MergeTables(util.abilityKVs, absCustom)
 
-    for abilityName,data in pairs(abilityKVs) do
+    for abilityName,data in pairs(util.abilityKVs) do
         if type(data) == 'table' then
             if data.AbilityBehavior and string.match(data.AbilityBehavior, 'DOTA_ABILITY_BEHAVIOR_TOGGLE') then
                 toIgnore[abilityName] = true
             end
         else
-            abilityKVs[abilityName] = nil
+            util.abilityKVs[abilityName] = nil
         end
     end
 

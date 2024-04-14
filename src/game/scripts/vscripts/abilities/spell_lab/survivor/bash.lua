@@ -31,7 +31,7 @@ function spell_lab_survivor_bash_modifier:OnAttackLanded(keys)
 	 	 			local stun_dur = hAbility:GetSpecialValueFor("duration")
 					keys.target:AddNewModifier( self:GetCaster(), self, "generic_lua_stun", { duration = stun_dur , stacking = 0 } )
 					EmitSoundOnLocationWithCaster( self:GetParent():GetAbsOrigin(), "DOTA_Item.SkullBasher", self:GetParent() )
-					hAbility:StartCooldown(hAbility:GetTrueCooldown(hAbility:GetLevel()))
+					hAbility:StartCooldown(hAbility:GetTrueCooldown())
 			end
 		end
 --return self:GetStackCount()

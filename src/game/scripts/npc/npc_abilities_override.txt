@@ -788,11 +788,7 @@
             "ReduxPerks"                                                           "neutral | attack_modifier | poison"
             "ReduxCost"                                                            "20"
         }
-     //   "attribute_bonus"
-     //   {
-     //       "MaxLevel"                                                             "999"
-     //       "LevelsBetweenUpgrades"                                                "1"
-     //   }
+
         "black_dragon_fireball"
         {
             "MaxLevel"                                                             "4"

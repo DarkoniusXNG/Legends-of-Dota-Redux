@@ -6,23 +6,9 @@ local endGameDelay = 15
 -- If we have started or not
 local hasStarted = false
 
--- Load bans
-local bans
-function loadBans()
-    -- Reload steamID64s
-    bans = LoadKeyValues('scripts/kv/banned.kv');
-end
-loadBans()
-
--- Console command to reload bans
-Convars:RegisterCommand('reload_bans', function()
-    loadBans()
-end, 'Reloads the bans KV', 0)
-
 -- Allocation stuff
 local autoAllocateMode = 1
 local preAllocate = {}
-local extraBans = {}
 
 -- Ban manager
 local autoAllocate = {}
@@ -34,12 +20,6 @@ ListenToGameEvent('player_connect', function(keys)
     local steamID64 = tostring(keys.xuid)
 
     steamIDs[keys.userid] = steamID64
-
-    -- Check bans
-    if bans[steamID64] or extraBans[steamID64] then
-        SendToServerConsole('kickid '..keys.userid);
-        return
-    end
 
     if autoAllocate[steamID64] then return end
 
@@ -317,11 +297,5 @@ return function(data)
     if data.preAllocate ~= nil then
         preAllocate = data.preAllocate
         print('Auto allocation table loaded!')
-    end
-
-    -- Check if there are extra bans
-    if data.banPlayers ~= nil then
-        extraBans = data.banPlayers
-        print('Extra bans table loaded!')
     end
 end

@@ -480,7 +480,7 @@
             "RunScript"
             {
                 "ScriptFile"    "abilities/nextgeneration/hero_scaw/illusion_line.lua"
-                "Function"      "CreateIllusions"
+                "Function"      "CreateIllusionLine"
                 "Target"        "POINT"
             }
             "ApplyModifier"

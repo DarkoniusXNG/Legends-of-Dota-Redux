@@ -18,20 +18,6 @@
 --     suthernfriend, 03.02.2018
 --     Elfansoer, 17.08.2019
 
-if IsClient() then
-    require('lib/util_imba_client')
-
-	-- define gettalent
-	function C_DOTABaseAbility:GetTalentSpecialValueFor( str )
-		return self:GetSpecialValueFor( str )
-	end
-else
-	-- define gettalent
-	function CDOTABaseAbility:GetTalentSpecialValueFor( str )
-		return self:GetSpecialValueFor( str )
-	end
-end
-
 CreateEmptyTalents("vengefulspirit")
 
 LinkLuaModifier("modifier_special_bonus_imba_vengefulspirit_4", "abilities/dota_imba/hero_vengefulspirit.lua", LUA_MODIFIER_MOTION_NONE)
@@ -236,7 +222,7 @@ end
 -------------------------------------------
 
 function imba_vengefulspirit_magic_missile:GetAOERadius()
-	return self:GetTalentSpecialValueFor("split_radius")
+	return self:GetSpecialValueFor("split_radius")
 end
 
 function imba_vengefulspirit_magic_missile:CastFilterResultTarget( target )
@@ -263,7 +249,7 @@ function imba_vengefulspirit_magic_missile:OnSpellStart( params , reduce_pct, ta
 		end
 
 		-- Parameters
-		local damage = self:GetTalentSpecialValueFor("damage")
+		local damage = self:GetSpecialValueFor("damage")
 		local stun_duration = self:GetSpecialValueFor("stun_duration")
 		local split_radius = self:GetSpecialValueFor("split_radius")
 		local split_reduce_pct = self:GetSpecialValueFor("split_reduce_pct")
@@ -877,7 +863,7 @@ function imba_vengefulspirit_nether_swap:OnSpellStart()
 		local target = self:GetCursorTarget()
 
 		-- Parameters
-		local swapback_delay = self:GetTalentSpecialValueFor("swapback_delay")
+		local swapback_delay = self:GetSpecialValueFor("swapback_delay")
 		local swapback_duration = self:GetSpecialValueFor("swapback_duration")
 		local tree_radius = self:GetSpecialValueFor("tree_radius")
 

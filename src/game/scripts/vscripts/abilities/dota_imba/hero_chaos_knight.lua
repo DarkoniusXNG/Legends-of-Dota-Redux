@@ -287,20 +287,30 @@ function modifier_chaos_knight_phantasm_cast:OnDestroy()
 		EmitSoundOn("Hero_ChaosKnight.Phantasm.Plus", caster)
 	end
 
-	caster.phantasm_illusions = ability:CreateIllusions(caster,images_count,flDuration,incomingDamage,outgoingDamage,25)
+	local illu_table = {
+		outgoing_damage = 100 - outgoingDamage,
+		incoming_damage = incomingDamage - 100,
+		bounty_base = 0,
+		bounty_growth = 0,
+		outgoing_damage_structure = 100 - outgoingDamage,
+		outgoing_damage_roshan = 100 - outgoingDamage,
+		duration = duration,
+	}
 
-	--[[for i=1, images_count do
-		local illusion = IllusionManager:CreateIllusion(caster, ability, casterOrigin, caster, {damagein=incomingDamage, damageout=outgoingDamage, unique="chaos_knight_phantasm_"..i, duration=duration})
-		table.insert(caster.phantasm_illusions, illusion)
-	end]]
+	caster.phantasm_illusions = CreateIllusions(caster, caster, illu_table, images_count, caster:GetHullRadius(), true, true)
 
-	for i=1, #caster.phantasm_illusions+1 do
-		if i ~= #caster.phantasm_illusions+1 then
-			FindClearSpaceForUnit( caster.phantasm_illusions[i], casterOrigin, true )
-		else
-			FindClearSpaceForUnit( caster, casterOrigin, true )
-		end
+	for i = 1, #caster.phantasm_illusions do
+		local illusion = caster.phantasm_illusions[i]
+		--make sure this unit actually has stats
+        if illusion.GetStrength then
+            --copy over all the stat modifiers from the original hero
+            for _, v in pairs(caster:FindAllModifiersByName("modifier_stats_tome")) do
+                local instance = illusion:AddNewModifier(illusion, ability, "modifier_stats_tome", {stat = v.stat})
+                instance:SetStackCount(v:GetStackCount())
+            end
+        end
 	end
+
 	ParticleManager:DestroyParticle(self.phantasm_particle, true)
 	ParticleManager:ReleaseParticleIndex(self.phantasm_particle)
 	self.phantasm_particle = nil

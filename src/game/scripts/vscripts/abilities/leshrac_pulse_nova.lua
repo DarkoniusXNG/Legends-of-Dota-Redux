@@ -23,9 +23,6 @@ function modifier_leshrac_pulse_nova_lighting_redux:IsPurgable() return false en
 
 function modifier_leshrac_pulse_nova_lighting_redux:OnCreated()
   if IsServer() then
-    local ability = self:GetAbility()
-    local caster = self:GetCaster()
-    StoreSpecialKeyValues(self,caster:FindAbilityByName("leshrac_lightning_storm"),"leshrac_lightning_storm")
     self:StartIntervalThink(self.interval_scepter)
   end
 end
@@ -46,8 +43,6 @@ function modifier_leshrac_pulse_nova_redux:IsPurgable() return false end
 
 function modifier_leshrac_pulse_nova_redux:OnCreated()
   if IsServer() then
-    local ability = self:GetAbility()
-    StoreSpecialKeyValues(self,ability,"leshrac_pulse_nova")
     self:StartIntervalThink(1)
     self:OnIntervalThink()
 

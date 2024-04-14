@@ -4,8 +4,6 @@
 
 **abilityReps.kv** -
 
-**banned.kv** - List of banned players from Redux. This is imported from original LoD and has not been updated since Redux split off.
-
 **bans.kv** - Ability combination bans. Most banned combinations are now dealt with "ReduxBans" flags in the ability data, and bans.kv is slightly a relic, but now it contains special ban combinations, like groups of banned abilities and other special bans. 
 
 **bot_skills.kv** - Lists abilities that bots will select for their extra skills, each bot has a list and the lists are in order of priority, the best abilities at the top, worst at the bottom.

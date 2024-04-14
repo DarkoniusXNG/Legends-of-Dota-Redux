@@ -254,13 +254,6 @@ function IsFountain( unit )
 	return false
 end
 
---	function CDOTABaseAbility:GetTrueCooldown()
---		local cooldown = self:GetCooldown(-1)
---		local cdr = self:GetCaster():GetCooldownReduction()
---		cooldown = cooldown * cdr
---		return cooldown
---	end
-
 -- Check if an unit is near the enemy fountain
 function IsNearEnemyFountain(location, team, distance)
 
@@ -532,21 +525,7 @@ end
 
 -- Returns an unit's existing increased cast range modifiers
 function GetCastRangeIncrease( unit )
-    local cast_range_increase = 0
-    -- Only the greatefd st increase counts for items, they do not stack
-    for _, parent_modifier in pairs(unit:FindAllModifiers()) do        
-        if parent_modifier.GetModifierCastRangeBonus then
-            cast_range_increase = math.max(cast_range_increase,parent_modifier:GetModifierCastRangeBonus())
-        end        
-    end    
-
-    for _, parent_modifier in pairs(unit:FindAllModifiers()) do        
-        if parent_modifier.GetModifierCastRangeBonusStacking then
-            cast_range_increase = cast_range_increase + parent_modifier:GetModifierCastRangeBonusStacking()
-        end
-    end        
-
-    return cast_range_increase
+    return unit:GetCastRangeBonus()
 end
 
 -- Talent handling
@@ -574,26 +553,6 @@ function CDOTA_BaseNPC:HighestTalentTypeValue(talentType)
 		end
 	end
 	return value
-end
-
-function CDOTABaseAbility:GetTalentSpecialValueFor(value)
-	local base = self:GetSpecialValueFor(value)
-	local talentName
-	local kv = self:GetAbilityKeyValues()
-	for k,v in pairs(kv) do -- trawl through keyvalues
-		if k == "AbilitySpecial" then
-			for l,m in pairs(v) do
-				if m[value] then
-					talentName = m["LinkedSpecialBonus"]
-				end
-			end
-		end
-	end
-	if talentName then 
-		local talent = self:GetCaster():FindAbilityByName(talentName)
-		if talent and talent:GetLevel() > 0 then base = base + talent:GetSpecialValueFor("value") end
-	end
-	return base
 end
 
 function CreateEmptyTalents(hero)

@@ -58,8 +58,6 @@ LinkLuaModifier("modifier_bat_manager","abilities/modifiers/modifier_bat_manager
 LinkLuaModifier("modifier_core_courier", 'abilities/courier/modifier_core_courier',LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_core_courier_flying", 'abilities/courier/modifier_core_courier_flying',LUA_MODIFIER_MOTION_NONE)
 
--- Valve's updated courerier spawn
-GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 
 --[[
     Main pregame, selection related handler
@@ -72,7 +70,7 @@ local buildBackups = {}
 function Pregame:init()
 	-- Load KVs
 	GameRules.KVs = {}
-	GameRules.KVs["npc_abilities"] = LoadKeyValues('scripts/npc/npc_abilities.txt')
+	GameRules.KVs["npc_abilities"] = util.abilityKVs
 	GameRules.KVs["npc_abilities_custom"] = LoadKeyValues('scripts/npc/npc_abilities_custom.txt')
 	GameRules.KVs["npc_abilities_override"] = LoadKeyValues('scripts/npc/npc_abilities_override.txt')
 	GameRules.KVs["npc_heroes"] = LoadKeyValues('scripts/npc/npc_heroes.txt')
@@ -258,41 +256,20 @@ function Pregame:init()
         },
     }
 
+    -- Setup standard rules
+    local gamemode = GameRules:GetGameModeEntity()
+    -- gamemode:SetTowerBackdoorProtectionEnabled(true)
+    gamemode:SetSelectionGoldPenaltyEnabled(false) -- disables losing gold during loading
+    gamemode:SetFreeCourierModeEnabled(true)
+    gamemode:SetBotThinkingEnabled(true) -- default dota bot AI
+
     -- Init thinker
-    GameRules:GetGameModeEntity():SetThink('onThink', self, 'PregameThink', 0.25)
+    gamemode:SetThink('onThink', self, 'PregameThink', 0.25)
+    -- Hero selection (state durations etc.)
     GameRules:SetHeroSelectionTime(0)   -- Hero selection is done elsewhere, hero selection should be instant
-    GameRules:GetGameModeEntity():SetBotThinkingEnabled(true)
-    GameRules:SetStrategyTime( 0 )
-    GameRules:SetShowcaseTime( 10 )
-    GameRules:GetGameModeEntity():SetCustomGameForceHero("npc_dota_hero_wisp")
-
-    -- Rune fix
-    -- local totalRunes = 0
-    -- local needBounty = false
-    -- GameRules:GetGameModeEntity():SetRuneSpawnFilter(function(context, runeStuff)
-    --    totalRunes = totalRunes + 1
-    --    if totalRunes % 2 == 1 then
-    --        if math.random() < 0.5 then
-    --            needBounty = false
-    --           runeStuff.rune_type = DOTA_RUNE_BOUNTY
-    --        else
-    --            needBounty = true
-    --            runeStuff.rune_type = util:pickRandomRune()
-    --        end
-    --    else
-    --        if needBounty then
-    --            runeStuff.rune_type = DOTA_RUNE_BOUNTY
-    --        else
-    --            runeStuff.rune_type = util:pickRandomRune()
-
-    --        end
-
-            -- No longer need a bounty rune
-    --        needBounty = false
-    --    end
-
-    --    return true
-    -- end, self)
+    GameRules:SetStrategyTime(0)
+    GameRules:SetShowcaseTime(0)
+    gamemode:SetCustomGameForceHero("npc_dota_hero_wisp")
 
     -- Init options
     self:initOptionSelector()
@@ -469,9 +446,7 @@ function Pregame:init()
             end
         end
     end
-    for k,v in pairs(GameRules.KVs["npc_abilities_custom"]) do
-        GameRules.KVs["npc_abilities"][k] = v
-    end
+
     for abilityName,data in pairs(GameRules.KVs["npc_abilities"]) do
         if type(data) == 'table' and data.AbilityBehavior and string.match(data.AbilityBehavior, 'DOTA_ABILITY_BEHAVIOR_TOGGLE') then
             AddPerkToAbility(abilityName, 'toggle_ability')
@@ -1012,12 +987,10 @@ end
 
 -- Checks for premium players
 function Pregame:checkForPremiumPlayers()
-    local maxPlayerID = 24
-
     -- Stores premium info
     local premiumInfo = {}
 
-    for playerID=0,maxPlayerID-1 do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:GetConnectionState(playerID) >= 2 then
             premiumInfo[playerID] = util:getPremiumRank(playerID)
         end
@@ -1055,28 +1028,30 @@ end
 
 -- Send the patreon features
 function Pregame:sendPatreonFeatures()
-    -- Push the patrons
-    local patreon_features = LoadKeyValues('scripts/kv/patreon_features.kv')
-    CustomNetTables:SetTableValue('phase_pregame', 'patreonMutators', patreon_features)
-    --PlayerTables:CreateTable("patreonMutators", , true)
-    local date = string.gsub(GetSystemDate(),"/","")
-    math.randomseed(tonumber(date))
-    local count = 0
-    for k,v in pairs(patreon_features["Options"]) do
-        count = count + 1
+    if util.patreon_features then
+        -- Push the patrons
+        local patreon_features = util.patreon_features
+        CustomNetTables:SetTableValue('phase_pregame', 'patreonMutators', patreon_features)
+        --PlayerTables:CreateTable("patreonMutators", , true)
+        local date = string.gsub(GetSystemDate(),"/","")
+        math.randomseed(tonumber(date))
+        local count = 0
+        for k,v in pairs(patreon_features["Options"]) do
+            count = count + 1
+        end
+
+
+        MutatorOfTheDay = math.random(1,count)
+
+        print("MutatorOfTheDay",MutatorOfTheDay,count)
+        CustomNetTables:SetTableValue('phase_pregame', 'MutatorOfTheDay', {value = MutatorOfTheDay-1})
+        --PlayerTables:CreateTable("MutatorOfTheDay", {number = MutatorOfTheDay-1}, true)
+        network:setPatreonFeatures(util.patreon_features)
+
+        -- Change random seed
+        local timeTxt = string.gsub(string.gsub(GetSystemTime(), ':', ''), '0','')
+        math.randomseed(tonumber(timeTxt))
     end
-
-
-    MutatorOfTheDay = math.random(1,count)
-
-    print("MutatorOfTheDay",MutatorOfTheDay,count)
-    CustomNetTables:SetTableValue('phase_pregame', 'MutatorOfTheDay', {value = MutatorOfTheDay-1})
-    --PlayerTables:CreateTable("MutatorOfTheDay", {number = MutatorOfTheDay-1}, true)
-    network:setPatreonFeatures(util.patreon_features)
-
-    -- Change random seed
-    local timeTxt = string.gsub(string.gsub(GetSystemTime(), ':', ''), '0','')
-    math.randomseed(tonumber(timeTxt))
 end
 
 function Pregame:startBoosterDraftRound( pID )
@@ -1121,8 +1096,7 @@ function Pregame:startBoosterDraftRound( pID )
 end
 
 function Pregame:applyBuilds()
-    local maxPlayerID = 24
-    for playerID=0,maxPlayerID-1 do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS -1 do
         Timers:CreateTimer(function ()
             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if not self:isBackgroundSpawning() and (self.wispSpawning and hero and hero:GetUnitName() ~= self.selectedHeroes[playerID]) then
@@ -1341,7 +1315,7 @@ function Pregame:onThink()
                 if self:isBackgroundSpawning() then
                     self:setPhase(constants.PHASE_SELECTION)
                 else
-                    GameRules:SetPreGameTime(180.0)
+                    GameRules:SetPreGameTime(190.0)
                     self:setPhase(constants.PHASE_SPAWN_HEROES)
                 end
                 self:setWispMethod()
@@ -1602,7 +1576,7 @@ end
 
 function Pregame:setWispMethod()
     if OptionManager:GetOption('mapname') == "dota" then
-        GameRules:GetGameModeEntity():SetCustomGameForceHero("")
+        GameRules:GetGameModeEntity():SetCustomGameForceHero("") -- HOW IS THIS NOT CRASHING?
     else
         GameRules:GetGameModeEntity():SetCustomGameForceHero("npc_dota_hero_wisp")
         self.wispSpawning = true
@@ -1624,11 +1598,9 @@ end
 
 -- Called automatically when we get player data
 function Pregame:onGetPlayerData(playerDataBySteamID)
-    local maxPlayerID = 24
-
     self.playerGameStats = {}
 
-    for playerID = 0,maxPlayerID-1 do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         local steamID = PlayerResource:GetSteamAccountID(playerID)
         if steamID ~= 0 then
             local theirData = playerDataBySteamID[tostring(steamID)]
@@ -2068,9 +2040,7 @@ function Pregame:finishOptionSelection()
     local totalRadiant = 0
     local totalDire = 0
 
-    local maxPlayerID = 24
-
-    for playerID=0,maxPlayerID-1 do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         local team = PlayerResource:GetCustomTeamAssignment(playerID)
 
         if team == DOTA_TEAM_GOODGUYS then
@@ -2080,7 +2050,7 @@ function Pregame:finishOptionSelection()
         end
     end
 
-    for playerID=0,maxPlayerID-1 do
+    for playerID = 0 ,DOTA_MAX_TEAM_PLAYERS - 1 do
         local team = PlayerResource:GetCustomTeamAssignment(playerID)
 
         if team ~= DOTA_TEAM_GOODGUYS and team ~= DOTA_TEAM_BADGUYS then
@@ -2156,7 +2126,7 @@ function Pregame:finishOptionSelection()
             if self:isBackgroundSpawning() then
                 self:setPhase(constants.PHASE_SELECTION)
             else
-                GameRules:SetPreGameTime(180.0)
+                GameRules:SetPreGameTime(190.0)
                 self:setPhase(constants.PHASE_SPAWN_HEROES)
             end
             self:setWispMethod()
@@ -2210,49 +2180,51 @@ function Pregame:onOptionChanged(eventSourceIndex, args)
     local optionName = args.k
     local optionValue = args.v
 
-    if util.patreon_features and 
-        util.patreon_features["Options"] and 
-        util.patreon_features["Options"][optionName] then
-        local isPatron = false
-        local isDeveloper = false
-        for k,v in pairs(util.patrons) do
-            --print(PlayerResource:GetSteamID(playerID), PlayerResource:GetSteamAccountID(playerID))
-            if v.steamID3 == PlayerResource:GetSteamAccountID(playerID) then
-                isPatron = true
-                break
-            end
-        end
-        for k,v in pairs(util.contributors) do
-            if v.steamID3 == PlayerResource:GetSteamAccountID(playerID) then
-                isDeveloper = true
-                break
-            end
-        end
+    if util.patreon_features then
+        if util.patreon_features["Options"] then
+            if util.patreon_features["Options"][optionName] then
+                local isPatron = false
+                local isDeveloper = false
+                for k,v in pairs(util.patrons) do
+                    --print(PlayerResource:GetSteamID(playerID), PlayerResource:GetSteamAccountID(playerID))
+                    if v.steamID3 == PlayerResource:GetSteamAccountID(playerID) then
+                        isPatron = true
+                        break
+                    end
+                end
+                for k,v in pairs(util.contributors) do
+                    if v.steamID3 == PlayerResource:GetSteamAccountID(playerID) then
+                        isDeveloper = true
+                        break
+                    end
+                end
 
-        local var
-        local i = 1
-        
-        for k,v in pairs(util.patreon_features.Options) do
-            if i == MutatorOfTheDay then
-                var = k
-                break
-            end
-            i = i+1
-        end
-        if optionName ~= var then
-            if not isPatron and (not IsInToolsMode() and isDeveloper) then
-                -- Tell the user they tried to modify an invalid option
-                network:sendNotification(player, {
-                    sort = 'lodDanger',
-                    text = 'lodNoPatreonSubscription',
-                    params = {
-                        ['optionName'] = optionName
-                    }
-                })
-                -- Timers:CreateTimer(function()
-                --     self:setOption(optionName, self.optionStore[optionName])
-                -- end, "lodOptionFailed", 0.1) 
-                return
+                local var
+                local i = 1
+                
+                for k,v in pairs(util.patreon_features.Options) do
+                    if i == MutatorOfTheDay then
+                        var = k
+                        break
+                    end
+                    i = i+1
+                end
+                if optionName ~= var then
+                    if not isPatron and (not IsInToolsMode() and isDeveloper) then
+                        -- Tell the user they tried to modify an invalid option
+                        network:sendNotification(player, {
+                            sort = 'lodDanger',
+                            text = 'lodNoPatreonSubscription',
+                            params = {
+                                ['optionName'] = optionName
+                            }
+                        })
+                        -- Timers:CreateTimer(function()
+                        --     self:setOption(optionName, self.optionStore[optionName])
+                        -- end, "lodOptionFailed", 0.1) 
+                        return
+                    end
+                end
             end
         end
     end
@@ -3544,14 +3516,10 @@ function Pregame:generateAllRandomBuilds()
     if self.allRandomBuilds then return end
     self.allRandomBuilds = {}
 
-    -- Generate 10 builds
-    local minPlayerID = 0
-    local maxPlayerID = 24
-
     -- Max builds per player
     local maxPlayerBuilds = 5
 
-    for playerID = minPlayerID,maxPlayerID-1 do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         local theBuilds = {}
 
         for buildID = 0,(maxPlayerBuilds-1) do
@@ -3898,7 +3866,7 @@ function Pregame:validateBuilds(specificID)
 
     -- Generate 10 builds
     local minPlayerID = 0
-    local maxPlayerID = 24
+    local maxPlayerID = DOTA_MAX_TEAM_PLAYERS
 
     if specificID then
         minPlayerID = specificID
@@ -3911,7 +3879,7 @@ function Pregame:validateBuilds(specificID)
     local this = self
 
     -- Loop over all playerIDs
-    for playerID = minPlayerID,maxPlayerID-1 do
+    for playerID = minPlayerID, maxPlayerID-1 do
         -- Ensure they have a hero
         if not self.selectedHeroes[playerID] then
             local filter = function (  )
@@ -4303,10 +4271,10 @@ function Pregame:processOptions()
                     --print(i, v)
                 end
             end
-
-            GameRules:GetGameModeEntity():SetUseCustomHeroLevels ( true )
-            GameRules:GetGameModeEntity():SetCustomHeroMaxLevel ( OptionManager:GetOption('maxHeroLevel') )
-            GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(newTable)
+            local gamemode = GameRules:GetGameModeEntity()
+            gamemode:SetUseCustomHeroLevels ( true )
+            gamemode:SetCustomHeroMaxLevel ( OptionManager:GetOption('maxHeroLevel') )
+            gamemode:SetCustomXPRequiredToReachNextLevel(newTable)
         end
 
         if OptionManager:GetOption('322') == 1 then
@@ -5125,7 +5093,7 @@ function Pregame:onPlayerReady(eventSourceIndex, args)
                         hero:AddNewModifier(hero, nil, "modifier_phased", {duration = 2})
                     end
                 end
-                GameRules:SendCustomMessage('Player '..PlayerResource:GetPlayerName(playerID)..' just changed build.', 0, 0)
+                GameRules:SendCustomMessage('Player '..util:GetPlayerNameReliable(playerID)..' just changed build.', 0, 0)
             end,playerID)
         end
     else
@@ -6881,12 +6849,11 @@ end
 
 -- Counts how many people on radiant and dire
 function Pregame:countRadiantDire()
-    local maxplayerID = 24
     local totalRadiant = 0
     local totalDire = 0
 
     -- Work out how many bots are going to be needed
-    for playerID=0,maxplayerID-1 do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         local state = PlayerResource:GetConnectionState(playerID)
 
         if state ~= 0 then

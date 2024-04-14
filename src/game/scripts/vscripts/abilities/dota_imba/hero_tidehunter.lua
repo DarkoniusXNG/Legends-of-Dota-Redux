@@ -18,20 +18,6 @@
 --     AltiV, May 29th, 2019 (true IMBAfication)
 --     Elfansoer, 17.08.2019
 
-if IsClient() then
-    require('lib/util_imba_client')
-
-	-- define gettalent
-	function C_DOTABaseAbility:GetTalentSpecialValueFor( str )
-		return self:GetSpecialValueFor( str )
-	end
-else
-	-- define gettalent
-	function CDOTABaseAbility:GetTalentSpecialValueFor( str )
-		return self:GetSpecialValueFor( str )
-	end
-end
-
 LinkLuaModifier("modifier_imba_tidehunter_gush", "abilities/dota_imba/hero_tidehunter", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_tidehunter_gush_handler", "abilities/dota_imba/hero_tidehunter", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_tidehunter_gush_surf", "abilities/dota_imba/hero_tidehunter", LUA_MODIFIER_MOTION_NONE) -- Was originally gonna make this a horizontal motion controller, but seeing how those tend to cancel other controllers out, I don't think this warrants that same power so it'll just be standard intervalthink updates
@@ -231,7 +217,7 @@ function imba_tidehunter_gush:OnProjectileHit_ExtraData(target, location, data)
 
 				local damageTable = {
 					victim 			= target,
-					damage 			= self:GetTalentSpecialValueFor("gush_damage"),
+					damage 			= self:GetSpecialValueFor("gush_damage"),
 					damage_type		= self:GetAbilityDamageType(),
 					damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
 					attacker 		= self:GetCaster(),
@@ -284,7 +270,7 @@ end
 function modifier_imba_tidehunter_gush:OnCreated()
 	if self:GetAbility() then
 		self.movement_speed	= self:GetAbility():GetSpecialValueFor("movement_speed")
-		self.negative_armor	= self:GetAbility():GetTalentSpecialValueFor("negative_armor")
+		self.negative_armor	= self:GetAbility():GetSpecialValueFor("negative_armor")
 	else
 		self:Destroy()
 	end
@@ -414,7 +400,7 @@ function modifier_imba_tidehunter_kraken_shell:DeclareFunctions()
 end
 
 function modifier_imba_tidehunter_kraken_shell:GetModifierPhysical_ConstantBlock()
-	return self:GetAbility():GetTalentSpecialValueFor("damage_reduction")
+	return self:GetAbility():GetSpecialValueFor("damage_reduction")
 end
 
 function modifier_imba_tidehunter_kraken_shell:OnTakeDamage(keys)
@@ -659,7 +645,7 @@ end
 
 function modifier_imba_tidehunter_anchor_smash:OnCreated()
 	if self:GetAbility() then
-		self.damage_reduction	= self:GetAbility():GetTalentSpecialValueFor("damage_reduction")
+		self.damage_reduction	= self:GetAbility():GetSpecialValueFor("damage_reduction")
 	else
 		self:Destroy()
 	end

@@ -18,20 +18,6 @@
 --     suthernfriend, 03.02.2018
 --     Elfansoer, 17.08.2019
 
-if IsClient() then
-    require('lib/util_imba_client')
-
-	-- define gettalent
-	function C_DOTABaseAbility:GetTalentSpecialValueFor( str )
-		return self:GetSpecialValueFor( str )
-	end
-else
-	-- define gettalent
-	function CDOTABaseAbility:GetTalentSpecialValueFor( str )
-		return self:GetSpecialValueFor( str )
-	end
-end
-
 CreateEmptyTalents("troll_warlord")
 
 -------------------------------------------
@@ -523,7 +509,7 @@ function modifier_imba_whirling_axes_ranged:DeclareFunctions()
 end
 
 function modifier_imba_whirling_axes_ranged:OnCreated()
-	self.slow = self:GetAbility():GetTalentSpecialValueFor("movement_speed") * (-1)
+	self.slow = self:GetAbility():GetSpecialValueFor("movement_speed") * (-1)
 end
 
 function modifier_imba_whirling_axes_ranged:GetModifierMoveSpeedBonus_Percentage()
@@ -757,7 +743,7 @@ function modifier_imba_fervor:OnAttackLanded(params)
 					modifier:IncrementStackCount()
 --				end
 			else
-				local loss_pct = 1 - (self:GetAbility():GetTalentSpecialValueFor("switch_lose_pct") / 100)
+				local loss_pct = 1 - (self:GetAbility():GetSpecialValueFor("switch_lose_pct") / 100)
 				modifier:SetStackCount(math.max(math.floor(modifier:GetStackCount() * loss_pct),1))
 				modifier.last_target = params.target
 			end
@@ -794,7 +780,7 @@ end
 
 function modifier_imba_fervor_stacks:GetModifierAttackSpeedBonus_Constant()
 	if not self:GetParent():PassivesDisabled() then
-		return self:GetAbility():GetTalentSpecialValueFor("bonus_as") * self:GetStackCount()
+		return self:GetAbility():GetSpecialValueFor("bonus_as") * self:GetStackCount()
 	end
 	return 0
 end
@@ -840,7 +826,7 @@ function imba_troll_warlord_battle_trance:OnSpellStart()
 	
 		if not self:GetAutoCastState() then
 			-- The old Battle Trance
-			local duration = self:GetTalentSpecialValueFor("buff_duration")
+			local duration = self:GetSpecialValueFor("buff_duration")
 
 			-- Decide which cast sound to play
 			local sound = "troll_warlord_troll_battletrance_0"..math.random(1,6)
@@ -901,8 +887,8 @@ end
 function modifier_imba_battle_trance:OnCreated()
 	local ability = self:GetAbility()
 	local parent = self:GetParent()
-	self.bonus_as = ability:GetTalentSpecialValueFor("bonus_as")
-	self.bonus_bat = min(ability:GetTalentSpecialValueFor("bonus_bat"), parent:GetBaseAttackTime())
+	self.bonus_as = ability:GetSpecialValueFor("bonus_as")
+	self.bonus_bat = min(ability:GetSpecialValueFor("bonus_bat"), parent:GetBaseAttackTime())
 	if parent:IsRealHero() and IsServer() then
 		EmitSoundOnClient("Hero_TrollWarlord.BattleTrance.Cast.Team", parent:GetPlayerOwner())
 		if self.sound == "Imba.TrollAK47" then
@@ -967,7 +953,7 @@ function modifier_imba_battle_trance_720:OnCreated()
 	self.movement_speed	= self.ability:GetSpecialValueFor("movement_speed")
 	self.range			= self.ability:GetSpecialValueFor("range")
 	
-	self.bonus_bat 		= min(self.ability:GetTalentSpecialValueFor("bonus_bat"), self.parent:GetBaseAttackTime())
+	self.bonus_bat 		= min(self.ability:GetSpecialValueFor("bonus_bat"), self.parent:GetBaseAttackTime())
 
 	if not IsServer() then return end
 	

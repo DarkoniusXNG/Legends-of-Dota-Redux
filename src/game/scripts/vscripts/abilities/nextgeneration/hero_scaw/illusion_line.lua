@@ -1,4 +1,4 @@
-function CreateIllusions( keys )
+function CreateIllusionLine( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local player = caster:GetPlayerID()
@@ -56,12 +56,21 @@ function CreateIllusions( keys )
 
 
 	caster:AddNoDraw()
-	caster:AddNewModifier(caster, ability, "modifier_disabled_invulnerable", {Duration = delay})
-	caster:AddNewModifier(caster, ability, "modifier_disarmed", {Duration = delay})
+	caster:AddNewModifier(caster, ability, "modifier_disabled_invulnerable", {duration = delay})
+	caster:AddNewModifier(caster, ability, "modifier_disarmed", {duration = delay})
 
 	FindClearSpaceForUnit(caster, casterVec, false) 
 
 	local illusion = {}
+	local illu_table = {
+		outgoing_damage = 100 - outgoingDamage,
+		incoming_damage = incomingDamage - 100,
+		bounty_base = 0,
+		bounty_growth = 0,
+		outgoing_damage_structure = 100 - outgoingDamage,
+		outgoing_damage_roshan = 100 - outgoingDamage,
+		duration = duration,
+	}
 
 	Timers:CreateTimer(delay, function()
 		caster:RemoveNoDraw()
@@ -69,46 +78,23 @@ function CreateIllusions( keys )
 		if not caster:IsChanneling() then
 			caster:MoveToPositionAggressive(casterVec)
 		end
-		
+
 		for j = 1, 5 do
 			if randomPos ~= j then
-				illusion[j] = CreateUnitByName(caster:GetName(), vec[j], true, caster, nil, caster:GetTeamNumber())
-				illusion[j]:SetPlayerID(caster:GetPlayerID())
-				illusion[j]:SetControllableByPlayer(player, true)
-				illusion[j]:MakeIllusion()
+				illusion[j] = CreateIllusions(caster, caster, illu_table, 1, caster:GetHullRadius(), false, false)[1]
+
+				--make sure this unit actually has stats
+				if illusion[j].GetStrength then
+					--copy over all the stat modifiers from the original hero
+					for _, v in pairs(caster:FindAllModifiersByName("modifier_stats_tome")) do
+						local instance = illusion[j]:AddNewModifier(caster, ability, "modifier_stats_tome", {stat = v.stat})
+						instance:SetStackCount(v:GetStackCount())
+					end
+				end
+
 				FindClearSpaceForUnit(illusion[j], vec[j], false) 
 				illusion[j]:SetForwardVector(forwardVec)
 				ability:ApplyDataDrivenModifier(caster, illusion[j], "modifier_fire_spawn", {})
-				local casterLevel = caster:GetLevel()
-				for i=1,casterLevel-1 do
-					illusion[j]:HeroLevelUp(false)
-				end
-
-				-- Set the skill points to 0 and learn the skills of the caster
-				illusion[j]:SetAbilityPoints(0)
-				for abilitySlot=0,15 do
-					local illusionAbility = caster:GetAbilityByIndex(abilitySlot)
-					if illusionAbility ~= nil then 
-						local abilityLevel = illusionAbility:GetLevel()
-						local abilityName = illusionAbility:GetAbilityName()
-						illusion[j].illusionAbility = illusion[j]:FindAbilityByName(abilityName)
-						illusion[j].illusionAbility:SetLevel(abilityLevel)
-					end
-				end
-				-- Recreate the items of the caster
-				for itemSlot=0,5 do
-					local item = caster:GetItemInSlot(itemSlot)
-					if item ~= nil then
-						local itemName = item:GetName()
-						local newItem = CreateItem(itemName, illusion, illusion)
-						illusion[j]:AddItem(newItem)
-					end
-				end
-				illusion[j]:SetHealth(caster:GetHealth())		
-				illusion[j]:SetOwner(caster)
-				illusion[j]:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, outgoing_damage = outgoingDamage, incoming_damage = incomingDamage })
-				ability:ApplyDataDrivenModifier(caster, illusion[j], "modifier_fire_spawn", {})
-				illusion[j]:MakeIllusion()
 				illusion[j]:EmitSound("Hero_Jakiro.LiquidFire")
 			end
 		end

@@ -22,7 +22,7 @@ function seer:OnSpellStart()
 			end
 		end
 	end
-		self:StartCooldown(self:GetTrueCooldown(self:GetLevel()))
+		self:StartCooldown(self:GetTrueCooldown())
 end
 
 function seer:OnChannelFinish(bInterrupted)
