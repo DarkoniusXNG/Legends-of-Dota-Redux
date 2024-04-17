@@ -47,7 +47,7 @@ function book_eldri_modifier:OnAbilityExecuted(keys)
 			if keys.caster ~= nil then return end
 			if keys.caster == self:GetParent() then return end
 			if keys.ability ~= nil and keys.ability.GetManaCost ~= nil and keys.ability.GetLevel ~= nil then
-				self:GetParent():GiveMana(keys.ability:GetManaCost(keys.ability:GetLevel())*self:GetStackCount()*0.05)
+				self:GetParent():GiveMana(keys.ability:GetManaCost(keys.ability:GetLevel()-1)*self:GetStackCount()*0.05)
 			end
 	end
 end

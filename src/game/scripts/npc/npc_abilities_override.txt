@@ -4139,8 +4139,6 @@
         "rubick_arcane_supremacy" 
         {
             "ReduxCost"                                                            "50"
-            "ReduxBans"                                                            "death_prophet_witchcraft"
-            "ReduxBanCategory"                                                     "SpammableSpells"
         }
         "pudge_dismember"
         {
@@ -5060,7 +5058,6 @@
             "ReduxPerks"			"aura | support"
             "ReduxCost"				"120"
             "ReduxFlags"			"mana"
-            "ReduxBans"				"death_prophet_witchcraft"
             "ReduxBanCategory"		"ToggleSpells"
         }
         "omniknight_degen_aura"
@@ -5344,7 +5341,6 @@
             "ReduxCost"                                                            "80"
             "ReduxBans"                                                            "death_prophet_witchcraft | storm_spirit_ball_lightning"
             "ReduxBanCategory"                                                     "ToggleSpells"
-            "ReduxFlags"                                                           ""
         }
         "item_mask_of_madness"
         {
@@ -9632,7 +9628,7 @@
         }
         "special_bonus_unique_outworld_devourer_2"
         {
-            "TalentRequiredAbility"                                                   "obsidian_destroyer_essence_aura"
+            "TalentRequiredAbility"                                                   "imba_obsidian_destroyer_equilibrium"
         }
         "special_bonus_unique_outworld_devourer_3"
         {
@@ -11649,11 +11645,7 @@
         }
         "special_bonus_unique_dazzle_4"
         {
-            "TalentRequiredAbility" 
-            {
-                "1" "dazzle_bad_juju"
-                "2" "dazzle_bad_juju_redux"
-            }                                                   
+            "TalentRequiredAbility"                                                   "dazzle_bad_juju"
         }
         "special_bonus_unique_dazzle_5"
         {

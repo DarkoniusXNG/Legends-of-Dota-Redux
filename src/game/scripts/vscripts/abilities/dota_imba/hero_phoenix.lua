@@ -692,7 +692,7 @@ function imba_phoenix_launch_fire_spirit:GetAbilityTextureName()   return "phoen
 
 function imba_phoenix_launch_fire_spirit:GetAOERadius()  return self:GetSpecialValueFor("radius") end
 
-function imba_phoenix_launch_fire_spirit:GetManaCost()
+function imba_phoenix_launch_fire_spirit:GetManaCost(level)
 	if not self:GetCaster():HasTalent("special_bonus_imba_phoenix_7") then
 		return 0
 	else

@@ -3,8 +3,8 @@ function zhanhun( keys )
 	local reduce = keys.reduce
 	
 	local ability = keys.event_ability
-	local abilityCooldown = ability:GetCooldown(ability:GetLevel())
-	local abilityManaCost = ability:GetManaCost(ability:GetLevel())
+	local abilityCooldown = ability:GetCooldown(ability:GetLevel()-1)
+	local abilityManaCost = ability:GetManaCost(ability:GetLevel()-1)
 	--Does not proc for abilities with low cooldowns or no manacost
 	if abilityManaCost == 0 then return nil end
 	if abilityCooldown < 3 then return nil end

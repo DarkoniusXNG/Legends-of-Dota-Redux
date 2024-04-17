@@ -23,9 +23,7 @@ function modifier_spark:OnAbilityExecuted(params)
 		if p == params.unit then
 			local ability = params.ability
 			local cost = params.cost
-			local manacost = ability:GetManaCost(ability:GetLevel()) --[[Returns:int
-			No Description Set
-			]]
+			local manacost = ability:GetManaCost(ability:GetLevel() - 1)
 			if manacost <= 0 then return end
 
 			if ability:IsItem() then return end

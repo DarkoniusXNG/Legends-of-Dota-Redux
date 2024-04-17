@@ -1,82 +1,4 @@
-function Ablaze( keys )
-	local caster = keys.caster
-	local ability = keys.ability
-	local target = keys.target
-	local armor = caster:GetPhysicalArmorValue(false)
-	local armor_damage = armor * 0.5
-
-	local damageTable = {
-		victim = target,
-		attacker = caster,
-		damage = armor_damage,
-		damage_type = DAMAGE_TYPE_MAGICAL,
-		damage_flags = DOTA_DAMAGE_FLAG_NONE,
-		ability = ability,
-	}
-	ApplyDamage(damageTable)
-end
-
-
-
-function CheckCooldown( keys )
-	local caster = keys.caster
-	local target = keys.target
-	local ability = keys.ability
-	local sound = keys.sound
-	local mana = ability:GetManaCost(ability:GetLevel() - 1)
-	
-	if ability:IsCooldownReady() then
-		ability.off_cooldown = 1
-		caster:SpendMana(mana, ability)
-		EmitSoundOn(sound, target)
-	end
-end
-
-function BulwarkStrikeDamage( keys )
-	local ability = keys.ability
-	local caster = keys.caster
-	local target = keys.target
-	local particle = keys.particle
-	local particle2	= keys.particle2
-	local sound = keys.sound
-	local radius = ability:GetLevelSpecialValueFor("radius", ability:GetLevel() - 1)
-	local cooldown = ability:GetTrueCooldown()
-	local armor = caster:GetPhysicalArmorValue(false)
-	local armor_multiplier = ability:GetLevelSpecialValueFor("armor_multiplier", ability:GetLevel() - 1)
-	local ablaze_multiplier = ability:GetLevelSpecialValueFor("ablaze_multiplier", ability:GetLevel() - 1)
-	local armor_damage = armor * armor_multiplier
-
-	local type_damage = ability:GetAbilityDamageType()
-
-	if ability.off_cooldown == 1 then
-		if target:HasModifier("ablaze_modifier") then
-			units = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, ability:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
-			for k, v in pairs(units) do
-				ability:ApplyDataDrivenModifier(caster, v, "ablaze_modifier", {})
-				local particle2 = ParticleManager:CreateParticle(particle2, PATTACH_ABSORIGIN_FOLLOW, target)
-				armor_damage = armor_damage + armor * ablaze_multiplier
-			end
-		end
-		local damageTable = {
-			victim = target,
-			attacker = caster,
-			damage = armor_damage,
-			damage_type = type_damage,
-			damage_flags = DOTA_DAMAGE_FLAG_NONE,
-			ability = ability,
-		}
-		ApplyDamage(damageTable)
-		ability:ApplyDataDrivenModifier(caster, target, "ablaze_modifier", {})
-		local particle = ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN_FOLLOW, target)
-		ParticleManager:SetParticleControlEnt(particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
-		
-
-		ability:StartCooldown(cooldown)
-		ability.off_cooldown = 0
-	end
-end
-
-
+LinkLuaModifier("ablaze_modifier", "abilities/deathtal/molten_lord_ablaze_modifier.lua", LUA_MODIFIER_MOTION_NONE)
 
 function SkippingFlames( keys )
 	local caster = keys.caster
@@ -88,25 +10,37 @@ function SkippingFlames( keys )
 	local armor = caster:GetPhysicalArmorValue(false)
 	local armor_damage = armor * 0.5 * ablaze_multiplier
 	local sound = keys.sound
-	local caster_location = caster:GetAbsOrigin()
+	--local caster_location = caster:GetAbsOrigin()
 	local target_location = target:GetAbsOrigin()
 	ability.skipping_flames_damage = ability:GetLevelSpecialValueFor("base_damage", ability:GetLevel() - 1)
 
 	ability:ApplyDataDrivenModifier(caster, target, "skipping_flames_modifier", {})
 
-	units = FindUnitsInRadius(caster:GetTeamNumber(), target_location, nil, radius, ability:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+	local units = FindUnitsInRadius(
+		caster:GetTeamNumber(),
+		target_location,
+		nil,
+		radius,
+		ability:GetAbilityTargetTeam(),
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+		FIND_ANY_ORDER,
+		false
+	)
 
 	for k, v in pairs(units) do
 		local ablaze = v:FindModifierByName("ablaze_modifier")
-		local distance = (v:GetAbsOrigin() - target_location):Length2D()
-		local projectile_speed = distance/delay
+		--local distance = (v:GetAbsOrigin() - target_location):Length2D()
+		--local projectile_speed = distance/delay
 
 		if ablaze ~= nil and v:IsAlive() then
 			local particle = ParticleManager:CreateParticle(keys.particle, PATTACH_POINT, caster)
 			ParticleManager:SetParticleControl(particle, 0, target_location)
 			ParticleManager:SetParticleControl(particle, 1, v:GetAbsOrigin())
-			v:RemoveModifierByName("ablaze_modifier")
+			ParticleManager:ReleaseParticleIndex(particle)
+			
 			ability.skipping_flames_damage = ability.skipping_flames_damage + armor_damage * (ablaze:GetDuration() / 0.5)
+			ablaze:Destroy()
 			EmitSoundOn(sound, v)
 		end
 	end
@@ -117,19 +51,21 @@ function SkippingFlamesDamage( keys )
 	local ability = keys.ability
 	local target = keys.target
 
-	local damageTable = {
-		victim = target,
-		attacker = caster,
-		damage = ability.skipping_flames_damage,
-		damage_type = DAMAGE_TYPE_MAGICAL,
-		damage_flags = DOTA_DAMAGE_FLAG_NONE,
-		ability = ability,
-	}
-	ApplyDamage(damageTable)
-	print(ability.skipping_flames_damage)
-	ability:ApplyDataDrivenModifier(caster, target, "ablaze_modifier", {})
+	local ablaze_duration = ability:GetLevelSpecialValueFor("ablaze_duration", ability:GetLevel() - 1)
+	target:AddNewModifier(caster, ability, "ablaze_modifier", {duration = ablaze_duration})
+	
+	if ability.skipping_flames_damage then
+		local damageTable = {
+			victim = target,
+			attacker = caster,
+			damage = ability.skipping_flames_damage,
+			damage_type = DAMAGE_TYPE_MAGICAL,
+			damage_flags = DOTA_DAMAGE_FLAG_NONE,
+			ability = ability,
+		}
+		ApplyDamage(damageTable)
+	end
 end
-
 
 
 function CheckStun( keys )
@@ -143,6 +79,7 @@ function CheckStun( keys )
 		EmitSoundOn(sound, caster)
 		local particle = ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN_FOLLOW, caster) 
 		ParticleManager:SetParticleControlEnt(particle, 1, caster, PATTACH_POINT_FOLLOW, "follow_origin", caster:GetAbsOrigin(), true)
+		ParticleManager:ReleaseParticleIndex(particle)
 		ability:ApplyDataDrivenModifier(caster, caster, "unwavering_stance_active_modifier", {})
 		ability:StartCooldown(cooldown)
 	end
@@ -164,7 +101,8 @@ function UnwaveringApplyAblaze( keys )
 	local ability = keys.ability
 	local attacker = keys.attacker
 
-	ability:ApplyDataDrivenModifier(caster, attacker, "ablaze_modifier", {})
+	local ablaze_duration = ability:GetLevelSpecialValueFor("ablaze_duration", ability:GetLevel() - 1)
+	attacker:AddNewModifier(caster, ability, "ablaze_modifier", {duration = ablaze_duration})
 end
 
 
@@ -194,6 +132,7 @@ function MoltenCharge( keys )
 	EmitSoundOn(sound, caster)
 	local particle = ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN_FOLLOW, caster) 
 	ParticleManager:SetParticleControlEnt(particle, 1, caster, PATTACH_POINT_FOLLOW, "follow_origin", caster:GetAbsOrigin(), true)
+	ParticleManager:ReleaseParticleIndex(particle)
 end
 
 function MoltenChargeMotion( keys )
@@ -219,16 +158,6 @@ function MoltenChargeDamage( keys )
 
 	local type_damage = ability:GetAbilityDamageType()
 
-	local damageTable = {
-		victim = target,
-		attacker = caster,
-		damage = armor_damage,
-		damage_type = type_damage,
-		damage_flags = DOTA_DAMAGE_FLAG_NONE,
-		ability = ability,
-	}
-	ApplyDamage(damageTable)
-
 	if target:HasModifier("ablaze_modifier") then
 		ability:ApplyDataDrivenModifier(caster, target, "molten_charge_root_modifier", {})
 	else
@@ -238,7 +167,19 @@ function MoltenChargeDamage( keys )
 	if target:IsHero() then
 		ability:ApplyDataDrivenModifier(caster, target, "molten_charge_armor_drain_modifier", {})
 	end
-	ability:ApplyDataDrivenModifier(caster, target, "ablaze_modifier", {})
+	
+	local ablaze_duration = ability:GetLevelSpecialValueFor("ablaze_duration", ability:GetLevel() - 1)
+	target:AddNewModifier(caster, ability, "ablaze_modifier", {duration = ablaze_duration})
+
+	local damageTable = {
+		victim = target,
+		attacker = caster,
+		damage = armor_damage,
+		damage_type = type_damage,
+		damage_flags = DOTA_DAMAGE_FLAG_NONE,
+		ability = ability,
+	}
+	ApplyDamage(damageTable)
 end
 
 function DrainArmor( keys )
@@ -297,8 +238,12 @@ end
 
 function DrainArmorParticleEnd( keys )
 	local target = keys.target
-
-	ParticleManager:DestroyParticle(target.ArmorDrainParticle, false)
+	if target and not target:IsNull() then
+		if target.ArmorDrainParticle then
+			ParticleManager:DestroyParticle(target.ArmorDrainParticle, false)
+			ParticleManager:ReleaseParticleIndex(target.ArmorDrainParticle)
+		end
+	end
 end
 
 function RemoveStacks( keys )

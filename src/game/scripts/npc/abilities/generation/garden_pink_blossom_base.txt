@@ -3,7 +3,7 @@
     "garden_pink_blossom_base"
     {
         "BaseClass"                                                            "ability_datadriven"
-        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELED | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityCastRange"                                                     "300"
         "AbilityCooldown"                                                      "5.0"
         "AbilityChannelTime"                                                   "1.0"

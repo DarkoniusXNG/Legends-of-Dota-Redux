@@ -133,11 +133,11 @@ function imba_rubick_telekinesis:GetBehavior()
 	return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
 end
 
-function imba_rubick_telekinesis:GetManaCost( target )
+function imba_rubick_telekinesis:GetManaCost( level )
 	if self:GetCaster():HasModifier("modifier_imba_telekinesis_caster") then
 		return 0
 	else
-		return self.BaseClass.GetManaCost(self, target)
+		return self.BaseClass.GetManaCost(self, level)
 	end
 end
 
@@ -266,7 +266,7 @@ function modifier_imba_telekinesis:EndTransition()
 			cooldown = ability.BaseClass.GetCooldown( ability, ability:GetLevel() )
 		end
 
-		cooldown = (cooldown * (1 - caster:GetCooldownReduction() * 0.01)) - self:GetDuration()
+		cooldown = (cooldown * caster:GetCooldownReduction()) - self:GetDuration()
 
 		parent:StopSound("Hero_Rubick.Telekinesis.Target")
 		parent:EmitSound("Hero_Rubick.Telekinesis.Target.Land")

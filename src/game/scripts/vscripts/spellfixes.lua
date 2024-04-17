@@ -460,10 +460,8 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
                         if ab then
                             local reduction = lvl * -1
 
-                            -- Octarine Core fix
-                            if hero:HasModifier('modifier_item_octarine_core') or hero:HasModifier("modifier_item_octarine_core_consumable") then
-                                reduction = reduction * 0.75
-                            end
+                            -- CDR fix
+                            reduction = reduction * hero:GetCooldownReduction()
 
                             local timeRemaining = ab:GetCooldownTimeRemaining()
                             local newCooldown = timeRemaining + reduction

@@ -307,7 +307,7 @@ function imba_dazzle_shallow_grave:GetCastRange()
 	return self:GetSpecialValueFor("cast_range")
 end
 
-function imba_dazzle_shallow_grave:GetManaCost()
+function imba_dazzle_shallow_grave:GetManaCost(level)
 	return self:GetSpecialValueFor("mana_cost")
 end
 

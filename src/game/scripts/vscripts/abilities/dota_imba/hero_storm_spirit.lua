@@ -988,7 +988,7 @@ function imba_storm_spirit_ball_lightning:OnProjectileHit_ExtraData(target, loca
 end
 
 -- Custom mana cost for Ball Lightning
-function imba_storm_spirit_ball_lightning:GetManaCost()
+function imba_storm_spirit_ball_lightning:GetManaCost(level)
 	local caster	=	self:GetCaster()
 	local base_cost	= 	self:GetSpecialValueFor("initial_mana_cost_base")
 	local pct_cost 	=	self:GetSpecialValueFor("initial_mana_cost_pct")

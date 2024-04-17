@@ -2413,9 +2413,10 @@ function UpgradeTower( tower )
         elseif abilities[i] and abilities[i]:GetLevel() == 3 and #abilities == i then
 
             -- Else, add a new ability from this game's ability tree
-            local oldAbList = LoadKeyValues('scripts/kv/abilities.kv').skills.custom.imba_towers_weak
-            local oldAbList2 = LoadKeyValues('scripts/kv/abilities.kv').skills.custom.imba_towers_medium
-            local oldAbList3 = LoadKeyValues('scripts/kv/abilities.kv').skills.custom.imba_towers_strong
+			local abilityList = LoadKeyValues('scripts/kv/abilities.kv')
+            local oldAbList = abilityList.skills.custom.imba_towers_weak
+            local oldAbList2 = abilityList.skills.custom.imba_towers_medium
+            local oldAbList3 = abilityList.skills.custom.imba_towers_strong
 
 			util:MergeTables(oldAbList, oldAbList2)
 			util:MergeTables(oldAbList, oldAbList3)
@@ -2507,19 +2508,6 @@ function SkeletonKingWearables( hero )
 	local eye_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_skeletonking/skeletonking_eyes.vpcf", PATTACH_ABSORIGIN, hero)
 	ParticleManager:SetParticleControlEnt(eye_pfx, 0, hero, PATTACH_POINT_FOLLOW, "attach_eyeL", hero:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(eye_pfx, 1, hero, PATTACH_POINT_FOLLOW, "attach_eyeR", hero:GetAbsOrigin(), true)
-end
-
--- Returns the total cooldown reduction on a given unit
-function GetCooldownReduction( unit )
-
-	local reduction = 1.0
-
-	-- Octarine Core
-	if unit:HasModifier("modifier_item_imba_octarine_core_unique") then
-		reduction = reduction * 0.75
-	end
-
-	return reduction
 end
 
 -- Returns true if this is a ward-type unit (nether ward, scourge ward, etc.)
@@ -2840,7 +2828,7 @@ function TriggerWraithKingReincarnation(caster, ability)
 	local caster_loc = caster:GetAbsOrigin()
 
 	-- Put the ability on cooldown and play out the reincarnation
-	local cooldown_reduction = GetCooldownReduction(caster)
+	local cooldown_reduction = caster:GetCooldownReduction()
 	ability:StartCooldown(ability:GetCooldown(ability_level) * cooldown_reduction)
 
 	-- Play initial sound

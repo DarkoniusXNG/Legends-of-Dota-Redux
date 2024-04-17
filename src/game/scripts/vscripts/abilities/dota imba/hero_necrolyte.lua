@@ -102,8 +102,8 @@ function DeathPulseThink( keys )
   -- If the caster is out of mana, toggle the ability off
   if caster:GetMana() < toggle_mana_cost then
     ability:ToggleAbility()
-    ability:StartCooldown(cooldown * GetCooldownReduction(caster))
-    return nil
+    ability:StartCooldown(cooldown * caster:GetCooldownReduction())
+    return
 
   -- Else, spend mana and move on
   else
@@ -176,7 +176,7 @@ function DeathPulseEnd( keys )
   caster:RemoveModifierByName(modifier_caster)
 
   -- Put the skill on cooldown
-  ability:StartCooldown(cooldown * GetCooldownReduction(caster))
+  ability:StartCooldown(cooldown * caster:GetCooldownReduction())
 end
   
 function DeathPulseHeroHit( keys )

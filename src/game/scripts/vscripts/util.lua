@@ -633,14 +633,26 @@ function CDOTA_BaseNPC:GetSafeAbilitiesCount()
 end
 
 function CDOTABaseAbility:GetTrueCooldown()
-  if Convars:GetBool('dota_ability_debug') then return 0 end
-  local cooldown = self:GetCooldown(-1)
-  local hero = self:GetCaster()
-  local mabWitch = hero:FindAbilityByName('death_prophet_witchcraft')
-  if mabWitch then cooldown = cooldown - mabWitch:GetLevel() end
-  
-  cooldown = cooldown * hero:GetCooldownReduction()
-  return cooldown
+    --if Convars:GetBool('dota_ability_debug') then return 0 end
+    local cooldown = self:GetCooldown(-1)
+    local hero = self:GetCaster()
+    local true_cd = cooldown
+
+    -- Normal Witchcraft
+    local mabWitch = hero:FindAbilityByName('death_prophet_witchcraft')
+    -- OP Witchcraft
+    local mabWitchOP = hero:FindAbilityByName('death_prophet_witchcraft_op')
+    if mabWitch and not mabWitchOP then
+        true_cd = math.max(cooldown - mabWitch:GetLevel(), 1)
+    elseif mabWitchOP and not mabWitch then
+        true_cd = math.max(cooldown - 4 * mabWitchOP:GetLevel(), 1)
+    elseif mabWitch and mabWitchOP then
+    -- Shouldnt be possible but just in case
+        true_cd = math.max(cooldown - 4 * mabWitchOP:GetLevel(), 1)
+    end
+
+    true_cd = true_cd * hero:GetCooldownReduction()
+    return true_cd
 end
 
 -- modifierEventTable = {
@@ -1125,10 +1137,115 @@ function util:EmitSoundOnClient(pid, sound)
     end
 end
 
--- Returns a set of abilities that won't trigger stuff like aftershock / essence aura
-local toIgnore
-function util:getToggleIgnores()
-    return toIgnore
+-- Abilities ignored for custom Essence Aura abilities
+function util:IsIgnoredForEssenceAura(ability)
+    local essence_aura_ignore_list = {
+        winter_wyvern_arctic_burn = true,
+        eat_tree_eldri = true,
+        storm_spirit_ball_lightning = true,
+        ability_wards = true,
+        ability_wards_op = true,
+    }
+
+	if not ability or ability:IsNull() then
+		print("util:IsIgnoredForEssenceAura: Passed parameter does not exist!")
+		return true
+	end
+	if not ability.GetAbilityKeyValues then
+		print("util:IsIgnoredForEssenceAura: Passed parameter is not an ability!")
+		return true
+	end
+
+	local ability_data = ability:GetAbilityKeyValues()
+	local ability_mana_cost = ability:GetManaCost(-1)
+	--local ability_cooldown = ability:GetCooldown(-1)
+	
+	-- Ignore items
+	if ability:IsItem() then
+		return true
+	end
+
+	if not ability_data then
+		print("util:IsIgnoredForEssenceAura: Ability "..ability:GetAbilityName().." does not exist!")
+		return true
+	end
+
+	-- Check behavior first
+	local ability_behavior = ability_data.AbilityBehavior
+	if string.find(ability_behavior, "DOTA_ABILITY_BEHAVIOR_TOGGLE") then
+		return true
+	end
+	
+	-- If the ability costs no mana, do nothing
+	if ability_mana_cost == 0 then
+		return true
+	end
+
+	-- If the ability has no cooldown, do nothing
+	--if ability_cooldown == 0 then
+		--return true
+	--end
+	
+	if essence_aura_ignore_list[ability:GetAbilityName()] then
+		return true
+	end
+	
+	return false
+end
+
+-- Abilities ignored for custom Aftershock Redux
+function util:IsIgnoredForAftershock(ability)
+    local aftershock_ignore_list = {
+        winter_wyvern_arctic_burn = true,
+        eat_tree_eldri = true,
+        ability_wards = true,
+        ability_wards_op = true,
+    }
+
+	if not ability or ability:IsNull() then
+		print("util:IsIgnoredForAftershock: Passed parameter does not exist!")
+		return true
+	end
+	if not ability.GetAbilityKeyValues then
+		print("util:IsIgnoredForAftershock: Passed parameter is not an ability!")
+		return true
+	end
+
+	local ability_data = ability:GetAbilityKeyValues()
+	--local ability_mana_cost = ability:GetManaCost(-1)
+	local ability_cooldown = ability:GetCooldown(-1)
+	
+	-- Ignore items
+	if ability:IsItem() then
+		return true
+	end
+
+	if not ability_data then
+		print("util:IsIgnoredForAftershock: Ability "..ability:GetAbilityName().." does not exist!")
+		return true
+	end
+
+	-- Check behavior first
+	local ability_behavior = ability_data.AbilityBehavior
+	if string.find(ability_behavior, "DOTA_ABILITY_BEHAVIOR_TOGGLE") then
+		return true
+	end
+	
+	-- If the ability costs no mana, do nothing
+	--if ability_mana_cost == 0 then
+		--return true
+	--end
+
+	-- If the ability has no cooldown, do nothing
+	if ability_cooldown == 0 and not string.find(ability_behavior, "DOTA_ABILITY_BEHAVIOR_ATTACK") then
+		return true
+	end
+	
+	if aftershock_ignore_list[ability:GetAbilityName()] then
+		return true
+	end
+	
+	return false
 end
 
 function util:getAbilityKV(ability, key)
@@ -1184,22 +1301,6 @@ function StringToArray(inputString, seperator)
 end
 
 (function()
-    toIgnore = { -- These are abilities that wont trigger essence aura (among other things)
-        nyx_assassin_burrow = true,
-        spectre_reality = true,
-        techies_focused_detonate = true,
-        furion_teleportation = true,
-        life_stealer_consume = true,
-        winter_wyvern_arctic_burn = true,
-        life_stealer_control = true,
-        eat_tree_eldri = true,
-        shadow_demon_shadow_poison_release = true,
-        storm_spirit_ball_lightning = true,
-        ability_wards = true,
-        ability_wards_op = true,
-        elder_titan_return_spirit = true,
-    }
-
     util.abilityKVs = LoadKeyValues('scripts/npc/npc_abilities.txt')
     local absOverride = LoadKeyValues('scripts/npc/npc_abilities_override.txt')
     local absCustom = LoadKeyValues('scripts/npc/npc_abilities_custom.txt')
@@ -1208,19 +1309,8 @@ end
     util:MergeTables(util.abilityKVs, absCustom)
 
     for abilityName,data in pairs(util.abilityKVs) do
-        if type(data) == 'table' then
-            if data.AbilityBehavior and string.match(data.AbilityBehavior, 'DOTA_ABILITY_BEHAVIOR_TOGGLE') then
-                toIgnore[abilityName] = true
-            end
-        else
+        if type(data) ~= 'table' then
             util.abilityKVs[abilityName] = nil
         end
     end
-
-    -- No items
-    local items = LoadKeyValues('scripts/npc/items.txt')
-    for abilityName,data in pairs(items) do
-        toIgnore[abilityName] = true
-    end
-
 end)()

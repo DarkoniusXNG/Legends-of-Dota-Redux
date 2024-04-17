@@ -63,7 +63,7 @@
                             "RunScript"
                             {
                                 "ScriptFile"           "abilities/obsidian_destroyer_essence_aura_lod_health.lua"
-                                "Function"             "RestoreMana"
+                                "Function"             "RestoreHealth"
                                 "Target"               "UNIT"
                             }
                         }

@@ -12,8 +12,8 @@ function eldri_anti_magic:GetBehavior()
 end
 
 
-function eldri_anti_magic:GetManaCost()
-	return self.BaseClass.GetManaCost( self, self:GetLevel() )
+function eldri_anti_magic:GetManaCost(level)
+	return self.BaseClass.GetManaCost( self, level )
 end
 
 function eldri_anti_magic:GetCooldown( nLevel )

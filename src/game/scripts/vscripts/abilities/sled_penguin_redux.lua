@@ -22,7 +22,7 @@ function sled_penguin_redux.OnToggle(self)
             talentValue = talent:GetSpecialValueFor("value");
         end
         if talentValue==0 then
-            self:StartCooldown(self:GetSpecialValueFor("cooldown")*(1+caster:GetCooldownReduction()));
+            self:StartCooldown(self:GetSpecialValueFor("cooldown") * caster:GetCooldownReduction())
         end
     end
 end

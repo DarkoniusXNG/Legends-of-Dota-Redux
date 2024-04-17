@@ -275,12 +275,12 @@ function imba_witch_doctor_voodoo_restoration:GetBehavior()
 	end
 end
 
-function imba_witch_doctor_voodoo_restoration:GetManaCost( hTarget )
+function imba_witch_doctor_voodoo_restoration:GetManaCost( level )
 	--#6 TALENT: Voodo restoration doesn't cost mana to activate.
 	if self:GetCaster():HasTalent("special_bonus_imba_witch_doctor_6") then
 		return 0
 	else
-		return self.BaseClass.GetManaCost(self, hTarget)
+		return self.BaseClass.GetManaCost(self, level)
 	end
 end
 

@@ -4,8 +4,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST| DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/deathtal/molten_lord_bulwark_strike.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
   		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
   		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
@@ -36,90 +37,13 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"armor_multiplier"				"2 3 4 5"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"radius"						"275"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"ablaze_multiplier"				"2"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"ablaze_duration"				"8"
-			}
-		}
-
-		"Modifiers"
-		{	
-			"ablaze_modifier"
-			{
-				"TextureName"			"custom/ablaze"
-				"Duration"				"%ablaze_duration"
-				"IsDebuff"				"1"
-
-				"EffectName"			"particles/molten_lord/ablaze_debuff.vpcf"
-				"EffectAttachType"		"follow_origin"
-
-				"StatusEffectName"		"particles/status_fx/status_effect_doom.vpcf"
-				"StatusEffectPriority"	"10"
-
-				"ThinkInterval"	"0.5"
-				"OnIntervalThink"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Hero_AbyssalUnderlord.Firestorm.Cast"
-						"Target"		"TARGET"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"abilities/deathtal/molten_lord"
-						"Function"		"Ablaze"
-						"Target"		"TARGET"
-					}
-				}
-			}
-			"bulwark_modifier"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"Orb"
-				{
-					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
-					"CastAttack"		"1"
-				}
-				"OnOrbFire"
-				{
-					"RunScript"
-					{
-						"ScriptFile"			"abilities/deathtal/molten_lord"
-						"Function"				"CheckCooldown"
-						"sound"					"Hero_Clinkz.DeathPact.Cast"
-					}
-				}
-				"OnOrbImpact"
-				{
-					"RunScript"
-					{
-						"ScriptFile"			"abilities/deathtal/molten_lord"
-						"Function"				"BulwarkStrikeDamage"
-						"sound"					"Hero_Clinkz.DeathPact"
-						"particle"				"particles/econ/items/alchemist/alchemist_smooth_criminal/alchemist_smooth_criminal_unstable_concoction_explosion.vpcf"
-						"particle2"				"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_shadowraze.vpcf"
-					}
-				}
-			}
+			"armor_multiplier"				"2 3 4 5"
+			"radius"						"275"
+			"ablaze_multiplier"				"2"
+			"ablaze_duration"				"8"
+			"trigger_essence_aura"          "1"
 		}
 	}
 
@@ -199,41 +123,13 @@
 				"Function"		"SkippingFlames"
 				"Target"		"TARGET"
 				// "particle"		"particles/molten_lord/skipping_flames.vpcf"
-				"particle"		"particles\econ\items\doom\doom_ti8_immortal_arms\doom_ti8_immortal_devour_burst.vpcf"
+				"particle"		"particles/econ/items/doom/doom_ti8_immortal_arms/doom_ti8_immortal_devour_burst.vpcf"
 				"sound"			"Hero_AbyssalUnderlord.Firestorm.Start"
 			}
 		}
 
 		"Modifiers"
 		{
-			"ablaze_modifier"
-			{
-				"TextureName"			"custom/ablaze"
-				"Duration"				"%ablaze_duration"
-				"IsDebuff"				"1"
-
-				"EffectName"			"particles/molten_lord/ablaze_debuff.vpcf"
-				"EffectAttachType"		"follow_origin"
-
-				"StatusEffectName"		"particles/status_fx/status_effect_doom.vpcf"
-				"StatusEffectPriority"	"10"
-
-				"ThinkInterval"	"0.5"
-				"OnIntervalThink"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Hero_AbyssalUnderlord.Firestorm.Cast"
-						"Target"		"TARGET"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"abilities/deathtal/molten_lord"
-						"Function"		"Ablaze"
-						"Target"		"TARGET"
-					}
-				}
-			}
 			"skipping_flames_modifier"
 			{
 				"IsHidden"					"1"
@@ -332,34 +228,6 @@
 
 		"Modifiers"
 		{
-			"ablaze_modifier"
-			{
-				"TextureName"			"custom/ablaze"
-				"Duration"				"%ablaze_duration"
-				"IsDebuff"				"1"
-
-				"EffectName"			"particles/molten_lord/ablaze_debuff.vpcf"
-				"EffectAttachType"		"follow_origin"
-
-				"StatusEffectName"		"particles/status_fx/status_effect_doom.vpcf"
-				"StatusEffectPriority"	"10"
-
-				"ThinkInterval"	"0.5"
-				"OnIntervalThink"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Hero_AbyssalUnderlord.Firestorm.Cast"
-						"Target"		"TARGET"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"abilities/deathtal/molten_lord"
-						"Function"		"Ablaze"
-						"Target"		"TARGET"
-					}
-				}
-			}
 			"unwavering_stance_check_modifier"
 			{
 				"Passive"		"0"
@@ -556,34 +424,6 @@
 
 		"Modifiers"
 		{
-			"ablaze_modifier"
-			{
-				"TextureName"			"custom/ablaze"
-				"Duration"				"%ablaze_duration"
-				"IsDebuff"				"1"
-
-				"EffectName"			"particles/molten_lord/ablaze_debuff.vpcf"
-				"EffectAttachType"		"follow_origin"
-
-				"StatusEffectName"		"particles/status_fx/status_effect_doom.vpcf"
-				"StatusEffectPriority"	"10"
-
-				"ThinkInterval"			"0.5"
-				"OnIntervalThink"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Hero_AbyssalUnderlord.Firestorm.Cast"
-						"Target"		"TARGET"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"abilities/deathtal/molten_lord"
-						"Function"		"Ablaze"
-						"Target"		"TARGET"
-					}
-				}
-			}
 			"molten_charge_modifier"
 			{
 				"IsHidden"								"1"

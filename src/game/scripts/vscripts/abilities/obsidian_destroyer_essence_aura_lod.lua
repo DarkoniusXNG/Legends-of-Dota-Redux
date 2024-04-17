@@ -1,8 +1,6 @@
-local toIgnore = util:getToggleIgnores()
-
 function RestoreMana(keys)
-    local abName = keys.event_ability:GetAbilityName()
-    if toIgnore[abName] then return true end
+    local trigger_ability = keys.event_ability
+    if util:IsIgnoredForEssenceAura(trigger_ability) then return end
 
     -- Grab ability
     local target = keys.unit
@@ -18,20 +16,14 @@ function RestoreMana(keys)
     -- Calculate how much mana to restore
     local restorePercentage = ability:GetLevelSpecialValueFor("restore_amount", abLevel -1)
     local restoreAmount = target:GetMaxMana() * restorePercentage / 100
-    local newMana = target:GetMana() + restoreAmount
-
-    -- Enforce max mana
-    if newMana > target:GetMaxMana() then
-        newMana = target:GetMaxMana()
-    end
-
-    -- Set the mana
-    target:SetMana(newMana)
+	
+	-- Restore mana
+	target:GiveMana(restoreAmount)
 
     -- Fire effects
     local prt = ParticleManager:CreateParticle('particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_essence_effect.vpcf', PATTACH_ABSORIGIN_FOLLOW, target)
     ParticleManager:ReleaseParticleIndex(prt)
 
     -- Fire sound
-    EmitSoundOn('Hero_ObsidianDestroyer.EssenceAura', target)
+    target:EmitSound('Hero_ObsidianDestroyer.EssenceFlux.Cast')
 end

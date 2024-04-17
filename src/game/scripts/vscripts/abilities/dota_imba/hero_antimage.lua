@@ -454,7 +454,7 @@ function modifier_imba_antimage_blink_charges:OnCreated()
 			-- local playerid = self.caster:GetPlayerOwnerID()
 			-- local real_hero = playerid:GetAssignedHero()
 			local playerid = self.caster:GetPlayerOwner()
-			local real_hero = playerid:GetAssignedHero()
+			local hero = playerid:GetAssignedHero()
 
 			if hero:HasModifier(self.modifier_charge) then
 				self.modifier_charge_handler = hero:FindModifierByName(self.modifier_charge)

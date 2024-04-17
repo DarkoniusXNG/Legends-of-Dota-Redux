@@ -9,8 +9,8 @@ function blink_support:GetBehavior()
 	return behav
 end
 
-function blink_support:GetManaCost()
-	return self.BaseClass.GetManaCost( self, 1 )
+function blink_support:GetManaCost(level)
+	return self.BaseClass.GetManaCost( self, level )
 end
 
 function blink_support:GetCooldown( nLevel )

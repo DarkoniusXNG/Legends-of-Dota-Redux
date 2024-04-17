@@ -24,7 +24,7 @@
         "AbilityTextureName"            "custom/suna_blight_and_wither"
         "MaxLevel"                      "4"
     
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
@@ -684,7 +684,7 @@
         "AbilityTextureName"            "custom/suna_skeleton_puppets"
         "MaxLevel"                      "4"
     
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
     
         "AbilityCastRange"              "600"
         "AbilityCastPoint"              "0.6"

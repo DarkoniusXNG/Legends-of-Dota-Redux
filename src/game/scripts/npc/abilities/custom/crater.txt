@@ -5,7 +5,7 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/crater.lua"
         "AbilityTextureName"                                                   "invoker_sun_strike"
-        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitTargetTeam"                                                 "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"                                                 "DOTA_UNIT_TARGET_HERO"
         "AbilityCastRange"                                                      "25000"

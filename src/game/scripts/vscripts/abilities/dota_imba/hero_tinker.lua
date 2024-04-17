@@ -91,7 +91,7 @@ function imba_tinker_rearm:GetCooldown( nLevel )
 	return 0
 end
 
-function imba_tinker_rearm:GetManaCost()
+function imba_tinker_rearm:GetManaCost(level)
 	local extra_cost = (self:GetLevel() - 1) * self:GetSpecialValueFor("rearm_mana_per_lvl")
 	return (self:GetSpecialValueFor("base_manacost") + extra_cost - self:GetCaster():FindTalentValue("special_bonus_imba_tinker_1"))
 end

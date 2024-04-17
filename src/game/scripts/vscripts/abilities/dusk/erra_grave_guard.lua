@@ -36,7 +36,7 @@ if IsServer() then
 
 		local cast_me = self:GetAbility():IsCooldownReady() and self:GetAbility():IsOwnersManaEnough()
 
-		local mana_cost = self:GetAbility():GetManaCost(self:GetAbility():GetLevel())
+		local mana_cost = self:GetAbility():GetManaCost(self:GetAbility():GetLevel()-1)
 
 		local cooldown = self:GetAbility():GetCooldown(self:GetAbility():GetLevel()-1)
 

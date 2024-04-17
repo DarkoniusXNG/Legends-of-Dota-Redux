@@ -260,7 +260,8 @@ function Pregame:init()
     local gamemode = GameRules:GetGameModeEntity()
     -- gamemode:SetTowerBackdoorProtectionEnabled(true)
     gamemode:SetSelectionGoldPenaltyEnabled(false) -- disables losing gold during loading
-    gamemode:SetFreeCourierModeEnabled(true)
+    gamemode:SetFreeCourierModeEnabled(true) -- enables vanilla passive GPM too
+    gamemode:SetUseDefaultDOTARuneSpawnLogic(true) -- enables default rune spawn logic
     gamemode:SetBotThinkingEnabled(true) -- default dota bot AI
 
     -- Init thinker
@@ -4238,8 +4239,6 @@ function Pregame:processOptions()
         -- Set runespawn times
         if OptionManager:GetOption("fastRunes") == 1 then
             GameRules:SetRuneSpawnTime(30)
-        else
-            GameRules:GetGameModeEntity():SetUseDefaultDOTARuneSpawnLogic(true)
         end
 
         -- Enable Universal Shop

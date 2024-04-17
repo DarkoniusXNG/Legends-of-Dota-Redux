@@ -48,7 +48,7 @@ function imba_earth_spirit_stone_remnant:IsNetherWardStealable() return false en
 function imba_earth_spirit_stone_remnant:IsInnateAbility() return true end
 function imba_earth_spirit_stone_remnant:IsStealable() return false end
 
-function imba_earth_spirit_stone_remnant:GetManaCost()
+function imba_earth_spirit_stone_remnant:GetManaCost(level)
 	return self:GetSpecialValueFor("overdraw_base_cost") * ((self:GetCaster():GetModifierStackCount("modifier_imba_earth_spirit_remnant_handler", self:GetCaster()) - 1) ^ self:GetSpecialValueFor("overdraw_cost_multiplier"))
 end
 

@@ -32,8 +32,8 @@ function crater.GetAbilityTexture(self)
     end
 end
 function crater.GetManaCost(self,i)
-    local caster = self:GetCaster();
-    local cost = {100,110,120,130};
+    local caster = self:GetCaster()
+    local cost = {100,110,120,130}
     if caster:GetModifierStackCount(self:GetIntrinsicModifierName(),caster)==0 then
         return cost[(i)+1]
     else

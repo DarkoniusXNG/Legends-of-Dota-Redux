@@ -387,7 +387,7 @@ function imba_queenofpain_blink:OnSpellStart()
 	end
 end
 
-function imba_queenofpain_blink:GetManaCost()
+function imba_queenofpain_blink:GetManaCost(level)
 	local caster = self:GetCaster()
 	if caster:HasModifier("modifier_imba_queenofpain_blink_decision_time") then
 		return self:GetSpecialValueFor("mana_cost") * 2
