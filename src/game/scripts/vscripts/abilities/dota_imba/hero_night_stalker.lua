@@ -1158,13 +1158,13 @@ function modifier_imba_darkness_night:IsAuraActiveOnDeath()
 end
 
 function modifier_imba_darkness_night:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_MOVESPEED_MAX}
-
-	return decFuncs
+	return {
+		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+	}
 end
 
-function modifier_imba_darkness_night:GetModifierMoveSpeed_Max()
-	return 99999
+function modifier_imba_darkness_night:GetModifierIgnoreMovespeedLimit()
+	return 1
 end
 
 -- Darkness vision reduction modifier

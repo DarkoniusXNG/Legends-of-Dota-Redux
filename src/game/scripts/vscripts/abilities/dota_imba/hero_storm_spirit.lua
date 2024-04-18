@@ -23,7 +23,7 @@ end
 
 CreateEmptyTalents("storm_spirit")
 
-imba_storm_spirit_static_remnant = storm_spirit_static_remnant or class({})
+imba_storm_spirit_static_remnant = imba_storm_spirit_static_remnant or class({})
 LinkLuaModifier("modifier_imba_static_remnant", "abilities/dota_imba/hero_storm_spirit.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------

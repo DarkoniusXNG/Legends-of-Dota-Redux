@@ -1560,7 +1560,7 @@ function modifier_imba_riki_tricks_of_the_trade_secondary:IsHidden() return true
 function modifier_imba_riki_tricks_of_the_trade_secondary:OnCreated()
 	if IsServer() then
 		local parent = self:GetParent()
-		local aps = parent:GetAttacksPerSecond()
+		local aps = parent:GetAttacksPerSecond(true)
 		self:StartIntervalThink(1/aps)
 	end
 end
@@ -1647,7 +1647,7 @@ function modifier_imba_riki_tricks_of_the_trade_secondary:OnIntervalThink()
 					self:ProcTricks(caster,ability,martyrs_mark_target,backstab_ability,backstab_particle,backstab_sound,caster:FindTalentValue("special_bonus_imba_riki_2","duration"))
 
 					local caster = self:GetParent()
-					local aps = caster:GetAttacksPerSecond()
+					local aps = caster:GetAttacksPerSecond(true)
 					self:StartIntervalThink(1/aps)
 					return
 				end
@@ -1661,7 +1661,7 @@ function modifier_imba_riki_tricks_of_the_trade_secondary:OnIntervalThink()
 				self:ProcTricks(caster,ability,unit,backstab_ability,backstab_particle,backstab_sound,caster:FindTalentValue("special_bonus_imba_riki_2","duration"))
 
 				local caster = self:GetParent()
-				local aps = caster:GetAttacksPerSecond()
+				local aps = caster:GetAttacksPerSecond(true)
 				self:StartIntervalThink(1/aps)
 				return
 			end

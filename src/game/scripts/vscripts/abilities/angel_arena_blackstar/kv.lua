@@ -271,5 +271,5 @@ function UpdateAttackProjectile(keys)
 end
 
 function Debug(keys)
-	print("DD Ability: " .. keys.msg or "nil")
+	print("DD Ability: "..tostring(keys.msg))
 end

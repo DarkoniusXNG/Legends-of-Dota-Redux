@@ -165,7 +165,7 @@ function MedicalTractat(keys)
 	while (caster:HasModifier("modifier_medical_tractate")) do
 		caster:RemoveModifierByName("modifier_medical_tractate") 
 	end
-	caster:AddNewModifier(caster, nil, "modifier_medical_tractate", null)
+	caster:AddNewModifier(caster, nil, "modifier_medical_tractate", {})
 
 end
 

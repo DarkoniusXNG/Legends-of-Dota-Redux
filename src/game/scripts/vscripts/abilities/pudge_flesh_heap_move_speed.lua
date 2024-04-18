@@ -122,13 +122,10 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_flesh_heap_move_speed:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-   -- MODIFIER_PROPERTY_MOVESPEED_MAX,
-    --MODIFIER_PROPERTY_MOVESPEED_LIMIT,
     MODIFIER_EVENT_ON_DEATH,
   }
-  return funcs
 end
 
 function modifier_flesh_heap_move_speed:OnDeath(keys)
@@ -182,16 +179,6 @@ function modifier_flesh_heap_move_speed:OnDeath(keys)
     end
   end
 end
-
-
---function modifier_flesh_heap_move_speed:GetModifierMoveSpeed_Max( params )
---    return 5000
---end
-
---function modifier_flesh_heap_move_speed:GetModifierMoveSpeed_Limit( params )
---    return 5000
---end
-
 
 function modifier_flesh_heap_move_speed:GetModifierMoveSpeedBonus_Constant()
   return self:GetStackCount() * self.flesh_heap_move_speed_buff_amount

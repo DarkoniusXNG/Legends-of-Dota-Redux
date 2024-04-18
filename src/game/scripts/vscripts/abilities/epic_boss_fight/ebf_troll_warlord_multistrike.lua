@@ -182,8 +182,8 @@ function Fervor(keys)
 						ability:ApplyDataDrivenModifier(caster, caster, modifier, {duration = duration})
 						caster:SetModifierStackCount(modifier, ability, stack_count + 1)
 						if chance*(stack_count + 1) > math.random(100 - ability.prng) then
-							caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK, (2*caster:GetAttacksPerSecond()))
-							Timers:CreateTimer(caster:GetAttacksPerSecond() / 2,
+							caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK, (2*caster:GetAttacksPerSecond(true)))
+							Timers:CreateTimer(caster:GetAttacksPerSecond(true) / 2,
 							function()
 								caster.stuntattack = true
 								caster:PerformAttack(target, true, true, true, false, true, false, true)	
@@ -199,8 +199,8 @@ function Fervor(keys)
 						ability:ApplyDataDrivenModifier(caster, caster, modifier, {duration = duration})
 						caster:SetModifierStackCount(modifier, ability, stack_count)
 						if chance*stack_count > math.random(100 - ability.prng) then
-							caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK, (2*caster:GetAttacksPerSecond()))
-							Timers:CreateTimer(caster:GetAttacksPerSecond() / 2,
+							caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK, (2*caster:GetAttacksPerSecond(true)))
+							Timers:CreateTimer(caster:GetAttacksPerSecond(true) / 2,
 							function()
 								caster.stuntattack = true
 								caster:PerformAttack(target, true, true, true, false, true, false, true)	
@@ -218,7 +218,7 @@ function Fervor(keys)
 				caster:SetModifierStackCount(modifier, ability, 1)
 				if chance > math.random(100 - ability.prng) and not caster.stuntattack then
 					caster.stuntattack = true
-					caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK, (2*caster:GetAttacksPerSecond()))
+					caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK, (2*caster:GetAttacksPerSecond(true)))
 					Timers:CreateTimer(0.2,function()
 								caster:PerformAttack(target, true, true, true, false, true, false, true)
 								ability.prng = 0

@@ -27,7 +27,6 @@
 	
 **pregame.lua** - Major functions relating to when the game is still being setup. Also has some functions related to ingame stuff, most important file in redux. 
 
-**pudge_flesh_heap_cast_range.lua**	- Not sure why this is here, it probably shouldn't be.
 **skillmanager.lua** - Functions related to swapping skills 
 
 **spellfixes.lua** - Used to correct/fix/balance certain skills. 

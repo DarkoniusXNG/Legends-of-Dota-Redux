@@ -8565,12 +8565,11 @@ ListenToGameEvent('game_rules_state_change', function(keys)
     local newState = GameRules:State_Get()
     if newState == DOTA_GAMERULES_STATE_PRE_GAME then
     elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-        if IsDedicatedServer() then
-            local mapName = OptionManager:GetOption('mapname')
-            if (mapName == 'all_allowed' or mapName == 'overthrow') and not util:isCoop() then
-                SU:SendPlayerBuild( buildBackups )
-            end
-        end
+        -- if IsDedicatedServer() then
+            -- if not util:isCoop() then
+                -- SU:SendPlayerBuild( buildBackups )
+            -- end
+        -- end
 
         WAVE = 0
 

@@ -3,17 +3,12 @@ if IsServer() then
 end
 
 function GetDamagePercent(caster, ability)
-	summ_pct = ability:GetSpecialValueFor("damage_percent")
-	damage_decreased = 1
-	--local damage_decreased = 2
-	--if caster:GetUnitName() == "npc_dota_hero_storm_spirit" then
-	--	damage_decreased = 3
-	--end
+	local summ_pct = ability:GetSpecialValueFor("damage_percent")
 
 	for i = 0, 5 do
 		local item = caster:GetItemInSlot(i)
 		if item and item~= ability and item:GetName() == ability:GetName() then
-			summ_pct = summ_pct + (item:GetSpecialValueFor("damage_percent") or 0) / damage_decreased
+			summ_pct = summ_pct + item:GetSpecialValueFor("damage_percent")
 		end
 	end
 	return summ_pct
@@ -57,7 +52,7 @@ function HolyBook_attack( keys )
 
 
 	local units = FindUnitsInRadius(team, position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, 0, false) 
-	local caster_attack_speed = caster:GetAttacksPerSecond()
+	local caster_attack_speed = caster:GetAttacksPerSecond(true)
 
 	for _, x in pairs(units) do
 		if x ~= keys.target then

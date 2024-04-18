@@ -728,18 +728,18 @@ function modifier_imba_sacred_arrow_haste:OnCreated()
 end
 
 function modifier_imba_sacred_arrow_haste:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE,
-		MODIFIER_PROPERTY_MOVESPEED_MAX}
-
-	return decFuncs
+	return {
+		MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE,
+		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+	}
 end
 
 function modifier_imba_sacred_arrow_haste:GetModifierMoveSpeedOverride()
 	return self.on_prowl_movespeed
 end
 
-function modifier_imba_sacred_arrow_haste:GetModifierMoveSpeed_Max()
-	return self.on_prowl_movespeed
+function modifier_imba_sacred_arrow_haste:GetModifierIgnoreMovespeedLimit()
+	return 1
 end
 
 function modifier_imba_sacred_arrow_haste:GetEffectName()

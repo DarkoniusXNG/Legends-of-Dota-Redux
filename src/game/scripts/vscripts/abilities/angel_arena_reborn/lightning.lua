@@ -62,7 +62,7 @@ function lightning_repeat( params )
     params.bounceTable[params.initial_target] = 1
 
     -- find next target (closest one to previous one)
-    unitsInRange = FindUnitsInRadius(params.initial_target:GetTeamNumber(),
+    local unitsInRange = FindUnitsInRadius(params.initial_target:GetTeamNumber(),
         params.initial_target:GetAbsOrigin(),
         nil,
         params.radius,

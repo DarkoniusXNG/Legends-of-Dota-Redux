@@ -921,18 +921,18 @@ function modifier_imba_shadow_walk_buff_invis:GetPriority()
 end
 
 function modifier_imba_shadow_walk_buff_invis:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+	return {
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 		MODIFIER_PROPERTY_INVISIBILITY_LEVEL,
 		MODIFIER_EVENT_ON_ABILITY_EXECUTED,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 		MODIFIER_EVENT_ON_UNIT_MOVED,
-		MODIFIER_PROPERTY_MOVESPEED_MAX}
-
-	return decFuncs
+		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+	}
 end
 
-function modifier_imba_shadow_walk_buff_invis:GetModifierMoveSpeed_Max()
-	return 550 * (1 + self:GetStackCount() * 0.01)
+function modifier_imba_shadow_walk_buff_invis:GetModifierIgnoreMovespeedLimit()
+	return 1
 end
 
 function modifier_imba_shadow_walk_buff_invis:OnUnitMoved(keys)

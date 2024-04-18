@@ -337,7 +337,7 @@ function modifier_imba_shrapnel_charges:OnCreated()
 		else
 			-- Illusions find their owner and its charges
 			local playerid = self.caster:GetPlayerID()
-			local real_hero = playerid:GetAssignedHero()
+			local hero = playerid:GetAssignedHero()
 
 			if hero:HasModifier(self.modifier_charge) then
 				self.modifier_charge_handler = hero:FindModifierByName(self.modifier_charge)

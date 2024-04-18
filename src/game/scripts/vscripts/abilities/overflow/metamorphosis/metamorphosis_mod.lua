@@ -31,31 +31,19 @@ function metamorphosis_mod:OnDestroy()
 end
 
 function metamorphosis_mod:DeclareFunctions()
-	local funcs = {
-MODIFIER_PROPERTY_MODEL_CHANGE,
-MODIFIER_PROPERTY_MODEL_SCALE,
-MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
-MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
-MODIFIER_EVENT_ON_ATTACK_LANDED,
---MODIFIER_PROPERTY_MOVESPEED_MAX,
---MODIFIER_PROPERTY_MOVESPEED_LIMIT,
-MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
+	return {
+		MODIFIER_PROPERTY_MODEL_CHANGE,
+		MODIFIER_PROPERTY_MODEL_SCALE,
+		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
+		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
+		MODIFIER_EVENT_ON_ATTACK_LANDED,
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
 	}
-	return funcs
-end
-
-function metamorphosis_mod:GetModifierMoveSpeed_Max( params )
-    return self:GetAbility():GetSpecialValueFor("move_speed")
-end
-
-function metamorphosis_mod:GetModifierMoveSpeed_Limit( params )
-    return self:GetAbility():GetSpecialValueFor("move_speed")
 end
 
 function metamorphosis_mod:GetModifierMoveSpeedBonus_Constant( params )
     return self:GetAbility():GetSpecialValueFor("move_speed")
 end
-
 
 function metamorphosis_mod:IsHidden()
 	return false

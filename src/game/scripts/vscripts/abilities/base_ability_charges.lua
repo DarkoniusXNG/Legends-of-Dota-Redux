@@ -1,26 +1,23 @@
 LinkLuaModifier("modifier_base_ability_charges","abilities/base_ability_charges.lua",LUA_MODIFIER_MOTION_NONE)
 
----@class base_ability_charges : CDOTA_Ability_Lua
 base_ability_charges = class({})
 
 ---@overide
 function base_ability_charges:GetIntrinsicModifierName()
     return "modifier_"..self:GetAbilityName().."_charges"
 end
----@return CDOTA_Modifier_Lua
+
 function base_ability_charges:GetIntrinsicModifierHandle()
     return self:GetCaster():FindModifierByName(self:GetIntrinsicModifierName())
 end
----Override this when you have another name in your abilityspecial values
----@return number
+
 function base_ability_charges:GetMaxChargeCount()
     local count = self:GetSpecialValueFor("max_charges")
     if self:GetCaster():HasScepter() then
-        count = math.max(self:GetSpecialValueFor("max_charges_scepter"),count)
+        return math.max(self:GetSpecialValueFor("max_charges_scepter"),count)
     end
 end
----Override this when you have another name in your abilityspecial values
----@return number
+
 function base_ability_charges:GetChargeRestoreTime()
     local time = self:GetSpecialValueFor("charge_restore_time")
     if self:GetCaster():HasScepter() then
@@ -42,7 +39,6 @@ function base_ability_charges:GetCooldown()
     end
 end
 
----@class modifier_base_ability_charges : CDOTA_Modifier_Lua
 modifier_base_ability_charges = class({})
 
 ---@override

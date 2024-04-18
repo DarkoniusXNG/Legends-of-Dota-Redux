@@ -198,16 +198,13 @@ function modifier_imba_wisp_tether:OnCreated(params)
 end
 
 function modifier_imba_wisp_tether:DeclareFunctions()
-	local decFuncs = {
+	return {
 		--MODIFIER_EVENT_ON_HEALTH_GAINED,	-- Why does this not work at full HP but the mana one does
 		MODIFIER_EVENT_ON_MANA_GAINED,
 		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
-		MODIFIER_PROPERTY_MOVESPEED_MAX,
-		
-		MODIFIER_EVENT_ON_HEAL_RECEIVED
+		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+		MODIFIER_EVENT_ON_HEAL_RECEIVED,
 	}
-
-	return decFuncs
 end
 
 function modifier_imba_wisp_tether:GetPriority()
@@ -291,8 +288,8 @@ function modifier_imba_wisp_tether:GetModifierMoveSpeed_Absolute()
 	return self.movespeed
 end
 
-function modifier_imba_wisp_tether:GetModifierMoveSpeed_Max()
-	return 3000
+function modifier_imba_wisp_tether:GetModifierIgnoreMovespeedLimit()
+	return 1
 end
 
 function modifier_imba_wisp_tether:OnHealReceived(keys)

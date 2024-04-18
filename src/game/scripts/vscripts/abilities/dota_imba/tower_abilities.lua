@@ -4480,17 +4480,19 @@ function modifier_tower_healing_think:OnIntervalThink()
 			return nil
 		end
 
+		local this = self
+
 		-- Start bouncing with bounce delay
-		Timers:CreateTimer(self.bounce_delay, function()
+		Timers:CreateTimer(this.bounce_delay, function()
 
 				-- Still don't know if other heroes need healing, assumes doesn't unless found
 				local heroes_need_healing = false
 
 				-- Look for other heroes nearby, regardless of if they need healing
-				heroes = FindUnitsInRadius(self.caster:GetTeamNumber(),
+				heroes = FindUnitsInRadius(this.caster:GetTeamNumber(),
 					current_healed_hero:GetAbsOrigin(),
 					nil,
-					self.bounce_radius,
+					this.bounce_radius,
 					DOTA_UNIT_TARGET_TEAM_FRIENDLY,
 					DOTA_UNIT_TARGET_HERO,
 					DOTA_UNIT_TARGET_FLAG_NONE,
@@ -4501,7 +4503,7 @@ function modifier_tower_healing_think:OnIntervalThink()
 				for _, hero in pairs(heroes) do
 					if not hero.healed_by_healing_wave then
 						heroes_need_healing = true
-						HealingWaveBounce(self.caster, current_healed_hero, self.ability, hero)
+						HealingWaveBounce(this.caster, current_healed_hero, this.ability, hero)
 						current_healed_hero = hero
 						break
 					end
@@ -4509,7 +4511,7 @@ function modifier_tower_healing_think:OnIntervalThink()
 
 				-- If a hero was found, there might be more: repeat operation
 				if heroes_need_healing then
-					return bounce_delay
+					return this.bounce_delay
 				else
 					return nil
 				end

@@ -238,25 +238,20 @@ function modifier_gottagofast_effect:GetTexture()
 end
 ----------------------------------------------------------------------------------------------------------
 function modifier_gottagofast_effect:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-		MODIFIER_PROPERTY_MOVESPEED_LIMIT,
-		MODIFIER_PROPERTY_MOVESPEED_MAX
+		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
 	}
-	return funcs
 end
 ----------------------------------------------------------------------------------------------------------
 function modifier_gottagofast_effect:GetModifierMoveSpeedBonus_Percentage()
 	return 50
 end
 ----------------------------------------------------------------------------------------------------------
-function modifier_gottagofast_effect:GetModifierMoveSpeed_Limit()
-	return 1000
+function modifier_gottagofast_effect:GetModifierIgnoreMovespeedLimit()
+	return 1
 end
-----------------------------------------------------------------------------------------------------------
-function modifier_gottagofast_effect:GetModifierMoveSpeed_Max()
-	return 1000
-end
+
 --------------------------------------------------------------------------------------------------------
 --		Modifier: modifier_gottagoreallyfast_aura				
 --------------------------------------------------------------------------------------------------------
@@ -301,24 +296,18 @@ function modifier_gottagoreallyfast_effect:GetTexture()
 end
 ----------------------------------------------------------------------------------------------------------
 function modifier_gottagoreallyfast_effect:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
-		MODIFIER_PROPERTY_MOVESPEED_LIMIT,
-		MODIFIER_PROPERTY_MOVESPEED_MAX
+		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
 	}
-	return funcs
 end
 ----------------------------------------------------------------------------------------------------------
 function modifier_gottagoreallyfast_effect:GetModifierMoveSpeed_Absolute()
 	return 1000
 end
 ----------------------------------------------------------------------------------------------------------
-function modifier_gottagoreallyfast_effect:GetModifierMoveSpeed_Limit()
-	return 1000
-end
-----------------------------------------------------------------------------------------------------------
-function modifier_gottagoreallyfast_effect:GetModifierMoveSpeed_Max()
-	return 1000
+function modifier_gottagoreallyfast_effect:GetModifierIgnoreMovespeedLimit()
+	return 1
 end
 ----------------------------------------------------------------------------------------------------------
 

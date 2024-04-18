@@ -1238,10 +1238,10 @@ function modifier_imba_phoenix_sun_ray_caster_dummy:IsStunDebuff() 		return fals
 function modifier_imba_phoenix_sun_ray_caster_dummy:RemoveOnDeath() 	return true  end
 
 function modifier_imba_phoenix_sun_ray_caster_dummy:DeclareFunctions()
-	local funcs = { MODIFIER_PROPERTY_MOVESPEED_LIMIT,
-		MODIFIER_PROPERTY_MOVESPEED_MAX,
-		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE}
-	return funcs
+	return {
+		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
+	}
 end
 
 function modifier_imba_phoenix_sun_ray_caster_dummy:CheckState()
@@ -1249,27 +1249,19 @@ function modifier_imba_phoenix_sun_ray_caster_dummy:CheckState()
 		[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,}
 end
 
-function modifier_imba_phoenix_sun_ray_caster_dummy:GetModifierMoveSpeed_Limit()
+function modifier_imba_phoenix_sun_ray_caster_dummy:GetModifierIgnoreMovespeedLimit()
 	if not self:GetCaster():HasTalent("special_bonus_imba_phoenix_8") then
 		return 1
 	else
-		return nil
-	end
-end
-
-function modifier_imba_phoenix_sun_ray_caster_dummy:GetModifierMoveSpeed_Max()
-	if not self:GetCaster():HasTalent("special_bonus_imba_phoenix_8") then
-		return 1
-	else
-		return nil
+		return 0
 	end
 end
 
 function modifier_imba_phoenix_sun_ray_caster_dummy:GetModifierIgnoreCastAngle()
 	if not self:GetCaster():HasTalent("special_bonus_imba_phoenix_8") then
-		return 360
+		return 1
 	else
-		return nil
+		return 0
 	end
 end
 

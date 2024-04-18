@@ -24,7 +24,6 @@ function DeathPulseStart( keys )
   -- Initialize projectile parameters
   local projectile = {
     Target = caster,
-    Source = target,
     Ability = ability,
     EffectName = "",
     bDodgeable = false,

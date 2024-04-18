@@ -197,8 +197,8 @@ end
 function modifier_imba_acid_spray_handler:OnDeath(params)
 	if IsServer() then
 		-- Ability properties
-		caster 	= 	self:GetCaster()
-		parent	=	self:GetParent()
+		local caster 	= 	self:GetCaster()
+		local parent	=	self:GetParent()
 
 		if (params.unit == parent) then
 
@@ -367,10 +367,6 @@ MergeTables(LinkedModifiers,{
 	["modifier_imba_unstable_concoction_handler"] = LUA_MODIFIER_MOTION_NONE,
 })
 imba_alchemist_unstable_concoction = imba_alchemist_unstable_concoction or class({})
-
-function imba_alchemist_unstable_concoction:GetAbilityTextureName()
-	return "alchemist_unstable_concoction"
-end
 
 function imba_alchemist_unstable_concoction:GetCastRange(location, target)
 	local caster = self:GetCaster()
@@ -586,7 +582,7 @@ function imba_alchemist_unstable_concoction:OnProjectileHit(target, location)
 							location = acid_spray_modifier.center
 						end
 
-						particle_acid_blast_fx = ParticleManager:CreateParticle(particle_acid_blast, PATTACH_WORLDORIGIN, caster)
+						local particle_acid_blast_fx = ParticleManager:CreateParticle(particle_acid_blast, PATTACH_WORLDORIGIN, caster)
 						ParticleManager:SetParticleControl(particle_acid_blast_fx, 0, location)
 						ParticleManager:SetParticleControl(particle_acid_blast_fx, 1, location)
 						ParticleManager:SetParticleControl(particle_acid_blast_fx, 2, Vector(acid_spray_radius, 0, 0))
@@ -1128,16 +1124,17 @@ end
 
 function imba_alchemist_greevils_greed:OnSpellStart()
 	local caster = self:GetCaster()
-	local target = self:GetCursorTarget()
-	local owner = caster:GetOwner()
+	--local target = self:GetCursorTarget()
+	--local owner = caster:GetOwner()
 
-	local greed_ability = owner:FindAbilityByName("imba_alchemist_goblins_greed")
+	--local greed_ability = owner:FindAbilityByName("imba_alchemist_goblins_greed")
 
-	local hull_size = target:GetHullRadius()
-	local particle_greevil_fx = ParticleManager:CreateParticle(particle_greevil, PATTACH_ABSORIGIN_FOLLOW, target)
-	ParticleManager:SetParticleControl(particle_greevil_fx, 0, target:GetAbsOrigin())
-	ParticleManager:SetParticleControl(particle_greevil_fx, 1, Vector(hull_size*3, 1, 1))
-	ParticleManager:ReleaseParticleIndex(particle_greevil_fx)
+	--local hull_size = target:GetHullRadius()
+	--local particle_greevil = ""
+	--local particle_greevil_fx = ParticleManager:CreateParticle(particle_greevil, PATTACH_ABSORIGIN_FOLLOW, target)
+	--ParticleManager:SetParticleControl(particle_greevil_fx, 0, target:GetAbsOrigin())
+	--ParticleManager:SetParticleControl(particle_greevil_fx, 1, Vector(hull_size*3, 1, 1))
+	--ParticleManager:ReleaseParticleIndex(particle_greevil_fx)
 
 
 	caster.target = nil
@@ -1501,7 +1498,7 @@ modifier_imba_chemical_rage_aura_buff	=	modifier_imba_chemical_rage_aura_buff or
 
 function modifier_imba_chemical_rage_aura_buff:OnCreated()
 	if IsServer() then
-		caster	=	self:GetCaster()
+		local caster	=	self:GetCaster()
 
 		self:SetStackCount(caster:FindModifierByName("modifier_imba_goblins_greed_passive"):GetStackCount())
 	end

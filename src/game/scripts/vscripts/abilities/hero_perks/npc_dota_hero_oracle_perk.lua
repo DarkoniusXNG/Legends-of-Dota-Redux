@@ -6,11 +6,11 @@
 --------------------------------------------------------------------------------------------------------
 LinkLuaModifier( "modifier_npc_dota_hero_oracle_perk", "abilities/hero_perks/npc_dota_hero_oracle_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
 --------------------------------------------------------------------------------------------------------
-if npc_dota_hero_oracle_perk ~= "" then npc_dota_hero_oracle_perk = class({}) end
+npc_dota_hero_oracle_perk = npc_dota_hero_oracle_perk or class({})
 --------------------------------------------------------------------------------------------------------
 --    Modifier: modifier_npc_dota_hero_oracle_perk       
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_oracle_perk ~= "" then modifier_npc_dota_hero_oracle_perk = class({}) end
+modifier_npc_dota_hero_oracle_perk = modifier_npc_dota_hero_oracle_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_oracle_perk:IsPassive()
   return true
@@ -53,7 +53,6 @@ function modifier_npc_dota_hero_oracle_perk:OnCreated()
 	  item_seer_stone = true,
 	  item_force_staff = true,
 	  item_holy_locket = true,
-	  item_pipe = true,
 	  item_crimson_guard = true,
 	  item_book_of_shadows = true
     }

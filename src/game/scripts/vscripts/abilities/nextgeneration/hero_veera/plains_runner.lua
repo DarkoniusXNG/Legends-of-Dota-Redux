@@ -12,13 +12,7 @@ function PlainsRunnerInitialize( keys )
 	local level = ability:GetLevel() - 1
 	caster.movespeed_max = ability:GetLevelSpecialValueFor("movespeed_limit", level)
 
-	--if level == 0 then
-		--caster:AddNewModifier(caster, ability, 'modifier_movespeed_cap', {})
-	--end
-	--caster:SetModifierStackCount('modifier_movespeed_cap', ability, caster.movespeed_max)
-	--if caster:HasModifier("modifier_thrill_active") and caster:HasScepter() then
-	--	caster:SetModifierStackCount('modifier_movespeed_cap', ability, caster.movespeed_max*2)
-	--end
+	caster:AddNewModifier(caster, ability, 'modifier_movespeed_cap', {})
 end
 
 function PlainsRunnerDistanceCheck( keys )
@@ -115,31 +109,4 @@ function PlainsRunnerAgility( keys )
 	end
 end
 
-modifier_movespeed_cap = class({})
-LinkLuaModifier("modifier_movespeed_cap", "heroes/hero_veera/plains_runner", LUA_MODIFIER_MOTION_NONE)
-
-
-function modifier_movespeed_cap:DeclareFunctions()
-    local funcs = {
-       --MODIFIER_PROPERTY_MOVESPEED_MAX,
-       --MODIFIER_PROPERTY_MOVESPEED_LIMIT,
-    }
-
-    return funcs
-end
-
---function modifier_movespeed_cap:GetModifierMoveSpeed_Max( params )
---    return self:GetStackCount()
---end
-
---function modifier_movespeed_cap:GetModifierMoveSpeed_Limit( params )
---    return self:GetStackCount()
---end
-
-function modifier_movespeed_cap:IsHidden()
-    return true
-end
-
-function modifier_movespeed_cap:GetAttributes()
-	return MODIFIER_ATTRIBUTE_PERMANENT
-end
+LinkLuaModifier("modifier_movespeed_cap", "abilities/modifiers/modifier_movespeed_cap.lua", LUA_MODIFIER_MOTION_NONE)

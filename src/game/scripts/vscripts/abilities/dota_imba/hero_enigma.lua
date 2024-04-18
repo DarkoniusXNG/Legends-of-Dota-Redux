@@ -383,7 +383,7 @@ function modifier_imba_enigma_eidolon:OnCreated( keys )
 	
 	self.armor_bonus		= self.parent:GetPhysicalArmorValue(false) * self.trans_pct * 0.01
 	self.movespeed_bonus	= self.parent:GetIdealSpeed() * self.trans_pct * 0.01
-	self.attack_speed_bonus	= (self.parent:GetAttacksPerSecond() * self.parent:GetBaseAttackTime() * 100) * self.trans_pct * 0.01
+	self.attack_speed_bonus	= (self.parent:GetAttacksPerSecond(true) * self.parent:GetBaseAttackTime() * 100) * self.trans_pct * 0.01
 	
 	if not IsServer() then return end
 	
@@ -391,7 +391,7 @@ function modifier_imba_enigma_eidolon:OnCreated( keys )
 	
 	if self.parent:HasModifier("modifier_imba_echo_rapier_haste") then
 		local echo_buf = self.parent:FindModifierByName("modifier_imba_echo_rapier_haste")
-		self.attack_speed_bonus = ((self.parent:GetAttacksPerSecond() * self.parent:GetBaseAttackTime() * 100) - echo_buf.attack_speed_buff) * self.trans_pct * 0.01
+		self.attack_speed_bonus = ((self.parent:GetAttacksPerSecond(true) * self.parent:GetBaseAttackTime() * 100) - echo_buf.attack_speed_buff) * self.trans_pct * 0.01
 	end
 	
 	self.damage_bonus		= self.trans_pct * self.parent:GetAverageTrueAttackDamage(self.parent) * 0.01

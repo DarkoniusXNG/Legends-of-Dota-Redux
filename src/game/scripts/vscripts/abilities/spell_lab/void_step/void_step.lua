@@ -65,24 +65,17 @@ function spell_lab_void_step_modifier:OnDestroy()
 end
 
 function spell_lab_void_step_modifier:DeclareFunctions()
-	local funcs = {
-MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-MODIFIER_PROPERTY_MOVESPEED_MAX,
-MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+	return {
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
 	}
-	return funcs
 end
 
 function spell_lab_void_step_modifier:GetModifierMoveSpeedBonus_Constant()
   return self:GetStackCount()
 end
-function spell_lab_void_step_modifier:GetModifierMoveSpeed_Max()
-	return self:GetStackCount()
-end
-
-----------------------------------------------------------------------------------------------------------
-function spell_lab_void_step_modifier:GetModifierMoveSpeed_Limit()
-	return self:GetStackCount()
+function spell_lab_void_step_modifier:GetModifierIgnoreMovespeedLimit()
+	return 1
 end
 
 function spell_lab_void_step_modifier:IsHidden()

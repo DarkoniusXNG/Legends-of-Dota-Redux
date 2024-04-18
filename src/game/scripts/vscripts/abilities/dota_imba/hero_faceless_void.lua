@@ -1239,18 +1239,16 @@ function modifier_imba_faceless_void_chronosphere_handler:OnIntervalThink()
 end
 
 function modifier_imba_faceless_void_chronosphere_handler:DeclareFunctions()
-	local funcs ={ 	MODIFIER_EVENT_ON_ORDER,
-		MODIFIER_PROPERTY_MOVESPEED_MAX,
-		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
+	return {
+		MODIFIER_EVENT_ON_ORDER,
+		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
 		MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
 		MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 		-- #8 TALENT: Void cleaves from attacks in chrono
-		MODIFIER_EVENT_ON_ATTACK_LANDED
+		MODIFIER_EVENT_ON_ATTACK_LANDED,
 	}
-
-	return funcs
 end
 
 function modifier_imba_faceless_void_chronosphere_handler:CheckState()
@@ -1280,22 +1278,10 @@ function modifier_imba_faceless_void_chronosphere_handler:GetPriority()
 		return MODIFIER_PRIORITY_HIGH end
 end
 
--- #3 TALENT: Void gains infinite movement speed in Chrono
-function modifier_imba_faceless_void_chronosphere_handler:GetModifierMoveSpeed_Absolute()
+function modifier_imba_faceless_void_chronosphere_handler:GetModifierIgnoreMovespeedLimit()
 	if self:GetStackCount() == 1 or self:GetStackCount() == 4 then
-		-- This section does not work with mini-chronos
-		if self:GetStackCount() ~= 4 then
-			if self:GetCaster():HasTalent("special_bonus_imba_faceless_void_3") then
-				return self:GetCaster():FindTalentValue("special_bonus_imba_faceless_void_3", "move_speed")
-			end
-		end
-		return self:GetAbility():GetSpecialValueFor("movement_speed")
+		return 1
 	end
-end
-
-function modifier_imba_faceless_void_chronosphere_handler:GetModifierMoveSpeed_Max()
-	if self:GetStackCount() == 1 or self:GetStackCount() == 4 then
-		return self:GetAbility():GetSpecialValueFor("movement_speed") end
 end
 
 function modifier_imba_faceless_void_chronosphere_handler:GetModifierAttackSpeedBonus_Constant()
@@ -1305,7 +1291,10 @@ end
 
 function modifier_imba_faceless_void_chronosphere_handler:GetModifierMoveSpeedBonus_Percentage()
 	if self:GetStackCount() == 2 then
-		return self:GetAbility():GetSpecialValueFor("scepter_ally_ms_slow_pcnt") * -1 end
+		return self:GetAbility():GetSpecialValueFor("scepter_ally_ms_slow_pcnt") * -1
+	elseif self:GetStackCount() == 1 or self:GetStackCount() == 4 then
+		return self:GetAbility():GetSpecialValueFor("movement_speed")
+	end
 end
 
 function modifier_imba_faceless_void_chronosphere_handler:GetModifierProjectileSpeedBonus()

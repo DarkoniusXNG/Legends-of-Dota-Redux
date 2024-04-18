@@ -77,7 +77,7 @@ end
 function SU:SendPlayerBuild( args )
   local Data = {}
  
-  for pID = 0, DOTA_MAX_PLAYERS do
+  for pID = 0, DOTA_MAX_PLAYERS - 1 do
     if PlayerResource:IsValidPlayerID(pID) then
       if not PlayerResource:IsBroadcaster(pID) and not util:isPlayerBot(pID) then
         local abilities = {}

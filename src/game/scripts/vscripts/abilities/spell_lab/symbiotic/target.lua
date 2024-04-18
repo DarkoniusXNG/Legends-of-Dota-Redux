@@ -25,18 +25,15 @@ end
 
 
 function spell_lab_symbiotic_target:DeclareFunctions()
-	local funcs = {
-    MODIFIER_EVENT_ON_DEATH--[[]]--
-		,
-    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE,
+	return {
+		MODIFIER_EVENT_ON_DEATH,
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+		MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE,
 		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
-		--]]--
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 	}
-	return funcs
 end
 
 function spell_lab_symbiotic_target:IsHidden()
@@ -104,7 +101,7 @@ function spell_lab_symbiotic_target:GetModifierBonusStats_Intellect()
 	end
 end
 
-function spell_lab_symbiotic_target:GetModifierPercentageManaRegen ()
+function spell_lab_symbiotic_target:GetModifierTotalPercentageManaRegen ()
 	if self:GetAbility() then
 		return self:GetAbility():GetSpecialValueFor("mana_regen")
 	end

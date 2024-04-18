@@ -707,8 +707,9 @@ end
 function CDOTA_BaseNPC:GetBaseBAT()
     local reduction = 0
     local pct = 1
-    self.BAT = self.BAT or ALLHEROES[self:GetUnitName()]["AttackRate"]
-    local time = self.BAT
+    local unit_data = GetUnitKeyValuesByName(self:GetUnitName())
+    self.BAT = self.BAT or unit_data.AttackRate
+    local time = self.BAT or 1.7
     for _, parent_modifier in pairs(self:FindAllModifiers()) do
         if parent_modifier.GetModifierBaseAttackTimeConstant then
             if parent_modifier:GetName() ~= "modifier_bat_manager" then
@@ -861,7 +862,7 @@ function CDOTABaseAbility:IsCustomAbility()
 		print("IsCustomAbility: Ability "..self:GetAbilityName().." does not exist.")
 		return
 	end
-	return ability_kvs.BaseClass ~= nil
+	return ability_kvs.BaseClass ~= nil and not util:IsTalent(self)
 end
 
 function IsCustomAbilityByName(name)
@@ -870,7 +871,7 @@ function IsCustomAbilityByName(name)
 		print("IsCustomAbilityByName: Ability "..name.." does not exist.")
 		return
 	end
-	return ability_kvs.BaseClass ~= nil
+	return ability_kvs.BaseClass ~= nil and not util:IsTalent(name)
 end
 
 function CDOTA_BaseNPC:HasUnitFlag(flag)

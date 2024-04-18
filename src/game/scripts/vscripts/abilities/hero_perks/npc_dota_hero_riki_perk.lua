@@ -1,16 +1,16 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Riki
---		Perk: Increases Riki's health regeneration by 4 while invisible. 
+--		Perk: Increases Riki's health regeneration by 2% while invisible. 
 --
 --------------------------------------------------------------------------------------------------------
 LinkLuaModifier( "modifier_npc_dota_hero_riki_perk", "abilities/hero_perks/npc_dota_hero_riki_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
 --------------------------------------------------------------------------------------------------------
-if npc_dota_hero_riki_perk ~= "" then npc_dota_hero_riki_perk = class({}) end
+npc_dota_hero_riki_perk = npc_dota_hero_riki_perk or class({})
 --------------------------------------------------------------------------------------------------------
 --		Modifier: modifier_npc_dota_hero_riki_perk				
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_riki_perk ~= "" then modifier_npc_dota_hero_riki_perk = class({}) end
+modifier_npc_dota_hero_riki_perk = modifier_npc_dota_hero_riki_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_riki_perk:IsPassive()
 	return true
@@ -33,8 +33,10 @@ end
 --------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_riki_perk:DeclareFunctions()
-	return { MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
-			MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE }
+	return {
+		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
+		MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE,
+	}
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_riki_perk:GetModifierHealthRegenPercentage()
@@ -45,7 +47,7 @@ function modifier_npc_dota_hero_riki_perk:GetModifierHealthRegenPercentage()
 	end
 end
 
-function modifier_npc_dota_hero_riki_perk:GetModifierPercentageManaRegen()
+function modifier_npc_dota_hero_riki_perk:GetModifierTotalPercentageManaRegen()
 	if self:GetCaster():IsInvisible() then
  		return 2
 	else 
