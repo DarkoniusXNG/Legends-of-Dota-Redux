@@ -727,8 +727,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                    "clinkz_burning_army"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+        "BaseClass"                     "clinkz_burning_army"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
         "FightRecapLevel"               "1"
@@ -793,9 +792,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                            "bounty_hunter_jinada"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		//"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+        "BaseClass"                            "bounty_hunter_jinada"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"		
 		"AbilitySound"					"Hero_BountyHunter.Jinada"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
@@ -1058,7 +1055,6 @@
 			}
         }
     }
-
 
     "crystal_maiden_brilliance_aura_redux"
     {

@@ -17,12 +17,6 @@ local heroListKV = LoadKeyValues('scripts/npc/npc_heroes.txt')
 -- A list of sub abilities needed to give out when we add an ability
 local subAbilities = LoadKeyValues('scripts/kv/abilityDeps.kv')
 
--- A list of sub abilities to find main abilities connected to them
-local mainAbilities = {}
-for l,m in pairs(subAbilities) do
-    mainAbilities[m]=l
-end
-
 -- List of units that we can precache
 local unitList = LoadKeyValues('scripts/npc/npc_units_custom.txt')
 
@@ -67,10 +61,10 @@ local towerClasses = {
 
 -- Auto set this to max level
 local autoSkill = {
-    nyx_assassin_unburrow = true,
+    --nyx_assassin_unburrow = true,
     alchemist_transmuted_scepter = true,
-    silencer_glaives_of_wisdom_steal = true,
-    earth_spirit_stone_caller = true
+    --silencer_glaives_of_wisdom_steal = true,
+    earth_spirit_stone_caller = true,
 }
 
 local heroIDToName = {}
@@ -669,8 +663,6 @@ function skillManager:ApplyBuild(hero, build, autoLevelSkills)
                 else
                     hero:RemoveAbility(multV)
                 end
-
-
             else
                 local newAb = hero:AddAbility(multV)
                 if newAb then
@@ -911,13 +903,7 @@ function skillManager:isUlt(name)
     local ability_type = ability_data.AbilityType
     if not ability_type then
         -- If ability type is ommited it's usually a basic ability
-        -- But we can check behavior too
-        local behavior = ability_data.AbilityBehavior
-        if not behavior then
-            print("skillManager:isUlt: Ability "..name.." does not have a behavior!")
-            return false
-        end
-        return string.find(behavior, "DOTA_ABILITY_TYPE_ULTIMATE")
+        return false
     end
     return string.find(ability_type, "DOTA_ABILITY_TYPE_ULTIMATE")
 end

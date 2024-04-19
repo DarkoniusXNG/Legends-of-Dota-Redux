@@ -54,12 +54,12 @@ function summon_zombie_modifier:AttemptToSpawnZombie()
     if self.caster.numSpawned > self.max_spawned then
     if util:isPlayerBot(caster:GetPlayerID()) and math.random(1,15) == 1 then
             local zombie = CreateUnitByName("custom_creature_zombie_large", self:GetCaster():GetAbsOrigin(), true, nil, nil, self:GetCaster():GetTeamNumber())
-            zombie:AddNewModifier(zombie, nil, "modifier_phased", {Duration = Duration})
+            zombie:AddNewModifier(zombie, nil, "modifier_phased", {duration = 1})
             zombie.spawner = self.caster
             zombie:CreatureLevelUp(self.level)
         else
             local zombie = CreateUnitByName("custom_creature_zombie", self:GetCaster():GetAbsOrigin(), true, nil, nil, self:GetCaster():GetTeamNumber())
-            zombie:AddNewModifier(zombie, nil, "modifier_phased", {Duration = Duration})
+            zombie:AddNewModifier(zombie, nil, "modifier_phased", {duration = 1})
             zombie.spawner = self.caster
             zombie:CreatureLevelUp(self.level)
         end

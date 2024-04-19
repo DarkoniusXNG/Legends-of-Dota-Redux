@@ -846,7 +846,8 @@
         }
         "lone_druid_true_form_battle_cry"
         {
-            "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_TYPE_ULTIMATE"
+            "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+            "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
             "ReduxPerks"                                                           "rage | support"
 			"ReduxFlags"														   "support"
             "ReduxCost"                                                            "10"
