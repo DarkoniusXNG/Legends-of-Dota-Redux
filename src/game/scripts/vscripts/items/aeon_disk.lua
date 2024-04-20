@@ -1,5 +1,5 @@
-LinkLuaModifier("modifier_item_aeon_disk_consumable", "abilities/items/aeon_disk.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_aeon_disk_consumable_buff", "abilities/items/aeon_disk.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_aeon_disk_consumable", "items/aeon_disk.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_aeon_disk_consumable_buff", "items/aeon_disk.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_aeon_disk_consumable = class({})
 

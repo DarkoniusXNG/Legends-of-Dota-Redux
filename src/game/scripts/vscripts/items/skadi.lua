@@ -67,7 +67,7 @@ function item_skadi_consumable:ConsumeItem(hCaster)
   end
 end
 
-LinkLuaModifier("modifier_item_skadi_consumable","abilities/items/skadi.lua",LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_skadi_consumable","items/skadi.lua",LUA_MODIFIER_MOTION_NONE)
 modifier_item_skadi_consumable = class({})
 
 function modifier_item_skadi_consumable:GetTexture()
@@ -175,7 +175,7 @@ function modifier_item_skadi_consumable:OnAttackLanded(keys)
 end
 
 
-LinkLuaModifier("modifier_item_skadi_consumable_slow","abilities/items/skadi.lua",LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_skadi_consumable_slow","items/skadi.lua",LUA_MODIFIER_MOTION_NONE)
 modifier_item_skadi_consumable_slow = class({})
 
 function modifier_item_skadi_consumable_slow:DeclareFunctions()

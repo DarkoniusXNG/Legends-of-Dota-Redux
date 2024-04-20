@@ -63,7 +63,7 @@ function item_octarine_core_consumable:ConsumeItem(hCaster)
   end
 end
 
-LinkLuaModifier("modifier_item_octarine_core_consumable","abilities/items/octarine_core.lua",LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_octarine_core_consumable","items/octarine_core.lua",LUA_MODIFIER_MOTION_NONE)
 modifier_item_octarine_core_consumable = class({})
 
 function modifier_item_octarine_core_consumable:GetTexture()

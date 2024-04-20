@@ -19,6 +19,7 @@
         "ReduxCost"                                                            "40"
         "ReduxBans"                                                            "death_prophet_witchcraft | storm_spirit_ball_lightning"
         "ReduxBanCategory"                                                     "SpammableSpells"
+        "ReduxFlags"                                                           "cooldown"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------

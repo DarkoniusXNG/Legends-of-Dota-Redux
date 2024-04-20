@@ -62,7 +62,7 @@ function item_greater_crit_consumable:ConsumeItem(hCaster)
   end
 end
 
-LinkLuaModifier("modifier_item_greater_crit_consumable","abilities/items/greater_crit.lua",LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_greater_crit_consumable","items/greater_crit.lua",LUA_MODIFIER_MOTION_NONE)
 modifier_item_greater_crit_consumable = class({})
 
 function modifier_item_greater_crit_consumable:GetTexture()
@@ -114,7 +114,7 @@ function modifier_item_greater_crit_consumable:OnAttackStart(keys)
   end
 end
 
-LinkLuaModifier("modifier_item_greater_crit_consumable_crit","abilities/items/greater_crit.lua",LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_greater_crit_consumable_crit","items/greater_crit.lua",LUA_MODIFIER_MOTION_NONE)
 modifier_item_greater_crit_consumable_crit = class({})
 
 function modifier_item_greater_crit_consumable_crit:DeclareFunctions()

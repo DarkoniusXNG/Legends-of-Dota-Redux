@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_companion_reincarnation", "abilities/items/companion.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_companion_reincarnation", "items/companion.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_companion_consumable = class({})
 

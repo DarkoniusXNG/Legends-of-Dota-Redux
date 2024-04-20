@@ -1064,7 +1064,7 @@
 
     "item_consumable_redux"
     {
-        "ScriptFile"                    "abilities/items/consumable_baseclass.lua"
+        "ScriptFile"                    "items/consumable_baseclass.lua"
         "AbilityTextureName"            "item_consumable"
         "BaseClass"                     "item_lua"
         "ItemCost"                      "0"
@@ -1086,7 +1086,7 @@
         "AbilityCastRange"              "1200"
         "AbilityTextureName"            "item_assault"
         "BaseClass"                     "item_lua"
-        "ScriptFile"                    "abilities/items/assault.lua"
+        "ScriptFile"                    "items/assault.lua"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -1144,7 +1144,7 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityTextureName"            "item_skadi"
         "BaseClass"                     "item_lua"
-        "ScriptFile"                    "abilities/items/skadi.lua"
+        "ScriptFile"                    "items/skadi.lua"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -1205,84 +1205,35 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "item_lua"
+        "ScriptFile"                    "items/desolator.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"            "item_desolator"
-        "BaseClass"                     "item_lua"
-        "ScriptFile"                    "abilities/items/desolator.lua"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "3500"
+        "AbilityCooldown"               "0.1"
         "AbilityGoldCost"               "3500"
-        "ItemPurchasable"              "0"
-        
-        
+
+        "ItemCost"                      "3500" // important for selling
+        "ItemPurchasable"               "0"
+        "ItemStackable"                                   "0"
+        "ItemPermanent"                                   "0"
+
         // Special  
         //-------------------------------------------------------------------------------------------------------------
-        //
-
-        // THESE VALUES ARE PURELY FOR THE TOOLTIPS, REAL VALUES ARE IN ABILITY "ability_consumable_item_container"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "desolator_bonus_damage"          "60"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "desolator_corruption_armor"      "-6"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "desolator_corruption_duration"   "7.0"
-            }
-        }
-    }
-    "item_ultimate_scepter_consumable"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
-        "AbilityTextureName"            "item_ultimate_scepter"
-        "BaseClass"                     "item_lua"
-        "ScriptFile"                    "abilities/items/ultimate_scepter.lua"
-
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "4200"
-        "AbilityGoldCost"               "4200"
-        "ItemPurchasable"              "0"
-        
-        
-        // Special  
-        //-------------------------------------------------------------------------------------------------------------
-        //
-
-        // THESE VALUES ARE PURELY FOR THE TOOLTIPS, REAL VALUES ARE IN ABILITY "ability_consumable_item_container"
-        "AbilitySpecial"
-        {
-            "70"
-            {
-              "var_type"                "FIELD_INTEGER"
-              "ultimate_scepter_bonus_all_stats"          "10"
-            }
-            "71"
-            {
-              "var_type"                "FIELD_INTEGER"
-              "ultimate_scepter_bonus_health"              "175"
-            }
-            "72"
-            {
-              "var_type"                "FIELD_INTEGER"
-              "ultimate_scepter_bonus_mana"             "175"
-            }
+            "bonus_damage"                                "60" // vanilla 50
+            "corruption_armor"                            "-6"
+            "corruption_duration"                         "7.0"
+			//"bonus_damage_per_kill"                       "2"
+			//"bonus_damage_per_assist"                     "1"
+			//"max_damage"                                  "30"
         }
     }
 
@@ -1400,42 +1351,33 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "4800"
-        "AbilityGoldCost"               "5000"
-        "ItemPurchasable"              "0"
-        "AbilityCooldown"               "7.0"
+        "BaseClass"                     "item_lua"
+        "ScriptFile"                    "items/heart.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityTextureName"            "item_heart"
-        "BaseClass"                     "item_lua"
-        "ScriptFile"                    "abilities/items/heart.lua"
-        
+
+        "AbilityCooldown"               "0.1"
+        "AbilityGoldCost"               "5200"
+
+        "ItemCost"                      "5200" // important for selling
+        "ItemPurchasable"               "0"
+        "ItemStackable"                                       "0"
+        "ItemPermanent"                                       "0"
+
         // Special  
         //-------------------------------------------------------------------------------------------------------------
         //
-
-        // THESE VALUES ARE PURELY FOR THE TOOLTIPS, REAL VALUES ARE IN ABILITY "ability_consumable_item_container"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "heart_bonus_strength"        "45"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "heart_bonus_health"          "250"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "heart_health_regen_pct"      "1.6"
-            }
+            "bonus_strength"        "40"
+            "bonus_health"          "0"
+            "health_regen_pct"      "1.6"
         }
     }
-    "item_greater_crit_consumable"
+    
+	"item_greater_crit_consumable"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
@@ -1444,7 +1386,7 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityTextureName"            "item_greater_crit"
         "BaseClass"                     "item_lua"
-        "ScriptFile"                    "abilities/items/greater_crit.lua"                                                       
+        "ScriptFile"                    "items/greater_crit.lua"                                                       
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -1485,7 +1427,7 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityTextureName"            "item_octarine_core"
         "BaseClass"                     "item_lua"
-        "ScriptFile"                    "abilities/items/octarine_core.lua"
+        "ScriptFile"                    "items/octarine_core.lua"
         // This is a short-gap measure TODO: Make a better fix
         "IsTempestDoubleClonable"       "1"
 
@@ -1544,7 +1486,7 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityTextureName"            "item_monkey_king_bar"
         "BaseClass"                     "item_lua"
-        "ScriptFile"                    "abilities/items/monkey_king_bar.lua"
+        "ScriptFile"                    "items/monkey_king_bar.lua"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -1577,43 +1519,6 @@
         }
     }
 
-    "item_aether_lens_consumable"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
-        "AbilityTextureName"            "item_aether_lens"
-        "BaseClass"                     "item_lua"
-        "ScriptFile"                    "abilities/items/aether_lens.lua"
-
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "2275"
-        "AbilityGoldCost"               "2275"
-        "ItemPurchasable"              "0"
-
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "aether_lens_bonus_mana"            "300"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "aether_lens_bonus_mana_regen"      "2.5"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "aether_lens_cast_range_bonus"          "225"
-            }
-            
-        }
-    }
     "item_butterfly_consumable"
     {
         // General
@@ -1623,7 +1528,7 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityTextureName"            "item_butterfly"
         "BaseClass"                     "item_lua"
-        "ScriptFile"                    "abilities/items/butterfly.lua"
+        "ScriptFile"                    "items/butterfly.lua"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -1973,7 +1878,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "custom/item_new_ability_bonus"
-        "ScriptFile"                    "abilities/items/gold_bonus"
+        "ScriptFile"                    "items/gold_bonus"
         "AbilitySharedCooldown"         "bonus"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "Model"                         "models/props_gameplay/treasure_chest001.vmdl"
@@ -1997,7 +1902,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "custom/item_new_global_ability_bonus"
-        "ScriptFile"                    "abilities/items/gold_bonus"
+        "ScriptFile"                    "items/gold_bonus"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "Model"                         "models/props_gameplay/treasure_chest001.vmdl"
         "ItemKillable"                  "0"
@@ -2021,7 +1926,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "custom/item_balanced_build_bonus"
-        "ScriptFile"                    "abilities/items/gold_bonus"
+        "ScriptFile"                    "items/gold_bonus"
         "AbilitySharedCooldown"         "bonus"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "Model"                         "models/props_gameplay/treasure_chest001.vmdl"
@@ -2041,7 +1946,7 @@
 
     "item_vladmir_consumable"
     {
-        "ScriptFile"                    "abilities/items/vladimir.lua"
+        "ScriptFile"                    "items/vladimir.lua"
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "item_vladmir"
         "AbilityCastRange"              "900"
@@ -2078,70 +1983,9 @@
         }
     }
 
-    "item_echo_sabre_consumable"
-    {
-        "ScriptFile"                    "abilities/items/echo_sabre.lua"
-        "BaseClass"                     "item_lua"
-        "AbilityTextureName"            "item_echo_sabre"
-        "FightRecapLevel"               "1"
-        "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
-        "AbilityCooldown"               "5.0"
-        "ItemCost"                      "2500"
-
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
-        "AbilityGoldCost"               "2500"
-        "ItemPurchasable"              "0"
-
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "echo_sabre_bonus_damage"          "15"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "echo_sabre_bonus_strength"        "12"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "echo_sabre_bonus_intellect"           "10"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "echo_sabre_bonus_attack_speed"            "10"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "echo_sabre_bonus_mana_regen"      "1.25"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "echo_sabre_movement_slow"         "100"
-            }
-            "07"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "echo_sabre_attack_speed_slow"         "0"
-            }
-            "08"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "echo_sabre_slow_duration"         "0.8"
-            }
-        }
-    }
-
     "item_aeon_disk_consumable"
     {
-        "ScriptFile"                    "abilities/items/aeon_disk.lua"
+        "ScriptFile"                    "items/aeon_disk.lua"
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "item_aeon_disk"
         "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
@@ -2184,89 +2028,9 @@
         }
     }
 
-    "item_kaya_consumable" // Disabled
-    {
-        "ScriptFile"                    "abilities/items/kaya.lua"
-        "AbilityTextureName"            "item_kaya"
-        "BaseClass"                     "item_lua"
-        "ItemCost"                      "1950"
-
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
-        "AbilityGoldCost"               "1950"
-        "ItemPurchasable"              "0"
-
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_intellect_kaya"       "16"
-            }           
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "spell_amp"             "10"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "manacost_reduction"    "10"
-            }
-        }
-    }
-
-
-
-//         "AbilitySpecial"
-//         {
-//             "01"
-//             {
-//                 "var_type"              "FIELD_INTEGER"
-//                 "sange_kaya_yasha_bonus_intellect"       "16"
-//             }           
-//             "02"
-//             {
-//                 "var_type"              "FIELD_INTEGER"
-//                 "sange_kaya_yasha_bonus_strength"             "16"
-//             }
-//             "03"
-//             {
-//                 "var_type"              "FIELD_INTEGER"
-//                 "sange_kaya_yasha_bonus_agility"    "16"
-//             }
-//             "04"
-//             {
-//                 "var_type"              "FIELD_INTEGER"
-//                 "sange_kaya_yasha_bonus_damage"    "12"
-//             }
-//             "05"
-//             {
-//                 "var_type"              "FIELD_INTEGER"
-//                 "sange_kaya_yasha_bonus_attack_speed"    "16"
-//             }
-//             "06"
-//             {
-//                 "var_type"              "FIELD_INTEGER"
-//                 "sange_kaya_yasha_movement_speed_percent_bonus"    "35"
-//             }
-//             "07"
-//             {
-//                 "var_type"              "FIELD_INTEGER"
-//                 "sange_kaya_yasha_spell_amp"    "16"
-//             }
-//             "08"
-//             {
-//                 "var_type"              "FIELD_INTEGER"
-//                 "sange_kaya_yasha_manacost_reduction"    "16"
-//             }
-//         }
-//     }
-
     "item_companion_consumable"
     {
-        "ScriptFile"                    "abilities/items/companion.lua"
+        "ScriptFile"                    "items/companion.lua"
         "AbilityTextureName"            "custom/item_companion_consumable"
         "BaseClass"                     "item_lua"
         "ItemCost"                      "9500"
@@ -2299,65 +2063,4 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
         }
     }
-
-    "item_holy_locket_consumable"
-    {
-        "ScriptFile"                    "abilities/items/holy_locket.lua"
-        "AbilityTextureName"            "item_holy_locket"
-        "BaseClass"                     "item_lua"
-        "ItemCost"                      "2500"
-
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
-        "AbilityGoldCost"               "2500"
-        "ItemPurchasable"              "0"
-
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_health"          "250"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_mana"            "325"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "health_regen"  "4.5"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "heal_increase"     "35"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "max_charges"           "20"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "charge_radius"         "1200"
-            }
-            "07"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_all_stats"       "3"
-            }
-            "08"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "restore_per_charge"    "15"
-            }
-        }
-    }
-
-
-
 }

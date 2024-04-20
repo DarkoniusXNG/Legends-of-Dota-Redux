@@ -1,6 +1,6 @@
-LinkLuaModifier("modifier_item_vladimir_consumable", "abilities/items/vladimir.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_vladimir_consumable_aura", "abilities/items/vladimir.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_vlads_info", "abilities/items/vladimir.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_vladimir_consumable", "items/vladimir.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_vladimir_consumable_aura", "items/vladimir.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_vlads_info", "items/vladimir.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_vladimir_consumable = class({})
 

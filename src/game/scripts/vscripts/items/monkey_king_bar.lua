@@ -62,7 +62,7 @@ function item_monkey_king_bar_consumable:ConsumeItem(hCaster)
   end
 end
 
-LinkLuaModifier("modifier_item_monkey_king_bar_consumable","abilities/items/monkey_king_bar.lua",LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_monkey_king_bar_consumable","items/monkey_king_bar.lua",LUA_MODIFIER_MOTION_NONE)
 modifier_item_monkey_king_bar_consumable = class({})
 
 function modifier_item_monkey_king_bar_consumable:GetTexture()

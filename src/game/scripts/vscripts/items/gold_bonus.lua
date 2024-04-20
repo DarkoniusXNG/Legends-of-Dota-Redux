@@ -65,7 +65,7 @@ end
 function gold_bonus_modifier:GetTexture()
   return "alchemist_goblins_greed"
 end
-LinkLuaModifier("gold_bonus_modifier", "abilities/items/gold_bonus", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("gold_bonus_modifier", "items/gold_bonus", LUA_MODIFIER_MOTION_NONE)
 
 -- modifier_new_global_ability_bonus = class(gold_bonus_modifier)
 -- function modifier_new_global_ability_bonus:GetGold()
@@ -74,7 +74,7 @@ LinkLuaModifier("gold_bonus_modifier", "abilities/items/gold_bonus", LUA_MODIFIE
 -- function modifier_new_global_ability_bonus:GetTexture()
 --   return "alchemist_goblins_greed"
 -- end
--- LinkLuaModifier("modifier_new_global_ability_bonus", "abilities/items/gold_bonus", LUA_MODIFIER_MOTION_NONE)
+-- LinkLuaModifier("modifier_new_global_ability_bonus", "items/gold_bonus", LUA_MODIFIER_MOTION_NONE)
 
 -- modifier_balanced_build_bonus = class(gold_bonus_modifier)
 -- function modifier_balanced_build_bonus:GetGold()
@@ -83,4 +83,4 @@ LinkLuaModifier("gold_bonus_modifier", "abilities/items/gold_bonus", LUA_MODIFIE
 -- function modifier_balanced_build_bonus:GetTexture()
 --   return "alchemist_goblins_greed"
 -- end
--- LinkLuaModifier("modifier_balanced_build_bonus", "abilities/items/gold_bonus", LUA_MODIFIER_MOTION_NONE)
+-- LinkLuaModifier("modifier_balanced_build_bonus", "items/gold_bonus", LUA_MODIFIER_MOTION_NONE)

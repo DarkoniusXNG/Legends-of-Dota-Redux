@@ -1,7 +1,7 @@
 
 -- Lua Library Imports
-require("abilities/items/consumable_baseclass");
-LinkLuaModifier("modifier_item_butterfly_consumable","abilities/items/butterfly.lua",LUA_MODIFIER_MOTION_NONE);
+require("items/consumable_baseclass");
+LinkLuaModifier("modifier_item_butterfly_consumable","items/butterfly.lua",LUA_MODIFIER_MOTION_NONE);
 item_butterfly_consumable = item_butterfly_consumable or item_consumable_redux.new()
 item_butterfly_consumable.__index = item_butterfly_consumable
 item_butterfly_consumable.__base = item_consumable_redux

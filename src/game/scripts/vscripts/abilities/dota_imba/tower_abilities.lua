@@ -2765,27 +2765,31 @@ function modifier_imba_tower_grievous_wounds_aura_buff:OnAttackLanded(keys)
 		-- Only apply if the parent is the victim and the attacker is on the opposite team
 		if self.parent == attacker and attacker:GetTeamNumber() ~= target:GetTeamNumber() then
 
+			local grievous_debuff_handler
 			-- Add debuff modifier. Increment stack count and refresh
 			if not target:HasModifier(self.grievous_debuff) then
-				target:AddNewModifier(self.caster, self.ability, self.grievous_debuff, {duration = self.debuff_duration})
+				grievous_debuff_handler = target:AddNewModifier(self.caster, self.ability, self.grievous_debuff, {duration = self.debuff_duration})
+				grievous_debuff_handler:SetStackCount(1)
+			else
+				grievous_debuff_handler = target:FindModifierByName(self.grievous_debuff)
+
+				-- Increase stack count and refresh
+				grievous_debuff_handler:IncrementStackCount()
+				grievous_debuff_handler:ForceRefresh()
 			end
-
-			local grievous_debuff_handler = target:FindModifierByName(self.grievous_debuff)
-
-			-- Increase stack count and refresh
-			grievous_debuff_handler:IncrementStackCount()
-			grievous_debuff_handler:ForceRefresh()
 
 			-- Calculate damage based on stacks
 			local grievous_stacks = grievous_debuff_handler:GetStackCount()
 			local damage = (self.damage_increase + self.damage_increase_per_hero * protective_instinct_stacks) * grievous_stacks
 
 			-- Apply damage
-			local damageTable = {victim = target,
+			local damageTable = {
+				victim = target,
 				attacker = self.parent,
 				damage = damage,
 				damage_type = DAMAGE_TYPE_PHYSICAL,
-				ability = self.ability}
+				ability = self.ability
+			}
 
 			ApplyDamage(damageTable)
 		end
