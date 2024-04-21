@@ -4,7 +4,7 @@
     {
         "BaseClass"                                                            "necronomicon_warrior_last_will"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PURE"
+        "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "MaxLevel"                                                             "4"
         "AbilitySpecial"
         {

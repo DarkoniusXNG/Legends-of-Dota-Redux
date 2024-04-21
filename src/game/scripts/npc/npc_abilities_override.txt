@@ -666,7 +666,8 @@
 
 		"beastmaster_hawk_dive"
 		{
-			"MaxLevel"						"4"
+			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
+            "MaxLevel"						"4"
 			"AbilityCastRange"				"900 1000 1100 1200"
 			"AbilityCastPoint"				"1.0"
 			"AbilityCooldown"				"15 14 13 12"

@@ -7,7 +7,7 @@
 		"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType" "DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitTargetFlags" "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"AbilityCooldown" "60"
+		"AbilityCooldown" "40"
 		"AbilityManaCost" "40 50 60 70"
 		"AbilityCastRange" "300"
 		"AbilityCastPoint" "0.3"
