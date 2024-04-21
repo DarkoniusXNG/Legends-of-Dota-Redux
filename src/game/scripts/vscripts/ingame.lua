@@ -1179,7 +1179,7 @@ function Ingame:balanceGold()
             multiplier = RadiantPlayers - DirePlayers
         end
 
-        --local moneyToGive = (180 * multiplier) * OptionManager:GetOption('goldPerTick')
+        local moneyToGive = 180 --(180 * multiplier) * OptionManager:GetOption('goldPerTick')
 
         if losingTeam == "goodGuys" then
             self.radiantBalanceMoney = self.radiantBalanceMoney + moneyToGive

@@ -658,10 +658,6 @@ function modifier_imba_elder_dragon_form:OnIntervalThink()
 			end
 		end
 
-		-- if self:GetParent():HasModifier("modifier_item_ultimate_scepter_consumed") then
-			-- self:AddElderForm(self:GetParent(), self:GetAbility(), self:GetAbility():GetLevel())
-		-- end
-
 		if self:GetParent():HasScepter() then
 			if self:GetParent():PassivesDisabled() then
 				self:GetParent():RemoveModifierByName("modifier_dragon_knight_dragon_form")

@@ -536,7 +536,7 @@ function Pregame:init()
     end
 
     if mapName == 'all_allowed' then
-        self:setOption('lodOptionCrazyUniversalShop', 0, true)
+        self:setOption('lodOptionCrazyUniversalShop', 1, true)
         self:setOption('lodOptionGameSpeedSharedEXP', 1, true)
         self:setOption('lodOptionBanningUseBanList', 1, true)
         self:setOption('lodOptionAdvancedOPAbilities', 1, true)
@@ -565,7 +565,7 @@ function Pregame:init()
     end
 
     if mapName == 'overthrow' then
-        self:setOption('lodOptionCrazyUniversalShop', 0, true)
+        self:setOption('lodOptionCrazyUniversalShop', 1, true)
         self:setOption('lodOptionGameSpeedSharedEXP', 1, true)
         self:setOption('lodOptionBanningUseBanList', 1, true)
         self:setOption('lodOptionAdvancedOPAbilities', 1, true)
@@ -670,7 +670,7 @@ function Pregame:init()
         self:setOption('lodOptionGameSpeedEXPModifier', 100, true)
         self:setOption('lodOptionGameSpeedMaxLevel', 100, true)
         self:setOption('lodOptionGameSpeedRespawnTimePercentage', 35, true)
-        self:setOption('lodOptionCrazyUniversalShop', 0, true)
+        self:setOption('lodOptionCrazyUniversalShop', 1, true)
         self.useOptionVoting = true
         self.optionVoteSettings.banning = nil
     else
@@ -1138,13 +1138,13 @@ function Pregame:applyPrimaryAttribute(playerID, hero)
         local toSet = 0
 
         if self.selectedPlayerAttr[playerID] == 'str' then
-            toSet = 0
+            toSet = DOTA_ATTRIBUTE_STRENGTH
         elseif self.selectedPlayerAttr[playerID] == 'agi' then
-            toSet = 1
+            toSet = DOTA_ATTRIBUTE_AGILITY
         elseif self.selectedPlayerAttr[playerID] == 'int' then
-            toSet = 2
+            toSet = DOTA_ATTRIBUTE_INTELLECT
 		elseif self.selectedPlayerAttr[playerID] == 'all' then
-            toSet = 3
+            toSet = DOTA_ATTRIBUTE_ALL
         end
 
         Timers:CreateTimer(function()
@@ -1690,6 +1690,7 @@ function Pregame:actualSpawnPlayer(forceID)
 
             -- Attempt to precache their hero
             PrecacheUnitByNameAsync(heroName, function()
+                print("Succesfully precached "..heroName)
                 -- We have now cached this player's hero
                 Timers:CreateTimer(function (  )
                     this.cachedPlayerHeroes[playerID] = true
@@ -5045,7 +5046,7 @@ function Pregame:onPlayerReady(eventSourceIndex, args)
                 end
             end
             local attr = hero:GetPrimaryAttribute()
-            attr = attr == 0 and 'str' or attr == 1 and 'agi' or attr == 2 and 'int' or attr == 3 and 'all'
+            attr = attr == DOTA_ATTRIBUTE_STRENGTH and 'str' or attr == DOTA_ATTRIBUTE_AGILITY and 'agi' or attr == DOTA_ATTRIBUTE_INTELLECT and 'int' or attr == DOTA_ATTRIBUTE_ALL and 'all'
             local heroName = PlayerResource:GetSelectedHeroName(playerID)
             if newBuild.setAttr ~= attr or newBuild.hero ~= heroName then
                 isSameBuild = false
@@ -5055,7 +5056,8 @@ function Pregame:onPlayerReady(eventSourceIndex, args)
                 network:hideHeroBuilder(player)
                 return
             end
-            PrecacheUnitByNameAsync(newBuild.hero,function (  )
+            PrecacheUnitByNameAsync(newBuild.hero, function (  )
+                print("Succesfully precached "..newBuild.hero)
                 SkillManager:ApplyBuild(hero, newBuild)
                 local player = PlayerResource:GetPlayer(playerID)
                 network:hideHeroBuilder(player)
@@ -8543,7 +8545,7 @@ function Pregame:fixSpawningIssues()
                 if OptionManager:GetOption('stacking') == 1 and spawnedUnit:GetUnitName() ~= "npc_dota_roshan" then
                     if IsValidEntity(spawnedUnit) then
                             -- Have to delete creeps after time or game will crash because of too many creeps
-                            spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_kill", {duration = 300})
+                            spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_kill", {duration = 150})
                     end
                 end
                 

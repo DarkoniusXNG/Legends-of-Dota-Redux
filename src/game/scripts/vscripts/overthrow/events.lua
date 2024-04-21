@@ -7,10 +7,6 @@ function COverthrowGameMode:OnGameRulesStateChange()
 	local nNewState = GameRules:State_Get()
 	--print( "OnGameRulesStateChange: " .. nNewState )
 
-	if nNewState == DOTA_GAMERULES_STATE_HERO_SELECTION then
-
-	end
-
 	if nNewState == DOTA_GAMERULES_STATE_PRE_GAME then
 		local numberOfPlayers = PlayerResource:GetPlayerCount()
 		if numberOfPlayers > 7 then

@@ -102,7 +102,7 @@ if not OptionManager.initialSettings then
 	OptionManager:SetOption('wtfMode', false)
 
 	-- Enable Universal shop mode
-	OptionManager:SetOption('universalShop', false)
+	OptionManager:SetOption('universalShop', false) -- lodOptionCrazyUniversalShop
 
 	-- Enable fast jungle mode
 	OptionManager:SetOption('fastJungleCreeps', false)

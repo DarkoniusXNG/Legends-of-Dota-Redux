@@ -355,7 +355,6 @@ function ReapersScythe( keys )
   local particle_delay = ability:GetLevelSpecialValueFor("animation_delay", ability_level)
   local reap_particle = keys.reap_particle
   local scythe_particle = keys.scythe_particle
-  local scepter = HasScepter(caster)
   local modifier_debuff = keys.modifier_debuff
   
   -- If the target possesses a ready Linken's Sphere, do nothing else
@@ -406,7 +405,7 @@ function ReapersScytheKill( keys )
   -- Parameters
   local respawn_base = ability:GetLevelSpecialValueFor("respawn_base", ability_level)
   local respawn_stack = ability:GetLevelSpecialValueFor("respawn_stack", ability_level)
-  local scepter = HasScepter(caster)
+  local scepter = caster:HasScepter()
 
   -- Flag this as a scythe death, increasing respawn timer by respawn_base
   target:RemoveModifierByName("modifier_imba_reapers_scythe")

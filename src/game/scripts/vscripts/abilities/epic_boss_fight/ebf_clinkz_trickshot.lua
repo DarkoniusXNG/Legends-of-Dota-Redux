@@ -13,20 +13,33 @@ function StrafeAttack(keys)
 
 	if caster:PassivesDisabled() and abilityName == "ebf_clinkz_trickshot_passive" then return end
 
-	local units = FindUnitsInRadius(caster:GetTeam(),
-                                  caster:GetAbsOrigin(),
-                                  nil,
-                                  radius,
-                                  DOTA_UNIT_TARGET_TEAM_ENEMY,
-                                  DOTA_UNIT_TARGET_ALL,
-                                  DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
-                                  FIND_ANY_ORDER,
-                                  false)
+	local units = FindUnitsInRadius(
+		caster:GetTeam(),
+		caster:GetAbsOrigin(),
+		nil,
+		radius,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_ALL,
+		DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+		FIND_ANY_ORDER,
+		false
+	)
+
+	local useCastAttackOrb = true
+	local processProcs = true
+	local skipCooldown = true
+	local ignoreInvis = false
+	local useProjectile = caster:IsRangedAttacker()
+	local fakeAttack = false
+	local neverMiss = not caster:IsRangedAttacker()
+
 	for _, unit in pairs( units ) do
 		caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK, 3)
 		if counter > 0 then
-			caster:PerformAttack(unit, true, true, true, false, true, false, true)
-			counter = counter - 1
+			if unit and not unit:IsNull() then
+				caster:PerformAttack(unit, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
+				counter = counter - 1
+			end
 		end
 	end
 	

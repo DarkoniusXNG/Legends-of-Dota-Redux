@@ -1248,7 +1248,6 @@ function Split( keys )
 	local target = keys.target
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
-	local scepter = HasScepter(caster)
 	
 	if caster:PassivesDisabled() then return end
 

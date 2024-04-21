@@ -1,560 +1,457 @@
-item_assault_consumable = class({})
+LinkLuaModifier("modifier_item_assault_lod_passive", "items/assault.lua", LUA_MODIFIER_MOTION_NONE) -- hidden
+LinkLuaModifier("modifier_item_assault_lod_consumed", "items/assault.lua", LUA_MODIFIER_MOTION_NONE) -- visible
+LinkLuaModifier("modifier_item_assault_lod_aura_handler", "items/assault.lua", LUA_MODIFIER_MOTION_NONE) -- hidden
+LinkLuaModifier("modifier_item_assault_lod_aura_allies", "items/assault.lua", LUA_MODIFIER_MOTION_NONE) -- visible
+LinkLuaModifier("modifier_item_assault_lod_aura_enemies", "items/assault.lua", LUA_MODIFIER_MOTION_NONE) -- visible
+
+item_assault_consumable = item_assault_consumable or class({})
 
 function item_assault_consumable:GetIntrinsicModifierName()
-  return "modifier_item_assault_consumable"
+	return "modifier_item_assault_lod_passive"
 end
 
 function item_assault_consumable:OnSpellStart()
-  self:ConsumeItem(self:GetCaster())
+	local caster = self:GetCaster()
+	local target = self:GetCursorTarget()
+
+	-- Prevent Tempest Double abuse
+	if caster:IsTempestDouble() or target:IsTempestDouble() then
+		return
+	end
+
+	-- Stats for consumed item
+	local attack_speed = self:GetSpecialValueFor("bonus_attack_speed")
+	local armor = self:GetSpecialValueFor("bonus_armor")
+	local aura_radius = self:GetSpecialValueFor("aura_radius")
+	local aura_as = self:GetSpecialValueFor("aura_attack_speed")
+	local aura_pos_armor = self:GetSpecialValueFor("aura_positive_armor")
+	local aura_neg_armor = self:GetSpecialValueFor("aura_negative_armor")
+
+	local table_to_send = {
+		as = attack_speed,
+		armor = armor,
+		aura_radius = aura_radius,
+	}
+
+	if caster == target and not caster:HasModifier("modifier_item_assault_lod_consumed") then
+		caster:AddNewModifier(caster, self, "modifier_item_assault_lod_consumed", table_to_send)
+		caster:EmitSound("DOTA_Item.IronTalon.Activate")
+		caster.assault_attack_speed_aura_lod = aura_as
+		caster.assault_bonus_armor_aura_lod = aura_pos_armor
+		caster.assault_minus_armor_aura_lod = aura_neg_armor
+		self:SpendCharge()
+	end
 end
 
 function item_assault_consumable:CastFilterResultTarget(target)
-  -- Check if its the caster thats targetted
-  if self:GetCaster() ~= target then
-    return UF_FAIL_CUSTOM
-  end
-  -- Check if the ability exists/can be given
-  if IsServer() then
-    local name = self:GetIntrinsicModifierName()
-    if not self:GetCaster():HasAbility("ability_consumable_item_container") then
-      local ab = self:GetCaster():AddAbility("ability_consumable_item_container")
-      ab:SetLevel(1)
-      ab:SetHidden(true)
-    end
-    local ab = self:GetCaster():FindAbilityByName("ability_consumable_item_container")
-    if not ab or ab[name] then
-      return UF_FAIL_CUSTOM
-    end
-    return UF_SUCCESS
-  end
-  return UF_SUCCESS
+	local caster = self:GetCaster()
+
+	-- Check if its the caster thats targetted
+	if caster ~= target then
+		return UF_FAIL_CUSTOM
+	end
+
+	-- Check if already consumed
+	if caster:HasModifier("modifier_item_assault_lod_consumed") then
+		return UF_FAIL_CUSTOM
+	end
+
+	return UF_SUCCESS
 end
 
 function item_assault_consumable:GetCustomCastErrorTarget(target)
-  if self:GetCaster() ~= target then
-    return "#consumable_items_only_self"
-  end
-  local ab  = self:GetCaster():FindAbilityByName("ability_consumable_item_container")
-  if not ab then
-    return "#consumable_items_no_available_slot"
-  end
-  local name = self:GetIntrinsicModifierName()
-  if ab[name] then
-    return "#consumable_items_already_consumed"
-  end
+	local caster = self:GetCaster()
+
+	if caster ~= target then
+		return "#consumable_items_only_self"
+	end
+
+	if caster:HasModifier("modifier_item_assault_lod_consumed") then
+		return "#consumable_items_already_consumed"
+	end
 end
 
+---------------------------------------------------------------------------------------------------
 
-function item_assault_consumable:ConsumeItem(hCaster)
-  
-  local name = self:GetIntrinsicModifierName()
-  if not self:GetCaster():HasAbility("ability_consumable_item_container") then
-    local ab = self:GetCaster():AddAbility("ability_consumable_item_container")
-    ab:SetLevel(1)
-    ab:SetHidden(true)
-  end
-  local ab = self:GetCaster():FindAbilityByName("ability_consumable_item_container")
-  if ab and not ab[name] then
-    hCaster:RemoveItem(self)
-    hCaster:RemoveModifierByName(name)
-    local modifier = hCaster:AddNewModifier(hCaster,ab,name,{})
-    ab[name] = true
-  end
+modifier_item_assault_lod_passive = modifier_item_assault_lod_passive or class({})
+
+function modifier_item_assault_lod_passive:IsHidden()
+	return true
 end
 
-LinkLuaModifier("modifier_item_assault_consumable","items/assault.lua",LUA_MODIFIER_MOTION_NONE)
-modifier_item_assault_consumable = class({})
-
-function modifier_item_assault_consumable:GetTexture()
-  return "item_assault"
-end
-function modifier_item_assault_consumable:IsPassive()
-  return true
-end
-function modifier_item_assault_consumable:RemoveOnDeath()
-  return false
-end
-function modifier_item_assault_consumable:IsPurgable()
-  return false
-end
-function modifier_item_assault_consumable:IsPermanent()
-  return true
-end
-function modifier_item_assault_consumable:IsHidden()
-    if (not self:GetAbility()) then
-        return false
-    end
-    return self:GetAbility():GetName()~="ability_consumable_item_container"
+function modifier_item_assault_lod_passive:IsDebuff()
+	return false
 end
 
-function modifier_item_assault_consumable:GetAttributes()
-  return MODIFIER_ATTRIBUTE_MULTIPLE
+function modifier_item_assault_lod_passive:IsPurgable()
+	return false
 end
 
-function modifier_item_assault_consumable:GetAuraRadius()
-  return self:GetAbility():GetSpecialValueFor("assault_aura_radius")
-end
-function modifier_item_assault_consumable:IsAura()
-  return true
+function modifier_item_assault_lod_passive:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_assault_consumable:GetAuraSearchTeam()
-  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
+function modifier_item_assault_lod_passive:OnCreated()
+	local ability = self:GetAbility()
+	if ability and not ability:IsNull() then
+		self.attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
+		self.armor = ability:GetSpecialValueFor("bonus_armor")
+		self.aura_radius = ability:GetSpecialValueFor("aura_radius")
+	end
 end
 
-function modifier_item_assault_consumable:GetAuraSearchType()
-  return {DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_CREEP,DOTA_UNIT_TARGET_BUILDING}
+modifier_item_assault_lod_passive.OnRefresh = modifier_item_assault_lod_passive.OnCreated
+
+function modifier_item_assault_lod_passive:IsAura()
+	return true
 end
 
-function modifier_item_assault_consumable:GetModifierAura()
-  return "modifier_item_assault_consumable_aura"
+function modifier_item_assault_lod_passive:GetAuraRadius()
+	return self.aura_radius or 1200
 end
 
-function modifier_item_assault_consumable:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-   -- MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-   -- MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-   -- MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-  }
-  return funcs
+function modifier_item_assault_lod_passive:GetAuraSearchTeam()
+	return DOTA_UNIT_TARGET_TEAM_BOTH
 end
 
---[[ function modifier_item_assault_consumable:GetModifierBonusStats_Agility()
-  if not self:GetAbility() then
-    self:Destroy()
-  end
-  return self:GetAbility():GetSpecialValueFor("assault_bonus_all_stats")
-end  
-
-function modifier_item_assault_consumable:GetModifierBonusStats_Intellect()
-  if not self:GetAbility() then
-    self:Destroy()
-  end
-  return self:GetAbility():GetSpecialValueFor("assault_bonus_all_stats")
+function modifier_item_assault_lod_passive:GetAuraSearchType()
+	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP + DOTA_UNIT_TARGET_BUILDING
 end
 
-function modifier_item_assault_consumable:GetModifierBonusStats_Strength()
-  if not self:GetAbility() then
-    self:Destroy()
-  end
-  return self:GetAbility():GetSpecialValueFor("assault_bonus_all_stats")
-end
-]]
-
-function modifier_item_assault_consumable:GetModifierPhysicalArmorBonus()
-  if not self:GetAbility() then
-    self:Destroy()
-  end
-  return self:GetAbility():GetSpecialValueFor("assault_bonus_armor")
+function modifier_item_assault_lod_passive:GetModifierAura()
+	return "modifier_item_assault_lod_aura_handler"
 end
 
-function modifier_item_assault_consumable:GetModifierAttackSpeedBonus_Constant()
-  if not self:GetAbility() then
-    self:Destroy()
-    return
-  end
-  return self:GetAbility():GetSpecialValueFor("assault_bonus_attack_speed")
+function modifier_item_assault_lod_passive:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+	}
 end
 
--- Create enemy aura
-function modifier_item_assault_consumable:OnCreated()
-  if IsServer() then
-    self:StartIntervalThink(1/30)
-  end
+function modifier_item_assault_lod_passive:GetModifierPhysicalArmorBonus()
+	return self.armor
 end
 
-function modifier_item_assault_consumable:OnIntervalThink()
-  if not self:GetAbility() then 
-    self:Destroy()
-    return
-  end
-  if not self:GetCaster():IsAlive() then
-    return
-  end
-  local caster = self:GetCaster()
-  local radius = self:GetAbility():GetSpecialValueFor("assault_aura_radius")
-  local units = FindUnitsInRadius(caster:GetTeam(),caster:GetAbsOrigin(),nil,radius,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_CREEP+DOTA_UNIT_TARGET_BUILDING,DOTA_UNIT_TARGET_FLAG_NONE,FIND_ANY_ORDER,false)
-  for k,v in pairs(units) do
-    if not v:HasModifier("modifier_item_assault_consumable_aura_enemies") then
-      local modifier = v:AddNewModifier(caster,self:GetAbility(),"modifier_item_assault_consumable_aura_enemies",{})
-      modifier:SetDuration(-1,true)
-      modifier:SetDuration(0.5,false)
-    else
-      v:FindModifierByName("modifier_item_assault_consumable_aura_enemies"):SetDuration(-1,true)
-      v:FindModifierByName("modifier_item_assault_consumable_aura_enemies"):SetDuration(0.5,false)
-    end
-  end
+function modifier_item_assault_lod_passive:GetModifierAttackSpeedBonus_Constant()
+	return self.attack_speed
 end
 
+-- function modifier_item_assault_consumable:OnIntervalThink()
+  -- if not self:GetAbility() then 
+    -- self:Destroy()
+    -- return
+  -- end
+  -- if not self:GetCaster():IsAlive() then
+    -- return
+  -- end
+  -- local caster = self:GetCaster()
+  -- local radius = self:GetAbility():GetSpecialValueFor("assault_aura_radius")
+  -- local units = FindUnitsInRadius(caster:GetTeam(),caster:GetAbsOrigin(),nil,radius,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_CREEP+DOTA_UNIT_TARGET_BUILDING,DOTA_UNIT_TARGET_FLAG_NONE,FIND_ANY_ORDER,false)
+  -- for k,v in pairs(units) do
+    -- if not v:HasModifier("modifier_item_assault_lod_aura_enemies") then
+      -- local modifier = v:AddNewModifier(caster,self:GetAbility(),"modifier_item_assault_lod_aura_enemies",{})
+      -- modifier:SetDuration(-1,true)
+      -- modifier:SetDuration(0.5,false)
+    -- else
+      -- v:FindModifierByName("modifier_item_assault_lod_aura_enemies"):SetDuration(-1,true)
+      -- v:FindModifierByName("modifier_item_assault_lod_aura_enemies"):SetDuration(0.5,false)
+    -- end
+  -- end
+-- end
 
+---------------------------------------------------------------------------------------------------
 
-LinkLuaModifier("modifier_item_assault_consumable_aura","items/assault.lua",LUA_MODIFIER_MOTION_NONE)
-modifier_item_assault_consumable_aura = class({})
+modifier_item_assault_lod_consumed = modifier_item_assault_lod_consumed or class({})
 
-function modifier_item_assault_consumable_aura:GetTexture()
-  return "item_assault"
+function modifier_item_assault_lod_consumed:IsHidden()
+	return false
 end
 
-function modifier_item_assault_consumable_aura:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-  }
-  return funcs
+function modifier_item_assault_lod_consumed:IsDebuff()
+	return false
+end
+
+function modifier_item_assault_lod_consumed:IsPurgable()
+	return false
+end
+
+function modifier_item_assault_lod_consumed:GetTexture()
+	return "item_assault"
+end
+
+function modifier_item_assault_lod_consumed:OnCreated(event)
+	if IsServer() then
+		self.attack_speed = event.as
+		self.armor = event.armor
+		self.aura_radius = event.aura_radius
+		self:SetHasCustomTransmitterData(true)
+	end
+end
+
+function modifier_item_assault_lod_consumed:OnRefresh(event)
+	if IsServer() then
+		self.attack_speed = self.attack_speed or event.as
+		self.armor = self.armor or event.armor
+		self.aura_radius = self.aura_radius or event.aura_radius
+		self:SendBuffRefreshToClients()
+	end
+end
+
+-- server-only function that is called whenever SetHasCustomTransmitterData(true) or SendBuffRefreshToClients() is called
+function modifier_item_assault_lod_consumed:AddCustomTransmitterData()
+	return {
+		attack_speed = self.attack_speed,
+		armor = self.armor,
+		aura_radius = self.aura_radius,
+	}
+end
+
+-- client-only function that is called with the table returned by AddCustomTransmitterData()
+function modifier_item_assault_lod_consumed:HandleCustomTransmitterData(data)
+	self.attack_speed = data.attack_speed
+	self.armor = data.armor
+	self.aura_radius = data.aura_radius
+end
+
+function modifier_item_assault_lod_consumed:IsAura()
+	return true
+end
+
+function modifier_item_assault_lod_consumed:GetAuraRadius()
+	return self.aura_radius or 1200
+end
+
+function modifier_item_assault_lod_consumed:GetAuraSearchTeam()
+	return DOTA_UNIT_TARGET_TEAM_BOTH
+end
+
+function modifier_item_assault_lod_consumed:GetAuraSearchType()
+	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP + DOTA_UNIT_TARGET_BUILDING
+end
+
+function modifier_item_assault_lod_consumed:GetModifierAura()
+	return "modifier_item_assault_lod_aura_handler"
+end
+
+function modifier_item_assault_lod_consumed:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+	}
+end
+
+function modifier_item_assault_lod_consumed:GetModifierPhysicalArmorBonus()
+	return self.armor
+end
+
+function modifier_item_assault_lod_consumed:GetModifierAttackSpeedBonus_Constant()
+	return self.attack_speed
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_assault_lod_aura_handler = modifier_item_assault_lod_aura_handler or class({})
+
+function modifier_item_assault_lod_aura_handler:IsHidden()
+	return true
+end
+
+function modifier_item_assault_lod_aura_handler:IsDebuff()
+	return false
+end
+
+function modifier_item_assault_lod_aura_handler:IsPurgable()
+	return false
+end
+
+function modifier_item_assault_lod_aura_handler:OnCreated()
+	local ability = self:GetAbility()
+	if ability and not ability:IsNull() then
+		self.attack_speed = ability:GetSpecialValueFor("aura_attack_speed")
+		self.armor_bonus = ability:GetSpecialValueFor("aura_positive_armor")
+		self.armor_reduction = ability:GetSpecialValueFor("aura_negative_armor")
+	elseif IsServer() then
+		local caster = self:GetCaster()
+		if caster and not caster:IsNull() then
+			self.attack_speed = caster.assault_attack_speed_aura_lod
+			self.armor_bonus = caster.assault_bonus_armor_aura_lod
+			self.armor_reduction = caster.assault_minus_armor_aura_lod
+		end
+
+		-- If everything above failed:
+		if not self.attack_speed then
+			self.attack_speed = 30
+		end
+		if not self.armor_bonus then
+			self.armor_bonus = 5
+		end
+		if not self.armor_reduction then
+			self.armor_reduction = 5
+		end
+
+		-- Send data to the client
+		self:SetHasCustomTransmitterData(true)
+	end
+
+	if IsServer() then
+		self:StartIntervalThink(1/30)
+	end
+end
+
+function modifier_item_assault_lod_aura_handler:OnRefresh()
+	local ability = self:GetAbility()
+	if ability and not ability:IsNull() then
+		self.attack_speed = ability:GetSpecialValueFor("aura_attack_speed")
+		self.armor_bonus = ability:GetSpecialValueFor("aura_positive_armor")
+		self.armor_reduction = ability:GetSpecialValueFor("aura_negative_armor")
+	elseif IsServer() then
+		local caster = self:GetCaster()
+		if caster and not caster:IsNull() then
+			self.attack_speed = caster.assault_attack_speed_aura_lod
+			self.armor_bonus = caster.assault_bonus_armor_aura_lod
+			self.armor_reduction = caster.assault_minus_armor_aura_lod
+		end
+
+		-- If everything above failed:
+		if not self.attack_speed then
+			self.attack_speed = 30
+		end
+		if not self.armor_bonus then
+			self.armor_bonus = 5
+		end
+		if not self.armor_reduction then
+			self.armor_reduction = 5
+		end
+
+		self:SendBuffRefreshToClients()
+	end
+end
+
+-- Handles visibility of the enemy debuff if owner of Assault Cuirass is invisible or in fog
+function modifier_item_assault_lod_aura_handler:OnIntervalThink()
+	if self:GetParent():CanEntityBeSeenByMyTeam(self:GetCaster()) then
+		self:SetStackCount(0)
+	else
+		self:SetStackCount(1)
+	end
+end
+
+-- server-only function that is called whenever SetHasCustomTransmitterData(true) or SendBuffRefreshToClients() is called
+function modifier_item_assault_lod_aura_handler:AddCustomTransmitterData()
+	return {
+		attack_speed = self.attack_speed,
+		armor_bonus = self.armor_bonus,
+		armor_reduction = self.armor_reduction,
+	}
+end
+
+-- client-only function that is called with the table returned by AddCustomTransmitterData()
+function modifier_item_assault_lod_aura_handler:HandleCustomTransmitterData(data)
+	self.attack_speed = data.attack_speed
+	self.armor_bonus = data.armor_bonus
+	self.armor_reduction = data.armor_reduction
+end
+
+function modifier_item_assault_lod_aura_handler:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+	}
 end 
 
-function modifier_item_assault_consumable_aura:GetModifierPhysicalArmorBonus()
-  if not self:GetAbility() or not self:GetAbility():GetSpecialValueFor("assault_aura_positive_armor") then self:Destroy() return end
-  if self:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then
-    return self:GetAbility():GetSpecialValueFor("assault_aura_positive_armor")
-  else
-    return -self:GetAbility():GetSpecialValueFor("assault_aura_positive_armor")
-  end
+function modifier_item_assault_lod_aura_handler:GetModifierPhysicalArmorBonus()
+	local caster = self:GetCaster()
+	local parent = self:GetParent()
+	if caster:GetTeamNumber() == parent:GetTeamNumber() then
+		return math.abs(self.armor_bonus)
+	else
+		return 0 - math.abs(self.armor_reduction)
+	end
 end
 
-function modifier_item_assault_consumable_aura:GetModifierAttackSpeedBonus_Constant()
-  if not self:GetAbility() or not self:GetAbility():GetSpecialValueFor("assault_aura_attack_speed") then self:Destroy() return end
-  if self:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then
-    if not self:GetParent():IsBuilding() then
-      return self:GetAbility():GetSpecialValueFor("assault_aura_attack_speed")
-    else
-      return 0
-    end
-  else
-    return 0
-  end
+function modifier_item_assault_lod_aura_handler:GetModifierAttackSpeedBonus_Constant()
+	local caster = self:GetCaster()
+	local parent = self:GetParent()
+	if caster:GetTeamNumber() == parent:GetTeamNumber() then
+		return self.attack_speed
+	else
+		return 0
+	end
 end
 
-function modifier_item_assault_consumable_aura:IsDebuff()
-  return self:GetCaster():GetTeamNumber() ~= self:GetParent():GetTeamNumber()
+function modifier_item_assault_lod_aura_handler:IsAura()
+	return true
 end
 
-function modifier_item_assault_consumable_aura:IsHidden()
-  if not self:GetCaster() then return true end
-  --if not self:GetCaster():IsAlive() then return true end
-  return self:GetCaster() == self:GetParent()
+function modifier_item_assault_lod_aura_handler:GetModifierAura()
+	local caster = self:GetCaster()
+	local parent = self:GetParent()
+	if caster:GetTeamNumber() == parent:GetTeamNumber() then
+		return "modifier_item_assault_lod_aura_allies"
+	elseif self:GetStackCount() == 0 then
+		return "modifier_item_assault_lod_aura_enemies"
+	end
 end
 
-LinkLuaModifier("modifier_item_assault_consumable_aura_enemies","items/assault.lua",LUA_MODIFIER_MOTION_NONE)
-modifier_item_assault_consumable_aura_enemies = class({})
-
-function modifier_item_assault_consumable_aura_enemies:GetTexture()
-  return "item_assault"
+function modifier_item_assault_lod_aura_handler:GetAuraSearchTeam()
+	return DOTA_UNIT_TARGET_TEAM_FRIENDLY
 end
 
-function modifier_item_assault_consumable_aura_enemies:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-  }
-  return funcs
-end 
-
-function modifier_item_assault_consumable_aura_enemies:GetModifierPhysicalArmorBonus()
-  if not self:GetAbility() or not self:GetAbility():GetSpecialValueFor("assault_aura_negative_armor") then self:Destroy() return end
-  return -self:GetAbility():GetSpecialValueFor("assault_aura_negative_armor")
+function modifier_item_assault_lod_aura_handler:GetAuraSearchType()
+	return DOTA_UNIT_TARGET_ALL
 end
 
+-- function modifier_item_assault_lod_aura_handler:GetAuraSearchFlags()
+	-- return bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD)
+-- end
 
-
-function modifier_item_assault_consumable_aura_enemies:IsDebuff()
-  return true
-end
-function modifier_item_assault_consumable_aura_enemies:OnCreated()
-  self:StartIntervalThink(1/30)
-end
-
-function modifier_item_assault_consumable_aura_enemies:OnIntervalThink()
-  if IsServer() then
-    if self:GetParent():CanEntityBeSeenByMyTeam(self:GetCaster()) then
-      self:SetStackCount(0)
-    else
-      self:SetStackCount(1)
-    end
-  end
-end
-function modifier_item_assault_consumable_aura_enemies:IsHidden()
-  if not self:GetCaster() then return false end  
-  if not self:GetCaster():IsAlive() then return false end
-  return self:GetStackCount() == 1
+function modifier_item_assault_lod_aura_handler:GetAuraRadius()
+	return 10
 end
 
-
-
-
-
-
--- Look for line 35 for the special values
--- Search for self.parentName if you are making an aura, give it the name of the parent modifier
--- Also change texture, and obviously properties
---[[
-item_assault_consumable = class({})
-
-function item_assault_consumable:GetIntrinsicModifierName()
-  return "modifier_item_assault_consumable"
+function modifier_item_assault_lod_aura_handler:GetAuraEntityReject(entity)
+	local parent = self:GetParent()
+	-- Dont provide the aura effect to other units
+	return entity ~= parent
 end
 
-function item_assault_consumable:OnSpellStart()
+---------------------------------------------------------------------------------------------------
 
-  if self:GetCursorTarget() == self:GetCaster() then
-    self:ConsumeItem(self:GetCaster())
-  end
+modifier_item_assault_lod_aura_allies = modifier_item_assault_lod_aura_allies or class({})
+
+function modifier_item_assault_lod_aura_allies:IsHidden()
+	return false
 end
 
-
-function item_assault_consumable:ConsumeItem(hCaster)
-  
-  local name = self:GetIntrinsicModifierName()
-  local ab = self:GetCaster():AddAbility("ability_consumable_item_container")
-  ab:SetHidden(true)
-  hCaster:RemoveItem(self)
-  hCaster:RemoveModifierByName(name)
-  local modifier = hCaster:AddNewModifier(hCaster,ab,name,{})
+function modifier_item_assault_lod_aura_allies:IsDebuff()
+	return false
 end
 
-LinkLuaModifier("modifier_item_assault_consumable","items/assault.lua",LUA_MODIFIER_MOTION_NONE)
-modifier_item_assault_consumable = class({})
-
-function modifier_item_assault_consumable:OnCreated()
-  -- Check if the ability is an item, if so use those values
-  if self:GetAbility().IsDisassemblable then
-
-
-    -----------------------------------------------------------------------
-    --Change values here, search those values and change them in the document (ctrl+h)
-    -----------------------------------------------------------------------
-    self.aura_radius = self:GetAbility():GetSpecialValueFor("aura_radius")
-    self.bonus_armor = self:GetAbility():GetSpecialValueFor("bonus_armor")
-    self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
-    self.aura_armor = self:GetAbility():GetSpecialValueFor("aura_armor")
-    self.aura_attack_speed = self:GetAbility():GetSpecialValueFor("aura_attack_speed")
-    -- Store in the container ability to use when consumed
-    if IsServer() then
-      if not self:GetCaster():HasAbility("ability_consumable_item_container") then
-        local ab = self:GetCaster():AddAbility("ability_consumable_item_container")
-        if not ab[self:GetName()] then ab[self:GetName()] = {} end
-
-        -----------------------------------------------------------------------
-        --Change values here
-        -----------------------------------------------------------------------
-        ab[self:GetName()].aura_radius = self.aura_radius
-        ab[self:GetName()].bonus_armor = self.bonus_armor
-        ab[self:GetName()].bonus_attack_speed = self.bonus_attack_speed
-        ab[self:GetName()].aura_armor = self.aura_armor
-        ab[self:GetName()].aura_attack_speed = self.aura_attack_speed
-
-        ab:SetHidden(true)
-      end
-    end
-
-  else -- The container ability is providing, sync to client
-    -- Doesn't get synced instantly
-    self:StartIntervalThink(1/2)
-  end
+function modifier_item_assault_lod_aura_allies:IsPurgable()
+	return false
 end
 
-function modifier_item_assault_consumable:GetTexture()
-  return "item_assault"
-end
-function modifier_item_assault_consumable:OnIntervalThink()
-  -- Uneven thinks are setting stack, uneven are for getting
-  if not self.think then 
-    self.think = 1
-  else
-    self.think = self.think + 1
-  end
-
-  -- Setting stacks to sync them with client
-  -- Aura radius
-  if self.think == 1 then
-    if IsServer() then
-      local ab = self:GetCaster():FindAbilityByName("ability_consumable_item_container")
-      self:SetStackCount(ab[self:GetName()].aura_radius)
-    end
-  elseif self.think == 2 then
-    self.aura_radius = self:GetStackCount()
-  ---------------------------------------------------------------
-  elseif self.think == 3 then
-    if IsServer() then
-      local ab = self:GetCaster():FindAbilityByName("ability_consumable_item_container")
-      self:SetStackCount(ab[self:GetName()].bonus_armor)
-    end
-  elseif self.think == 4 then
-    self.bonus_armor = self:GetStackCount()
-  ---------------------------------------------------------------
-  elseif self.think == 5 then
-    if IsServer() then
-      local ab = self:GetCaster():FindAbilityByName("ability_consumable_item_container")
-      self:SetStackCount(ab[self:GetName()].bonus_attack_speed)
-    end
-  elseif self.think == 6 then
-    self.bonus_attack_speed = self:GetStackCount()
-  ---------------------------------------------------------------
-  elseif self.think == 7 then
-    if IsServer() then
-      local ab = self:GetCaster():FindAbilityByName("ability_consumable_item_container")
-      self:SetStackCount(ab[self:GetName()].aura_attack_speed)
-    end
-  elseif self.think == 8 then
-    self.aura_attack_speed = self:GetStackCount()
-  ---------------------------------------------------------------
-  elseif self.think == 9 then
-    if IsServer() then
-      local ab = self:GetCaster():FindAbilityByName("ability_consumable_item_container")
-      self:SetStackCount(ab[self:GetName()].aura_armor)
-    end
-  elseif self.think == 10 then
-    self.aura_armor = self:GetStackCount()  
-  ---------------------------------------------------------------
-  else 
-    if IsServer() then
-      self:SetStackCount(0)
-    end
-    self:StartIntervalThink(-1)
-    self.think = nil
-  end
+function modifier_item_assault_lod_aura_allies:GetTexture()
+	return "item_assault"
 end
 
+---------------------------------------------------------------------------------------------------
 
-function modifier_item_assault_consumable:IsPassive()
-  return true
-end
-function modifier_item_assault_consumable:RemoveOnDeath()
-  return false
-end
-function modifier_item_assault_consumable:IsPurgable()
-  return false
-end
-function modifier_item_assault_consumable:IsPermanent()
-  return true
+modifier_item_assault_lod_aura_enemies = modifier_item_assault_lod_aura_enemies or class({})
+
+function modifier_item_assault_lod_aura_enemies:IsHidden()
+	return false
 end
 
-function modifier_item_assault_consumable:GetAuraRadius()
-  return self.aura_radius
-end
-function modifier_item_assault_consumable:IsAura()
-  return true
+function modifier_item_assault_lod_aura_enemies:IsDebuff()
+	return true
 end
 
-function modifier_item_assault_consumable:GetAuraSearchTeam()
-  return DOTA_UNIT_TARGET_TEAM_BOTH
+function modifier_item_assault_lod_aura_enemies:IsPurgable()
+	return false
 end
 
-function modifier_item_assault_consumable:GetAuraSearchType()
-  return DOTA_UNIT_TARGET_HERO
+function modifier_item_assault_lod_aura_enemies:GetTexture()
+	return "item_assault"
 end
-
-function modifier_item_assault_consumable:GetModifierAura()
-  return "modifier_item_assault_consumable_aura"
-end
-
-function modifier_item_assault_consumable:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-  }
-  return funcs
-end 
-
-function modifier_item_assault_consumable:GetModifierPhysicalArmorBonus()
-  return self.bonus_armor
-end
-function modifier_item_assault_consumable:GetModifierAttackSpeedBonus_Constant()
-  return self.bonus_attack_speed
-end
-
-LinkLuaModifier("modifier_item_assault_consumable_aura","items/assault.lua",LUA_MODIFIER_MOTION_NONE)
-modifier_item_assault_consumable_aura = class({})
-function modifier_item_assault_consumable_aura:GetTexture()
-  return "item_assault"
-end
-
-function modifier_item_assault_consumable_aura:OnCreated()
-  -- Check if the ability is an item, if so use those values
-  if self:GetAbility().IsDisassemblable then
-    -----------------------------------------------------------------------
-    --Change values here
-    -----------------------------------------------------------------------
-    self.aura_armor = self:GetAbility():GetSpecialValueFor("aura_armor")
-    self.aura_attack_speed = self:GetAbility():GetSpecialValueFor("aura_attack_speed")
-  else 
-    self.parentName = "modifier_item_assault_consumable"
-    self:StartIntervalThink(1/2)
-  end
-end
-
-function modifier_item_assault_consumable_aura:OnIntervalThink()
-  local parentName = self.parentName
-  -- Uneven thinks are setting stack, uneven are for getting
-  if not self.think then 
-    self.think = 1
-  else
-    self.think = self.think + 1
-  end
-  -- Setting stacks to sync them with client
-  if self.think == 1 then
-    if IsServer() then
-      local ab = self:GetCaster():FindAbilityByName("ability_consumable_item_container")
-      self:SetStackCount(ab[parentName].aura_attack_speed)
-    end
-  elseif self.think == 2 then
-    self.aura_attack_speed = self:GetStackCount()
-  ---------------------------------------------------------------
-  elseif self.think == 3 then
-    if IsServer() then
-      local ab = self:GetCaster():FindAbilityByName("ability_consumable_item_container")
-      self:SetStackCount(ab[parentName].aura_armor)
-    end
-  elseif self.think == 4 then
-    self.aura_armor = self:GetStackCount()
-  ---------------------------------------------------------------
-  else 
-    if IsServer() then
-      self:SetStackCount(0)
-    end
-    self:StartIntervalThink(-1)
-    self.think = nil
-  end
-end
-
-function modifier_item_assault_consumable_aura:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-  }
-  return funcs
-end 
-
-function modifier_item_assault_consumable_aura:GetModifierPhysicalArmorBonus()
-  if self:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then
-    return self.aura_armor
-  else
-    return -self.aura_armor
-  end
-end
-
-function modifier_item_assault_consumable_aura:GetModifierAttackSpeedBonus_Constant()
-  if self:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then
-    return self.aura_attack_speed
-  else
-    return 0
-  end
-end
-
-
-function modifier_item_assault_consumable_aura:IsDebuff()
-  return self:GetCaster():GetTeamNumber() ~= self:GetParent():GetTeamNumber()
-end
-
-function modifier_item_assault_consumable_aura:IsHidden()
-  if IsServer() and (self:GetStackCount == 0 or self:GetStackCount == 1)  then
-    if self:GetCaster():CanEntityBeSeenByMyTeam(self:GetParent()) then
-      self:SetStackCount(0)
-    else
-      self:SetStackCount(1)
-    end
-  end
-  return not self:GetStackCount() == 0
-end
-]]

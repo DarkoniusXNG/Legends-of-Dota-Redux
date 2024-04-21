@@ -336,7 +336,7 @@ function skillManager:PrecacheBuild(build)
     end
 end
 
--- Precaches a hero
+-- Precaches a hero - not used LMAO
 local realHeroCache = {}
 function skillManager:PrecacheHero(heroName, playerID)
     if realHeroCache[heroName] then return end
@@ -512,11 +512,13 @@ function skillManager:ApplyBuild(hero, build, autoLevelSkills)
                 local toSet = 0
 
                 if build.setAttr == 'str' then
-                    toSet = 0
+                    toSet = DOTA_ATTRIBUTE_STRENGTH
                 elseif build.setAttr == 'agi' then
-                    toSet = 1
+                    toSet = DOTA_ATTRIBUTE_AGILITY
                 elseif build.setAttr == 'int' then
-                    toSet = 2
+                    toSet = DOTA_ATTRIBUTE_INTELLECT
+                elseif build.setAttr == 'all' then
+                    toSet = DOTA_ATTRIBUTE_ALL
                 end
 
                 -- Set a timer to fix stuff up

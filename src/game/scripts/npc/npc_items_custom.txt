@@ -1078,164 +1078,106 @@
         
     }
 
-    "item_assault_consumable"
-    {
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
-        "AbilityCastRange"              "1200"
-        "AbilityTextureName"            "item_assault"
-        "BaseClass"                     "item_lua"
-        "ScriptFile"                    "items/assault.lua"
+	"item_assault_consumable"
+	{
+		"BaseClass"                     "item_lua"
+		"ScriptFile"                    "items/assault.lua"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"            "item_assault"
 
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "5125"
-        "AbilityGoldCost"               "5125"
-        "ItemShopTags"                  "attack_speed;armor;hard_to_tag"
-        "ItemPurchasable"               "0"
-        "ItemQuality"                   "epic"
-        "ItemAliases"                   "ac;assault cuirass"
-        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-        
-        // Special  
-        //-------------------------------------------------------------------------------------------------------------
-        
-        // THESE VALUES ARE PURELY FOR THE TOOLTIPS, REAL VALUES ARE IN ABILITY "ability_consumable_item_container"
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "assault_bonus_attack_speed"    "30"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "assault_bonus_armor"           "10"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "assault_aura_radius"           "1200"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "assault_aura_attack_speed"     "30"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "assault_aura_positive_armor"   "5"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "assault_aura_negative_armor"   "5"
-          }
-        }
-    }
+		"AbilityCastRange"              "1200"
+		"AbilityGoldCost"               "5125"
 
-    "item_skadi_consumable"
-    {
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
-        "AbilityTextureName"            "item_skadi"
-        "BaseClass"                     "item_lua"
-        "ScriptFile"                    "items/skadi.lua"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"                      "5125"
+		"ItemPurchasable"               "0"
+		"ItemStackable"                 "0"
+		"ItemPermanent"                 "0"
 
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "5300"
-        "AbilityGoldCost"               "5300"
-        "ItemPurchasable"              "0"
-        "ItemShopTags"                  "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
-        "ItemPurchasable"              "0"
-        "ItemQuality"                   "artifact"
-        "ItemAliases"                   "eos;eye of skadi"
-        
-        // Special  
-        //-------------------------------------------------------------------------------------------------------------
-        // 
-        
-        // THESE VALUES ARE PURELY FOR THE TOOLTIPS, REAL VALUES ARE IN ABILITY "ability_consumable_item_container"
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "skadi_bonus_all_stats"       "22"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "skadi_bonus_health"          "220"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "skadi_bonus_mana"            "220"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "skadi_cold_slow_melee"   "-20"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "skadi_cold_slow_ranged"  "-50"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "skadi_cold_duration" "3.0"
-            }
-            "07"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "skadi_heal_reduction"    "-40"
-            }
-        }
-    }
+		// Special  
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_attack_speed"    "30"
+			"bonus_armor"           "10"
+			"aura_radius"           "1200"
+			"aura_attack_speed"     "30"
+			"aura_positive_armor"   "5"
+			"aura_negative_armor"   "5"
+		}
+	}
 
-    "item_desolator_consumable"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                     "item_lua"
-        "ScriptFile"                    "items/desolator.lua"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
-        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-        "AbilityTextureName"            "item_desolator"
+	"item_skadi_consumable"
+	{
+		"BaseClass"                     "item_lua"
+		"ScriptFile"                    "items/skadi.lua"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"            "item_skadi"
 
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "0.1"
-        "AbilityGoldCost"               "3500"
+		"AbilityGoldCost"               "5300"
 
-        "ItemCost"                      "3500" // important for selling
-        "ItemPurchasable"               "0"
-        "ItemStackable"                                   "0"
-        "ItemPermanent"                                   "0"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"                      "5300"
+		"ItemPurchasable"               "0"
+		"ItemStackable"                 "0"
+		"ItemPermanent"                 "0"
 
-        // Special  
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityValues"
-        {
-            "bonus_damage"                                "60" // vanilla 50
-            "corruption_armor"                            "-6"
-            "corruption_duration"                         "7.0"
-			//"bonus_damage_per_kill"                       "2"
-			//"bonus_damage_per_assist"                     "1"
-			//"max_damage"                                  "30"
-        }
-    }
+		// Special  
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_all_stats"           "22"
+			"bonus_health"              "250"
+			"bonus_mana"                "250"
+			"cold_slow_melee"           "-20"
+			"cold_attack_slow_melee"    "-10"
+			"cold_slow_ranged"          "-50"
+			"cold_attack_slow_ranged"   "-20"
+			"cold_duration"             "3.0"
+			"heal_reduction"            "-40"
+		}
+	}
+
+	"item_desolator_consumable"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "item_lua"
+		"ScriptFile"                    "items/desolator.lua"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"            "item_desolator"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityGoldCost"               "3500"
+
+		"ItemCost"                      "3500" // important for selling
+		"ItemPurchasable"               "0"
+		"ItemStackable"                 "0"
+		"ItemPermanent"                 "0"
+
+		// Special  
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_damage"                                "50" // vanilla 50
+			"corruption_armor"                            "-6"
+			"corruption_duration"                         "7.0"
+			"bonus_damage_per_kill"                       "2"
+			"bonus_damage_per_assist"                     "1"
+			"max_damage"                                  "30"
+		}
+	}
 
     "item_necronomicon_perk"
     {
@@ -1347,35 +1289,33 @@
         }
     }
 
-    "item_heart_consumable"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                     "item_lua"
-        "ScriptFile"                    "items/heart.lua"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
-        "AbilityTextureName"            "item_heart"
+	"item_heart_consumable"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "item_lua"
+		"ScriptFile"                    "items/heart.lua"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"            "item_heart"
 
-        "AbilityCooldown"               "0.1"
-        "AbilityGoldCost"               "5200"
+		"AbilityGoldCost"               "5200"
 
-        "ItemCost"                      "5200" // important for selling
-        "ItemPurchasable"               "0"
-        "ItemStackable"                                       "0"
-        "ItemPermanent"                                       "0"
+		"ItemCost"                      "5200" // important for selling
+		"ItemPurchasable"               "0"
+		"ItemStackable"                 "0"
+		"ItemPermanent"                 "0"
 
-        // Special  
-        //-------------------------------------------------------------------------------------------------------------
-        //
-        "AbilityValues"
-        {
-            "bonus_strength"        "40"
-            "bonus_health"          "0"
-            "health_regen_pct"      "1.6"
-        }
-    }
+		// Special  
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_strength"        "40"
+			"bonus_health"          "0"
+			"health_regen_pct"      "1.6"
+		}
+	}
     
 	"item_greater_crit_consumable"
     {

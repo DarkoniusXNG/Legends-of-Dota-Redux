@@ -1662,22 +1662,6 @@ end
 -- IMBA: custom utility functions
 -------------------------------------------------------------------------------------------------
 
--- Checks if a hero is wielding Aghanim's Scepter
-function HasScepter(hero)
-	if hero:HasModifier("modifier_item_ultimate_scepter_consumed") or hero:HasModifier("modifier_item_imba_ultimate_scepter_synth") then
-		return true
-	end
-
-	for i=0,5 do
-		local item = hero:GetItemInSlot(i)
-		if item and item:GetAbilityName() == "item_ultimate_scepter" then
-			return true
-		end
-	end
-	
-	return false
-end
-
 -- Checks if a hero is wielding an Aegis of the immortal
 function HasAegis(hero)
 	if hero.has_aegis then
