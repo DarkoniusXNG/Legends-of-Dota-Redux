@@ -3,30 +3,27 @@ function SetCastRange(keys)
 	local ability = keys.ability
 	local abLvl = ability:GetLevel()
 	if abLvl <= 0 then return end
-        -- FIXME: Remove this hack once the proper property is released.
-	-- Remove old cast range
-	--caster:RemoveModifierByName("modifier_item_aether_lens")
-	-- Replace cast range
-	caster:RemoveModifierByName("modifier_spell_aether_lens") 
-	caster:AddNewModifier(caster,ability,"modifier_spell_aether_lens",{}) 
-	
+	-- Refresh cast range
+	caster:RemoveModifierByName("modifier_spell_aether_lens_lod_global")
+	caster:AddNewModifier(caster,ability,"modifier_spell_aether_lens_lod_global",{})
 end
 
-LinkLuaModifier("modifier_spell_aether_lens","abilities/aether_range_lod_global.lua",LUA_MODIFIER_MOTION_NONE)
-modifier_spell_aether_lens = class({})
+LinkLuaModifier("modifier_spell_aether_lens_lod_global","abilities/aether_range_lod_global.lua",LUA_MODIFIER_MOTION_NONE)
 
-function modifier_spell_aether_lens:IsPermanent()
+modifier_spell_aether_lens_lod_global = class({})
+
+function modifier_spell_aether_lens_lod_global:IsPermanent()
 	return true
 end
-function modifier_spell_aether_lens:IsHidden()
+function modifier_spell_aether_lens_lod_global:IsHidden()
   return true
 end
 
-function modifier_spell_aether_lens:DeclareFunctions()
+function modifier_spell_aether_lens_lod_global:DeclareFunctions()
 	return {MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING}
 end
 
-function modifier_spell_aether_lens:GetModifierCastRangeBonusStacking()
+function modifier_spell_aether_lens_lod_global:GetModifierCastRangeBonusStacking()
 	if self:GetAbility() then
 		return self:GetAbility():GetSpecialValueFor("cast_range_bonus")
 	end

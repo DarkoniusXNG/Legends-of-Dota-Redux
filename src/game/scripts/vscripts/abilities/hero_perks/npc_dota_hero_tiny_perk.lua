@@ -6,11 +6,11 @@
 --------------------------------------------------------------------------------------------------------
 LinkLuaModifier( "modifier_npc_dota_hero_tiny_perk", "abilities/hero_perks/npc_dota_hero_tiny_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
 --------------------------------------------------------------------------------------------------------
-if npc_dota_hero_tiny_perk ~= "" then npc_dota_hero_tiny_perk = class({}) end
+npc_dota_hero_tiny_perk = npc_dota_hero_tiny_perk or class({})
 --------------------------------------------------------------------------------------------------------
 --		Modifier: modifier_npc_dota_hero_tiny_perk				
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_tiny_perk ~= "" then modifier_npc_dota_hero_tiny_perk = class({}) end
+modifier_npc_dota_hero_tiny_perk = modifier_npc_dota_hero_tiny_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_tiny_perk:IsPassive()
 	return true
@@ -37,16 +37,18 @@ function modifier_npc_dota_hero_tiny_perk:DeclareFunctions()
 	return funcs
 end
 
-
-function modifier_npc_dota_hero_tiny_perk:OnAbilityFullyCast(params)
-	self.tenacity = 50
-	local tenacityDuration = 120
-	if params.unit == self:GetParent() then
-		if params.target and params.target.IsStanding then
-			self:IncrementStackCount()
-			Timers:CreateTimers(tenacityDuration,function() 
-				self:DecrementStackCount() 
-			end)
+if IsServer() then
+	function modifier_npc_dota_hero_tiny_perk:OnAbilityFullyCast(params)
+		self.tenacity = 50
+		local tenacityDuration = 60
+		if params.unit == self:GetParent() then
+			if params.target and params.target.IsStanding then
+				self:IncrementStackCount()
+				if not self.started then
+					self:StartIntervalThink(tenacityDuration)
+					self.started = true
+				end
+			end
 		end
 	end
 end
@@ -54,4 +56,13 @@ end
 function modifier_npc_dota_hero_tiny_perk:GetTenacity()
 	local n = 1 - (self.tenacity / 100)
 	return n^self:GetStackCount()
+end
+
+function modifier_npc_dota_hero_tiny_perk:OnIntervalThink()
+	if self:GetStackCount() > 0 then
+		self:DecrementStackCount()
+	else
+		self:StartIntervalThink(-1)
+		self.started = false
+	end
 end

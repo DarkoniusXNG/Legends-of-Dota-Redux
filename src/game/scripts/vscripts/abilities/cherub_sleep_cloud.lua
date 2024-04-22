@@ -4,20 +4,21 @@ function SleepDamageCheck( keys )
     local ability = keys.ability
     local threshold = ability:GetLevelSpecialValueFor("damage_to_wake", (ability:GetLevel() - 1))
     local damage = keys.DamageTaken
-    if totalDamage == nil then totalDamage = 0 end
+    if caster.totalDamage == nil then caster.totalDamage = 0 end
     
-    totalDamage = totalDamage + damage
-    if totalDamage >= threshold then
+    caster.totalDamage = caster.totalDamage + damage
+    if caster.totalDamage >= threshold then
         target:RemoveModifierByName("modifier_sleep_cloud_aura")
         target:RemoveModifierByName("modifier_sleep_cloud_effect")
-        totalDamage = 0
+        caster.totalDamage = 0
     end
 end
 
 function SleepDamageRemove( keys )
     local caster = keys.caster
-    local target = keys.unit
-    totalDamage = 0
+    if caster.totalDamage then
+        caster.totalDamage = 0
+    end
 end
 
 function SleepAuraCheck( keys )

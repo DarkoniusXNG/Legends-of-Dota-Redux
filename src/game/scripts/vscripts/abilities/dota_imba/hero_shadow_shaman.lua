@@ -110,14 +110,13 @@ function modifier_imba_mass_serpent_ward:OnCreated()
 end
 
 function modifier_imba_mass_serpent_ward:DeclareFunctions()
-	funcs = {
+	return {
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 		MODIFIER_EVENT_ON_ATTACK,
 		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
 		MODIFIER_PROPERTY_HEALTH_BONUS,
 	}
-	return funcs
 end
 
 -- Set all damage taken to 1

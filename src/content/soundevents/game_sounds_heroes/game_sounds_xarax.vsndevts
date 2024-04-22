@@ -78,7 +78,7 @@
                     {
                         "value"
                         {
-                            "value0"        "sounds/its-a-disaster.vsnd"
+                            "value0"        "sounds/triplekill1.vsnd"
                         }
                     }
                     "volume"            {   "value"     "9.00000"  }
@@ -328,7 +328,7 @@
                     {
                         "value"
                         {
-                            "value0"        "sounds/history-of-doter.vsnd"
+                            "value0"        "sounds/t-historydota.vsnd"
                         }
                     }
                     "volume"            {   "value"     "6.00000"  }
@@ -452,7 +452,7 @@
                     {
                         "value"
                         {
-                            "value0"        "sounds/WAOW.vsnd"
+                            "value0"        "sounds/waow.vsnd"
                         }
                     }
                     "volume"            {   "value"     "12.00000"  }
@@ -576,7 +576,7 @@
                     {
                         "value"
                         {
-                            "value0"        "sounds/AttackOnTitan.vsnd"
+                            "value0"        "sounds/duel1.vsnd"
                         }
                     }
                     "volume"            {   "value"     "7.50000"  }
@@ -607,7 +607,7 @@
                     {
                         "value"
                         {
-                            "value0"        "sounds/FamiliarFaces.vsnd"
+                            "value0"        "sounds/dead3.vsnd"
                         }
                     }
                     "volume"            {   "value"     "7.00000"  }
@@ -733,7 +733,7 @@
                     {
                         "value"
                         {
-                            "value0"        "sounds/JUSTDOIT.vsnd"
+                            "value0"        "sounds/ultrakill1.vsnd"
                         }
                     }
                     "volume"            {   "value"     "3.00000"  }
@@ -828,7 +828,7 @@
                     {
                         "value"
                         {
-                            "value0"        "sounds/fine.vsnd"
+                            "value0"        "sounds/dead4.vsnd"
                         }
                     }
                     "volume"            {   "value"     "5.00000"  }

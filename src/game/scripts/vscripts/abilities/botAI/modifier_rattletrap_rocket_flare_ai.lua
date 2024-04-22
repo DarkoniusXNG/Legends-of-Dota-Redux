@@ -37,7 +37,6 @@ function modifier_rattletrap_rocket_flare_ai:CastRocketFlare(caster)
     local ability = caster:FindAbilityByName("rattletrap_rocket_flare")
     if ability:IsFullyCastable() and not ability:IsInAbilityPhase() and ability:GetLevel() > 0 then
       local abilityDamage = ability:GetSpecialValueFor("damage")
-      local abilityDamageType = ability:GetAbilityDamageType()
       if not abilityDamage or abilityDamage == 0 then
         abilityDamage = ability:GetAbilityDamage()
       end

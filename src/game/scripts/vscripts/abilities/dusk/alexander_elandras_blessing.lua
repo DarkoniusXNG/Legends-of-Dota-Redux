@@ -9,12 +9,8 @@ function alexander_elandras_blessing:OnSpellStart()
 	local duration = self:GetSpecialValueFor("duration")
 
 	if target then
-		target:AddNewModifier(caster, self, "modifier_elandras_blessing", {Duration=duration}) --[[Returns:void
-		No Description Set
-		]]
-		target:EmitSound("Hero_Lich.FrostArmor") --[[Returns:void
-		 
-		]]
+		target:AddNewModifier(caster, self, "modifier_elandras_blessing", {Duration=duration})
+		target:EmitSound("Hero_Lich.FrostArmor")
 	end
 end
 

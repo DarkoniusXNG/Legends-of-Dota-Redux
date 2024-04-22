@@ -62,7 +62,7 @@ function heroPerksModifierFilter(filterTable)
   local caster = EntIndexToHScript( caster_index )
   local ability = EntIndexToHScript( ability_index )
   
-  targetPerks_modifier = {
+  local targetPerks_modifier = {
     npc_dota_hero_dragon_knight_perk = true,
     npc_dota_hero_ancient_apparition_perk = true,
     npc_dota_hero_drow_ranger_perk = true, 
@@ -116,7 +116,7 @@ function heroPerksDamageFilter(filterTable)
   local caster = EntIndexToHScript( attacker_index )
 
   
-  targetPerks_damage = {
+  local targetPerks_damage = {
     --npc_dota_hero_abaddon_perk = true,
     npc_dota_hero_pudge_perk = true,
     npc_dota_hero_bane_perk = true,

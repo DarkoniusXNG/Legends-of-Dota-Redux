@@ -1,16 +1,21 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Bane
---		Perk: Bane lifesteals 100% of all spell damage he deals to sleeping units. 
+--		Old: Bane lifesteals 100% of all spell damage he deals to sleeping units.
+--      Current: Bane heals for 200% of all damage he deals to sleeping units. 
 --
 --------------------------------------------------------------------------------------------------------
 LinkLuaModifier( "modifier_npc_dota_hero_bane_perk", "abilities/hero_perks/npc_dota_hero_bane_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
 --------------------------------------------------------------------------------------------------------
-if npc_dota_hero_bane_perk ~= "" then npc_dota_hero_bane_perk = class({}) end
+npc_dota_hero_bane_perk = npc_dota_hero_bane_perk or class({})
+
+function npc_dota_hero_bane_perk:GetIntrinsicModifierName()
+    return "modifier_npc_dota_hero_bane_perk"
+end
 --------------------------------------------------------------------------------------------------------
 --		Modifier: modifier_npc_dota_hero_bane_perk				
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_bane_perk ~= "" then modifier_npc_dota_hero_bane_perk = class({}) end
+modifier_npc_dota_hero_bane_perk = modifier_npc_dota_hero_bane_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_bane_perk:IsPassive()
 	return true
@@ -42,14 +47,17 @@ function PerkBane(filterTable)
     local victim = EntIndexToHScript( victim_index )
     local attacker = EntIndexToHScript( attacker_index )
     local ability = EntIndexToHScript( ability_index )
-	local targetPerk = attacker:FindAbilityByName(attacker:GetName() .. "_perk")
-	local healer = attacker
-	if targetPerk and targetPerks_damage[targetPerk:GetName()] then
+	
+	if attacker:GetUnitName() == "npc_dota_hero_bane" then
 		-- util function to check if victim has a sleep modifier
 		if victim:IsSleeping() then
-			if ability then healer = ability end
-			attacker:Heal((filterTable["damage"])*2, healer)
-			SendOverheadEventMessage(attacker,OVERHEAD_ALERT_HEAL,attacker,filterTable["damage"],nil)
+			local heal_amount = 2 * filterTable["damage"]
+			local healer = attacker
+			if ability then
+				healer = ability
+			end
+			attacker:Heal(heal_amount, healer)
+			SendOverheadEventMessage(attacker,OVERHEAD_ALERT_HEAL,attacker,heal_amount,nil)
 	        local healParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_bloodbath_heal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
 	        ParticleManager:SetParticleControl(healParticle, 1, Vector(322, 322, 322))
 		end

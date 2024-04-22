@@ -6,13 +6,8 @@ LinkLuaModifier("modifier_radiant_aura","abilities/dusk/alexander_radiant",LUA_M
 function alexander_radiant:OnSpellStart()
 	local caster = self:GetCaster()
 
-	local duration = self:GetSpecialValueFor("duration") --[[Returns:table
-	No Description Set
-	]]
-
-	caster:AddNewModifier(caster, self, "modifier_radiant", {Duration = duration}) --[[Returns:void
-	No Description Set
-	]]
+	local duration = self:GetSpecialValueFor("duration")
+	caster:AddNewModifier(caster, self, "modifier_radiant", {Duration = duration})
 end
 
 -- Modifiers

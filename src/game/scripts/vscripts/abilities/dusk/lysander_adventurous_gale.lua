@@ -276,9 +276,7 @@ function modifier_adventurous_gale_push:OnIntervalThink()
 		-- local direction = caster.aw_direction
 		-- local distance = caster.aw_distance
 
-		offset = self.offset
-
-		self:GetParent():SetAbsOrigin(caster:GetAbsOrigin()-offset)
+		self:GetParent():SetAbsOrigin(caster:GetAbsOrigin()-self.offset)
 
 		-- Physics:Unit(target)
 	 --  	target:SetPhysicsFriction(0.00)

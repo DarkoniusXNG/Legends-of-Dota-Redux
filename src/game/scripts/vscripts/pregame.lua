@@ -6699,7 +6699,7 @@ function Pregame:darkMoonDrops()
                             local newItem = CreateItem( "item_tpscroll", nil, nil )
                             newItem:SetPurchaseTime( 0 )
                             if newItem:IsPermanent() and newItem:GetShareability() == ITEM_FULLY_SHAREABLE then
-                                item:SetStacksWithOtherOwners( true )
+                                newItem:SetStacksWithOtherOwners( true )
                             end
                             local drop = CreateItemOnPositionSync( ent:GetAbsOrigin(), newItem )
                             drop.Holdout_IsLootDrop = true
@@ -6723,7 +6723,7 @@ function Pregame:darkMoonDrops()
                         local newItem = CreateItem( "item_health_potion", nil, nil )
                         newItem:SetPurchaseTime( 0 )
                         if newItem:IsPermanent() and newItem:GetShareability() == ITEM_FULLY_SHAREABLE then
-                            item:SetStacksWithOtherOwners( true )
+                            newItem:SetStacksWithOtherOwners( true )
                         end
                         local drop = CreateItemOnPositionSync( ent:GetAbsOrigin(), newItem )
                         drop.Holdout_IsLootDrop = true
@@ -6742,7 +6742,7 @@ function Pregame:darkMoonDrops()
                         local newItem = CreateItem( "item_mana_potion", nil, nil )
                         newItem:SetPurchaseTime( 0 )
                         if newItem:IsPermanent() and newItem:GetShareability() == ITEM_FULLY_SHAREABLE then
-                            item:SetStacksWithOtherOwners( true )
+                            newItem:SetStacksWithOtherOwners( true )
                         end
                         local drop = CreateItemOnPositionSync( ent:GetAbsOrigin(), newItem )
                         drop.Holdout_IsLootDrop = true

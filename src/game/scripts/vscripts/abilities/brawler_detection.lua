@@ -10,8 +10,17 @@ function brawler_detection( keys )
 	local ability = keys.ability
 	local radius = ability:GetSpecialValueFor( "radius" )
 
-	local units = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, radius,
-			DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
+	local units = FindUnitsInRadius(
+		caster:GetTeamNumber(),
+		caster:GetAbsOrigin(),
+		caster,
+		radius,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO,
+		0,
+		0,
+		false
+	)
 
 	if #units ~= 0 and not caster:HasModifier( modifierName ) then
 		ability:ApplyDataDrivenModifier( caster, caster, modifierName, {} )

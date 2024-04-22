@@ -708,19 +708,6 @@ function skillManager:ApplyBuild(hero, build, autoLevelSkills)
         end
     end
 
-    -- Tower patcher
-    --[[if isTower then
-        if hero:HasAbility('backdoor_protection') then
-            --build[7] = 'backdoor_protection'
-            table.insert(abs, 'backdoor_protection')
-        elseif hero:HasAbility('backdoor_protection_in_base') then
-            --build[7] = 'backdoor_protection_in_base'
-            table.insert(abs, 'backdoor_protection_in_base')
-        else
-            --hero:AddAbility('backdoor_protection')
-        end
-    end]]
-
     -- Do a nice little sort
     for i=1,23 do
         local v = build[i]
@@ -733,7 +720,7 @@ function skillManager:ApplyBuild(hero, build, autoLevelSkills)
                 -- Check for a bot
                 if PlayerResource:IsFakeClient(playerID) then
                     if hero:HasAbility(v) then
-                        multV = v
+                        seekAbility = v
                     end
                 end
             end

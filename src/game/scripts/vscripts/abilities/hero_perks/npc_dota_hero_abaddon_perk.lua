@@ -3,13 +3,14 @@
 --		Hero: Abaddon
 --		27-7-18: Abaddon has a reduced cooldown on borrowed time
 --		No longer used.
---		Perk: For Abaddon, Mist Coil self-heals instead of damages and Aphotic Shield receives 2 charges.
+--		Old: For Abaddon, Mist Coil self-heals instead of damages and Aphotic Shield receives 2 charges.
+--      Current: When Abaddon casts Borrowed Time, it lasts 33% longer.
 --
 --------------------------------------------------------------------------------------------------------
 LinkLuaModifier( "modifier_npc_dota_hero_abaddon_perk", "abilities/hero_perks/npc_dota_hero_abaddon_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_charges", "abilities/modifiers/modifier_charges.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_charges", "abilities/modifiers/modifier_charges.lua", LUA_MODIFIER_MOTION_NONE)
 --------------------------------------------------------------------------------------------------------
-if npc_dota_hero_abaddon_perk ~= "" then npc_dota_hero_abaddon_perk = class({}) end
+npc_dota_hero_abaddon_perk = npc_dota_hero_abaddon_perk or class({})
 
 function npc_dota_hero_abaddon_perk:GetIntrinsicModifierName()
     return "modifier_npc_dota_hero_abaddon_perk"
@@ -17,7 +18,7 @@ end
 --------------------------------------------------------------------------------------------------------
 --		Modifier: modifier_npc_dota_hero_abaddon_perk				
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_abaddon_perk ~= "" then modifier_npc_dota_hero_abaddon_perk = class({}) end
+modifier_npc_dota_hero_abaddon_perk = modifier_npc_dota_hero_abaddon_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_abaddon_perk:IsPassive()
 	return true
@@ -28,7 +29,7 @@ function modifier_npc_dota_hero_abaddon_perk:IsPurgable()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_abaddon_perk:IsHidden()
-	return self:GetCaster():HasModifier("modifier_charges")
+	return false --self:GetCaster():HasModifier("modifier_charges")
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_abaddon_perk:RemoveOnDeath()
@@ -37,18 +38,11 @@ end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_abaddon_perk:DeclareFunctions()
-	local funcs = {
+-- function modifier_npc_dota_hero_abaddon_perk:DeclareFunctions()
+-- 	return {
 		--MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-	}
-	return funcs
-end
-
-function modifier_npc_dota_hero_abaddon_perk:OnCreated()
-	if IsServer() then
-		--self:StartIntervalThink(0.1)
-	end
-end
+	-- }
+-- end
 
 --[[function modifier_npc_dota_hero_abaddon_perk:OnIntervalThink()
 	if not self.activated then
@@ -65,8 +59,7 @@ end
 		end
 	end
 end
-
---local timers = require('easytimers')]]
+]]
 
 function PerkAbaddon(filterTable)
   	local parent_index = filterTable["entindex_parent_const"]

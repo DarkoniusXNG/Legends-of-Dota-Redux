@@ -6,12 +6,16 @@
 --------------------------------------------------------------------------------------------------------
 LinkLuaModifier( "modifier_npc_dota_hero_dragon_knight_perk", "abilities/hero_perks/npc_dota_hero_dragon_knight_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
 --------------------------------------------------------------------------------------------------------
-if npc_dota_hero_dragon_knight_perk ~= "" then npc_dota_hero_dragon_knight_perk = class({}) end
+npc_dota_hero_dragon_knight_perk = npc_dota_hero_dragon_knight_perk or class({})
+
+function npc_dota_hero_bane_perk:GetIntrinsicModifierName()
+    return "modifier_npc_dota_hero_dragon_knight_perk"
+end
 
 --------------------------------------------------------------------------------------------------------
 --		Modifier: modifier_npc_dota_hero_dragon_knight_perk				
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_dragon_knight_perk ~= "" then modifier_npc_dota_hero_dragon_knight_perk = class({}) end
+modifier_npc_dota_hero_dragon_knight_perk = modifier_npc_dota_hero_dragon_knight_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_dragon_knight_perk:IsPassive()
 	return true
@@ -25,11 +29,6 @@ function modifier_npc_dota_hero_dragon_knight_perk:IsHidden()
 	return false
 end
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_dragon_knight_perk:OnCreated()
-	-- self.dragonform = self:GetParent():FindAbilityByName("dragon_knight_elder_dragon_form")
-	print(self:GetParent():GetUnitName())
-end
---------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_dragon_knight_perk:RemoveOnDeath()
 	return false
 end
@@ -37,58 +36,86 @@ end
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_dragon_knight_perk:DeclareFunctions()
-  local funcs = {
-    MODIFIER_EVENT_ON_TAKEDAMAGE,
-  }
-  return funcs
+	return {
+		MODIFIER_EVENT_ON_TAKEDAMAGE,
+	}
 end
 
-function modifier_npc_dota_hero_dragon_knight_perk:OnTakeDamage(params)
-	if params.attacker and params.unit and params.attacker:GetTeamNumber() == params.unit:GetTeamNumber() then return end
-	local dragonform = self:GetParent():FindAbilityByName("dragon_knight_elder_dragon_form")
-	if self.dragonform or dragonform and params.attacker == self:GetParent() then
-		local caster = params.attacker
-		local parent = params.unit
-		if caster and parent and caster == self:GetCaster() and params.inflictor ~= dragonform then
-			if caster:HasModifier("modifier_dragon_knight_corrosive_breath") then
-				local duration = dragonform:GetSpecialValueFor("corrosive_breath_duration")
-			parent:AddNewModifier(caster, dragonform, "modifier_dragon_knight_corrosive_breath_dot", {duration = duration})
-			end
-			if caster:HasModifier("modifier_dragon_knight_frost_breath") then
-				local duration = dragonform:GetSpecialValueFor("frost_duration")
-				parent:AddNewModifier(caster, dragonform, "modifier_dragon_knight_frost_breath_slow", {duration = duration})
-			end
+-- Spells that do damage will trigger this
+function modifier_npc_dota_hero_dragon_knight_perk:OnTakeDamage(event)
+	local parent = self:GetParent()
+	local attacker = event.attacker
+	local damaged_unit = event.unit
+
+	-- Check if attacker exists
+	if not attacker or attacker:IsNull() then
+		return
+	end
+
+	-- Check if attacker has this modifier
+	if parent ~= attacker then
+		return
+	end
+
+	-- Check if damaged unit has this modifier
+	if damaged_unit ~= caster then
+		return
+	end
+
+	-- Check if damaged unit is something weird
+	if damaged_unit.GetTeamNumber == nil or damaged_unit.AddNewModifier == nil then
+		return
+	end
+	
+	-- Check if self damage or allied damage
+	if parent == damaged_unit or parent:GetTeamNumber() == damaged_unit:GetTeamNumber() then
+		return
+	end
+
+	-- Check if attacker has Elder Dragon Form ability
+	local dragonform = parent:FindAbilityByName("dragon_knight_elder_dragon_form")
+	if not dragonForm then
+		return
+	end
+	
+	local inflictor = event.inflictor
+	if inflictor ~= dragonForm then
+		if parent:HasModifier("modifier_dragon_knight_corrosive_breath") then
+			local duration = dragonform:GetSpecialValueFor("corrosive_breath_duration")
+			damaged_unit:AddNewModifier(parent, dragonform, "modifier_dragon_knight_corrosive_breath_dot", {duration = duration})
+		end
+		if parent:HasModifier("modifier_dragon_knight_frost_breath") then
+			local duration = dragonform:GetSpecialValueFor("frost_duration")
+			damaged_unit:AddNewModifier(parent, dragonform, "modifier_dragon_knight_frost_breath_slow", {duration = duration})
 		end
 	end
 end
 
+-- Spells that apply modifiers will trigger this
 function PerkDragonKnight(filterTable)
 	local parent_index = filterTable["entindex_parent_const"]
   	local caster_index = filterTable["entindex_caster_const"]
   	local ability_index = filterTable["entindex_ability_const"]
   	if not parent_index or not caster_index or not ability_index then
-      		return true
+      	return true
   	end
   	local parent = EntIndexToHScript( parent_index )
   	local caster = EntIndexToHScript( caster_index )
   	local ability = EntIndexToHScript( ability_index )
 	if parent:GetTeamNumber() == caster:GetTeamNumber() then return end
 	if ability then
-    		local targetPerk = caster:FindAbilityByName(caster:GetName() .. "_perk")
-	 	if targetPerk and targetPerks_modifier[targetPerk:GetName()] then
-	    		if targetPerk:GetName() == "npc_dota_hero_dragon_knight_perk" then
-		    		local dragonblood = caster:FindAbilityByName("dragon_knight_elder_dragon_form")
-		    		if dragonblood and dragonblood ~= ability then
-			    		if caster:HasModifier("modifier_dragon_knight_corrosive_breath") then
-				  		local duration = dragonblood:GetSpecialValueFor("corrosive_breath_duration")
-				  		parent:AddNewModifier(caster, dragonblood, "modifier_dragon_knight_corrosive_breath_dot", {duration = duration})
-			    		end
-			    		if caster:HasModifier("modifier_dragon_knight_frost_breath") then
-				    		local duration = dragonblood:GetSpecialValueFor("frost_duration")
-				    		parent:AddNewModifier(caster, dragonblood, "modifier_dragon_knight_frost_breath_slow", {duration = duration})
-			    		end
-		    		end
-    			end
+    	if caster:GetUnitName() == "npc_dota_hero_dragon_knight" then
+		    local dragonForm = caster:FindAbilityByName("dragon_knight_elder_dragon_form")
+		    if dragonForm and dragonForm ~= ability then
+			    if caster:HasModifier("modifier_dragon_knight_corrosive_breath") then
+				  	local duration = dragonForm:GetSpecialValueFor("corrosive_breath_duration")
+				  	parent:AddNewModifier(caster, dragonForm, "modifier_dragon_knight_corrosive_breath_dot", {duration = duration})
+			    end
+			    if caster:HasModifier("modifier_dragon_knight_frost_breath") then
+				    local duration = dragonForm:GetSpecialValueFor("frost_duration")
+				    parent:AddNewModifier(caster, dragonForm, "modifier_dragon_knight_frost_breath_slow", {duration = duration})
+			    end
     		end
     	end
+	end
   end

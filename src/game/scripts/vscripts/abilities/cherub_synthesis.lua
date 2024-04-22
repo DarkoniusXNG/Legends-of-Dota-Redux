@@ -1,7 +1,7 @@
 function SynthesisCreate( keys )
     local caster = keys.caster
     local ability = keys.ability
-    day = GameRules:IsDaytime()
+    local day = GameRules:IsDaytime()
     
     if day == true then
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_synthesis_day", {})
@@ -13,16 +13,15 @@ end
 function SynthesisCheck( keys )
     local caster = keys.caster
     local ability = keys.ability
-    local dayCheck = GameRules:IsDaytime()
+    local day = GameRules:IsDaytime()
     
-    if day ~= dayCheck and dayCheck == false then
-        day = GameRules:IsDaytime()
-        ability:ApplyDataDrivenModifier(caster, caster, "modifier_synthesis_night", {})
-    elseif day ~= dayCheck and dayCheck == true then
-        day = GameRules:IsDaytime()
+    if day == true then
+        caster:RemoveModifierByName("modifier_synthesis_night")
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_synthesis_day", {})
+    else
+        caster:RemoveModifierByName("modifier_synthesis_day")
+        ability:ApplyDataDrivenModifier(caster, caster, "modifier_synthesis_night", {})
     end
-
 end
 
 function SynthesisDay( keys )

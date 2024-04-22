@@ -182,7 +182,7 @@
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
-                    "soundlevel"        {   "value"     "100.00000" }
+                    "soundlevel"        {   "value"     "50.00000" }
                     "distance_max"      {   "value"     "1600.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
@@ -706,7 +706,7 @@
                             "value4"        "sounds/failed.vsnd"
                             "value5"        "sounds/aloser.vsnd"
                             "value6"        "sounds/idontcare.vsnd"
-                            "value7"        "sounds/i-dont-think-so"
+                            "value7"        "sounds/idontthinkso.vsnd"
                             "value8"        "sounds/bigchina.vsnd"
                             "value9"        "sounds/holdit.vsnd"
                         }
@@ -1266,38 +1266,6 @@
                         }
                     }
                     "volume"            {   "value"     "5.00000"  }
-                    "pitch_rand_min"    {   "value"     "-0.00000"  }
-                    "pitch_rand_max"    {   "value"     "0.000000"  }
-                    "pitch"             {   "value"     "1.000000"  }
-                    "soundlevel"        {   "value"     "100.00000" }
-                    "distance_max"      {   "value"     "1600.000"  }
-                    "event_type"        {   "value"     "1.000000"  }
-                }
-            }
-        }
-    }
-}
-
-"Memes.TreeBash"
-{
-    "operator_stacks"
-    {
-        "update_stack"
-        {
-            "reference_operator"
-            {
-                "operator"              "sos_reference_stack"
-                "reference_stack"       "dota_src1_3d"
-                "operator_variables"
-                {
-                    "vsnd_files"
-                    {
-                        "value"
-                        {
-                            "value0"        "sounds/treebash1.vsnd"
-                        }
-                    }
-                    "volume"            {   "value"     "4.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
