@@ -1135,7 +1135,7 @@ function modifier_imba_trueshot:OnIntervalThink()
 		local drow_agility = self.caster:GetAgility()
 
 		if self.parent:IsHero() then
-			self.parent:CalculateStatBonus()
+			self.parent:CalculateStatBonus(true)
 		end
 
 
@@ -1445,7 +1445,7 @@ function modifier_imba_marksmanship:OnIntervalThink()
 		end
 
 		-- Either way, recalculate stats.
-		self.caster:CalculateStatBonus()
+		self.caster:CalculateStatBonus(true)
 	end
 end
 

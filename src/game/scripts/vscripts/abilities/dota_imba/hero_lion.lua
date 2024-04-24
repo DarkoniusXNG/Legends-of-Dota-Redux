@@ -885,17 +885,11 @@ function modifier_imba_manadrain_aura_debuff:OnIntervalThink()
 		local mana_drain_per_sec = self.parent:GetMaxMana() * self.aura_mana_drain_pct * 0.01
 
 		-- Actual mana drain for this interval
-		local mana_drain = mana_drain_per_sec * self.interval
+		local mana_drain = math.min(mana_drain_per_sec * self.interval, self.parent:GetMana())
 
 		-- Reduce the target's mana by the value or get everything he has
-		local target_mana = self.parent:GetMana()
-		if target_mana > mana_drain then
-			self.parent:ReduceMana(mana_drain)
-			self.caster:GiveMana(mana_drain)
-		else
-			self.parent:ReduceMana(target_mana)
-			self.caster:GiveMana(target_mana)
-		end
+		self.parent:Script_ReduceMana(mana_drain, self.ability)
+		self.caster:GiveMana(mana_drain)
 	end
 end
 
@@ -945,26 +939,21 @@ function modifier_imba_manadrain_debuff:OnIntervalThink()
 		-- Get target's current mana
 		local target_mana = self.parent:GetMana()
 		
-		-- Check if target has more mana than max possible to drain, else drain what target has     
-		if target_mana > self.mana_drain_per_interval then
-			self.parent:ReduceMana(self.mana_drain_per_interval)          
-			self.caster:GiveMana(self.mana_drain_per_interval)
-			self.mana_drained = self.mana_drain_per_interval
-		else            
-			self.caster:GiveMana(target_mana)
-			self.parent:ReduceMana(target_mana)            
-			self.mana_drained = target_mana
-		end         
+		-- Check if target has more mana than max possible to drain, else drain what target has 
+		self.mana_drained = math.min(target_mana, self.mana_drain_per_interval)
+		self.caster:GiveMana(self.mana_drained)
+		self.parent:Script_ReduceMana(self.mana_drained, self.ability)
 		
 		-- Damage target by a percent of mana drained
 		local damage = self.mana_drained * self.mana_pct_as_damage * 0.01
 
-			local damageTable = {victim = self.parent,
-								 attacker = self.caster, 
-								 damage = damage,
-								 damage_type = DAMAGE_TYPE_MAGICAL,
-								 ability = self.ability
-								}
+		local damageTable = {
+			victim = self.parent,
+			attacker = self.caster,
+			damage = damage,
+			damage_type = DAMAGE_TYPE_MAGICAL,
+			ability = self.ability
+		}
 
 		ApplyDamage(damageTable)
 		
@@ -1047,13 +1036,9 @@ function modifier_imba_manadrain_buff:OnIntervalThink()
 		local caster_mana = self.caster:GetMana()
 		
 		-- If the caster has more mana than how much it is supposed to give, give it all
-		if caster_mana > self.mana_drain_per_interval then
-			self.caster:ReduceMana(self.mana_drain_per_interval)          
-			self.parent:GiveMana(self.mana_drain_per_interval)            
-		else            
-			self.parent:GiveMana(caster_mana)
-			self.target:ReduceMana(caster_mana)                        
-		end                 
+		local mana_to_give = math.min(caster_mana, self.mana_drain_per_interval)
+		self.caster:Script_ReduceMana(mana_to_give, self.ability)
+		self.parent:GiveMana(mana_to_give)
 	end
 end
 

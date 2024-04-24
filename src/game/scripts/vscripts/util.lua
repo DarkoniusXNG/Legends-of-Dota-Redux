@@ -1192,7 +1192,7 @@ function util:IsIgnoredForEssenceAura(ability)
 	local ability_data = ability:GetAbilityKeyValues()
 	local ability_mana_cost = ability:GetManaCost(-1)
 	--local ability_cooldown = ability:GetCooldown(-1)
-	
+
 	-- Ignore items
 	if ability:IsItem() then
 		return true
@@ -1208,7 +1208,7 @@ function util:IsIgnoredForEssenceAura(ability)
 	if string.find(ability_behavior, "DOTA_ABILITY_BEHAVIOR_TOGGLE") then
 		return true
 	end
-	
+
 	-- If the ability costs no mana, do nothing
 	if ability_mana_cost == 0 then
 		return true
@@ -1218,11 +1218,11 @@ function util:IsIgnoredForEssenceAura(ability)
 	--if ability_cooldown == 0 then
 		--return true
 	--end
-	
+
 	if essence_aura_ignore_list[ability:GetAbilityName()] then
 		return true
 	end
-	
+
 	return false
 end
 
@@ -1247,7 +1247,7 @@ function util:IsIgnoredForAftershock(ability)
 	local ability_data = ability:GetAbilityKeyValues()
 	--local ability_mana_cost = ability:GetManaCost(-1)
 	local ability_cooldown = ability:GetCooldown(-1)
-	
+
 	-- Ignore items
 	if ability:IsItem() then
 		return true
@@ -1263,7 +1263,7 @@ function util:IsIgnoredForAftershock(ability)
 	if string.find(ability_behavior, "DOTA_ABILITY_BEHAVIOR_TOGGLE") then
 		return true
 	end
-	
+
 	-- If the ability costs no mana, do nothing
 	--if ability_mana_cost == 0 then
 		--return true
@@ -1273,11 +1273,11 @@ function util:IsIgnoredForAftershock(ability)
 	if ability_cooldown == 0 and not string.find(ability_behavior, "DOTA_ABILITY_BEHAVIOR_ATTACK") then
 		return true
 	end
-	
+
 	if aftershock_ignore_list[ability:GetAbilityName()] then
 		return true
 	end
-	
+
 	return false
 end
 

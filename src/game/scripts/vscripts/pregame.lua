@@ -976,7 +976,7 @@ end
 -- Send the patrons
 function Pregame:sendPatrons()
     local sortedPatrons = {}
-    
+
     for k,v in pairs(util.patrons) do
         table.insert(sortedPatrons,v)
     end
@@ -1489,7 +1489,7 @@ function Pregame:onThink()
                 this:addExtraTowers()
             end, DoUniqueString('createtowers'), 0.2)
         end
- 
+
         -- Neutral Multiplier Mutator
         if OptionManager:GetOption('neutralMultiply') > 1 then
             Timers:CreateTimer(function()
@@ -2166,7 +2166,7 @@ function Pregame:onOptionChanged(eventSourceIndex, args)
 
                 local var
                 local i = 1
-                
+
                 for k,v in pairs(util.patreon_features.Options) do
                     if i == MutatorOfTheDay then
                         var = k
@@ -2186,7 +2186,7 @@ function Pregame:onOptionChanged(eventSourceIndex, args)
                         })
                         -- Timers:CreateTimer(function()
                         --     self:setOption(optionName, self.optionStore[optionName])
-                        -- end, "lodOptionFailed", 0.1) 
+                        -- end, "lodOptionFailed", 0.1)
                         return
                     end
                 end
@@ -2990,8 +2990,8 @@ function Pregame:initOptionSelector()
         end,
 
         -- Game Speed - Lane Creeps Bonus aBility
-        lodOptionLaneCreepBonusAbility = function(value)   
-           return value == 0 or value == 1 or value == 2 or value == 3 or value == 4 or value == 5 or value == 6 or value == 7 or value == 8 or value == 9 or value == 10 or value == 11 or value == 12 or value == 13 or value == 14  
+        lodOptionLaneCreepBonusAbility = function(value)
+           return value == 0 or value == 1 or value == 2 or value == 3 or value == 4 or value == 5 or value == 6 or value == 7 or value == 8 or value == 9 or value == 10 or value == 11 or value == 12 or value == 13 or value == 14
         end,
 
         -- Bots -- Desired number of radiant players
@@ -3200,7 +3200,7 @@ function Pregame:initOptionSelector()
             return value == 0 or value == 1 or value == 2 or value == 3 or value == 4  or value == 5 or value == 6 or value == 7 or value == 8 or value == 9 or value == 10  or value == 11 or value == 12 or value == 13 or value == 14 or value == 15 or value == 16 or value == 17 or value == 18  or value == 19 or value == 20 or value == 21 or value == 22 or value == 23
         end,
 
-        -- Bots - Use Same Hero        
+        -- Bots - Use Same Hero
         lodOptionBotsSameHero = function(value)
             return value == 0 or value == 1 or value == 2 or value == 3 or value == 4  or value == 5 or value == 6 or value == 7 or value == 8 or value == 9 or value == 10  or value == 11 or value == 12 or value == 13 or value == 14 or value == 15 or value == 16 or value == 17 or value == 18  or value == 19 or value == 20 or value == 21 or value == 22 or value == 23 or value == 24 or value == 25 or value == 26 or value == 27 or value == 28 or value == 29 or value == 30 or value == 31 or value == 32 or value == 33 or value == 34 or value == 35 or value == 36 or value == 37 or value == 38
         end,
@@ -3313,7 +3313,7 @@ function Pregame:initOptionSelector()
         end,
         -- Mutators
         lodOptionRandomLaneCreeps = function(value)
-            return value == 0 or value == 1 --[[or value == 2]] 
+            return value == 0 or value == 1 --[[or value == 2]]
         end,
         -- Mutators
         lodOptionNoHealthbars = function(value)
@@ -4099,7 +4099,7 @@ function Pregame:processOptions()
         -- Disabling Hero Perks
         if this.optionStore['lodOptionDisablePerks'] == 1 then
             this.perksDisabled = true
-        end 
+        end
 
         -- Single Player Ability Bans
         if not disableBanLists and this.optionStore['lodOptionBanningUseBanList'] == 1 then
@@ -4366,7 +4366,7 @@ function Pregame:processOptions()
                 ['Bots: Dire Difficulty'] = this.optionStore['lodOptionBotsDireDiff'],
                 ['Bots: Stupefy'] = this.optionStore['lodOptionBotsStupid'],
                 ['Bots: Same Hero'] = this.optionStore['lodOptionBotsSameHero'],
-                ['Bots: Allow Duplicates'] = this.optionStore['lodOptionBotsUnique'],      
+                ['Bots: Allow Duplicates'] = this.optionStore['lodOptionBotsUnique'],
             })
         else
             statCollection:setFlags({
@@ -4956,7 +4956,7 @@ function Pregame:onPlayerReady(eventSourceIndex, args)
             -- if self.wispSpawning then
                 self:validateBuilds(playerID)
             -- end
-            
+
             local count = 0
             for key,_ in pairs(newBuild) do
                 if tonumber(key) then
@@ -5007,10 +5007,10 @@ function Pregame:onPlayerReady(eventSourceIndex, args)
                 network:hideHeroBuilder(player)
                 return
             end
-            if not ALREADYPRECACHING[playerID][newBuild.hero] then
-                ALREADYPRECACHING[playerID][newBuild.hero] = true
-                PrecacheUnitByNameAsync(newBuild.hero, function (  )
-                    print("[Pregame:onPlayerReady] Successfully precached "..newBuild.hero)
+            -- if not ALREADYPRECACHING[playerID][newHeroName] then
+                -- ALREADYPRECACHING[playerID][newHeroName] = true
+                PrecacheUnitByNameAsync(newHeroName, function (  )
+                    print("[Pregame:onPlayerReady] Successfully precached "..newHeroName)
                     SkillManager:ApplyBuild(hero, newBuild)
                     local player = PlayerResource:GetPlayer(playerID)
                     network:hideHeroBuilder(player)
@@ -5048,8 +5048,7 @@ function Pregame:onPlayerReady(eventSourceIndex, args)
                         end
                     end
                     GameRules:SendCustomMessage('Player '..util:GetPlayerNameReliable(playerID)..' just changed build.', 0, 0)
-                end,playerID)
-            end
+                end, playerID)
         end
     else
         local playerID = args.PlayerID
@@ -5802,7 +5801,7 @@ function Pregame:setSelectedAbility(playerID, slot, abilityName, dontNetwork)
         -- Validate that it isn't a troll build
         local isTrollCombo, ab1, ab2 = self:isTrollCombo(newBuild)
 
-        
+
         if isTrollCombo then
             -- Invalid ability name
             network:sendNotification(player, {
@@ -6324,7 +6323,7 @@ function Pregame:findRandomSkill(build, slotNumber, playerID, optionalFilter)
                 end
             end
 
-            
+
             if (SkillManager:isPassive(abilityName) or self.flags["semi_passive"][abilityName] ~= nil) then
                 powerfulPassives = powerfulPassives + 1
             end
@@ -7037,10 +7036,10 @@ function Pregame:generateBotBuilds(singleID)
             elseif self.optionStore['lodOptionBotsRestrict'] == 2 and PlayerResource:GetTeam(playerID) == DOTA_TEAM_BADGUYS then
                 --maxSlots = 4
             elseif self.optionStore['lodOptionBotsRestrict'] == 3 then
-                --maxSlots = 4 
+                --maxSlots = 4
             else
                 self:getSkillforBot(self.botPlayers.all[playerID], botSkills)
-                self:getSkillforBot(self.botPlayers.all[playerID], botSkills) 
+                self:getSkillforBot(self.botPlayers.all[playerID], botSkills)
             end
         else
             self:getSkillforBot(self.botPlayers.all[playerID], botSkills)
@@ -7753,28 +7752,28 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                     spawnedUnit:RemoveModifierByName('modifier_silencer_int_steal')
                 end]]--
 
-            -- Apply Bot Difficulty 
+            -- Apply Bot Difficulty
             if util:isPlayerBot(playerID) then
                 if spawnedUnit:GetTeam() == DOTA_TEAM_GOODGUYS then
                     if OptionManager:GetOption('radiantBotDiff') == 5 then -- If its random individual, give the bot a difficulty between easy and unfair
                         local difficulty = math.random(1, 4)
                         spawnedUnit:SetBotDifficulty(difficulty)
-                        if difficulty == 1 then spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_easybot", {}) 
+                        if difficulty == 1 then spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_easybot", {})
                         elseif difficulty == 2 then spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_mediumbot", {})
-                        elseif difficulty == 3 then spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_hardbot", {}) 
-                        elseif difficulty == 4 then spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_unfairbot", {})  
+                        elseif difficulty == 3 then spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_hardbot", {})
+                        elseif difficulty == 4 then spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_unfairbot", {})
                         end
                     else
                         spawnedUnit:SetBotDifficulty(OptionManager:GetOption('radiantBotDiff'))
                     end
                 elseif spawnedUnit:GetTeam() == DOTA_TEAM_BADGUYS then
-                    if OptionManager:GetOption('direBotDiff') == 5 then 
+                    if OptionManager:GetOption('direBotDiff') == 5 then
                         local difficulty = math.random(1, 4)
                         spawnedUnit:SetBotDifficulty(difficulty)
-                        if difficulty == 1 then spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_easybot", {}) 
+                        if difficulty == 1 then spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_easybot", {})
                         elseif difficulty == 2 then spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_mediumbot", {})
-                        elseif difficulty == 3 then spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_hardbot", {}) 
-                        elseif difficulty == 4 then spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_unfairbot", {})  
+                        elseif difficulty == 3 then spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_hardbot", {})
+                        elseif difficulty == 4 then spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_unfairbot", {})
                         end
                     else
                         spawnedUnit:SetBotDifficulty(OptionManager:GetOption('direBotDiff'))
@@ -7883,7 +7882,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                     spawnedUnit:RemoveAbility("phantom_assassin_coup_de_grace_melee")
             end
 
-            
+
 
             -- Custom Flesh Heap fixes
             --[[for abilitySlot=0,6 do
@@ -8120,7 +8119,7 @@ function Pregame:fixSpawningIssues()
     ListenToGameEvent('npc_spawned', function(keys)
         -- Grab the unit that spawned
         local spawnedUnit = EntIndexToHScript(keys.entindex)
-        
+
         -- Periodic Spell Cast
         if not this.periodicDummyCastingUnitMade and OptionManager:GetOption("periodicSpellCast") == 1 then
             -- Create dummy for periodic spellcast
@@ -8312,14 +8311,14 @@ function Pregame:fixSpawningIssues()
             --end
             -- Make sure it is a hero
             if spawnedUnit:IsHero() then
-                
+
             elseif string.match(spawnedUnit:GetUnitName(), "creep") or string.match(spawnedUnit:GetUnitName(), "siege") or spawnedUnit:GetTeam() == DOTA_TEAM_NEUTRALS then
                 if this.optionStore['lodOptionLaneCreepBonusAbility'] > 0 then
 
                     if this.optionStore['lodOptionLaneCreepBonusAbility'] == 1 then -- Random All: All Creeps get the same random ability
                         this.optionStore['lodOptionLaneCreepBonusAbility'] = math.random(3,14)
                     end
-         
+
                     local pickedAbility = this.optionStore['lodOptionLaneCreepBonusAbility']
 
                     if this.optionStore['lodOptionLaneCreepBonusAbility'] == 2 then -- Random Individual: All creeps get a random ability each time
@@ -8358,7 +8357,7 @@ function Pregame:fixSpawningIssues()
 
                     local dotaTime = GameRules:GetDOTATime(false, false)
                     local level = math.ceil(dotaTime / 240) -- 240 = Gains a level every 4 minutes, at game time 12 mins, abilities are maxed
-                    
+
                     if level == 0 then level = 1 end
                     if level > creepAbility:GetMaxLevel() then level = creepAbility:GetMaxLevel() end
 
@@ -8405,14 +8404,14 @@ function Pregame:fixSpawningIssues()
                 end
             end
 
-            if spawnedUnit:GetTeam() == DOTA_TEAM_NEUTRALS then  
+            if spawnedUnit:GetTeam() == DOTA_TEAM_NEUTRALS then
                 if OptionManager:GetOption('stacking') == 1 and spawnedUnit:GetUnitName() ~= "npc_dota_roshan" then
                     if IsValidEntity(spawnedUnit) then
                             -- Have to delete creeps after time or game will crash because of too many creeps
                             spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_kill", {duration = 150})
                     end
                 end
-                
+
                 -- Increasing creep power over time
                 if this.optionStore['lodOptionNeutralCreepPower'] > 0 then
                     if IsValidEntity(spawnedUnit) then

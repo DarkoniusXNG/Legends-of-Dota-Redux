@@ -1304,7 +1304,7 @@ if IsServer() then
 		if keys.attacker == self:GetParent() then
 			self.critProc = false
 			if RollPseudoRandom(self.chance, self) then
-				self:GetParent():StartGestureWithPlaybackRate(ACT_DOTA_ATTACK_EVENT, self:GetParent():GetAttacksPerSecond(true))
+				self:GetParent():StartGestureWithPlaybackRate(ACT_DOTA_ATTACK_EVENT, self:GetParent():GetAttacksPerSecond(false))
 				local crit_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/jugg_crit_blur.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 				ParticleManager:SetParticleControl(crit_pfx, 0, self:GetParent():GetAbsOrigin())
 				ParticleManager:ReleaseParticleIndex(crit_pfx)
@@ -1432,7 +1432,7 @@ function modifier_imba_juggernaut_blade_dance_wind_dance:OnRefresh()
 	self.ms = self:GetAbility():GetSpecialValueFor("bonus_ms")
 	if IsServer() then
 		self:IncrementStackCount()
-		self:GetParent():CalculateStatBonus()
+		self:GetParent():CalculateStatBonus(true)
 	end
 end
 
@@ -1460,14 +1460,14 @@ function modifier_imba_juggernaut_blade_dance_secret_blade:GetTexture()	return "
 function modifier_imba_juggernaut_blade_dance_secret_blade:OnRefresh()
 	if IsServer() then
 		self:IncrementStackCount()
-		self:GetParent():CalculateStatBonus()
+		self:GetParent():CalculateStatBonus(true)
 	end
 end
 
 function modifier_imba_juggernaut_blade_dance_secret_blade:OnStackCountChanged()
 	local serverCheck = 0
 	if IsServer() then -- why? ? ? ? ? (Preserve the question marks ! ! ! ! ! ? ? ? ? ? )
-		self:GetParent():CalculateStatBonus()
+		self:GetParent():CalculateStatBonus(true)
 		serverCheck = 1
 		if self:GetStackCount() == self:GetAbility():GetSpecialValueFor("active_min_stacks") then
 		self:GetParent():EmitSound("Imba.JuggernautLightsaber")
@@ -1914,7 +1914,7 @@ function modifier_imba_omni_slash_caster:OnCreated()
 				self:BounceAndSlaughter(true)
 				
 				-- Well this looks messy as hell
-				local slash_rate = (1 / ( self.caster:GetAttackSpeed() * (math.max(self:GetAbility():GetSpecialValueFor("attack_rate_multiplier"), 1)))) / math.max(self.caster:FindTalentValue("special_bonus_imba_juggernaut_9"), 1)
+				local slash_rate = (1 / ( self.caster:GetAttackSpeed(false) * (math.max(self:GetAbility():GetSpecialValueFor("attack_rate_multiplier"), 1)))) / math.max(self.caster:FindTalentValue("special_bonus_imba_juggernaut_9"), 1)
 				
 				self:StartIntervalThink(slash_rate)
 			end
@@ -1928,7 +1928,7 @@ function modifier_imba_omni_slash_caster:OnIntervalThink()
 	self:BounceAndSlaughter()
 	
 	-- Slash interval updates as attack speed updates
-	local slash_rate = (1 / ( self.caster:GetAttackSpeed() * (math.max(self:GetAbility():GetSpecialValueFor("attack_rate_multiplier"), 1)))) / math.max(self.caster:FindTalentValue("special_bonus_imba_juggernaut_9"), 1)
+	local slash_rate = (1 / ( self.caster:GetAttackSpeed(false) * (math.max(self:GetAbility():GetSpecialValueFor("attack_rate_multiplier"), 1)))) / math.max(self.caster:FindTalentValue("special_bonus_imba_juggernaut_9"), 1)
 
 	self:StartIntervalThink(-1)
 	self:StartIntervalThink(slash_rate)

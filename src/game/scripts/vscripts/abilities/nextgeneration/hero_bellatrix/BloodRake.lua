@@ -4,7 +4,7 @@ function BloodRakeSelfDamage( event )
 	local ability = event.ability
 	local self_damage = ability:GetLevelSpecialValueFor( "health_cost" , ability:GetLevel() - 1  )
 	local HP = caster:GetHealth()
-	local MagicResist = caster:GetMagicalArmorValue()
+	local MagicResist = caster:Script_GetMagicalArmorValue(false, ability)
 	local damageType = ability:GetAbilityDamageType()
 
 	-- Calculate the magic damage

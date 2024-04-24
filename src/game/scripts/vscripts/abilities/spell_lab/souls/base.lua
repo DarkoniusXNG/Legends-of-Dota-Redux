@@ -30,7 +30,7 @@ function spell_lab_souls_base_modifier:OnDeath(kv)
 					if (max > 0) then remove = math.min(max, self:GetStackCount()) end
 					self:DropSouls(remove)
 					self:SetStackCount(self:GetStackCount()-remove)
-					self:GetParent():CalculateStatBonus()
+					self:GetParent():CalculateStatBonus(true)
 				end
 	    elseif kv.unit ~= self:GetParent() and kv.attacker == self:GetParent() then
 				if (kv.unit:IsRealHero() and kv.unit:GetTeam() == self:GetParent():GetTeam()) then return end
@@ -46,7 +46,7 @@ function spell_lab_souls_base_modifier:GainSoul (hTarget)
 	elseif not hTarget:IsIllusion() then
 		self:IncrementStackCount()
 	end
-	self:GetParent():CalculateStatBonus()
+	self:GetParent():CalculateStatBonus(true)
 	local nFXIndex = ParticleManager:CreateParticle( "particles/spell_lab/souls_gain.vpcf", PATTACH_ABSORIGIN, self:GetCaster() )
 	ParticleManager:SetParticleControl( nFXIndex, 0, hTarget:GetAbsOrigin() )
 	ParticleManager:SetParticleControlEnt(nFXIndex, 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true )
@@ -56,7 +56,7 @@ end
 
 function spell_lab_souls_base_modifier:GainSouls (iAmount)
 	self:SetStackCount(self:GetStackCount()+iAmount)
-	self:GetParent():CalculateStatBonus()
+	self:GetParent():CalculateStatBonus(true)
 end
 
 function spell_lab_souls_base_modifier:GetColour ()

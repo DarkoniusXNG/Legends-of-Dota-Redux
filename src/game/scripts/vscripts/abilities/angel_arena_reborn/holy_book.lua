@@ -52,7 +52,7 @@ function HolyBook_attack( keys )
 
 
 	local units = FindUnitsInRadius(team, position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, 0, false) 
-	local caster_attack_speed = caster:GetAttacksPerSecond(true)
+	local caster_attack_speed = caster:GetAttacksPerSecond(false)
 
 	for _, x in pairs(units) do
 		if x ~= keys.target then

@@ -128,7 +128,7 @@ function blood_sorcery(keys)
   caster:SetModifierStackCount("crimson_blood_sorcery_armor_mod",keys.ability,hperc)
   caster:SetModifierStackCount("crimson_blood_sorcery_mod",keys.ability,int)
 
-  caster:CalculateStatBonus()
+  caster:CalculateStatBonus(true)
 
 end
 

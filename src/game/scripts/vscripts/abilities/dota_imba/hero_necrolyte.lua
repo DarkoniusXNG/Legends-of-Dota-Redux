@@ -898,7 +898,7 @@ function modifier_imba_reapers_scythe:OnRemoved()
 		if target:IsAlive() and self.ability then
 			self.damage = self.damage * (target:GetMaxHealth() - target:GetHealth())
 			-- If this very rough formula for damage exceeds that of the target's health, apply the respawn modifier that increases respawn time of target...
-			if (self.damage * (1 + (caster:GetSpellAmplification(false) * 0.01)) * (1 - target:GetMagicalArmorValue())) >= target:GetHealth() then
+			if (self.damage * (1 + (caster:GetSpellAmplification(false) * 0.01)) * (1 - target:Script_GetMagicalArmorValue(false, self.ability))) >= target:GetHealth() then
 				self:GetParent():AddNewModifier(self:GetCaster(), self.ability, "modifier_imba_reapers_scythe_respawn", {})
 			end
 			-- Deals damage (optimally, the ApplyDamage float number would be used for calculating whether the respawn modifier should be applied.

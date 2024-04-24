@@ -1057,7 +1057,7 @@ function modifier_imba_riki_cloak_and_dagger:OnAttackLanded( keys )
 						ApplyDamage({victim = target, attacker = attacker, damage = attacker:GetAgility() * agility_multiplier, damage_type = ability:GetAbilityDamageType()})
 						backbreak = true
 					end
-					parent:AddNewModifier(parent, self, "modifier_imba_riki_backstab_translation", {duration = parent:GetAttackSpeed()})
+					parent:AddNewModifier(parent, self, "modifier_imba_riki_backstab_translation", {duration = parent:GetAttackSpeed(false)})
 
 					-- #1 Talent: Blink Strike now leaves Smokescreen for 1 second after each instance
 					if parent:HasTalent("special_bonus_imba_riki_1") then
@@ -1109,7 +1109,7 @@ function modifier_imba_riki_cloak_and_dagger:OnAttackLanded( keys )
 						ApplyDamage({victim = target, attacker = attacker, damage = attacker:GetAgility() * agility_multiplier, damage_type = ability:GetAbilityDamageType()})
 						backbreak = true
 					end
-					parent:AddNewModifier(parent, self, "modifier_imba_riki_backstab_translation", {duration = parent:GetAttackSpeed()})
+					parent:AddNewModifier(parent, self, "modifier_imba_riki_backstab_translation", {duration = parent:GetAttackSpeed(false)})
 
 
 					-- If the attacker is not in backstab angle but the target has the smoke screen modifier
@@ -1134,7 +1134,7 @@ function modifier_imba_riki_cloak_and_dagger:OnAttackLanded( keys )
 						ApplyDamage({victim = target, attacker = attacker, damage = attacker:GetAgility() * agility_multiplier_smoke, damage_type = ability:GetAbilityDamageType()})
 						backbreak = true
 					end
-					parent:AddNewModifier(parent, self, "modifier_imba_riki_backstab_translation", {duration = parent:GetAttackSpeed()})
+					parent:AddNewModifier(parent, self, "modifier_imba_riki_backstab_translation", {duration = parent:GetAttackSpeed(false)})
 
 					-- #4 Talent: Riki now applies Sidestab at reduced multiplier
 				elseif parent:HasTalent("special_bonus_imba_riki_4") and result_angle >= (180 - (parent:FindTalentValue("special_bonus_imba_riki_4","sidestab_angle") / 2)) and result_angle <= (180 + (parent:FindTalentValue("special_bonus_imba_riki_4","sidestab_angle") / 2)) then
@@ -1158,7 +1158,7 @@ function modifier_imba_riki_cloak_and_dagger:OnAttackLanded( keys )
 						ApplyDamage({victim = target, attacker = attacker, damage = attacker:GetAgility() * agility_multiplier_side, damage_type = ability:GetAbilityDamageType()})
 						backbreak = true
 					end
-					parent:AddNewModifier(parent, self, "modifier_imba_riki_backstab_translation", {duration = parent:GetAttackSpeed()})
+					parent:AddNewModifier(parent, self, "modifier_imba_riki_backstab_translation", {duration = parent:GetAttackSpeed(false)})
 
 				end
 
@@ -1560,7 +1560,7 @@ function modifier_imba_riki_tricks_of_the_trade_secondary:IsHidden() return true
 function modifier_imba_riki_tricks_of_the_trade_secondary:OnCreated()
 	if IsServer() then
 		local parent = self:GetParent()
-		local aps = parent:GetAttacksPerSecond(true)
+		local aps = parent:GetAttacksPerSecond(false)
 		self:StartIntervalThink(1/aps)
 	end
 end
@@ -1647,7 +1647,7 @@ function modifier_imba_riki_tricks_of_the_trade_secondary:OnIntervalThink()
 					self:ProcTricks(caster,ability,martyrs_mark_target,backstab_ability,backstab_particle,backstab_sound,caster:FindTalentValue("special_bonus_imba_riki_2","duration"))
 
 					local caster = self:GetParent()
-					local aps = caster:GetAttacksPerSecond(true)
+					local aps = caster:GetAttacksPerSecond(false)
 					self:StartIntervalThink(1/aps)
 					return
 				end
@@ -1661,7 +1661,7 @@ function modifier_imba_riki_tricks_of_the_trade_secondary:OnIntervalThink()
 				self:ProcTricks(caster,ability,unit,backstab_ability,backstab_particle,backstab_sound,caster:FindTalentValue("special_bonus_imba_riki_2","duration"))
 
 				local caster = self:GetParent()
-				local aps = caster:GetAttacksPerSecond(true)
+				local aps = caster:GetAttacksPerSecond(false)
 				self:StartIntervalThink(1/aps)
 				return
 			end

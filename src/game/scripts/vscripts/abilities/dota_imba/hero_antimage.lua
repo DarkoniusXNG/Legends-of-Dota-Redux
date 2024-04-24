@@ -161,13 +161,9 @@ function modifier_imba_mana_break_passive:OnAttackLanded(keys)
 			ParticleManager:ReleaseParticleIndex(manaburn_pfx)
 
 			-- Calculate and burn mana
-			local target_mana_burn = target:GetMana()
-			if (target_mana_burn > self.base_mana_burn) then
-				target_mana_burn = self.base_mana_burn
+			local target_mana_burn = math.min(target:GetMana(), self.base_mana_burn)
 
-			end
-
-			target:ReduceMana(target_mana_burn)
+			target:Script_ReduceMana(target_mana_burn, self.ability)
 			SendOverheadEventMessage(nil, OVERHEAD_ALERT_MANA_LOSS, target, target_mana_burn, nil)
 
 			-- If the target is magic immune, this is it for us.
@@ -211,7 +207,8 @@ function modifier_imba_mana_break_passive:OnAttackLanded(keys)
 				for _,enemy in pairs(enemies) do
 					-- If the enemy suddenly became magic immune, ignore it. Otherwise, continue
 					if not enemy:IsMagicImmune() then
-						local damageTable = {victim = enemy,
+						local damageTable = {
+							victim = enemy,
 							damage = blast_damage,
 							damage_type = DAMAGE_TYPE_MAGICAL,
 							attacker = attacker,
@@ -255,7 +252,7 @@ function modifier_imba_mana_break_passive:OnAttackLanded(keys)
 				-- Remove mana from enemies. Ignore the main target
 				for _,enemy in pairs(enemies) do
 					if enemy ~= target and not enemy:IsMagicImmune() then
-						enemy:ReduceMana(mana_aoe_break)
+						enemy:Script_ReduceMana(mana_aoe_break, self.ability)
 						SendOverheadEventMessage(nil, OVERHEAD_ALERT_MANA_LOSS, enemy, mana_aoe_break, nil)
 					end
 				end
@@ -403,7 +400,7 @@ function imba_antimage_blink:OnSpellStart()
 							ability = self
 						}
 						ApplyDamage(damageTable)
-						enemy:ReduceMana(mana_burn)
+						enemy:Script_ReduceMana(mana_burn, self)
 						SendOverheadEventMessage(nil, OVERHEAD_ALERT_MANA_LOSS, enemy, mana_burn, nil)
 					end
 				end
@@ -1019,7 +1016,7 @@ function imba_antimage_mana_void:OnSpellStart()
 		Timers:CreateTimer(time_to_wait, function()
 			-- Burn main target's mana & ministun
 			local target_mana_burn = target:GetMaxMana() * mana_burn_pct / 100
-			target:ReduceMana(target_mana_burn)
+			target:Script_ReduceMana(target_mana_burn, ability)
 			target:AddNewModifier(caster, ability, modifier_ministun, {duration = mana_void_ministun})
 
 			-- Find all enemies in the area of effect

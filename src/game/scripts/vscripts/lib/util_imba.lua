@@ -2217,7 +2217,7 @@ function IncreaseAttackSpeedCap(unit, new_cap)
 	end
 
 	-- Get current attack speed, limited to new_cap
-	local current_as = math.min(unit:GetAttackSpeed() * 100, new_cap)
+	local current_as = math.min(unit:GetAttackSpeed(false) * 100, new_cap)
 
 	-- Should we reduce BAT?
 	if current_as > MAXIMUM_ATTACK_SPEED then

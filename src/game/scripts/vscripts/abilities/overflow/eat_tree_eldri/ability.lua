@@ -31,7 +31,7 @@ function eat_tree_eldri:OnSpellStart()
 
 	EmitSoundOnLocationWithCaster( self:GetCaster():GetOrigin(), "Hero_Omniknight.GuardianAngel", self:GetCaster() )
 	self:GetCaster():AddNewModifier( self:GetCaster(), self, "eat_tree_eldri_mod", { duration = self:GetSpecialValueFor("duration") , stack = 1 } )
-	self:GetCaster():CalculateStatBonus()
+	self:GetCaster():CalculateStatBonus(true)
 end
 
 function eat_tree_eldri:GetBehavior()

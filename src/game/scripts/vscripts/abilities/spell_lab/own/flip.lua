@@ -37,7 +37,7 @@ function spell_lab_way_of_hel_modifier:Flip()
 	if (self.flipped) then
 		self.flipped = false
 		self:SetStackCount(0)
-	  hParent:CalculateStatBonus()
+	  hParent:CalculateStatBonus(true)
 	else
 		self.flipped = true
 	  local fMaxHealth = hParent:GetMaxHealth()
@@ -48,7 +48,7 @@ function spell_lab_way_of_hel_modifier:Flip()
 	  else
 	    self:SetStackCount(fMaxHealth-fMaxMana)
 	  end
-	  hParent:CalculateStatBonus()
+	  hParent:CalculateStatBonus(true)
 	end
 	hParent:SetHealth(fMana)
 	hParent:SetMana(fHealth)

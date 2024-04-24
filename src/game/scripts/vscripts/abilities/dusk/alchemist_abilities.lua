@@ -244,6 +244,7 @@ end
 function alchemist_bottle_throw_mana_burn(keys)
   local caster = keys.caster
   local target = keys.target
+  local ability = keys.ability
   local mana_burn = keys.mana_burn
   local s = keys.sp or 0
   
@@ -251,13 +252,15 @@ function alchemist_bottle_throw_mana_burn(keys)
     mana_burn = mana_burn*3
   end
   
-  target:ReduceMana(mana_burn)
+  target:Script_ReduceMana(mana_burn, ability)
   
   local damage_table = {
     victim = target,
     attacker = caster,
     damage = mana_burn*0.5,
     damage_type = DAMAGE_TYPE_MAGICAL,
-    } 
-    ApplyDamage(damage_table)
+    ability = ability,
+  }
+
+  ApplyDamage(damage_table)
 end

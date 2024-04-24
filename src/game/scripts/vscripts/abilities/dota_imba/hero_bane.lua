@@ -157,7 +157,7 @@ function modifier_imba_enfeeble_debuff:OnIntervalThink()
 			end
 
 			-- Calculate stats
-			self:GetParent():CalculateStatBonus()
+			self:GetParent():CalculateStatBonus(true)
 
 		end
 	end
@@ -1067,7 +1067,7 @@ function modifier_imba_fiends_grip_handler:OnIntervalThink()
 
 		-- Drain mana
 		local mana_drained = math.min(parent:GetMaxMana() * (fiends_grip_mana_damage + self.total_demon_mana_drain) * 0.01, parent:GetMana())
-		parent:ReduceMana( (parent:GetMaxMana() * (fiends_grip_mana_damage + self.total_demon_mana_drain) * 0.01) * baby_multiplier )
+		parent:Script_ReduceMana( mana_drained * baby_multiplier, ability )
 		caster:GiveMana(mana_drained)
 
 		-- Deal damage

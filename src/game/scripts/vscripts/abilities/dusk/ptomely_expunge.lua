@@ -125,7 +125,7 @@ function modifier_expunge:OnIntervalThink()
 		if self.mana_drain_amount then
 			local drain_per_tick = self.mana_drain_amount / total_ticks
 
-			self:GetParent():ReduceMana(drain_per_tick)
+			self:GetParent():Script_ReduceMana(drain_per_tick, self:GetAbility())
 		end
 	end
 end

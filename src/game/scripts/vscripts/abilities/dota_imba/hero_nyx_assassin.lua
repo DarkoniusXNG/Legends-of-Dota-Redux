@@ -627,18 +627,10 @@ function imba_nyx_assassin_mana_burn:OnSpellStart(target)
 
 	-- Calculate mana burn
 	local manaburn = target_stat * intelligence_mult
-	local actual_mana_burned = 0
-
-	-- Burn mana
 	local target_mana = target:GetMana()
+	local actual_mana_burned = math.min(target_mana, manaburn)
 
-	if target_mana > manaburn then
-		target:ReduceMana(manaburn)
-		actual_mana_burned = manaburn
-	else
-		target:ReduceMana(target_mana)
-		actual_mana_burned = target_mana
-	end
+	target:Script_ReduceMana(actual_mana_burned, self)
 
 	-- Calculate damage
 	local damage = actual_mana_burned * mana_burn_damage_pct * 0.01
@@ -715,18 +707,10 @@ function modifier_imba_mana_burn_parasite:OnIntervalThink()
 	if IsServer() then
 		-- Leech mana per interval
 		local target_current_mana = self.parent:GetMana()
-		local mana_leeched = 0
+		local mana_leeched = math.min(target_current_mana, self.parasite_mana_leech)
 		local mana_lost = 0
 
-		-- Check if there is enough mana to leech
-		if target_current_mana >= self.parasite_mana_leech then
-			self.parent:ReduceMana(self.parasite_mana_leech)
-			mana_leeched = self.parasite_mana_leech
-
-		else -- Get the mana that the target has
-			self.parent:ReduceMana(target_current_mana)
-			mana_leeched = target_current_mana
-		end
+		self.parent:Script_ReduceMana(mana_leeched, self.ability)
 
 		-- Check if the target has lost mana since the last check. If he has, add it to the charge count
 		--if target_current_mana < self.last_known_target_mana then
@@ -780,11 +764,9 @@ function modifier_imba_mana_burn_parasite:OnTakeDamage(keys)
 			
 			local mana_burned = damage * (self.scarring_burn_pct / 100) -- 8%/10%/12%/14%
 			
-			if mana_burned > self.parent:GetMana() then
-				mana_burned = self.parent:GetMana()
-			end
+			mana_burned = math.min(mana_burned, self.parent:GetMana())
 			
-			self.parent:ReduceMana(mana_burned)
+			self.parent:Script_ReduceMana(mana_burned, self.ability)
 			
 			self.parasite_charged_mana = self.parasite_charged_mana + mana_burned
 			

@@ -27,13 +27,13 @@ end
 function modifier_flesh_heap_int:OnCreated( kv )
 	if not self:GetAbility() then
 		self:GetParent():RemoveModifierByName("modifier_flesh_heap_int")
-		self:GetParent():CalculateStatBonus()
+		self:GetParent():CalculateStatBonus(true)
 		return
 	end
 	self.fleshHeapIntelligenceBuffAmount = self:GetAbility():GetSpecialValueFor( "flesh_heap_intelligence_buff_amount" ) or 0
 	if IsServer() then
 		self:SetStackCount( self:GetAbility():GetFleshHeapKills() )
-		self:GetParent():CalculateStatBonus()
+		self:GetParent():CalculateStatBonus(true)
 	end
 end
 
@@ -42,13 +42,13 @@ end
 function modifier_flesh_heap_int:OnRefresh( kv )
 	if not self:GetAbility() then
 		self:GetParent():RemoveModifierByName("modifier_flesh_heap_int")
-		self:GetParent():CalculateStatBonus()
+		self:GetParent():CalculateStatBonus(true)
 		return
 	end
 	self.fleshHeapIntelligenceBuffAmount = self:GetAbility():GetSpecialValueFor( "flesh_heap_intelligence_buff_amount" ) or 0
 	if IsServer() then
 		self:SetStackCount( self:GetAbility():GetFleshHeapKills())
-		self:GetParent():CalculateStatBonus()
+		self:GetParent():CalculateStatBonus(true)
 	end
 end
 

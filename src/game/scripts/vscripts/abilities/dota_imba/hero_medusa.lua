@@ -265,7 +265,7 @@ function modifier_imba_medusa_serpent_shot:OnTakeDamage(keys)
 			damage_dealt = ApplyDamage(damageTable)
 		end
 		
-		keys.unit:ReduceMana(damage_dealt * self.serpent_shot_mana_burn_pct * 0.01)
+		keys.unit:Script_ReduceMana(damage_dealt * self.serpent_shot_mana_burn_pct * 0.01, self:GetAbility())
 		
 		local manaburn_particle = ParticleManager:CreateParticle("particles/item/diffusal/diffusal_manaburn_3.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.unit)
 		ParticleManager:ReleaseParticleIndex(manaburn_particle)
@@ -374,16 +374,12 @@ function imba_medusa_mystic_snake:OnProjectileHit_ExtraData(hTarget, vLocation, 
 			if hTarget:GetMana() and hTarget:GetMaxMana() and not hTarget:IsIllusion() then 
 				-- Store amount of mana before stealing some
 				local target_mana 	= hTarget:GetMana()
-				local mana_to_steal	= hTarget:GetMaxMana() * self:GetSpecialValueFor("snake_mana_steal") * 0.01
+				local mana_to_steal	= math.min(hTarget:GetMaxMana() * self:GetSpecialValueFor("snake_mana_steal") * 0.01, target_mana)
 				
-				hTarget:ReduceMana(mana_to_steal)
+				hTarget:Script_ReduceMana(mana_to_steal, self)
 				
 				-- "Upon returning to Medusa, she receives exactly the amount of mana all targets lost to Mystic Snake." seems to be a lie based on vanilla testing since it still steals the standard amount even if it burns less due to manaloss reductions so zzz
-				if target_mana < mana_to_steal then
-					ExtraData.mana_stolen = ExtraData.mana_stolen + math.max(target_mana, 0)
-				else
-					ExtraData.mana_stolen = ExtraData.mana_stolen + math.max(mana_to_steal, 0)
-				end
+				ExtraData.mana_stolen = ExtraData.mana_stolen + mana_to_steal
 			end
 			
 			local damageTable = {
@@ -712,7 +708,7 @@ function modifier_imba_medusa_mana_shield:GetModifierIncomingDamage_Percentage(k
 			ParticleManager:ReleaseParticleIndex(shield_particle)
 		end			
 
-		self:GetParent():ReduceMana(mana_to_block)
+		self:GetParent():Script_ReduceMana(mana_to_block, self:GetAbility())
 		
 		return math.min(self.absorption_tooltip, self.absorption_tooltip * self:GetParent():GetMana() / math.max(mana_to_block, 1)) * (-1)
 	end

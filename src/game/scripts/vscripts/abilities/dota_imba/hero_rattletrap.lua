@@ -658,7 +658,7 @@ function modifier_imba_rattletrap_cog_push:OnDestroy()
 	
 	ApplyDamage(damageTable)
 	
-	self:GetParent():ReduceMana(self.mana_burn)
+	self:GetParent():Script_ReduceMana(self.mana_burn, self:GetAbility())
 	
 	-- "At the end of the knock back, trees within a 100 radius of the unit are destroyed."
 	GridNav:DestroyTreesAroundPoint(self:GetParent():GetAbsOrigin(), 100, true )

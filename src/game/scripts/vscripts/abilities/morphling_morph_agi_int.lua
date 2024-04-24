@@ -86,7 +86,6 @@ function modifier_morph_int_agi:OnIntervalThink()
   self:GetCaster():SpendMana(mana_per_tick,self:GetAbility())
   self:GetCaster():ModifyIntellect(-1)
   self:GetCaster():ModifyAgility(1)
-  --self:GetCaster():ReduceMana(12) -- Reduce 12 mana ( Not sure if the % from the int reduction should be refunded)
 end
 
 function modifier_morph_int_agi:GetEffectName()

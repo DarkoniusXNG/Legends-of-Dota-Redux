@@ -273,7 +273,7 @@ function ManaBurn( keys )
 	local mana_to_burn = caster:GetAttackDamage() * mana_burn_pct / 100
 
 	-- Burn mana
-	target:ReduceMana(mana_to_burn)
+	target:Script_ReduceMana(mana_to_burn, ability)
 
 	-- Play sound
 	target:EmitSound(sound_burn)
@@ -318,7 +318,7 @@ function ManaFlare( keys )
 			
 			-- Burn mana
 			local mana_to_burn = enemy:GetMaxMana() * burn_pct / 100
-			enemy:ReduceMana(mana_to_burn)
+			enemy:Script_ReduceMana(mana_to_burn, ability)
 
 			-- Play mana burn particle
 			local mana_burn_pfx = ParticleManager:CreateParticle(particle_burn, PATTACH_ABSORIGIN, enemy)
@@ -496,7 +496,7 @@ function EssenceDrain( keys )
 	AddStacks(ability, caster, target, modifier_agi, drain_per_hit, true)
 
 	-- Update the target's stats
-	target:CalculateStatBonus()
+	target:CalculateStatBonus(true)
 end
 
 function EssenceDrainStackUp( keys )
@@ -583,7 +583,7 @@ function Multihit( keys )
 
 	if not caster:IsRealHero() and not caster:IsBuilding() then return nil end
 
-	cooldown = caster:GetSecondsPerAttack() - 0.1
+	local cooldown = caster:GetSecondsPerAttack(false)
 	
 	-- Parameters
 	local bonus_attacks = ability:GetLevelSpecialValueFor("bonus_attacks", ability_level)

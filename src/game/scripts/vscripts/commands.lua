@@ -10,9 +10,9 @@ function Commands:CheckArgs( args, toCheck )
     return false
 end
 
-function Commands:OnPlayerChat(keys)    
+function Commands:OnPlayerChat(keys)
     local playerID = keys.playerid
-    
+
     local text = string.lower(keys.text)
 
     local command
@@ -22,10 +22,10 @@ function Commands:OnPlayerChat(keys)
         if string.match(v, "-") then
             command = v
         elseif string.match(v, "#") then
-            -- this is here originally for changing bot difficulty 
+            -- this is here originally for changing bot difficulty
             -- but can be used for using cheats on someone's behalf
             -- to figure out player's ID use -pid first
-            playerID = tonumber(string.sub(v, 2)) 
+            playerID = tonumber(string.sub(v, 2))
         else
             table.insert(arguments, v)
         end
@@ -55,7 +55,7 @@ function Commands:OnPlayerChat(keys)
     if IsCommand("-antirat") or IsCommand("-ar") then
         if OptionManager:GetOption('antiRat') == 0 and not Ingame.voteEnabledCheatMode then
             util:CreateVoting("lodVotingAntirat", playerID, 10, OptionManager:GetOption('mapname') == 'all_allowed' and 50 or 100, function()
-                OptionManager:SetOption('antiRat', 1) 
+                OptionManager:SetOption('antiRat', 1)
                 Ingame:giveAntiRatProtection()
                 Ingame.voteAntiRat = true
                 EmitGlobalSound("Event.CheatEnabled")
@@ -202,11 +202,11 @@ function Commands:OnPlayerChat(keys)
     ----------------------------
     -- Debug Commands
     ----------------------------
-    if IsCommand("-test") then 
+    if IsCommand("-test") then
         GameRules:SendCustomMessage('testing testing 1. 2. 3.', 0, 0)
         util:DisplayError(playerID, "tested")
         print(OptionManager:GetOption('mapname'))
-    elseif IsCommand("-fixhero") then 
+    elseif IsCommand("-fixhero") then
         if Pregame.isWispSpawning and hero and hero:GetUnitName() ~= Pregame.selectedHeroes[playerID] then
             Pregame:onIngameBuilder(1, { playerID = playerID, ingamePicking = true })
         end
@@ -228,7 +228,7 @@ function Commands:OnPlayerChat(keys)
     elseif IsCommand("gg") then
         if OptionManager:GetOption('memesRedux') == 1 then
             if Ingame.heard["gg"] ~= true then
-                
+
                 EmitGlobalSound("Memes.GG")
                 Ingame.heard["gg"] = true
 
@@ -239,15 +239,15 @@ function Commands:OnPlayerChat(keys)
             end
         end
     elseif IsCommand("-bot") then
-        local splitedcommand = arguments 
+        local splitedcommand = arguments
         if splitedcommand[1] and splitedcommand[1] == "mode" then
-            if not Ingame.botsInLateGameMode then 
-                Ingame:CommandNotification("-botmode", "Bots are in early game mode.", 10)  
-            elseif Ingame.botsInLateGameMode then 
-                Ingame:CommandNotification("-botmode", "Bots are in late game mode.", 10)   
-            end 
+            if not Ingame.botsInLateGameMode then
+                Ingame:CommandNotification("-botmode", "Bots are in early game mode.", 10)
+            elseif Ingame.botsInLateGameMode then
+                Ingame:CommandNotification("-botmode", "Bots are in late game mode.", 10)
+            end
         end
-         
+
     elseif IsCommand("-pid") then
         --if not Ingame.voteEnabledCheatMode then
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
@@ -256,13 +256,13 @@ function Commands:OnPlayerChat(keys)
                 GameRules:SendCustomMessage( string.sub(player_hero:GetName(),15) .. ': ' .. playerID ,0,0)
             end
         end
-    elseif IsCommand("-fixcasting") then 
-        Timers:CreateTimer(function()        
+    elseif IsCommand("-fixcasting") then
+        Timers:CreateTimer(function()
             local status2,err2 = pcall(function()
                 local talents = {}
 
                 for i = 0, DOTA_MAX_ABILITIES - 1 do
-                    if hero:GetAbilityByIndex(i) then 
+                    if hero:GetAbilityByIndex(i) then
                         local ability = hero:GetAbilityByIndex(i)
                         if ability and util:IsTalent(ability) then
                             local abName = ability:GetName()
@@ -274,8 +274,8 @@ function Commands:OnPlayerChat(keys)
 
                 SendToServerConsole('say "Found talents: '..tostring(util:getTableLength(talents))..'"')
 
-                Timers:CreateTimer(function()  
-                    local status2,err2 = pcall(function()      
+                Timers:CreateTimer(function()
+                    local status2,err2 = pcall(function()
                         for k,v in pairs(talents) do
                             hero:AddAbility(v)
                         end
@@ -299,7 +299,7 @@ function Commands:OnPlayerChat(keys)
         -- Some cheats that work in tools and cheats mode conflict
         local vanillaCheatMode = GameRules:IsCheatMode() or IsInToolsMode()
 
-        if IsCommand("-gold") and not vanillaCheatMode then 
+        if IsCommand("-gold") and not vanillaCheatMode then
             -- Give user max gold, unless they specify a number
             if not Ingame.heard["freestuff"] then
                 EmitGlobalSound("Event.FreeStuff")
@@ -311,12 +311,12 @@ function Commands:OnPlayerChat(keys)
                 goldAmount = tonumber(splitedcommand[1])
             end
 
-            Timers:CreateTimer(function()  
-                PlayerResource:ModifyGold(hero:GetPlayerOwner():GetPlayerID(), goldAmount, true, 0)      
-                Ingame:CommandNotification("-gold", 'Cheat Used (-gold): Given ' .. goldAmount .. ' gold to '.. util:GetPlayerNameReliable(playerID)) 
+            Timers:CreateTimer(function()
+                PlayerResource:ModifyGold(hero:GetPlayerOwner():GetPlayerID(), goldAmount, true, 0)
+                Ingame:CommandNotification("-gold", 'Cheat Used (-gold): Given ' .. goldAmount .. ' gold to '.. util:GetPlayerNameReliable(playerID))
             end, DoUniqueString('cheat'), .1)
 
-        elseif IsCommand("-points") then 
+        elseif IsCommand("-points") then
             -- Give user 1 skill point if not specified how much
             local pointsAmount = 1
             local splitedcommand = arguments
@@ -324,9 +324,9 @@ function Commands:OnPlayerChat(keys)
                 pointsAmount = tonumber(splitedcommand[1])
             end
 
-            Timers:CreateTimer(function()  
-                hero:SetAbilityPoints(pointsAmount)  
-                Ingame:CommandNotification("-points", 'Free Ability Points Used (-points): Given ' .. pointsAmount .. ' ability points to '.. util:GetPlayerNameReliable(playerID)) 
+            Timers:CreateTimer(function()
+                hero:SetAbilityPoints(pointsAmount)
+                Ingame:CommandNotification("-points", 'Free Ability Points Used (-points): Given ' .. pointsAmount .. ' ability points to '.. util:GetPlayerNameReliable(playerID))
             end, DoUniqueString('cheat'), .1)
 
         elseif IsCommand("-bot") then
@@ -342,8 +342,8 @@ function Commands:OnPlayerChat(keys)
                 end
                 Ingame:CommandNotification("-switched", "Bots have switched modes.", 5)
             end
-        elseif IsCommand("-god") then 
-            Timers:CreateTimer(function()  
+        elseif IsCommand("-god") then
+            Timers:CreateTimer(function()
                 local godMode = hero:FindModifierByName("modifier_invulnerable")
                 if godMode then
                     hero:RemoveModifierByName("modifier_invulnerable")
@@ -353,7 +353,7 @@ function Commands:OnPlayerChat(keys)
                         god_duration = -1
                     end
                     hero:AddNewModifier(hero,nil,"modifier_invulnerable",{duration = god_duration})
-                    Ingame:CommandNotification("-godmode", 'Cheat Used (-godmode): Given invulnerability to '.. util:GetPlayerNameReliable(playerID)) 
+                    Ingame:CommandNotification("-godmode", 'Cheat Used (-godmode): Given invulnerability to '.. util:GetPlayerNameReliable(playerID))
                 end
             end, DoUniqueString('cheat'), .1)
 
@@ -363,8 +363,8 @@ function Commands:OnPlayerChat(keys)
         elseif IsCommand("-fog") then
             -- Bring back the fog of war
             GameRules:GetGameModeEntity():SetFogOfWarDisabled(false)
-        elseif IsCommand("-aghs") or IsCommand("-aghanim") or IsCommand("-scepter") then 
-            Timers:CreateTimer(function()    
+        elseif IsCommand("-aghs") or IsCommand("-aghanim") or IsCommand("-scepter") then
+            Timers:CreateTimer(function()
                 local scepter = hero:FindModifierByName("modifier_item_ultimate_scepter_consumed")
                 if scepter then
                     hero:RemoveModifierByName("modifier_item_ultimate_scepter_consumed")
@@ -374,40 +374,40 @@ function Commands:OnPlayerChat(keys)
                         bonus_health = 0,
                         bonus_mana = 0
                     })
-                    Ingame:CommandNotification("-scepter", 'Cheat Used (-scepter): Given Aghanims Scepter upgrade to '.. util:GetPlayerNameReliable(playerID)) 
+                    Ingame:CommandNotification("-scepter", 'Cheat Used (-scepter): Given Aghanims Scepter upgrade to '.. util:GetPlayerNameReliable(playerID))
                 end
             end, DoUniqueString('cheat'), .1)
 
-        elseif IsCommand("-regen") then 
-            Timers:CreateTimer(function()  
+        elseif IsCommand("-regen") then
+            Timers:CreateTimer(function()
                 local godMode = hero:FindModifierByName("modifier_fountain_aura_buff")
                 if godMode then
                     hero:RemoveModifierByName("modifier_fountain_aura_buff")
                 else
                     hero:AddNewModifier(hero,nil,"modifier_fountain_aura_buff",{})
-                    Ingame:CommandNotification("-godmode", 'Cheat Used (-regen): Given fountain regeneration to '.. util:GetPlayerNameReliable(playerID)) 
+                    Ingame:CommandNotification("-godmode", 'Cheat Used (-regen): Given fountain regeneration to '.. util:GetPlayerNameReliable(playerID))
                 end
             end, DoUniqueString('cheat'), .1)
 
-        elseif IsCommand("-gem") then 
-            Timers:CreateTimer(function()  
+        elseif IsCommand("-gem") then
+            Timers:CreateTimer(function()
                 local trueSight = hero:FindModifierByName("modifier_tower_truesight_aura")
                 if trueSight then
                     hero:RemoveModifierByName("modifier_tower_truesight_aura")
                 else
                     hero:AddNewModifier(hero,nil,"modifier_tower_truesight_aura",{})
-                    Ingame:CommandNotification("-gem", 'Cheat Used (-gem): Given True Sight to '.. util:GetPlayerNameReliable(playerID)) 
+                    Ingame:CommandNotification("-gem", 'Cheat Used (-gem): Given True Sight to '.. util:GetPlayerNameReliable(playerID))
                 end
             end, DoUniqueString('cheat'), .1)
 
-        elseif IsCommand("-invis") then 
+        elseif IsCommand("-invis") then
             Timers:CreateTimer(function()
                 local invis = hero:FindAbilityByName("riki_permanent_invisibility_lod")
 
                 if invis then
                     hero:RemoveAbility("riki_permanent_invisibility_lod")
                     hero:RemoveModifierByName("modifier_invisible")
-                else 
+                else
                     invis = hero:AddAbility("riki_permanent_invisibility_lod")
                     hero:AddNewModifier(hero,nil,"modifier_invisible",{})
                     invis:SetActivated(true)
@@ -418,7 +418,7 @@ function Commands:OnPlayerChat(keys)
             end, DoUniqueString('cheat'), .1)
 
         -- Command that can change the difficulty of buts example "-diff 4 #6", 4 is unfair and #6 indentifies a player ID
-        elseif IsCommand("-dif") then 
+        elseif IsCommand("-dif") then
             Timers:CreateTimer(function()
                 local splitedcommand = arguments
                 local difficulty = 1
@@ -439,13 +439,13 @@ function Commands:OnPlayerChat(keys)
                 end
             end, DoUniqueString('botdiff'), .1)
 
-        elseif IsCommand("-reflect") then 
+        elseif IsCommand("-reflect") then
             Timers:CreateTimer(function()
                 local reflect = hero:FindAbilityByName("spell_reflect_cheat")
 
                 if reflect then
                     hero:RemoveAbility("spell_reflect_cheat")
-                else 
+                else
                     reflect = hero:AddAbility("spell_reflect_cheat")
                     reflect:SetActivated(true)
                     reflect:SetLevel(1)
@@ -454,13 +454,13 @@ function Commands:OnPlayerChat(keys)
                 end
             end, DoUniqueString('cheat'), .1)
 
-        elseif IsCommand("-spellblock") then 
+        elseif IsCommand("-spellblock") then
             Timers:CreateTimer(function()
                 local block = hero:FindAbilityByName("roshan_spell_block_cheat")
 
                 if block then
                     hero:RemoveAbility("roshan_spell_block_cheat")
-                else 
+                else
                     block = hero:AddAbility("roshan_spell_block_cheat")
                     block:SetActivated(true)
                     block:SetLevel(1)
@@ -469,13 +469,13 @@ function Commands:OnPlayerChat(keys)
                 end
             end, DoUniqueString('cheat'), .1)
 
-        elseif IsCommand("-cooldown") then 
+        elseif IsCommand("-cooldown") then
             Timers:CreateTimer(function()
                 local nocooldown = hero:FindAbilityByName("jingtong_cheat")
 
                 if nocooldown then
                     hero:RemoveAbility("jingtong_cheat")
-                else 
+                else
                     nocooldown = hero:AddAbility("jingtong_cheat")
                     nocooldown:SetActivated(true)
                     nocooldown:SetLevel(1)
@@ -484,13 +484,13 @@ function Commands:OnPlayerChat(keys)
                 end
             end, DoUniqueString('cheat'), .1)
 
-        elseif IsCommand("-globalcast") then 
+        elseif IsCommand("-globalcast") then
             Timers:CreateTimer(function()
                 local globalcast = hero:FindAbilityByName("aether_range_lod_global")
 
                 if globalcast then
                     hero:RemoveAbility("aether_range_lod_global")
-                else 
+                else
                     globalcast = hero:AddAbility("aether_range_lod_global")
                     globalcast:SetActivated(true)
                     globalcast:SetLevel(1)
@@ -499,26 +499,26 @@ function Commands:OnPlayerChat(keys)
                 end
             end, DoUniqueString('cheat'), .1)
 
-        elseif (IsCommand("-wtf") and not vanillaCheatMode) or IsCommand("-wtfmenu") then 
+        elseif (IsCommand("-wtf") and not vanillaCheatMode) or IsCommand("-wtfmenu") then
             Timers:CreateTimer(function()
                 if OptionManager:GetOption('lodOptionCrazyWTF') == 1 then
                     OptionManager:SetOption('lodOptionCrazyWTF', 0)
                     Ingame:CommandNotification("-wtfoff", 'Cheat Used (-wtf): WTF mode disabled, spells have regular cooldowns and manacosts.',30)
                 else
                     OptionManager:SetOption('lodOptionCrazyWTF', 1)
-                    Ingame:CommandNotification("-wtfon", 'Cheat Used (-wtf): WTF mode enabled, spells have no cooldowns or manacosts.',30) 
+                    Ingame:CommandNotification("-wtfon", 'Cheat Used (-wtf): WTF mode enabled, spells have no cooldowns or manacosts.',30)
                 end
             end, DoUniqueString('cheat'), .1)
 
         elseif IsCommand("-unwtf") and not vanillaCheatMode then
-            Timers:CreateTimer(function()  
+            Timers:CreateTimer(function()
                 if OptionManager:GetOption('lodOptionCrazyWTF') == 1 then
                     OptionManager:SetOption('lodOptionCrazyWTF', 0)
-                    Ingame:CommandNotification("-wtfoff", 'Cheat Used (-wtf): WTF mode disabled, spells have regular cooldowns and manacosts.',30)    
-                end           
+                    Ingame:CommandNotification("-wtfoff", 'Cheat Used (-wtf): WTF mode disabled, spells have regular cooldowns and manacosts.',30)
+                end
             end, DoUniqueString('cheat'), .1)
 
-        elseif IsCommand("-lvlup") and not vanillaCheatMode then 
+        elseif IsCommand("-lvlup") and not vanillaCheatMode then
             -- Give user 1 level, unless they specify a number after
             local levels = 1
             local splitedcommand = arguments
@@ -528,14 +528,14 @@ function Commands:OnPlayerChat(keys)
             Timers:CreateTimer(function()
                 local level = hero:GetLevel() + levels
                 while hero:GetLevel() < level and hero:GetLevel() ~= OptionManager:GetOption('maxHeroLevel')do
-                    hero:AddExperience(1,DOTA_ModifyXP_Unspecified,false,false)              
+                    hero:AddExperience(1,DOTA_ModifyXP_Unspecified,false,false)
                 end
-                Ingame:CommandNotification("-lvlup", 'Cheat Used (-lvlup): Given ' .. levels .. ' level(s) to '.. util:GetPlayerNameReliable(playerID)) 
+                Ingame:CommandNotification("-lvlup", 'Cheat Used (-lvlup): Given ' .. levels .. ' level(s) to '.. util:GetPlayerNameReliable(playerID))
             end, DoUniqueString('cheat'), .1)
 
-        elseif IsCommand("-item") and not vanillaCheatMode then 
+        elseif IsCommand("-item") and not vanillaCheatMode then
             -- Give user an item
-            Timers:CreateTimer(function()  
+            Timers:CreateTimer(function()
                 local splitedcommand = arguments
                 local validItem = false
                 if splitedcommand[1] then
@@ -544,11 +544,11 @@ function Commands:OnPlayerChat(keys)
                     if findItem then validItem = true end
                 end
                 if validItem then
-                    Ingame:CommandNotification("-item", 'Cheat Used (-item): Given ' .. splitedcommand[1] .. ' to '.. util:GetPlayerNameReliable(playerID)) 
+                    Ingame:CommandNotification("-item", 'Cheat Used (-item): Given ' .. splitedcommand[1] .. ' to '.. util:GetPlayerNameReliable(playerID))
                 end
             end, DoUniqueString('cheat'), .1)
 
-        elseif IsCommand("-addability") or IsCommand("-giveability") or IsCommand("-add") then 
+        elseif IsCommand("-addability") or IsCommand("-giveability") or IsCommand("-add") then
             -- Give user an ability
             Timers:CreateTimer(function()
               local splitedcommand = arguments
@@ -565,16 +565,16 @@ function Commands:OnPlayerChat(keys)
                     if findAbility then givenAbility = true end
                 end
                 if givenAbility then
-                    Ingame:CommandNotification("-addability", 'Cheat Used (-addability): Given ' .. splitedcommand[1] .. ' to '.. util:GetPlayerNameReliable(playerID)) 
+                    Ingame:CommandNotification("-addability", 'Cheat Used (-addability): Given ' .. splitedcommand[1] .. ' to '.. util:GetPlayerNameReliable(playerID))
                 end
               end
             end, DoUniqueString('cheat'), .1)
-        elseif IsCommand("-removeability") or IsCommand("-remove") then 
+        elseif IsCommand("-removeability") or IsCommand("-remove") then
             -- Remove named ability or all
-            Timers:CreateTimer(function()  
+            Timers:CreateTimer(function()
                 local splitedcommand = arguments
                 local validAbility = false
-                if splitedcommand[1] then    
+                if splitedcommand[1] then
                     local abilityToRemoveName
                     for i = 0, DOTA_MAX_ABILITIES - 1 do
                         local abil = hero:GetAbilityByIndex(i)
@@ -598,11 +598,11 @@ function Commands:OnPlayerChat(keys)
                     end
                 end
                 if validAbility then
-                    Ingame:CommandNotification("-removeability", 'Cheat Used (-removeability): -removeability used by  '.. util:GetPlayerNameReliable(playerID)) 
+                    Ingame:CommandNotification("-removeability", 'Cheat Used (-removeability): -removeability used by  '.. util:GetPlayerNameReliable(playerID))
                 end
             end, DoUniqueString('cheat'), .1)
 
-        elseif IsCommand("-lvlmax") and not vanillaCheatMode then 
+        elseif IsCommand("-lvlmax") and not vanillaCheatMode then
             Timers:CreateTimer(function()
                 for i=0,100 do
                     hero:HeroLevelUp(true)
@@ -613,45 +613,45 @@ function Commands:OnPlayerChat(keys)
                         ability:SetLevel(ability:GetMaxLevel())
                     end
                 end
-                Ingame:CommandNotification("-lvlmax", 'Cheat Used (-lvlmax): Max level given to '.. util:GetPlayerNameReliable(playerID)) 
+                Ingame:CommandNotification("-lvlmax", 'Cheat Used (-lvlmax): Max level given to '.. util:GetPlayerNameReliable(playerID))
             end, DoUniqueString('cheat'), .1)
 
-        elseif IsCommand("-dagger") then 
+        elseif IsCommand("-dagger") then
             Timers:CreateTimer(function()
                 hero:AddItemByName('item_devDagger')
-                Ingame:CommandNotification("-item_devDagger", 'Cheat Used (-dagger): Global teleport dagger given to '.. util:GetPlayerNameReliable(playerID)) 
+                Ingame:CommandNotification("-item_devDagger", 'Cheat Used (-dagger): Global teleport dagger given to '.. util:GetPlayerNameReliable(playerID))
             end, DoUniqueString('cheat'), 0.2)
 
-        elseif IsCommand("-dagon") then 
+        elseif IsCommand("-dagon") then
             Timers:CreateTimer(function()
                 hero:AddItemByName('item_devDagon')
-                Ingame:CommandNotification("-item_devDagon", 'Cheat Used (-dagon): Ultra dagon dagon given to '.. util:GetPlayerNameReliable(playerID)) 
+                Ingame:CommandNotification("-item_devDagon", 'Cheat Used (-dagon): Ultra dagon dagon given to '.. util:GetPlayerNameReliable(playerID))
             end, DoUniqueString('cheat'), 0.2)
         elseif IsCommand("-teleport") and not vanillaCheatMode then
             -- Teleport is not exactly reproduced. If the game is in tools mode or has sv_cheats, leave it as it is, if not give players the teleport dagger.
             Timers:CreateTimer(function()
                 hero:AddItemByName('item_devDagger')
-                Ingame:CommandNotification("-teleport", 'Cheat Used (-teleport): Global teleport dagger given to '.. util:GetPlayerNameReliable(playerID)) 
+                Ingame:CommandNotification("-teleport", 'Cheat Used (-teleport): Global teleport dagger given to '.. util:GetPlayerNameReliable(playerID))
             end, DoUniqueString('cheat'), 0.2)
         elseif IsCommand("-startgame") and not vanillaCheatMode then
             Timers:CreateTimer(function()
-                --print(GameRules:GetDOTATime(false,false)) 
+                --print(GameRules:GetDOTATime(false,false))
                 -- If the game has already started, do nothing.
                 if GameRules:GetDOTATime(false,false) == 0 then
                     Tutorial:ForceGameStart()
-                    Ingame:CommandNotification("-startgame", 'Cheat Used (-startgame): Forced game start, by '.. util:GetPlayerNameReliable(playerID)) 
+                    Ingame:CommandNotification("-startgame", 'Cheat Used (-startgame): Forced game start, by '.. util:GetPlayerNameReliable(playerID))
                 end
-            end, DoUniqueString('cheat'), .1)    
+            end, DoUniqueString('cheat'), .1)
 
         elseif IsCommand("-respawn") and not vanillaCheatMode then
             Timers:CreateTimer(function()
                 if not hero:IsAlive() then
                     hero:SetTimeUntilRespawn(1)
                 end
-                Ingame:CommandNotification("-respawn", 'Cheat Used (-respawn): Respawned '.. util:GetPlayerNameReliable(playerID)) 
+                Ingame:CommandNotification("-respawn", 'Cheat Used (-respawn): Respawned '.. util:GetPlayerNameReliable(playerID))
             end, DoUniqueString('cheat'), 1)
 
-        elseif IsCommand("-refresh") and not vanillaCheatMode then 
+        elseif IsCommand("-refresh") and not vanillaCheatMode then
             Timers:CreateTimer(function()
 
                 hero:SetMana(hero:GetMaxMana())
@@ -670,7 +670,7 @@ function Commands:OnPlayerChat(keys)
                         item:EndCooldown()
                     end
                 end
-                Ingame:CommandNotification("-refresh", 'Cheat Used (-refresh): Refreshed '.. util:GetPlayerNameReliable(playerID)) 
+                Ingame:CommandNotification("-refresh", 'Cheat Used (-refresh): Refreshed '.. util:GetPlayerNameReliable(playerID))
             end, DoUniqueString('cheatrefresh'), .2)
         elseif IsCommand("-fortify_dire") then
             Timers:CreateTimer(function()
@@ -696,13 +696,13 @@ function fortify_dire(playerID)
         for _,building in pairs(buildings) do
             building:AddNewModifier(nil,nil,"modifier_fountain_aura_buff",{})
         end
-        Ingame:CommandNotification("-fortify_dire", 'Cheat Used (-fortify_dire): by '.. util:GetPlayerNameReliable(playerID).." Dire buildings are fortified") 
+        Ingame:CommandNotification("-fortify_dire", 'Cheat Used (-fortify_dire): by '.. util:GetPlayerNameReliable(playerID).." Dire buildings are fortified")
     else
         local buildings = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER , false)
         for _,building in pairs(buildings) do
             building:RemoveModifierByName("modifier_fountain_aura_buff")
         end
-        Ingame:CommandNotification("-fortify_dire", 'Cheat Used (-fortify_dire): by '.. util:GetPlayerNameReliable(playerID).." Dire buildings are unfortified") 
+        Ingame:CommandNotification("-fortify_dire", 'Cheat Used (-fortify_dire): by '.. util:GetPlayerNameReliable(playerID).." Dire buildings are unfortified")
     end
     DIREFORTIFIED = not DIREFORTIFIED
 end
@@ -714,13 +714,13 @@ function fortify_rad(playerID)
         for _,building in pairs(buildings) do
             building:AddNewModifier(nil,nil,"modifier_fountain_aura_buff",{})
         end
-        Ingame:CommandNotification("-fortify_rad", 'Cheat Used (-fortify_rad): by '.. util:GetPlayerNameReliable(playerID).." Radiant buildings are fortified") 
+        Ingame:CommandNotification("-fortify_rad", 'Cheat Used (-fortify_rad): by '.. util:GetPlayerNameReliable(playerID).." Radiant buildings are fortified")
     else
         local buildings = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER , false)
         for _,building in pairs(buildings) do
             building:RemoveModifierByName("modifier_fountain_aura_buff")
         end
-        Ingame:CommandNotification("-fortify_rad", 'Cheat Used (-fortify_rad): by '.. util:GetPlayerNameReliable(playerID).." Radiant buildings are unfortified") 
+        Ingame:CommandNotification("-fortify_rad", 'Cheat Used (-fortify_rad): by '.. util:GetPlayerNameReliable(playerID).." Radiant buildings are unfortified")
     end
     RADIANTFORTIFIED = not RADIANTFORTIFIED
 end

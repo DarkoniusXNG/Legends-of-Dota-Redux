@@ -64,7 +64,7 @@ function BonusDamage(keys)
 		
 
 			amount = damagedone
-		    amount = amount - (amount * target:GetMagicalArmorValue())
+		    amount = amount - (amount * target:Script_GetMagicalArmorValue(false, ability))
 
 		    local lens_count = 0
 		    for i=0,5 do

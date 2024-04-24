@@ -941,7 +941,7 @@ function modifier_imba_mortal_strike:GetModifierPreAttack_CriticalStrike(keys)
 				-- elfansoer: fix mortal strike bonuses not working
 				-- self.mortal_critical_strike = true
 
-				-- Timers:CreateTimer(self.caster:GetAttackSpeed(), function()                    
+				-- Timers:CreateTimer(self.caster:GetAttackSpeed(false), function()                    
 				-- 	self.mortal_critical_strike = false
 				-- end)    
 
@@ -1091,7 +1091,7 @@ function modifier_imba_mortal_strike_buff:OnIntervalThink()
 			end
 
 			-- Recalculate health bonus based on new stack count
-			self:GetParent():CalculateStatBonus()
+			self:GetParent():CalculateStatBonus(true)
 
 		-- If there are no stacks on the table, just remove the modifier.
 		else
@@ -1172,7 +1172,7 @@ function modifier_imba_mortal_strike_buff_talent:OnIntervalThink()
 			end
 
 			-- Recalculate health bonus based on new stack count
-			self:GetParent():CalculateStatBonus()
+			self:GetParent():CalculateStatBonus(true)
 
 		-- If there are no stacks on the table, just remove the modifier.
 		else
@@ -1641,7 +1641,7 @@ function modifier_imba_reincarnation_wraith_form:OnTakeDamage( keys )
 		self.damage_pool = self.damage_pool + actually_dmg
 	elseif keys.damage_type == DAMAGE_TYPE_MAGICAL then
 		local source_dmg = keys.original_damage
-		local multiplier = 1 - self:GetParent():GetMagicalArmorValue()
+		local multiplier = 1 - self:GetParent():Script_GetMagicalArmorValue(false, self.ability)
 		local actually_dmg = source_dmg * multiplier
 		self.damage_pool = self.damage_pool + actually_dmg
 	elseif keys.damage_type ~= DAMAGE_TYPE_PHYSICAL and keys.damage_type ~= DAMAGE_TYPE_MAGICAL then

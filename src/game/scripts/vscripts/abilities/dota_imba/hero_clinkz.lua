@@ -1402,7 +1402,7 @@ function imba_clinkz_death_pact:OnSpellStart()
 	end
 
 	-- Force recalculation of stats (to recalculate HP)
-	caster:CalculateStatBonus()
+	caster:CalculateStatBonus(true)
 
 	-- #8 Talent: Death Pact bonuses stay permanently if enemy target dies quickly
 	-- Apply a marker on the target if caster has the talent
@@ -2036,7 +2036,7 @@ function modifier_imba_burning_army:OnAttackLanded(params)
 			ParticleManager:SetParticleControl(particle_manaburn_fx, 0, params.target:GetAbsOrigin())
 			ParticleManager:ReleaseParticleIndex(particle_manaburn_fx)
 
-			params.target:ReduceMana(self.mana_burn)
+			params.target:Script_ReduceMana(self.mana_burn, self:GetAbility())
 		end
 	end
 end

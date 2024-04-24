@@ -18,7 +18,7 @@ function FadeStrike_OnOrbImpact(kv)
  
     --Apply bonus damage
     local ability   = kv.ability
-    local bonus = caster:GetAttackSpeed() * 100 + 1
+    local bonus = caster:GetAttackSpeed(false) * 100
     bonus = bonus * ability:GetLevelSpecialValueFor("bonus_damage", ability:GetLevel() - 1) / 100
 
     local amount = math.floor(bonus)

@@ -536,7 +536,7 @@ function ApplyIntelligenceSteal(caster, ability, target, stack_count, duration)
 	if modifier_debuff_handler then                
 		for i = 1, stack_count do
 			-- Remove mana from the target for each stack
-			target:ReduceMana(mana_per_int)
+			target:Script_ReduceMana(mana_per_int, ability)
 
 			-- Increment the stack count
 			modifier_debuff_handler:IncrementStackCount()
@@ -624,7 +624,7 @@ function modifier_imba_arcane_orb_buff:OnIntervalThink()
 			end
 
 			-- Recalculate bonus based on new stack count
-			self:GetParent():CalculateStatBonus()
+			self:GetParent():CalculateStatBonus(true)
 
 		-- If there are no stacks on the table, just remove the modifier.
 		else
@@ -709,7 +709,7 @@ function modifier_imba_arcane_orb_debuff:OnIntervalThink()
 
 			-- Recalculate bonus based on new stack count
 			if self:GetParent().CalculateStatBonus then
-				self:GetParent():CalculateStatBonus()
+				self:GetParent():CalculateStatBonus(true)
 			end
 
 		-- If there are no stacks on the table, just remove the modifier.
@@ -790,7 +790,7 @@ function modifier_imba_arcane_orb_instance:OnIntervalThink()
             end
 
             -- Recalculate bonus based on new stack count
-            self:GetParent():CalculateStatBonus()
+            self:GetParent():CalculateStatBonus(true)
 
         -- If there are no stacks on the table, just remove the modifier.
         else
@@ -1563,7 +1563,7 @@ function modifier_imba_essence_aura_proc:OnIntervalThink()
 			end
 
 			-- Recalculate bonus based on new stack count
-			self:GetParent():CalculateStatBonus()
+			self:GetParent():CalculateStatBonus(true)
 
 		-- If there are no stacks on the table, just remove the modifier.
 		else
@@ -1643,7 +1643,7 @@ function modifier_imba_essence_aura_over_maximum:OnIntervalThink()
 			end
 
 			-- Recalculate bonus based on new stack count
-			self:GetParent():CalculateStatBonus()
+			self:GetParent():CalculateStatBonus(true)
 
 		-- If there are no stacks on the table, just remove the modifier.
 		else
@@ -1719,7 +1719,7 @@ function modifier_imba_essence_aura_over_maximum_indicator:OnIntervalThink()
 			end
 
 			-- Recalculate bonus based on new stack count
-			self:GetParent():CalculateStatBonus()
+			self:GetParent():CalculateStatBonus(true)
 
 		-- If there are no stacks on the table, just remove the modifier.
 		else
@@ -1833,7 +1833,7 @@ function imba_obsidian_destroyer_sanity_eclipse:OnSpellStart()
 						mana_burn = max_mana * (caster:FindTalentValue("special_bonus_imba_obsidian_destroyer_6","mana_burn") * 0.01) 
 					end
 				end
-				enemy:ReduceMana(mana_burn)
+				enemy:Script_ReduceMana(mana_burn, self)
 			end
 
 			-- If the enemy is an illusion, KILL IT!!!!!!!!!!!!!!!!!!

@@ -900,7 +900,7 @@ function imba_storm_spirit_ball_lightning:OnProjectileThink_ExtraData(location, 
 		self.units_traveled_in_last_tick = ExtraData.speed
 
 		-- Use up mana for traveling
-		caster:ReduceMana(( (ExtraData.pct_mana_cost * 0.01) + ExtraData.base_mana_cost ) * self.units_traveled_in_last_tick * 0.01)
+		caster:SpendMana(( (ExtraData.pct_mana_cost * 0.01) + ExtraData.base_mana_cost ) * self.units_traveled_in_last_tick * 0.01, self)
 		-- Note: the last *0.01 in the calculation is because the manacost is calculated for every 100 units.
 
 		if self.traveled_remnant ~= nil and self.remnant then

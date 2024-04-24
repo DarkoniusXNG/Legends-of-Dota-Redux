@@ -24,8 +24,8 @@ function ScepterCheck( keys )
 		ParticleManager:SetParticleControlEnt(decayLink, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(decayLink, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(decayLink, 3, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", (caster:GetAbsOrigin() + target:GetAbsOrigin())/2, true)
-		caster:CalculateStatBonus()
-		target:CalculateStatBonus()
+		caster:CalculateStatBonus(true)
+		target:CalculateStatBonus(true)
 	end
 end
 

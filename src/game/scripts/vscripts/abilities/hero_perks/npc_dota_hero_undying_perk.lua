@@ -52,7 +52,7 @@ function modifier_npc_dota_hero_undying_perk:OnIntervalThink()
 		if #self:GetParent().strTable == 0 then
 			self:SetDuration(-1,true)
 		end
-		self:GetParent():CalculateStatBonus()
+		self:GetParent():CalculateStatBonus(true)
 	else
 		self:SetDuration(-1,true)
 	end

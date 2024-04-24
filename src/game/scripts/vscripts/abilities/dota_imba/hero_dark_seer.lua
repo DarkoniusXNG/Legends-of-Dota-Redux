@@ -862,7 +862,7 @@ function modifier_imba_dark_seer_wall_of_replica_slow:OnCreated(params)
 
 	self:SetStackCount(params.movement_slow)
 	
-	self.attack_speed	= self:GetParent():GetAttackSpeed()
+	self.attack_speed	= self:GetParent():GetAttackSpeed(false)
 	
 	self:StartIntervalThink(1 / self.attack_speed)
 end
@@ -872,7 +872,7 @@ function modifier_imba_dark_seer_wall_of_replica_slow:OnIntervalThink()
 
 	self:GetParent():PerformAttack(self:GetParent(), true, true, true, true, true, false, false)
 	
-	self.attack_speed	= self:GetParent():GetAttackSpeed()
+	self.attack_speed	= self:GetParent():GetAttackSpeed(false)
 	
 	self:StartIntervalThink(1 / self.attack_speed)
 end

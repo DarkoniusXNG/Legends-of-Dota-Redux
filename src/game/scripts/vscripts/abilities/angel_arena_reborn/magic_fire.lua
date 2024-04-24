@@ -6,11 +6,12 @@ function mana_burn_function( keys )
 	-- Variables
 	local caster = keys.caster
 	local target = keys.target
+	local ability = keys.ability
 	local current_mana = target:GetMana()
-	local mana_burning = keys.ability:GetLevelSpecialValueFor( "damage", keys.ability:GetLevel() - 1 )
+	local mana_burning = ability:GetLevelSpecialValueFor( "damage", ability:GetLevel() - 1 )
 	local number_particle_name = "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_msg.vpcf"
 	local burn_particle_name = "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn.vpcf"
-	local damageType = keys.ability:GetAbilityDamageType()	-- Calculation
+	local damageType = ability:GetAbilityDamageType()	-- Calculation
 	local mana_to_burn = math.min( current_mana, mana_burning )
 	local life_time = 2.0
 	local digits = string.len( math.floor( mana_to_burn ) ) + 1
@@ -25,12 +26,13 @@ function mana_burn_function( keys )
 		addiditional_damage = 0
 	end
 	-- Apply effect of ability
-	target:ReduceMana( mana_to_burn )
+	target:Script_ReduceMana( mana_to_burn, ability )
 	local damageTable = {
 		victim = target,
 		attacker = caster,
 		damage = mana_to_burn + addiditional_damage,
-		damage_type = damageType
+		damage_type = damageType,
+		ability = ability
 	}
 	ApplyDamage( damageTable )
 	

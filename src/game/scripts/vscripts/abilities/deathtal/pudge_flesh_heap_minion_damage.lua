@@ -46,7 +46,7 @@ end
 function modifier_flesh_heap_minion_damage:OnCreated(kv)
 	if not self:GetAbility() then
 		self:GetParent():RemoveModifierByName("modifier_flesh_heap_minion_damage")
-		self:GetParent():CalculateStatBonus()
+		self:GetParent():CalculateStatBonus(true)
 		return
 	end
 	self.flesh_heap_minion_damage_amount = self:GetAbility():GetSpecialValueFor("flesh_heap_minion_damage_amount") or 0
@@ -59,7 +59,7 @@ end
 function modifier_flesh_heap_minion_damage:OnRefresh()
 	if not self:GetAbility() then
 		self:GetParent():RemoveModifierByName("modifier_flesh_heap_minion_damage")
-		self:GetParent():CalculateStatBonus()
+		self:GetParent():CalculateStatBonus(true)
 		return
 	end
 	self.flesh_heap_minion_damage_amount = self:GetAbility():GetSpecialValueFor("flesh_heap_minion_damage_amount") or 0

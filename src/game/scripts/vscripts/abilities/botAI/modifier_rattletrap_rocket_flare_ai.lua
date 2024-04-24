@@ -44,7 +44,7 @@ function modifier_rattletrap_rocket_flare_ai:CastRocketFlare(caster)
 
       local units = FindUnitsInRadius(caster:GetTeam(),caster:GetAbsOrigin(),nil,FIND_UNITS_EVERYWHERE,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO,0,0,false)
       for _,target in pairs(units) do
-        local magicResistance = target:GetMagicalArmorValue()
+        local magicResistance = target:Script_GetMagicalArmorValue(false, ability)
         local regeneration = target:GetHealthRegen()
         local distance = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
         local time = distance/abilitySpeed

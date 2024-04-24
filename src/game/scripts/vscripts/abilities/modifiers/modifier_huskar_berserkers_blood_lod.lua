@@ -57,7 +57,7 @@ function modifier_huskar_berserkers_blood_lod:OnCreated()
     if IsServer() then
         --print("Created")
         self:SetStackCount( 1 )
-		self:GetParent():CalculateStatBonus()
+		self:GetParent():CalculateStatBonus(true)
 
 		self:StartIntervalThink(0.1) 
     end
@@ -113,7 +113,7 @@ function modifier_huskar_berserkers_blood_lod:OnRefresh()
 	local caster = self:GetParent()
 
     if IsServer() then
-        self:GetParent():CalculateStatBonus()
+        self:GetParent():CalculateStatBonus(true)
     end
 end
 

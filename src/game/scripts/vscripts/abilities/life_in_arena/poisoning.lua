@@ -2,6 +2,7 @@
 function SetAdsorbFromKret( keys )
 	local attacker_loc = keys.attacker
 	local caster = keys.caster
+	local ability = keys.ability
 	local adsorbVal = keys.adsorbVal
 	--
 	if attacker_loc:IsInvulnerable() then 
@@ -19,7 +20,7 @@ function SetAdsorbFromKret( keys )
 	--	ability = keys.ability
 	--})
 	--
-	attacker_loc:ReduceMana(adsorbVal)
+	attacker_loc:Script_ReduceMana(adsorbVal, ability)
 end
 
 

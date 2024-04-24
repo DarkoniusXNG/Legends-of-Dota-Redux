@@ -25,15 +25,14 @@ function spell_lab_survivor_mana_burn_modifier:OnAttackLanded(keys)
 		if self:GetParent():PassivesDisabled() then return 0 end
 		if hAbility:GetLevel() < 1 then return end
 		if keys.attacker == self:GetParent() then
-			local mana = keys.target:GetMana()
-			keys.target:ReduceMana(self:GetStackCount())
-			mana = mana-keys.target:GetMana()
+			local mana_to_burn = self:GetStackCount()
+			keys.target:Script_ReduceMana(mana_to_burn, hAbility)
 
-			if (mana > 1) then
+			if mana_to_burn > 1 then
 				local damage = {
 					victim = keys.target,
 					attacker = keys.attacker,
-					damage = mana*hAbility:GetSpecialValueFor("damage_pct")*0.01,
+					damage = mana_to_burn*hAbility:GetSpecialValueFor("damage_pct")*0.01,
 					damage_type = DAMAGE_TYPE_PHYSICAL,
 					ability = hAbility
 				}

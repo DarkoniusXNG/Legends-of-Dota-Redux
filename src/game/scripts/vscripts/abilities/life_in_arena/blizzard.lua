@@ -61,5 +61,4 @@ function BlizzardEnd( event )
 
 	caster.blizzard_dummy:RemoveSelf()
 	StopSoundOn("hero_Crystal.freezingField.wind", caster)
-	--caster:ReduceMana(1000)
 end

@@ -19,7 +19,7 @@ modifier_stats_tome = {
 		if IsServer() then
 			self.stat = self.stat or kv.stat
 			self[self.stat] = self[self.stat] or self:GetAbility():GetSpecialValueFor(self.stat)
-			self:GetParent():CalculateStatBonus()
+			self:GetParent():CalculateStatBonus(true)
 		end
 	end,
 }

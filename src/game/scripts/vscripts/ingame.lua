@@ -383,10 +383,10 @@ function Ingame:FilterExecuteOrder(filterTable)
 		end
     end
 
-    -- if units[1] and order_type == DOTA_UNIT_ORDER_SELL_ITEM and ability and not units[1]:IsIllusion() and not units[1]:IsTempestDouble() then		
-    --     PanoramaShop:SellItem(units[1], ability)		
-    --     return false		
-    -- end		
+    -- if units[1] and order_type == DOTA_UNIT_ORDER_SELL_ITEM and ability and not units[1]:IsIllusion() and not units[1]:IsTempestDouble() then
+    --     PanoramaShop:SellItem(units[1], ability)
+    --     return false
+    -- end
 
     -- Block Alchemists Innate, heroes should not have innate abilities
     --  if ability and target then
@@ -487,7 +487,7 @@ function Ingame:FilterExecuteOrder(filterTable)
                 end
             end
         end
-		
+
 		if unit:GetTeamNumber() ~= PlayerResource:GetCustomTeamAssignment(issuer) and PlayerResource:GetConnectionState(issuer) ~= 0 then
 			return false
 		end

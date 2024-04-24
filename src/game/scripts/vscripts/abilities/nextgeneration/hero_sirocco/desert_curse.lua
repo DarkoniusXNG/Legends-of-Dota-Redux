@@ -54,7 +54,7 @@ function stacks_attack( event )
   local stacks_modifier = event.stacks_modifier
   local stack = attacker:GetModifierStackCount(stacks_modifier, ability) + 1
 
-  attacker:ReduceMana(manaBurn)
+  attacker:Script_ReduceMana(manaBurn, ability)
   if not attacker:HasModifier(stacks_modifier) then
     ability:ApplyDataDrivenModifier(caster, attacker, stacks_modifier, {})
   end
@@ -71,7 +71,7 @@ function stacks_attacked( event )
   local stacks_modifier = event.stacks_modifier
 
   if attacker:GetTeam() == DOTA_UNIT_TARGET_TEAM_ENEMY then
-    target:ReduceMana(manaBurn)
+    target:Script_ReduceMana(manaBurn, ability)
 
     if not target:HasModifier(stacks_modifier) then
       ability:ApplyDataDrivenModifier(caster, target, stacks_modifier, {})

@@ -101,7 +101,7 @@ function ManaFlare( keys )
 
 			-- Burn mana
 			local mana_to_burn = enemy:GetMaxMana() * burn_pct / 100
-			enemy:ReduceMana(mana_to_burn)
+			enemy:Script_ReduceMana(mana_to_burn, ability)
 
 			-- Play mana burn particle
 			local mana_burn_pfx = ParticleManager:CreateParticle(particle_burn, PATTACH_ABSORIGIN, enemy)
@@ -932,7 +932,7 @@ end
 function modifier_imba_tower_toughness_aura_buff:OnIntervalThink()
 	if IsServer() then
 		if not self.parent:IsNull() then
-			self.parent:CalculateStatBonus()
+			self.parent:CalculateStatBonus(true)
 		end
 	end
 end
@@ -1665,14 +1665,16 @@ function modifier_imba_tower_mana_burn_aura_buff:OnAttackLanded( keys )
 				local mana_burn_damage = mana_burn_total * (self.mana_burn_damage_pct * 0.01)
 
 				-- Burn target's mana
-				target:ReduceMana(mana_burn_total)
+				target:Script_ReduceMana(mana_burn_total, self.ability)
 
 				-- Apply damage
-				local damageTable = {victim = target,
+				local damageTable = {
+					victim = target,
 					attacker = self.parent,
 					damage = mana_burn_damage,
 					damage_type = DAMAGE_TYPE_MAGICAL,
-					ability = self.ability}
+					ability = self.ability
+				}
 
 				ApplyDamage(damageTable)
 			end
@@ -3032,7 +3034,7 @@ function modifier_imba_tower_essence_drain_debuff:OnIntervalThink()
 			end
 
 			-- Recalculate bonus based on new stack count
-			self:GetParent():CalculateStatBonus()
+			self:GetParent():CalculateStatBonus(true)
 
 			-- If there are no stacks on the table, just remove the modifier.
 		else
@@ -3142,7 +3144,7 @@ function modifier_imba_tower_essence_drain_buff:OnIntervalThink()
 			end
 
 			-- Recalculate bonus based on new stack count
-			self:GetParent():CalculateStatBonus()
+			self:GetParent():CalculateStatBonus(true)
 
 			-- If there are no stacks on the table, just remove the modifier.
 		else
@@ -3928,7 +3930,7 @@ function modifier_imba_tower_barrier_aura_buff:OnTakeDamage(keys)
 				damage = damage * (1 - self.parent:GetPhysicalArmorReduction() * 0.01)
 
 			elseif damage_type == DAMAGE_TYPE_MAGICAL then
-				damage = damage * (1- self.parent:GetMagicalArmorValue() * 0.01)
+				damage = damage * (1- self.parent:Script_GetMagicalArmorValue(false, self.ability) * 0.01)
 			end
 
 			-- Increase the damage that the barrier had blocked

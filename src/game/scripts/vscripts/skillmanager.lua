@@ -238,8 +238,6 @@ function SkillManager:RemoveAllSkills(hero)
     -- Ensure the hero isn't nil
     if hero == nil then return end
 
-    
-    
     -- Remove all old skills
     for k,v in pairs(currentSkillList[hero]) do
         if hero:HasAbility(v) then
@@ -354,8 +352,8 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
     -- If we are currently swapping a hero, ignore
     if inSwap then return end
 
-    -- Cooldowns        
-    self.abilityCooldowns = self.abilityCooldowns or {}     
+    -- Cooldowns
+    self.abilityCooldowns = self.abilityCooldowns or {}
     local cooldownInfo = {}
 
     -- Check if there is a new hero
@@ -375,8 +373,8 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
 
         local realHero = PlayerResource:GetSelectedHeroEntity(playerID)
 
-        -- Grab cooldowns       
-        self.abilityCooldowns[playerID] = self.abilityCooldowns[playerID] or {}     
+        -- Grab cooldowns
+        self.abilityCooldowns[playerID] = self.abilityCooldowns[playerID] or {}
         cooldownInfo = self.abilityCooldowns[playerID]
 
         -- Hero check
@@ -423,17 +421,17 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
             end
 
 
-            -- Handle cooldowns     
+            -- Handle cooldowns
             for i = 0, hero:GetAbilityCount()-1 do
                 local ab = hero:GetAbilityByIndex(i)
-                if IsValidEntity(ab) then       
+                if IsValidEntity(ab) then
                     local timeLeft = ab:GetCooldownTimeRemaining()
-                    if timeLeft > 0 then        
-                        cooldownInfo[ab:GetClassname()] = Time() + timeLeft     
-                    end     
-                end     
-            end     
-            -- Grab exp / level     
+                    if timeLeft > 0 then
+                        cooldownInfo[ab:GetClassname()] = Time() + timeLeft
+                    end
+                end
+            end
+            -- Grab exp / level
             local currentLevel = constants.XP_PER_LEVEL_TABLE[hero:GetLevel()]
 
             -- Replace the hero
@@ -459,8 +457,8 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
             -- for i=1,currentLevel-1 do
             --    hero:HeroLevelUp(false)
             -- end
-            -- Add EXP      
-            hero:AddExperience(currentLevel, false, false) 
+            -- Add EXP
+            hero:AddExperience(currentLevel, false, false)
 
             -- Replace gold
             PlayerResource:SetGold(playerID, ug, false)
@@ -797,18 +795,18 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
                 if newAb then
                     newAb:SetLevel(newAb:GetMaxLevel())
                 end
-            end     
-        end     
-    end     
-    -- Handle cooldowns     
-    for i = 0, hero:GetAbilityCount() - 1 do     
+            end
+        end
+    end
+    -- Handle cooldowns
+    for i = 0, hero:GetAbilityCount() - 1 do
         local ab = hero:GetAbilityByIndex(i)
-        if IsValidEntity(ab) then   
+        if IsValidEntity(ab) then
             if ab:GetName() == "generic_hidden" then
-                ab:SetHidden(true)    
-            else       
-                local timeLeft = (cooldownInfo[ab:GetClassname()] or 0) - Time()        
-                if timeLeft > 0 then        
+                ab:SetHidden(true)
+            else
+                local timeLeft = (cooldownInfo[ab:GetClassname()] or 0) - Time()
+                if timeLeft > 0 then
                     ab:StartCooldown(timeLeft)
                 end
             end

@@ -79,7 +79,7 @@ end
 
 function modifier_imba_faceless_void_timelord:OnIntervalThink()
 	local parent = self:GetParent()
-	local currentAS = parent:GetAttackSpeed() - self.bonusAS
+	local currentAS = parent:GetAttackSpeed(false) - self.bonusAS
 
 	-- #6 TALENT: Timelord bonuses are increased while in chronosphere
 	local talent_multiplication = 1
@@ -338,7 +338,7 @@ function modifier_imba_faceless_void_time_walk_cast:OnIntervalThink()
 
 			-- If the enemy is a real hero index their move and attack speed, and grant a chronocharge
 			if enemy:IsRealHero() then
-				self.as_stolen = self.as_stolen + enemy:GetAttackSpeed() * as_steal
+				self.as_stolen = self.as_stolen + enemy:GetAttackSpeed(false) * as_steal
 				self.ms_stolen = self.ms_stolen + enemy:GetMoveSpeedModifier(enemy:GetBaseMoveSpeed(), false) * ms_steal
 				chronocharges = chronocharges + 1
 			end

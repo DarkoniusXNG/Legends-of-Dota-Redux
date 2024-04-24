@@ -8,7 +8,7 @@ LinkLuaModifier( "modifier_npc_dota_hero_dragon_knight_perk", "abilities/hero_pe
 --------------------------------------------------------------------------------------------------------
 npc_dota_hero_dragon_knight_perk = npc_dota_hero_dragon_knight_perk or class({})
 
-function npc_dota_hero_bane_perk:GetIntrinsicModifierName()
+function npc_dota_hero_dragon_knight_perk:GetIntrinsicModifierName()
     return "modifier_npc_dota_hero_dragon_knight_perk"
 end
 
