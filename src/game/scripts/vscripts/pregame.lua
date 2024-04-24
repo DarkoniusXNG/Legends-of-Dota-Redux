@@ -1,13 +1,21 @@
+if not util then
+    require('util')
+end
+
 -- Libraries
 local constants = require('constants')
-local SkillManager = require('skillmanager')
+if not SkillManager then
+    require('skillmanager')
+end
 local SU = require('lib/StatUploaderFunctions')
 --[[--local timers = ]]require('easytimers')
 local SpellFixes = require('spellfixes')
 require('statcollection.init')
 local Debug = require('lod_debug')              -- Debug library with helper functions, by Ash47
 local challenge = require('challenge')
-local ingame = require('ingame')
+if not Ingame then
+    require('ingame')
+end
 require('lib/wearables')
 require('lib/timers')
 
@@ -17,7 +25,7 @@ require('lib/timers')
 require('talentmanager')
 require('chat')
 require('dedicated')
-require('util')
+
 
 --require modifier tribune
 require('abilities/angel_arena_reborn/duels')
@@ -55,8 +63,8 @@ LinkLuaModifier("modifier_rune_arcane_mutated_redux","abilities/mutators/super_r
 LinkLuaModifier("modifier_bat_manager","abilities/modifiers/modifier_bat_manager.lua",LUA_MODIFIER_MOTION_NONE)
 
 -- Courier's modifiers
-LinkLuaModifier("modifier_core_courier", 'abilities/courier/modifier_core_courier',LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_core_courier_flying", 'abilities/courier/modifier_core_courier_flying',LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_core_courier", 'abilities/courier/modifier_core_courier',LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_core_courier_flying", 'abilities/courier/modifier_core_courier_flying',LUA_MODIFIER_MOTION_NONE)
 
 
 --[[
@@ -64,6 +72,7 @@ LinkLuaModifier("modifier_core_courier_flying", 'abilities/courier/modifier_core
 ]]
 
 Pregame = class({})
+
 local buildBackups = {}
 
 -- Init pregame stuff
@@ -83,7 +92,6 @@ function Pregame:init()
 
     -- If single player redirect players to the more fully-featured map
     if util:isSinglePlayerMode() and not IsInToolsMode() then
-        OptionManager:SetOption('mapname', 'dota')
         CustomNetTables:SetTableValue('phase_pregame', 'forceBots', {value=true})
     end
 
@@ -232,11 +240,6 @@ function Pregame:init()
                 if not util:isCoop() then
                     self:setOption('lodOptionBanningUseBanList', 1, true)
                 end
-                local mapName = OptionManager:GetOption('mapname')
-                if mapName == 'all_allowed' or mapName == 'overthrow' then
-                    self:setOption('lodOptionBanningUseBanList', 0, true)
-                end
-
             end,
             onunselected = function(self)
                 self:setOption('lodOptionBalanceModePoints', 120, true)
@@ -263,6 +266,7 @@ function Pregame:init()
     gamemode:SetFreeCourierModeEnabled(true) -- enables vanilla passive GPM too
     gamemode:SetUseDefaultDOTARuneSpawnLogic(true) -- enables default rune spawn logic
     gamemode:SetBotThinkingEnabled(true) -- default dota bot AI
+    GameRules:SetUseUniversalShopMode(true)
 
     -- Init thinker
     gamemode:SetThink('onThink', self, 'PregameThink', 0.25)
@@ -517,12 +521,6 @@ function Pregame:init()
     -- Map enforcements
     local mapName = OptionManager:GetOption('mapname')
 
-    -- Init overthrow code
-    if mapName == 'overthrow' then
-        require( "overthrow/overthrow" )
-        COverthrowGameMode:Activate()
-    end
-
     -- All Pick Only
     if mapName == 'all_pick' then
         self:setOption('lodOptionGamemode', 1)
@@ -536,7 +534,6 @@ function Pregame:init()
     end
 
     if mapName == 'all_allowed' then
-        self:setOption('lodOptionCrazyUniversalShop', 1, true)
         self:setOption('lodOptionGameSpeedSharedEXP', 1, true)
         self:setOption('lodOptionBanningUseBanList', 1, true)
         self:setOption('lodOptionAdvancedOPAbilities', 1, true)
@@ -564,33 +561,6 @@ function Pregame:init()
         self.optionVoteSettings.doubledAbilityPoints = nil
     end
 
-    if mapName == 'overthrow' then
-        self:setOption('lodOptionCrazyUniversalShop', 1, true)
-        self:setOption('lodOptionGameSpeedSharedEXP', 1, true)
-        self:setOption('lodOptionBanningUseBanList', 1, true)
-        self:setOption('lodOptionAdvancedOPAbilities', 1, true)
-        self:setOption('lodOptionGameSpeedMaxLevel', 30, true)
-        self:setOption('lodOptionGamemode', 1)
-        self:setOption('lodOptionBattleThirst', 0)
-        self:setOption('lodOptionGameSpeedStartingLevel', 1, true)
-        self:setOption('lodOptionGameSpeedStartingGold', 2500, true)
-        self:setOption('lodOptionGameSpeedStrongTowers', 1, true)
-        self:setOption('lodOptionCreepPower', 120, true)
-        self:setOption('lodOption322', 1, true)
-        self:setOption('lodOptionGameSpeedTowersPerLane', 3, true)
-        OptionManager:SetOption('banningTime', 50)
-        self:setOption('lodOptionBalanceMode', 0, true)
-        self:setOption('lodOptionGameSpeedGoldModifier', 100, true)
-        --self:setOption('lodOptionGameSpeedGoldTickRate', 1, true)
-        self:setOption('lodOptionGameSpeedEXPModifier', 100, true)
-        self:setOption('lodOptionAdvancedHidePicks', 0, true)
-        self:setOption('lodOptionCommonMaxUlts', 2, true)
-        self:setOption("lodOptionCrazyFatOMeter", 2)
-        self:setOption('lodOptionGameSpeedRespawnTimePercentage', 35, true)
-        self.useOptionVoting = true
-        self.optionVoteSettings.doubledAbilityPoints = nil
-    end
-
     -- Mirror Draft Only
     if mapName == 'mirror_draft' then
         self:setOption('lodOptionGamemode', 3)
@@ -604,8 +574,7 @@ function Pregame:init()
     end
 
     -- Custom -- set preset
-    -- if mapName == 'custom' or mapName == 'custom_bot' or mapName == 'dota_180' or mapName == 'custom_702' or mapName == '10_vs_10' then
-    if mapName == 'dota_180' or mapName == 'custom_702' or mapName == 'custom' or mapName == 'dota' or mapName == 'all_allowed_advanced' then
+    if mapName == 'dota' then
         self:setOption('lodOptionGamemode', 1)
 		self:setOption('lodOptionGameSpeedGoldModifier', 100, true)
     end
@@ -621,7 +590,6 @@ function Pregame:init()
     self:setOption('lodOptionBanningMaxHeroBans', 0)
 
     -- Bot match
-    -- if mapName == 'custom_bot' or mapName == 'custom_702' or mapName == 'dota_180' or mapName == '10_vs_10' then
     if mapName == 'dota' then
         self.enabledBots = true
         self:setOption('lodOptionBotsRadiant', 5, true)
@@ -670,7 +638,6 @@ function Pregame:init()
         self:setOption('lodOptionGameSpeedEXPModifier', 100, true)
         self:setOption('lodOptionGameSpeedMaxLevel', 100, true)
         self:setOption('lodOptionGameSpeedRespawnTimePercentage', 35, true)
-        self:setOption('lodOptionCrazyUniversalShop', 1, true)
         self.useOptionVoting = true
         self.optionVoteSettings.banning = nil
     else
@@ -800,9 +767,6 @@ function Pregame:loadDefaultSettings()
     self:setOption('lodOptionStacking', 0, true)
     self:setOption('lodOptionZombie', 0, true)
 
-    -- Start with a free courier
-    self:setOption('lodOptionGameSpeedFreeCourier', 1, true)
-
     -- Set bot options
     self:setOption('lodOptionBotsRadiant', 0, true)
     self:setOption('lodOptionBotsDire', 0, true)
@@ -870,9 +834,6 @@ function Pregame:loadDefaultSettings()
 
     -- Disable Fountain Camping
     self:setOption('lodOptionCrazyNoCamping', 1, true)
-
-    -- Enable Universal Shop
-    self:setOption('lodOptionCrazyUniversalShop', 1, true)
 
     -- Disable All Vision
     self:setOption('lodOptionCrazyAllVision', 0, true)
@@ -1191,7 +1152,7 @@ function Pregame:onThink()
                 -- Option selection
                 if self.shouldFreezeHostTime == nil then
                     self.shouldFreezeHostTime = util:isSinglePlayerMode()
-                    for i=0,DOTA_MAX_PLAYERS do
+                    for i = 0, DOTA_MAX_PLAYERS do
                         if PlayerResource:IsValidPlayer(i) then
                             local player = PlayerResource:GetPlayer(i)
                             if player and GameRules:PlayerHasCustomGameHostPrivileges(player) then
@@ -1229,7 +1190,7 @@ function Pregame:onThink()
         --Run once
         if not self.Announce_option_selection then
             self.Announce_option_selection = true
-            for playerID = 0,23 do
+            for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
                 local steamID = PlayerResource:GetSteamAccountID(playerID)
                 if steamID ~= 0 then
                     local player = PlayerResource:GetPlayer(playerID)
@@ -1338,7 +1299,7 @@ function Pregame:onThink()
                     text = 'lodBoosterDraftStart'
                 })
 
-                for i=0,DOTA_MAX_TEAM_PLAYERS-1 do
+                for i = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
                     network:setCustomEndTimer(PlayerResource:GetPlayer(i), Time() + 25, 25)
                 end
             end
@@ -1377,7 +1338,7 @@ function Pregame:onThink()
 
         if Time() + 6 >= self:getEndOfPhase() and Time() + 3 <= self:getEndOfPhase() and self.freezeTimer == nil and not self.Pick_Hero then
             self.Pick_Hero = true
-            for playerID = 0,23 do
+            for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
                 local steamID = PlayerResource:GetSteamAccountID(playerID)
                 if steamID ~= 0 then
                     local hero = self.selectedHeroes[playerID]
@@ -1411,7 +1372,7 @@ function Pregame:onThink()
                 EmitAnnouncerSound("Redux.Overtime")
 
                 Timers:CreateTimer(function (  )
-                    for playerID = 0,23 do
+                    for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
                         local steamID = PlayerResource:GetSteamAccountID(playerID)
                         if steamID ~= 0 then
                             local hero = self.selectedHeroes[playerID]
@@ -1566,7 +1527,7 @@ function Pregame:onThink()
             -- Load messages
             --SU:LoadPlayersMessages()
 
-            ingame:onStart()
+            Ingame:onStart()
         end, DoUniqueString('preventcamping'), 1)
     end
 end
@@ -1688,18 +1649,21 @@ function Pregame:actualSpawnPlayer(forceID)
                 end
             end
 
-            -- Attempt to precache their hero
-            PrecacheUnitByNameAsync(heroName, function()
-                print("Succesfully precached "..heroName)
-                -- We have now cached this player's hero
-                Timers:CreateTimer(function (  )
-                    this.cachedPlayerHeroes[playerID] = true
+            if not ALREADYPRECACHING[playerID][heroName] then
+                ALREADYPRECACHING[playerID][heroName] = true
+                -- Attempt to precache their hero
+                PrecacheUnitByNameAsync(heroName, function()
+                    print("[Pregame:actualSpawnPlayer] Successfully precached "..heroName)
+                    -- We have now cached this player's hero
+                    Timers:CreateTimer(function (  )
+                        this.cachedPlayerHeroes[playerID] = true
 
-                    -- Spawn it
-                    spawnTheHero()
-                end, DoUniqueString('delay'), 0.2)
+                        -- Spawn it
+                        spawnTheHero()
+                    end, DoUniqueString('delay'), 0.2)
 
-            end, playerID)
+                end, playerID)
+            end
         else
             -- This player has not spawned!
             self.spawnedHeroesFor[playerID] = nil
@@ -2052,7 +2016,7 @@ function Pregame:finishOptionSelection()
         end
     end
 
-    for playerID = 0 ,DOTA_MAX_TEAM_PLAYERS - 1 do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         local team = PlayerResource:GetCustomTeamAssignment(playerID)
 
         if team ~= DOTA_TEAM_GOODGUYS and team ~= DOTA_TEAM_BADGUYS then
@@ -2070,7 +2034,7 @@ function Pregame:finishOptionSelection()
     -- Lock teams
     GameRules:LockCustomGameSetupTeamAssignment(true)
 
-     -- Process gamemodes
+    -- Process gamemodes
     if self.optionStore['lodOptionCommonGamemode'] == 4 then
         self.noHeroSelection = true
         self.allRandomSelection = true
@@ -2101,7 +2065,6 @@ function Pregame:finishOptionSelection()
         self:setEndOfPhase(Time() + OptionManager:GetOption('banningTime'), OptionManager:GetOption('banningTime'))
         local sound = self:getRandomSound("game_ban_started")
         EmitAnnouncerSound(sound)
-
     else
         -- There is not banning
 
@@ -2352,7 +2315,7 @@ function Pregame:processVoteData()
     local counts = {}
 
     local need_unanimous_voting = {}
-    need_unanimous_voting["customAbilities"] = true and OptionManager:GetOption('mapname') == 'classic'
+    need_unanimous_voting["customAbilities"] = false
 
     for optionName,data in pairs(self.voteData or {}) do
         counts[optionName] = {}
@@ -2445,8 +2408,8 @@ function Pregame:loadTrollCombos()
             end
         end
         if abilityData.ReduxBanCategory then
-            for _,categoty in ipairs(util:split(abilityData.ReduxBanCategory, " | ")) do
-                doCatBan(abilityName, categoty)
+            for _, category in ipairs(util:split(abilityData.ReduxBanCategory, " | ")) do
+                doCatBan(abilityName, category)
             end
         end
     end
@@ -3027,13 +2990,8 @@ function Pregame:initOptionSelector()
         end,
 
         -- Game Speed - Lane Creeps Bonus aBility
-       lodOptionLaneCreepBonusAbility = function(value)   
+        lodOptionLaneCreepBonusAbility = function(value)   
            return value == 0 or value == 1 or value == 2 or value == 3 or value == 4 or value == 5 or value == 6 or value == 7 or value == 8 or value == 9 or value == 10 or value == 11 or value == 12 or value == 13 or value == 14  
-       end,
-
-        -- Game Speed - Free Courier
-        lodOptionGameSpeedFreeCourier = function(value)
-            return value == 0 or value == 1
         end,
 
         -- Bots -- Desired number of radiant players
@@ -3777,7 +3735,7 @@ function Pregame:precacheBuilds()
     end
 
     local allPlayerIDs = {}
-    for i=0,24 do
+    for i = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:IsValidPlayerID(i) then
             table.insert(allPlayerIDs, i)
         end
@@ -3991,7 +3949,6 @@ function Pregame:processOptions()
         OptionManager:SetOption('respawnModifierConstant', this.optionStore['lodOptionGameSpeedRespawnTimeConstant'])
         OptionManager:SetOption('buybackCooldownConstant', this.optionStore['lodOptionBuybackCooldownTimeConstant'])
         OptionManager:SetOption('freeScepter', this.optionStore['lodOptionGameSpeedUpgradedUlts'])
-        OptionManager:SetOption('freeCourier', this.optionStore['lodOptionGameSpeedFreeCourier'] == 1)
         OptionManager:SetOption('pocketTowers', this.optionStore['lodOptionPocketTowers'])
         OptionManager:SetOption('strongTowers', this.optionStore['lodOptionGameSpeedStrongTowers'] == 1)
         OptionManager:SetOption('towerCount', this.optionStore['lodOptionGameSpeedTowersPerLane'])
@@ -4030,7 +3987,6 @@ function Pregame:processOptions()
         OptionManager:SetOption('antiBash', this.optionStore['lodOptionAntiBash'])
         OptionManager:SetOption('turboCourier', this.optionStore['lodOptionTurboCourier'])
         OptionManager:SetOption('randomOnDeath', this.optionStore['lodOptionRandomOnDeath'])
-
 
         --OptionManager:SetOption('superRunes',this.optionStore['lodOptionSuperRunes'])
         OptionManager:SetOption('fastRunes',this.optionStore['lodOptionFastRunes'])
@@ -4242,11 +4198,6 @@ function Pregame:processOptions()
             GameRules:SetRuneSpawnTime(30)
         end
 
-        -- Enable Universal Shop
-        if this.optionStore['lodOptionCrazyUniversalShop'] == 1 then
-            GameRules:SetUseUniversalShopMode(true)
-        end
-
         -- Enable All Vision
         if this.optionStore['lodOptionCrazyAllVision'] == 1 then
             Convars:SetBool('dota_all_vision', true)
@@ -4301,7 +4252,6 @@ function Pregame:processOptions()
                     ['Advanced: Allow Neutral Abilities'] = this.optionStore['lodOptionAdvancedNeutralAbilities'],
                     ['Advanced: Allow IMBA Abilities'] = this.optionStore['lodOptionAdvancedImbaAbilities'],
                     ['Advanced: Hide Enemy Picks'] = this.optionStore['lodOptionAdvancedHidePicks'],
-                    ['Advanced: Start With Free Courier'] = this.optionStore['lodOptionGameSpeedFreeCourier'],
                     ['Advanced: Unique Heroes'] = this.optionStore['lodOptionAdvancedUniqueHeroes'],
                     ['Advanced: Unique Skills'] = this.optionStore['lodOptionAdvancedUniqueSkills'],
                     ['Bans: Points Mode Banning'] = this.optionStore['lodOptionBanningBalanceMode'],
@@ -4440,11 +4390,12 @@ end
 
 -- Validates, and then sets an option
 function Pregame:setOption(optionName, optionValue, force)
-    local player = PlayerResource:GetPlayer(0) -- defaults to first player
+    local host = PlayerResource:GetPlayer(0) -- defaults to first player
     -- Find host
 	for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-        player = PlayerResource:GetPlayer(playerID)
+        local player = PlayerResource:GetPlayer(playerID)
         if player and GameRules:PlayerHasCustomGameHostPrivileges(player) then
+            host = player
             break
         end
     end
@@ -4453,7 +4404,7 @@ function Pregame:setOption(optionName, optionValue, force)
 
     if not self.validOptions[optionName] then
         -- Tell the user they tried to modify an invalid option
-        network:sendNotification(player, {
+        network:sendNotification(host, {
             sort = 'lodDanger',
             text = 'lodFailedToFindOption',
             params = {
@@ -4466,7 +4417,7 @@ function Pregame:setOption(optionName, optionValue, force)
 
     if not force and not self.validOptions[optionName](optionValue) then
         -- Tell the user they gave an invalid value
-        network:sendNotification(player, {
+        network:sendNotification(host, {
             sort = 'lodDanger',
             text = 'lodFailedToSetOptionValue',
             params = {
@@ -5056,46 +5007,49 @@ function Pregame:onPlayerReady(eventSourceIndex, args)
                 network:hideHeroBuilder(player)
                 return
             end
-            PrecacheUnitByNameAsync(newBuild.hero, function (  )
-                print("Succesfully precached "..newBuild.hero)
-                SkillManager:ApplyBuild(hero, newBuild)
-                local player = PlayerResource:GetPlayer(playerID)
-                network:hideHeroBuilder(player)
-                network:setSelectedAbilities(playerID, self.selectedSkills[playerID])
-                network:setSelectedHero(playerID, newBuild.hero)
-                network:setSelectedAttr(playerID, newBuild.setAttr)
-                if hero == PlayerResource:GetSelectedHeroEntity(playerID) then
-                    self:applyExtraAbility( hero )
-                end
-                hero = PlayerResource:GetSelectedHeroEntity(playerID)
-                --if OptionManager:GetOption('ingameBuilderPenalty') > 0 then
-                --TODO: If long enough, players die to respawn
-                self.spawnedHeroesFor[playerID] = true
-                self:fixSpawnedHero(hero)
-                if not util:isSinglePlayerMode() and OptionManager:GetOption('ingameBuilderPenalty') > 0 then
-                    Timers:CreateTimer(function()
-                        local penalty = OptionManager:GetOption('ingameBuilderPenalty')
-
-                        hero:Kill(nil, nil)
-
-                        Timers:CreateTimer(function()
-                            hero:SetTimeUntilRespawn(penalty)
-                        end, DoUniqueString('respawnFix'), 1)
-
-                    end, DoUniqueString('penalty'), 1)
-                else
-                    if hero:GetTeam() == DOTA_TEAM_BADGUYS then
-                        local ent = Entities:FindByClassname(nil, "info_player_start_badguys")
-                        hero:SetAbsOrigin(ent:GetAbsOrigin())
-                        hero:AddNewModifier(hero, nil, "modifier_phased", {duration = 2})
-                    elseif hero:GetTeam() == DOTA_TEAM_GOODGUYS then
-                        local ent = Entities:FindByClassname(nil, "info_player_start_goodguys")
-                        hero:SetAbsOrigin(ent:GetAbsOrigin())
-                        hero:AddNewModifier(hero, nil, "modifier_phased", {duration = 2})
+            if not ALREADYPRECACHING[playerID][newBuild.hero] then
+                ALREADYPRECACHING[playerID][newBuild.hero] = true
+                PrecacheUnitByNameAsync(newBuild.hero, function (  )
+                    print("[Pregame:onPlayerReady] Successfully precached "..newBuild.hero)
+                    SkillManager:ApplyBuild(hero, newBuild)
+                    local player = PlayerResource:GetPlayer(playerID)
+                    network:hideHeroBuilder(player)
+                    network:setSelectedAbilities(playerID, self.selectedSkills[playerID])
+                    network:setSelectedHero(playerID, newBuild.hero)
+                    network:setSelectedAttr(playerID, newBuild.setAttr)
+                    if hero == PlayerResource:GetSelectedHeroEntity(playerID) then
+                        self:applyExtraAbility( hero )
                     end
-                end
-                GameRules:SendCustomMessage('Player '..util:GetPlayerNameReliable(playerID)..' just changed build.', 0, 0)
-            end,playerID)
+                    hero = PlayerResource:GetSelectedHeroEntity(playerID)
+                    --if OptionManager:GetOption('ingameBuilderPenalty') > 0 then
+                    --TODO: If long enough, players die to respawn
+                    self.spawnedHeroesFor[playerID] = true
+                    self:fixSpawnedHero(hero)
+                    if not util:isSinglePlayerMode() and OptionManager:GetOption('ingameBuilderPenalty') > 0 then
+                        Timers:CreateTimer(function()
+                            local penalty = OptionManager:GetOption('ingameBuilderPenalty')
+
+                            hero:Kill(nil, nil)
+
+                            Timers:CreateTimer(function()
+                                hero:SetTimeUntilRespawn(penalty)
+                            end, DoUniqueString('respawnFix'), 1)
+
+                        end, DoUniqueString('penalty'), 1)
+                    else
+                        if hero:GetTeam() == DOTA_TEAM_BADGUYS then
+                            local ent = Entities:FindByClassname(nil, "info_player_start_badguys")
+                            hero:SetAbsOrigin(ent:GetAbsOrigin())
+                            hero:AddNewModifier(hero, nil, "modifier_phased", {duration = 2})
+                        elseif hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+                            local ent = Entities:FindByClassname(nil, "info_player_start_goodguys")
+                            hero:SetAbsOrigin(ent:GetAbsOrigin())
+                            hero:AddNewModifier(hero, nil, "modifier_phased", {duration = 2})
+                        end
+                    end
+                    GameRules:SendCustomMessage('Player '..util:GetPlayerNameReliable(playerID)..' just changed build.', 0, 0)
+                end,playerID)
+            end
         end
     else
         local playerID = args.PlayerID
@@ -6474,7 +6428,7 @@ end
 function Pregame:getActivePlayers()
     local total = 0
 
-    for i=0,DOTA_MAX_PLAYERS do
+    for i = 0, DOTA_MAX_PLAYERS do
         if PlayerResource:GetConnectionState(i) == 2 then
             total = total + 1
         end
@@ -7594,64 +7548,6 @@ function Pregame:hookBotStuff()
     end, nil)
 end
 
---[[function Pregame:giveAbilityUsageBonuses(playerID)
-    local pregame = GameRules.pregame
-    --local threshold = pregame.optionStore["lodOptionNewAbilitiesThreshold"]
-    --local global = StatsClient.GlobalAbilityUsageData
-    local globalThreshold = pregame.optionStore["lodOptionGlobalNewAbilitiesThreshold"]
-
-    function isGlobalBelowThreshold(ability)
-        return (StatsClient.GlobalAbilityUsageData[ability] or 1) > 1 - globalThreshold * 0.01
-    end
-
-    if PlayerResource:IsValidPlayerID(playerID) and not util:isPlayerBot(playerID) then
-        local currentBuild = pregame.selectedSkills[playerID] or {}
-        local usageData = StatsClient:GetAbilityUsageData(playerID) or {}
-        local entries = StatsClient.SortedAbilityDataEntries[playerID] or {}
-        local realAbilitiesThreshold = 1
-      if (StatsClient.totalGameAbilitiesCount ~= nil) then
-          realAbilitiesThreshold = math.ceil(StatsClient.totalGameAbilitiesCount * (1 - threshold * 0.01))
-        end
-        local enableAlternativeThreshold = util:tableCount(entries) >= realAbilitiesThreshold
-
-        if enableAlternativeThreshold then
-            function isBelowThreshold(ability)
-                return (entries[ability] or 1) > 1 - threshold * 0.01
-            end
-        else
-            function isBelowThreshold(ability)
-                return not entries[ability]
-            end
-        end
-
-        local newAbilities = 0
-        local newGlobalAbilities = 0
-        local passiveAbilities = 0
-        for _,v in ipairs(currentBuild) do
-            if usageData and pregame.optionStore["lodOptionNewAbilitiesBonusGold"] > 0 and isBelowThreshold(v) then
-                newAbilities = newAbilities + 1
-            elseif pregame.optionStore["lodOptionGlobalNewAbilitiesBonusGold"] > 0 and isGlobalBelowThreshold(v) then
-                newGlobalAbilities = newGlobalAbilities + 1
-            end
-            if pregame.flagsInverse[v] and pregame.flagsInverse[v].passive then
-                passiveAbilities = passiveAbilities + 1
-            end
-        end
-        local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-        if hero then
-            if newAbilities > 0 then
-                hero:AddItemByName('item_new_ability_bonus'):SetCurrentCharges(newAbilities)
-            end
-            if newGlobalAbilities > 0 then
-                hero:AddItemByName('item_new_global_ability_bonus'):SetCurrentCharges(newGlobalAbilities)
-            end
-            if pregame.optionStore["lodOptionBalancedBuildBonusGold"] > 0 and passiveAbilities <= 3 then
-                hero:AddItemByName('item_balanced_build_bonus')
-            end
-        end
-    end
-end]]--
-
 function Pregame:applyExtraAbility( spawnedUnit )
     -- Timers:CreateTimer(function()
         local fleshHeapToGive = nil
@@ -7793,7 +7689,6 @@ end
 function Pregame:fixSpawnedHero( spawnedUnit )
     self.givenBonuses = self.givenBonuses or {}
     self.handled = self.handled or {}
-    self.givenCouriers = self.givenCouriers or {}
 
     -- Don't touch this hero more than once :O
     if self.handled[spawnedUnit] then return end
@@ -8162,36 +8057,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
         end, DoUniqueString('giveExtraAbility'), 0.1)
     end
 
-    --[[if OptionManager:GetOption('freeCourier') then
-        local team = spawnedUnit:GetTeam()
-
-        if not self.givenCouriers[team] then
-            Timers:CreateTimer(function()
-                if IsValidEntity(spawnedUnit) then
-                    if not self.givenCouriers[team] then
-                        self.givenCouriers[team] = true
-
-                        local courierSpawn = spawnedUnit:GetAbsOrigin() + RandomVector(RandomFloat(100, 100))
-                        local cr = CreateUnitByName("npc_dota_courier", courierSpawn, true, nil, nil, spawnedUnit:GetTeamNumber())
-                        Timers:CreateTimer(.2, function()
-                            cr:AddNewModifier(cr, nil, "modifier_core_courier", nil)
-                            for i = 0, 30 do
-                                local tempPly = PlayerResource:GetPlayer(i)
-                                if (tempPly and IsValidEntity(tempPly)) then
-                                    Timers:CreateTimer(.1, function()
-                                        if (tempPly:GetTeamNumber() == cr:GetTeamNumber()) then
-                                            cr:SetControllableByPlayer(i, true)
-                                        end
-                                    end)
-                                end
-                            end
-                        end)
-                    end
-                end
-            end, DoUniqueString('spawncourier'), 1)
-        end
-    end]]--
-
     Timers:CreateTimer(function()
         if IsValidEntity(spawnedUnit) then
             for _,modifier in pairs(spawnedUnit:FindAllModifiers()) do
@@ -8267,12 +8132,12 @@ function Pregame:fixSpawningIssues()
         end
 
         if this.wispSpawning then
-            if not self.selectedHeroes[spawnedUnit:GetPlayerOwnerID()] and spawnedUnit:IsRealHero() then
+            if not self.selectedHeroes[spawnedUnit:GetPlayerOwnerID()] and spawnedUnit:IsRealHero() and not spawnedUnit:IsSpiritBearCustom() then
                 spawnedUnit:AddNoDraw()
                 spawnedUnit:AddNewModifier(spawnedUnit,nil,"modifier_tribune",{})
             end
 
-            if spawnedUnit:IsRealHero() then
+            if spawnedUnit:IsRealHero() and not spawnedUnit:IsSpiritBearCustom() then
                 local playerID = spawnedUnit:GetPlayerID()
                 Timers:CreateTimer(function()
                     if self:isBackgroundSpawning() then
@@ -8303,11 +8168,10 @@ function Pregame:fixSpawningIssues()
         -- Grab their playerID
         if spawnedUnit.GetPlayerID then
             local playerID = spawnedUnit:GetPlayerID()
-
             local mainHero = PlayerResource:GetSelectedHeroEntity(playerID)
 
             -- Fix up tempest doubles/etc
-            if self.spawnedHeroesFor[playerID] and mainHero and mainHero ~= spawnedUnit then
+            if self.spawnedHeroesFor[playerID] and mainHero and mainHero ~= spawnedUnit and not spawnedUnit:IsSpiritBearCustom() then
                 local notOnIllusions = {
                     lone_druid_spirit_bear = true,
                     necronomicon_warrior_last_will_lod = true,
@@ -8386,7 +8250,7 @@ function Pregame:fixSpawningIssues()
         end
 
         -- Ensure it's a valid unit
-        if IsValidEntity(spawnedUnit) then
+        if IsValidEntity(spawnedUnit) and not spawnedUnit:IsSpiritBearCustom() then
             -- Filter gold modifier here instead of in filtergold in ingame because this makes the popup correct
             local goldModifier = OptionManager:GetOption('goldModifier')
             if goldModifier ~= 100 and not spawnedUnit.bountyAdjusted then
@@ -8406,7 +8270,7 @@ function Pregame:fixSpawningIssues()
                     local noticeAura = spawnedUnit:FindAbilityByName("treant_eyes_in_the_forest_notification")
                     noticeAura:SetLevel(1)
                 end, DoUniqueString('eyesFix'), 0.5)
-        end
+            end
 
         -- Remove Gyro's innate scepter bonus
         --[[Timers:CreateTimer(function()
@@ -8560,9 +8424,6 @@ function Pregame:fixSpawningIssues()
     end, nil)
 end
 
--- Return an instance of it
-local _instance = Pregame()
-
 ListenToGameEvent('game_rules_state_change', function(keys)
     local newState = GameRules:State_Get()
     if newState == DOTA_GAMERULES_STATE_PRE_GAME then
@@ -8573,65 +8434,56 @@ ListenToGameEvent('game_rules_state_change', function(keys)
             -- end
         -- end
 
-        WAVE = 0
+        -- _G.duel = (function ()
+            -- local next_tick = DUEL_INTERVAL
 
-        Timers:CreateTimer(function()
-            WAVE = WAVE + 1
-            return 30.0
-        end, 'waves', 0.0)
+            -- Timers:CreateTimer(function()
+                -- if CustomNetTables:GetTableValue("phase_ingame","duel").active == 1 then
+                    -- local draw_tick = DUEL_NOBODY_WINS + DUEL_PREPARE
 
-        _G.duel = (function ()
-            local next_tick = DUEL_INTERVAL
+                    -- Timers:CreateTimer(function()
+                        -- draw_tick = draw_tick - 1
 
-            Timers:CreateTimer(function()
-                if CustomNetTables:GetTableValue("phase_ingame","duel").active == 1 then
-                    local draw_tick = DUEL_NOBODY_WINS + DUEL_PREPARE
+                        -- if CustomNetTables:GetTableValue("phase_ingame","duel").active == 0 then
+                            -- return
+                        -- else
+                            -- sendEventTimer( "#duel_nobody_wins", draw_tick)
+                        -- end
 
-                    Timers:CreateTimer(function()
-                        draw_tick = draw_tick - 1
+                        -- return 1.0
+                    -- end, 'duel_countdown_draw', 0)
+                    -- return
+                -- else
+                    -- sendEventTimer( "#duel_next_duel", next_tick)
+                -- end
+                -- next_tick = next_tick - 1
+                -- if next_tick < 0 then
+                    -- next_tick = 0
+                -- end
+                -- return 1.0
+            -- end, 'duel_countdown_next', 0)
 
-                        if CustomNetTables:GetTableValue("phase_ingame","duel").active == 0 then
-                            return
-                        else
-                            sendEventTimer( "#duel_nobody_wins", draw_tick)
-                        end
+            -- Timers:CreateTimer(function()
+                -- customAttension("#duel_10_sec_to_begin", 5)
+                -- EmitGlobalSound("Event.DuelStart")
 
-                        return 1.0
-                    end, 'duel_countdown_draw', 0)
-                    return
-                else
-                    sendEventTimer( "#duel_next_duel", next_tick)
-                end
-                next_tick = next_tick - 1
-                if next_tick < 0 then
-                    next_tick = 0
-                end
-                return 1.0
-            end, 'duel_countdown_next', 0)
+                -- Timers:CreateTimer(function()
+                    -- initDuel(_G.duel)
+                -- end, 'start_duel', 10)
 
-            Timers:CreateTimer(function()
-                customAttension("#duel_10_sec_to_begin", 5)
-                EmitGlobalSound("Event.DuelStart")
-
-                Timers:CreateTimer(function()
-                    initDuel(_G.duel)
-                end, 'start_duel', 10)
-
-                Timers:CreateTimer(function()
-                    if CustomNetTables:GetTableValue("phase_ingame","duel").active == 1 then
-                        customAttension("#duel_10_sec_to_end", 5)
-                    end
-                end, 'duel_draw_warning', DUEL_NOBODY_WINS + DUEL_PREPARE)
-            end, 'main_duel_timer', DUEL_INTERVAL - 10)
-        end)
+                -- Timers:CreateTimer(function()
+                    -- if CustomNetTables:GetTableValue("phase_ingame","duel").active == 1 then
+                        -- customAttension("#duel_10_sec_to_end", 5)
+                    -- end
+                -- end, 'duel_draw_warning', DUEL_NOBODY_WINS + DUEL_PREPARE)
+            -- end, 'main_duel_timer', DUEL_INTERVAL - 10)
+        -- end)
 
         CustomNetTables:SetTableValue("phase_ingame","duel", {active=0})
 
-        if OptionManager:GetOption('duels') == 1 then
+        -- if OptionManager:GetOption('duels') == 1 then
             -- GameRules:SendCustomMessage("#tempDuelBlock", 0, 0)
-            _G.duel()
-        end
+            --_G.duel()
+        -- end
     end
 end, nil)
-
-return _instance

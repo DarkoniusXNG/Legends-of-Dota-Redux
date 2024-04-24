@@ -17,14 +17,8 @@ local heroListKV = LoadKeyValues('scripts/npc/npc_heroes.txt')
 -- A list of sub abilities needed to give out when we add an ability
 local subAbilities = LoadKeyValues('scripts/kv/abilityDeps.kv')
 
--- List of units that we can precache
-local unitList = LoadKeyValues('scripts/npc/npc_units_custom.txt')
-
 -- Ability list used for multiplier
 local multiplierSkills = LoadKeyValues('scripts/npc/npc_abilities_custom.txt')
-
--- This object will be exported
-local skillManager = {}
 
 -- Table of player's active skills to make swapping super fast
 local activeSkills = {}
@@ -127,17 +121,13 @@ local function fixModifiers(hero, skill)
     hero:RemoveModifierByName('modifier_'..skill..'_aura')
 end
 
-local function unitExists(unitName)
-    -- Check if the unit exists
-    if unitList[unitName] then return true end
-
-    return false
-end
-
 -- Precaches a skill -- DODGY!
 local alreadyCached = {}
 local customSkills = LoadKeyValues('scripts/npc/npc_abilities_custom.txt')
-function skillManager:precacheSkill(skillName, callback)
+
+SkillManager = class({})
+
+function SkillManager:precacheSkill(skillName, callback)
     local heroID = skillOwningHero[skillName]
     local customSkill = customSkills[skillName]
 
@@ -155,14 +145,9 @@ function skillManager:precacheSkill(skillName, callback)
             alreadyCached[heroName] = true
 
             -- Cache it
-            if unitExists('npc_precache_'..heroName) then
-                -- Precache source2 style
-                PrecacheUnitByNameAsync('npc_precache_'..heroName, function()
-                    CreateUnitByName('npc_precache_'..heroName, Vector(-10000, -10000, 0), false, nil, nil, 0)
-                end)
-            else
-                print('Failed to precache unit: npc_precache_'..heroName)
-            end
+            PrecacheUnitByNameAsync(heroName, function()
+                print("[SkillManager:precacheSkill] Successfully precached hero: "..heroName)
+            end)
             if callback ~= nil then
                 callback()
             end
@@ -177,8 +162,23 @@ function skillManager:precacheSkill(skillName, callback)
         end
         alreadyCached[skillName] = true
         PrecacheItemByNameAsync(skillName, function()
-            local precache = CreateUnitByName('npc_precache_always', Vector(-10000, -10000, 0), false, nil, nil, 0)
-            local hAbility = precache:AddAbility(skillName)
+            print("[SkillManager:precacheSkill] Successfully precached ability: "..skillName)
+            if not PRECACHER then
+                PRECACHER = CreateUnitByName('npc_precache_always', Vector(-10000, -10000, 0), false, nil, nil, 0)
+            end
+
+            PRECACHER.ability_counter = PRECACHER.ability_counter or 0
+
+            if not PRECACHER:HasAbility(skillName) then
+                if PRECACHER.ability_counter < 26 then
+                    PRECACHER:AddAbility(skillName)
+                    PRECACHER.ability_counter = PRECACHER.ability_counter + 1
+                else
+                    PRECACHER = CreateUnitByName('npc_precache_always', Vector(-10000, -10000, 0), false, nil, nil, 0)
+                    PRECACHER:AddAbility(skillName)
+                    PRECACHER.ability_counter = 1
+                end
+            end
             if callback ~= nil then
                callback()
             end
@@ -191,7 +191,7 @@ function skillManager:precacheSkill(skillName, callback)
     end
 end
 
-function skillManager:GetHeroSkills(heroClass)
+function SkillManager:GetHeroSkills(heroClass)
     local skills = {}
 
     -- Build list of abilities
@@ -220,7 +220,7 @@ function skillManager:GetHeroSkills(heroClass)
     return skills
 end
 
-function skillManager:BuildSkillList(hero)
+function SkillManager:BuildSkillList(hero)
     -- Check if we've touched this hero before
     if not currentSkillList[hero] then
         -- Grab the name of this hero
@@ -234,7 +234,7 @@ function skillManager:BuildSkillList(hero)
     end
 end
 
-function skillManager:RemoveAllSkills(hero)
+function SkillManager:RemoveAllSkills(hero)
     -- Ensure the hero isn't nil
     if hero == nil then return end
 
@@ -258,7 +258,7 @@ function skillManager:RemoveAllSkills(hero)
 end
 
 -- Shows the given set number
-function skillManager:ShowSet(hero, number)
+function SkillManager:ShowSet(hero, number)
     local playerID = hero:GetPlayerID()
 
     if activeSkills[playerID] then
@@ -289,7 +289,7 @@ function skillManager:ShowSet(hero, number)
 end
 
 -- Returns a multiplier skill name, if it exists
-function skillManager:GetMultiplierSkillName(skillName)
+function SkillManager:GetMultiplierSkillName(skillName)
     local mult = OptionManager:GetOption('customSpellPower')
     local useLevel1ults = OptionManager:GetOption('useLevel1ults')
 
@@ -326,7 +326,7 @@ function skillManager:GetMultiplierSkillName(skillName)
 end
 
 -- Precaches a build <3
-function skillManager:PrecacheBuild(build)
+function SkillManager:PrecacheBuild(build)
     for i=1,23 do
         local v = build[i]
         if v then
@@ -338,17 +338,16 @@ end
 
 -- Precaches a hero - not used LMAO
 local realHeroCache = {}
-function skillManager:PrecacheHero(heroName, playerID)
+function SkillManager:PrecacheHero(heroName, playerID)
     if realHeroCache[heroName] then return end
     realHeroCache[heroName] = true
     alreadyCached[heroName] = true
 
-    -- Precache the unit
     PrecacheUnitByNameAsync(heroName, function() end, playerID)
 end
 
 local inSwap = false
-function skillManager:ApplyBuild(hero, build, autoLevelSkills)
+function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
     -- Ensure the hero isn't nil
     if hero == nil or not hero:IsAlive() then return end
 
@@ -642,7 +641,7 @@ function skillManager:ApplyBuild(hero, build, autoLevelSkills)
             end
 
             -- Precache
-            skillManager:precacheSkill(v)
+            SkillManager:precacheSkill(v)
 
             local multV = self:GetMultiplierSkillName(v)
             if isRealHero then
@@ -778,7 +777,7 @@ function skillManager:ApplyBuild(hero, build, autoLevelSkills)
             abNum = abNum + 1
 
             -- Precache
-            skillManager:precacheSkill(k)
+            SkillManager:precacheSkill(k)
 
             -- Grab the real name (this was different for mult, disabled for now)
             local realAbility = k
@@ -837,7 +836,7 @@ function skillManager:ApplyBuild(hero, build, autoLevelSkills)
     end
 end
 
---function skillManager:overrideHooks()
+--function SkillManager:overrideHooks()
     -- Implement the get ability by slot index method
     --[[if GameRules:isSource1() then
         function CDOTA_BaseNPC:GetAbilityByIndex(index)
@@ -852,7 +851,7 @@ end
 --end
 
 -- Grabs an object that has a new build with an ability slot changed
-function skillManager:grabNewBuild(originalBuild, slotNumber, newAbility)
+function SkillManager:grabNewBuild(originalBuild, slotNumber, newAbility)
     local build = {}
     for k,v in pairs(originalBuild) do
         build[k] = v
@@ -864,7 +863,7 @@ function skillManager:grabNewBuild(originalBuild, slotNumber, newAbility)
 end
 
 -- Checks the number of ults in a build
-function skillManager:hasTooMany(build, maxCount, checkFunction)
+function SkillManager:hasTooMany(build, maxCount, checkFunction)
     -- Check stuff
     local totalSoFar = 0
     for k,v in pairs(build) do
@@ -883,10 +882,10 @@ function skillManager:hasTooMany(build, maxCount, checkFunction)
 end
 
 -- Returns true if a skill is an ultimate
-function skillManager:isUlt(name)
+function SkillManager:isUlt(name)
     local ability_data = GetAbilityKeyValuesByName(name)
     if not ability_data then
-        print("skillManager:isUlt: Ability "..name.." does not exist!")
+        print("SkillManager:isUlt: Ability "..name.." does not exist!")
         return
     end
     local ability_type = ability_data.AbilityType
@@ -898,25 +897,17 @@ function skillManager:isUlt(name)
 end
 
 -- Returns true if a skill is a passive
-function skillManager:isPassive(name)
+function SkillManager:isPassive(name)
     local ability_data = GetAbilityKeyValuesByName(name)
     if not ability_data then
-        print("skillManager:isPassive: Ability "..name.." does not exist!")
+        print("SkillManager:isPassive: Ability "..name.." does not exist!")
         return
     end
     local behavior = ability_data.AbilityBehavior
     if not behavior then
-        print("skillManager:isPassive: Ability "..name.." does not have a behavior!")
+        print("SkillManager:isPassive: Ability "..name.." does not have a behavior!")
         return
     end
 
     return string.find(behavior, 'DOTA_ABILITY_BEHAVIOR_PASSIVE') and not string.find(behavior, 'DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE')
 end
-
--- Attempt to store the precacher of everything
---CreateUnitByName('npc_precache_everything', Vector(-10000, -10000, 0), false, nil, nil, 0)
-
---PrecacheUnitByNameAsync('npc_precache_everything', function()end)
-
--- Define the export
-return skillManager

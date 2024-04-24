@@ -50,7 +50,7 @@ function redux_pocket_tower_ability:OnSpellStart()
   end)
 
   if OptionManager:GetOption('strongTowers') then
-    ingame:updateStrongTowers(building)
+    Ingame:updateStrongTowers(building)
   end
 end
 

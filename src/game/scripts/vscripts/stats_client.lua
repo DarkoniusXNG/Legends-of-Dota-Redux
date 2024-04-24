@@ -1,3 +1,7 @@
+if not Pregame then
+    require('pregame')
+end
+
 StatsClient = StatsClient or class({})
 JSON = JSON or require("lib/json")
 inspect = require("lib/inspect")
@@ -67,14 +71,13 @@ function StatsClient:GetFavoriteSkillBuilds(args)
 end
 
 function StatsClient:CreateSkillBuild(args)
-    local pregame = GameRules.pregame
     local playerID = args.PlayerID
     local steamID = PlayerResource:GetRealSteamID(playerID)
     local title = args.title or ""
     local description = args.description or ""
-    local abilities = util:DeepCopy(pregame.selectedSkills[playerID]) or {}
-    local heroName = pregame.selectedHeroes[playerID]
-    local attribute = pregame.selectedPlayerAttr[playerID]
+    local abilities = util:DeepCopy(Pregame.selectedSkills[playerID]) or {}
+    local heroName = Pregame.selectedHeroes[playerID]
+    local attribute = Pregame.selectedPlayerAttr[playerID]
     for k,_ in pairs(abilities) do
         if tonumber(k) == nil then abilities[k] = nil end
     end
@@ -83,7 +86,7 @@ function StatsClient:CreateSkillBuild(args)
             sort = 'lodDanger',
             text = 'lodServerFailedCreateSkillBuildUnfinished'
         })
-        pregame:PlayAlert(playerID)
+        Pregame:PlayAlert(playerID)
         return
     end
     if #title < 4 or #title > 64 or #description < 10 or #description > 256 then
@@ -91,7 +94,7 @@ function StatsClient:CreateSkillBuild(args)
             sort = 'lodDanger',
             text = 'lodServerFailedCreateSkillBuildText'
         })
-        pregame:PlayAlert(playerID)
+        Pregame:PlayAlert(playerID)
         return
     end
     StatsClient:Send("createSkillBuild", {
@@ -115,7 +118,7 @@ function StatsClient:CreateSkillBuild(args)
                 sort = 'lodDanger',
                 text = response.error or ''
             })
-            pregame:PlayAlert(playerID)
+            Pregame:PlayAlert(playerID)
         end
     end)
 end
@@ -174,7 +177,7 @@ end
 
 function StatsClient:SendAbilityUsageData()
     local data = {}
-    for playerID, build in pairs(GameRules.pregame.selectedSkills) do
+    for playerID, build in pairs(Pregame.selectedSkills) do
         local steamID = PlayerResource:GetRealSteamID(playerID)
         if steamID ~= "0" then
             local abilities = {}
@@ -190,7 +193,7 @@ end
 function StatsClient:FetchAbilityUsageData()
     local required = {}
 
-    for i = 0, DOTA_MAX_TEAM_PLAYERS do
+    for i = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:IsValidPlayerID(i) then
             required[i] = PlayerResource:GetRealSteamID(i)
         end
@@ -236,7 +239,7 @@ end
 function StatsClient:FetchBans()
     local required = {}
 
-    for i = 0, DOTA_MAX_TEAM_PLAYERS do
+    for i = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:IsValidPlayerID(i) then
             required[i] = PlayerResource:GetRealSteamID(i)
         end

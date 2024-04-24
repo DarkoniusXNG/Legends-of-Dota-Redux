@@ -6,6 +6,11 @@ DONOTREMOVE = {
 	--special_bonus_attributes = true,
 }
 
+ALREADYPRECACHING = {}
+for i = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+	ALREADYPRECACHING[i] = {}
+end
+
 if not util then
     util = class({})
 end
@@ -394,7 +399,7 @@ function util:fetchPlayerData()
                 end
 
                 -- Push to pregame
-                GameRules.pregame:onGetPlayerData(mapData)
+                Pregame:onGetPlayerData(mapData)
             end]]--
         end)
     end)
@@ -766,7 +771,7 @@ function util:split(s, delimiter)
 end
 
 function util:anyBots()
-    if GameRules.pregame.enabledBots == true then return true end
+    if Pregame.enabledBots == true then return true end
     local maxPlayerID = 24
     local count = 0
     local toggle = false
@@ -840,6 +845,7 @@ function CDOTA_BaseNPC:FixIllusion(source)
                 local illusionAbility = self:FindAbilityByName(abilityName)
                 if illusionAbility then
                     illusionAbility:SetLevel(abilityLevel)
+                    -- TODO: Check if it's toggle, if yes toggle it ON
                 end
             end
         end

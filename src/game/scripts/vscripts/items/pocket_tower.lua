@@ -78,7 +78,7 @@ function item_redux_pocket_tower:OnSpellStart()
   end)
 
   if OptionManager:GetOption('strongTowers') then
-    ingame:updateStrongTowers(building)
+    Ingame:updateStrongTowers(building)
   end
   local charges = self:GetCurrentCharges() - 1
   if charges < 1 then

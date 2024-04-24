@@ -101,9 +101,6 @@ if not OptionManager.initialSettings then
 	-- Enable WTF Mode?
 	OptionManager:SetOption('wtfMode', false)
 
-	-- Enable Universal shop mode
-	OptionManager:SetOption('universalShop', false) -- lodOptionCrazyUniversalShop
-
 	-- Enable fast jungle mode
 	OptionManager:SetOption('fastJungleCreeps', false)
 
@@ -114,7 +111,7 @@ if not OptionManager.initialSettings then
 	OptionManager:SetOption('multicastMadness', false)
 
 	-- Fat-O-Meter
-	OptionManager:SetOption("useFatOMeter", 0)
+	OptionManager:SetOption("useFatOMeter", false)
 
 	-- Ingame Builder
 	OptionManager:SetOption('allowIngameHeroBuilder', false)
@@ -146,14 +143,11 @@ if not OptionManager.initialSettings then
 	-- Should we load survival gamemode?
 	OptionManager:SetOption('loadSurvival', false)
 
-	-- Free courier
-	OptionManager:SetOption('freeCourier', 2)
-
 	-- Number of towers in the middle of a lane
 	OptionManager:SetOption('middleTowers', 1)
 
 	-- Should we prevent fountain camping?
-	OptionManager:SetOption('preventFountainCamping', false)
+	OptionManager:SetOption('preventFountainCamping', 1)
 
 	-- Lvl1 ults
 	OptionManager:SetOption('useLevel1ults', false)
@@ -214,4 +208,34 @@ if not OptionManager.initialSettings then
 	-- Gold Modifier
 	OptionManager:SetOption('goldModifier', 1)
 	OptionManager:SetOption('expModifier', 1)
+
+	-- mapname
+	-- lodOptionCrazyWTF
+	-- banInvis
+	-- consumeItems
+	-- stacking
+	-- turboCourier
+	-- extraAbility
+	-- globalCastRange
+	-- pocketTowers
+	-- direBotDiff
+	-- radiantBotDiff
+	-- stupidBots
+	-- duplicateBots
+	-- botsSameHero
+	-- neutralMultiply
+	-- ingameBuilderPenalty
+	-- darkMoon
+	-- laneMultiply
+	-- towerCount
+	-- antiBash
+	-- strongTowers
+	-- antiRat
+	-- randomOnDeath
+	-- buybackCooldownConstant
+	-- sharedXP
+	-- respawnModifierConstant
+	-- respawnModifierPercentage
+	-- goldPerTick
+	-- neutralItems
 end

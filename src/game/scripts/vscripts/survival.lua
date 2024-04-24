@@ -153,9 +153,6 @@ local function initSurvival()
     local doneDireRecord = false
     local doneRadiantRecord = false
 
-    -- Can use any shop at any shop
-    GameRules:SetUseUniversalShopMode(true)
-
     -- Disable normal creeps
     Convars:SetBool('dota_creeps_no_spawning', true)
 

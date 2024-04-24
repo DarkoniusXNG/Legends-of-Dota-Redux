@@ -48,6 +48,9 @@ require('lib/util_imba')
 require('lib/util_imba_funcs')
 require('lib/animations')
 
+require('pregame')
+require('ingame')
+
 -- Precaching
 function Precache(context)
     local soundList = LoadKeyValues('scripts/kv/sounds.kv')
@@ -75,150 +78,14 @@ function Precache(context)
     PrecacheResource("particle","particles/world_tower/tower_upgrade/ti7_radiant_tower_proj.vpcf",context)
     PrecacheResource("particle","particles/world_tower/tower_upgrade/ti7_dire_tower_projectile.vpcf",context)
     PrecacheResource("soundfile","soundevents/memes_redux_sounds.vsndevts",context)
-    PrecacheUnitByNameSync("npc_dota_lucifers_claw_doomling", context)
-    PrecacheUnitByNameSync("npc_bot_spirit_sven", context)
+    --PrecacheUnitByNameSync("npc_dota_lucifers_claw_doomling", context)
+    --PrecacheUnitByNameSync("npc_bot_spirit_sven", context)
 
-    -- Problem units (ball lightning, ether shock and shackles sounds dont work)
-    PrecacheUnitByNameSync("npc_shadow_shaman", context)
-    PrecacheUnitByNameSync("npc_storm_spirit", context)
+    -- Precache all hero sounds here as some sounds end up not working
+    for k, _ in pairs(soundList["hero_sounds"]) do
+        PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_" .. k .. ".vsndevts", context)
+    end
 
-    -- Spell icons for these units dont always work pre game
-
-    -- doesnt fix spell icon issue
-    --PrecacheUnitByNameSync("npc_dawnbreaker", context)
-    --PrecacheUnitByNameSync("npc_void_spirit", context)
-    --PrecacheUnitByNameSync("npc_hoodwink", context)
-
-    -- doesnt fix spell icon issue
-    --PrecacheResource("resource","panorama/images/spellicons/dawnbreaker_celestial_hammer_png.vtex_c",context)
-    --PrecacheResource("resource","panorama/images/spellicons/dawnbreaker_luminosity_png.vtex_c",context)
-    --PrecacheResource("resource","panorama/images/spellicons/dawnbreaker_solar_guardian_png.vtex_c",context)
-
-    -- Precache all heroes here as some sounds end up not working
-
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_axe.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_bane.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_beastmaster.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_brewmaster.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_bristleback.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_chaos_knight.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_chen.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_crystal_maiden.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_dark_seer.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_dark_willow.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_death_prophet.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_disruptor.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_doom_bringer.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_drow_ranger.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_faceless_void.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_furion.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_grimstroke.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_hoodwink.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_lich.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_lina.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_lion.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_luna.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_mars.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_meepo.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_monkey_king.vsndevts", context)    
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_night_stalker.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_oracle.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_pangolier.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_puck.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_queenofpain.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_rattletrap.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_razor.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_riki.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_rubick.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_sand_king.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_shadow_demon.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_shadow_shaman.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_shredder.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_skeleton_king.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_slark.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_snapfire.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_spectre.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_storm_spirit.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_sven.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_techies.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_terrorblade.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_tidehunter.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_tiny.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_treant.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_troll_warlord.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_undying.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_vengefulspirit.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts", context) 
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_viper.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_visage.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_void_spirit.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_weaver.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_witch_doctor.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_dawnbreaker.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_marci.vsndevts", context)
-    PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_primal_beast.vsndevts", context)
     precacheObstacles(context)
 end
 
@@ -228,57 +95,21 @@ function Activate()
     local versionNumber = "3.1.2"
     print('\n\nDota 2 Redux is activating! (v'..versionNumber..')')
 
-    -- Ensure LoD is compiled
-    local tst = LoadKeyValues('scripts/npc/npc_heroes_custom.txt')
-
-    if tst == 0 or tst == nil then
-        print('FAILURE! You are attempting to run an UNCOMPILED version! Please either compile OR download the latest release from the releases section of github.\n\n')
-        return
-    end
-
-    
-
-    -- print("888888")
-    -- local shit = LoadKeyValues('scripts/npc/abilities/imba/imba_abilities.kv')
-    -- local shit2 = {}
-    -- local i = 1
-    -- for k,v in pairs(shit) do
-    --     if v.ScriptFile and string.match(k, "imba") and not string.match(k, "special_bonus") and not string.match(k, "imba_tower_") and not string.match(k, "ancient") and not string.match(k, "behemoth") and not string.match(k, "fountain") and not string.match(k, "imba_mega") and not string.match(k, "imba_super") and not string.match(k, "imba_roshan") then
-    --         local newKey = string.gsub(v.ScriptFile, "abilities/dota_imba/", "")
-    --         newKey = string.gsub(newKey, ".lua", "")
-    --         shit2[newKey] = shit2[newKey] or {}
-    --         table.insert(shit2[newKey], "\""..k.."\"".."  ".."\"1\"")
-    --         -- print(i)
-    --         i = i + 1
-    --     end
-    -- end
-
-    -- for k,v in pairs(shit2) do
-    --     print("\""..k.."\"")
-    --     print("{")
-    --     for k1,v1 in pairs(v) do
-    --         print("    "..v1)
-    --     end
-    --     print("}")
-    -- end
-    -- print("888888")
-
     -- Load specific modules
 
-    local pregame = require('pregame')
-    local ingame = require('ingame')
+    if not Pregame then
+        require('pregame')
+	end
+    if not Ingame then
+        require('ingame')
+    end
 
     -- Init other stuff
     network:init()
-    pregame:init()
-    ingame:init()
+    Pregame:init()
+    Ingame:init()
 
     StatsClient:SubscribeToClientEvents()
-
-    -- Store references (mostly used for debugging)
-    GameRules.util = require('util')
-    GameRules.pregame = pregame
-    GameRules.ingame = ingame
 
     print('LoD seems to have activated successfully!!\n\n')
 

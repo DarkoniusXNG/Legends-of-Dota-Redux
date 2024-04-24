@@ -9,7 +9,7 @@ require('abilities/nextgeneration/orderfilter')
 --require('lib/gpm')
 
 -- Create the class for it
-local Ingame = class({})
+Ingame = class({})
 
 local ts_entities = LoadKeyValues('scripts/kv/ts_entities.kv')
 GameRules.perks = LoadKeyValues('scripts/kv/perks.kv')
@@ -92,7 +92,8 @@ function Ingame:init()
 
     -- Precache the stuff that needs to always be precached
     PrecacheUnitByNameAsync('npc_precache_always', function()
-        CreateUnitByName('npc_precache_always', Vector(-10000, -10000, 0), false, nil, nil, 0)
+        local precacher = CreateUnitByName('npc_precache_always', Vector(-10000, -10000, 0), false, nil, nil, 0)
+        precacher:AddNewModifier(precacher, nil, "modifier_kill", {duration = 1})
     end)
 
     CustomGameEventManager:RegisterListener('declined', function(eventSourceIndex)
@@ -638,10 +639,8 @@ function Ingame:onStart()
     end, nil)
 
     -- If Fat-O-Meter is enabled correctly, take note of players' heroes and record necessary information.
-    if OptionManager:GetOption('useFatOMeter') > 0 and OptionManager:GetOption('useFatOMeter') <= 2 then
+    if OptionManager:GetOption('useFatOMeter') and OptionManager:GetOption('useFatOMeter') > 0 and OptionManager:GetOption('useFatOMeter') <= 2 then
         this:StartFatOMeter()
-        --print("fat o meter")
-        --print(OptionManager:GetOption('useFatOMeter'))
     end
 
     local gamemode = GameRules:GetGameModeEntity()
@@ -678,11 +677,10 @@ end
 function Ingame:StartFatOMeter()
     -- If Fat-O-Meter is enabled correctly, take note of players' heroes and record necessary information.
     print("Starting Fat-O-Meter.")
-    ingame.voteEnableFatOMeter = true
-    local maxPlayers = 24
+    self.voteEnableFatOMeter = true
     fatData = {}
 
-    for playerID = 0, (maxPlayers - 1) do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         local hero = PlayerResource:GetSelectedHeroEntity(playerID)
         if hero and IsValidEntity(hero) then
             fatData[playerID] = {
@@ -700,7 +698,7 @@ function Ingame:StartFatOMeter()
     end
 
     Timers:CreateTimer(function()
-        if GameRules:State_Get() < DOTA_GAMERULES_STATE_GAME_IN_PROGRESS or OptionManager:GetOption('useFatOMeter') == 0 then
+        if GameRules:State_Get() < DOTA_GAMERULES_STATE_GAME_IN_PROGRESS or not OptionManager:GetOption('useFatOMeter') or OptionManager:GetOption('useFatOMeter') == 0 then
             return 0.1
         end
 
@@ -794,7 +792,7 @@ end]]
 -- Called every 0.1 second to check and convert consumable items into actual consumable items
 function Ingame:CheckConsumableItems()
     local itemTable = LoadKeyValues('scripts/kv/consumable_items.kv')
-    for i = 0, 24 do
+    for i = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:IsValidTeamPlayerID(i) and not util:isPlayerBot(i) then
             local hero = PlayerResource:GetSelectedHeroEntity(i)
             if hero and IsValidEntity(hero) then
@@ -819,14 +817,12 @@ end
 
 --General Fat-O-Meter thinker. Runs infrequently (i.e. once every 10 seconds minimum, more likely 30-60). dt is measured in seconds, not ticks.
 function Ingame:FatOMeterThinker(dt)
-    local this = self
-    --if OptionManager:GetOption('useFatOMeter') == 0 then return end
-    local maxPlayers = 24
+    if not OptionManager:GetOption('useFatOMeter') or OptionManager:GetOption('useFatOMeter') == 0 then return end
 
     --FAT-O-METER GOLD MODE--
     if OptionManager:GetOption('useFatOMeter') == 1 then
         local lowestGain = 100000
-        for playerID = 0, (maxPlayers - 1) do
+        for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if fatData[playerID] then
                 local netWorth = PlayerResource:GetTotalEarnedGold(playerID)
@@ -856,7 +852,7 @@ function Ingame:FatOMeterThinker(dt)
 
         --FAT-O-METER KILLS MODE--
     elseif OptionManager:GetOption('useFatOMeter') == 2 then
-        for playerID = 0, (maxPlayers - 1) do
+        for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if fatData[playerID] then
                 local kills = PlayerResource:GetKills(playerID)
@@ -894,7 +890,7 @@ end
 --Does interpolated, short-term size updates for Fat-O-Meter. Called often, don't do anything crazy in here. dt is measured in seconds, not ticks.
 function Ingame:FatOMeterAnimate(dt)
     local this = self
-    if not OptionManager:GetOption('useFatOMeter') then return end
+    if not OptionManager:GetOption('useFatOMeter') or OptionManager:GetOption('useFatOMeter') == 0 then return end
 
     for playerID in pairs(fatData) do
         local default = fatData[playerID].defaultModelScale or 0
@@ -1098,12 +1094,10 @@ end
 
 -- Called to check if teams need to be balanced
 function Ingame:checkBalanceTeams()
-    local maxPlayers = 24
-
     local radiantPlayers = 0
     local direPlayers = 0
 
-    for playerID = 0, (maxPlayers - 1) do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         local state = PlayerResource:GetConnectionState(playerID)
 
         if state == 1 or state == 2 then
@@ -1474,22 +1468,11 @@ function Ingame:handleRespawnModifier()
 
                             -- Give 322 gold if enabled
                             if OptionManager:GetOption('322') == 1 then
-                                if OptionManager:GetOption('mapname') == "overthrow" then
-                                    myTeamKills = GetTeamHeroKills(hero:GetTeamNumber())
-                                    opponentTeamKills = GetTeamHeroKills(otherTeam(hero:GetTeamNumber()))
-
-                                    if myTeamKills < opponentTeamKills then
-                                        hero:ModifyGold(322, false, 0)
-                                        SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, 322,
-                                            nil)
-                                    end
-                                else
-                                    hero:ModifyGold(322, false, 0)
-                                    SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, 322, nil)
-                                end
+                                hero:ModifyGold(322, false, 0)
+                                SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, 322, nil)
                             end
                             -- Refresh cooldowns if enabled
-                            if OptionManager:GetOption('refreshCooldownsOnDeath') == 1 or ingame.voteEnableRefresh == true then
+                            if OptionManager:GetOption('refreshCooldownsOnDeath') == 1 or Ingame.voteEnableRefresh == true then
                                 for i = 0, hero:GetAbilityCount()-1 do
                                     local ability = hero:GetAbilityByIndex(i)
                                     if ability then
@@ -1694,7 +1677,8 @@ function Ingame:BountyRunePickupFilter(filterTable)
     --    filterTable.gold_bounty = filterTable.gold_bounty * 2
     --end
 
-    if OptionManager:GetOption('sharedXP') == 1 then
+    --[[ -- Bounties dont give xp anymore
+	if OptionManager:GetOption('sharedXP') == 1 then
         local team = PlayerResource:GetPlayer(filterTable.player_id_const):GetTeamNumber()
 
         for i = 0, DOTA_MAX_TEAM do
@@ -1713,6 +1697,7 @@ function Ingame:BountyRunePickupFilter(filterTable)
 
         filterTable["xp_bounty"] = 0
     end
+	]]
 
     return true
 end
@@ -1762,21 +1747,21 @@ function Ingame:checkBuybackStatus()
                             if not unit.randomOnDeath then
                                 unit.randomOnDeath = true
                             else
-                                GameRules.pregame.selectedSkills[pID] = {}
-                                GameRules.pregame.selectedHeroes[pID] = GameRules.pregame:getRandomHero()
-                                GameRules.pregame.selectedPlayerAttr[pID] = ({ 'str', 'agi', 'int', 'all' })
+                                Pregame.selectedSkills[pID] = {}
+                                Pregame.selectedHeroes[pID] = Pregame:getRandomHero()
+                                Pregame.selectedPlayerAttr[pID] = ({ 'str', 'agi', 'int', 'all' })
                                 [math.random(1, 3)]
-                                if util:isPlayerBot(pID) and GameRules.pregame.botPlayers then
-                                    GameRules.pregame.botPlayers.all[pID] = {}
-                                    GameRules.pregame:generateBotBuilds(pID)
+                                if util:isPlayerBot(pID) and Pregame.botPlayers then
+                                    Pregame.botPlayers.all[pID] = {}
+                                    Pregame:generateBotBuilds(pID)
 
-                                    GameRules.pregame.selectedSkills[pID] = GameRules.pregame.botPlayers.all[pID].build
-                                    GameRules.pregame.selectedHeroes[pID] = GameRules.pregame.botPlayers.all[pID]
+                                    Pregame.selectedSkills[pID] = Pregame.botPlayers.all[pID].build
+                                    Pregame.selectedHeroes[pID] = Pregame.botPlayers.all[pID]
                                     .heroName
                                 end
-                                GameRules.pregame:onPlayerReady(nil, { PlayerID = pID, randomOnDeath = true })
+                                Pregame:onPlayerReady(nil, { PlayerID = pID, randomOnDeath = true })
                                 if not util:isPlayerBot(pID) then
-                                    GameRules.pregame:applyExtraAbility(PlayerResource:GetSelectedHeroEntity(pID))
+                                    Pregame:applyExtraAbility(PlayerResource:GetSelectedHeroEntity(pID))
                                 end
                             end
                         end
@@ -1793,11 +1778,10 @@ function Ingame:AddTowerBotController()
         local newState = GameRules:State_Get()
         -- If Towers are default amount (3), do not use bot controller because bots can handle them
         if newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS and OptionManager:GetOption('towerCount') ~= 3 then
-            local maxPlayers = 24
             local direBots = false
             local radiantBots = false
             -- CHECK ALL PLAYERS TO SEE WHICH TEAM HAS BOT(S)
-            for playerID = 0, (maxPlayers - 1) do
+            for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
                 if util:isPlayerBot(playerID) and PlayerResource:GetTeam(playerID) == DOTA_TEAM_GOODGUYS then
                     radiantBots = true
                 elseif util:isPlayerBot(playerID) and PlayerResource:GetTeam(playerID) == DOTA_TEAM_BADGUYS then
@@ -1929,9 +1913,8 @@ function Ingame:addStrongTowers()
             end
         elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
             if OptionManager:GetOption('strongTowers') then
-                local maxPlayers = 24
                 local botsEnabled = false
-                for playerID = 0, (maxPlayers - 1) do
+                for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
                     if util:isPlayerBot(playerID) then
                         botsEnabled = true
                     end
@@ -2232,8 +2215,7 @@ function Ingame:FilterDamage(filterTable)
     return true
 end
 
-LinkLuaModifier("modifier_rune_doubledamage_mutated_redux", "abilities/mutators/super_runes.lua",
-    LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_rune_doubledamage_mutated_redux", "abilities/mutators/super_runes.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rune_arcane_mutated_redux", "abilities/mutators/super_runes.lua", LUA_MODIFIER_MOTION_NONE)
 function AddRuneModifier(hero, name, duration)
     local m = hero:AddNewModifier(nil, nil, name, { duration = duration })
@@ -2370,7 +2352,7 @@ function Ingame:OnPlayerRevived(event)
 end
 
 function Ingame:SetPlayerColors()
-    for i = 0, 23 do
+    for i = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:IsValidPlayer(i) and self.playerColors[i] then
             local color = self.playerColors[i]
             PlayerResource:SetCustomPlayerColor(i, color[1], color[2], color[3])
@@ -2413,14 +2395,10 @@ end)
 end]]
       --
 
-ingame = Ingame()
 
 ListenToGameEvent('game_rules_state_change', function(keys)
     local newState = GameRules:State_Get()
     if newState == DOTA_GAMERULES_STATE_HERO_SELECTION then
-        ingame:SetPlayerColors()
+        Ingame:SetPlayerColors()
     end
 end, nil)
-
--- Return an instance of it
-return ingame

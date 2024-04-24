@@ -51,7 +51,7 @@ function Debug:init()
         if cmdPlayer then
             local playerID = cmdPlayer:GetPlayerID()
             if playerID ~= nil and playerID ~= -1 then
-                GameRules.ingame:balancePlayer(playerID, tonumber(team))
+                Ingame:balancePlayer(playerID, tonumber(team))
             end
         end
     end, 'debug_switch_team', 0)
@@ -183,9 +183,11 @@ function Debug:init()
         end
         print('Removed ' .. count .. ' talents')
         hero.hasTalent = nil
-        local pregame = require('pregame')
-        pregame.handled = nil
-        pregame:fixSpawnedHero( hero )
+        if not Pregame then
+            require('pregame')
+        end
+        Pregame.handled = nil
+        Pregame:fixSpawnedHero( hero )
     end, '', 0)
 end
 

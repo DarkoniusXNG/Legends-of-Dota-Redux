@@ -465,7 +465,7 @@ function PanoramaShop:RecursiveSetItemPurchasable(item, purchasable, playerID)
 						elements = requiredItems
 					}
 				})
-				GameRules.pregame:PlayAlert(playerID)
+				Pregame:PlayAlert(playerID)
 				return modifiedItems
 			else
 				local canDisable = false

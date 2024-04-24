@@ -862,7 +862,7 @@ var advancedOptions = {
                 min: 0,
                 max: 180,
                 step: 1,
-                default: 0,
+                default: 0
             },
             {
                 name: 'lodOptionNewAbilitiesBonusGold',
@@ -872,7 +872,7 @@ var advancedOptions = {
                 min: 0,
                 max: 2500,
                 step: 50,
-                default: 1000
+                default: 0
             },
             {
                 name: 'lodOptionNewAbilitiesThreshold',
@@ -892,7 +892,7 @@ var advancedOptions = {
                 min: 0,
                 max: 2500,
                 step: 50,
-                default: 1000
+                default: 0
             },
             {
                 name: 'lodOptionGlobalNewAbilitiesThreshold',
@@ -1041,22 +1041,6 @@ var advancedOptions = {
                 name: 'lodOptionAdvancedSelectPrimaryAttr',
                 des: 'lodOptionDesAdvancedSelectPrimaryAttr',
                 about: 'lodOptionAboutAdvancedSelectPrimaryAttr',
-                sort: 'toggle',
-                values: [
-                    {
-                        text: 'lodOptionNo',
-                        value: 0
-                    },
-                    {
-                        text: 'lodOptionYes',
-                        value: 1
-                    }
-                ]
-            },
-            {
-                name: 'lodOptionGameSpeedFreeCourier',
-                des: 'lodOptionDesGameSpeedFreeCourier',
-                about: 'lodOptionAboutGameSpeedFreeCourier',
                 sort: 'toggle',
                 values: [
                     {

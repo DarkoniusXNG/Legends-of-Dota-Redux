@@ -85,7 +85,7 @@ function item_redux_pocket_tower_permanent:OnSpellStart()
   end)
 
   if OptionManager:GetOption('strongTowers') then
-    ingame:updateStrongTowers(building)
+    Ingame:updateStrongTowers(building)
   end
 end
 

@@ -22,7 +22,7 @@ end
 function item_redux_pocket_tower.OnBuildingPlaced(self,location,building)
     building:AddNewModifier(self:GetCaster(),self,"modifier_redux_tower_ability",{});
     if OptionManager:GetOption("strongTowers") then
-        ingame:updateStrongTowers(building);
+        Ingame:updateStrongTowers(building);
     end
     self:SetCurrentCharges(self:GetCurrentCharges()-1);
     if self:GetCurrentCharges()<=0 then

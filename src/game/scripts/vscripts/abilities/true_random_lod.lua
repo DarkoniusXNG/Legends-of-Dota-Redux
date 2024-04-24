@@ -1,13 +1,14 @@
 --local timers = require('easytimers')
-local skillManager = require('skillmanager')
-local pregame = require('pregame')
+if not SkillManager then
+    require('skillmanager')
+end
 
 function RandomGet(keys)
 	print('get')
 	local caster = keys.caster
 	local ability = keys.ability
 	
-	skillManager:precacheSkill(ability.randomAb, function() return 1 end) -- dynamic caching
+	SkillManager:precacheSkill(ability.randomAb, function() return 1 end) -- dynamic caching
 	
 	local randomAb = caster:FindAbilityByName(ability.randomAb)
 	
@@ -142,13 +143,15 @@ function RandomInit(keys)
 	-- check currently owned and visible skills to prevent repeats
 	if not caster.ownedSkill then
 		caster.ownedSkill={}
-		for i = 0, caster:GetAbilityCount() -1 do
-			local exclusion = caster:GetAbilityByIndex(i):GetName()
-			local exAb = caster:FindAbilityByName(exclusion)
-			if not exAb:IsHidden() then
-				caster.ownedSkill[exclusion] = true
-			elseif not DONOTREMOVE[exclusion] and mainAbilities[exclusion] == nil and OptionManager:GetOption('mapname') ~= "custom_bot" then -- do not remove attribute bonus or subabilities (exclude bots for now)
-				caster:RemoveAbility(exclusion)
+		for i = 0, caster:GetAbilityCount() - 1 do
+			local exAb = caster:GetAbilityByIndex(i)
+			if exAb then
+				local exclusion = exAb:GetName()
+				if not exAb:IsHidden() then
+					caster.ownedSkill[exclusion] = true
+				elseif not DONOTREMOVE[exclusion] and mainAbilities[exclusion] == nil then -- do not remove subabilities
+					caster:RemoveAbility(exclusion)
+				end
 			end
 		end
 	end
