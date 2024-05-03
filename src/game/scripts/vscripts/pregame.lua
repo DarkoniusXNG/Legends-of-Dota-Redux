@@ -4,11 +4,8 @@ end
 
 -- Libraries
 local constants = require('constants')
-if not SkillManager then
-    require('skillmanager')
-end
 local SU = require('lib/StatUploaderFunctions')
---[[--local timers = ]]require('easytimers')
+require('easytimers')
 local SpellFixes = require('spellfixes')
 require('statcollection.init')
 local Debug = require('lod_debug')              -- Debug library with helper functions, by Ash47
@@ -66,6 +63,13 @@ LinkLuaModifier("modifier_bat_manager","abilities/modifiers/modifier_bat_manager
 --LinkLuaModifier("modifier_core_courier", 'abilities/courier/modifier_core_courier',LUA_MODIFIER_MOTION_NONE)
 --LinkLuaModifier("modifier_core_courier_flying", 'abilities/courier/modifier_core_courier_flying',LUA_MODIFIER_MOTION_NONE)
 
+-- Load KVs
+GameRules.KVs = {}
+GameRules.KVs["npc_abilities"] = util.abilityKVs
+GameRules.KVs["npc_abilities_custom"] = LoadKeyValues('scripts/npc/npc_abilities_custom.txt')
+GameRules.KVs["npc_abilities_override"] = LoadKeyValues('scripts/npc/npc_abilities_override.txt')
+GameRules.KVs.herolist = LoadKeyValues('scripts/npc/herolist.txt')
+GameRules.KVs.abilitylist = LoadKeyValues('scripts/kv/abilities.kv')
 
 --[[
     Main pregame, selection related handler
@@ -77,14 +81,6 @@ local buildBackups = {}
 
 -- Init pregame stuff
 function Pregame:init()
-	-- Load KVs
-	GameRules.KVs = {}
-	GameRules.KVs["npc_abilities"] = util.abilityKVs
-	GameRules.KVs["npc_abilities_custom"] = LoadKeyValues('scripts/npc/npc_abilities_custom.txt')
-	GameRules.KVs["npc_abilities_override"] = LoadKeyValues('scripts/npc/npc_abilities_override.txt')
-	GameRules.KVs["npc_heroes"] = LoadKeyValues('scripts/npc/npc_heroes.txt')
-	GameRules.KVs["npc_heroes_custom"] = LoadKeyValues('scripts/npc/npc_heroes_custom.txt')
-
     -- Store for options
     self.optionStore = {}
 
@@ -438,7 +434,8 @@ function Pregame:init()
             end
         end
     end
-    for tabName, tabList in pairs(LoadKeyValues('scripts/kv/abilities.kv').skills) do
+    local abilitylist = GameRules.KVs.abilitylist
+    for tabName, tabList in pairs(abilitylist.skills) do
         for abilityName,abilityGroup in pairs(tabList) do
             if type(abilityGroup) == "table" then
                 for groupedAbilityName,_ in pairs(abilityGroup) do
@@ -1057,40 +1054,52 @@ function Pregame:startBoosterDraftRound( pID )
     end, DoUniqueString(tostring(pID).."boosterDraft"), duration + 1)
 end
 
-function Pregame:applyBuilds()
-    for playerID = 0, DOTA_MAX_TEAM_PLAYERS -1 do
-        Timers:CreateTimer(function ()
-            local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-            if not self:isBackgroundSpawning() and (self.wispSpawning and hero and hero:GetUnitName() ~= self.selectedHeroes[playerID]) then
-                self:onIngameBuilder(nil, { playerID = playerID, ingamePicking = true })
-                return
-            end
+if not SkillManager then
+    require('skillmanager')
+end
 
-            if hero ~= nil and IsValidEntity(hero) then
-                if self.wispSpawning then
-                    self:validateBuilds(playerID)
+function Pregame:applyBuilds()
+    local this = self
+	for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+        if PlayerResource:IsValidPlayerID(playerID) then
+            Timers:CreateTimer(function ()
+                local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+                if not this:isBackgroundSpawning() and (this.wispSpawning and hero and hero:GetUnitName() ~= this.selectedHeroes[playerID]) then
+                    this:onIngameBuilder(nil, { playerID = playerID, ingamePicking = true })
+                    return
                 end
 
-                local build = self.selectedSkills[playerID]
-
-                if build then
-                    local status2,err2 = pcall(function()
-                        SkillManager:ApplyBuild(hero, build or {})
-
-                        buildBackups[playerID] = build
-
-                        self:fixSpawnedHero( hero )
-                    end)
-
-                    if not status2 then
-                        print("applyBuilds",err2)
+                if hero ~= nil and IsValidEntity(hero) then
+                    if this.wispSpawning then
+                        this:validateBuilds(playerID)
                     end
 
+                    local build = this.selectedSkills[playerID]
+
+                    if build then
+                        local status2,err2 = pcall(function()
+                            SkillManager:ApplyBuild(hero, build or {})
+
+                            buildBackups[playerID] = build
+
+							local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+							if hero ~= nil and IsValidEntity(hero) then
+								this:fixSpawnedHero( hero )
+							else
+								return 1.0
+							end
+                        end)
+
+                        if not status2 then
+                            print("applyBuilds",err2)
+                        end
+
+                    end
+                else
+                    return 1.0
                 end
-            else
-                return 1.0
-            end
-        end, DoUniqueString("applyBuildsLoop"), (playerID + 1) / 10)
+            end, DoUniqueString("applyBuildsLoop"), (playerID + 1) / 10)
+        end
     end
 end
 
@@ -1723,9 +1732,7 @@ end
 
 -- Setup the selectable heroes
 function Pregame:networkHeroes()
-    local heroList = LoadKeyValues('scripts/npc/herolist.txt')
-
-    local oldAbList = LoadKeyValues('scripts/kv/abilities.kv')
+    local oldAbList = GameRules.KVs.abilitylist
     local hashCollisions = LoadKeyValues('scripts/kv/hashes.kv')
 
     local heroToSkillMap = oldAbList.heroToSkillMap
@@ -1812,13 +1819,6 @@ function Pregame:networkHeroes()
         end
     end
 
-    -- Merge custom heroes
-    for heroName,heroValues in pairs(GameRules.KVs["npc_heroes_custom"]) do
-        if not GameRules.KVs["npc_heroes"][heroValues["override_hero"]] or heroValues["ForceOverride"] == 1 then
-            GameRules.KVs["npc_heroes"][heroValues["override_hero"]] = heroValues
-        end
-    end
-
     -- Push flags to clients
     for abilityName, flagData in pairs(flagsInverse) do
         network:setFlagData(abilityName, flagData)
@@ -1879,72 +1879,70 @@ function Pregame:networkHeroes()
     self.botHeroes = {}
 
     -- Contains base stats
-    local baseHero = GameRules.KVs["npc_heroes"].npc_dota_hero_base
+    local baseHero = GetUnitKeyValuesByName("npc_dota_hero_base")
 
-    for heroName,heroValues in pairs(GameRules.KVs["npc_heroes"]) do
+    for heroName, value in pairs(GameRules.KVs.herolist) do
         -- Ensure it is enabled
-        if heroName ~= 'Version' and heroName ~= 'npc_dota_hero_base' and heroValues.Enabled == 1 then
+        if heroName and heroName ~= 'npc_dota_hero_base' and heroName ~= 'npc_dota_hero_target_dummy' and tonumber(value) == 1 then
+            local heroData = GetUnitKeyValuesByName(heroName)
             -- Store if we can select it as a bot
-            if heroValues.BotImplemented == 1 then
+            if heroData.BotImplemented == 1 then
                 self.botHeroes[heroName] = {}
 
-                for i=1,24 do
-                    local abName = heroValues['Ability' .. i]
-                    if abName ~= 'attribute_bonus' then
+                for i = 1, DOTA_MAX_ABILITIES do
+                    local abName = heroData['Ability' .. i]
+                    if abName and abName ~= '' and abName ~= 'special_bonus_attributes' and abName ~= 'generic_hidden' then
                         table.insert(self.botHeroes[heroName], abName)
                     end
                 end
             end
 
-            -- Grab custom hero data
-            local customHero = GameRules.KVs["npc_heroes_custom"][heroName] or {}
-
             -- Store all the useful information
             local theData = {
-                AttributePrimary = customHero.AttributePrimary or heroValues.AttributePrimary or baseHero.AttributePrimary,
-                Role = customHero.Role or heroValues.Role or baseHero.Role,
-                Rolelevels = customHero.Rolelevels or heroValues.Rolelevels or baseHero.Rolelevels,
-                AttackCapabilities = customHero.AttackCapabilities or heroValues.AttackCapabilities or baseHero.AttackCapabilities,
-                AttackDamageMin = customHero.AttackDamageMin or heroValues.AttackDamageMin or baseHero.AttackDamageMin,
-                AttackDamageMax = customHero.AttackDamageMax or heroValues.AttackDamageMax or baseHero.AttackDamageMax,
-                AttackRate = customHero.AttackRate or heroValues.AttackRate or baseHero.AttackRate,
-                AttackRange = customHero.AttackRange or heroValues.AttackRange or baseHero.AttackRange,
-                AttackAnimationPoint = customHero.AttackAnimationPoint or heroValues.AttackAnimationPoint or baseHero.AttackAnimationPoint,
-                MovementSpeed = customHero.MovementSpeed or heroValues.MovementSpeed or baseHero.MovementSpeed,
-                AttributeBaseStrength = customHero.AttributeBaseStrength or heroValues.AttributeBaseStrength or baseHero.AttributeBaseStrength,
-                AttributeStrengthGain = customHero.AttributeStrengthGain or heroValues.AttributeStrengthGain or baseHero.AttributeStrengthGain,
-                AttributeBaseIntelligence = customHero.AttributeBaseIntelligence or heroValues.AttributeBaseIntelligence or baseHero.AttributeBaseIntelligence,
-                AttributeIntelligenceGain = customHero.AttributeIntelligenceGain or heroValues.AttributeIntelligenceGain or baseHero.AttributeIntelligenceGain,
-                AttributeBaseAgility = customHero.AttributeBaseAgility or heroValues.AttributeBaseAgility or baseHero.AttributeBaseAgility,
-                AttributeAgilityGain = customHero.AttributeAgilityGain or heroValues.AttributeAgilityGain or baseHero.AttributeAgilityGain,
-                ArmorPhysical = customHero.ArmorPhysical or heroValues.ArmorPhysical or baseHero.ArmorPhysical,
-                MagicalResistance = customHero.MagicalResistance or heroValues.MagicalResistance or baseHero.MagicalResistance,
-                ProjectileSpeed = customHero.ProjectileSpeed or heroValues.ProjectileSpeed or baseHero.ProjectileSpeed,
-                RingRadius = customHero.RingRadius or heroValues.RingRadius or baseHero.RingRadius,
-                MovementTurnRate = customHero.MovementTurnRate or heroValues.MovementTurnRate or baseHero.MovementTurnRate,
-                StatusHealth = customHero.StatusHealth or heroValues.StatusHealth or baseHero.StatusHealth,
-                StatusHealthRegen = customHero.StatusHealthRegen or heroValues.StatusHealthRegen or baseHero.StatusHealthRegen,
-                StatusMana = customHero.StatusMana or heroValues.StatusMana or baseHero.StatusMana,
-                StatusManaRegen = customHero.StatusManaRegen or heroValues.StatusManaRegen or baseHero.StatusManaRegen,
-                VisionDaytimeRange = customHero.VisionDaytimeRange or heroValues.VisionDaytimeRange or baseHero.VisionDaytimeRange,
-                VisionNighttimeRange = customHero.VisionNighttimeRange or heroValues.VisionNighttimeRange or baseHero.VisionNighttimeRange,
+                AttributePrimary = heroData.AttributePrimary or baseHero.AttributePrimary,
+                Role = heroData.Role or baseHero.Role,
+                Rolelevels = heroData.Rolelevels or baseHero.Rolelevels,
+                AttackCapabilities = heroData.AttackCapabilities or baseHero.AttackCapabilities,
+                AttackDamageMin = heroData.AttackDamageMin or baseHero.AttackDamageMin,
+                AttackDamageMax = heroData.AttackDamageMax or baseHero.AttackDamageMax,
+                AttackRate = heroData.AttackRate or baseHero.AttackRate,
+                AttackRange = heroData.AttackRange or baseHero.AttackRange,
+                AttackAnimationPoint = heroData.AttackAnimationPoint or baseHero.AttackAnimationPoint,
+                MovementSpeed = heroData.MovementSpeed or baseHero.MovementSpeed,
+                AttributeBaseStrength = heroData.AttributeBaseStrength or baseHero.AttributeBaseStrength,
+                AttributeStrengthGain = heroData.AttributeStrengthGain or baseHero.AttributeStrengthGain,
+                AttributeBaseIntelligence = heroData.AttributeBaseIntelligence or baseHero.AttributeBaseIntelligence,
+                AttributeIntelligenceGain = heroData.AttributeIntelligenceGain or baseHero.AttributeIntelligenceGain,
+                AttributeBaseAgility = heroData.AttributeBaseAgility or baseHero.AttributeBaseAgility,
+                AttributeAgilityGain = heroData.AttributeAgilityGain or baseHero.AttributeAgilityGain,
+                ArmorPhysical = heroData.ArmorPhysical or baseHero.ArmorPhysical,
+                MagicalResistance = heroData.MagicalResistance or baseHero.MagicalResistance,
+                ProjectileSpeed = heroData.ProjectileSpeed or baseHero.ProjectileSpeed,
+                RingRadius = heroData.RingRadius or baseHero.RingRadius,
+                MovementTurnRate = heroData.MovementTurnRate or baseHero.MovementTurnRate,
+                StatusHealth = heroData.StatusHealth or baseHero.StatusHealth,
+                StatusHealthRegen = heroData.StatusHealthRegen or baseHero.StatusHealthRegen,
+                StatusMana = heroData.StatusMana or baseHero.StatusMana,
+                StatusManaRegen = heroData.StatusManaRegen or baseHero.StatusManaRegen,
+                VisionDaytimeRange = heroData.VisionDaytimeRange or baseHero.VisionDaytimeRange,
+                VisionNighttimeRange = heroData.VisionNighttimeRange or baseHero.VisionNighttimeRange,
                 HeroPerk = GameRules.hero_perks[heroName] or ""
             }
 
-            theData["Enabled"] = heroList[heroName]
+            theData["Enabled"] = value
 
-            local attr = heroValues.AttributePrimary
+            local attr = heroData.AttributePrimary
             if attr == 'DOTA_ATTRIBUTE_INTELLECT' then
                 self.heroPrimaryAttr[heroName] = 'int'
             elseif attr == 'DOTA_ATTRIBUTE_AGILITY' then
                 self.heroPrimaryAttr[heroName] = 'agi'
             elseif attr == 'DOTA_ATTRIBUTE_STRENGTH' then
                 self.heroPrimaryAttr[heroName] = 'str'
-			elseif attr == 'DOTA_ATTRIBUTE_ALL' then
-				self.heroPrimaryAttr[heroName] = 'all'
+            elseif attr == 'DOTA_ATTRIBUTE_ALL' then
+                self.heroPrimaryAttr[heroName] = 'all'
             end
 
-            local role = heroValues.AttackCapabilities
+            local role = heroData.AttackCapabilities
             if role == 'DOTA_UNIT_CAP_RANGED_ATTACK' then
                 self.heroRole[heroName] = 'ranged'
             else
@@ -1957,10 +1955,9 @@ function Pregame:networkHeroes()
                 end
             else
                 local sn = 1
-                for i=1,24 do
-                    local abName = heroValues['Ability' .. i]
-
-                    if abName ~= 'attribute_bonus' then
+                for i = 1, DOTA_MAX_ABILITIES do
+                    local abName = heroData['Ability' .. i]
+                    if abName and abName ~= '' and abName ~= 'special_bonus_attributes' and abName ~= 'generic_hidden' then
                         theData['Ability' .. sn] = abName
                         sn = sn + 1
                     end
@@ -1968,9 +1965,9 @@ function Pregame:networkHeroes()
             end
 
             local sb = 1
-            for i=1,24 do
-                local abName = heroValues['Ability' .. i]
-
+            local talentStartIndex = heroData.AbilityTalentStart or baseHero.AbilityTalentStart
+            for i = tonumber(talentStartIndex), DOTA_MAX_ABILITIES do
+                local abName = heroData['Ability' .. i]
                 if abName and util:IsTalent(abName) then
                     theData['SpecialBonus'..tostring(math.ceil(sb / 2))] = theData['SpecialBonus'..tostring(math.ceil(sb / 2))] or {}
                     table.insert(theData['SpecialBonus'..tostring(math.ceil(sb / 2))], abName)
@@ -1984,9 +1981,10 @@ function Pregame:networkHeroes()
             allowedHeroes[heroName] = true
 
             -- Store the owners
-            for i=1,24 do
-                if theData['Ability'..i] ~= nil then
-                    self.abilityHeroOwner[theData['Ability'..i]] = heroName
+            for i = 1, DOTA_MAX_ABILITIES do
+                local abName = theData['Ability'..i]
+                if abName and abName ~= '' and abName ~= 'special_bonus_attributes' and abName ~= 'generic_hidden' then
+                    self.abilityHeroOwner[abName] = heroName
                 end
             end
 
@@ -2364,7 +2362,7 @@ function Pregame:loadTrollCombos()
     self.wtfAutoBan = self.flags.wtfautoban
     self.OPSkillsList = self.flags.OPSkillsList
     self.noHero = self.flags.nohero
-    self.SuperOP = self.flags.SuperOP
+    self.SuperOP = self.flags.SuperOP or {} -- TODO: Check if super OP abilities are banned by default
     self.doNotRandom = self.flags.donotrandom
     self.underpowered = self.flags.underpowered
 
@@ -3756,6 +3754,7 @@ function Pregame:precacheBuilds()
     self:checkForReady()
 end
 
+-- NOT USED
 function Pregame:checkCachingComplete()
     self.totalToCache = self.totalToCache - 1
 
@@ -3771,6 +3770,7 @@ function Pregame:checkCachingComplete()
     end
 end
 
+-- NOT USED
 function Pregame:continueCachingHeroes(allPlayerIDs)
     local this = self
     Timers:CreateTimer(function()
@@ -3799,6 +3799,7 @@ function Pregame:continueCachingHeroes(allPlayerIDs)
     end, DoUniqueString('precacheHack'), 1.0)
 end
 
+-- NOT USED
 function Pregame:continueCaching(allSkills)
     --print('Continue caching!')
     local this = self
@@ -5719,7 +5720,7 @@ function Pregame:setSelectedAbility(playerID, slot, abilityName, dontNetwork)
 
     -- Validate that the ability is allowed in this slot (regular count)
     if SkillManager:hasTooMany(newBuild, maxRegulars, function(ab)
-        return not SkillManager:isUlt(ab)
+        return SkillManager:isValidBasic(ab)
     end) then
         -- Invalid ability name
         network:sendNotification(player, {
@@ -6223,7 +6224,7 @@ function Pregame:findRandomSkill(build, slotNumber, playerID, optionalFilter)
         if slotID ~= slotNumber then
             if SkillManager:isUlt(abilityName) then
                 totalUlts = totalUlts + 1
-            else
+            elseif SkillManager:isValidBasic(abilityName) then
                 totalNormal = totalNormal + 1
             end
         end
@@ -6245,12 +6246,16 @@ function Pregame:findRandomSkill(build, slotNumber, playerID, optionalFilter)
         end
 
         -- consider ulty count
-        if shouldAdd and SkillManager:isUlt(abilityName) then
-            if totalUlts >= maxUlts then
-                shouldAdd = false
-            end
-        else
-            if totalNormal >= maxRegulars then
+        if shouldAdd then
+            if SkillManager:isUlt(abilityName) then
+                if totalUlts >= maxUlts then
+                    shouldAdd = false
+                end
+            elseif SkillManager:isValidBasic(abilityName) then
+                if totalNormal >= maxRegulars then
+                    shouldAdd = false
+                end
+            else
                 shouldAdd = false
             end
         end
@@ -7307,7 +7312,7 @@ function Pregame:isValidSkill( build, playerID, abilityName, slotNumber )
     for _,theAbility in pairs(build) do
         if SkillManager:isUlt(theAbility) then
             totalUlts = totalUlts + 1
-        else
+        elseif SkillManager:isValidBasic(theAbility) then
             totalNormal = totalNormal + 1
         end
     end
@@ -7317,10 +7322,12 @@ function Pregame:isValidSkill( build, playerID, abilityName, slotNumber )
         if totalUlts >= maxUlts then
             return false
         end
-    else
+    elseif SkillManager:isValidBasic(abilityName) then
         if totalNormal >= maxRegulars then
             return false
         end
+    else
+        return false
     end
 
     -- Check draft array
@@ -7689,6 +7696,15 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     self.givenBonuses = self.givenBonuses or {}
     self.handled = self.handled or {}
 
+	if not spawnedUnit or spawnedUnit:IsNull() or not IsValidEntity(spawnedUnit) then
+		print("Pregame:fixSpawnedHero: spawnedUnit does not exist!")
+		return
+	end
+
+	if IsMonkeyKingCloneCustom(spawnedUnit) then
+		print('Pregame:fixSpawnedHero:spawnedUnit is Monkey King clone!')
+	end
+
     -- Don't touch this hero more than once :O
     if self.handled[spawnedUnit] then return end
     self.handled[spawnedUnit] = true
@@ -7719,26 +7735,31 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     }
 
     -- Grab their playerID
-    local playerID = spawnedUnit:GetPlayerID()
+	local playerID
+	if spawnedUnit.GetPlayerID then
+		playerID = spawnedUnit:GetPlayerID()
+	elseif spawnedUnit.GetPlayerOwnerID then
+		playerID = spawnedUnit:GetPlayerOwnerID()
+	else
+		print('Pregame:fixSpawnedHero: spawnedUnit is something invalid!')
+	end
 
-    local mainHero = PlayerResource:GetSelectedHeroEntity(playerID)
+	local mainHero = PlayerResource:GetSelectedHeroEntity(playerID)
 
-    mainHero:RemoveNoDraw()
-    mainHero:RemoveModifierByName("modifier_tribune")
+	mainHero:RemoveNoDraw()
+	mainHero:RemoveModifierByName("modifier_tribune")
 
-    if mainHero and mainHero:IsRealHero() then
-        self:applyPrimaryAttribute(playerID, mainHero)
-    end
-
-    -- Add talents
-    if IsValidEntity(spawnedUnit) then
-        if spawnedUnit.hasTalent then
-            RemoveAllTalents(spawnedUnit)
-        end
-        AddTalents(spawnedUnit,self.selectedSkills[playerID])
-        spawnedUnit.hasTalent = true
-    end
-
+	if mainHero and mainHero:IsRealHero() then
+		self:applyPrimaryAttribute(playerID, mainHero)
+	end
+	-- Add talents
+	if IsValidEntity(spawnedUnit) then
+		if spawnedUnit.hasTalent then
+			RemoveAllTalents(spawnedUnit)
+		end
+		AddTalents(spawnedUnit,self.selectedSkills[playerID])
+		spawnedUnit.hasTalent = true
+	end
 
     -- Various Fixes
     Timers:CreateTimer(function()
@@ -8056,7 +8077,8 @@ function Pregame:fixSpawnedHero( spawnedUnit )
         end, DoUniqueString('giveExtraAbility'), 0.1)
     end
 
-    Timers:CreateTimer(function()
+    -- Remove talent modifiers
+	Timers:CreateTimer(function()
         if IsValidEntity(spawnedUnit) then
             for _,modifier in pairs(spawnedUnit:FindAllModifiers()) do
                 if string.find(modifier:GetName(), "modifier_special_bonus") then

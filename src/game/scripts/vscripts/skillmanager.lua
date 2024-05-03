@@ -11,14 +11,11 @@ local constants = require('constants')
 -- Keeps track of what skills a given hero has
 local currentSkillList = {}
 
--- Contains info on heroes
-local heroListKV = LoadKeyValues('scripts/npc/npc_heroes.txt')
-
 -- A list of sub abilities needed to give out when we add an ability
 local subAbilities = LoadKeyValues('scripts/kv/abilityDeps.kv')
 
 -- Ability list used for multiplier
-local multiplierSkills = LoadKeyValues('scripts/npc/npc_abilities_custom.txt')
+local multiplierSkills = GameRules.KVs["npc_abilities_custom"]
 
 -- Table of player's active skills to make swapping super fast
 local activeSkills = {}
@@ -29,10 +26,33 @@ local meleeMap = {
 }
 
 local meleeList = {}
-for heroName, values in pairs(heroListKV) do
-    if heroName ~= 'Version' and heroName ~= 'npc_dota_hero_base' then
-        if values.AttackCapabilities == 'DOTA_UNIT_CAP_MELEE_ATTACK' then
+local heroIDToName = {}
+local skillOwningHero = {}
+
+local herolist = GameRules.KVs.herolist
+
+for heroName, value in pairs(herolist) do
+    if heroName and heroName ~= 'npc_dota_hero_base' and heroName ~= 'npc_dota_hero_target_dummy' and value == 1 then
+        local heroData = GetUnitKeyValuesByName(heroName)
+        if heroData.AttackCapabilities == 'DOTA_UNIT_CAP_MELEE_ATTACK' then
             meleeList[heroName] = true
+        end
+        -- If this hero has an ID
+        if heroData.HeroID then
+            -- Store the heroID lookup
+            heroIDToName[heroData.HeroID] = heroName
+
+            -- Loop over all possible slots
+            for i = 1, DOTA_MAX_ABILITIES do
+                -- Grab the ability
+                local ab = heroData['Ability'..i]
+
+                -- Did we actually find an ability?
+                if ab and ab ~= '' and ab ~= 'special_bonus_attributes' and ab ~= 'generic_hidden' then
+                    -- Yep, store this hero as the owner
+                    skillOwningHero[ab] = heroData.HeroID
+                end
+            end
         end
     end
 end
@@ -61,45 +81,6 @@ local autoSkill = {
     earth_spirit_stone_caller = true,
 }
 
-local heroIDToName = {}
-local skillOwningHero = {}
-for k,v in pairs(heroListKV) do
-    if k ~= 'Version' and k ~= 'npc_dota_hero_base' then
-        -- If this hero has an ID
-        if v.HeroID then
-            -- Store the heroID lookup
-            heroIDToName[v.HeroID] = k
-
-            -- Loop over all possible 24 slots
-            for i=1,23 do
-                -- Grab the ability
-                local ab = v['Ability'..i]
-
-                -- Did we actually find an ability?
-                if ab then
-                    -- Yep, store this hero as the owner
-                    skillOwningHero[ab] = v.HeroID
-                end
-            end
-        end
-    end
-end
-
--- Apply patches to heroListKV
-(function()
-    local patchFile = LoadKeyValues("scripts/npc/npc_heroes_custom.txt")
-    local ourPatch = {}
-
-    for k,v in pairs(patchFile) do
-        if k ~= 'Version' then
-            if v.override_hero then
-                ourPatch[v.override_hero] = v
-            end
-        end
-    end
-
-    util:MergeTables(heroListKV, ourPatch)
-end)();
 
 local ownersKV = LoadKeyValues('scripts/kv/owners.kv')
 for k,v in pairs(ownersKV) do
@@ -123,7 +104,7 @@ end
 
 -- Precaches a skill -- DODGY!
 local alreadyCached = {}
-local customSkills = LoadKeyValues('scripts/npc/npc_abilities_custom.txt')
+local customSkills = GameRules.KVs["npc_abilities_custom"]
 
 SkillManager = class({})
 
@@ -135,7 +116,21 @@ function SkillManager:precacheSkill(skillName, callback)
         local heroName = heroIDToName[heroID]
 
         if heroName then
-            -- Have we already cached this?
+            -- Check if precached elsewhere
+			for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+				if PlayerResource:IsValidPlayerID(playerID) and Pregame.cachedPlayerHeroes[playerID] == true then
+					local h = PlayerResource:GetSelectedHeroEntity(playerID)
+					if h then
+						local name = h:GetUnitName()
+						if name == heroName then
+							alreadyCached[heroName] = true
+							break
+						end
+					end
+				end
+			end
+
+			-- Have we already cached this?
             if alreadyCached[heroName] then
                 if callback ~= nil then
                     callback()
@@ -195,26 +190,12 @@ function SkillManager:GetHeroSkills(heroClass)
     local skills = {}
 
     -- Build list of abilities
-    for heroName, values in pairs(heroListKV) do
-        if heroName == heroClass then
-            for i = 1, 23 do
-                local ab = values["Ability"..i]
-                if ab and ab ~= 'attribute_bonus' then
-                    table.insert(skills, ab)
-                end
-            end
+    local heroData = GetUnitKeyValuesByName(heroClass)
+    for i = 1, DOTA_MAX_ABILITIES do
+        local ab = heroData["Ability"..i]
+        if ab and ab ~= '' and ab ~= 'special_bonus_attributes' and ab ~= 'generic_hidden' then
+            table.insert(skills, ab)
         end
-    end
-
-    if heroClass == 'npc_dota_lone_druid_bear2' then
-        table.insert(skills, 'lone_druid_spirit_bear_return')
-    elseif heroClass == 'npc_dota_lone_druid_bear3' then
-        table.insert(skills, 'lone_druid_spirit_bear_return')
-        table.insert(skills, 'lone_druid_spirit_bear_entangle')
-    elseif heroClass == 'npc_dota_lone_druid_bear4' then
-        table.insert(skills, 'lone_druid_spirit_bear_return')
-        table.insert(skills, 'lone_druid_spirit_bear_entangle')
-        table.insert(skills, 'lone_druid_spirit_bear_demolish')
     end
 
     return skills
@@ -238,7 +219,7 @@ function SkillManager:RemoveAllSkills(hero)
     -- Ensure the hero isn't nil
     if hero == nil then return end
 
-    -- Remove all old skills
+    -- Remove all old skills - it actually hides them
     for k,v in pairs(currentSkillList[hero]) do
         if hero:HasAbility(v) then
             --if PlayerResource:IsFakeClient(hero:GetPlayerID()) then
@@ -255,7 +236,7 @@ function SkillManager:RemoveAllSkills(hero)
     self:BuildSkillList(hero)
 end
 
--- Shows the given set number
+-- Shows the given set number - NOT USED
 function SkillManager:ShowSet(hero, number)
     local playerID = hero:GetPlayerID()
 
@@ -323,7 +304,7 @@ function SkillManager:GetMultiplierSkillName(skillName)
     return skillName
 end
 
--- Precaches a build <3
+-- Precaches a build - NOT USED
 function SkillManager:PrecacheBuild(build)
     for i=1,23 do
         local v = build[i]
@@ -334,7 +315,7 @@ function SkillManager:PrecacheBuild(build)
     end
 end
 
--- Precaches a hero - not used LMAO
+-- Precaches a hero - NOT USED
 local realHeroCache = {}
 function SkillManager:PrecacheHero(heroName, playerID)
     if realHeroCache[heroName] then return end
@@ -347,7 +328,7 @@ end
 local inSwap = false
 function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
     -- Ensure the hero isn't nil
-    if hero == nil or not hero:IsAlive() then return end
+    if hero == nil or not IsValidEntity(hero) or not hero:IsAlive() then return end
 
     -- If we are currently swapping a hero, ignore
     if inSwap then return end
@@ -881,10 +862,16 @@ end
 
 -- Returns true if a skill is an ultimate
 function SkillManager:isUlt(name)
+    if not name then
+        return false
+    end    
+    if name == "" then
+        return false
+    end
     local ability_data = GetAbilityKeyValuesByName(name)
     if not ability_data then
         print("SkillManager:isUlt: Ability "..name.." does not exist!")
-        return
+        return false
     end
     local ability_type = ability_data.AbilityType
     if not ability_type then
@@ -894,12 +881,39 @@ function SkillManager:isUlt(name)
     return string.find(ability_type, "DOTA_ABILITY_TYPE_ULTIMATE")
 end
 
+-- Returns true if a skill is valid and not an ultimate
+function SkillManager:isValidBasic(name)
+    if not name then
+        return false
+    end
+    if name == "" or name == 'special_bonus_attributes' or name == 'generic_hidden' or DONOTREMOVE[name] then
+        return false
+    end
+    local ability_data = GetAbilityKeyValuesByName(name)
+    if not ability_data then
+        print("SkillManager:isValidBasic: Ability "..name.." does not exist!")
+        return false
+    end
+    local ability_type = ability_data.AbilityType
+    if not ability_type then
+        -- If ability type is ommited it's usually a basic ability
+        return true
+    end
+    return string.find(ability_type, "DOTA_ABILITY_TYPE_BASIC")
+end
+
 -- Returns true if a skill is a passive
 function SkillManager:isPassive(name)
+    if not name then
+        return false
+    end    
+    if name == "" or name == 'special_bonus_attributes' or name == 'generic_hidden' or DONOTREMOVE[name] then
+        return false
+    end
     local ability_data = GetAbilityKeyValuesByName(name)
     if not ability_data then
         print("SkillManager:isPassive: Ability "..name.." does not exist!")
-        return
+        return false
     end
     local behavior = ability_data.AbilityBehavior
     if not behavior then

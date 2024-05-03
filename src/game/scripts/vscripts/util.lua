@@ -161,6 +161,9 @@ function util:IsTalent(ability)
     local ability_name
     if type(ability) == "string" then
         ability_name = ability
+        if ability_name == "" then
+            return false
+        end
         local ability_data = GetAbilityKeyValuesByName(ability_name)
         if not ability_data then
             print("util:IsTalent: Ability "..ability_name.." does not exist!")
@@ -323,9 +326,7 @@ function util:fetchPlayerData()
 
         local fullPlayerArray = {}
 
-        local maxPlayerID = 24
-
-        for playerID=0,maxPlayerID-1 do
+        for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
             local steamID = PlayerResource:GetSteamAccountID(playerID)
             if steamID ~= 0 then
                 table.insert(fullPlayerArray, steamID)
@@ -607,7 +608,6 @@ function DebugCalls()
     end
 end
 
-
 function CDOTA_BaseNPC:GetUnsafeAbilitiesCount()
     local count = 0
     local randomKv = self.randomKv
@@ -772,10 +772,9 @@ end
 
 function util:anyBots()
     if Pregame.enabledBots == true then return true end
-    local maxPlayerID = 24
     local count = 0
     local toggle = false
-    for playerID=0,(maxPlayerID-1) do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         print(playerID, self:isPlayerBot(playerID), PlayerResource:IsFakeClient(playerID), PlayerResource:GetPlayer(playerID))
         if PlayerResource:GetPlayer(playerID) and (PlayerResource:IsFakeClient(playerID) or PlayerResource:GetSteamAccountID(playerID) == 0) then
             toggle = true
@@ -786,7 +785,7 @@ end
 
 function util:isSinglePlayerMode()
     local count = 0
-    for playerID = 0, DOTA_MAX_TEAM_PLAYERS -1 do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if not self:isPlayerBot(playerID) then
             count = count + 1
             if count > 1 then return false end
@@ -799,7 +798,7 @@ end
 function util:checkPickedHeroes( builds )
     local players = {}
 
-    for i = 0, DOTA_MAX_TEAM_PLAYERS -1 do
+    for i = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         local ply = PlayerResource:GetPlayer(i)
         if ply then
             if not builds[i] then
@@ -845,7 +844,7 @@ function CDOTA_BaseNPC:FixIllusion(source)
                 local illusionAbility = self:FindAbilityByName(abilityName)
                 if illusionAbility then
                     illusionAbility:SetLevel(abilityLevel)
-                    -- TODO: Check if it's toggle, if yes toggle it ON
+                    -- TODO: Check if it's toggle passive, if yes toggle it ON
                 end
             end
         end
@@ -863,7 +862,7 @@ function CDOTA_BaseNPC:HasAbilityWithFlag(flag)
 end
 
 function CDOTABaseAbility:IsCustomAbility()
-	local ability_kvs = GetAbilityKeyValuesByName(self:GetAbilityName())
+	local ability_kvs = GetAbilityKeyValuesByName(self:GetAbilityName()) or self:GetAbilityKeyValues()
 	if not ability_kvs then
 		print("IsCustomAbility: Ability "..self:GetAbilityName().." does not exist.")
 		return
@@ -872,12 +871,18 @@ function CDOTABaseAbility:IsCustomAbility()
 end
 
 function IsCustomAbilityByName(name)
-	local ability_kvs = GetAbilityKeyValuesByName(name)
-	if not ability_kvs then
-		print("IsCustomAbilityByName: Ability "..name.." does not exist.")
-		return
-	end
-	return ability_kvs.BaseClass ~= nil and not util:IsTalent(name)
+    if not name then
+        return false
+    end
+    if name == "" then
+        return false
+    end
+    local ability_kvs = GetAbilityKeyValuesByName(name)
+    if not ability_kvs then
+        print("IsCustomAbilityByName: Ability "..name.." does not exist.")
+        return false
+    end
+    return ability_kvs.BaseClass ~= nil and not util:IsTalent(name)
 end
 
 function CDOTA_BaseNPC:HasUnitFlag(flag)

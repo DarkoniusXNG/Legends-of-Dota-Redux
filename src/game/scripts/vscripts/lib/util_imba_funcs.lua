@@ -372,8 +372,10 @@ function ChangeAttackProjectileImba(unit)
 
 	-- Else, default to the base ranged projectile
 	else
-		print(unit:GetKeyValue("ProjectileModel"))
-		unit:SetRangedProjectileName(unit:GetKeyValue("ProjectileModel"))
+		local unit_data = GetUnitKeyValuesByName(unit:GetUnitName())
+		if unit_data and unit_data.ProjectileModel then
+			unit:SetRangedProjectileName(unit_data.ProjectileModel)
+		end
 	end
 end
 

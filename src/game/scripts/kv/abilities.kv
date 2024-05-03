@@ -696,16 +696,13 @@
             "meepo_petrify"                     "1"   // ok
             "necrolyte_death_seeker"            "1"   // needs death pulse - added warning text
             "ogre_magi_smash"                   "1" // fire shield ok 
-            // "ogre_magi_frost_armor"             "1"   // cant find?
             "omniknight_hammer_of_purity"       "1"   // ok
-            //"pangolier_gyroshell"               "1"   // cant find?
 			"pangolier_rollup"					"1"
             "phantom_assassin_fan_of_knives"    "1"   // ok
             "riki_poison_dart"                  "1"   // ok
             "slark_fish_bait"                   "1"   // ok
             "sniper_concussive_grenade"         "1"   // ok
             "storm_spirit_electric_rave"        "1"   // needs overload - added warning text
-            //"templar_assassin_trap_teleport"    "1"
             "terrorblade_terror_wave"           "1"   // ok
             "terrorblade_demon_zeal"            "1"   // ok
             "shredder_flamethrower"             "1"   // ok
@@ -764,7 +761,6 @@
             "harpy_scout_take_off"              "1"
             "enraged_wildkin_hurricane"         "1"
 			"black_dragon_fireball"				"1"
-			// "tornado_tempest"					"0"
 			"necronomicon_warrior_sight"		"1"
 
             "skywrath_mage_shield_of_the_scion" "1"   // doesnt work
@@ -823,7 +819,6 @@
 			"tidehunter_dead_in_the_water"	"1"
 			"crystal_maiden_crystal_clone"	"1"
 			"brewmaster_void_astral_pull"	"1"
-			"lone_druid_spirit_bear_fetch"	"1"
 			"antimage_counterspell_ally"    "1"
 			"centaur_work_horse"            "1"
 
@@ -841,7 +836,6 @@
 				"kobold_disarm"							"1"
 				// "undying_tombstone_zombie_deathstrike"	"1"
 				"necronomicon_warrior_mana_burn_lod"                "1"
-				// "forged_spirit_melting_strike"			"1"
             }
 
             "big_thunder_lizard_group" {
@@ -886,7 +880,6 @@
 				"enraged_wildkin_hurricane"					"1"
 				"ice_shaman_incendiary_bomb"				"1"
 				"necronomicon_archer_mana_burn_lod"         "1"
-				// "roshan_halloween_burn"						"1"
             }
 			
             "centaur_khan_group" {
@@ -1441,7 +1434,6 @@
                   "crater" "1"
                   //"ranged_punch" "1"                      //crashes tools mode, no spell effect in normal game
                   "pushing_blast" "1"
-                  //"sled_penguin_redux" "1"				// errors
             }
             
         }
@@ -2347,22 +2339,19 @@
     }
     "heroToSkillMap" {
         "npc_dota_hero_antimage" {
-            "Ability1"            "antimage_blink"
-            "Ability2"            "antimage_blink_redux"
-            "Ability3"            "antimage_mana_break"
-            "Ability4"            "antimage_mana_void"
-            "Ability5"            "antimage_spell_shield"
-            "Ability6"            "antimage_counterspell"
-			"Ability7"            "antimage_counterspell_ally"
-			"Ability8"			  "antimage_mana_overload"
+            "Ability1"            "antimage_mana_break"
+			"Ability2"            "antimage_blink"
+            "Ability3"            "antimage_counterspell"
+			"Ability4"            "antimage_counterspell_ally"
+            "Ability5"            "antimage_mana_void"
+			"Ability6"			  "antimage_mana_overload"
         }
 
         "npc_dota_hero_queenofpain" {
-            "Ability1"            "queenofpain_blink"
-            "Ability2"            "queenofpain_blink_redux"
+            "Ability1"            "queenofpain_shadow_strike"
+			"Ability2"            "queenofpain_blink"
             "Ability3"            "queenofpain_scream_of_pain"
-            "Ability4"            "queenofpain_shadow_strike"
-            "Ability5"            "queenofpain_sonic_wave"
+            "Ability4"            "queenofpain_sonic_wave"
         }
 
         "npc_dota_hero_invoker" {
@@ -2376,18 +2365,16 @@
             "Ability8"            "invoker_sun_strike_ad"
             "Ability9"            "invoker_tornado_ad"
             "Ability10"           "invoker_deafening_blast_ad"
-			
         }
 
         "npc_dota_hero_beastmaster" {
-            "Ability1"            "beastmaster_call_of_the_wild_boar"
-            "Ability2"            "beastmaster_inner_beast"
-            "Ability3"            "beastmaster_primal_roar"
-            "Ability4"            "beastmaster_wild_axes"
-            "Ability5"            "beastmaster_call_of_the_wild_hawk"
-			"Ability6"			  "beastmaster_mark_of_the_beast"
-			"Ability7"			  "beastmaster_hawk_dive"
-			"Ability8"			  "beastmaster_drums_of_slom"
+            "Ability1"            "beastmaster_wild_axes"
+			"Ability2"            "beastmaster_call_of_the_wild_boar"
+			"Ability3"            "beastmaster_call_of_the_wild_hawk"
+            "Ability4"            "beastmaster_inner_beast"
+            "Ability5"            "beastmaster_primal_roar"
+            "Ability6"			  "beastmaster_drums_of_slom"
+			"Ability7"			  "beastmaster_mark_of_the_beast"
         }
 		
 		"npc_dota_hero_broodmother" {
@@ -2426,6 +2413,14 @@
 			"Ability6"		"techies_remote_mines"
 			"Ability7"		"techies_minefield_sign"
         }
+
+		"npc_dota_hero_templar_assassin" {
+            "Ability1"		"templar_assassin_refraction"
+			"Ability2"		"templar_assassin_meld"
+			"Ability3"		"templar_assassin_psi_blades"
+			"Ability4"		"templar_assassin_psionic_trap"
+			"Ability5"		"templar_assassin_trap_teleport"
+        }
 		
         "npc_dota_hero_tiny" {
             "Ability1"            "tiny_avalanche"
@@ -2446,7 +2441,6 @@
 			"Ability4"		"troll_warlord_fervor"
 			"Ability5"		"troll_warlord_rampage"
 			"Ability6"		"troll_warlord_battle_trance"
-			"Ability7"		"troll_warlord_scepter"
         }
 		
 		"npc_dota_hero_furion" {
@@ -2464,7 +2458,6 @@
 			"Ability2"		"bounty_hunter_jinada"
 			"Ability3"		"bounty_hunter_wind_walk"
 			"Ability4"		"bounty_hunter_track"
-			"Ability5"		"bounty_hunter_lookout"
         }
 		
         "npc_dota_hero_tusk" {
@@ -2502,7 +2495,6 @@
             "Ability2"            "skeleton_king_mortal_strike"
             "Ability3"            "skeleton_king_reincarnation"
             "Ability4"            "skeleton_king_vampiric_aura"
-            "Ability5"            "skeleton_king_reincarnation_redux"
         }
 		
 		"npc_dota_hero_luna" {
@@ -2562,8 +2554,7 @@
             "Ability1"            "vengefulspirit_magic_missile"
             "Ability2"            "vengefulspirit_wave_of_terror"
             "Ability3"            "vengefulspirit_command_aura"
-            //"Ability4"            "vengefulspirit_nether_swap_redux"        // no npc text file for this ability
-            "Ability5"            "vengefulspirit_nether_swap"
+            "Ability4"            "vengefulspirit_nether_swap"
         }
         "npc_dota_hero_brewmaster" {
             "Ability1"            "brewmaster_thunder_clap"
@@ -2582,6 +2573,14 @@
 			"Ability14"			  "brewmaster_primal_companion"
 			"Ability15"			  "brewmaster_void_astral_pull"
         }
+
+		"npc_dota_hero_bristleback" {
+			"Ability1"		"bristleback_viscous_nasal_goo"
+			"Ability2"		"bristleback_quill_spray"
+			"Ability3"		"bristleback_bristleback"
+			"Ability4"		"bristleback_warpath"
+			"Ability5"		"bristleback_hairball"
+		}
 		
         "npc_dota_hero_crystal_maiden" {
             "Ability1"            "crystal_maiden_crystal_nova"
@@ -2656,7 +2655,6 @@
             "Ability3"            "juggernaut_healing_ward"
             "Ability4"            "juggernaut_omni_slash"
             "Ability5"            "juggernaut_swift_slash"
-            //"Ability6"          "juggernaut_healing_ward_mana"
         }
         "npc_dota_hero_obsidian_destroyer" {
             "Ability1"            "obsidian_destroyer_arcane_orb"
@@ -2672,10 +2670,9 @@
             "Ability1"                          "pangolier_swashbuckle"
             "Ability2"                          "pangolier_shield_crash"
             "Ability3"                          "pangolier_lucky_shot"
-            "Ability4"                          "pangolier_lucky_shot_ranged"
-            "Ability5"                          "pangolier_heartpiercer"
-            "Ability6"                          "pangolier_gyroshell"
-			"Ability7"							"pangolier_rollup"
+            "Ability4"                          "pangolier_heartpiercer"
+            "Ability5"                          "pangolier_gyroshell"
+			"Ability6"							"pangolier_rollup"
       }
         "npc_dota_hero_earthshaker" {
             "Ability1"            "earthshaker_fissure"
@@ -2685,21 +2682,19 @@
             "Ability5"            "earthshaker_echo_slam"
         }
         "npc_dota_hero_slardar" {
-            "Ability1"            "slardar_bash"
-            "Ability2"            "slardar_sprint"
-            "Ability3"            "slardar_slithereen_crush"
+            "Ability1"            "slardar_sprint"
+            "Ability2"            "slardar_slithereen_crush"
+			"Ability3"            "slardar_bash"
             "Ability4"            "slardar_amplify_damage"
-            "Ability5"            "slardar_bash_ranged"
         }
         "npc_dota_hero_tinker" {
             "Ability1"            "tinker_laser"
             "Ability2"            "tinker_heat_seeking_missile"
             "Ability3"            "tinker_march_of_the_machines"
-            "Ability4"            "tinker_rearm_lod"
-            "Ability5"            "tinker_rearm"
-			"Ability6"			  "tinker_keen_teleport"
-			"Ability7"			  "tinker_defense_matrix"
-			"Ability8"			  "tinker_warp_grenade"
+            "Ability4"            "tinker_rearm"
+			"Ability5"			  "tinker_keen_teleport"
+			"Ability6"			  "tinker_defense_matrix"
+			"Ability7"			  "tinker_warp_grenade"
         }
         "npc_dota_hero_slark" {
             "Ability1"            "slark_dark_pact"
@@ -2720,8 +2715,7 @@
             "Ability3"            "centaur_return" 
             "Ability4"            "centaur_stampede"
 			"Ability5"			  "centaur_mount"
-			"Ability6"			  "centaur_overrun"
-			"Ability7"            "centaur_work_horse"
+			"Ability6"            "centaur_work_horse"
         }
 		
 		"npc_dota_hero_magnataur" {
@@ -2730,7 +2724,6 @@
             "Ability3"            "magnataur_skewer"
             "Ability4"            "magnataur_horn_toss"
 			"Ability5"			  "magnataur_reverse_polarity"
-			"Ability6"			  "magnataur_greater_shockwave"
 			"Ability7"			  "magnus_strength_of_joelrak"
         }
 
@@ -2755,14 +2748,13 @@
             "Ability4"            "silencer_global_break"
             "Ability5"            "silencer_global_disarm"
             "Ability6"            "silencer_global_silence"
-            "Ability7"            "silencer_glaives_of_wisdom_steal"
         }
         "npc_dota_hero_abyssal_underlord" {
             "Ability1"            "abyssal_underlord_atrophy_aura"
             "Ability2"            "abyssal_underlord_dark_rift"
             "Ability3"            "abyssal_underlord_firestorm"
             "Ability4"            "abyssal_underlord_pit_of_malice"
-			"Ability5"			  "abyssal_underlord_dark_portal"
+			//"Ability5"			  "abyssal_underlord_dark_portal"
         }
         "npc_dota_hero_riki" {
             "Ability1"            "riki_smoke_screen"
@@ -2799,13 +2791,12 @@
             "Ability4"            "doom_bringer_doom"
         }
       "npc_dota_hero_huskar" {
-            "Ability1"            "huskar_berserkers_blood"
-            "Ability2"            "huskar_burning_spear"
-            "Ability3"            "huskar_inner_vitality"
+            "Ability1"            "huskar_inner_fire"
+			"Ability2"            "huskar_burning_spear"
+			"Ability3"            "huskar_berserkers_blood"
             "Ability4"            "huskar_life_break"
-            "Ability5"            "huskar_life_break_redux"
-            "Ability6"            "huskar_berserkers_blood_lod"
-            "Ability7"            "huskar_inner_fire"
+            "Ability5"            "huskar_berserkers_blood_lod"
+			"Ability6"            "huskar_inner_vitality"
         }
       "npc_dota_hero_lich" {
             "Ability1"        "lich_frost_nova"
@@ -2826,7 +2817,6 @@
             "Ability5"        "lone_druid_true_form_battle_cry"
             "Ability6"        "lone_druid_savage_roar"
 			"Ability7"		  "lone_druid_entangling_claws"
-			"Ability8"        "lone_druid_spirit_bear_fetch"
         }
         "npc_dota_hero_meepo" {
 
@@ -2844,11 +2834,8 @@
             "Ability2"            "drow_ranger_wave_of_silence"
             "Ability3"            "drow_ranger_multishot"
             "Ability4"            "drow_ranger_marksmanship"
-            // "Ability5"            "marksmanship_int"
-            //"Ability6"            "marksmanship_str"
-            "Ability5"            "drow_ranger_marksmanship_redux"
+			"Ability5"			  "drow_ranger_glacier"
             "Ability6"            "drow_splitshot"
-			"Ability7"			  "drow_ranger_glacier"
         }
        "npc_dota_hero_skywrath_mage"
         {
@@ -2875,8 +2862,6 @@
             "Ability2"  "monkey_king_tree_dance"
             "Ability3"  "monkey_king_primal_spring"
             "Ability4"  "monkey_king_jingu_mastery"
-            //"Ability5" "monkey_king_jingu_mastery_lod_melee"
-            //"Ability6" "monkey_king_mischief"
             "Ability5"  "monkey_king_wukongs_command"
         }
         "npc_dota_hero_mars"
@@ -2905,23 +2890,21 @@
         }
         "npc_dota_hero_phantom_lancer"
         {
-            "Ability1" "phantom_lancer_doppelwalk"
-            "Ability2"  "phantom_lancer_phantom_edge"
-            "Ability3"  "phantom_lancer_juxtapose"
-            //"Ability4"  "phantom_lancer_juxtapose_melee"
-            "Ability4"  "phantom_lancer_spirit_lance"
+            "Ability1"  "phantom_lancer_spirit_lance"
+			"Ability2" "phantom_lancer_doppelwalk"
+            "Ability3"  "phantom_lancer_phantom_edge"
+            "Ability4"  "phantom_lancer_juxtapose"
         }
         "npc_dota_hero_alchemist"
         {
             "Ability1"  "alchemist_acid_spray"
             "Ability2"  "alchemist_goblins_greed"
             "Ability3"  "alchemist_unstable_concoction"
-            "Ability4"  "alchemist_chemical_rage"
-            "Ability5"  "alchemist_chemical_rage_redux"
-            "Ability6"  "alchemist_transmuted_scepter"
-            "Ability7"  "alchemist_aghnaim_magic_redux"
-            "Ability8"  "alchemist_berserk_potion"
-			"Ability9"	"alchemist_corrosive_weaponry"
+            "Ability4"	"alchemist_corrosive_weaponry"
+            "Ability5"  "alchemist_chemical_rage"
+            "Ability6"  "alchemist_berserk_potion"
+            "Ability7"  "alchemist_transmuted_scepter"
+            "Ability8"  "alchemist_aghnaim_magic_redux"
         }
         "npc_dota_hero_phantom_assassin"
         {
@@ -2938,7 +2921,6 @@
             "Ability2"  "abaddon_aphotic_shield"
             "Ability3"  "abaddon_frostmourne"
             "Ability4"  "abaddon_borrowed_time"
-            "Ability5"  "abaddon_borrowed_time_redux"
         }
         "npc_dota_hero_arc_warden"
         {
@@ -2946,7 +2928,6 @@
             "Ability2"  "arc_warden_magnetic_field"
             "Ability3"  "arc_warden_spark_wraith"
             "Ability4"  "arc_warden_tempest_double"
-            "Ability5"  "arc_warden_tempest_double_redux"
         }
         "npc_dota_hero_faceless_void"
         {
@@ -3011,11 +2992,10 @@
             "Ability4"  "morphling_morph_agi"
             "Ability5"  "morphling_morph_str"
             "Ability6"  "morphling_replicate"
-            //"Ability7"  "morphling_hybrid"
-            "Ability8"  "morph_int_str_redux"
-            "Ability9"  "morph_str_int_redux"
-            "Ability10"  "morph_agi_int_redux"
-            "Ability11"  "morph_int_agi_redux"
+            "Ability7"  "morph_int_str_redux"
+            "Ability8"  "morph_str_int_redux"
+            "Ability9"  "morph_agi_int_redux"
+            "Ability10"  "morph_int_agi_redux"
         }
         "npc_dota_hero_dark_willow"
         {
@@ -3063,7 +3043,6 @@
         "npc_dota_hero_dawnbreaker" {
             "Ability1"  "dawnbreaker_fire_wreath"
             "Ability2"  "dawnbreaker_celestial_hammer"
-            // "Ability3"  "dawnbreaker_converge"
             // "Ability4"  "dawnbreaker_luminosity"
             "Ability3"  "dawnbreaker_solar_guardian"
         }
@@ -3089,7 +3068,6 @@
 			"Ability3"		"muerta_gunslinger"
 			"Ability4"		"muerta_parting_shot"
 			"Ability5"		"muerta_pierce_the_veil"
-			"Ability6"      "muerta_grave_visitation"
 		}
 		
 		"npc_dota_hero_tidehunter" {
@@ -3106,9 +3084,8 @@
 			"Ability2"		"venomancer_poison_sting"
 			"Ability3"		"venomancer_plague_ward"
 			"Ability4"		"venomancer_latent_poison"
-			"Ability5"		"venomancer_area_poison"
-			"Ability6"		"venomancer_poison_nova"
-			"Ability7"		"venomancer_noxious_plague"
+			"Ability5"		"venomancer_poison_nova"
+			"Ability6"		"venomancer_noxious_plague"
         }
 		
 		"npc_dota_hero_shadow_demon" {
@@ -3119,6 +3096,15 @@
 			"Ability5"		"shadow_demon_demonic_cleanse"
 			"Ability6"		"shadow_demon_demonic_purge"
         }
+
+		"npc_dota_hero_nevermore" {
+			"Ability1"		"nevermore_shadowraze1"
+			"Ability2"		"nevermore_shadowraze2"
+			"Ability3"		"nevermore_shadowraze3"
+			"Ability4"		"nevermore_necromastery"
+			"Ability5"		"nevermore_dark_lord"
+			"Ability6"		"nevermore_requiem"
+		}
 		
     }
 }

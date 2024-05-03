@@ -18,13 +18,16 @@ function StoreTalents()
     end
 
     -- Get and order default talents
-    local allHeroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
+    local allHeroes = GameRules.KVs.herolist
+    local baseHero = GetUnitKeyValuesByName("npc_dota_hero_base")
     local abilitiesOverride = GameRules.KVs["npc_abilities_override"]
-    for hero, params in pairs(allHeroes) do
+    for hero, _ in pairs(allHeroes) do
+        local params = GetUnitKeyValuesByName(hero)
         -- Find first talent
-        if type(params) == "table" then
+        if params then
             local talentIndex
-            for i=1,26 do
+            local talentStartIndex = params.AbilityTalentStart or baseHero.AbilityTalentStart
+            for i = tonumber(talentStartIndex), DOTA_MAX_ABILITIES do
                 if params["Ability"..i] and util:IsTalent(params["Ability"..i]) then
                     talentIndex = i
                     break
@@ -51,7 +54,7 @@ function StoreTalents()
     end
 
     -- Get all custom talents
-    local customAbilities = LoadKeyValues('scripts/npc/npc_abilities_custom.txt')
+    local customAbilities = GameRules.KVs["npc_abilities_custom"]
     for ability, params in pairs(customAbilities) do
         if type(params) == "table" then
             if params.TalentRank then

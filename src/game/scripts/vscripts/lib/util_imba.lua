@@ -884,72 +884,6 @@ function table.deepmerge(t1, t2)
 	return t1
 end
 
-function CustomHeroAttachments(hero, illusion)
-
-	hero_name = hero:GetUnitName()
-
-	for i = 1, 8 do
-		if GetKeyValueByHeroName(hero_name, "Ability"..i) ~= nil then
-			local ab = hero:AddAbility(GetKeyValueByHeroName(hero_name, "Ability"..i))
-			if GetKeyValueByHeroName(hero_name, "Ability"..i) == "ghost_revenant_ghost_immolation" or GetKeyValueByHeroName(hero_name, "Ability"..i) == "hell_empress_ambient_effects" then
-				ab:SetLevel(1)
-			end
-		end
-	end
-
-	if hero_name == "npc_dota_hero_ghost_revenant" then
-		hero:SetRenderColor(128, 255, 0)
-		hero.head = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/razor/apostle_of_the_tempest_head/apostle_of_the_tempest_head.vmdl"})
-		hero.head:FollowEntity(hero, true)
-		hero.head:SetRenderColor(128, 255, 0)
-		hero.arms = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/razor/apostle_of_the_tempest_arms/apostle_of_the_tempest_arms.vmdl"})
-		hero.arms:FollowEntity(hero, true)
-		hero.arms:SetRenderColor(128, 255, 0)
-		hero.body = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/razor/apostle_of_the_tempest_armor/apostle_of_the_tempest_armor.vmdl"})
-		hero.body:FollowEntity(hero, true)
-		hero.body:SetRenderColor(128, 255, 0)
-		hero.belt = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/razor/empire_of_the_lightning_lord_belt/empire_of_the_lightning_lord_belt.vmdl"})
-		hero.belt:FollowEntity(hero, true)
-		hero.belt:SetRenderColor(128, 255, 0)
-		hero.weapon = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/razor/severing_lash/mesh/severing_lash.vmdl"})
-		hero.weapon:FollowEntity(hero, true)
-		hero.weapon:SetRenderColor(128, 255, 0)
-	elseif hero_name == "npc_dota_hero_hell_empress" then
-		
-	elseif hero_name == "npc_dota_hero_scaldris" then
-		for i = 0, hero:GetAbilityCount() - 1 do
-			if hero:GetAbilityByIndex(i) then
-				hero:RemoveAbility(hero:GetAbilityByIndex(i):GetAbilityName())
-			end
-		end
-		hero:AddAbility("imba_scaldris_heatwave")
-		hero:AddAbility("imba_scaldris_scorch")
-		hero:AddAbility("imba_scaldris_jet_blaze")
-		hero:AddAbility("generic_hidden")
-		local ab = hero:AddAbility("imba_scaldris_antipode")
-		ab:SetLevel(1)
-		hero:AddAbility("imba_scaldris_living_flame")
-		hero:AddAbility("imba_scaldris_cold_front")
-		hero:AddAbility("imba_scaldris_freeze")
-		hero:AddAbility("imba_scaldris_ice_floes")
-		hero:AddAbility("imba_scaldris_absolute_zero")
-		hero:AddAbility("generic_hidden")
-		hero:AddAbility("generic_hidden")
-		hero:AddAbility("generic_hidden")
-		hero:AddAbility("generic_hidden")
-		hero:AddAbility("generic_hidden")
-		hero:AddAbility("generic_hidden")
-		hero:AddAbility("generic_hidden")
-		hero:AddAbility("generic_hidden")
-		hero:AddAbility("generic_hidden")
-		hero:AddAbility("generic_hidden")
-		hero:AddAbility("generic_hidden")
-		hero:AddAbility("generic_hidden")
-		hero:AddAbility("generic_hidden")
-		hero:AddAbility("generic_hidden")
-	end
-end
-
 function ReconnectPlayer(player_id)
 	print("Player is reconnecting:", player_id)
 	-- Reinitialize the player's pick screen panorama, if necessary
@@ -1147,7 +1081,6 @@ end]]--
 
 	local bottle = bActiveByBottle or false
 	local store_in_bottle = false
-	local duration = GetItemKV("item_imba_rune_"..rune_name, "RuneDuration")
 
 	for i = 0, 5 do
 		local item = unit:GetItemInSlot(i)
@@ -2513,13 +2446,6 @@ function IsWardTypeUnit( unit )
 	return false
 end
 
-function GetBaseRangedProjectileName( unit )
-	local unit_name = unit:GetUnitName()
-	unit_name = string.gsub(unit_name, "dota", "imba")
-	local unit_table = unit:IsHero() and GameRules.HeroKV[unit_name] or GameRules.UnitKV[unit_name]
-	return unit_table and unit_table["ProjectileModel"] or ""
-end
-
 function ChangeAttackProjectileImba( unit )
 
 	local particle_deso = "particles/items_fx/desolator_projectile.vpcf"
@@ -2563,7 +2489,10 @@ function ChangeAttackProjectileImba( unit )
 
 	-- Else, default to the base ranged projectile
 	else
-		unit:SetRangedProjectileName(GetBaseRangedProjectileName(unit))
+		local unit_data = GetUnitKeyValuesByName(unit:GetUnitName())
+		if unit_data and unit_data.ProjectileModel then
+			unit:SetRangedProjectileName(unit_data.ProjectileModel)
+		end
 	end
 end
 

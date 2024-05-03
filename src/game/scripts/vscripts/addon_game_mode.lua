@@ -12,8 +12,6 @@ n    lone_druid_true_form = {getSpellIcon('lone_druid_true_form'), tranAbility('
     phoenix_supernova = {getSpellIcon('phoenix_supernova'), tranAbility('phoenix_supernova')},
 }]]
 
-
-
 require('lib/StatUploaderFunctions')
 
 -- Precache obstacles
@@ -37,7 +35,6 @@ require('stats_client')
 -- Custom Shop
 require('lib/playertables')
 require('lib/notifications')
-require('lib/keyvalues')
 -- require('panorama_shop')
 
 -- Misc functions for Angel Arena Black Star abilities/items
@@ -94,9 +91,8 @@ function Activate()
     -- Print LoD version header
     local versionNumber = "3.1.2"
     print('\n\nDota 2 Redux is activating! (v'..versionNumber..')')
-
-    -- Load specific modules
-
+	
+   -- Load specific modules
     if not Pregame then
         require('pregame')
 	end

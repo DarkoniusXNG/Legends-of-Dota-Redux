@@ -284,10 +284,11 @@ function PanoramaShop:StackStockableCooldown(team, item, time)
 	end)
 end
 
+local ItemKV = LoadKeyValues('scripts/npc/items.txt')
 function PanoramaShop:InitializeItemTable()
 	local RecipesToCheck = {}
 	-- loading all items and splitting them by item/recipe
-	for name, kv in pairs(KeyValues.ItemKV) do
+	for name, kv in pairs(ItemKV) do
 		if type(kv) == "table" and (kv.ItemPurchasable or 1) == 1 then
 			if kv.ItemRecipe == 1 then
 				RecipesToCheck[kv.ItemResult] = name
@@ -320,7 +321,7 @@ function PanoramaShop:InitializeItemTable()
 				cost = GetTrueItemCost(RecipesToCheck[name]),
 				recipeItemName = RecipesToCheck[name],
 			}
-			local recipeKv = KeyValues.ItemKV[RecipesToCheck[name]]
+			local recipeKv = ItemKV[RecipesToCheck[name]]
 
 			if not itemsBuldsInto[RecipesToCheck[name]] then itemsBuldsInto[RecipesToCheck[name]] = {} end
 			if not util:contains(itemsBuldsInto[RecipesToCheck[name]], name) then
