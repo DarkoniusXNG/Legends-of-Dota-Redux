@@ -20,6 +20,6 @@ function spell_lab_survivor_move_speed_modifier:DeclareFunctions()
 end
 
 function spell_lab_survivor_move_speed_modifier:GetModifierMoveSpeedBonus_Constant()
-if self:GetParent():PassivesDisabled() then return 0 end
-return self:GetStackCount()
+	if self:GetParent():PassivesDisabled() then return 0 end
+	return self:GetStackCount()
 end

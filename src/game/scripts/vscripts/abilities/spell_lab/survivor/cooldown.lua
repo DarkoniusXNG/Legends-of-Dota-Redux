@@ -26,6 +26,6 @@ function spell_lab_survivor_cooldown_modifier:DeclareFunctions()
 end
 
 function spell_lab_survivor_cooldown_modifier:GetModifierPercentageCooldown()
-if self:GetParent():PassivesDisabled() then return 0 end
-return self:GetStackCount()
+	if self:GetParent():PassivesDisabled() then return 0 end
+	return self:GetStackCount()
 end

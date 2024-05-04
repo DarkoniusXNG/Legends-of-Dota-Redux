@@ -25,9 +25,8 @@ function StoreTalents()
         local params = GetUnitKeyValuesByName(hero)
         -- Find first talent
         if params then
-            local talentIndex
-            local talentStartIndex = params.AbilityTalentStart or baseHero.AbilityTalentStart
-            for i = tonumber(talentStartIndex), DOTA_MAX_ABILITIES do
+            local talentIndex = params.AbilityTalentStart or baseHero.AbilityTalentStart
+            for i = 1, DOTA_MAX_ABILITIES do
                 if params["Ability"..i] and util:IsTalent(params["Ability"..i]) then
                     talentIndex = i
                     break
@@ -216,11 +215,7 @@ function AddTalents(hero, build)
         end
     end
     for k,v in pairs(hero.heroTalentList) do
-
-        local a = hero:AddAbility(v)
-        --if a then
-            
-        --end 
+       hero:AddAbility(v)
     end
     
     if OptionManager:GetOption('doubleTalents') == 1 then
@@ -374,10 +369,6 @@ function RemoveAllTalents(hero)
 
     --PlayerTalents[hero:GetPlayerOwnerID()] = {}
 end
-                    
-
-
-
 
 CustomGameEventManager:RegisterListener( "request_available_talents", SendTalentsToClient ) 
 CustomGameEventManager:RegisterListener( "send_picked_talents", RegisterTalents ) 

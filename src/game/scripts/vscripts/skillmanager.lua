@@ -193,7 +193,7 @@ function SkillManager:GetHeroSkills(heroClass)
     local heroData = GetUnitKeyValuesByName(heroClass)
     for i = 1, DOTA_MAX_ABILITIES do
         local ab = heroData["Ability"..i]
-        if ab and ab ~= '' and ab ~= 'special_bonus_attributes' and ab ~= 'generic_hidden' then
+        if ab and ab ~= '' and ab ~= 'special_bonus_attributes' then --and ab ~= 'generic_hidden' then
             table.insert(skills, ab)
         end
     end
@@ -454,7 +454,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
 
             -- Replace items
             local removeMe = {}
-            for i=0,11 do
+            for i = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
                 local item = items[i]
 
                 if item then

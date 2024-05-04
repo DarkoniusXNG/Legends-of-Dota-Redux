@@ -18,14 +18,13 @@ if spell_lab_survivor_spell_boost_modifier == nil then
 end
 
 function spell_lab_survivor_spell_boost_modifier:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-    MODIFIER_EVENT_ON_DEATH
+		MODIFIER_EVENT_ON_DEATH,
 	}
-	return funcs
 end
 
 function spell_lab_survivor_spell_boost_modifier:GetModifierSpellAmplify_Percentage()
-if self:GetParent():PassivesDisabled() then return 0 end
-return self:GetStackCount()
+	if self:GetParent():PassivesDisabled() then return 0 end
+	return self:GetStackCount()
 end

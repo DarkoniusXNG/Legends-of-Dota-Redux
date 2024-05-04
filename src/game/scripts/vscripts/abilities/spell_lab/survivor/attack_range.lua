@@ -12,14 +12,13 @@ if spell_lab_survivor_attack_range_modifier == nil then
 end
 
 function spell_lab_survivor_attack_range_modifier:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
-    MODIFIER_EVENT_ON_DEATH
+		MODIFIER_EVENT_ON_DEATH,
 	}
-	return funcs
 end
 
 function spell_lab_survivor_attack_range_modifier:GetModifierAttackRangeBonus()
-if self:GetParent():PassivesDisabled() then return 0 end
-return self:GetStackCount()
+	if self:GetParent():PassivesDisabled() then return 0 end
+	return self:GetStackCount()
 end

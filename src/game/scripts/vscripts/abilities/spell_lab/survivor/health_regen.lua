@@ -20,5 +20,6 @@ function spell_lab_survivor_health_regen_modifier:DeclareFunctions()
 end
 
 function spell_lab_survivor_health_regen_modifier:GetModifierConstantHealthRegen()
-return self:GetSurvivorBonus()
+	if self:GetParent():PassivesDisabled() then return 0 end
+	return self:GetStackCount()
 end

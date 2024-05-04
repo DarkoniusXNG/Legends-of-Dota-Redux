@@ -21,11 +21,11 @@ function spell_lab_survivor_vision_modifier:DeclareFunctions()
 end
 
 function spell_lab_survivor_vision_modifier:GetBonusDayVision()
-if self:GetParent():PassivesDisabled() then return 0 end
-return self:GetStackCount()
+	if self:GetParent():PassivesDisabled() then return 0 end
+	return self:GetStackCount()
 end
 
 function spell_lab_survivor_vision_modifier:GetBonusNightVision()
-if self:GetParent():PassivesDisabled() then return 0 end
-return self:GetStackCount()
+	if self:GetParent():PassivesDisabled() then return 0 end
+	return self:GetStackCount()
 end

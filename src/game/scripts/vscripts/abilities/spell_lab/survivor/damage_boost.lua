@@ -12,13 +12,13 @@ if spell_lab_survivor_damage_boost_modifier == nil then
 end
 
 function spell_lab_survivor_damage_boost_modifier:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
-    MODIFIER_EVENT_ON_DEATH
+		MODIFIER_EVENT_ON_DEATH,
 	}
-	return funcs
 end
 
 function spell_lab_survivor_damage_boost_modifier:GetModifierBaseAttack_BonusDamage()
-return self:GetSurvivorBonus()
+	if self:GetParent():PassivesDisabled() then return 0 end
+	return self:GetStackCount()
 end

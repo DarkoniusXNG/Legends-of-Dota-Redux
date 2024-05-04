@@ -20,6 +20,6 @@ function spell_lab_survivor_str_survival_modifier:DeclareFunctions()
 end
 
 function spell_lab_survivor_str_survival_modifier:GetModifierBonusStats_Strength()
-if self:GetParent():PassivesDisabled() then return 0 end
-return self:GetStackCount()
+	if self:GetParent():PassivesDisabled() then return 0 end
+	return self:GetStackCount()
 end

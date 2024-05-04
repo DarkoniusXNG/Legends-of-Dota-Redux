@@ -1891,7 +1891,7 @@ function Pregame:networkHeroes()
 
                 for i = 1, DOTA_MAX_ABILITIES do
                     local abName = heroData['Ability' .. i]
-                    if abName and abName ~= '' and abName ~= 'special_bonus_attributes' and abName ~= 'generic_hidden' then
+                    if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
                         table.insert(self.botHeroes[heroName], abName)
                     end
                 end
@@ -1957,7 +1957,7 @@ function Pregame:networkHeroes()
                 local sn = 1
                 for i = 1, DOTA_MAX_ABILITIES do
                     local abName = heroData['Ability' .. i]
-                    if abName and abName ~= '' and abName ~= 'special_bonus_attributes' and abName ~= 'generic_hidden' then
+                    if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
                         theData['Ability' .. sn] = abName
                         sn = sn + 1
                     end
@@ -7190,14 +7190,6 @@ function Pregame:getSkillforBot( botInfo, botSkills )
     local skills = botSkills[heroName]
     local isAdded
 
-    CUSTOMSLOTS = {
-        npc_dota_hero_nevermore = (maxSlots == 4 and 6 or 8)
-    }
-
-    if CUSTOMSLOTS[heroName] then
-        maxSlots = CUSTOMSLOTS[heroName]
-    end
-
     if skills then
         for k, abilityName in pairs(skills) do
             if skillID > maxSlots then break end
@@ -7701,10 +7693,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
 		return
 	end
 
-	if IsMonkeyKingCloneCustom(spawnedUnit) then
-		print('Pregame:fixSpawnedHero:spawnedUnit is Monkey King clone!')
-	end
-
     -- Don't touch this hero more than once :O
     if self.handled[spawnedUnit] then return end
     self.handled[spawnedUnit] = true
@@ -7742,6 +7730,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
 		playerID = spawnedUnit:GetPlayerOwnerID()
 	else
 		print('Pregame:fixSpawnedHero: spawnedUnit is something invalid!')
+		return
 	end
 
 	local mainHero = PlayerResource:GetSelectedHeroEntity(playerID)
@@ -7753,7 +7742,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
 		self:applyPrimaryAttribute(playerID, mainHero)
 	end
 	-- Add talents
-	if IsValidEntity(spawnedUnit) then
+	if not util:isPlayerBot(playerID) and IsValidEntity(spawnedUnit) then
 		if spawnedUnit.hasTalent then
 			RemoveAllTalents(spawnedUnit)
 		end
@@ -7974,12 +7963,16 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                 end
             end
 
-            for i = 0, DOTA_MAX_ABILITIES - 1 do
-                local ab = spawnedUnit:GetAbilityByIndex(i)
-                if ab and not string.match(ab:GetAbilityName(), "special_bonus") and not string.match(ab:GetName(), "perk") and CUSTOMSLOTS[spawnedUnit:GetUnitName()] then
-                    ab:SetHidden(false)
-                end
-            end
+            -- For revealing hidden abilities in special cases - uncomment and modify if needed
+			-- CUSTOMSLOTS = {
+				-- npc_dota_hero_nevermore = (maxSlots == 4 and 6 or 8)
+			-- }
+			-- for i = 0, DOTA_MAX_ABILITIES - 1 do
+                -- local ab = spawnedUnit:GetAbilityByIndex(i)
+                -- if ab and not string.match(ab:GetAbilityName(), "special_bonus") and not string.match(ab:GetName(), "perk") and spawnedUnit:GetUnitName() == 'npc_dota_hero_nevermore' then
+                    -- ab:SetHidden(false)
+                -- end
+            -- end
 
             -- Give bots a free neutral item
             -- local item = CreateItem("item_vambrace", spawnedUnit, nil)
