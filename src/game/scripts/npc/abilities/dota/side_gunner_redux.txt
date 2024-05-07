@@ -1,9 +1,10 @@
 "DOTAAbilities" {
 	"side_gunner_redux" {
-		"BaseClass" "ability_datadriven"
-		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" "custom/side_gunner_redux"
-		"HasScepterUpgrade"			"1"
+		"BaseClass"                                                            "ability_lua"
+		"ScriptFile"                                                           "abilities/side_gunner_redux.lua"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/side_gunner_redux"
+		"HasScepterUpgrade"                                                    "1"
 		"ReduxCost"                                                            "20"
 
 		"AOERadius"	"700"
@@ -30,54 +31,6 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"range"				"700"
-			}
-		}
-
-		"OnUpgrade"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_side_gunner_redux"
-				"Target" 		"CASTER"
-			}
-		}
-
-		"OnOwnerSpawned"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_side_gunner_redux"
-				"Target" 		"CASTER"
-			}
-		}
-
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"1"
-			"RunScript" {
-				"ScriptFile" "abilities/side_gunner_redux.lua"
-				"Function" "Impact"
-				"Target" "TARGET"
-			}
-		}
-
-		"Modifiers" {
-			"modifier_side_gunner_redux" {
-				"Passive" "0"
-				"IsHidden" "1"
-
-				"ThinkInterval" "0.3"
-
-				"OnIntervalThink" {
-					"RunScript" {
-						"ScriptFile" "abilities/side_gunner_redux.lua"
-						"Function" "Shot"
-					}
-				}
-			}
-			"modifier_side_gunner_redux_cd" {
-				"Passive" "0"
-				"IsHidden" "0"
 			}
 		}
 	}

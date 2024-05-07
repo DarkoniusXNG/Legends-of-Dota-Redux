@@ -72,6 +72,7 @@
             "beastmaster_call_of_the_wild_hawk" "1"
 			//"beastmaster_hawk_dive"				"1" // crashes the server when used
 			"beastmaster_drums_of_slom"			"1"
+            "beastmaster_boar_poison"				"1"
             "bloodseeker_blood_bath"            "1"
             "bloodseeker_bloodrage"            "1"
             "bloodseeker_rupture"            "1"
@@ -96,11 +97,13 @@
             "broodmother_insatiable_hunger"            "1"
             "broodmother_spawn_spiderlings"            "1"
             "broodmother_spin_web"            "1"
+            "broodmother_poison_sting"       "1"
+            //"broodmother_spawn_spiderite"    "1"
             "centaur_double_edge"            "1"
             "centaur_hoof_stomp"            "1"
             "centaur_return"            "1"
             "centaur_stampede"            "1"
-			"centaur_mount"				"1"
+            //"centaur_mount"				"1" // sub-ability of centaur_work_horse
             "chaos_knight_chaos_bolt"            "1"
             "chaos_knight_chaos_strike"            "1"
             "chaos_knight_phantasm"            "1"
@@ -290,6 +293,7 @@
             "lycan_shapeshift"            "1"
             "lycan_summon_wolves"            "1"
             "lycan_wolf_bite" "1"
+            "lycan_summon_wolves_critical_strike"	"1"
             "mars_spear"            "1"
             "mars_gods_rebuke" "1"
             "mars_bulwark" "1"
@@ -574,8 +578,10 @@
             "viper_viper_strike"            "1"
 			"viper_nose_dive"				"1"
             "visage_grave_chill"            "1"
+            "visage_soul_assumption"        "1"
             "visage_gravekeepers_cloak"            "1"
             "visage_summon_familiars"            "1"
+            "visage_summon_familiars_stone_form"                "1"
             "warlock_fatal_bonds"            "1"
             "warlock_rain_of_chaos"            "1"
             "warlock_shadow_word"            "1"
@@ -673,7 +679,7 @@
             "dawnbreaker_fire_wreath" "1"
             "dawnbreaker_celestial_hammer" "1"
             //"dawnbreaker_converge" "1"
-            // "dawnbreaker_luminosity" "1"      // crashes game: CGameParticleManager::SetParticleControlEnt: Unable to lookup attachment attach_weapon_core_fx
+            "dawnbreaker_luminosity" "1"      // crashes game: CGameParticleManager::SetParticleControlEnt: Unable to lookup attachment attach_weapon_core_fx
             "dawnbreaker_solar_guardian" "1"
             "life_stealer_ghoul_frenzy" "1"
 
@@ -683,7 +689,7 @@
             "bristleback_hairball"              "1"   // needs quills and goo - added warning text
             "broodmother_silken_bola"           "1"   // needs spin web charge - added warning text
             "rattletrap_jetpack"                "1"   // ok  
-            "dark_seer_normal_punch"            "1"   // ok
+            "dark_seer_normal_punch"            "1"   // ok - added warning text
             "dragon_knight_fireball"            "1"   // ok
             //"faceless_void_time_walk_reverse"   "1"   // requires timewalk
             "jakiro_liquid_ice"                 "1"   // misses? (with melee hero), hits but doesnt debuff (with ranged hero)
@@ -785,7 +791,7 @@
 			// UNIMPLEMENTED SKILLS
 			"beastmaster_mark_of_the_beast"	"1"	
 			"crystal_maiden_let_it_go"		"1"
-			"crystal_maiden_ice_rink"		"1"
+			//"crystal_maiden_ice_rink"		"1" // removed from the game, replaced with crystal_maiden_crystal_clone
 			"furion_greater_sprout"			"1"
 			"lich_dark_sorcery"				"1"
 			"lich_frost_aura"				"1"
@@ -802,6 +808,7 @@
 			// "troll_warlord_scepter"			"1" // disappears
 			// "bounty_hunter_lookout"			"1" // summons a bear trap that does nothing
 			// "venomancer_area_poison"			"1" // does nothing
+			"beastmaster_hawk_perch"        "1" // ok
 
             // 7.33
             "alchemist_corrosive_weaponry"  "1"
@@ -820,7 +827,7 @@
 			"crystal_maiden_crystal_clone"	"1"
 			"brewmaster_void_astral_pull"	"1"
 			"antimage_counterspell_ally"    "1"
-			"centaur_work_horse"            "1"
+			"centaur_work_horse"            "1" // added warning text
 
         }
         // The neutrals skills
@@ -829,12 +836,9 @@
 				"black_dragon_splash_attack"			"1"
                 "ghost_frost_attack"					"1"
                 "gnoll_assassin_envenomed_weapon"		"1"
-                "beastmaster_boar_poison"				"1"
                 "alpha_wolf_critical_strike"			"1"
-				"lycan_summon_wolves_critical_strike"	"1"
 				"berserker_troll_break"					"1"
 				"kobold_disarm"							"1"
-				// "undying_tombstone_zombie_deathstrike"	"1"
 				"necronomicon_warrior_mana_burn_lod"                "1"
             }
 
@@ -847,7 +851,6 @@
 				"ancient_rock_golem_weakening_aura"			"1"
 				"frostbitten_golem_time_warp_aura"			"1"
 				"hill_troll_rally"							"1"
-				
             }
 			
             "black_dragon_group" {
@@ -917,7 +920,6 @@
 				"lone_druid_spirit_bear_fetch"					 "1"
                 //"lone_druid_spirit_bear_return"                "1"
                 "lone_druid_spirit_bear_return_lod"                "1"
-                "visage_summon_familiars_stone_form"                "1"
             }
 			
             "satyr_group" {
@@ -2368,22 +2370,25 @@
         }
 
         "npc_dota_hero_beastmaster" {
-            "Ability1"            "beastmaster_wild_axes"
+			"Ability1"            "beastmaster_wild_axes"
 			"Ability2"            "beastmaster_call_of_the_wild_boar"
 			"Ability3"            "beastmaster_call_of_the_wild_hawk"
-            "Ability4"            "beastmaster_inner_beast"
-            "Ability5"            "beastmaster_primal_roar"
-            "Ability6"			  "beastmaster_drums_of_slom"
+			"Ability4"            "beastmaster_inner_beast"
+			"Ability5"            "beastmaster_primal_roar"
+			"Ability6"			  "beastmaster_drums_of_slom"
 			"Ability7"			  "beastmaster_mark_of_the_beast"
+			"Ability8"            "beastmaster_hawk_perch"
+			"Ability9"            "beastmaster_boar_poison"
         }
 		
 		"npc_dota_hero_broodmother" {
-            "Ability1"		"broodmother_insatiable_hunger"
+			"Ability1"		"broodmother_insatiable_hunger"
 			"Ability2"		"broodmother_spin_web"
 			"Ability3"		"broodmother_silken_bola"
 			"Ability4"		"broodmother_sticky_snare"
 			"Ability5"		"broodmother_spawn_spiderlings"
 			"Ability6"		"broodmother_incapacitating_bite"
+			"Ability7"      "broodmother_poison_sting"
         }
 
         "npc_dota_hero_life_stealer" {
@@ -2588,8 +2593,7 @@
             "Ability3"            "crystal_maiden_brilliance_aura"
             "Ability4"            "crystal_maiden_freezing_field"
 			"Ability5"			  "crystal_maiden_let_it_go"
-			"Ability6"			  "crystal_maiden_ice_rink"
-			"Ability7"			  "crystal_maiden_crystal_clone"
+			"Ability6"			  "crystal_maiden_crystal_clone"
         }
         "npc_dota_hero_chen" {
             "Ability1"        "chen_penitence"
@@ -2714,8 +2718,7 @@
             "Ability2"            "centaur_double_edge"
             "Ability3"            "centaur_return" 
             "Ability4"            "centaur_stampede"
-			"Ability5"			  "centaur_mount"
-			"Ability6"            "centaur_work_horse"
+			"Ability5"            "centaur_work_horse"
         }
 		
 		"npc_dota_hero_magnataur" {
@@ -3043,8 +3046,8 @@
         "npc_dota_hero_dawnbreaker" {
             "Ability1"  "dawnbreaker_fire_wreath"
             "Ability2"  "dawnbreaker_celestial_hammer"
-            // "Ability4"  "dawnbreaker_luminosity"
             "Ability3"  "dawnbreaker_solar_guardian"
+            "Ability4"  "dawnbreaker_luminosity"
         }
 		
 		"npc_dota_hero_primal_beast" {
@@ -3104,6 +3107,24 @@
 			"Ability4"		"nevermore_necromastery"
 			"Ability5"		"nevermore_dark_lord"
 			"Ability6"		"nevermore_requiem"
+		}
+
+		"npc_dota_hero_lycan" {
+			"Ability1"		"lycan_summon_wolves"
+			"Ability2"		"lycan_howl"
+			"Ability3"		"lycan_feral_impulse"
+			"Ability4"		"lycan_wolf_bite"
+			"Ability5"		"lycan_summon_wolves_critical_strike"
+			"Ability6"		"lycan_shapeshift"
+		}
+
+		"npc_dota_hero_visage" {
+			"Ability1"		"visage_grave_chill"
+			"Ability2"		"visage_soul_assumption"
+			"Ability3"		"visage_gravekeepers_cloak"
+			"Ability4"		"visage_silent_as_the_grave"
+			"Ability5"		"visage_summon_familiars"
+			"Ability6"		"visage_summon_familiars_stone_form"
 		}
 		
     }

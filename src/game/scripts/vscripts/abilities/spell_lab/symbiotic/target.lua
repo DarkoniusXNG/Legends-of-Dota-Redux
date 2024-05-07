@@ -30,7 +30,7 @@ function spell_lab_symbiotic_target:DeclareFunctions()
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE,
+		MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
 		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 	}
@@ -101,7 +101,7 @@ function spell_lab_symbiotic_target:GetModifierBonusStats_Intellect()
 	end
 end
 
-function spell_lab_symbiotic_target:GetModifierTotalPercentageManaRegen ()
+function spell_lab_symbiotic_target:GetModifierMPRegenAmplify_Percentage ()
 	if self:GetAbility() then
 		return self:GetAbility():GetSpecialValueFor("mana_regen")
 	end

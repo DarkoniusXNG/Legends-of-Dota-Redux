@@ -2,8 +2,6 @@
 
 **abilityDeps.kv** - Ability dependencies. These list abilities that require secondary abilities, if a player picks an ability on the left, they will receive the ability on the right.
 
-**abilityReps.kv** -
-
 **bans.kv** - Ability combination bans. Most banned combinations are now dealt with "ReduxBans" flags in the ability data, and bans.kv is slightly a relic, but now it contains special ban combinations, like groups of banned abilities and other special bans. 
 
 **bot_skills.kv** - Lists abilities that bots will select for their extra skills, each bot has a list and the lists are in order of priority, the best abilities at the top, worst at the bottom.
@@ -26,7 +24,7 @@
 
 **randompicker.kv** - Used for the "True Random" ability that is no longer useable
 
-**sounds.kv** - 
+**sounds.kv** - which sounds will be precached
 
 **statuploadersettings.kv** - The web address where to upload stats.
 

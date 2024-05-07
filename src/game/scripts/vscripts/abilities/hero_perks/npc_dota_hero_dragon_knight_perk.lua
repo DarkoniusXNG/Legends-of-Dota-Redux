@@ -73,7 +73,7 @@ function modifier_npc_dota_hero_dragon_knight_perk:OnTakeDamage(event)
 	end
 
 	-- Check if attacker has Elder Dragon Form ability
-	local dragonform = parent:FindAbilityByName("dragon_knight_elder_dragon_form")
+	local dragonForm = parent:FindAbilityByName("dragon_knight_elder_dragon_form")
 	if not dragonForm then
 		return
 	end
@@ -81,12 +81,12 @@ function modifier_npc_dota_hero_dragon_knight_perk:OnTakeDamage(event)
 	local inflictor = event.inflictor
 	if inflictor ~= dragonForm then
 		if parent:HasModifier("modifier_dragon_knight_corrosive_breath") then
-			local duration = dragonform:GetSpecialValueFor("corrosive_breath_duration")
-			damaged_unit:AddNewModifier(parent, dragonform, "modifier_dragon_knight_corrosive_breath_dot", {duration = duration})
+			local duration = dragonForm:GetSpecialValueFor("corrosive_breath_duration")
+			damaged_unit:AddNewModifier(parent, dragonForm, "modifier_dragon_knight_corrosive_breath_dot", {duration = duration})
 		end
 		if parent:HasModifier("modifier_dragon_knight_frost_breath") then
-			local duration = dragonform:GetSpecialValueFor("frost_duration")
-			damaged_unit:AddNewModifier(parent, dragonform, "modifier_dragon_knight_frost_breath_slow", {duration = duration})
+			local duration = dragonForm:GetSpecialValueFor("frost_duration")
+			damaged_unit:AddNewModifier(parent, dragonForm, "modifier_dragon_knight_frost_breath_slow", {duration = duration})
 		end
 	end
 end

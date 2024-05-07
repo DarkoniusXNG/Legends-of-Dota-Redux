@@ -7700,12 +7700,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     -- Grab a reference to self
     local this = self
 
-    local notOnIllusions = {
-        lone_druid_spirit_bear = true,
-        necronomicon_warrior_last_will_lod = true,
-        roshan_bash = true,
-    }
-
     local botAIModifier = {
         slark_shadow_dance = true,
         alchemist_chemical_rage = true,
@@ -8118,18 +8112,6 @@ function Pregame:fixSpawningIssues()
 
     -- Grab a reference to self
     local this = self
-
-    local notOnIllusions = {
-        lone_druid_spirit_bear = true,
-        necronomicon_warrior_last_will_lod = true,
-        roshan_bash = true,
-    }
-
-    local botAIModifier = {
-        slark_shadow_dance = true,
-        alchemist_chemical_rage = true,
-        --rattletrap_rocket_flare = true,
-    }
 
     ListenToGameEvent('npc_spawned', function(keys)
         -- Grab the unit that spawned

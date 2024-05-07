@@ -34,11 +34,12 @@
     "arc_warden_tempest_double_op"
     {
         "BaseClass"                                                            "arc_warden_tempest_double"
-        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "FightRecapLevel"                                                      "2"
         "AbilityTextureName"                                                   "custom/arc_warden_tempest_double_op"
         "AbilityCastPoint"                                                     "0.15"
+        "AbilityCastRange"                                                     "1800"
         "AbilityCooldown"                                                      "25"
         "AbilityValues"
 		{

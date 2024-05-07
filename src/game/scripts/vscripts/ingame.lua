@@ -173,7 +173,7 @@ end
 function Ingame:OnPlayerPurchasedItem(keys)
     -- Bots will get items auto-delievered to them
     self:checkIfRespawnRate()
-    self:balanceGold()
+    --self:balanceGold()
     if util:isPlayerBot(keys.PlayerID) then
         local hero = PlayerResource:GetPlayer(keys.PlayerID):GetAssignedHero()
         -- If bots buy boots remove first instances of cheap items they have, this is a fix for them having boots in backpack
@@ -1173,7 +1173,7 @@ function Ingame:balanceGold()
             multiplier = RadiantPlayers - DirePlayers
         end
 
-        local moneyToGive = 180 --(180 * multiplier) * OptionManager:GetOption('goldPerTick')
+        local moneyToGive = 180 * multiplier -- * OptionManager:GetOption('goldPerTick')
 
         if losingTeam == "goodGuys" then
             self.radiantBalanceMoney = self.radiantBalanceMoney + moneyToGive
@@ -1265,7 +1265,7 @@ function Ingame:handleRespawnModifier()
         local respawnModifierConstant = OptionManager:GetOption('respawnModifierConstant')
 
         self:checkIfRespawnRate()
-        self:balanceGold()
+        --self:balanceGold()
 
         --if respawnModifierPercentage == 100 and respawnModifierConstant == 0 then return end
 
