@@ -9513,9 +9513,9 @@
         "special_bonus_unique_ogre_magi_5"
         {
             "TalentRequiredAbility"
-			{
-                "1" "ogre_magi_fireblast"
-                "2" "ogre_magi_unrefined_fireblast"
+            {
+              "1" "ogre_magi_fireblast"
+              "2" "ogre_magi_unrefined_fireblast"
             }
         }
         "special_bonus_unique_ogre_magi_dumb_luck_mana"
