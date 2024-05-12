@@ -5,12 +5,12 @@
 			"MaxLevel"						"4"
 			"AbilityCooldown"				"20"
 			"AbilityCastPoint"				"0.3"
-			"AbilityManaCost"				"50"		
+			"AbilityManaCost"				"50"
 			"AbilityValues"
 			{
 				"cooldown_on_death"				"70 55 40 25"
 				"cooldown_on_take_damage"		"3"
-				"disable_distance"				
+				"disable_distance"
 				{
 					"value"			"1600 2400 3200 4000"
 				}
@@ -19,43 +19,28 @@
 			}
 		}
 
-		"templar_assassin_trap_teleport"
-		{
-			"MaxLevel"						"3"
-			"AbilityCastPoint"				"0.2"
-			"AbilityChannelTime"			"1.5 1.25 1.0 0.75"
-			"AbilityCooldown"				"10 9 8 7"
-			"AbilityManaCost"				"50"
-			"AbilityValues"
-			{	
-					"extra_damage"						"200 250 300 350"
-				
-			}
-		}
-
 		"keeper_of_the_light_radiant_bind"
 		{
-			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+			//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 			"MaxLevel"						"4"
-			"FightRecapLevel"				"1"
 			"AbilityCastPoint"				"0.2"
 			"AbilityCooldown"				"14 13 12 11"
-			"AbilityManaCost"				"120"		
+			"AbilityManaCost"				"120"
 			"AbilityCastRange"				"850"
 			"AbilityValues"
 			{
-					"duration"					"6"
-					"slow"						"10 15 20 25"
-					"magic_resistance"			"35 40 45 50"
-					"stun_duration"			
-					{
-						"value"			"0 0.25 0.5 0.75"
-						"special_bonus_unique_keeper_of_the_light_10"	"+1.5"
-					}
+				"duration"					"6"
+				"slow"						"10 15 20 25"
+				"magic_resistance"			"35 40 45 50"
+				"stun_duration"
+				{
+					"value"			"0 0.25 0.5 0.75"
+					"special_bonus_unique_keeper_of_the_light_10"	"+1.5"
+				}
 			}
-			"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+			"ReduxPerks"                    "light"
 		}
-		
+
 		"flagbearer_creep_aura_effect"
 		{
 			"MaxLevel"						"4"
@@ -311,7 +296,7 @@
 					"z_speed_override"			"800"
 			}
 		}
-		
+
 		"miniboss_reflect"
 		{
 			"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -464,42 +449,6 @@
 				}
 			}
 		}
-		
-		"centaur_work_horse"
-		{
-			"MaxLevel"						"4"
-			"IsGrantedByScepter"			"1"
-			"AbilityCooldown"				"24 21 18 15"
-			"AbilityManaCost"				"75"
-			
-			// Special
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilityValues"
-			{
-				"duration"					"8"
-				"melee_attack_range"		"200"
-				"air_duration"		"0.5"
-				"air_height"		"450"
-				"break_distance"		"600"
-			}
-		}
-
-		"centaur_mount"
-		{
-			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET |  DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-			"MaxLevel"						"1"
-			"AbilityCooldown"				"30 25 20 15"
-			"AbilityCastRange"				"300 400 500 600"
-			"AbilityManaCost"				"75"
-			"AbilityValues"
-			{
-				"duration"					"8"
-				"melee_attack_range"		"200"
-				"air_duration"		"0.5"
-				"air_height"		"450"
-				"break_distance"		"600"
-			}
-		}
 
 		"troll_warlord_scepter"
 		{
@@ -525,7 +474,7 @@
 				}
 			}
 		}
-		
+
 		"slark_fish_bait"
 		{
 			"ReduxPerks"                    "water"
@@ -669,17 +618,17 @@
 			//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET |  DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 			"ReduxPerks"                    "support"
             "ReduxFlags"                    "support"
-			"MaxLevel"						"4"
-			"AbilityCooldown"				"30 25 20 15"
-			"AbilityCastRange"				"300 350 400 450"
-			"AbilityManaCost"				"75 65 55 45"
+			"MaxLevel"						"1"
+			"AbilityCooldown"				"30"
+			"AbilityCastRange"				"300"
+			"AbilityManaCost"				"75"
 			"AbilityValues"
 			{
 				"duration"					"8"
-				"melee_attack_range"		"200 225 250 275"
+				"melee_attack_range"		"200"
 				"air_duration"		"0.5"
 				"air_height"		"450"
-				"break_distance"		"600 900 1200 1500"
+				"break_distance"		"600"
 			}
 		}
 
@@ -689,15 +638,15 @@
 			"ReduxPerks"                    "support"
 			"ReduxFlags"                    "support"
 			"MaxLevel"						"4"
-			"AbilityCooldown"				"24 22 20 18"
+			"AbilityCooldown"				"24 21 18 15"
 			"AbilityManaCost"				"75 65 55 45"
 			"AbilityValues"
 			{
 				"duration"					"8"
-				"melee_attack_range"		"200 225 250 275"
+				"melee_attack_range"		"200"
 				"air_duration"		"0.5"
 				"air_height"		"450"
-				"break_distance"		"600 900 1200 1500"
+				"break_distance"		"600"
 			}
 		}
 
@@ -746,7 +695,7 @@
             "ReduxPerks"                                                           "neutral | aura | nature"
 			"ReduxCost"                                                            "500"
 		}
-        
+
 		"spawnlord_master_freeze"
         {
             "MaxLevel"                                                             "4"
@@ -767,7 +716,7 @@
                 }
             }
         }
-        
+
 		"beastmaster_greater_boar_poison"
         {
             "MaxLevel"                                                             "1"
@@ -783,7 +732,7 @@
 			"AbilityCooldown"													   "15 14 13 12"
 			"AbilityValues"
 			{
-				"radius"						
+				"radius"
 				{
 					"value"			"300 350 400 450"
 					"affected_by_aoe_increase"		"1"
@@ -793,7 +742,7 @@
 				"burn_interval"			"0.5"
 			}
         }
-        
+
 		"satyr_trickster_purge"
         {
             "MaxLevel"                                                             "4"
@@ -4386,12 +4335,12 @@
 			"MaxLevel"						"4"
 			"AbilityValues"
 			{
-					"duration"					"7.0 8.0 9.0 10.0"
-					"illusion_damage_outgoing"	"-20 -15 -10 -5"
-					"tooltip_outgoing"	"80 85 90 95"
-					"illusion_damage_incoming"	"100"
-					"tooltip_illusion_total_damage_incoming"	"200"
-					"attack_delay"				"0"
+				"duration"					"7.0 8.0 9.0 10.0"
+				"illusion_damage_outgoing"	"-20 -15 -10 -5"
+				"tooltip_outgoing"	"80 85 90 95"
+				"illusion_damage_incoming"	"100"
+				"tooltip_illusion_total_damage_incoming"	"200"
+				"attack_delay"				"0"
 			}
         }
 		"spectre_haunt_single"
@@ -5358,6 +5307,15 @@
 		{
 			"ReduxPerks"                                                           "trap | channeled | teleport"
             "ReduxFlags"                                                           "doNotRandom"
+			"MaxLevel"						"4"
+			"AbilityCastPoint"				"0.2"
+			"AbilityChannelTime"			"1.5 1.25 1.0 0.75"
+			"AbilityCooldown"				"10 9 8 7"
+			"AbilityManaCost"				"50"
+			"AbilityValues"
+			{
+				"extra_damage"						"200 250 300 350"
+			}
 		}
         "bane_nightmare"
         {
@@ -5451,12 +5409,12 @@
 				{
 					"var_type"					"FIELD_INTEGER"
 					"attack_targets"			"2 3 4 5"
-				}		
+				}
 				"05"
 				{
 					"var_type"					"FIELD_INTEGER"
 					"bonus_attack_range"		"100 125 150 175"
-				}					
+				}
 			}
 			"ReduxFlags"		"mobility | upgradeable"
 			"ReduxPerks"        "nature | mobility"
@@ -5994,7 +5952,7 @@
 			"AbilityValues"
 			{
 					"on_count"					"5 6 7 8"
-					"radius"					
+					"radius"
 					{
 						"value"					"725 750 775 800"
 						"affected_by_aoe_increase"	"1"
@@ -6631,7 +6589,7 @@
 				"duration"					"6"
 				"bonus_attack_speed"		"100 125 150 175"
 				"bonus_move_speed"			"100 125 150 175"
-				"radius"					
+				"radius"
 				{
 					"value"		"1200 1300 1400 1500"
 					"affected_by_aoe_increase"	"1"
@@ -10440,7 +10398,11 @@
         }
         "special_bonus_unique_spectre_4"
         {
-            "TalentRequiredAbility"                                                   "spectre_haunt"
+            "TalentRequiredAbility"
+            {
+              "1" "spectre_haunt"
+              "2" "spectre_haunt_single"
+            }
         }
         "special_bonus_unique_spectre_5"
         {
