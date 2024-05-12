@@ -1,5 +1,45 @@
     "DOTAAbilities"
     {
+		"brewmaster_primal_companion"
+		{
+			"MaxLevel"						"4"
+			"AbilityCooldown"				"20"
+			"AbilityCastPoint"				"0.3"
+			"AbilityManaCost"				"50"
+			"AbilityValues"
+			{
+				"cooldown_on_death"				"70 55 40 25"
+				"cooldown_on_take_damage"		"3"
+				"disable_distance"
+				{
+					"value"			"1600 2400 3200 4000"
+				}
+				"cooldown_penalty_pct"			"100 75 50 25"
+				"movement_slow_when_out_of_range"		"50 35 20 5"
+			}
+		}
+
+		"keeper_of_the_light_radiant_bind"
+		{
+			//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+			"MaxLevel"						"4"
+			"AbilityCastPoint"				"0.2"
+			"AbilityCooldown"				"14 13 12 11"
+			"AbilityManaCost"				"120"
+			"AbilityCastRange"				"850"
+			"AbilityValues"
+			{
+				"duration"					"6"
+				"slow"						"10 15 20 25"
+				"magic_resistance"			"35 40 45 50"
+				"stun_duration"
+				{
+					"value"			"0 0.25 0.5 0.75"
+					"special_bonus_unique_keeper_of_the_light_10"	"+1.5"
+				}
+			}
+			"ReduxPerks"                    "light"
+		}
 
 		"flagbearer_creep_aura_effect"
 		{
@@ -55,9 +95,9 @@
 			"AbilityValues"
 			{
 
-				"strength_per_stack"				"6"
-				"max_stacks"						"10 12 14 16"
-				"stack_duration"					"12 14 16 18"
+				"strength_per_stack"				"6 7 8 9"
+				"max_stacks"						"10"
+				"stack_duration"					"12"
 			}
 		}
 
@@ -120,7 +160,7 @@
 			"AbilityCastPoint"				"0.3"
 			"AbilityCooldown"				"25 22 19 16"
 
-			"AbilityDamage"					"200 230 260 290"
+			"AbilityDamage"					"200 240 280 320"
 			"AbilityManaCost"				"80"
 
 			// Special
@@ -163,13 +203,13 @@
 			"MaxLevel"						"4"
 			"AbilityCastPoint"				"0.2"
 			"AbilityChannelTime"			"2.0"
-			"AbilityCooldown"				"22 20 18 16"
-			"AbilityManaCost"				"45"
+			"AbilityCooldown"				"17 16 15 14"
+			"AbilityManaCost"				"40"
 			"AbilityValues"
 			{
 				"wave_count"		"6"
 				"range"	"850"
-				"damage_pct"			"65 70 75 80"
+				"damage_pct"			"75 80 85 90"
 			}
 			"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 		}
@@ -247,16 +287,16 @@
 					"turn_rate_slow"			"0"
 					"end_height"				"128"
 					"hilltop_offset"			"150"
-					"ramp_radius"				"150 175 200 225"
+					"ramp_radius"				"150"
 					"attack_range_bonus"		"200 225 250 275"
-					"multishot_arrow_bonus"		"1"
+					"multishot_arrow_bonus"		"1 2 3 4"
 					"knockback_duration"		"0.1"
 					"knockback_distance"		"175"
 					"knockback_height"			"50"
 					"z_speed_override"			"800"
 			}
 		}
-		
+
 		"miniboss_reflect"
 		{
 			"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -303,7 +343,7 @@
 			"AbilityCastRange"				"750 800 850 900"
 			"AbilityCastPoint"				"0.3"
 			"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
-			"AbilityCooldown"				"45 40 35 30"
+			"AbilityCooldown"				"45 35 25 15"
 			"AbilityDamage"					"300 325 350 375"
 			"AbilityManaCost"				"250 225 200 175"
 			"AbilityValues"
@@ -316,7 +356,7 @@
 				"movement_slow"				"0"
 				"soul_return_time"			"0.75"
 				"soul_return_min_speed"		"500"
-				"damage_reduction_percent"	"50"
+				"damage_reduction_percent"	"35"
 			}
 		}
 
@@ -434,7 +474,7 @@
 				}
 			}
 		}
-		
+
 		"slark_fish_bait"
 		{
 			"ReduxPerks"                    "water"
@@ -578,17 +618,17 @@
 			//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET |  DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 			"ReduxPerks"                    "support"
             "ReduxFlags"                    "support"
-			"MaxLevel"						"4"
-			"AbilityCooldown"				"30 25 20 15"
-			"AbilityCastRange"				"300 350 400 450"
-			"AbilityManaCost"				"75 65 55 45"
+			"MaxLevel"						"1"
+			"AbilityCooldown"				"30"
+			"AbilityCastRange"				"300"
+			"AbilityManaCost"				"75"
 			"AbilityValues"
 			{
 				"duration"					"8"
-				"melee_attack_range"		"200 225 250 275"
+				"melee_attack_range"		"200"
 				"air_duration"		"0.5"
 				"air_height"		"450"
-				"break_distance"		"600 900 1200 1500"
+				"break_distance"		"600"
 			}
 		}
 
@@ -598,15 +638,15 @@
 			"ReduxPerks"                    "support"
 			"ReduxFlags"                    "support"
 			"MaxLevel"						"4"
-			"AbilityCooldown"				"24 22 20 18"
+			"AbilityCooldown"				"24 21 18 15"
 			"AbilityManaCost"				"75 65 55 45"
 			"AbilityValues"
 			{
 				"duration"					"8"
-				"melee_attack_range"		"200 225 250 275"
+				"melee_attack_range"		"200"
 				"air_duration"		"0.5"
 				"air_height"		"450"
-				"break_distance"		"600 900 1200 1500"
+				"break_distance"		"600"
 			}
 		}
 
@@ -655,7 +695,7 @@
             "ReduxPerks"                                                           "neutral | aura | nature"
 			"ReduxCost"                                                            "500"
 		}
-        
+
 		"spawnlord_master_freeze"
         {
             "MaxLevel"                                                             "4"
@@ -676,7 +716,7 @@
                 }
             }
         }
-        
+
 		"beastmaster_greater_boar_poison"
         {
             "MaxLevel"                                                             "1"
@@ -692,7 +732,7 @@
 			"AbilityCooldown"													   "15 14 13 12"
 			"AbilityValues"
 			{
-				"radius"						
+				"radius"
 				{
 					"value"			"300 350 400 450"
 					"affected_by_aoe_increase"		"1"
@@ -702,7 +742,7 @@
 				"burn_interval"			"0.5"
 			}
         }
-        
+
 		"satyr_trickster_purge"
         {
             "MaxLevel"                                                             "4"
@@ -4291,12 +4331,22 @@
             "ReduxFlags"                                                           "illusion | wtfAutoBan | doNotRandom"
             "ReduxPerks"                                                           "illusion"
             "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux"
+			"AbilityCooldown"				"160 150 140 130"
+			"MaxLevel"						"4"
+			"AbilityValues"
+			{
+				"duration"					"7.0 8.0 9.0 10.0"
+				"illusion_damage_outgoing"	"-20 -15 -10 -5"
+				"tooltip_outgoing"	"80 85 90 95"
+				"illusion_damage_incoming"	"100"
+				"tooltip_illusion_total_damage_incoming"	"200"
+				"attack_delay"				"0"
+			}
         }
-
 		"spectre_haunt_single"
 		{
-			"ReduxFlags"                                                           "illusion | upgradeable"
-            "ReduxPerks"                                                           "illusion"
+			"ReduxFlags"                    "illusion"
+            "ReduxPerks"                    "illusion"
 		}
         "terrorblade_reflection"
         {
@@ -4690,14 +4740,16 @@
 				"buff_duration"					"13"
 				"bonus_movement_speed"			"0"
 				"bonus_attack_speed"			"250 275 300 325"
-				"debuff_duration"				"3 2.5 2.0 1.5"
+				"debuff_duration"				"3.0 2.5 2.0 1.5"
 				"hookshot_damage_bonus_pct"		"0"
-				"hookshot_radius_bonus_pct"		"50 70 90 110"
-				"hookshot_duration_bonus_pct"	"50 70 90 110"
+				"hookshot_radius_bonus_pct"		"50 60 70 80"
+				"hookshot_duration_bonus_pct"	"50 60 70 80"
 				"rocket_flare_interval"				"0.15"
-				"rocket_flare_offset_pct"		"125"
+				"rocket_flare_offset_pct"		"125 110 95 80"
 				"rocket_flare_rockets"				"2 3 4 5"
 				"rocket_flare_cooldown"				"3"
+				"jetpack_bonus_speed"			"40"
+				"jetpack_turn_rate"				"75 100 125 150"
 			}
 		}
         "shredder_chakram"
@@ -5255,6 +5307,15 @@
 		{
 			"ReduxPerks"                                                           "trap | channeled | teleport"
             "ReduxFlags"                                                           "doNotRandom"
+			"MaxLevel"						"4"
+			"AbilityCastPoint"				"0.2"
+			"AbilityChannelTime"			"1.5 1.25 1.0 0.75"
+			"AbilityCooldown"				"10 9 8 7"
+			"AbilityManaCost"				"50"
+			"AbilityValues"
+			{
+				"extra_damage"						"200 250 300 350"
+			}
 		}
         "bane_nightmare"
         {
@@ -5322,7 +5383,7 @@
 		"enchantress_bunny_hop"
 		{
 			"MaxLevel"						"4"
-			"AbilityCooldown"				"4"
+			"AbilityCooldown"				"8"
 			"AbilityManaCost"				"50 45 40 35"
 
 			// Special
@@ -5347,12 +5408,12 @@
 				"04"
 				{
 					"var_type"					"FIELD_INTEGER"
-					"attack_targets"			"3 4 5 6"
+					"attack_targets"			"2 3 4 5"
 				}
 				"05"
 				{
 					"var_type"					"FIELD_INTEGER"
-					"bonus_attack_range"		"200"
+					"bonus_attack_range"		"100 125 150 175"
 				}
 			}
 			"ReduxFlags"		"mobility | upgradeable"
@@ -5888,48 +5949,21 @@
             "ReduxFlags"                    "upgradeable"
 			"MaxLevel"						"4"
 			"AbilityCooldown"				"60 55 50 45"
-			"AbilitySpecial"
+			"AbilityValues"
 			{
-				"01"
-				{
-					"var_type"					"FIELD_INTEGER"
-					"on_count"					"5"
-				}
-				"02"
-				{
-					"var_type"					"FIELD_INTEGER"
-					"radius"					"725"
-				}
-				"03"
-				{
-					"var_type"					"FIELD_INTEGER"
+					"on_count"					"5 6 7 8"
+					"radius"
+					{
+						"value"					"725 750 775 800"
+						"affected_by_aoe_increase"	"1"
+					}
 					"hit_count"					"7"
-				}
-				"04"
-				{
-					"var_type"					"FIELD_FLOAT"
-					"off_duration"				"1.85 1.8 1.75 1.7"
-				}
-				"05"
-				{
-					"var_type"					"FIELD_FLOAT"
+					"wisp_damage"				"75"
+					"off_duration"				"1.85 1.75 1.65 1.55"
 					"on_duration"				"1.0"
-				}
-				"06"
-				{
-					"var_type"					"FIELD_FLOAT"
 					"off_duration_initial"		"1.0"
-				}
-				"07"
-				{
-					"var_type"					"FIELD_INTEGER"
-					"fixed_movement_speed"		"60"
-				}
-				"08"
-				{
-					"var_type"					"FIELD_INTEGER"
+					"fixed_movement_speed"		"60 75 90 105"
 					"bounty"		"100"
-				}
 			}
         }
         "luna_lucent_beam"
@@ -6550,11 +6584,19 @@
 			"AbilityCastRange"				"750 800 850 900"
 			"AbilityManaCost"				"75"
 			"AbilityValues"
+			"AbilityValues"
 			{
-				"duration"					"6 7 8 9"
+				"duration"					"6"
 				"bonus_attack_speed"		"100 125 150 175"
 				"bonus_move_speed"			"100 125 150 175"
-				"radius"					"1200"
+				"radius"
+				{
+					"value"		"1200 1300 1400 1500"
+					"affected_by_aoe_increase"	"1"
+				}
+				"root_base_duration"	"2.0"
+				"root_per_target"		"0.5 0.6 0.7 0.8"
+				"max_root"		"5 6 7 8"
 			}
 		}
 
@@ -6759,15 +6801,19 @@
         {
 			"ReduxPerks"					"demon | self_damage | rage"
 			"MaxLevel"                      "4"
-			"AbilityCooldown"               "14 13 12 11"
+			"AbilityCooldown"               "60 55 50 45"
 			"AbilityManaCost"               "0"
 			"AbilityValues"
 			{
-				"berserk_bonus_attack_speed"        "50 65 80 95"
-				"berserk_bonus_movement_speed"              "50 55 60 65"
-				"melee_bonus"               "100"
-				"duration"      "7 8 9 10"
-				"health_cost_pct"               "20"
+				"berserk_bonus_attack_speed"		"100 125 150 175"
+				"berserk_bonus_movement_speed"				"100 125 150 175"
+				"duration"		"30"
+				"health_cost_pct"
+				{
+					"value"					"20"
+					"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
+				}
+				"reflection_pct"			"50"
 			}
         }
 
@@ -9467,9 +9513,9 @@
         "special_bonus_unique_ogre_magi_5"
         {
             "TalentRequiredAbility"
-			{
-                "1" "ogre_magi_fireblast"
-                "2" "ogre_magi_unrefined_fireblast"
+            {
+              "1" "ogre_magi_fireblast"
+              "2" "ogre_magi_unrefined_fireblast"
             }
         }
         "special_bonus_unique_ogre_magi_dumb_luck_mana"
@@ -10352,7 +10398,11 @@
         }
         "special_bonus_unique_spectre_4"
         {
-            "TalentRequiredAbility"                                                   "spectre_haunt"
+            "TalentRequiredAbility"
+            {
+              "1" "spectre_haunt"
+              "2" "spectre_haunt_single"
+            }
         }
         "special_bonus_unique_spectre_5"
         {
