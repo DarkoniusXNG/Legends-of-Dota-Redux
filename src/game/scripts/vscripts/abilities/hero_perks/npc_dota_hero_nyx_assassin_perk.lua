@@ -1,14 +1,8 @@
 --------------------------------------------------------------------------------------------------------
 --
---		Hero: nyx_assassin
---		Perk: Nyx Assassin gains 10% Bonus movement speed when invisible.
+--		Hero: Nyx Assassin
+--		Perk: Nyx Assassin gains 25% Bonus movement speed when invisible.
 --
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_nyx_assassin_perk", "abilities/hero_perks/npc_dota_hero_nyx_assassin_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_nyx_assassin_perk ~= "" then npc_dota_hero_nyx_assassin_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_nyx_assassin_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_nyx_assassin_perk ~= "" then modifier_npc_dota_hero_nyx_assassin_perk = class({}) end
 --------------------------------------------------------------------------------------------------------

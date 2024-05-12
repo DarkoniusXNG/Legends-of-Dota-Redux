@@ -1,16 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Earth Spirit
---		Perk: Earth Spirit gains 3+ damage for each point in Earth Abilities.
---
+--		Perk: Earth Spirit gains 3 damage for each point in Earth Abilities.
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_earth_spirit_perk", "abilities/hero_perks/npc_dota_hero_earth_spirit_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_earth_spirit_perk ~= "" then npc_dota_hero_earth_spirit_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_earth_spirit_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_earth_spirit_perk ~= "" then modifier_npc_dota_hero_earth_spirit_perk = class({}) end
+modifier_npc_dota_hero_earth_spirit_perk = modifier_npc_dota_hero_earth_spirit_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_earth_spirit_perk:IsPassive()
 	return true
@@ -24,9 +16,9 @@ function modifier_npc_dota_hero_earth_spirit_perk:IsHidden()
 	return false
 end
 
-function modifier_npc_dota_hero_earth_spirit_perk:GetTexture()
-	return "earth_spirit_stone_caller"
-end
+-- function modifier_npc_dota_hero_earth_spirit_perk:GetTexture()
+	-- return "custom/npc_dota_hero_earth_spirit_perk"
+-- end
 
 function modifier_npc_dota_hero_earth_spirit_perk:RemoveOnDeath()
 	return false
@@ -53,18 +45,14 @@ end
 function modifier_npc_dota_hero_earth_spirit_perk:OnIntervalThink()
 	if IsServer() then
 		local spirit = self:GetParent()
+		local stacks = 0
 		for i = 0, spirit:GetAbilityCount() - 1 do
 			local skill = spirit:GetAbilityByIndex(i)
 			if skill and skill:HasAbilityFlag("earth") then
-				skill.spiritPerkLvl = skill.spiritPerkLvl or skill:GetLevel()
-				if skill:GetLevel() > skill.spiritPerkLvl then
-					local increase = (skill:GetLevel() - skill.spiritPerkLvl)
-					local stacks = self:GetStackCount()
-					self:SetStackCount(stacks + increase*self.baseDamage)
-					skill.spiritPerkLvl = skill:GetLevel()
-				end
+				stacks = stacks + skill:GetLevel() * self.baseDamage
 			end
 		end
+		self:SetStackCount(stacks)
 	end
 end
 

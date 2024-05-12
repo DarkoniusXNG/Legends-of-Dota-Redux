@@ -7707,7 +7707,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     }
 
     local disabledPerks = {
-        npc_dota_hero_vengefulspirit_perk = true,
+        --npc_dota_hero_vengefulspirit_perk = true,
         --npc_dota_hero_windrunner = false,
         --npc_dota_hero_shadow_demon = true,
         -- npc_dota_hero_spirit_breaker = true,
@@ -7937,10 +7937,8 @@ function Pregame:fixSpawnedHero( spawnedUnit )
         local nameTest = spawnedUnit:GetName()
         if IsValidEntity(spawnedUnit) and not self.perksDisabled and not spawnedUnit.hasPerk and not disabledPerks[nameTest] then
            local perkName = spawnedUnit:GetName() .. "_perk"
-           local perk = spawnedUnit:AddAbility(perkName)
            local perkModifier = "modifier_" .. perkName
-           if perk then perk:SetLevel(1) end
-           spawnedUnit:AddNewModifier(spawnedUnit, perk, perkModifier, {})
+           spawnedUnit:AddNewModifier(spawnedUnit, nil, perkModifier, {})
            spawnedUnit.hasPerk = true
            --print("Perk assigned")
         end

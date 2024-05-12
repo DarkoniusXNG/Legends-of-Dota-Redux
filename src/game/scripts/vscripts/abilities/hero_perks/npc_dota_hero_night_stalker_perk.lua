@@ -1,16 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
---		Hero: night_stalker
---		Perk: 
---
+--		Hero: Night Stalker
+--		Perk: Hunter in the Night free ability
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_night_stalker_perk", "abilities/hero_perks/npc_dota_hero_night_stalker_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_night_stalker_perk ~= "" then npc_dota_hero_night_stalker_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_night_stalker_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_night_stalker_perk ~= "" then modifier_npc_dota_hero_night_stalker_perk = class({}) end
+modifier_npc_dota_hero_night_stalker_perk = modifier_npc_dota_hero_night_stalker_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_night_stalker_perk:IsPassive()
 	return true
@@ -21,22 +13,30 @@ function modifier_npc_dota_hero_night_stalker_perk:IsPurgable()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_night_stalker_perk:IsHidden()
-	return true
+	return false
+end
+
+function modifier_npc_dota_hero_night_stalker_perk:RemoveOnDeath()
+	return false
+end
+--------------------------------------------------------------------------------------------------------
+function modifier_npc_dota_hero_night_stalker_perk:GetTexture()
+	return "custom/npc_dota_hero_night_stalker_perk"
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
 
-function modifier_npc_dota_hero_night_stalker_perk:OnCreated(keys)
+function modifier_npc_dota_hero_night_stalker_perk:OnCreated()
     if IsServer() then
         local caster = self:GetCaster()
         local night = caster:FindAbilityByName("night_stalker_hunter_in_the_night")
 
         if night then
             night:UpgradeAbility(false)
-        else 
+        else
             night = caster:AddAbility("night_stalker_hunter_in_the_night")
-            night:SetStolen(true)
+            --night:SetStolen(true)
             night:SetActivated(true)
             night:SetLevel(1)
         end

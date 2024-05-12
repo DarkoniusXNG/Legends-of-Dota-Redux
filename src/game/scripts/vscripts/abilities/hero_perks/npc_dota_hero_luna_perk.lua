@@ -1,16 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Luna
 --		Perk: Luna gains 1 free level of Lunar Blessing, whether she has it or not. 
---
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_luna_perk", "abilities/hero_perks/npc_dota_hero_luna_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_luna_perk ~= "" then npc_dota_hero_luna_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_luna_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_luna_perk ~= "" then modifier_npc_dota_hero_luna_perk = class({}) end
+modifier_npc_dota_hero_luna_perk = modifier_npc_dota_hero_luna_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_luna_perk:IsPassive()
 	return true
@@ -27,11 +19,14 @@ end
 function modifier_npc_dota_hero_luna_perk:RemoveOnDeath()
     return false
 end
+
+function modifier_npc_dota_hero_luna_perk:GetTexture()
+	return "custom/npc_dota_hero_luna_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_luna_perk:OnCreated(keys)
-	
+function modifier_npc_dota_hero_luna_perk:OnCreated()
     if IsServer() then
         local caster = self:GetCaster()
         local blessing = caster:FindAbilityByName("luna_lunar_blessing")
@@ -40,10 +35,9 @@ function modifier_npc_dota_hero_luna_perk:OnCreated(keys)
             blessing:UpgradeAbility(false)
         else 
             blessing = caster:AddAbility("luna_lunar_blessing")
-            blessing:SetStolen(true)
+            --blessing:SetStolen(true)
             blessing:SetActivated(true)
             blessing:SetLevel(1)
         end
     end
 end
---------------------------------------------------------------------------------------------------------

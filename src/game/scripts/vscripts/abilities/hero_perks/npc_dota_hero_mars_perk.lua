@@ -1,10 +1,4 @@
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_mars_perk", "abilities/hero_perks/npc_dota_hero_mars_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_mars_perk ~= "" then npc_dota_hero_mars_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_mars_perk				
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_mars_perk ~= "" then modifier_npc_dota_hero_mars_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_mars_perk:IsPassive()
@@ -22,21 +16,26 @@ end
 function modifier_npc_dota_hero_mars_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_mars_perk:GetTexture()
+	return "custom/npc_dota_hero_mars_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
 
-function modifier_npc_dota_hero_mars_perk:OnCreated(keys)
-	
+function modifier_npc_dota_hero_mars_perk:OnCreated()
     if IsServer() then
         local caster = self:GetCaster()
         local mars = caster:FindAbilityByName("mars_bulwark")
 
         if mars then
             mars:UpgradeAbility(false)
-        else 
+        else
             mars = caster:AddAbility("mars_bulwark")
-            --nullField:SetLevel(1)	
+            --mars:SetStolen(true)
+            mars:SetActivated(true)
+            mars:SetLevel(1)
         end
     end
 end

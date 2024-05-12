@@ -1,15 +1,7 @@
---local timers = require('easytimers')
+
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Lycan
 --		Perk: Shapeshift lasts 20 seconds longer during the night when cast by Lycan. 
---
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_lycan_perk", "abilities/hero_perks/npc_dota_hero_lycan_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_lycan_perk ~= "" then npc_dota_hero_lycan_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_lycan_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_lycan_perk ~= "" then modifier_npc_dota_hero_lycan_perk = class({}) end
 --------------------------------------------------------------------------------------------------------

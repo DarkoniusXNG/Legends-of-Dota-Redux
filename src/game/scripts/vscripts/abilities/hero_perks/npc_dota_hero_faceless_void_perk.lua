@@ -1,16 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
---		Hero: faceless_void
---		Perk: 
---
+--		Hero: Faceless Void
+--		Perk: Time Lock free level
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_faceless_void_perk", "abilities/hero_perks/npc_dota_hero_faceless_void_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_faceless_void_perk ~= "" then npc_dota_hero_faceless_void_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_faceless_void_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_faceless_void_perk ~= "" then modifier_npc_dota_hero_faceless_void_perk = class({}) end
+modifier_npc_dota_hero_faceless_void_perk = modifier_npc_dota_hero_faceless_void_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_faceless_void_perk:IsPassive()
 	return true
@@ -21,24 +13,32 @@ function modifier_npc_dota_hero_faceless_void_perk:IsPurgable()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_faceless_void_perk:IsHidden()
-	return true
+	return false
+end
+
+function modifier_npc_dota_hero_faceless_void_perk:RemoveOnDeath()
+	return false
+end
+--------------------------------------------------------------------------------------------------------
+function modifier_npc_dota_hero_faceless_void_perk:GetTexture()
+	return "custom/npc_dota_hero_faceless_void_perk"
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
 
-function modifier_npc_dota_hero_faceless_void_perk:OnCreated(keys)
-    if IsServer() then
-        local caster = self:GetCaster()
-        local sadist = caster:FindAbilityByName("faceless_void_time_lock")
+function modifier_npc_dota_hero_faceless_void_perk:OnCreated()
+	if IsServer() then
+		local caster = self:GetCaster()
+		local fv = caster:FindAbilityByName("faceless_void_time_lock")
 
-        if sadist then
-            sadist:UpgradeAbility(false)
-        else 
-            sadist = caster:AddAbility("faceless_void_time_lock")
-            sadist:SetStolen(true)
-            sadist:SetActivated(true)
-            sadist:SetLevel(1)
-        end
-    end
+		if fv then
+			fv:UpgradeAbility(false)
+		else
+			fv = caster:AddAbility("faceless_void_time_lock")
+			--fv:SetStolen(true)
+			fv:SetActivated(true)
+			fv:SetLevel(1)
+		end
+	end
 end

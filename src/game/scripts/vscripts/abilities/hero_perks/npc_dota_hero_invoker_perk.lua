@@ -1,14 +1,8 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Invoker
---		Perk: Invoker gains +5 intelligence each time he uses a different ability, resetting when an ability has been used twice. Caps at +30 intelligence. 
+--		Perk: Invoker gains +10 intelligence each time he uses a different ability, resetting when an ability has been used twice. Caps at 60 stacks 
 --
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_invoker_perk", "abilities/hero_perks/npc_dota_hero_invoker_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_invoker_perk ~= "" then npc_dota_hero_invoker_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_invoker_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_invoker_perk ~= "" then modifier_npc_dota_hero_invoker_perk = class({}) end
 --------------------------------------------------------------------------------------------------------

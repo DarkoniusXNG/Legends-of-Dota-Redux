@@ -1,15 +1,8 @@
---local timers = require('easytimers')
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Walock
 --		Perk: Warlock starts the game with a Necronomicon
 --
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_warlock_perk", "abilities/hero_perks/npc_dota_hero_warlock_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_warlock_perk ~= "" then npc_dota_hero_warlock_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_warlock_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_warlock_perk ~= "" then modifier_npc_dota_hero_warlock_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
@@ -28,6 +21,10 @@ end
 function modifier_npc_dota_hero_warlock_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_warlock_perk:GetTexture()
+	return "custom/npc_dota_hero_warlock_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 function modifier_npc_dota_hero_warlock_perk:OnCreated(keys)
@@ -42,5 +39,3 @@ function modifier_npc_dota_hero_warlock_perk:OnCreated(keys)
 		end
 	end
 end
---------------------------------------------------------------------------------------------------------
-

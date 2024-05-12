@@ -1,14 +1,8 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Sand King
---		Perk: Channeling abilities refund 30% of their manacost when cast by Sand King. 
+--		Perk: Channeling abilities refund 50% of their manacost when cast by Sand King. 
 --
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_sand_king_perk", "abilities/hero_perks/npc_dota_hero_sand_king_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_sand_king_perk ~= "" then npc_dota_hero_sand_king_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_sand_king_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_sand_king_perk ~= "" then modifier_npc_dota_hero_sand_king_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
@@ -27,14 +21,17 @@ end
 function modifier_npc_dota_hero_sand_king_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_sand_king_perk:GetTexture()
+	return "custom/npc_dota_hero_sand_king_perk"
+end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_sand_king_perk:OnCreated()
-  local manaRefund = 25
-  local cooldownReduction = 25
+  local manaRefund = 50
+  local cooldownReduction = 50
 
   self.manaRefund = manaRefund * 0.01
   self.cooldownReduction = 1 - (cooldownReduction * 0.01)
-  return true
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions

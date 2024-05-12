@@ -1,14 +1,8 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Beastmaster
---      Perk: Increases Beastmaster's Strength by 3 for every level put in Neutral abilities. 
+--      Perk: Increases Beastmaster's Strength by 3 for every level put in Neutral abilities.
 --
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_beastmaster_perk", "abilities/hero_perks/npc_dota_hero_beastmaster_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_beastmaster_perk ~= "" then npc_dota_hero_beastmaster_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_beastmaster_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_beastmaster_perk ~= "" then modifier_npc_dota_hero_beastmaster_perk = class({}) end
 --------------------------------------------------------------------------------------------------------

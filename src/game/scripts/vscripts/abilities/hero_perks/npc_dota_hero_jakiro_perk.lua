@@ -1,16 +1,11 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Jakiro
---		Perk: Fire and Ice spells cast sequentially will refund 40% mana and have 20% reduced cooldowns.
+--		Perk: Fire and Ice spells cast sequentially will refund 50% mana and have 30% reduced cooldowns.
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_jakiro_perk", "abilities/hero_perks/npc_dota_hero_jakiro_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_npc_dota_hero_jakiro_perk_fire", "abilities/hero_perks/npc_dota_hero_jakiro_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_npc_dota_hero_jakiro_perk_ice", "abilities/hero_perks/npc_dota_hero_jakiro_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_jakiro_perk ~= "" then npc_dota_hero_jakiro_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_jakiro_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_jakiro_perk ~= "" then modifier_npc_dota_hero_jakiro_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
@@ -32,6 +27,10 @@ end
 function modifier_npc_dota_hero_jakiro_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_jakiro_perk:GetTexture()
+	return "custom/npc_dota_hero_jakiro_perk"
+end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_jakiro_perk:OnCreated(keys)
 	self.timeToCast = 60
@@ -41,9 +40,8 @@ function modifier_npc_dota_hero_jakiro_perk:OnCreated(keys)
 	self.firePerk = "modifier_npc_dota_hero_jakiro_perk_fire"
 	self.icePerk = "modifier_npc_dota_hero_jakiro_perk_ice"
 
-	self.cooldownReduction = 1-(self.cooldownPercentReduction / 100)
+	self.cooldownReduction = 1 - (self.cooldownPercentReduction / 100)
 	self.manaReduction = self.manaPercentReduction / 100
-	return true
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
@@ -91,6 +89,11 @@ if modifier_npc_dota_hero_jakiro_perk_fire ~= "" then modifier_npc_dota_hero_jak
 function modifier_npc_dota_hero_jakiro_perk_fire:RemoveOnDeath()
 	return true
 end
+
+function modifier_npc_dota_hero_jakiro_perk_fire:IsPurgable()
+	return false
+end
+
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_jakiro_perk_fire:GetTexture()
 	return "jakiro_liquid_fire"
@@ -102,6 +105,10 @@ if modifier_npc_dota_hero_jakiro_perk_ice ~= "" then modifier_npc_dota_hero_jaki
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_jakiro_perk_ice:RemoveOnDeath()
 	return true
+end
+
+function modifier_npc_dota_hero_jakiro_perk_ice:IsPurgable()
+	return false
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_jakiro_perk_ice:GetTexture()

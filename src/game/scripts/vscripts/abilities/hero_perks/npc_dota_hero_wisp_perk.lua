@@ -1,23 +1,15 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Wisp
---		Perk: Wisp provides 3 mana per second regeneration to nearby allies.
---
+--		Perk: Essence Aura 2 free levels
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_wisp_perk", "abilities/hero_perks/npc_dota_hero_wisp_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_wisp_perk ~= "" then npc_dota_hero_wisp_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_wisp_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_wisp_perk ~= "" then modifier_npc_dota_hero_wisp_perk = class({}) end
+modifier_npc_dota_hero_wisp_perk = modifier_npc_dota_hero_wisp_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_wisp_perk:IsPassive()
 	return true
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_wisp_perk:IsHidden()
-	return true
+	return false
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_wisp_perk:IsPurgable()
@@ -29,22 +21,23 @@ function modifier_npc_dota_hero_wisp_perk:RemoveOnDeath()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_wisp_perk:GetTexture()
-	return "necrolyte_heartstopper_aura"
+	return "wisp_spirits"
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
 
-function modifier_npc_dota_hero_wisp_perk:OnCreated(keys)
+function modifier_npc_dota_hero_wisp_perk:OnCreated()
     if IsServer() then
         local caster = self:GetCaster()
         local essense = caster:FindAbilityByName("obsidian_destroyer_essence_aura_lod")
 
         if essense then
             essense:UpgradeAbility(false)
+			--essense:SetLevel(2)
         else 
             essense = caster:AddAbility("obsidian_destroyer_essence_aura_lod")
-            essense:SetStolen(true)
+            --essense:SetStolen(true)
             essense:SetActivated(true)
             essense:SetLevel(2)
         end

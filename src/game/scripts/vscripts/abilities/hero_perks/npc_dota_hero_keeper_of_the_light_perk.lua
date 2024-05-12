@@ -1,16 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
---		Hero: keeper_of_the_light
---		Perk: 
---
+--		Hero: KOTL
+--		Perk: Aether Range free ability
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_keeper_of_the_light_perk", "abilities/hero_perks/npc_dota_hero_keeper_of_the_light_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_keeper_of_the_light_perk ~= "" then npc_dota_hero_keeper_of_the_light_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_keeper_of_the_light_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_keeper_of_the_light_perk ~= "" then modifier_npc_dota_hero_keeper_of_the_light_perk = class({}) end
+modifier_npc_dota_hero_keeper_of_the_light_perk = modifier_npc_dota_hero_keeper_of_the_light_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_keeper_of_the_light_perk:IsPassive()
 	return true
@@ -21,23 +13,32 @@ function modifier_npc_dota_hero_keeper_of_the_light_perk:IsPurgable()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_keeper_of_the_light_perk:IsHidden()
-	return true
+	return false
+end
+
+function modifier_npc_dota_hero_keeper_of_the_light_perk:RemoveOnDeath()
+	return false
+end
+--------------------------------------------------------------------------------------------------------
+function modifier_npc_dota_hero_keeper_of_the_light_perk:GetTexture()
+	return "custom/npc_dota_hero_keeper_of_the_light_perk"
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
 
-function modifier_npc_dota_hero_keeper_of_the_light_perk:OnCreated(keys)
-	
+function modifier_npc_dota_hero_keeper_of_the_light_perk:OnCreated()
     if IsServer() then
         local caster = self:GetCaster()
         local kotl = caster:FindAbilityByName("aether_range_lod")
 
         if kotl then
             kotl:UpgradeAbility(false)
-        else 
+        else
             kotl = caster:AddAbility("aether_range_lod")
-            --nullField:SetLevel(1)	
+			--kotl:SetStolen(true)
+            kotl:SetActivated(true)
+            kotl:SetLevel(1)
         end
     end
 end

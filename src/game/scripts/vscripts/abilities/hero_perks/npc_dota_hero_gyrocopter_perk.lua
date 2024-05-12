@@ -1,16 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Gyrocopter
---		Perk: At the start of the game, Sven gains a free level of Side Gunner, whether he has it or not.
---
+--		Perk: Side Gunner free level
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_gyrocopter_perk", "abilities/hero_perks/npc_dota_hero_gyrocopter_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_gyrocopter_perk ~= "" then npc_dota_hero_gyrocopter_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_gyrocopter_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_gyrocopter_perk ~= "" then modifier_npc_dota_hero_gyrocopter_perk = class({}) end
+modifier_npc_dota_hero_gyrocopter_perk = modifier_npc_dota_hero_gyrocopter_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_gyrocopter_perk:IsPassive()
 	return true
@@ -25,7 +17,7 @@ function modifier_npc_dota_hero_gyrocopter_perk:RemoveOnDeath()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_gyrocopter_perk:GetTexture()
-	return "gyrocopter_flak_cannon"
+	return "custom/npc_dota_hero_gyrocopter_perk"
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_gyrocopter_perk:IsPurgable()
@@ -38,13 +30,13 @@ end
 function modifier_npc_dota_hero_gyrocopter_perk:OnCreated(keys)
     if IsServer() then
         local caster = self:GetCaster()
-        local gunner = caster:FindAbilityByName("gyrocopter_flak_cannon")
+        local gunner = caster:FindAbilityByName("side_gunner_redux")
 
         if gunner then
             gunner:UpgradeAbility(false)
         else 
-            gunner = caster:AddAbility("gyrocopter_flak_cannon")
-            gunner:SetStolen(true)
+            gunner = caster:AddAbility("side_gunner_redux")
+            --gunner:SetStolen(true)
             gunner:SetActivated(true)
             gunner:SetLevel(1)
         end

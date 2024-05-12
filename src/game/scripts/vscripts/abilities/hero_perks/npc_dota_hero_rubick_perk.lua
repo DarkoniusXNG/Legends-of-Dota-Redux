@@ -1,16 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Rubick
---		Perk: Rubick gains 1 free level of Null Field, whether he has it or not. 
---
+--		Perk: Null Field free level
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_rubick_perk", "abilities/hero_perks/npc_dota_hero_rubick_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_rubick_perk ~= "" then npc_dota_hero_rubick_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_rubick_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_rubick_perk ~= "" then modifier_npc_dota_hero_rubick_perk = class({}) end
+modifier_npc_dota_hero_rubick_perk = modifier_npc_dota_hero_rubick_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_rubick_perk:IsPassive()
 	return true
@@ -27,20 +19,25 @@ end
 function modifier_npc_dota_hero_rubick_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_rubick_perk:GetTexture()
+	return "custom/npc_dota_hero_rubick_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_rubick_perk:OnCreated(keys)
-	
+function modifier_npc_dota_hero_rubick_perk:OnCreated()
     if IsServer() then
         local caster = self:GetCaster()
         local nullField = caster:FindAbilityByName("rubick_null_field")
 
         if nullField then
             nullField:UpgradeAbility(false)
-        else 
+        else
             nullField = caster:AddAbility("rubick_null_field")
-            --nullField:SetLevel(1)	
+            --nullField:SetStolen(true)
+            nullField:SetActivated(true)
+            nullField:SetLevel(1)
         end
     end
 end

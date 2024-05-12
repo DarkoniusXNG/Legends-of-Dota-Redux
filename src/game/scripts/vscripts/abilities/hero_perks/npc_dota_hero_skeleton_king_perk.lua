@@ -1,17 +1,8 @@
---local timers = require('easytimers')
 --------------------------------------------------------------------------------------------------------
---
 --      Hero: Wraith King
---      Perk: Wraith King can buyback with a 50% reduced cooldown, refunding 50% of the buyback cost and removing the gold penalty.
---
+--      Perk: Mortal Strike free ability
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_skeleton_king_perk", "abilities/hero_perks/npc_dota_hero_skeleton_king_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_skeleton_king_perk ~= "" then npc_dota_hero_skeleton_king_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---      Modifier: modifier_npc_dota_hero_skeleton_king_perk             
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_skeleton_king_perk ~= "" then modifier_npc_dota_hero_skeleton_king_perk = class({}) end
+modifier_npc_dota_hero_skeleton_king_perk = modifier_npc_dota_hero_skeleton_king_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_skeleton_king_perk:IsPassive()
     return true
@@ -28,22 +19,24 @@ end
 function modifier_npc_dota_hero_skeleton_king_perk:RemoveOnDeath()
     return false
 end
---------------------------------------------------------------------------------------------------------
 
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_skeleton_king_perk:OnCreated(keys)
-	
-    if IsServer() then
-        local caster = self:GetCaster()
-        local mars = caster:FindAbilityByName("skeleton_king_vampiric_aura")
-
-        if mars then
-            mars:UpgradeAbility(false)
-        else 
-            mars = caster:AddAbility("skeleton_king_vampiric_aura")
-            --nullField:SetLevel(1)	
-        end
-    end
+function modifier_npc_dota_hero_skeleton_king_perk:GetTexture()
+	return "custom/npc_dota_hero_skeleton_king_perk"
 end
---------------------------------------------------------------------------------------------------------
 
+--------------------------------------------------------------------------------------------------------
+function modifier_npc_dota_hero_skeleton_king_perk:OnCreated()
+	if IsServer() then
+		local caster = self:GetCaster()
+		local crit = caster:FindAbilityByName("skeleton_king_mortal_strike")
+
+		if crit then
+            crit:UpgradeAbility(false)
+        else
+            crit = caster:AddAbility("skeleton_king_mortal_strike")
+            --crit:SetStolen(true)
+            crit:SetActivated(true)
+            crit:SetLevel(1)
+        end
+	end
+end

@@ -1,16 +1,10 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Omniknight
---		Perk: Light spells refund 40% of their mana cost when cast by Omniknight. 
+--		Perk: Light spells have 25% CDR and refund 25% of their mana cost when cast by Omniknight.
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_omniknight_perk", "abilities/hero_perks/npc_dota_hero_omniknight_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_omniknight_perk ~= "" then npc_dota_hero_omniknight_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_omniknight_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_omniknight_perk ~= "" then modifier_npc_dota_hero_omniknight_perk = class({}) end
+modifier_npc_dota_hero_omniknight_perk = modifier_npc_dota_hero_omniknight_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_omniknight_perk:IsPassive()
 	return true
@@ -27,32 +21,34 @@ end
 function modifier_npc_dota_hero_omniknight_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_omniknight_perk:GetTexture()
+	return "custom/npc_dota_hero_omniknight_perk"
+end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_omniknight_perk:OnCreated()
-  local manaRefund = 25
-  local cooldownReduction = 25
+	local manaRefund = 25
+	local cooldownReduction = 25
 
-  self.manaRefund = manaRefund * 0.01
-  self.cooldownReduction = 1 - (cooldownReduction * 0.01)
-  return true
+	self.manaRefund = manaRefund * 0.01
+	self.cooldownReduction = 1 - (cooldownReduction * 0.01)
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_omniknight_perk:DeclareFunctions()
-  local funcs = {
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-  }
-  return funcs
+	return {
+		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
+	}
 end
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_omniknight_perk:OnAbilityFullyCast(keys)
-  if IsServer() then
-    if keys.ability:HasAbilityFlag("light") and keys.unit == self:GetParent() then
-      local cooldown = keys.ability:GetCooldownTimeRemaining()
-      keys.ability:EndCooldown()
-      keys.ability:StartCooldown(cooldown*self.cooldownReduction)
-      self:GetParent():GiveMana(keys.ability:GetManaCost(keys.ability:GetLevel()-1)*self.manaRefund)
-    end
-  end
+if IsServer() then
+	function modifier_npc_dota_hero_omniknight_perk:OnAbilityFullyCast(keys)
+		if keys.ability:HasAbilityFlag("light") and keys.unit == self:GetParent() then
+			local cooldown = keys.ability:GetCooldownTimeRemaining()
+			keys.ability:EndCooldown()
+			keys.ability:StartCooldown(cooldown*self.cooldownReduction)
+			self:GetParent():GiveMana(keys.ability:GetManaCost(keys.ability:GetLevel()-1)*self.manaRefund)
+		end
+	end
 end

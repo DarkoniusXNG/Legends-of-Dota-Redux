@@ -4,13 +4,7 @@
 --		Perk: For Lion, killing a hero with a spell refunds the mana cost of that spell and lowers its cooldown by 75%.
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_lion_perk", "abilities/hero_perks/npc_dota_hero_lion_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_lion_perk ~= "" then npc_dota_hero_lion_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_lion_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_lion_perk ~= "" then modifier_npc_dota_hero_lion_perk = class({}) end
+modifier_npc_dota_hero_lion_perk = modifier_npc_dota_hero_lion_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_lion_perk:IsPassive()
 	return true
@@ -27,13 +21,17 @@ end
 function modifier_npc_dota_hero_lion_perk:IsPurgable()
 	return false
 end
+
+function modifier_npc_dota_hero_lion_perk:GetTexture()
+	return "custom/npc_dota_hero_lion_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_lion_perk:DeclareFunctions()
 	return {
-	MODIFIER_EVENT_ON_TAKEDAMAGE,
-	MODIFIER_EVENT_ON_HERO_KILLED  
+		MODIFIER_EVENT_ON_TAKEDAMAGE,
+		MODIFIER_EVENT_ON_HERO_KILLED,
 	}
 end
 --------------------------------------------------------------------------------------------------------
@@ -44,19 +42,18 @@ function modifier_npc_dota_hero_lion_perk:OnTakeDamage(keys)
 		local target = keys.target
 		local attacker = keys.attacker
 		if attacker == caster then
-			if ability and not ability:HasAbilityFlag("attack_modifier") then 
-				self.ability = ability 
+			if ability and not ability:HasAbilityFlag("attack_modifier") then
+				self.ability = ability
 			else
 				self.ability = nil
 			end
 		end
 	end
-	return true
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_lion_perk:OnHeroKilled(keys)
 	if IsServer() then
-		local caster = self:GetCaster() 
+		local caster = self:GetCaster()
 		local target = keys.target
 		local attacker = keys.attacker
 
@@ -77,6 +74,5 @@ function modifier_npc_dota_hero_lion_perk:OnHeroKilled(keys)
 			end
 		end
 	end
-	return true
 end
 --------------------------------------------------------------------------------------------------------

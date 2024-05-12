@@ -4,12 +4,7 @@
 --		Perk: Treant receives 3 charges of living armor. 
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_treant_perk", "abilities/hero_perks/npc_dota_hero_treant_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_charges", "abilities/modifiers/modifier_charges.lua", LUA_MODIFIER_MOTION_NONE)
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_treant_perk ~= "" then npc_dota_hero_treant_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_treant_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_treant_perk ~= "" then modifier_npc_dota_hero_treant_perk = class({}) end
 --------------------------------------------------------------------------------------------------------

@@ -1,14 +1,8 @@
 --------------------------------------------------------------------------------------------------------
 --
---		Hero: crystal_maiden
+--		Hero: Crystal Maiden
 --		Perk: Crystal Maiden gains 1 level of arcane aura for every ice spells she has
 --
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_crystal_maiden_perk", "abilities/hero_perks/npc_dota_hero_crystal_maiden_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_crystal_maiden_perk ~= "" then npc_dota_hero_crystal_maiden_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_crystal_maiden_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_crystal_maiden_perk ~= "" then modifier_npc_dota_hero_crystal_maiden_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
@@ -27,6 +21,10 @@ end
 function modifier_npc_dota_hero_crystal_maiden_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_crystal_maiden_perk:GetTexture()
+	return "custom/npc_dota_hero_crystal_maiden_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
@@ -42,13 +40,9 @@ function modifier_npc_dota_hero_crystal_maiden_perk:OnCreated()
 		if ability and ability:HasAbilityFlag("ice") then
 			if not aura then
 				aura = caster:AddAbility("crystal_maiden_brilliance_aura")
-				aura:SetStolen(true)
+				--aura:SetStolen(true)
 			end
 			aura:UpgradeAbility(false)
 		end
 	end
-
 end
-
-
-

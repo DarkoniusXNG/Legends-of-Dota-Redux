@@ -1,56 +1,53 @@
 "DOTAAbilities" {
 	"phoenix_supernova_perk" {
-		"BaseClass" "phoenix_supernova"
-		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetFlags" "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType" "SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel" "2"
-		"AbilityCastRange" "500"
-		"AbilityCastPoint" "0.01"
-		"AbilityCooldown" "120.0 120.0 120.0"
-		"AbilityDuration" "6.0"
-		"AbilityManaCost" "150 200 250"
+		"BaseClass"						"phoenix_supernova"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"HasScepterUpgrade"				"1"
 
-		"AbilitySpecial"
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.01"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
+
+		"AbilityCooldown"				"180" // we changed this
+		"AbilityDuration"				"6.0"
+
+		"AbilityManaCost"				"0" // we changed this
+
+		"AbilityValues"
 		{
-			"01"
+			"aura_radius"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"aura_radius"		"1200"
+				"value"	"1200"
+				"affected_by_aoe_increase"	"1"
 			}
-			"02"
+			"damage_per_sec"	"60 90 120"
+			"tick_interval"		"0.2"
+			"stun_duration"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_per_sec"	"60 90 120"
-			}
-			
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"2.0 2.5 3.0"
+				"value"			"1.6 2 2.4"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_2"
 			}
-			"04"
+			"max_hero_attacks"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"max_hero_attacks"	"6 8 10"
+				"value"			"6 8 10"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_1"
 			}
-			"05"
+			"max_hero_attacks_scepter"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"max_hero_attacks_scepter"	"7 10 13"
+				"value"	"7 10 13"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_1"
 				"RequiresScepter"	"1"
 			}
-			"07"
+			"cast_range_tooltip_scepter"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range_tooltip_scepter"	"500"
+				"value"			"500"
 				"RequiresScepter"	"1"
 			}
 		}

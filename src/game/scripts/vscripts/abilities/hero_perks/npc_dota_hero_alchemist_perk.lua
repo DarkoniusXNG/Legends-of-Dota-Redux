@@ -1,17 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --    Hero: Alchemist
---    Perk: At the start of the game, Alchemist gains a free level of Greevils Greed, whether he has it or not. 
---    
---
+--    Perk: Greevils Greed free level + 50% refund for consuming an item
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_alchemist_perk", "abilities/hero_perks/npc_dota_hero_alchemist_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_alchemist_perk ~= "" then npc_dota_hero_alchemist_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---    Modifier: modifier_npc_dota_hero_alchemist_perk        
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_alchemist_perk ~= "" then modifier_npc_dota_hero_alchemist_perk = class({}) end
+modifier_npc_dota_hero_alchemist_perk = modifier_npc_dota_hero_alchemist_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_alchemist_perk:IsPassive()
   return true
@@ -26,15 +17,32 @@ function modifier_npc_dota_hero_alchemist_perk:IsPurgable()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_alchemist_perk:RemoveOnDeath()
-  return true
+  return false
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_alchemist_perk:GetTexture()
-  return "alchemist_goblins_greed"
+  return "custom/npc_dota_hero_alchemist_perk"
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_alchemist_perk:OnCreated()
+    if IsServer() then
+        local caster = self:GetCaster()
+        local alch = caster:FindAbilityByName("alchemist_goblins_greed")
+
+        if alch then
+            alch:UpgradeAbility(false)
+        else 
+            alch = caster:AddAbility("alchemist_goblins_greed")
+            --alch:SetStolen(true)
+            alch:SetActivated(true)
+            alch:SetLevel(1)
+        end
+    end
+end
+
 function modifier_npc_dota_hero_alchemist_perk:DeclareFunctions()
     return {
         MODIFIER_EVENT_ON_ABILITY_FULLY_CAST
@@ -44,7 +52,7 @@ end
 function modifier_npc_dota_hero_alchemist_perk:OnAbilityFullyCast(params)
     if params.unit == self:GetParent() then
         local item = params.ability
-        if item:GetAbilityName() == "item_ultimate_scepter" or item:GetAbilityName() == "item_moon_shard" or string.find(item:GetAbilityName(),"consumable") then
+        if item:IsItem() and item:GetAbilityName() == "item_ultimate_scepter" or item:GetAbilityName() == "item_moon_shard" or string.find(item:GetAbilityName(),"consumable") then
             self:GetParent():ModifyGold( item:GetGoldCost(-1) * 0.5, true, 0 ) 
         end
     end

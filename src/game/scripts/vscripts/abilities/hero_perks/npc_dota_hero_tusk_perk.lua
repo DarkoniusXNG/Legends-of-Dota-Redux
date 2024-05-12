@@ -4,12 +4,6 @@
 --		Perk: Walrus Kick and Walrus Punch will refund their manacost when used by Tusk. 
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_tusk_perk", "abilities/hero_perks/npc_dota_hero_tusk_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_tusk_perk ~= "" then npc_dota_hero_tusk_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_tusk_perk				
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_tusk_perk ~= "" then modifier_npc_dota_hero_tusk_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_tusk_perk:IsPassive()
@@ -48,7 +42,4 @@ function modifier_npc_dota_hero_tusk_perk:OnAbilityFullyCast(keys)
 			end
 		end
 	end
-
-	return true
 end
---------------------------------------------------------------------------------------------------------

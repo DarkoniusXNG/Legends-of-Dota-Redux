@@ -4,12 +4,6 @@
 --		Perk: Denying a creep gives 25% of that creeps max health to lich
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_lich_perk", "abilities/hero_perks/npc_dota_hero_lich_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_lich_perk ~= "" then npc_dota_hero_lich_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_lich_perk				
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_lich_perk ~= "" then modifier_npc_dota_hero_lich_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_lich_perk:IsPassive()
@@ -26,6 +20,10 @@ end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_lich_perk:RemoveOnDeath()
 	return false
+end
+
+function modifier_npc_dota_hero_lich_perk:GetTexture()
+	return "custom/npc_dota_hero_lich_perk"
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions

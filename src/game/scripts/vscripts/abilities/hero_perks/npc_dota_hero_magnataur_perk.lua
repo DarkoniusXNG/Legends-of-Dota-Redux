@@ -4,12 +4,6 @@
 --		Perk: When Magnus casts Enemy Moving abilities, they will have 25% mana refunded and cooldowns reduced by 25%.
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_magnataur_perk", "abilities/hero_perks/npc_dota_hero_magnataur_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_magnataur_perk ~= "" then npc_dota_hero_magnataur_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_magnataur_perk				
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_magnataur_perk ~= "" then modifier_npc_dota_hero_magnataur_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_magnataur_perk:IsPassive()
@@ -34,7 +28,6 @@ function modifier_npc_dota_hero_magnataur_perk:OnCreated()
 
   self.manaRefund = manaRefund * 0.01
   self.cooldownReduction = 1 - (cooldownReduction * 0.01)
-  return true
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
@@ -46,14 +39,16 @@ function modifier_npc_dota_hero_magnataur_perk:DeclareFunctions()
   return funcs
 end
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_magnataur_perk:OnAbilityFullyCast(keys)
-  if IsServer() then
-    if keys.ability:HasAbilityFlag("enemymoving") and keys.unit == self:GetParent() then
-      local cooldown = keys.ability:GetCooldownTimeRemaining()
-      keys.ability:EndCooldown()
-      keys.ability:StartCooldown(cooldown*self.cooldownReduction)
-      self:GetParent():GiveMana(keys.ability:GetManaCost(keys.ability:GetLevel()-1)*self.manaRefund)
-    end
-  end
+if IsServer() then
+	function modifier_npc_dota_hero_magnataur_perk:OnAbilityFullyCast(keys)
+		local parent = self:GetParent()
+		local cast_ability = keys.ability
+		if cast_ability:HasAbilityFlag("enemymoving") and keys.unit == parent then
+			local cooldown = cast_ability:GetCooldownTimeRemaining()
+			cast_ability:EndCooldown()
+			cast_ability:StartCooldown(cooldown*self.cooldownReduction)
+			parent:GiveMana(cast_ability:GetManaCost(cast_ability:GetLevel()-1)*self.manaRefund)
+		end
+	end
 end
 

@@ -1,14 +1,8 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Enchantress
---		Perk: Enchantress can creates plants without the health penalty. 
+--		Perk: Enchantress can creates plants without the health penalty. Also brief attack range bonus after attacking a hero.
 --		Note: Perk code is located in the Cherub's abilities, like Flower Garden, code. 
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_enchantress_perk", "abilities/hero_perks/npc_dota_hero_enchantress_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_enchantress_perk ~= "" then npc_dota_hero_enchantress_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_enchantress_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_enchantress_perk ~= "" then modifier_npc_dota_hero_enchantress_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
@@ -53,4 +47,3 @@ end
 function modifier_npc_dota_hero_enchantress_perk:GetModifierAttackRangeBonus()
 	return self:GetStackCount() * 50
 end
-

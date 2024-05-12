@@ -4,12 +4,6 @@
 --    Perk: Reduces the cooldown of Movement-Blocking abilities by 30% when cast by Disruptor.
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_disruptor_perk", "abilities/hero_perks/npc_dota_hero_disruptor_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_disruptor_perk ~= "" then npc_dota_hero_disruptor_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---    Modifier: modifier_npc_dota_hero_disruptor_perk        
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_disruptor_perk ~= "" then modifier_npc_dota_hero_disruptor_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 if IsServer() then
@@ -58,7 +52,7 @@ function modifier_npc_dota_hero_disruptor_perk:IsHidden()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_disruptor_perk:RemoveOnDeath()
-  return true
+  return false
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions

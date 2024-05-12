@@ -1,14 +1,8 @@
 --------------------------------------------------------------------------------------------------------
 --
 --      Hero: Bristleback
---      Perk: Bristleback reduces the cooldown of all spells which cost less than 50 mana by 15%. 
+--      Perk: Bristleback reduces the cooldown of all spells which cost less than 70 mana by 15%. 
 --
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_bristleback_perk", "abilities/hero_perks/npc_dota_hero_bristleback_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_bristleback_perk ~= "" then npc_dota_hero_bristleback_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---      Modifier: modifier_npc_dota_hero_bristleback_perk               
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_bristleback_perk ~= "" then modifier_npc_dota_hero_bristleback_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
@@ -27,12 +21,15 @@ end
 function modifier_npc_dota_hero_bristleback_perk:RemoveOnDeath()
     return false
 end
+
+function modifier_npc_dota_hero_bristleback_perk:GetTexture()
+	return "custom/npc_dota_hero_bristleback_perk"
+end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_bristleback_perk:OnCreated(keys)
     self.manaThreshold = 70
     self.cooldownPercentReduction = 25
     self.cooldownReduction = 1 - (self.cooldownPercentReduction / 100)
-    return true
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions

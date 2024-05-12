@@ -1,23 +1,15 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Necrolyte
---		Perk: At the start of the game, Necrophos gains a free level of Death Pulse, whether he has it or not.
---
+--		Perk: HeartStopper Aura free level
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_necrolyte_perk", "abilities/hero_perks/npc_dota_hero_necrolyte_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_necrolyte_perk ~= "" then npc_dota_hero_necrolyte_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_necrolyte_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_necrolyte_perk ~= "" then modifier_npc_dota_hero_necrolyte_perk = class({}) end
+modifier_npc_dota_hero_necrolyte_perk = modifier_npc_dota_hero_necrolyte_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_necrolyte_perk:IsPassive()
 	return true
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_necrolyte_perk:IsHidden()
-	return true
+	return false
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_necrolyte_perk:IsPurgable()
@@ -29,24 +21,24 @@ function modifier_npc_dota_hero_necrolyte_perk:RemoveOnDeath()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_necrolyte_perk:GetTexture()
-	return "necrolyte_heartstopper_aura"
+	return "custom/npc_dota_hero_necrolyte_perk"
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
 
-function modifier_npc_dota_hero_necrolyte_perk:OnCreated(keys)
+function modifier_npc_dota_hero_necrolyte_perk:OnCreated()
     if IsServer() then
         local caster = self:GetCaster()
-        local sadist = caster:FindAbilityByName("necrolyte_heartstopper_aura")
+        local necro = caster:FindAbilityByName("necrolyte_heartstopper_aura")
 
-        if sadist then
-            sadist:UpgradeAbility(false)
+        if necro then
+            necro:UpgradeAbility(false)
         else 
-            sadist = caster:AddAbility("necrolyte_heartstopper_aura")
-            sadist:SetStolen(true)
-            sadist:SetActivated(true)
-            sadist:SetLevel(1)
+            necro = caster:AddAbility("necrolyte_heartstopper_aura")
+            --necro:SetStolen(true)
+            necro:SetActivated(true)
+            necro:SetLevel(1)
         end
     end
 end

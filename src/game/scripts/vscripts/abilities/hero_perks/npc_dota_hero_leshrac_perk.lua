@@ -4,12 +4,6 @@
 --		Perk: At the start of the game, Leshrac gains a free level of Octarine Vampirism, whether he has it or not.
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_leshrac_perk", "abilities/hero_perks/npc_dota_hero_leshrac_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_leshrac_perk ~= "" then npc_dota_hero_leshrac_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_leshrac_perk				
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_leshrac_perk ~= "" then modifier_npc_dota_hero_leshrac_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_leshrac_perk:IsPassive()
@@ -27,6 +21,10 @@ end
 function modifier_npc_dota_hero_leshrac_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_leshrac_perk:GetTexture()
+	return "custom/npc_dota_hero_leshrac_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
@@ -41,7 +39,7 @@ function modifier_npc_dota_hero_leshrac_perk:OnCreated(keys)
             octarine:UpgradeAbility(false)
         else 
             octarine = caster:AddAbility("octarine_vampirism_lod")
-            octarine:SetStolen(true)
+            --octarine:SetStolen(true)
             octarine:SetActivated(true)
             octarine:SetLevel(1)
         end

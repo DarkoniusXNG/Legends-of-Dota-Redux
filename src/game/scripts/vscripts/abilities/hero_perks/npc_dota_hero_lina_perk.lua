@@ -4,12 +4,6 @@
 --		Perk: Increases Lina's intelligence by 3 for each level put in fire-type spells.
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_lina_perk", "abilities/hero_perks/npc_dota_hero_lina_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_lina_perk ~= "" then npc_dota_hero_lina_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_lina_perk				
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_lina_perk ~= "" then modifier_npc_dota_hero_lina_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_lina_perk:IsPassive()
@@ -26,6 +20,10 @@ end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_lina_perk:RemoveOnDeath()
 	return false
+end
+
+function modifier_npc_dota_hero_lina_perk:GetTexture()
+	return "custom/npc_dota_hero_lina_perk"
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_lina_perk:DeclareFunctions()
@@ -45,24 +43,17 @@ end
 function modifier_npc_dota_hero_lina_perk:OnIntervalThink()
 	if IsServer() then
 		local caster = self:GetParent()
+		local stacks = 0
 		for i = 0, caster:GetAbilityCount() - 1 do
 			local skill = caster:GetAbilityByIndex(i)
 			if skill and skill:HasAbilityFlag("fire") then
-				if not skill.perkLevel then skill.perkLevel = skill:GetLevel() end
-				if skill:GetLevel() > skill.perkLevel then
-					local increase = (skill:GetLevel()  - skill.perkLevel)
-					increase = increase * self.bonusPerLevel
-					local stacks = self:GetStackCount()
-					self:SetStackCount(stacks + increase)
-					skill.perkLevel = skill:GetLevel()
-				end
+				stacks = stacks + skill:GetLevel() * self.bonusPerLevel
 			end
 		end
+		self:SetStackCount(stacks)
 	end
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_lina_perk:GetModifierBonusStats_Intellect(params)
 	return self.bonusAmount * self:GetStackCount()
 end
---------------------------------------------------------------------------------------------------------
-

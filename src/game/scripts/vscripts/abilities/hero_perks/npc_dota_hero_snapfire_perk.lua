@@ -1,11 +1,5 @@
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_snapfire_perk", "abilities/hero_perks/npc_dota_hero_snapfire_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_snapfire_perk ~= "" then npc_dota_hero_snapfire_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_snapfire_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_snapfire_perk ~= "" then modifier_npc_dota_hero_snapfire_perk = class({}) end
+modifier_npc_dota_hero_snapfire_perk = modifier_npc_dota_hero_snapfire_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_snapfire_perk:IsPassive()
 	return true
@@ -22,6 +16,10 @@ end
 function modifier_npc_dota_hero_snapfire_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_snapfire_perk:GetTexture()
+	return "custom/npc_dota_hero_snapfire_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
@@ -29,14 +27,15 @@ end
 function modifier_npc_dota_hero_snapfire_perk:OnCreated()
 	if IsServer() then
 		local caster = self:GetCaster()
-		local ab = caster:FindAbilityByName("pangolier_lucky_shot")
-		if ab then
-			ab:SetLevel(1)
+		local lucky_shot = caster:FindAbilityByName("pangolier_lucky_shot")
+
+		if lucky_shot then
+			lucky_shot:UpgradeAbility(false)
 		else
-			ab = caster:AddAbility("pangolier_lucky_shot")
-            ab:SetStolen(true)
-			ab:SetLevel(1)
-			ab:SetHidden(false)
+			lucky_shot = caster:AddAbility("pangolier_lucky_shot")
+			--lucky_shot:SetStolen(true)
+			lucky_shot:SetActivated(true)
+			lucky_shot:SetLevel(1)
 		end
 	end
 end

@@ -4,12 +4,6 @@
 --		Perk: Increases all damage by 5% for every other Meepo on your team. Takes 25% max health as damage whenever a Meepo dies. 
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_meepo_perk", "abilities/hero_perks/npc_dota_hero_meepo_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_meepo_perk ~= "" then npc_dota_hero_meepo_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_meepo_perk				
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_meepo_perk ~= "" then modifier_npc_dota_hero_meepo_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_meepo_perk:IsPassive()
@@ -33,8 +27,8 @@ end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_meepo_perk:OnCreated(keys)
 	self.bonusPerMeepo = 5
+	if not IsServer() then return end
 	self:StartIntervalThink(0.2)
-	return true
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_meepo_perk:DeclareFunctions()
@@ -56,8 +50,7 @@ function modifier_npc_dota_hero_meepo_perk:OnIntervalThink()
 			otherMeepos = otherMeepos + 1
 		end
 	end
-	caster:SetModifierStackCount("modifier_npc_dota_hero_meepo_perk",ability,otherMeepos)
-	return true
+	self:SetStackCount(otherMeepos)
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_meepo_perk:GetModifierTotalDamageOutgoing_Percentage(keys)
@@ -81,6 +74,5 @@ function modifier_npc_dota_hero_meepo_perk:OnDeath(keys)
 		}
 		ApplyDamage( damage )
 	end
-	return true
 end
 --------------------------------------------------------------------------------------------------------

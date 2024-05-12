@@ -4,12 +4,6 @@
 --		Perk: When Kunkka casts a Water spell he has a 50 percent chance to refill his bottle.
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_kunkka_perk", "abilities/hero_perks/npc_dota_hero_kunkka_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_kunkka_perk ~= "" then npc_dota_hero_kunkka_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_kunkka_perk				
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_kunkka_perk ~= "" then modifier_npc_dota_hero_kunkka_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_kunkka_perk:IsPassive()
@@ -26,6 +20,10 @@ end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_kunkka_perk:RemoveOnDeath()
 	return false
+end
+
+function modifier_npc_dota_hero_kunkka_perk:GetTexture()
+	return "custom/npc_dota_hero_kunkka_perk"
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions

@@ -1,15 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --      Hero: Monkey King
---      Perk: Monkey King has Mischief​ as an innate ability
+--      Perk: Jingu Mastery free level
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_monkey_king_perk", "abilities/hero_perks/npc_dota_hero_monkey_king_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_monkey_king_perk ~= "" then npc_dota_hero_monkey_king_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---      Modifier: modifier_npc_dota_hero_monkey_king_perk             
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_monkey_king_perk ~= "" then modifier_npc_dota_hero_monkey_king_perk = class({}) end
+modifier_npc_dota_hero_monkey_king_perk = modifier_npc_dota_hero_monkey_king_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_monkey_king_perk:IsPassive()
     return true
@@ -26,28 +19,25 @@ end
 function modifier_npc_dota_hero_monkey_king_perk:RemoveOnDeath()
     return false
 end
+
+function modifier_npc_dota_hero_monkey_king_perk:GetTexture()
+	return "custom/npc_dota_hero_monkey_king_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_monkey_king_perk:OnCreated(keys)
+function modifier_npc_dota_hero_monkey_king_perk:OnCreated()
     if IsServer() then
         local caster = self:GetCaster()
-        local Mischief = caster:FindAbilityByName("monkey_king_jingu_mastery_lod")
-        local MischiefB = caster:FindAbilityByName("monkey_king_jingu_mastery_lod_melee")
+		local jingu = caster:FindAbilityByName("monkey_king_jingu_mastery")
 
-        if MischiefB and not Mischief then
-            MischiefB:UpgradeAbility(false)
-            MischiefB:SetHidden(false)
-        elseif Mischief and not MischiefB then
-            Mischief:UpgradeAbility(false)
-            Mischief:SetHidden(false)
-        else 
-            Mischief = caster:AddAbility("monkey_king_jingu_mastery")
-            Mischief:SetStolen(true)
-            Mischief:SetActivated(true)
-            Mischief:SetLevel(1)
+        if jingu then
+            jingu:UpgradeAbility(false)
+        else
+            jingu = caster:AddAbility("monkey_king_jingu_mastery")
+            --jingu:SetStolen(true)
+            jingu:SetActivated(true)
+            jingu:SetLevel(1)
         end
-
     end
 end
---------------------------------------------------------------------------------------------------------

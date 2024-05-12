@@ -4,12 +4,6 @@
 --		Perk: Reduces the cooldown of all Teleportation abilities by 50%. 
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_furion_perk", "abilities/hero_perks/npc_dota_hero_furion_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_furion_perk ~= "" then npc_dota_hero_furion_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_furion_perk				
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_furion_perk ~= "" then modifier_npc_dota_hero_furion_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_furion_perk:IsPassive()
@@ -33,7 +27,6 @@ function modifier_npc_dota_hero_furion_perk:OnCreated()
     local cooldownReductionPercent = 50
     self.cooldownReduction = 1 - (cooldownReductionPercent / 100)
   end
-  return true
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions

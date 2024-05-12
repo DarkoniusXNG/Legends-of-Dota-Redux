@@ -1,14 +1,8 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Life Stealer
---		Perk: When Life Stealer casts Infest, its cooldown will be reduced to 30 seconds.
+--		Perk: When Life Stealer casts Infest, its cooldown will be reduced to 20 seconds.
 --
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_life_stealer_perk", "abilities/hero_perks/npc_dota_hero_life_stealer_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_life_stealer_perk ~= "" then npc_dota_hero_life_stealer_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_life_stealer_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_life_stealer_perk ~= "" then modifier_npc_dota_hero_life_stealer_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
@@ -45,7 +39,7 @@ function modifier_npc_dota_hero_life_stealer_perk:OnAbilityFullyCast(keys)
 
     if ability:GetName() == "life_stealer_infest" then
       ability:EndCooldown()
-      ability:StartCooldown(30)
+      ability:StartCooldown(20)
     end
   end
 end

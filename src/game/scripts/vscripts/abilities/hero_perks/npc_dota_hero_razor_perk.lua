@@ -1,16 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Razor
---		Perk: Reduces the manacost and cooldown of all abilities by 25% when Razor is Static Linked to an enemy. Gains free level in Unstable Current.
---
+--		Perk: Storm Surge free ability and reduces the manacost and cooldown of all abilities by 25% when Razor is Static Linked to an enemy.
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_razor_perk", "abilities/hero_perks/npc_dota_hero_razor_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_razor_perk ~= "" then npc_dota_hero_razor_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_razor_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_razor_perk ~= "" then modifier_npc_dota_hero_razor_perk = class({}) end
+modifier_npc_dota_hero_razor_perk = modifier_npc_dota_hero_razor_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_razor_perk:IsPassive()
 	return true
@@ -27,6 +19,10 @@ end
 function modifier_npc_dota_hero_razor_perk:IsPurgable()
 	return false
 end
+
+function modifier_npc_dota_hero_razor_perk:GetTexture()
+	return "custom/npc_dota_hero_razor_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
@@ -37,9 +33,9 @@ if IsServer() then
 	    local unstableCurrent = caster:FindAbilityByName("razor_unstable_current")
 	    if unstableCurrent then
 	        unstableCurrent:UpgradeAbility(false)
-	    else 
+	    else
 	        unstableCurrent = caster:AddAbility("razor_unstable_current")
-	        unstableCurrent:SetStolen(true)
+	        --unstableCurrent:SetStolen(true)
 	        unstableCurrent:SetActivated(true)
 	        unstableCurrent:SetLevel(1)
 	    end

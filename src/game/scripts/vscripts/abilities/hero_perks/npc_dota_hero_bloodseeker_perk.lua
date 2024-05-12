@@ -4,12 +4,6 @@
 --		Perk: When Bloodseeker casts Rupture, 100% of the mana cost will be refunded and cooldown reduced by 20%.
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_bloodseeker_perk", "abilities/hero_perks/npc_dota_hero_bloodseeker_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_bloodseeker_perk ~= "" then npc_dota_hero_bloodseeker_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_bloodseeker_perk				
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_bloodseeker_perk ~= "" then modifier_npc_dota_hero_bloodseeker_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_bloodseeker_perk:IsPassive()
@@ -27,13 +21,16 @@ end
 function modifier_npc_dota_hero_bloodseeker_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_bloodseeker_perk:GetTexture()
+	return "custom/npc_dota_hero_bloodseeker_perk"
+end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_bloodseeker_perk:OnCreated()
   if IsServer() then
     local cooldownReductionPercent = 20
     self.cooldownReduction = 1 - (cooldownReductionPercent / 100)
   end
-  return true
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
@@ -48,12 +45,11 @@ end
 
 function modifier_npc_dota_hero_bloodseeker_perk:OnAbilityFullyCast(keys)
   if IsServer() then
-    local hero = self:GetCaster()
+    local parent = self:GetParent()
     local unit = keys.unit
     local ability = keys.ability
 
-
-    if hero == unit and ability:GetName() == "bloodseeker_rupture" then
+    if parent == unit and ability:GetName() == "bloodseeker_rupture" then
       local cooldown = ability:GetCooldownTimeRemaining() * self.cooldownReduction
       ability:RefundManaCost()
       ability:EndCooldown()

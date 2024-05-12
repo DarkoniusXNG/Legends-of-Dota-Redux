@@ -4,12 +4,6 @@
 --		Perk: Clinkz will receive a free level in his first non-ultimate Autocast ability at the start of the game. 
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_clinkz_perk", "abilities/hero_perks/npc_dota_hero_clinkz_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_clinkz_perk ~= "" then npc_dota_hero_clinkz_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_clinkz_perk				
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_clinkz_perk ~= "" then modifier_npc_dota_hero_clinkz_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_clinkz_perk:IsPassive()

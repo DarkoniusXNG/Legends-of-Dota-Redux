@@ -1,17 +1,10 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Weaver
---		Perk: Once level 6, Weaver will automatically cast Time Lapse upon taking fatal damage. Has a separate 120 second cooldown. 
---
+--		Perk: Once level 6, Weaver will automatically cast Time Lapse upon taking fatal damage. Has a separate 120 second cooldown.
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_weaver_perk", "abilities/hero_perks/npc_dota_hero_weaver_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_npc_dota_hero_weaver_perk_delay", "abilities/hero_perks/npc_dota_hero_weaver_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_npc_dota_hero_weaver_perk_delay", "abilities/hero_perks/npc_dota_hero_weaver_perk.lua", LUA_MODIFIER_MOTION_NONE)
 --------------------------------------------------------------------------------------------------------
-if npc_dota_hero_weaver_perk ~= "" then npc_dota_hero_weaver_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_weaver_perk
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_weaver_perk ~= "" then modifier_npc_dota_hero_weaver_perk = class({}) end
+modifier_npc_dota_hero_weaver_perk = modifier_npc_dota_hero_weaver_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_weaver_perk:IsPassive()
 	return true
@@ -28,15 +21,18 @@ end
 function modifier_npc_dota_hero_weaver_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_weaver_perk:GetTexture()
+	return "custom/npc_dota_hero_weaver_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_weaver_perk:DeclareFunctions()
-    local funcs = {
+    return {
         MODIFIER_EVENT_ON_TAKEDAMAGE,
         MODIFIER_PROPERTY_MIN_HEALTH,
     }
-    return funcs
 end
 if IsServer() then
     function modifier_npc_dota_hero_weaver_perk:OnCreated()
@@ -51,7 +47,7 @@ if IsServer() then
         local checkLevel = self:GetParent():GetLevel()
         local lapseLevel = 1
 
-        if checkLevel >= 18 then 
+        if checkLevel >= 18 then
             lapseLevel = 3
         elseif checkLevel >= 12 then
             lapseLevel = 2
@@ -60,13 +56,13 @@ if IsServer() then
         else
             lapseLevel = 0
         end
-        
-        if lapseLevel ~= self.lapseLevel then 
+
+        if lapseLevel ~= self.lapseLevel then
             self.lapseLevel = lapseLevel
             self.lapse:SetLevel(lapseLevel)
         end
     end
-    
+
     function modifier_npc_dota_hero_weaver_perk:OnTakeDamage(params)
         if params.unit == self:GetParent() then
             if params.damage > self:GetParent():GetHealth() and self.lapse and not self:GetParent():HasModifier("modifier_npc_dota_hero_weaver_perk_delay") and self.lapse:GetLevel() > 0  and self:GetParent():IsRealHero() then
@@ -93,9 +89,17 @@ if IsServer() then
     end
 end
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_weaver_perk_delay ~= "" then modifier_npc_dota_hero_weaver_perk_delay = class({}) end
+modifier_npc_dota_hero_weaver_perk_delay = modifier_npc_dota_hero_weaver_perk_delay or class({})
 --------------------------------------------------------------------------------------------------------
+function modifier_npc_dota_hero_weaver_perk_delay:IsPurgable()
+	return false
+end
+
 function modifier_npc_dota_hero_weaver_perk_delay:RemoveOnDeath()
     return false
+end
+
+function modifier_npc_dota_hero_weaver_perk_delay:GetTexture()
+	return "custom/npc_dota_hero_weaver_perk"
 end
 --------------------------------------------------------------------------------------------------------

@@ -1,14 +1,8 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Juggernaut
---		Perk: Healing/Mana Ward will have 100 percent of their mana cost refunded.
+--		Perk: Omnislash breaks
 --
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_juggernaut_perk", "abilities/hero_perks/npc_dota_hero_juggernaut_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_juggernaut_perk ~= "" then npc_dota_hero_juggernaut_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_juggernaut_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_juggernaut_perk ~= "" then modifier_npc_dota_hero_juggernaut_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
@@ -27,6 +21,10 @@ end
 function modifier_npc_dota_hero_juggernaut_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_juggernaut_perk:GetTexture()
+	return "custom/npc_dota_hero_juggernaut_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
@@ -40,8 +38,8 @@ end
 
 function modifier_npc_dota_hero_juggernaut_perk:OnAbilityFullyCast(params)
 	if IsServer() and params.unit == self:GetParent() then
-		if params.ability:GetAbilityName() == "juggernaut_omni_slash" then
-			params.target:AddNewModifier(params.unit,self:GetAbility(),"modifier_silver_edge_debuff",{duration = 3})
+		if string.find(params.ability:GetAbilityName(), "omni_slash") then
+			params.target:AddNewModifier(params.unit, params.ability, "modifier_silver_edge_debuff", {duration = 3})
 		end
 	end
 end

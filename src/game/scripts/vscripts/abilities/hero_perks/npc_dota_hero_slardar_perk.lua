@@ -1,16 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Slardar
---		Perk: Physical damage dealt by Slarder is increased by 50%
---
+--		Perk: Physical damage spells deal 50% more damage
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_slardar_perk", "abilities/hero_perks/npc_dota_hero_slardar_perk.lua", LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_slardar_perk ~= "" then npc_dota_hero_slardar_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_slardar_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_slardar_perk ~= "" then modifier_npc_dota_hero_slardar_perk = class({}) end
+modifier_npc_dota_hero_slardar_perk = modifier_npc_dota_hero_slardar_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_slardar_perk:IsPassive()
 	return true
@@ -25,16 +17,14 @@ function modifier_npc_dota_hero_slardar_perk:IsPurgable()
 end
 
 function modifier_npc_dota_hero_slardar_perk:RemoveOnDeath()
-  return false
-end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_slardar_perk:OnCreated()
-  if IsServer() then
-  end
+	return false
 end
 
+function modifier_npc_dota_hero_slardar_perk:GetTexture()
+	return "custom/npc_dota_hero_slardar_perk"
+end
+
+---------------------------------------------------------------------------------------------------
 function perkSlardar(filterTable)
   local victim_index = filterTable["entindex_victim_const"]
   local attacker_index = filterTable["entindex_attacker_const"]
@@ -49,7 +39,7 @@ function perkSlardar(filterTable)
 
   if ability and attacker:HasModifier("modifier_npc_dota_hero_slardar_perk") then
     if damageType == DAMAGE_TYPE_PHYSICAL then
-      filterTable.damage = filterTable.damage * 1.25
+      filterTable.damage = filterTable.damage * 1.5
     end
   end
   return filterTable

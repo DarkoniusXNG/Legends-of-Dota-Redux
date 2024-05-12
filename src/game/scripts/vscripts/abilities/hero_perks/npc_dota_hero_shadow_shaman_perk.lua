@@ -1,14 +1,8 @@
 --------------------------------------------------------------------------------------------------------
 --
 --    Hero: Shadow Shaman
---    Perk: When targeted by a spell, Hex the caster for 3 seconds. Has 60 second cooldown.
+--    Perk: When targeted by a spell, Hex the caster for 3 seconds. Has 40 second cooldown.
 --
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_shadow_shaman_perk", "abilities/hero_perks/npc_dota_hero_shadow_shaman_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_shadow_shaman_perk ~= "" then npc_dota_hero_shadow_shaman_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---    Modifier: modifier_npc_dota_hero_shadow_shaman_perk
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_shadow_shaman_perk ~= "" then modifier_npc_dota_hero_shadow_shaman_perk = class({}) end
 --------------------------------------------------------------------------------------------------------

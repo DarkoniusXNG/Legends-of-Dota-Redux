@@ -1,25 +1,18 @@
 --------------------------------------------------------------------------------------------------------
---
 --      Hero: Templar Assassin
---      Perk: Templar Assassin turns invisible for 10 seconds when not moving for 5 seconds. Breaks upon moving or attacking.
---
+--      Perk: Psi Blades Free Ability + Templar Assassin turns invisible when not moving for 2 seconds. Breaks upon moving, attacking or casting a spell.
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_templar_assassin_perk", "abilities/hero_perks/npc_dota_hero_templar_assassin_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_npc_dota_hero_templar_assassin_invis_break", "abilities/hero_perks/npc_dota_hero_templar_assassin_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_npc_dota_hero_templar_assassin_invis", "abilities/hero_perks/npc_dota_hero_templar_assassin_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_templar_assassin_perk ~= "" then npc_dota_hero_templar_assassin_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---      Modifier: modifier_npc_dota_hero_templar_assassin_perk              
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_templar_assassin_perk ~= "" then modifier_npc_dota_hero_templar_assassin_perk = class({}) end
+LinkLuaModifier("modifier_npc_dota_hero_templar_assassin_invis_break", "abilities/hero_perks/npc_dota_hero_templar_assassin_perk.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_npc_dota_hero_templar_assassin_invis", "abilities/hero_perks/npc_dota_hero_templar_assassin_perk.lua", LUA_MODIFIER_MOTION_NONE)
+
+modifier_npc_dota_hero_templar_assassin_perk = modifier_npc_dota_hero_templar_assassin_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_templar_assassin_perk:IsPassive()
     return true
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_templar_assassin_perk:IsHidden()
-    return true
+    return false
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_templar_assassin_perk:IsPurgable()
@@ -29,68 +22,92 @@ end
 function modifier_npc_dota_hero_templar_assassin_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_templar_assassin_perk:GetTexture()
+	return "custom/npc_dota_hero_templar_assassin_perk"
+end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_templar_assassin_perk:OnCreated(keys)
     if IsServer() then
-        self.check = false
+		local caster = self:GetCaster()
         self.invisDelay = 2
-        self:GetCaster().invisDuration = 10
-        self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_npc_dota_hero_templar_assassin_invis_break", {Duration = self.invisDelay})
+        caster:AddNewModifier(caster, nil, "modifier_npc_dota_hero_templar_assassin_invis_break", {duration = self.invisDelay})
+
+		local psi_blades = caster:FindAbilityByName("templar_assassin_psi_blades")
+		if psi_blades then
+			psi_blades:UpgradeAbility(false)
+		else
+			psi_blades = caster:AddAbility("templar_assassin_psi_blades")
+			--psi_blades:SetStolen(true)
+			psi_blades:SetActivated(true)
+			psi_blades:SetLevel(1)
+		end
     end
-    return true
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_templar_assassin_perk:DeclareFunctions()
-    return { 
-        MODIFIER_EVENT_ON_UNIT_MOVED, 
-        MODIFIER_EVENT_ON_ATTACK 
+    return {
+        MODIFIER_EVENT_ON_UNIT_MOVED,
+        MODIFIER_EVENT_ON_ATTACK,
+		MODIFIER_EVENT_ON_ABILITY_EXECUTED,
     }
 end
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_templar_assassin_perk:OnUnitMoved(keys)
-    if IsServer() then
-        if keys.unit and self:GetCaster() == keys.unit then
-            self:GetCaster():RemoveModifierByName("modifier_npc_dota_hero_templar_assassin_invis")
-            self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_npc_dota_hero_templar_assassin_invis_break", {Duration = self.invisDelay})
-            self:GetCaster().hasMoved = true
-        end
-    end
-    return true
+if IsServer() then
+	function modifier_npc_dota_hero_templar_assassin_perk:OnUnitMoved(keys)
+		if keys.unit and self:GetCaster() == keys.unit then
+			self:GetCaster():RemoveModifierByName("modifier_npc_dota_hero_templar_assassin_invis")
+			self:GetCaster():AddNewModifier(self:GetCaster(), nil, "modifier_npc_dota_hero_templar_assassin_invis_break", {duration = self.invisDelay})
+		end
+	end
+	--------------------------------------------------------------------------------------------------------
+	function modifier_npc_dota_hero_templar_assassin_perk:OnAttack(keys)
+		if keys.attacker and self:GetCaster() == keys.attacker then
+			self:GetCaster():RemoveModifierByName("modifier_npc_dota_hero_templar_assassin_invis")
+			self:GetCaster():AddNewModifier(self:GetCaster(), nil, "modifier_npc_dota_hero_templar_assassin_invis_break", {duration = self.invisDelay})
+		end
+	end
+
+	function modifier_npc_dota_hero_templar_assassin_perk:OnAbilityExecuted(keys)
+		if keys.unit and keys.unit == self:GetCaster() then
+			self:GetCaster():RemoveModifierByName("modifier_npc_dota_hero_templar_assassin_invis")
+			self:GetCaster():AddNewModifier(self:GetCaster(), nil, "modifier_npc_dota_hero_templar_assassin_invis_break", {duration = self.invisDelay})
+		end
+	end
 end
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_templar_assassin_perk:OnAttack(keys)
-    if IsServer() then
-        if keys.attacker and self:GetCaster() == keys.attacker then
-            self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_npc_dota_hero_templar_assassin_invis_break", {Duration = self.invisDelay})
-        end
-    end
-    return true
-end
+--      Modifier: modifier_npc_dota_hero_templar_assassin_invis_break
 --------------------------------------------------------------------------------------------------------
---      Modifier: modifier_npc_dota_hero_templar_assassin_invis_break               
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_templar_assassin_invis_break ~= "" then modifier_npc_dota_hero_templar_assassin_invis_break = class({}) end
+modifier_npc_dota_hero_templar_assassin_invis_break = modifier_npc_dota_hero_templar_assassin_invis_break or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_templar_assassin_invis_break:IsHidden()
     return false
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_templar_assassin_invis_break:OnDestroy()
-    if IsServer() then 
-        local caster = self:GetCaster()
-        self:GetAbility().particle = ParticleManager:CreateParticle("particles/generic_hero_status/status_invisibility_start.vpcf",PATTACH_ABSORIGIN_FOLLOW, caster)
-        self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_npc_dota_hero_templar_assassin_invis", {Duration = self:GetCaster().invisDuration})
-    end
-    return true
+
+function modifier_npc_dota_hero_templar_assassin_invis_break:IsPurgable()
+	return false
 end
 --------------------------------------------------------------------------------------------------------
---      Modifier: modifier_npc_dota_hero_templar_assassin_invis          
+function modifier_npc_dota_hero_templar_assassin_invis_break:OnDestroy()
+    if IsServer() then
+        local caster = self:GetCaster()
+        local particle = ParticleManager:CreateParticle("particles/generic_hero_status/status_invisibility_start.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+		ParticleManager:ReleaseParticleIndex(particle)
+        self:GetCaster():AddNewModifier(self:GetCaster(), nil, "modifier_npc_dota_hero_templar_assassin_invis", {})
+    end
+end
+
+function modifier_npc_dota_hero_templar_assassin_invis_break:GetTexture()
+	return "templar_assassin_meld"
+end
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_templar_assassin_invis ~= "" then modifier_npc_dota_hero_templar_assassin_invis = class({}) end
+--      Modifier: modifier_npc_dota_hero_templar_assassin_invis
+--------------------------------------------------------------------------------------------------------
+modifier_npc_dota_hero_templar_assassin_invis = modifier_npc_dota_hero_templar_assassin_invis or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_templar_assassin_invis:DeclareFunctions()
-    return { 
-        MODIFIER_PROPERTY_INVISIBILITY_LEVEL   
+    return {
+        MODIFIER_PROPERTY_INVISIBILITY_LEVEL
     }
 end
 --------------------------------------------------------------------------------------------------------
@@ -103,9 +120,11 @@ function modifier_npc_dota_hero_templar_assassin_invis:GetModifierInvisibilityLe
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_templar_assassin_invis:CheckState()
-    local states = { 
-        [MODIFIER_STATE_INVISIBLE] = true
-    }
-    return states
+	return {
+		[MODIFIER_STATE_INVISIBLE] = true,
+	}
 end
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_templar_assassin_invis:GetTexture()
+	return "templar_assassin_meld"
+end

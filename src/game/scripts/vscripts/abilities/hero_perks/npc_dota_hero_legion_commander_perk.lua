@@ -4,12 +4,6 @@
 --		Perk: When Legion Commander casts Duel, she will gain spell immunity for the duration of the duel.
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_legion_commander_perk", "abilities/hero_perks/npc_dota_hero_legion_commander_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_legion_commander_perk ~= "" then npc_dota_hero_legion_commander_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_legion_commander_perk				
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_legion_commander_perk ~= "" then modifier_npc_dota_hero_legion_commander_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_legion_commander_perk:IsPassive()

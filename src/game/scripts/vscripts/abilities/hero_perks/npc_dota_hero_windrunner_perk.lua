@@ -1,16 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Windranger
---		Perk: If Windranger has no passives, all her active spells will refund 20% mana and have 20% reduced cooldowns.
---
+--		Perk: If Windranger has no passives, all her active spells will refund 25% mana and have 25% reduced cooldowns.
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_windrunner_perk", "abilities/hero_perks/npc_dota_hero_windrunner_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_windrunner_perk ~= "" then npc_dota_hero_windrunner_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_windrunner_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_windrunner_perk ~= "" then modifier_npc_dota_hero_windrunner_perk = class({}) end
+modifier_npc_dota_hero_windrunner_perk = modifier_npc_dota_hero_windrunner_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_windrunner_perk:IsPassive()
 	return true
@@ -27,22 +19,25 @@ end
 function modifier_npc_dota_hero_windrunner_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_windrunner_perk:GetTexture()
+	return "custom/npc_dota_hero_windrunner_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_windrunner_perk:OnCreated(keys)
+function modifier_npc_dota_hero_windrunner_perk:OnCreated()
 	if IsServer() then
-		self.noPassives = false
+		self.noPassives = true
 		local caster = self:GetCaster()
-		
-		for i = 0, caster:GetAbilityCount() - 1 do 
+
+		for i = 0, caster:GetAbilityCount() - 1 do
 			local ability = caster:GetAbilityByIndex(i)
-			if ability and ability:IsPassive() and ability:GetName() ~= "npc_dota_hero_windrunner_perk" and not util:IsTalent(ability) then
-				self.noPassives = true
-				
+			if ability and ability:IsPassive() and not ability:IsHidden() and not util:IsTalent(ability) and SkillManager:isPassive(ability:GetName()) then
+				self.noPassives = false
 			end
 		end
-		if self.noPassives then 
+		if self.noPassives then
 			local cooldownReductionPercent = 25
 			local manaReductionPercent = 25
 
@@ -53,10 +48,9 @@ function modifier_npc_dota_hero_windrunner_perk:OnCreated(keys)
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_windrunner_perk:DeclareFunctions()
-	local funcs = {
+	return {
 	  MODIFIER_EVENT_ON_ABILITY_FULLY_CAST
 	}
-	return funcs
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_windrunner_perk:OnAbilityFullyCast(keys)

@@ -1,4 +1,0 @@
-"DOTAAbilities" {
-	"npc_dota_hero_hoodwink_perk" {
-	}
-}

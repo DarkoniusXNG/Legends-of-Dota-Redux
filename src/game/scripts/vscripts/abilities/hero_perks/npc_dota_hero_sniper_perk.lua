@@ -1,16 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Sniper
 --		Perk: When Sniper uses Shrapnel it will have a global cast range.
---
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_sniper_perk", "abilities/hero_perks/npc_dota_hero_sniper_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_sniper_perk ~= "" then npc_dota_hero_sniper_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_sniper_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_sniper_perk ~= "" then modifier_npc_dota_hero_sniper_perk = class({}) end
+modifier_npc_dota_hero_sniper_perk = modifier_npc_dota_hero_sniper_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_sniper_perk:IsPassive()
 	return true
@@ -27,19 +19,23 @@ end
 function modifier_npc_dota_hero_sniper_perk:RemoveOnDeath()
 	return false
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_sniper_perk:OnCreated(keys)
-    if IsServer() then
-        local caster = self:GetCaster()
 
-        if caster:HasAbility("sniper_shrapnel") and not caster:FindAbilityByName("sniper_shrapnel"):IsHidden() and PlayerResource:GetSteamAccountID(caster:GetPlayerOwnerID()) > 0 then
-        	local shrapnel = caster:FindAbilityByName("sniper_shrapnel")
-        	if not shrapnel:IsHidden() then
-		        self.grave = caster:AddAbility("sniper_shrapnel_perk")
-		        caster:SwapAbilities("sniper_shrapnel","sniper_shrapnel_perk",false,true)
-	    	end
-        end
-    end
+function modifier_npc_dota_hero_sniper_perk:GetTexture()
+	return "custom/npc_dota_hero_sniper_perk"
+end
+
+function modifier_npc_dota_hero_sniper_perk:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
+	}
+end
+
+function modifier_npc_dota_hero_sniper_perk:GetModifierCastRangeBonusStacking(params)
+	local ability = params.ability
+	if ability then
+		if ability:GetAbilityName() == "sniper_shrapnel" then
+			return 25000
+		end
+	end
+	return 0
 end

@@ -4,16 +4,7 @@
 --		Perk: Undying gains +1 strength per creep death or +4 strength per hero death in a 900 radius for 30 seconds.
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_undying_perk", "abilities/hero_perks/npc_dota_hero_undying_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_npc_dota_hero_undying_perk_aura", "abilities/hero_perks/npc_dota_hero_undying_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_undying_perk ~= "" then npc_dota_hero_undying_perk = class({}) end
-
-function npc_dota_hero_undying_perk:GetIntrinsicModifierName()
-	return "modifier_npc_dota_hero_undying_perk"
-end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_undying_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_undying_perk ~= "" then modifier_npc_dota_hero_undying_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
@@ -33,6 +24,10 @@ function modifier_npc_dota_hero_undying_perk:OnCreated()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_undying_perk:IsPurgable()
+	return false
+end
+
+function modifier_npc_dota_hero_undying_perk:RemoveOnDeath()
 	return false
 end
 

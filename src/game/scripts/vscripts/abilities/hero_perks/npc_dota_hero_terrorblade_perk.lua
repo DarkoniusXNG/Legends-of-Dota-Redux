@@ -4,12 +4,6 @@
 --		Perk: Terrorblade Illusions deal 15% more damage, but also take 15% more damage. 
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_terrorblade_perk", "abilities/hero_perks/npc_dota_hero_terrorblade_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_terrorblade_perk ~= "" then npc_dota_hero_terrorblade_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_terrorblade_perk				
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_terrorblade_perk ~= "" then modifier_npc_dota_hero_terrorblade_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_terrorblade_perk:IsPassive()
@@ -35,7 +29,6 @@ function modifier_npc_dota_hero_terrorblade_perk:DeclareFunctions()
         MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE, 
         MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
     }
-    -- body
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_terrorblade_perk:GetModifierDamageOutgoing_Percentage(keys)

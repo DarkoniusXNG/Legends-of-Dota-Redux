@@ -1,16 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Venomancer
---		Perk: Increases the duration of all Poison effects Venomancer applies by 25%. 
---
+--		Perk: Increases the duration of all Poison effects Venomancer applies by 40%.
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_venomancer_perk", "abilities/hero_perks/npc_dota_hero_venomancer_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_venomancer_perk ~= "" then npc_dota_hero_venomancer_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_venomancer_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_venomancer_perk ~= "" then modifier_npc_dota_hero_venomancer_perk = class({}) end
+modifier_npc_dota_hero_venomancer_perk = modifier_npc_dota_hero_venomancer_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_venomancer_perk:IsPassive()
 	return true
@@ -23,19 +15,22 @@ end
 function modifier_npc_dota_hero_venomancer_perk:IsPurgable()
 	return false
 end
+
+function modifier_npc_dota_hero_venomancer_perk:RemoveOnDeath()
+	return false
+end
+
+function modifier_npc_dota_hero_venomancer_perk:GetTexture()
+	return "custom/npc_dota_hero_venomancer_perk"
+end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_venomancer_perk:OnCreated()
 	if IsServer() then
 		local poisonDurationBonusPct = 40
-		self:GetCaster().poisonDurationBonus = (poisonDurationBonusPct / 100)
-		self:GetCaster().lastPoisonAbility = nil
+		self:GetCaster().poisonDurationBonus = poisonDurationBonusPct / 100
 	end
-	return true
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_venomancer_perk:RemoveOnDeath()
-	return false
-end
+
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
@@ -50,12 +45,10 @@ function perkVenomancer(filterTable)
   local caster = EntIndexToHScript( caster_index )
   local ability = EntIndexToHScript( ability_index )
   if ability then
-    if caster:HasModifier("modifier_npc_dota_hero_venomancer_perk") then
-      if ability:HasAbilityFlag("poison") and filterTable["duration"] ~= -1 then
+    if caster:HasModifier("modifier_npc_dota_hero_venomancer_perk") and ability:HasAbilityFlag("poison") and filterTable["duration"] ~= -1 then
         local modifierDuration = filterTable["duration"]
-        local bonusDuration = modifierDuration + (modifierDuration * caster.poisonDurationBonus)
-        filterTable["duration"] = bonusDuration
-      end
-    end  
+        local newDuration = modifierDuration + (modifierDuration * caster.poisonDurationBonus)
+        filterTable["duration"] = newDuration
+    end
   end
 end

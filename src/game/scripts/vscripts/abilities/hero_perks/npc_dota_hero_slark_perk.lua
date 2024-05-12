@@ -1,16 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Slark
---		Perk: Slark gets a free level of dark pact, and casts it every 10 seconds. Also is immune to its self damage. 
---
+--		Perk: Dark Pact free ability and casts it every 10 seconds. Also is immune to its self damage.
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_slark_perk", "abilities/hero_perks/npc_dota_hero_slark_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_slark_perk ~= "" then npc_dota_hero_slark_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_slark_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_slark_perk ~= "" then modifier_npc_dota_hero_slark_perk = class({}) end
+modifier_npc_dota_hero_slark_perk = modifier_npc_dota_hero_slark_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_slark_perk:IsPassive()
 	return true
@@ -26,6 +18,10 @@ end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_slark_perk:RemoveOnDeath()
 	return false
+end
+
+function modifier_npc_dota_hero_slark_perk:GetTexture()
+	return "custom/npc_dota_hero_slark_perk"
 end
 --------------------------------------------------------------------------------------------------------
 
@@ -44,16 +40,20 @@ end
 --------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_slark_perk:OnCreated()
-	if IsClient() then return end
-	local hero = self:GetParent()
-	local ability = hero:FindAbilityByName("slark_dark_pact")
+	if IsServer() then
+		local caster = self:GetParent()
+		local dark_pact = caster:FindAbilityByName("slark_dark_pact")
 
-	if not ability then
-		ability = hero:AddAbility("slark_dark_pact")
-		ability:SetStolen(true)
+		if dark_pact then
+			dark_pact:UpgradeAbility(false)
+		else
+			dark_pact = caster:AddAbility("slark_dark_pact")
+			dark_pact:SetStolen(true)
+			dark_pact:SetActivated(true)
+			dark_pact:SetLevel(1)
+		end
+		self:StartIntervalThink(10)
 	end
-	ability:SetLevel(1)
-	self:StartIntervalThink(10)
 end
 
 function modifier_npc_dota_hero_slark_perk:OnIntervalThink()

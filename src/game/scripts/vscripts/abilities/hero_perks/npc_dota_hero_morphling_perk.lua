@@ -1,16 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Morphling
---		Perk: Morphling gains 50% bonus movement speed in water.
---
+--		Perk: Morphling gains 50% bonus movement speed and 500 cast range in the river.
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_morphling_perk", "abilities/hero_perks/npc_dota_hero_morphling_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_morphling_perk ~= "" then npc_dota_hero_morphling_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_morphling_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_morphling_perk ~= "" then modifier_npc_dota_hero_morphling_perk = class({}) end
+modifier_npc_dota_hero_morphling_perk = modifier_npc_dota_hero_morphling_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_morphling_perk:IsPassive()
 	return true
@@ -27,33 +19,39 @@ end
 function modifier_npc_dota_hero_morphling_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_morphling_perk:GetTexture()
+	return "custom/npc_dota_hero_morphling_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_morphling_perk:DeclareFunctions()
-	return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-			 MODIFIER_PROPERTY_CAST_RANGE_BONUS }
+	return {
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+		MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
+	}
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_morphling_perk:GetModifierMoveSpeedBonus_Percentage()
-	local caster = self:GetCaster() 
+	local caster = self:GetCaster()
 	local height = caster:GetAbsOrigin().z
 	-- 128 is the height of the river, 140 is around the edges -- dota map river is now at 0 not 128
-	if height <= 10 then 
+	if height <= 10 then
 		return 50
-	else 
-		return 0 
+	else
+		return 0
 	end
 end
 --------------------------------------------------------------------------------------------------------
 
-function modifier_npc_dota_hero_morphling_perk:GetModifierCastRangeBonus()
-	local caster = self:GetCaster() 
+function modifier_npc_dota_hero_morphling_perk:GetModifierCastRangeBonusStacking()
+	local caster = self:GetCaster()
 	local height = caster:GetAbsOrigin().z
 	-- 128 is the height of the river, 140 is around the edges -- dota map river is now at 0 not 128
-	if height <= 10 then 
+	if height <= 10 then
 		return 500
-	else 
-		return 0 
+	else
+		return 0
 	end
 end

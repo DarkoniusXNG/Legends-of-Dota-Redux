@@ -1,15 +1,10 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Antimage
---		Perk: After Anti-Mage blinks he will silence enemies within 200 radius for 2 seconds.
+--		Perk: After Anti-Mage blinks he will silence enemies within 250 radius for 2 seconds.
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_antimage_perk", "abilities/hero_perks/npc_dota_hero_antimage_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_npc_dota_hero_antimage_silence", "abilities/hero_perks/npc_dota_hero_antimage_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_antimage_perk ~= "" then npc_dota_hero_antimage_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_antimage_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_antimage_perk ~= "" then modifier_npc_dota_hero_antimage_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
@@ -37,10 +32,9 @@ function modifier_npc_dota_hero_antimage_perk:OnCreated()
 end
 
 function modifier_npc_dota_hero_antimage_perk:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_EVENT_ON_ABILITY_EXECUTED,
 	}
-	return funcs
 end
 
 function modifier_npc_dota_hero_antimage_perk:OnAbilityExecuted(params)
@@ -67,10 +61,9 @@ if modifier_npc_dota_hero_antimage_silence ~= "" then modifier_npc_dota_hero_ant
 --------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_antimage_silence:CheckState()
-	local state = {
-	[MODIFIER_STATE_SILENCED] = true,
+	return {
+		[MODIFIER_STATE_SILENCED] = true,
 	}
-	return state
 end
 
 function modifier_npc_dota_hero_antimage_silence:GetEffectName()

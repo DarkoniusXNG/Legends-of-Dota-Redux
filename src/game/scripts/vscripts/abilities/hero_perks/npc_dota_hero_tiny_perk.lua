@@ -4,12 +4,6 @@
 --		Perk: Casting an ability that targetted a tree gives 5% tenacity, stacks diminishingly
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_tiny_perk", "abilities/hero_perks/npc_dota_hero_tiny_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-npc_dota_hero_tiny_perk = npc_dota_hero_tiny_perk or class({})
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_tiny_perk				
---------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_tiny_perk = modifier_npc_dota_hero_tiny_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_tiny_perk:IsPassive()
@@ -26,6 +20,10 @@ end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_tiny_perk:IsPurgable()
 	return false
+end
+
+function modifier_npc_dota_hero_tiny_perk:GetTexture()
+	return "custom/npc_dota_hero_tiny_perk"
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions

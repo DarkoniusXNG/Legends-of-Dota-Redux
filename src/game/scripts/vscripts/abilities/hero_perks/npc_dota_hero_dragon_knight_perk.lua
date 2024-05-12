@@ -1,19 +1,6 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Dragon Knight
 --		Perk: While Dragon Knight is in Elder Dragon Form, all of Dragon Knight's abilities apply Dragon Form debuffs. This includes towers.
---
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_dragon_knight_perk", "abilities/hero_perks/npc_dota_hero_dragon_knight_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-npc_dota_hero_dragon_knight_perk = npc_dota_hero_dragon_knight_perk or class({})
-
-function npc_dota_hero_dragon_knight_perk:GetIntrinsicModifierName()
-    return "modifier_npc_dota_hero_dragon_knight_perk"
-end
-
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_dragon_knight_perk				
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_dragon_knight_perk = modifier_npc_dota_hero_dragon_knight_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -31,6 +18,10 @@ end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_dragon_knight_perk:RemoveOnDeath()
 	return false
+end
+
+function modifier_npc_dota_hero_dragon_knight_perk:GetTexture()
+	return "custom/npc_dota_hero_dragon_knight_perk"
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
@@ -66,7 +57,7 @@ function modifier_npc_dota_hero_dragon_knight_perk:OnTakeDamage(event)
 	if damaged_unit.GetTeamNumber == nil or damaged_unit.AddNewModifier == nil then
 		return
 	end
-	
+
 	-- Check if self damage or allied damage
 	if parent == damaged_unit or parent:GetTeamNumber() == damaged_unit:GetTeamNumber() then
 		return
@@ -77,7 +68,7 @@ function modifier_npc_dota_hero_dragon_knight_perk:OnTakeDamage(event)
 	if not dragonForm then
 		return
 	end
-	
+
 	local inflictor = event.inflictor
 	if inflictor ~= dragonForm then
 		if parent:HasModifier("modifier_dragon_knight_corrosive_breath") then
@@ -118,4 +109,4 @@ function PerkDragonKnight(filterTable)
     		end
     	end
 	end
-  end
+end

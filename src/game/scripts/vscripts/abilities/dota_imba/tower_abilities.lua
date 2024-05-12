@@ -2771,12 +2771,8 @@ function modifier_imba_tower_grievous_wounds_aura_buff:OnAttackLanded(keys)
 			-- Add debuff modifier. Increment stack count and refresh
 			if not target:HasModifier(self.grievous_debuff) then
 				grievous_debuff_handler = target:AddNewModifier(self.caster, self.ability, self.grievous_debuff, {duration = self.debuff_duration})
-				grievous_debuff_handler:SetStackCount(1)
 			else
 				grievous_debuff_handler = target:FindModifierByName(self.grievous_debuff)
-
-				-- Increase stack count and refresh
-				grievous_debuff_handler:IncrementStackCount()
 				grievous_debuff_handler:ForceRefresh()
 			end
 
@@ -2812,6 +2808,18 @@ end
 
 function modifier_imba_tower_grievous_wounds_debuff:IsDebuff()
 	return true
+end
+
+function modifier_imba_tower_grievous_wounds_debuff:OnCreated()
+	if IsServer() then
+		self:SetStackCount(1)
+	end
+end
+
+function modifier_imba_tower_grievous_wounds_debuff:OnRefresh()
+	if IsServer() then
+		self:IncrementStackCount()
+	end
 end
 
 function modifier_imba_tower_grievous_wounds_debuff:GetEffectName()

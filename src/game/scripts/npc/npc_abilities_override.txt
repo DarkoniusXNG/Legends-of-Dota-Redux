@@ -3565,7 +3565,7 @@
 		"jakiro_liquid_ice"
 		{
 			"ReduxFlags"					"attack_modifier | upgradeable"
-			"ReduxPerks"					"ice"
+			"ReduxPerks"					"attack_modifier | ice | autocast_basic"
 			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
 			"MaxLevel"						"4"
 			"IsGrantedByShard"			"1"
@@ -6819,7 +6819,7 @@
 				"wind_strength"     "250 300 350 400"
 				"radius"            "1000"
 			}
-			"ReduxPerks"            "enemyMoving | ranger"
+			"ReduxPerks"            "enemyMoving | ranger | nature"
 		}
 
         "witch_doctor_voodoo_switcheroo"

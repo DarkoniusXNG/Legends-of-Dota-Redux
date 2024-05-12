@@ -1,16 +1,10 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Centaur
---		Perk: Centaur Warrunner takes 75% damage from Self-Damaging spells.
+--		Perk: Centaur Warrunner has 30% CDR for Self-Damaging spells.
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_centaur_perk", "abilities/hero_perks/npc_dota_hero_centaur_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_centaur_perk ~= "" then npc_dota_hero_centaur_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_centaur_perk				
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_centaur_perk ~= "" then modifier_npc_dota_hero_centaur_perk = class({}) end
+modifier_npc_dota_hero_centaur_perk = modifier_npc_dota_hero_centaur_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_centaur_perk:IsPassive()
 	return true
@@ -27,21 +21,23 @@ end
 function modifier_npc_dota_hero_centaur_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_centaur_perk:GetTexture()
+	return "custom/npc_dota_hero_centaur_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_centaur_perk:OnCreated(keys)
-	self.cooldownPercentReduction = 75
-	self.cooldownReduction = self.cooldownPercentReduction / 100
-	return true
+	local cooldownPercentReduction = 30
+	self.cooldownReduction = 1 - (cooldownPercentReduction / 100)
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_centaur_perk:DeclareFunctions()
-	local funcs = {
-	  MODIFIER_EVENT_ON_ABILITY_FULLY_CAST
+	return {
+		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST
 	}
-	return funcs
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_centaur_perk:OnAbilityFullyCast(keys)

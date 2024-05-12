@@ -1,14 +1,8 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Techies
---		Perk: Traps and Explosives will have 50% of their mana refunded and cooldowns reduced by 50%.
+--		Perk: Traps and Explosives will have 30% of their mana refunded and cooldowns reduced by 30%.
 --
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_techies_perk", "abilities/hero_perks/npc_dota_hero_techies_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_techies_perk ~= "" then npc_dota_hero_techies_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_techies_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_techies_perk ~= "" then modifier_npc_dota_hero_techies_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
@@ -32,9 +26,8 @@ function modifier_npc_dota_hero_techies_perk:OnCreated(keys)
 	self.cooldownPercentReduction = 30
 	self.manaPercentReduction = 30
 
-	self.cooldownReduction = 1-(self.cooldownPercentReduction / 100)
+	self.cooldownReduction = 1 - (self.cooldownPercentReduction / 100)
 	self.manaReduction = self.manaPercentReduction / 100
-	return true
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions

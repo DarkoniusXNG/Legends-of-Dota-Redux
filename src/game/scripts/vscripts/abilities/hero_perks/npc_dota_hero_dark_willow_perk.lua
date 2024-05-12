@@ -4,12 +4,6 @@
 --		Perk: Dark Willow gains +2 to all stats for each level put in a support ability.
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_dark_willow_perk", "abilities/hero_perks/npc_dota_hero_dark_willow_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_dark_willow_perk ~= "" then npc_dota_hero_dark_willow_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_dark_willow_perk		
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_dark_willow_perk ~= "" then modifier_npc_dota_hero_dark_willow_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_dark_willow_perk:IsPassive()

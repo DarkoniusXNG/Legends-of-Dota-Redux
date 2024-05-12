@@ -1,17 +1,10 @@
 --------------------------------------------------------------------------------------------------------
---
 --        Hero: Phoenix
---        Perk: Once level 6, Phoenix will automatically cast Supernova upon taking fatal damage. Has a separate 180 second cooldown. 
---
+--        Perk: Once level 6, Phoenix will automatically cast Supernova upon taking fatal damage. Has a separate 180 second cooldown.
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_phoenix_perk", "abilities/hero_perks/npc_dota_hero_phoenix_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_npc_dota_hero_phoenix_perk_delay", "abilities/hero_perks/npc_dota_hero_phoenix_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_npc_dota_hero_phoenix_perk_delay", "abilities/hero_perks/npc_dota_hero_phoenix_perk.lua", LUA_MODIFIER_MOTION_NONE)
 --------------------------------------------------------------------------------------------------------
-if npc_dota_hero_phoenix_perk ~= "" then npc_dota_hero_phoenix_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---        Modifier: modifier_npc_dota_hero_phoenix_perk
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_phoenix_perk ~= "" then modifier_npc_dota_hero_phoenix_perk = class({}) end
+modifier_npc_dota_hero_phoenix_perk = modifier_npc_dota_hero_phoenix_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_phoenix_perk:IsPassive()
     return true
@@ -28,15 +21,18 @@ end
 function modifier_npc_dota_hero_phoenix_perk:RemoveOnDeath()
     return false
 end
+
+function modifier_npc_dota_hero_phoenix_perk:GetTexture()
+	return "custom/npc_dota_hero_phoenix_perk"
+end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_phoenix_perk:DeclareFunctions()
-    local funcs = {
+    return {
         MODIFIER_EVENT_ON_TAKEDAMAGE,
         MODIFIER_PROPERTY_MIN_HEALTH,
     }
-    return funcs
 end
 if IsServer() then
     function modifier_npc_dota_hero_phoenix_perk:OnCreated()
@@ -51,7 +47,7 @@ if IsServer() then
         local checkLevel = self:GetParent():GetLevel()
         local eggLevel = 1
 
-        if checkLevel >= 18 then 
+        if checkLevel >= 18 then
             eggLevel = 3
         elseif checkLevel >= 12 then
             eggLevel = 2
@@ -61,12 +57,12 @@ if IsServer() then
             eggLevel = 0
         end
 
-        if eggLevel ~= self.eggLevel then 
+        if eggLevel ~= self.eggLevel then
             self.eggLevel = eggLevel
             self.egg:SetLevel(eggLevel)
         end
     end
-    
+
     function modifier_npc_dota_hero_phoenix_perk:OnTakeDamage(params)
         if params.unit == self:GetParent() then
             if params.damage > self:GetParent():GetHealth() and self.egg and not self:GetParent():HasModifier("modifier_npc_dota_hero_phoenix_perk_delay") and self.egg:GetLevel() > 0 and self:GetParent():IsRealHero() then
@@ -91,9 +87,18 @@ if IsServer() then
     end
 end
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_phoenix_perk_delay ~= "" then modifier_npc_dota_hero_phoenix_perk_delay = class({}) end
+modifier_npc_dota_hero_phoenix_perk_delay = modifier_npc_dota_hero_phoenix_perk_delay or class({})
 --------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_phoenix_perk_delay:IsPurgable()
+	return false
+end
+
 function modifier_npc_dota_hero_phoenix_perk_delay:RemoveOnDeath()
     return false
+end
+
+function modifier_npc_dota_hero_phoenix_perk_delay:GetTexture()
+	return "custom/npc_dota_hero_phoenix_perk"
 end
 --------------------------------------------------------------------------------------------------------

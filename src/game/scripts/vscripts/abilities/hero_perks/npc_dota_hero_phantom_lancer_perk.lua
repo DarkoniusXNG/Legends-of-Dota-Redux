@@ -1,14 +1,8 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Phantom Lancer
---		Perk: Illusion creating abilities will have cooldowns reduced by 50%.
+--		Perk: Phantom Lancer Illusions gain bonus move speed.
 --
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_phantom_lancer_perk", "abilities/hero_perks/npc_dota_hero_phantom_lancer_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_phantom_lancer_perk ~= "" then npc_dota_hero_phantom_lancer_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_phantom_lancer_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_phantom_lancer_perk ~= "" then modifier_npc_dota_hero_phantom_lancer_perk = class({}) end
 --------------------------------------------------------------------------------------------------------

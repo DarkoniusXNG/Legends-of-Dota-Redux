@@ -1,14 +1,8 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Skywrath Mage
---		Perk: Skywrath Mage refunds 15% of the manacost of spells with a cooldown of 7 seconds or less. 
+--		Perk: Skywrath Mage refunds 30% of the manacost of spells with a cooldown of 7 seconds or less.
 --
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_skywrath_mage_perk", "abilities/hero_perks/npc_dota_hero_skywrath_mage_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_skywrath_mage_perk ~= "" then npc_dota_hero_skywrath_mage_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---		Modifier: modifier_npc_dota_hero_skywrath_mage_perk				
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_skywrath_mage_perk ~= "" then modifier_npc_dota_hero_skywrath_mage_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
@@ -27,12 +21,15 @@ end
 function modifier_npc_dota_hero_skywrath_mage_perk:RemoveOnDeath()
 	return false
 end
+
+function modifier_npc_dota_hero_skywrath_mage_perk:GetTexture()
+	return "custom/npc_dota_hero_skywrath_mage_perk"
+end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_skywrath_mage_perk:OnCreated(keys)
 	self.cooldownThreshold = 7
     self.manaPercentReduction = 30
     self.manaReduction = self.manaPercentReduction / 100
-	return true
 end
 --------------------------------------------------------------------------------------------------------
 -- Add additional functions

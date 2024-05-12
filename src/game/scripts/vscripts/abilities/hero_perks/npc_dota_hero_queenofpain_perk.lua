@@ -4,12 +4,6 @@
 --      Perk: Queen of Pain deals 10% more damage to male heroes, but receives 10% more damage from female heroes.
 --
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_queenofpain_perk", "abilities/hero_perks/npc_dota_hero_queenofpain_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if npc_dota_hero_queenofpain_perk ~= "" then npc_dota_hero_queenofpain_perk = class({}) end
---------------------------------------------------------------------------------------------------------
---      Modifier: modifier_npc_dota_hero_queenofpain_perk               
---------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_queenofpain_perk ~= "" then modifier_npc_dota_hero_queenofpain_perk = class({}) end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_queenofpain_perk:IsPassive()
@@ -35,7 +29,6 @@ function modifier_npc_dota_hero_queenofpain_perk:DeclareFunctions()
         MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE, 
         MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
     }
-    -- body
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_queenofpain_perk:GetModifierTotalDamageOutgoing_Percentage(keys)
