@@ -4642,11 +4642,7 @@ function generateFormattedHeroStatsString(heroName, info) {
 		heroStats += seperator;
 		heroStats += heroStatsLine("heroStats_strength", info.AttributeBaseStrength + " + " + strGain, strColor);
 		heroStats += heroStatsLine("heroStats_agility", info.AttributeBaseAgility + " + " + agiGain, agiColor);
-		heroStats += heroStatsLine(
-			"heroStats_intelligence",
-			info.AttributeBaseIntelligence + " + " + intGain,
-			intColor,
-		);
+		heroStats += heroStatsLine("heroStats_intelligence", info.AttributeBaseIntelligence + " + " + intGain, intColor);
 		heroStats += "<br>";
 
 		heroStats += heroStatsLine("heroStats_attributes_starting", startingAttributes, "F9891A");
@@ -4696,14 +4692,16 @@ function generateFormattedHeroStatsString(heroName, info) {
 
 	// Talent Trees
 	heroStats += "<br>";
-	heroStats += heroStatsLine($.Localize("#" + "heroStats_talentTree"), "", "7FABF1", "FFFFFF");
+	heroStats += heroStatsLine("heroStats_talentTree", "", "7FABF1", "FFFFFF");
 	for (var i = 1; i <= 4; i++) {
 		var specialGroup = info["SpecialBonus" + i];
+		let L1 = $.CreatePanel("Label", $.GetContextPanel(), "talentleft" + i);
+		let L2 = $.CreatePanel("Label", $.GetContextPanel(), "talentright" + i);
 		heroStats += heroStatsLine(
-			$.Localize("#" + "heroStats_SpecialBonus" + i),
-			$.Localize("#" + specialGroup["1"]) + // "DOTA_Tooltip_ability_" +
-				$.Localize("#" + "heroStats_or") +
-				$.Localize("#" + specialGroup["2"]), // "DOTA_Tooltip_ability_" +
+			"heroStats_SpecialBonus" + i,
+			GameUI.SetupDOTATalentNameLabel(L1, specialGroup["1"]) + // $.Localize("#" + specialGroup["1"]) + // "DOTA_Tooltip_ability_" +
+			$.Localize("#" + "heroStats_or") +
+			GameUI.SetupDOTATalentNameLabel(L2, specialGroup["2"]), // $.Localize("#" + specialGroup["2"]), // "DOTA_Tooltip_ability_" +
 			"7FABF1",
 			"FFFFFF",
 		);
@@ -5575,7 +5573,7 @@ function showQuestionMessage(data) {
 	var newHost = data.newHost;
 	var playerInfo = Game.GetPlayerInfo(newHost);
 	$("#lodPopupQuestionLabel").text =
-		"Are you sure want to make player " + playerInfo.player_name + " the host of the game?";
+		"Are you sure you want to make player " + playerInfo.player_name + " the host of the game?";
 	$("#lodPopupQuestion").visible = true;
 	$("#questionYes").SetPanelEvent("onactivate", function () {
 		GameEvents.SendCustomGameEventToServer("lodChangeHost", {
@@ -6000,12 +5998,12 @@ function getAbilityGlobalPickPopularity(ability) {
 		var builds = Object.values(data);
 
 		var cont = $pickingPhaseRecommendedBuildContainer();
-		
+
 		if(builds && builds.length > 0) {
 			for(var i = 0; i < builds.length; i++) {
 				addRecommendedBuild(cont[0], builds[i]);
 			}
-			
+
 			LoadFavBuilds(cont[0]);
 		}
 

@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Terrorblade
---		Perk: Terrorblade Illusions deal 15% more damage, but also take 15% more damage. 
---
+--		Perk: Terrorblade gains 2 base damage and 2 attack speed for each point in Demon abilities
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_terrorblade_perk ~= "" then modifier_npc_dota_hero_terrorblade_perk = class({}) end
+modifier_npc_dota_hero_terrorblade_perk = modifier_npc_dota_hero_terrorblade_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_terrorblade_perk:IsPassive()
 	return true
@@ -21,29 +19,43 @@ end
 function modifier_npc_dota_hero_terrorblade_perk:RemoveOnDeath()
 	return false
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_terrorblade_perk:GetTexture()
+	return "custom/npc_dota_hero_terrorblade_perk"
+end
+
+function modifier_npc_dota_hero_terrorblade_perk:OnCreated()
+	self.bonus_stat_per_level = 2
+	if IsServer() then
+		self:StartIntervalThink(0.1)
+	end
+end
+
+function modifier_npc_dota_hero_terrorblade_perk:OnIntervalThink()
+	if IsServer() then
+		local parent = self:GetParent()
+		local stacks = 0
+		for i = 0, parent:GetAbilityCount() - 1 do
+			local skill = parent:GetAbilityByIndex(i)
+			if skill and skill:HasAbilityFlag("demon") then
+				stacks = stacks + skill:GetLevel() * self.bonus_stat_per_level
+			end
+		end
+		self:SetStackCount(stacks)
+	end
+end
+
 function modifier_npc_dota_hero_terrorblade_perk:DeclareFunctions()
-    return {
-        MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE, 
-        MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
-    }
+	return {
+		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
+		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+	}
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_terrorblade_perk:GetModifierDamageOutgoing_Percentage(keys)
-    if keys.attacker and keys.attacker:IsIllusion() then
-        return 15
-    else 
-        return 0
-    end
+
+function modifier_npc_dota_hero_terrorblade_perk:GetModifierBaseAttack_BonusDamage()
+	return self:GetStackCount()
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_terrorblade_perk:GetModifierIncomingDamage_Percentage(keys)
-    if keys.attacker and keys.attacker:IsIllusion() then
-        return 15
-    else 
-        return 0
-    end
+
+function modifier_npc_dota_hero_terrorblade_perk:GetModifierAttackSpeedBonus_Constant()
+	return self:GetStackCount()
 end
---------------------------------------------------------------------------------------------------------

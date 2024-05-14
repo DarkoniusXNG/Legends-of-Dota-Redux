@@ -825,30 +825,104 @@ function util:isCoop()
 end
 
 function CDOTA_BaseNPC:FixIllusion(source)
-    for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
-        local abilityTemp = self:GetAbilityByIndex(abilitySlot)
+	-- Stats fixes
+	if self.GetBaseStrength and source.GetBaseStrength then
+		self:ModifyStrength(source:GetBaseStrength() - self:GetBaseStrength())
+		self:ModifyIntellect(source:GetBaseIntellect() - self:GetBaseIntellect())
+		self:ModifyAgility(source:GetBaseAgility() - self:GetBaseAgility())
 
-        if abilityTemp and not DONOTREMOVE[abilityTemp:GetAbilityName()] then
-            self:RemoveAbility(abilityTemp:GetAbilityName())
-        end
-    end
-    self:SetAbilityPoints(0)
-    for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
-        local abilityTemp = source:GetAbilityByIndex(abilitySlot)
+		-- copy over all the Tome stat modifiers from the original hero
+		if not self:HasModifier("modifier_stats_tome") then
+			for _, v in pairs(source:FindAllModifiersByName("modifier_stats_tome")) do
+				local instance = self:AddNewModifier(self, v:GetAbility(), "modifier_stats_tome", {stat = v.stat})
+				instance:SetStackCount(v:GetStackCount())
+			end
+		end
+	end
 
-        if abilityTemp then
-            self:AddAbility(abilityTemp:GetAbilityName())
-            local abilityLevel = abilityTemp:GetLevel()
-            if abilityLevel > 0 then
-                local abilityName = abilityTemp:GetAbilityName()
-                local illusionAbility = self:FindAbilityByName(abilityName)
-                if illusionAbility then
-                    illusionAbility:SetLevel(abilityLevel)
-                    -- TODO: Check if it's toggle passive, if yes toggle it ON
-                end
-            end
-        end
-    end
+	-- Primary attribute fix
+	if self.GetPrimaryAttribute and source.GetPrimaryAttribute then
+		if self:GetPrimaryAttribute() ~= source:GetPrimaryAttribute() then
+			self:SetPrimaryAttribute(source:GetPrimaryAttribute())
+		end
+	end
+
+	-- Illusion perks fixes
+	local perk_mod_name = "modifier_"..source:GetUnitName().."_perk"
+	local perk_mod = source:FindModifierByName(perk_mod_name)
+	if perk_mod then
+		if perk_mod.apply_to_illusions then
+			self:AddNewModifier(self, nil, perk_mod_name, {})
+		end
+	end
+
+	-- Check if illusion has the hero abilities in the same slots
+	local hasHeroAbilities = true
+	for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
+		local illusionAbility = self:GetAbilityByIndex(abilitySlot)
+		local heroAbility = source:GetAbilityByIndex(abilitySlot)
+		if heroAbility then
+			local heroAbilityName = heroAbility:GetAbilityName()
+			if not DONOTREMOVE[heroAbilityName] then 
+				if illusionAbility then
+					local illusionAbilityName = illusionAbility:GetAbilityName()
+					if illusionAbilityName ~= heroAbilityName then
+						hasHeroAbilities = false
+						break
+					end
+				else
+					hasHeroAbilities = false
+					break
+				end
+			end
+		elseif illusionAbility then
+			hasHeroAbilities = false
+			break
+		end
+	end
+
+	if not hasHeroAbilities then
+		-- Created illusion does not have the same abilities as the original hero. Fixing...
+		-- Remove all abilities first
+		for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
+			local ab = self:GetAbilityByIndex(abilitySlot)
+			if ab then
+				self:RemoveAbility(ab:GetAbilityName())
+			end
+		end
+		-- Add all hero abilities to the illusion
+		for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
+			local heroAbility = source:GetAbilityByIndex(abilitySlot)
+			if heroAbility then
+				if not DONOTREMOVE[heroAbility:GetAbilityName()] then -- illusions dont need those abilities
+					local abilityName = heroAbility:GetAbilityName()
+					local addedAbility = self:AddAbility(abilityName)
+					local abilityLevel = heroAbility:GetLevel()
+					if abilityLevel > 0 then
+						if addedAbility then
+							addedAbility:SetLevel(abilityLevel)
+							-- Make sure that they are in a same toggled state
+							if heroAbility:GetToggleState() ~= addedAbility:GetToggleState() then
+								addedAbility:ToggleAbility()
+							end
+						end
+					end
+				end
+			end
+		end
+	else
+		-- Created Illusion has the same abilities as the hero. Fixing toggles only
+		for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
+			local heroAbility = source:GetAbilityByIndex(abilitySlot)
+			local illusionAbility = self:GetAbilityByIndex(abilitySlot)
+			if heroAbility and illusionAbility then
+				-- Make sure that they are in a same toggled state
+				if heroAbility:GetToggleState() ~= illusionAbility:GetToggleState() then
+					illusionAbility:ToggleAbility()
+				end
+			end
+		end
+	end
 end
 
 function CDOTA_BaseNPC:HasAbilityWithFlag(flag)

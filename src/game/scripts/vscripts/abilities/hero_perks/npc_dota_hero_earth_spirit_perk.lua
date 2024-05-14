@@ -23,16 +23,11 @@ end
 function modifier_npc_dota_hero_earth_spirit_perk:RemoveOnDeath()
 	return false
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
-
 
 function modifier_npc_dota_hero_earth_spirit_perk:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 	}
-	return funcs
 end
 
 function modifier_npc_dota_hero_earth_spirit_perk:OnCreated()

@@ -102,7 +102,7 @@ local hero_names = {
 	"sven", -- ok
 	"techies", -- ok
 	"templar_assassin", -- ok
-	"terrorblade", -- kinda bad
+	"terrorblade", -- ok
 	"tidehunter", -- ok
 	"tinker", -- ok
 	"tiny", -- badly coded idea not bad

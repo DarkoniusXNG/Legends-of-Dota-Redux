@@ -6584,7 +6584,6 @@
 			"AbilityCastRange"				"750 800 850 900"
 			"AbilityManaCost"				"75"
 			"AbilityValues"
-			"AbilityValues"
 			{
 				"duration"					"6"
 				"bonus_attack_speed"		"100 125 150 175"
