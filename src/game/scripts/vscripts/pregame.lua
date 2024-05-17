@@ -509,9 +509,6 @@ function Pregame:init()
     Timers:CreateTimer(function()
         if util:isSinglePlayerMode() then
             self:setOption('lodOptionBanningUseBanList', 0, true)
-            self:setOption("lodOptionNewAbilitiesBonusGold", 0, true)
-            self:setOption("lodOptionGlobalNewAbilitiesBonusGold", 0, true)
-            self:setOption("lodOptionBalancedBuildBonusGold", 0, true)
         end
     end, DoUniqueString('checkSinglePlayer'), 1.5)
 
@@ -547,7 +544,6 @@ function Pregame:init()
         self:setOption('lodOptionGameSpeedTowersPerLane', 3, true)
         OptionManager:SetOption('banningTime', 50)
         self:setOption('lodOptionBalanceMode', 0, true)
-        self:setOption('lodOptionGameSpeedGoldModifier', 100, true)
         --self:setOption('lodOptionGameSpeedGoldTickRate', 2, true)
         self:setOption('lodOptionGameSpeedEXPModifier', 100, true)
         self:setOption('lodOptionAdvancedHidePicks', 0, true)
@@ -630,7 +626,6 @@ function Pregame:init()
         --self:setOption('lodOptionBanningBalanceMode', 1, true)
         --self:setOption('lodOptionGameSpeedRespawnTimePercentage', 70, true)
         --self:setOption('lodOptionBuybackCooldownTimeConstant', 210, true)
-        self:setOption('lodOptionGameSpeedGoldModifier', 100, true)
         self:setOption('lodOptionLimitPassives', 1, true)
         self:setOption('lodOptionGameSpeedEXPModifier', 100, true)
         self:setOption('lodOptionGameSpeedMaxLevel', 100, true)
@@ -698,7 +693,6 @@ function Pregame:loadDefaultSettings()
     self:setOption('lodOptionBotsSameHero', 0, false)
     self:setOption('lodOptionRefreshCooldownsOnDeath', 0, false)
     self:setOption('lodOptionGlobalCast', 0, false)
-    self:setOption('lodOptionPocketTowers', 0, false)
 
     -- Balance Mode Ban List disabled by default
     self:setOption('lodOptionBanningBalanceMode', 0, true)
@@ -716,7 +710,7 @@ function Pregame:loadDefaultSettings()
     -- Bots get bonus points by default
     self:setOption('lodOptionBotsBonusPoints', 1, true)
 
-    -- Default, we don't ban all invisiblity
+    -- Default, we don't ban all invisibility
     self:setOption('lodOptionBanningBanInvis', 0, true)
 
     -- Starting level is lvl 1
@@ -762,7 +756,6 @@ function Pregame:loadDefaultSettings()
 
     self:setOption('lodOptionLaneCreepBonusAbility', 0, true)
     self:setOption('lodOptionStacking', 0, true)
-    self:setOption('lodOptionZombie', 0, true)
 
     -- Set bot options
     self:setOption('lodOptionBotsRadiant', 0, true)
@@ -781,7 +774,6 @@ function Pregame:loadDefaultSettings()
     self:setOption('lodOptionRandomLaneCreeps', 0, true)
     self:setOption('lodOptionNoHealthbars', 0, true)
     self:setOption('lodOptionConvertableTowers', 0, true)
-    self:setOption('lodOptionDoubleTalents', 0, true)
 
     -- Turn easy mode off
     --self:setOption('lodOptionCrazyEasymode', 0, true)
@@ -832,9 +824,6 @@ function Pregame:loadDefaultSettings()
     -- Disable Fountain Camping
     self:setOption('lodOptionCrazyNoCamping', 1, true)
 
-    -- Disable All Vision
-    self:setOption('lodOptionCrazyAllVision', 0, true)
-
     -- Disable Multicast Madness
     self:setOption('lodOptionCrazyMulticast', 0, true)
 
@@ -871,13 +860,6 @@ function Pregame:loadDefaultSettings()
 
     -- No Dark Forest
     self:setOption('lodOptionBlackForest', 0, true)
-
-    -- Selecting 6 new abilities grants 500 gold
-    self:setOption("lodOptionNewAbilitiesThreshold", 20, true)
-    self:setOption("lodOptionNewAbilitiesBonusGold", 1000, true)
-    self:setOption("lodOptionGlobalNewAbilitiesThreshold", 75, true)
-    self:setOption("lodOptionGlobalNewAbilitiesBonusGold", 1000, true)
-    self:setOption("lodOptionBalancedBuildBonusGold", 0, true)
 end
 
 -- Gets stats for the given player
@@ -2713,57 +2695,6 @@ function Pregame:initOptionSelector()
             return value == 0 or value == 1
         end,
 
-        -- Common -- New abilities bonus
-        lodOptionNewAbilitiesThreshold = function(value)
-            -- It needs to be a whole number between a certain range
-            if type(value) ~= 'number' then return false end
-            if math.floor(value) ~= value then return false end
-            if value < 0 or value > 100 then return false end
-
-            -- Valid
-            return true
-        end,
-
-        lodOptionNewAbilitiesBonusGold = function(value)
-            -- It needs to be a whole number between a certain range
-            if type(value) ~= 'number' then return false end
-            if math.floor(value) ~= value then return false end
-            if value < 0 or value > 2500 then return false end
-
-            -- Valid
-            return true
-        end,
-
-        lodOptionGlobalNewAbilitiesThreshold = function(value)
-            -- It needs to be a whole number between a certain range
-            if type(value) ~= 'number' then return false end
-            if math.floor(value) ~= value then return false end
-            if value < 0 or value > 100 then return false end
-
-            -- Valid
-            return true
-        end,
-
-        lodOptionGlobalNewAbilitiesBonusGold = function(value)
-            -- It needs to be a whole number between a certain range
-            if type(value) ~= 'number' then return false end
-            if math.floor(value) ~= value then return false end
-            if value < 0 or value > 2500 then return false end
-
-            -- Valid
-            return true
-        end,
-
-        lodOptionBalancedBuildBonusGold = function(value)
-            -- It needs to be a whole number between a certain range
-            if type(value) ~= 'number' then return false end
-            if math.floor(value) ~= value then return false end
-            if value < 0 or value > 3000 then return false end
-
-            -- Valid
-            return true
-        end,
-
         -- Gamemode - Duel
         lodOptionDuels = function(value)
             return value == 0 or value == 1
@@ -2857,7 +2788,7 @@ function Pregame:initOptionSelector()
             -- It needs to be a whole number between a certain range
             if type(value) ~= 'number' then return false end
             if math.floor(value) ~= value then return false end
-            if value < 0 or value > 1000 then return false end
+            if value < 100 or value > 1000 then return false end
 
             -- Valid
             return true
@@ -2946,11 +2877,6 @@ function Pregame:initOptionSelector()
         -- Game Speed - Scepter Upgraded
         lodOptionGameSpeedUpgradedUlts = function(value)
             return value == 0 or value == 1 or value == 2
-        end,
-
-        -- Game Speed - Pocket Towers
-        lodOptionPocketTowers = function(value)
-            return value == 0 or value == 1 or value == 60 or value == 120 or value == 180 or value == 240 or value == 300 or value == 600
         end,
 
         -- Game Speed - Stronger Towers
@@ -3153,16 +3079,6 @@ function Pregame:initOptionSelector()
             return value == 0 or value == 1
         end,
 
-        -- Other -- Universal Shop
-        lodOptionCrazyUniversalShop = function(value)
-            return value == 0 or value == 1
-        end,
-
-        -- Other -- All Vision
-        lodOptionCrazyAllVision = function(value)
-            return value == 0 or value == 1
-        end,
-
         -- Other -- Multicast Madness
         lodOptionCrazyMulticast = function(value)
             return value == 0 or value == 1
@@ -3244,11 +3160,6 @@ function Pregame:initOptionSelector()
             return value == 0 or value == 1
         end,
 
-         -- Other - Zombie Apocalypse
-        lodOptionZombie = function(value)
-            return value == 0 or value == 1
-        end,
-
          -- Other -- Memes Redux
         lodOptionMemesRedux = function(value)
             -- When the player activates this potion, they have a chance to hear a meme sound. Becomes more unlikely the more they hear.
@@ -3280,9 +3191,6 @@ function Pregame:initOptionSelector()
         --end,
         -- Mutators
         lodOptionPeriodicSpellCast = function(value)
-            return value == 0 or value == 1
-        end,
-        lodOptionDoubleTalents = function(value)
             return value == 0 or value == 1
         end,
         -- Mutators
@@ -3950,7 +3858,6 @@ function Pregame:processOptions()
         OptionManager:SetOption('respawnModifierConstant', this.optionStore['lodOptionGameSpeedRespawnTimeConstant'])
         OptionManager:SetOption('buybackCooldownConstant', this.optionStore['lodOptionBuybackCooldownTimeConstant'])
         OptionManager:SetOption('freeScepter', this.optionStore['lodOptionGameSpeedUpgradedUlts'])
-        OptionManager:SetOption('pocketTowers', this.optionStore['lodOptionPocketTowers'])
         OptionManager:SetOption('strongTowers', this.optionStore['lodOptionGameSpeedStrongTowers'] == 1)
         OptionManager:SetOption('towerCount', this.optionStore['lodOptionGameSpeedTowersPerLane'])
         OptionManager:SetOption('creepPower', this.optionStore['lodOptionCreepPower'])
@@ -3960,9 +3867,7 @@ function Pregame:processOptions()
         OptionManager:SetOption('laneMultiply', this.optionStore['lodOptionLaneMultiply'])
         OptionManager:SetOption('laneCreepAbility', this.optionStore['lodOptionLaneCreepBonusAbility'])
         OptionManager:SetOption('stacking', this.optionStore['lodOptionStacking'])
-        OptionManager:SetOption('zombie', this.optionStore['lodOptionZombie'])
         OptionManager:SetOption('useFatOMeter', this.optionStore['lodOptionCrazyFatOMeter'])
-        OptionManager:SetOption('universalShops', this.optionStore['lodOptionCrazyUniversalShop'])
         OptionManager:SetOption('allowIngameHeroBuilder', this.optionStore['lodOptionIngameBuilder'] == 1)
         OptionManager:SetOption('botBonusPoints', this.optionStore['lodOptionBotsBonusPoints'] == 1)
         OptionManager:SetOption('botsUniqueSkills', this.optionStore['lodOptionBotsUniqueSkills'])
@@ -3992,7 +3897,6 @@ function Pregame:processOptions()
         --OptionManager:SetOption('superRunes',this.optionStore['lodOptionSuperRunes'])
         OptionManager:SetOption('fastRunes',this.optionStore['lodOptionFastRunes'])
         OptionManager:SetOption('periodicSpellCast',this.optionStore['lodOptionPeriodicSpellCast'])
-        OptionManager:SetOption('doubleTalents',this.optionStore['lodOptionDoubleTalents'])
         OptionManager:SetOption('vampirism',this.optionStore['lodOptionVampirism'])
         OptionManager:SetOption('killstreakPower',this.optionStore['lodOptionKillStreakPower'])
         OptionManager:SetOption('cooldownReduction',this.optionStore['lodOptionCooldownReduction'])
@@ -4016,7 +3920,7 @@ function Pregame:processOptions()
 
         -- Gold per interval
         --GameRules:SetGoldPerTick(this.optionStore['lodOptionGameSpeedGoldTickRate'])
-       -- OptionManager:SetOption('goldPerTick', this.optionStore['lodOptionGameSpeedGoldTickRate'])
+        --OptionManager:SetOption('goldPerTick', this.optionStore['lodOptionGameSpeedGoldTickRate'])
         OptionManager:SetOption('goldModifier', this.optionStore['lodOptionGameSpeedGoldModifier'])
         OptionManager:SetOption('expModifier', this.optionStore['lodOptionGameSpeedEXPModifier'])
         OptionManager:SetOption('sharedXP', this.optionStore['lodOptionGameSpeedSharedEXP'])
@@ -4200,9 +4104,7 @@ function Pregame:processOptions()
         end
 
         -- Enable All Vision
-        if this.optionStore['lodOptionCrazyAllVision'] == 1 then
-            Convars:SetBool('dota_all_vision', true)
-        end
+        --Convars:SetBool('dota_all_vision', true)
 
         if this.optionStore['lodOptionBlackForest'] == 1 then
             --Convars:SetBool('dota_all_vision', true)
@@ -4291,11 +4193,8 @@ function Pregame:processOptions()
                     ['Gamemode: Max Slots'] = this.optionStore['lodOptionCommonMaxSlots'],
                     ['Gamemode: Max Ults'] = this.optionStore['lodOptionCommonMaxUlts'],
                     ['Gamemode: Preset Gamemode'] = this.optionStore['lodOptionGamemode'],
-                    ['Other: Enable All Vision'] = this.optionStore['lodOptionCrazyAllVision'],
-                    ['Other: Zombie Apocalypse'] = this.optionStore['lodOptionZombie'],
                     ['Other: Enable Ingame Hero Builder'] = this.optionStore['lodOptionIngameBuilder'],
                     ['Other: Enable Multicast Madness'] = this.optionStore['lodOptionCrazyMulticast'],
-                    ['Other: Enable Universal Shop'] = this.optionStore['lodOptionCrazyUniversalShop'],
                     ['Other: Enable WTF Mode'] = this.optionStore['lodOptionCrazyWTF'],
                     ['Other: Fat-O-Meter'] = this.optionStore['lodOptionCrazyFatOMeter'],
                     ['Other: Stop Fountain Camping'] = this.optionStore['lodOptionCrazyNoCamping'],
@@ -4318,7 +4217,6 @@ function Pregame:processOptions()
                     ['Bots: Stupefy'] = this.optionStore['lodOptionBotsStupid'],
                     ['Mutators: Fast Runes'] = this.optionStore['fastRunes'],
                     ['Mutators: Periodic Spell Cast'] = this.optionStore['periodicSpellCast'],
-                    ['Mutators: Double Talents'] = this.optionStore['doubleTalents'],
                     ['Mutators: Vampirism'] = this.optionStore['vampirism'],
                     ['Mutators: Kill Streak Power'] = this.optionStore['killstreakPower'],
                     ['Mutators: Cooldown Reduction'] = this.optionStore['cooldownReduction'],
@@ -8005,40 +7903,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
         end
     end
 
-    -- Give out the spawn zombie ability
-    if this.optionStore['lodOptionZombie'] == 1 then
-        spawnedUnit:AddAbility("summon_zombie")
-        local givenAbility = spawnedUnit:FindAbilityByName("summon_zombie")
-        if givenAbility then
-            givenAbility:SetLevel(givenAbility:GetMaxLevel())
-        end
-    end
-
-    -- Handle pocket tower stuff
-    if OptionManager:GetOption('pocketTowers') ~= 0 and util:isPlayerBot(playerID) == false then --TODO: MAKE BOTS USE POCKET TOWERS
-        Timers:CreateTimer(function()
-            if IsValidEntity(spawnedUnit) then
-                -- If setting is 1, everyone gets a single consumable tower to use
-                if OptionManager:GetOption('pocketTowers') == 1 then
-                    spawnedUnit:AddItemByName('item_redux_pocket_tower')
-                -- Else, everyone gets a tower which has a cooldown
-                elseif OptionManager:GetOption('pocketTowers') == 60 then
-                    spawnedUnit:AddItemByName('item_redux_pocket_tower_permanent_60')
-                elseif OptionManager:GetOption('pocketTowers') == 120 then
-                    spawnedUnit:AddItemByName('item_redux_pocket_tower_permanent_120')
-                elseif OptionManager:GetOption('pocketTowers') == 180 then
-                    spawnedUnit:AddItemByName('item_redux_pocket_tower_permanent_180')
-                elseif OptionManager:GetOption('pocketTowers') == 240 then
-                    spawnedUnit:AddItemByName('item_redux_pocket_tower_permanent_240')
-                elseif OptionManager:GetOption('pocketTowers') == 300 then
-                    spawnedUnit:AddItemByName('item_redux_pocket_tower_permanent_300')
-                elseif OptionManager:GetOption('pocketTowers') == 600 then
-                    spawnedUnit:AddItemByName('item_redux_pocket_tower_permanent_600')
-                end
-            end
-        end, DoUniqueString('givePocketTowers'), 1)
-    end
-
     -- Give out the global cast range ability
     if OptionManager:GetOption('globalCastRange') == 1 then
         Timers:CreateTimer(function()
@@ -8324,10 +8188,10 @@ function Pregame:fixSpawningIssues()
         if IsValidEntity(spawnedUnit) and not spawnedUnit:IsSpiritBearCustom() then
             -- Filter gold modifier here instead of in filtergold in ingame because this makes the popup correct
             local goldModifier = OptionManager:GetOption('goldModifier')
-            if goldModifier ~= 100 and not spawnedUnit.bountyAdjusted then
-                -- Non hero units that respawn should only be adjusted once, this are things like bears or familiars
+            if goldModifier > 100 and not spawnedUnit.bountyAdjusted then
+                -- Non hero units that respawn should only be adjusted once, this are things like familiars
                 if not spawnedUnit:IsHero() then
-                 spawnedUnit.bountyAdjusted = true
+					spawnedUnit.bountyAdjusted = true
                 end
                 local newBounty = spawnedUnit:GetGoldBounty() * goldModifier / 100
                 spawnedUnit:SetMaximumGoldBounty(newBounty)

@@ -622,7 +622,7 @@ function OnSelectedSkillsChanged(table_name, key, data) {
 		var tickedAbilitiesCount = 0;
 		var activeAbilities = 0;
 
-		var threshold = optionValueList.lodOptionNewAbilitiesThreshold || 20;
+		let threshold = 20;
 		var fetchedAbilityData = AbilityUsageData.data;
 		var realAbilitiesThreshold = Math.ceil(AbilityUsageData.totalGameAbilitiesCount * (1 - threshold * 0.01));
 		var enableAlternativeThreshold = Object.keys(AbilityUsageData.entries).length >= realAbilitiesThreshold;
@@ -636,7 +636,7 @@ function OnSelectedSkillsChanged(table_name, key, data) {
 					return AbilityUsageData.entries[ability] == null;
 			  };
 
-		var globalThreshold = optionValueList.lodOptionGlobalNewAbilitiesThreshold || 75;
+		let globalThreshold = 75;
 		var isGlobalBelowThreshold = function (ability) {
 			return getAbilityGlobalPickPopularity(ability) > 1 - globalThreshold * 0.01;
 		};
@@ -4697,6 +4697,8 @@ function generateFormattedHeroStatsString(heroName, info) {
 		var specialGroup = info["SpecialBonus" + i];
 		let L1 = $.CreatePanel("Label", $.GetContextPanel(), "talentleft" + i);
 		let L2 = $.CreatePanel("Label", $.GetContextPanel(), "talentright" + i);
+		L1.style.visibility = "collapse";
+		L2.style.visibility = "collapse";
 		heroStats += heroStatsLine(
 			"heroStats_SpecialBonus" + i,
 			GameUI.SetupDOTATalentNameLabel(L1, specialGroup["1"]) + // $.Localize("#" + specialGroup["1"]) + // "DOTA_Tooltip_ability_" +
@@ -4859,7 +4861,7 @@ function OnPhaseChanged(table_name, key, data) {
 			if (currentPhase == PHASE_SELECTION) {
 				$("#newAbilitiesPanel").SetHasClass(
 					"GoldBonusEnabled",
-					CustomNetTables.GetTableValue("options", "lodOptionNewAbilitiesBonusGold").v > 0,
+					false,
 				);
 
 				// Enable tabs

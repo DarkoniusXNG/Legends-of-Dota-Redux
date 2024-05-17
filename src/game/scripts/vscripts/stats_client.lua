@@ -10,10 +10,8 @@ StatsClient.PlayerBans = StatsClient.PlayerBans or {}
 
 StatsClient.AuthKey = LoadKeyValues('scripts/kv/stats_client.kv').AuthKey
 -- Change to true if you have local server running, so contributors without local server can see some things
-StatsClient.Debug = IsInToolsMode() and false
-StatsClient.ServerAddress = StatsClient.Debug and
-    "http://localhost:5218/" or
-    "https://fda7-84-193-151-123.ngrok-free.app/"
+StatsClient.Debug = IsInToolsMode()
+StatsClient.ServerAddress = StatsClient.Debug and "http://localhost:5218/" or "https://fda7-84-193-151-123.ngrok-free.app/"
 
 StatsClient.GameVersion = "3.1.2"
 StatsClient.SortedAbilityDataEntries = StatsClient.SortedAbilityDataEntries or {}
@@ -21,15 +19,16 @@ StatsClient.SortedAbilityDataEntries = StatsClient.SortedAbilityDataEntries or {
 function StatsClient:SubscribeToClientEvents()
     CustomGameEventManager:RegisterListener("stats_client_create_skill_build", Dynamic_Wrap(StatsClient, "CreateSkillBuild"))
     CustomGameEventManager:RegisterListener("stats_client_remove_skill_build", Dynamic_Wrap(StatsClient, "RemoveSkillBuild"))
-    CustomGameEventManager:RegisterListener("stats_client_vote_skill_build", Dynamic_Wrap(StatsClient, "VoteSkillBuild"))
-    CustomGameEventManager:RegisterListener("stats_client_fav_skill_build", Dynamic_Wrap(StatsClient, "SetFavoriteSkillBuild"))
-    CustomGameEventManager:RegisterListener("stats_client_save_fav_builds", Dynamic_Wrap(StatsClient, "SaveFavoriteBuilds"))
+    --CustomGameEventManager:RegisterListener("stats_client_vote_skill_build", Dynamic_Wrap(StatsClient, "VoteSkillBuild"))
+    --CustomGameEventManager:RegisterListener("stats_client_fav_skill_build", Dynamic_Wrap(StatsClient, "SetFavoriteSkillBuild"))
+    --CustomGameEventManager:RegisterListener("stats_client_save_fav_builds", Dynamic_Wrap(StatsClient, "SaveFavoriteBuilds"))
     CustomGameEventManager:RegisterListener("stats_client_options_save", Dynamic_Wrap(StatsClient, "SaveOptions"))
     CustomGameEventManager:RegisterListener("stats_client_options_load", Dynamic_Wrap(StatsClient, "LoadOptions"))
-	CustomGameEventManager:RegisterListener("stats_client_get_skill_builds", Dynamic_Wrap(StatsClient, "GetSkillBuilds"))
-	CustomGameEventManager:RegisterListener("stats_client_get_favorite_skill_builds", Dynamic_Wrap(StatsClient, "GetFavoriteSkillBuilds"))
+	--CustomGameEventManager:RegisterListener("stats_client_get_skill_builds", Dynamic_Wrap(StatsClient, "GetSkillBuilds"))
+	--CustomGameEventManager:RegisterListener("stats_client_get_favorite_skill_builds", Dynamic_Wrap(StatsClient, "GetFavoriteSkillBuilds"))
 
-    CustomGameEventManager:RegisterListener("lodConnectAbilityUsageData", function(_, args)
+    --[[
+	CustomGameEventManager:RegisterListener("lodConnectAbilityUsageData", function(_, args)
         Timers:CreateTimer(function()
             local playerID = args.PlayerID
             if not StatsClient.AbilityData or not StatsClient.SortedAbilityDataEntries or not StatsClient.GlobalAbilityUsageData or not StatsClient.totalGameAbilitiesCount then
@@ -43,8 +42,9 @@ function StatsClient:SubscribeToClientEvents()
             })
         end)
     end)
+	]]
 
-    ListenToGameEvent('dota_match_done', Dynamic_Wrap(StatsClient, "SendAbilityUsageData"), self)
+    --ListenToGameEvent('dota_match_done', Dynamic_Wrap(StatsClient, "SendAbilityUsageData"), self)
 end
 
 function StatsClient:Fetch()
@@ -158,21 +158,30 @@ function StatsClient:SetFavoriteSkillBuild(args)
 end
 
 function StatsClient:SaveOptions(args)
-    StatsClient:Send("saveOptions", {
-        steamID = PlayerResource:GetRealSteamID(args.PlayerID),
-        content = args.content
-    })
+	StatsClient:Send(
+		"saveOptions",
+		{
+			steamID = PlayerResource:GetRealSteamID(args.PlayerID),
+			content = args.content
+		},
+		nil,
+		8
+	)
 end
 
 function StatsClient:LoadOptions(args)
-    StatsClient:Send(
-        "loadOptions",
-        { steamID = PlayerResource:GetRealSteamID(args.PlayerID) },
-        function(response)
-            local player = PlayerResource:GetPlayer(args.PlayerID);
-            CustomGameEventManager:Send_ServerToPlayer(player, "lodLoadOptions", { content = response })
-        end
-    )
+	StatsClient:Send(
+		"loadOptions",
+		{
+			steamID = PlayerResource:GetRealSteamID(args.PlayerID)
+		},
+		function(response)
+			local player = PlayerResource:GetPlayer(args.PlayerID);
+			CustomGameEventManager:Send_ServerToPlayer(player, "lodLoadOptions", { content = response })
+		end,
+		0,
+		"GET"
+	)
 end
 
 function StatsClient:SendAbilityUsageData()
@@ -261,32 +270,28 @@ function StatsClient:SetBans(playerID, value)
 end
 
 function StatsClient:Send(path, data, callback, retryCount, protocol, _currentRetry)
-    self.max_attempts = 8
-    self.attempts = self.attempts or 0
-    local request = CreateHTTPRequestScriptVM(protocol or "POST", self.ServerAddress .. path)
-    request:SetHTTPRequestHeaderValue("Auth-Key", StatsClient.AuthKey)
-    request:SetHTTPRequestGetOrPostParameter("data", JSON:encode(data))
+	local request = CreateHTTPRequestScriptVM(protocol or "POST", self.ServerAddress .. path)
+	--request:SetHTTPRequestHeaderValue("Auth-Key", StatsClient.AuthKey)
+	local encoded = JSON:encode(data)
+	print("[StatsClient] URL", path, "payload data:", encoded)
+	request:SetHTTPRequestGetOrPostParameter("data", encoded)
 	request:Send(function(response)
-        if response.StatusCode ~= 200 or not response.Body then
-            print("error, status == " .. response.StatusCode)
-            local currentRetry = (_currentRetry or 0) + 1
-            if currentRetry < (retryCount or 0) then
-                Timers:CreateTimer(30, function()
-                    print("Retry (" .. currentRetry .. ")")
-                    StatsClient.attempts = StatsClient.attempts + 1
-                    if StatsClient.attempts <= StatsClient.max_attempts then
-                        StatsClient:Send(path, data, callback, retryCount, protocol, currentRetry)
-                    end
-                end)
-            end
-        else
-            StatsClient.attempts = 0
-            local obj, pos, err = JSON:decode(response.Body, 1, nil)
-            if callback then
-                callback(obj)
-            end
-        end
-    end)
+		if response.StatusCode ~= 200 or not response.Body then
+			print("[StatsClient] error, status == " .. response.StatusCode)
+			local currentRetry = (_currentRetry or 0) + 1
+			if currentRetry < (retryCount or 0) then
+				Timers:CreateTimer(30, function()
+					print("[StatsClient] Retry (" .. currentRetry .. ")")
+					StatsClient:Send(path, data, callback, retryCount, protocol, currentRetry)
+				end)
+			end
+		else
+			local obj, pos, err = JSON:decode(response.Body, 1, nil)
+			if callback then
+				callback(obj)
+			end
+		end
+	end)
 end
 
 function CDOTA_PlayerResource:GetRealSteamID(PlayerID)

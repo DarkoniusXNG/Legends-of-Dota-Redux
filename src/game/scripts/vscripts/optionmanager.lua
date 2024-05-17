@@ -104,9 +104,6 @@ if not OptionManager.initialSettings then
 	-- Enable fast jungle mode
 	OptionManager:SetOption('fastJungleCreeps', false)
 
-	-- All vision
-	OptionManager:SetOption('allVision', false)
-
 	-- Multicast Madness
 	OptionManager:SetOption('multicastMadness', false)
 
@@ -159,7 +156,6 @@ if not OptionManager.initialSettings then
 	OptionManager:SetOption('fastRunes', false)
 	OptionManager:SetOption('superRunes', false)
 	OptionManager:SetOption('periodicSpellCast', false)
-	OptionManager:SetOption('doubleTalents', false)
 	OptionManager:SetOption('vampirism', false)
 	OptionManager:SetOption('killstreakPower', false)
 	OptionManager:SetOption('cooldownReduction', false)
@@ -217,7 +213,6 @@ if not OptionManager.initialSettings then
 	-- turboCourier
 	-- extraAbility
 	-- globalCastRange
-	-- pocketTowers
 	-- direBotDiff
 	-- radiantBotDiff
 	-- stupidBots

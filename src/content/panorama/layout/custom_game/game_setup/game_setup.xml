@@ -178,7 +178,6 @@
                                     <Image class="optionImageCached" src="file://{images}/custom_game/votings/lodVotingBanningBlockTrollCombos.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/votings/lodVotingAdvancedOPAbilities.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/votings/lodVotingDoubleCreeps.png"></Image>
-                                    <Image class="optionImageCached" src="file://{images}/custom_game/votings/lodVotingUniversalShops.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/votings/lodVotingEnableCheatMode.png"></Image>
 									<Image class="optionImageCached" src="file://{images}/custom_game/votings/lodVotingEnableHeroBuilder.png"></Image>
 									<Image class="optionImageCached" src="file://{images}/custom_game/votings/lodVotingEnableKamikaze.png"></Image>
@@ -194,7 +193,6 @@
                                     <Image class="optionImageCached" src="file://{images}/custom_game/options/option5.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/options/option6.png"></Image>
                                     
-                                    <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatordoubleTalents.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorAntiRat.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorConsumeItems.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorLimitPassives.png"></Image>
@@ -268,7 +266,6 @@
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorFreeAbility.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorFleashHeaps.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorStacking.png"></Image>
-                                    <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorZombie.png"></Image>
 
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorNoAbility.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorRandomAll.png"></Image>
@@ -307,12 +304,6 @@
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorFastBuybackCooldown2.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorFastBuybackCooldown3.png"></Image>
 
-                                    <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorPocketTowersConsumable.png"></Image>
-                                    <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorPocketTowersCooldown1.png"></Image>
-                                    <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorPocketTowersCooldown.png"></Image>
-                                    <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorNoPocketTowers.png"></Image>
-
-
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorBotDifficulty1.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorBotDifficulty2.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorBotDifficulty3.png"></Image>
@@ -330,7 +321,6 @@
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorBotsDire2.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorBotsDire3.png"></Image>
 
-                                    <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorAllVision.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorHidePicks.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorShareEXP.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorDoubleCreeps.png"></Image>
@@ -397,11 +387,6 @@
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorMirrorDraft.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorAllRandom.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorBattleThirst.png"></Image>
-
-                                    <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorOGBonus.png"></Image>
-                                    <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorOGBonus1.png"></Image>
-                                    <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorOGBonus2.png"></Image>
-                                    <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorOGBonus3.png"></Image>
 
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorDuel.png"></Image>
                                     <Image class="optionImageCached" src="file://{images}/custom_game/mutators/mutator_lodMutatorBotsBuff1.png"></Image>

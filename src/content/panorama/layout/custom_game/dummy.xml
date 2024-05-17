@@ -647,10 +647,9 @@
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorMonkeyBusiness.png" />
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorAllPick.png" />
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorAllRandom.png" />
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorAllVision.png" />
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorBalanceMode.png" />
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorBanningBanInvis.png" />
-<!-- No Invisible Items too -->
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorBanningBanInvis2.png" /> <!-- No Invisible Items too -->
 <!--
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorBotsBuff1.png" />
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorBotsBuff2.png" />
@@ -686,8 +685,8 @@
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorGottaGoFastOff.png" />
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorGottaGoFastOn.png" />
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorGottaGoREALLYFast.png" />
-<!-- Gotta go quick -->
-<!-- Gotta go slow -->
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorGottaGoQuickOn.png" />
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorGottaGoSlow.png" />
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorHidePicks.png" />
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorIngameBuilder1.png" />
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorIngameBuilder2.png" />
@@ -719,53 +718,46 @@
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorBoosterDraft.png" />
 
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorTurboCourier.png"/>
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorPocketTowersConsumable.png"/>
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorPocketTowersCooldown1.png"/>
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorPocketTowersCooldown.png"/>
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorNoPocketTowers.png"/>
 <!-- Multiple Lane Creeps -->
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorNeutralCreepNoPower.png"/>
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorNeutralCreepPowerNormal.png"/>
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorNeutralCreepPowerHigh.png"/>
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorNeutralCreepPowerExtreme.png"/>
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorCreepNoMultiply.png"/>
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorCreepDouble.png"/>
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorCreepTriple.png"/>
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorCreepQuadruple.png"/>
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorStacking.png"/> <!-- Neutrals Stack -->
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorResurrectAllies.png"/>
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorUniqueBotSkillsOff.png"/>
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorUniqueBotSkillsGlobal.png"/>
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorUniqueBotSkillsTeam.png"/>
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorNeutralCreepNoPower.png" />
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorNeutralCreepPowerNormal.png" />
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorNeutralCreepPowerHigh.png" />
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorNeutralCreepPowerExtreme.png" />
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorCreepNoMultiply.png" />
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorCreepDouble.png" />
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorCreepTriple.png" />
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorCreepQuadruple.png" />
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorStacking.png" /> <!-- Neutrals Stack -->
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorResurrectAllies.png" />
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorUniqueBotSkillsOff.png" />
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorUniqueBotSkillsGlobal.png" />
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorUniqueBotSkillsTeam.png" />
 <!-- Free Creep Ability -->
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorBotDifficulty1.png"/>
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorBotDifficulty2.png"/>
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorBotDifficulty3.png"/>
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorBotDifficulty4.png"/>
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorBotDifficulty5.png"/>
-<!-- Bot Random Individual -->
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorFreeAbility.png"/> <!-- Bonus Ability -->
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorBotDifficultyRandom.png" /> <!-- Bot Random Individual -->
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorFreeAbility.png" /> <!-- Bonus Ability -->
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorGlobalCast.png" />
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorCooldownReduction.png"/>
-<!-- Anti-Hiding -->
-<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorDarkMoon.png"/> <!-- Item Drops -->
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorBattleThirst.png" /> <!-- Anti-Hiding -->
+<Image src="file://{images}/custom_game/mutators/mutator_lodMutatorDarkMoon.png" /> <!-- Item Drops -->
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorGoldDropOnDeath.png"/>
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorBlackForest.png"/>
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorAntiRat.png"/>
 <Image src="file://{images}/custom_game/mutators/mutator_lodMutatorConsumeItems.png"/>
-<!-- Gold per new ability -->
 <Image  src="file://{images}/custom_game/mutators/mutator_lodMutatorLimitPassives.png"/>
 <Image  src="file://{images}/custom_game/mutators/mutator_lodMutatorAntiBash.png"/> <!-- Anti Perma-Stun -->
 <Image  src="file://{images}/custom_game/mutators/mutator_lodMutatorFastRunes.png"/>
 <Image  src="file://{images}/custom_game/mutators/mutator_lodMutatorPeriodicSpellCast.png"/>
-<Image  src="file://{images}/custom_game/mutators/mutator_lodMutatordoubleTalents.png"/>
 <Image  src="file://{images}/custom_game/mutators/mutator_lodMutatorConvertableTowers.png"/>
 <Image  src="file://{images}/custom_game/mutators/mutator_lodMutatorKillStreakPower.png"/>
 <Image  src="file://{images}/custom_game/mutators/mutator_lodMutatorExplodeOnDeath.png"/>
 <Image  src="file://{images}/custom_game/mutators/mutator_lodMutatorNoHealthbars.png"/>
 <Image  src="file://{images}/custom_game/mutators/mutator_lodMutatorRandomLaneCreeps.png"/>
 <Image  src="file://{images}/custom_game/mutators/mutator_lodMutatorRandomOnDeath.png"/>
-<Image  src="file://{images}/custom_game/mutators/mutator_lodMutatorZombie.png"/>
 <Image src="file://{images}/custom_game/options/option0.png" />
 <Image src="file://{images}/custom_game/options/option1.png" />
 <Image src="file://{images}/custom_game/options/option2.png" />

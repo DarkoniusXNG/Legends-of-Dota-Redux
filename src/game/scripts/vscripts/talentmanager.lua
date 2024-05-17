@@ -217,11 +217,6 @@ function AddTalents(hero, build)
     for k,v in pairs(hero.heroTalentList) do
        hero:AddAbility(v)
     end
-    
-    if OptionManager:GetOption('doubleTalents') == 1 then
-        StartTrackingTalentLevels()
-    end    
-    
 end
 
 function GetViableTalents(build)
