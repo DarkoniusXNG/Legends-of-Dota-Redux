@@ -11,7 +11,7 @@ StatsClient.PlayerBans = StatsClient.PlayerBans or {}
 StatsClient.AuthKey = LoadKeyValues('scripts/kv/stats_client.kv').AuthKey
 -- Change to true if you have local server running, so contributors without local server can see some things
 StatsClient.Debug = IsInToolsMode()
-StatsClient.ServerAddress = StatsClient.Debug and "http://localhost:5218/" or "https://fda7-84-193-151-123.ngrok-free.app/"
+StatsClient.ServerAddress = StatsClient.Debug and "http://localhost:3000/" or "https://darkoniusxngserver.onrender.com/"
 
 StatsClient.GameVersion = "3.1.2"
 StatsClient.SortedAbilityDataEntries = StatsClient.SortedAbilityDataEntries or {}
@@ -165,7 +165,7 @@ function StatsClient:SaveOptions(args)
 			content = args.content
 		},
 		nil,
-		8
+		0
 	)
 end
 
@@ -177,7 +177,7 @@ function StatsClient:LoadOptions(args)
 		},
 		function(response)
 			local player = PlayerResource:GetPlayer(args.PlayerID);
-			CustomGameEventManager:Send_ServerToPlayer(player, "lodLoadOptions", { content = response })
+			CustomGameEventManager:Send_ServerToPlayer(player, "lodLoadOptions", { content = response.content })
 		end,
 		0,
 		"GET"
@@ -270,28 +270,110 @@ function StatsClient:SetBans(playerID, value)
 end
 
 function StatsClient:Send(path, data, callback, retryCount, protocol, _currentRetry)
-	local request = CreateHTTPRequestScriptVM(protocol or "POST", self.ServerAddress .. path)
-	--request:SetHTTPRequestHeaderValue("Auth-Key", StatsClient.AuthKey)
-	local encoded = JSON:encode(data)
-	print("[StatsClient] URL", path, "payload data:", encoded)
-	request:SetHTTPRequestGetOrPostParameter("data", encoded)
-	request:Send(function(response)
-		if response.StatusCode ~= 200 or not response.Body then
-			print("[StatsClient] error, status == " .. response.StatusCode)
-			local currentRetry = (_currentRetry or 0) + 1
-			if currentRetry < (retryCount or 0) then
-				Timers:CreateTimer(30, function()
-					print("[StatsClient] Retry (" .. currentRetry .. ")")
-					StatsClient:Send(path, data, callback, retryCount, protocol, currentRetry)
+	if path == 'saveOptions' or path == 'loadOptions' then
+		newpath = 'options'
+	else
+		newpath = path
+	end
+
+	local new_data = {}
+	new_data.id = data.steamID
+	new_data.content = data.content
+
+	if path == 'saveOptions' then
+		local already_there = false
+		local request = CreateHTTPRequestScriptVM("GET", self.ServerAddress..newpath)
+		request:SetHTTPRequestGetOrPostParameter("id", tostring(data.steamID))
+		request:Send(function(response)
+			if response.StatusCode == 200 and response.Body then
+				if response.Body ~= "[]" then
+					already_there = true
+					print("Settings for this player exist on the server already.")
+				end
+			else
+				print("status code == "..response.StatusCode)
+				print("body == "..tostring(response.Body))
+			end
+		end)
+		Timers:CreateTimer(5, function()
+			if already_there then
+				local request = CreateHTTPRequestScriptVM("DELETE", StatsClient.ServerAddress..newpath.."/"..data.steamID)
+				request:Send(function(response)
+					if response.StatusCode == 200 and response.Body then
+						print("Deleted Old Settings")
+						local request2 = CreateHTTPRequestScriptVM("POST", StatsClient.ServerAddress..newpath)
+						request2:SetHTTPRequestRawPostBody("application/json", json.encode(new_data))
+						request2:Send(function(response2)
+							if response2.StatusCode == 201 and response2.Body then
+								print("New Settings Saved")
+							else
+								print("status code == "..response2.StatusCode)
+								print("body == "..tostring(response2.Body))
+							end
+						end)
+					else
+						print("status code == "..response.StatusCode)
+						print("body == "..tostring(response.Body))
+					end
+				end)
+			else
+				local request = CreateHTTPRequestScriptVM("POST", StatsClient.ServerAddress..newpath)
+				request:SetHTTPRequestRawPostBody("application/json", json.encode(new_data))
+				request:Send(function(response)
+					if response.StatusCode == 201 and response.Body then
+						print("New Settings Saved")
+					else
+						print("status code == "..response.StatusCode)
+						print("body == "..tostring(response.Body))
+					end
 				end)
 			end
-		else
-			local obj, pos, err = JSON:decode(response.Body, 1, nil)
-			if callback then
-				callback(obj)
+		end)
+	elseif path == 'loadOptions' then
+		local request = CreateHTTPRequestScriptVM("GET", self.ServerAddress..newpath)
+		request:SetHTTPRequestGetOrPostParameter("id", tostring(data.steamID))
+		request:Send(function(response)
+			if response.StatusCode == 200 and response.Body then
+				if response.Body ~= "[]" then
+					if callback then
+						local obj = json.decode(response.Body)
+						print("Settings loaded")
+						if obj then
+							local new_obj = {}
+							new_obj.steamID = obj[1].id
+							new_obj.content = obj[1].content
+							callback(new_obj)
+						end
+					end
+				end
+			else
+				print("status code == "..response.StatusCode)
+				print("body == "..tostring(response.Body))
 			end
-		end
-	end)
+		end)
+	end
+	
+	--local request = CreateHTTPRequestScriptVM(protocol or "POST", self.ServerAddress .. path)
+	--request:SetHTTPRequestHeaderValue("Auth-Key", StatsClient.AuthKey)
+	--local encoded = JSON:encode(data)
+	--request:SetHTTPRequestGetOrPostParameter("data", encoded)
+	--request:Send(function(response)
+		-- if response.StatusCode ~= 200 or not response.Body then
+			-- print("[StatsClient] error, status == " .. response.StatusCode)
+			-- local currentRetry = (_currentRetry or 0) + 1
+			-- if currentRetry < (retryCount or 0) then
+				-- Timers:CreateTimer(30, function()
+					-- print("[StatsClient] Retry (" .. currentRetry .. ")")
+					-- StatsClient:Send(path, data, callback, retryCount, protocol, currentRetry)
+				-- end)
+			-- end
+		-- else
+			-- local obj, pos, err = JSON:decode(response.Body, 1, nil)
+			-- if callback then
+				-- callback(obj)
+			-- end
+		-- end
+	-- end)
 end
 
 function CDOTA_PlayerResource:GetRealSteamID(PlayerID)
