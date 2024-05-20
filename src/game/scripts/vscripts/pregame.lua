@@ -5070,7 +5070,7 @@ function Pregame:checkForReady()
     end
 end
 
--- Player wants to ban an ability
+-- Player wants to save bans
 function Pregame:onPlayerSaveBans(eventSourceIndex, args)
     -- Grab data
     local playerID = args.PlayerID
@@ -5086,21 +5086,24 @@ function Pregame:onPlayerSaveBans(eventSourceIndex, args)
     end
 
     StatsClient:SetBans(playerID, selectedData)
-    StatsClient:SendBans({ steamid = PlayerResource:GetRealSteamID(playerID), bans = selectedData }, function()
-        CustomGameEventManager:Send_ServerToPlayer(
-            PlayerResource:GetPlayer(playerID),
-            "lodNotification",
-            { text = 'lodSuccessSavedBans', params = { entries = #selectedData } }
-        )
-    end)
+    StatsClient:SendBans(playerID, selectedData)
 end
 
--- Player wants to ban an ability
+-- Player wants to load bans
 function Pregame:onPlayerLoadBans(eventSourceIndex, args)
     -- Grab data
     local playerID = args.PlayerID
-    local bans = StatsClient:GetBans(playerID)
-    if bans == nil then return end
+    StatsClient:GetBans(playerID)
+end
+
+function Pregame:ActualLoadingBans(playerID)
+    local bans = StatsClient.PlayerBans[playerID]
+
+    if not bans or type(bans) ~= "table" then
+        print(bans)
+        CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "lodNotification", { text = "Loading bans failed", params = { entries = n } })
+		return
+    end
 
     local lodOptionBanningHostBanning = self.optionStore['lodOptionBanningHostBanning'] and self.optionStore['lodOptionBanningHostBanning'] > 0
     local lodOptionBanningMaxBans = self.optionStore['lodOptionBanningMaxBans']
@@ -5109,14 +5112,18 @@ function Pregame:onPlayerLoadBans(eventSourceIndex, args)
     if count == 0 and lodOptionBanningHostBanning then count = 1000 end
 
     local n = 1
-    while bans[n] do
-        local value = bans[n]
-        if string.match(value, "npc_dota_hero_") and not self.bannedHeroes[value] and (lodOptionBanningHostBanning or not self.usedBans[playerID] or self.usedBans[playerID].heroBans < lodOptionBanningMaxBans) then
-            self:onPlayerBan(0, { PlayerID = playerID, heroName = value }, true)
-        elseif not self.bannedAbilities[value] and (lodOptionBanningHostBanning or not self.usedBans[playerID] or self.usedBans[playerID].abilityBans < lodOptionBanningMaxBans) then
-            self:onPlayerBan(0, { PlayerID = playerID, abilityName = value }, true)
+    if next(bans) ~= nil then
+        while bans[n] do
+            local value = bans[n]
+            if string.match(value, "npc_dota_hero_") and not self.bannedHeroes[value] and (lodOptionBanningHostBanning or not self.usedBans[playerID] or self.usedBans[playerID].heroBans < lodOptionBanningMaxBans) then
+                self:onPlayerBan(0, { PlayerID = playerID, heroName = value }, true)
+            elseif not self.bannedAbilities[value] and (lodOptionBanningHostBanning or not self.usedBans[playerID] or self.usedBans[playerID].abilityBans < lodOptionBanningMaxBans) then
+                self:onPlayerBan(0, { PlayerID = playerID, abilityName = value }, true)
+            end
+            n = n + 1
         end
-        n = n + 1
+    else
+        n = 0
     end
 
     CustomGameEventManager:Send_ServerToPlayer(

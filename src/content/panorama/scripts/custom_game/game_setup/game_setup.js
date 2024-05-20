@@ -5670,7 +5670,7 @@ function SaveOptions() {
 	});
 
 	GameEvents.SendCustomGameEventToServer("stats_client_options_save", { content: JSON.stringify(optionValueList) });
-	addNotification({ text: "importAndExport_success_save" });
+	// addNotification({ text: "importAndExport_success_save" });
 }
 
 function LoadOptions() {

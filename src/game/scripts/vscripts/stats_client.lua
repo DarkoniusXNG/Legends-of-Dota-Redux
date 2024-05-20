@@ -11,7 +11,7 @@ StatsClient.PlayerBans = StatsClient.PlayerBans or {}
 StatsClient.AuthKey = LoadKeyValues('scripts/kv/stats_client.kv').AuthKey
 -- Change to true if you have local server running, so contributors without local server can see some things
 StatsClient.Debug = IsInToolsMode()
-StatsClient.ServerAddress = StatsClient.Debug and "http://localhost:3000/" or "https://darkoniusxngserver.onrender.com/"
+StatsClient.ServerAddress = StatsClient.Debug and "http://localhost:8080/" or "https://darkoniusxngserver.onrender.com/"
 
 StatsClient.GameVersion = "3.1.2"
 StatsClient.SortedAbilityDataEntries = StatsClient.SortedAbilityDataEntries or {}
@@ -47,10 +47,10 @@ function StatsClient:SubscribeToClientEvents()
     --ListenToGameEvent('dota_match_done', Dynamic_Wrap(StatsClient, "SendAbilityUsageData"), self)
 end
 
-function StatsClient:Fetch()
-    StatsClient:FetchAbilityUsageData()
-    StatsClient:FetchBans()
-end
+--function StatsClient:Fetch()
+    --StatsClient:FetchAbilityUsageData()
+    --StatsClient:FetchBans()
+--end
 
 function StatsClient:GetSkillBuilds(args)
 	StatsClient:Send("getSkillBuilds?skip=" .. args.Skip, nil, function(response)
@@ -164,7 +164,10 @@ function StatsClient:SaveOptions(args)
 			steamID = PlayerResource:GetRealSteamID(args.PlayerID),
 			content = args.content
 		},
-		nil,
+		function()
+			local player = PlayerResource:GetPlayer(args.PlayerID)
+			CustomGameEventManager:Send_ServerToPlayer(player, "lodNotification", { text = 'importAndExport_success_save' })
+		end,
 		0
 	)
 end
@@ -176,11 +179,10 @@ function StatsClient:LoadOptions(args)
 			steamID = PlayerResource:GetRealSteamID(args.PlayerID)
 		},
 		function(response)
-			local player = PlayerResource:GetPlayer(args.PlayerID);
+			local player = PlayerResource:GetPlayer(args.PlayerID)
 			CustomGameEventManager:Send_ServerToPlayer(player, "lodLoadOptions", { content = response.content })
 		end,
-		0,
-		"GET"
+		0
 	)
 end
 
@@ -241,28 +243,51 @@ function StatsClient:GetAbilityUsageData(playerID)
     return StatsClient.AbilityData[playerID]
 end
 
-function StatsClient:SendBans(data, callback)
-    StatsClient:Send("saveBans", data, callback, math.huge)
+function StatsClient:SendBans(playerID, data)
+    StatsClient:Send(
+		"saveBans",
+		{ 
+			steamID = PlayerResource:GetRealSteamID(playerID),
+			bans = data
+		},
+		function()
+			local player = PlayerResource:GetPlayer(playerID)
+			CustomGameEventManager:Send_ServerToPlayer(player, "lodNotification", { text = 'lodSuccessSavedBans', params = { entries = #data } })
+		end,
+		0
+	)
 end
 
-function StatsClient:FetchBans()
-    local required = {}
+-- Load bans of all players, not just for the player that clicked the button
+-- function StatsClient:FetchBans()
+    -- local required = {}
 
-    for i = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-        if PlayerResource:IsValidPlayerID(i) then
-            required[i] = PlayerResource:GetRealSteamID(i)
-        end
-    end
+    -- for i = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+        -- if PlayerResource:IsValidPlayerID(i) then
+            -- required[i] = PlayerResource:GetRealSteamID(i)
+        -- end
+    -- end
 
-    StatsClient:Send("fetchBans", required, function(response)
-        for playerID, value in pairs(response) do
-            StatsClient:SetBans(tonumber(playerID), value)
-        end
-    end, math.huge)
-end
+    -- StatsClient:Send("fetchBans", required, function(response)
+        -- for playerID, value in pairs(response) do
+            -- StatsClient:SetBans(tonumber(playerID), value)
+        -- end
+    -- end, math.huge)
+-- end
 
 function StatsClient:GetBans(playerID)
-    return StatsClient.PlayerBans[playerID]
+    StatsClient:Send(
+		"loadBans",
+		{
+			steamID = PlayerResource:GetRealSteamID(playerID)
+		},
+		function(response)
+			local bans = response.bans
+			StatsClient:SetBans(playerID, bans)
+			Pregame:ActualLoadingBans(playerID)
+		end,
+		0
+	)
 end
 
 function StatsClient:SetBans(playerID, value)
@@ -270,78 +295,96 @@ function StatsClient:SetBans(playerID, value)
 end
 
 function StatsClient:Send(path, data, callback, retryCount, protocol, _currentRetry)
+	local new_data = {}
+	local newpath = path
 	if path == 'saveOptions' or path == 'loadOptions' then
 		newpath = 'options'
-	else
-		newpath = path
+		new_data.id = data.steamID
+		new_data.content = data.content
+	elseif path == 'saveBans' or path == 'loadBans' then
+		newpath = "bans"
+		new_data.id = data.steamID
+		new_data.bans = data.bans
 	end
 
-	local new_data = {}
-	new_data.id = data.steamID
-	new_data.content = data.content
-
-	if path == 'saveOptions' then
+	if path == 'saveOptions' or path == 'saveBans' then
 		local already_there = false
 		local request = CreateHTTPRequestScriptVM("GET", self.ServerAddress..newpath)
-		request:SetHTTPRequestGetOrPostParameter("id", tostring(data.steamID))
+		request:SetHTTPRequestGetOrPostParameter("id", tostring(new_data.id))
 		request:Send(function(response)
 			if response.StatusCode == 200 and response.Body then
 				if response.Body ~= "[]" then
 					already_there = true
-					print("Settings for this player exist on the server already.")
+					print("[StatsClient] "..newpath.." for this player exist on the server already.")
 				end
 			else
 				print("status code == "..response.StatusCode)
 				print("body == "..tostring(response.Body))
 			end
 		end)
-		Timers:CreateTimer(5, function()
+		Timers:CreateTimer(2, function()
 			if already_there then
-				local request = CreateHTTPRequestScriptVM("DELETE", StatsClient.ServerAddress..newpath.."/"..data.steamID)
+				local request = CreateHTTPRequestScriptVM("DELETE", StatsClient.ServerAddress..newpath.."/"..new_data.id)
+				request:SetHTTPRequestHeaderValue("Auth-Key", StatsClient.AuthKey)
 				request:Send(function(response)
 					if response.StatusCode == 200 and response.Body then
-						print("Deleted Old Settings")
+						print("[StatsClient] Deleted Old "..newpath)
 						local request2 = CreateHTTPRequestScriptVM("POST", StatsClient.ServerAddress..newpath)
+						request2:SetHTTPRequestHeaderValue("Auth-Key", StatsClient.AuthKey)
 						request2:SetHTTPRequestRawPostBody("application/json", json.encode(new_data))
 						request2:Send(function(response2)
 							if response2.StatusCode == 201 and response2.Body then
-								print("New Settings Saved")
+								print("[StatsClient] New "..newpath.." Saved")
+								if callback then
+									callback()
+								end
 							else
 								print("status code == "..response2.StatusCode)
 								print("body == "..tostring(response2.Body))
+								GameRules:SendCustomMessage("Saving "..newpath.." failed!", 0, 0)
 							end
 						end)
 					else
 						print("status code == "..response.StatusCode)
 						print("body == "..tostring(response.Body))
+						GameRules:SendCustomMessage("Saving "..newpath.." failed!", 0, 0)
 					end
 				end)
 			else
 				local request = CreateHTTPRequestScriptVM("POST", StatsClient.ServerAddress..newpath)
+				request:SetHTTPRequestHeaderValue("Auth-Key", StatsClient.AuthKey)
 				request:SetHTTPRequestRawPostBody("application/json", json.encode(new_data))
 				request:Send(function(response)
 					if response.StatusCode == 201 and response.Body then
-						print("New Settings Saved")
+						print("[StatsClient] New "..newpath.." Saved!")
+						if callback then
+							callback()
+						end
 					else
 						print("status code == "..response.StatusCode)
 						print("body == "..tostring(response.Body))
+						GameRules:SendCustomMessage("Saving "..newpath.." failed!", 0, 0)
 					end
 				end)
 			end
 		end)
-	elseif path == 'loadOptions' then
+	elseif path == 'loadOptions' or path == 'loadBans' then
 		local request = CreateHTTPRequestScriptVM("GET", self.ServerAddress..newpath)
-		request:SetHTTPRequestGetOrPostParameter("id", tostring(data.steamID))
+		request:SetHTTPRequestGetOrPostParameter("id", tostring(new_data.id))
 		request:Send(function(response)
 			if response.StatusCode == 200 and response.Body then
 				if response.Body ~= "[]" then
 					if callback then
 						local obj = json.decode(response.Body)
-						print("Settings loaded")
+						print("[StatsClient] "..newpath.." Loaded!")
 						if obj then
 							local new_obj = {}
 							new_obj.steamID = obj[1].id
-							new_obj.content = obj[1].content
+							if path == 'loadOptions' then
+								new_obj.content = obj[1].content
+							elseif path == 'loadBans' then
+								new_obj.bans = obj[1].bans
+							end
 							callback(new_obj)
 						end
 					end
@@ -349,6 +392,7 @@ function StatsClient:Send(path, data, callback, retryCount, protocol, _currentRe
 			else
 				print("status code == "..response.StatusCode)
 				print("body == "..tostring(response.Body))
+				GameRules:SendCustomMessage("Loading "..newpath.." failed!", 0, 0)
 			end
 		end)
 	end
