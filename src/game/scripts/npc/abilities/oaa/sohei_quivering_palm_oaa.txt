@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Sohei: Quivering Palm
+  //=================================================================================================================
+  "sohei_quivering_palm"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "AbilityTextureName"                                  "custom/sohei_quivering_palm"
+    "ScriptFile"                                          "abilities/oaa/sohei_quivering_palm.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" // this is for UI tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO" // this is for UI tooltip
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" // this is for UI tooltip
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "4"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastAnimation"                                "ACT_DOTA_OVERRIDE_ABILITY_2"
+    "AnimationPlaybackRate"                               "2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "40"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "soundfile"                                         "soundevents/hero_sohei.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+        "max_duration"                                    "30"
+        "base_damage"                                     "50 75 100 125"
+        "str_diff_multiplier"                             "10 15 20 25"
+        "knockback_distance"                              "150"
+        "knockback_speed"                                 "600"
+    }
+  }
+}

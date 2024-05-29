@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+  "techies_custom_land_mines"
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/techies_land_mines_old.lua"
+    "AbilityTextureName"                                  "custom/techies_custom_land_mines"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
+    "AbilityCastRange"                                    "150" // old (100)
+    "AbilityCastPoint"                                    "0.0"
+
+    "AbilityCooldown"                                     "19 16 13 10"
+
+    "AbilityManaCost"                                     "60 75 85 100"
+    "AbilityProcsMagicStick"                              "1"
+
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
+      "model"                                             "models/heroes/techies/fx_techiesfx_mine.vmdl"
+    }
+
+    "AbilityValues"
+    {
+      //"duration"                                          "360" // 20 mines on the map roughly is the optimal number
+      "activation_delay"                                  "1.5"
+      "think_interval"                                    "0.1"
+      "detonation_delay"                                  "0.3"
+
+      "small_radius_damage"                               "350 450 550 650" // full damage
+      "big_radius_damage"                                 "175 225 275 325" // partial damage - not in tooltip
+
+      "small_radius"                                      "200" // full damage radius and trigger radius
+      "big_radius"                                        "500" // aka half damage radius
+
+      "building_dmg_reduction"                            "50" // old (100%); Proximity Mines (30%)
+    }
+
+    "ReduxPerks"                                          "scientific | trap | explosive"
+    "ReduxBans"                                           "arc_warden_tempest_double | arc_warden_tempest_double_redux"
+  }
+}

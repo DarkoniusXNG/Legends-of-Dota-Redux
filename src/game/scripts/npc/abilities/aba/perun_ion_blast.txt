@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+  "perun_ion_blast"
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/aba/perun_ion_blast.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityTextureName"                                  "custom/perun_ion_blast"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "2775 3775 4775" // distance + end_radius
+    "AbilityCastPoint"                                    "0.35"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
+
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "120 110 100"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "250 400 550"
+    "AbilityProcsMagicStick"                              "1"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      //"soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
+      "particle"                                          "particles/ion_blast/ion_blast_projectile.vpcf"
+      "particle"                                          "particles/units/heroes/hero_lina/lina_spell_dragon_slave_impact.vpcf"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "projectile_speed"                                "3000"
+      "start_radius"                                    "175"
+      "end_radius"                                      "175"
+      "distance"                                        "2600 3600 4600"
+      "damage"                                          "350 450 550"
+      "mana_burn"                                       "250 350 450"
+      "vision_radius"                                   "400"
+      "vision_duration"                                 "3.0"
+      "trees_radius"                                    "175"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+  "oracle_will_to_live"
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/aba/oracle_will_to_live.lua"
+    "AbilityTextureName"                                  "custom/oracle_will_to_live"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "precache"
+    {
+      //"soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+      "particle"                                          "particles/units/heroes/hero_dazzle/dazzle_shallow_grave_glyph_flare.vpcf"
+      "particle"                                          "particles/items2_fx/soul_ring_blood.vpcf"
+      "particle"                                          "particles/items_fx/backdoor_protection_tube.vpcf"
+      "particle"                                          "particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf"
+    }
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700 800 900 1000"
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "24 22 20 18"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "damage_delay"                                      "50 40 30 20"
+      "heal_amp_pct"                                      "50"
+      "duration"                                          "3.5 4.0 4.5 5.0"
+    }
+  }
+}

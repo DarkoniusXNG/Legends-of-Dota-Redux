@@ -1,0 +1,67 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Sohei: Dash
+  //=================================================================================================================
+  "sohei_dash"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa/sohei_dash.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityTextureName"                                  "custom/sohei_dash"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" // this is for UI tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // this is for UI tooltip
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" // this is for UI tooltip
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "4"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+    "AbilityCastRange"                                    "0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0"
+    "AbilityCharges"                                      "2 2 3 4"
+    "AbilityChargeRestoreTime"                            "20 19 18 17"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "40 45 50 55"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/hero/sohei/sohei_trail.vpcf"
+      "soundfile"                                         "soundevents/hero_sohei.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "dash_speed"                                        "4000" // max Dash speed
+      "move_speed_multiplier"                             "7.5"
+      "dash_width"
+      {
+        "value"                                           "175"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "dash_range"                                        "625" // max Dash range
+      "damage"                                            "75 100 125 150"
+      "move_speed_slow_pct"                               "20 30 40 50"
+      "attack_speed_slow"                                 "40 60 80 100"
+      "slow_duration"                                     "2.0"
+    }
+
+    "ReduxFlags"                                                           "mobility"
+    "ReduxPerks"                                                           "mobility | blink"
+  }
+}

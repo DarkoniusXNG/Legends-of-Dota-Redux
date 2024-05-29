@@ -1,0 +1,29 @@
+"DOTAAbilities"
+{
+  "warp_beast_warp"
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/aba/warp_beast_warp.lua"
+    "AbilityTextureName"                                  "custom/warp_beast_warp"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+
+    "MaxLevel"                                            "3"
+
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_warp_beast/warp_beast_warp.vpcf"
+      "soundfile"                                         "soundevents/hero_warp_beast.vsndevts"
+    }
+
+    "AbilityValues"
+    {
+      "distance_per_mana"                               "1.5 2.0 2.5"
+      "warp_duration"                                   "0.4 0.3 0.2"
+      "drain_amount"                                    "20 28 36"
+      "bonus_duration"                                  "30"
+      "bonus_mana_cap"                                  "300 400 500"
+      "kill_drain_percentage"                           "10"
+    }
+  }
+}

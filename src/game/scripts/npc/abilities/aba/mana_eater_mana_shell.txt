@@ -1,0 +1,23 @@
+"DOTAAbilities"
+{
+  "mana_eater_mana_shell"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/aba/mana_shell.lua"
+    "AbilityTextureName"                                  "custom/mana_eater_mana_shell"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "MaxLevel"                                            "4"
+    
+    "AbilitySpecial"
+    {
+      "01"
+      { 
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_percentage"                                 "35 40 45 50"
+      }
+    }
+  }
+}

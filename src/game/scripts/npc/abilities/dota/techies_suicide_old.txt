@@ -1,0 +1,55 @@
+"DOTAAbilities"
+{
+  "techies_custom_suicide"
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/techies_suicide_old.lua"
+    "AbilityTextureName"                                  "custom/techies_custom_suicide"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
+    "HasShardUpgrade"                                     "1"
+
+    "AbilityCastRange"                                    "100"
+    "AbilityCastPoint"                                    "0.0"
+
+    "AbilityCooldown"                                     "100" // old (160/140/120/100)
+
+    "AbilityManaCost"                                     "100 125 150 175"
+    "AbilityProcsMagicStick"                              "1"
+
+    "precache"
+    {
+      //"soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"    
+      //"particle"                                          "particles/units/heroes/hero_techies/techies_suicide_base.vpcf"
+      "particle"                                          "particles/units/heroes/hero_techies/techies_blast_off_trail.vpcf"
+      "particle"                                          "particles/units/heroes/hero_techies/techies_blast_off.vpcf"
+    }
+
+    "AbilityValues"
+    {
+      "small_radius_damage"                               "700 900 1200 1600" // full damage
+      "big_radius_damage"                                 "350 450 600 800" // partial damage - not in tooltip
+
+      "small_radius"                                      "200" // full damage radius;
+      "big_radius"                                        "500" // half damage radius;
+
+      "building_dmg_reduction"                            "40"
+      "vision_radius"                                     "400"
+      "vision_duration"                                   "2.0"
+
+      "shard_stun_duration"
+      {
+        "value"                                           "1.5"
+        "RequiresShard"                                   "1"
+      }
+      "shard_cast_range"
+      {
+        "value"                                           "1300" // Blast Off with Shard (1300)
+        "RequiresShard"                                   "1"
+      }
+    }
+  }
+}

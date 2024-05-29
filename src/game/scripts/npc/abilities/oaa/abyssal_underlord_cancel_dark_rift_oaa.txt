@@ -1,0 +1,36 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Abyssal Underlord: Dark Abduction
+  //=================================================================================================================
+  "abyssal_underlord_cancel_dark_rift_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa/oaa_cancel_dark_rift.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityTextureName"                                  "abyssal_underlord_cancel_dark_rift"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0.5"
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastAnimation"                                "ACT_DOTA_OVERRIDE_ABILITY_4"
+    "AbilityCastGestureSlot"                              "DEFAULT"
+
+    "AbilityValues"
+    {
+      "radius"
+      {
+        "value"                                           "435"
+        "affected_by_aoe_increase"                        "1"
+      }
+    }
+
+    "ReduxPerks"                                          "teleport | demon | enemyMoving"
+  }
+}

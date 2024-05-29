@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Sohei: Guard
+  //=================================================================================================================
+  "sohei_guard"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa/sohei_guard.lua"
+    "AbilityTextureName"                                  "custom/sohei_guard"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+
+    "MaxLevel"                                            "4"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "25 20 15 10"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/hero/sohei/guard.vpcf"
+      "soundfile"                                         "soundevents/hero_sohei.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "guard_duration"                                  "2.5"
+    }
+  }
+}

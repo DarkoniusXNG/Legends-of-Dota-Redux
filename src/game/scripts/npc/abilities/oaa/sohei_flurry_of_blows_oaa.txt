@@ -1,0 +1,68 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Sohei: Flurry of Blows
+  //=================================================================================================================
+  "sohei_flurry_of_blows"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa/sohei_flurry_of_blows.lua"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityTextureName"                                  "custom/sohei_flurry_of_blows"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" // this is for UI tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // this is for UI tooltip
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" // this is for UI tooltip
+
+    "MaxLevel"                                            "3"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.7"
+    "AbilityCastRange"                                    "450" // same as radius
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
+    "AnimationPlaybackRate"                               "2.5"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "80"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 150 200"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/hero/sohei/flurry_of_blows_ground.vpcf"
+      //"soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "flurry_radius"
+      {
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "max_attacks"                                       "6 9 12"
+      "max_duration"                                      "2.5 3.5 4.5 5.5 6" // min is: (max_attacks + 1) * attack_interval
+      "attack_interval"                                   "0.3"
+      "bonus_damage"
+      {
+        "value"                                           "50"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
+    }
+
+    "ReduxPerks"                                          "mobility"
+	"ReduxFlags"						                  "mobility"
+  }
+}
