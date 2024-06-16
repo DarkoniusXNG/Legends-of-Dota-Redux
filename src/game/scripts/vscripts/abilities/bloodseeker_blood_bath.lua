@@ -3,9 +3,6 @@ bloodseeker_blood_bath2 = class({})
 LinkLuaModifier( "modifier_bloodseeker_blood_bath_t", "abilities/bloodseeker_blood_bath.lua" ,LUA_MODIFIER_MOTION_NONE )
 
 function bloodseeker_blood_bath2:GetIntrinsicModifierName()
-  if self:GetLevel() == 0 then
-    return "modifier_bloodseeker_blood_bath_t"
-  end
   return "modifier_bloodseeker_blood_bath_t"
 end
 

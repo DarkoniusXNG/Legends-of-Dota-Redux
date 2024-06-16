@@ -82,7 +82,7 @@ function modifier_morph_int_str:OnIntervalThink()
   end
   local ability = self:GetAbility()
   local interval = ability:GetSpecialValueFor("stats_per_second")
-  self:GetCaster():SpendMana(mana_per_tick,self:GetAbility())
+  self:GetCaster():SpendMana(mana_per_tick, ability)
   self:GetCaster():ModifyIntellect(-1)
   self:GetCaster():ModifyStrength(1)
 end
@@ -179,7 +179,7 @@ function modifier_morph_str_int:OnIntervalThink()
   end
   local ability = self:GetAbility()
   local interval = ability:GetSpecialValueFor("stats_per_second")
-  self:GetCaster():SpendMana(mana_per_tick,self:GetAbility())
+  self:GetCaster():SpendMana(mana_per_tick, ability)
   self:GetCaster():ModifyIntellect(1)
   self:GetCaster():ModifyStrength(-1)
 

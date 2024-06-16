@@ -51,7 +51,7 @@ function modifier_special_bonus_imba_lina_8:OnAttackLanded( params )
 		local parent = self:GetParent()
 		local target = params.target
 		if parent == params.attacker and target:GetTeamNumber() ~= parent:GetTeamNumber() and (target.IsCreep or target.IsHero) then
-			local int = parent:GetIntellect()
+			local int = parent:GetIntellect(false)
 			local ticks = parent:FindTalentValue("special_bonus_imba_lina_8", "ticks_amount")
 			local duration = parent:FindTalentValue("special_bonus_imba_lina_8", "duration")
 			local dmg_int_pct = parent:FindTalentValue("special_bonus_imba_lina_8", "dmg_int_pct")

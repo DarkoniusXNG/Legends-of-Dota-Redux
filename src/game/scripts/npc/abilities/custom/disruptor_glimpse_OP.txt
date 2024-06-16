@@ -5,7 +5,7 @@
         "AbilityTextureName"                                                   "custom/disruptor_glimpse_OP"
         "BaseClass"                                                            "disruptor_glimpse"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-        "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_BOTH"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitTargetFlags"                                               "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
@@ -32,8 +32,8 @@
 			}
 			"max_distance"					"1400"
 		}
-        "ReduxFlags"                                                           "mobility"
-        "ReduxPerks"                                                           "mobility | enemymoving"
         "ReduxCost"                                                            "120"
+        "ReduxFlags"                                                           "support | mobility"
+        "ReduxPerks"                                                           "support | mobility| lightning | enemyMoving"
     }
 }

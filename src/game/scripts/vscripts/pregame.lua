@@ -7562,6 +7562,15 @@ function Pregame:applyExtraAbility( spawnedUnit )
             if spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH then essenceshiftToGive = "slark_essence_shift_strength_lod"
             elseif spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_AGILITY then essenceshiftToGive = "slark_essence_shift_agility_lod"
             elseif spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_INTELLECT then essenceshiftToGive = "slark_essence_shift_intellect_lod"
+            elseif spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_ALL then
+                local randomNumber = RandomInt(1, 3)
+                if randomNumber == 1 then
+                    essenceshiftToGive = "slark_essence_shift_strength_lod"
+                elseif randomNumber == 2 then
+                    essenceshiftToGive = "slark_essence_shift_agility_lod"
+                else
+                    essenceshiftToGive = "slark_essence_shift_intellect_lod"
+                end
             end
         end
 
@@ -7652,15 +7661,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     -- Various Fixes
     Timers:CreateTimer(function()
         if IsValidEntity(spawnedUnit) then
-            -- Silencer Fix NEEDS TO BE RUN EVERY SPAWN (below), AND ON FIXEDHERO FUNCTION
-                --[[if spawnedUnit:HasAbility('silencer_glaives_of_wisdom_steal') then
-                    if not spawnedUnit:HasModifier('modifier_silencer_int_steal') then
-                        spawnedUnit:AddNewModifier(spawnedUnit, spawnedUnit:FindAbilityByName("silencer_glaives_of_wisdom_steal"), 'modifier_silencer_int_steal', {})
-                    end
-                else
-                    spawnedUnit:RemoveModifierByName('modifier_silencer_int_steal')
-                end]]--
-
             -- Apply Bot Difficulty
             if util:isPlayerBot(playerID) then
                 if spawnedUnit:GetTeam() == DOTA_TEAM_GOODGUYS then
@@ -7759,24 +7759,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                     --spawnedUnit:SwapAbilities("sniper_assassinate","sniper_assassinate_redux",false,true)
                     --spawnedUnit:RemoveAbility("sniper_assassinate")
             --end
-            -- Change juxtapose to juxtapose ranged, for ranged heros
-            if spawnedUnit:HasAbility("phantom_lancer_juxtapose_melee") and spawnedUnit:IsRangedAttacker() then
-                    spawnedUnit:AddAbility("phantom_lancer_juxtapose_ranged")
-                    spawnedUnit:SwapAbilities("phantom_lancer_juxtapose_melee","phantom_lancer_juxtapose_ranged",false,true)
-                    spawnedUnit:RemoveAbility("phantom_lancer_juxtapose_melee")
-            end
-            -- Change Feast to Feast ranged, for ranged heros
-            if spawnedUnit:HasAbility("life_stealer_feast_melee") and spawnedUnit:IsRangedAttacker() then
-                    spawnedUnit:AddAbility("life_stealer_feast_ranged")
-                    spawnedUnit:SwapAbilities("life_stealer_feast_melee","life_stealer_feast_ranged",false,true)
-                    spawnedUnit:RemoveAbility("life_stealer_feast_melee")
-            end
-
-            -- if spawnedUnit:HasAbility("monkey_king_jingu_mastery_lod_melee") and spawnedUnit:IsRangedAttacker() then
-            --         spawnedUnit:AddAbility("monkey_king_jingu_mastery_lod_ranged")
-            --         spawnedUnit:SwapAbilities("monkey_king_jingu_mastery_lod_melee","monkey_king_jingu_mastery_lod_ranged",false,true)
-            --         spawnedUnit:RemoveAbility("monkey_king_jingu_mastery_lod_melee")
-            -- end
 
             -- Change Overpower to Overpower ranged, for ranged heros
             if spawnedUnit:HasAbility("ursa_overpower_melee") and spawnedUnit:IsRangedAttacker() then

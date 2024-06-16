@@ -53,7 +53,7 @@ end
 
 function ptomely_mirror_blade:OnProjectileHit(t, l)
 	if t then
-		local damage = self:GetSpecialValueFor("damage") * self:GetCaster():GetIntellect()
+		local damage = self:GetSpecialValueFor("damage") * self:GetCaster():GetIntellect(false)
 		t:EmitSound("Ptomely.MirrorBladeHit")
 		ParticleManager:CreateParticle("particles/units/heroes/hero_ptomely/mirror_blade_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, t)
 		InflictDamage(t,self:GetCaster(),self,damage,DAMAGE_TYPE_PHYSICAL)

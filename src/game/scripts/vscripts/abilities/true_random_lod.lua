@@ -149,7 +149,7 @@ function RandomInit(keys)
 				local exclusion = exAb:GetName()
 				if not exAb:IsHidden() then
 					caster.ownedSkill[exclusion] = true
-				elseif not DONOTREMOVE[exclusion] and mainAbilities[exclusion] == nil then -- do not remove subabilities
+				elseif not DONOTREMOVE[exclusion] and mainAbilities[exclusion] == nil and not util:IsVanillaInnate(exclusion) then -- do not remove subabilities and innates
 					caster:RemoveAbility(exclusion)
 				end
 			end

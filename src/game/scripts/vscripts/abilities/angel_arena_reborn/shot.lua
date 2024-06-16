@@ -12,7 +12,7 @@ function DamageOfCurrentHealth(event)
 	
 	local damage_int_pct_add = 1
 	if caster:IsRealHero() then
-		damage_int_pct_add = caster:GetIntellect()
+		damage_int_pct_add = caster:GetIntellect(false)
 		damage_int_pct_add = damage_int_pct_add / 16 / 100 + 1
 	end 
 

@@ -19,18 +19,18 @@ function takedamage(params)
 
 	if attacker:IsBuilding() then return end
 
-	damage = hero:GetIntellect()
+	damage = hero:GetIntellect(false)
 
 	-- Deals damage based on how much more int this hero has
 	if attacker:IsHero() then
-		local attackersInt = attacker:GetIntellect()
-		local castersInt = hero:GetIntellect()
+		local attackersInt = attacker:GetIntellect(false)
+		local castersInt = hero:GetIntellect(false)
 		if attackersInt >= castersInt then
 			return
 		end
 		damage = castersInt - attackersInt
 	else
-		damage = hero:GetIntellect() * reduction_percentage
+		damage = hero:GetIntellect(false) * reduction_percentage
 	end
 	
 	if hero:HasModifier("modifier_oracle_false_promise") then return end
@@ -52,7 +52,7 @@ function takedamage(params)
 
 	--local damage_int_pct_add = 1
 	--if hero:IsRealHero() then
-	--	damage_int_pct_add = hero:GetIntellect()
+	--	damage_int_pct_add = hero:GetIntellect(false)
 	--	damage_int_pct_add = damage_int_pct_add / 16 / 100 + 1
 	--end 
 

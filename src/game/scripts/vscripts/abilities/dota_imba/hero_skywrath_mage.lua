@@ -235,7 +235,7 @@ function imba_skywrath_mage_arcane_bolt:OnProjectileHit(target, location)
 	-- Fetch caster's intelligence. Nether Wards has 0
 	local intelligence = 0
 	if caster:IsHero() then
-		intelligence = caster:GetIntellect()
+		intelligence = caster:GetIntellect(false)
 	end
 
 	-- Get the current Arcane Wrath stack count
@@ -1040,7 +1040,7 @@ function modifier_imba_mystic_flare:OnCreated()
 				ParticleManager:ReleaseParticleIndex(self.particle_shockwave_fx)
 
 				-- Fetch caster's intelligence
-				self.caster_int = self.caster:GetIntellect()
+				self.caster_int = self.caster:GetIntellect(false)
 
 				-- Fetch stacks of Arcane Wrath
 				self.wrath_stacks = 0 
