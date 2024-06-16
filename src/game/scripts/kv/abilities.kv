@@ -795,13 +795,13 @@
 			"antimage_counterspell_ally"    "1"
 			"centaur_work_horse"            "1" // added warning text
 			"bounty_hunter_wind_walk_ally"  "1"
-			"chen_martyrdom"				"1"
+			//"chen_martyrdom"				"1" // crashes the game when used on self
 			"warlock_imp_explode"			"1"
 			"warlock_imp_explode_major"		"1"
 
 			// 7.36
 			"abaddon_font_of_avernus"		"1"
-			"abaddon_soul_suck"		"1"
+			//"abaddon_soul_suck"		"1" // does not exist
 			"abaddon_the_quickening"		"1"
 			"abyssal_underling_archer_aoe"		"1"
 			"abyssal_underling_warrior_last_will"		"1"
@@ -820,7 +820,7 @@
 			"bloodseeker_sanguivore"		"1"
 			"bounty_hunter_big_game_hunter"		"1"
 			"bounty_hunter_cutpurse"		"1"
-			"bounty_hunter_through_and_through_toss"		"1"
+			//"bounty_hunter_through_and_through_toss"		"1" // does not exist
 			"broodmother_spiders_milk"		"1"
 			"centaur_horsepower"		"1"
 			"centaur_rawhide"		"1"
@@ -865,7 +865,7 @@
 			"grimstroke_ink_trail"		"1"
 			"gyrocopter_chop_shop"		"1"
 			"gyrocopter_lock_on"		"1"
-			"hoodwink_go_nutss_boomerang"		"1"
+			//"hoodwink_go_nutss_boomerang"		"1"  // does not exist
 			"hoodwink_mistwoods_wayfarer"		"1"
 			"huskar_blood_magic"		"1"
 			"invoker_mastermind"		"1"
@@ -890,13 +890,13 @@
 			"lion_to_hell_and_back"		"1"
 			"luna_selemenes_favor"		"1"
 			"lycan_apex_predator"		"1"
-			"lycan_innate_lone_wolf"		"1"
-			"lycan_innate_wolfpack"		"1"
+			//"lycan_innate_lone_wolf"		"1" // does not exist
+			//"lycan_innate_wolfpack"		"1" // does not exist
 			"magnataur_solid_core"		"1"
 			"magnus_magnetic_horn"		"1"
 			"marci_bodyguard"		"1"
 			"marci_special_delivery"		"1"
-			"mars_blood_sport_of_blood"		"1"
+			//"mars_blood_sport_of_blood"		"1" // does not exist
 			"mars_dauntless"		"1"
 			"meepo_pack_rat"		"1"
 			"meepo_sticky_fingers"		"1"
@@ -994,8 +994,8 @@
 			"void_spirit_intrinsic_edge"		"1"
 			"void_spirit_symmetry"		"1"
 			"warlock_black_grimoire"		"1"
-			"warlock_champion_of_gorroth_flaming_fists"		"1"
-			"warlock_champion_of_gorroth_permanent_immolation"		"1"
+			//"warlock_champion_of_gorroth_flaming_fists"		"1" // does not exist
+			//"warlock_champion_of_gorroth_permanent_immolation"		"1" // does not exist
 			"warlock_eldritch_summoning"		"1"
 			"windrunner_easy_breezy"		"1"
 			"winter_wyvern_dragon_sight"		"1"
@@ -2582,6 +2582,7 @@
             "Ability5"            "life_stealer_infest"
             "Ability6"            "life_stealer_assimilate"
 			"Ability7"			  "life_stealer_ghoul_frenzy"
+			"Ability8"			  "life_stealer_unfettered"
         }
 
         "npc_dota_hero_mirana" {
@@ -2590,6 +2591,7 @@
             "Ability3"            "mirana_leap"
             "Ability4"            "mirana_invis"
 			"Ability5"			  "mirana_starfall_lod"
+			"Ability6"            "mirana_solar_flare"
         }
 
 		"npc_dota_hero_techies" {
@@ -3023,6 +3025,7 @@
             "Ability4"            "drow_ranger_marksmanship"
 			"Ability5"			  "drow_ranger_glacier"
             "Ability6"            "drow_splitshot"
+			"Ability7"            "drow_ranger_silence"
         }
        "npc_dota_hero_skywrath_mage"
         {
@@ -3061,12 +3064,13 @@
 
         "npc_dota_hero_necrolyte"
         {
-            "Ability1" "necrolyte_death_pulse"
+            "Ability1"	"necrolyte_death_pulse"
             "Ability2"  "necrolyte_sadist"
-            "Ability3"  "necrolyte_sadist_lod"
+            "Ability3"  "necrolyte_ghost_shroud"
             "Ability4"  "necrolyte_heartstopper_aura"
-            "Ability5" "necrolyte_reapers_scythe"
+            "Ability5"	"necrolyte_reapers_scythe"
 			"Ability6"	"necrolyte_death_seeker"
+			"Ability7"  "necrolyte_sadist_lod"
         }
         "npc_dota_hero_sand_king"
         {
@@ -3074,6 +3078,7 @@
             "Ability2"  "sandking_epicenter"
             "Ability3"  "sandking_caustic_finale"
             "Ability4"  "sandking_sand_storm"
+			"Ability5"	"sandking_scorpion_strike"
         }
         "npc_dota_hero_phantom_lancer"
         {
@@ -3099,8 +3104,7 @@
             "Ability2"  "phantom_assassin_phantom_strike"
             "Ability3"  "phantom_assassin_blur"
             "Ability4"  "phantom_assassin_coup_de_grace"
-            "Ability5"  "phantom_assassin_coup_de_grace_melee"
-			"Ability6"	"phantom_assassin_fan_of_knives"
+			"Ability5"	"phantom_assassin_fan_of_knives"
         }
         "npc_dota_hero_abaddon"
         {
@@ -3123,6 +3127,7 @@
             "Ability3"  "faceless_void_time_lock"
             "Ability4"  "faceless_void_backtrack"
             "Ability5"  "faceless_void_chronosphere"
+			"Ability6"	"faceless_void_time_zone"
         }
         "npc_dota_hero_gyrocopter"
         {
@@ -3247,6 +3252,7 @@
 			"Ability2"		"marci_companion_run"
 			"Ability3"		"marci_guardian"
 			"Ability4"		"marci_unleash"
+			"Ability5"		"marci_bodyguard"
         }
 
 		"npc_dota_hero_muerta" {
@@ -3291,6 +3297,7 @@
 			"Ability4"		"nevermore_necromastery"
 			"Ability5"		"nevermore_dark_lord"
 			"Ability6"		"nevermore_requiem"
+			"Ability7"		"nevermore_frenzy"
 		}
 
 		"npc_dota_hero_lycan" {
@@ -3328,6 +3335,15 @@
 			"Ability5"		"naga_siren_eelskin"
 			"Ability6"		"naga_siren_song_of_the_siren"
 			"Ability7"		"naga_siren_deluge"
+		}
+
+		"npc_dota_hero_disruptor" {
+			"Ability1"		"disruptor_thunder_strike"
+			"Ability2"		"disruptor_glimpse"
+			"Ability3"		"disruptor_kinetic_field"
+			"Ability4"		"disruptor_electromagnetic_repulsion"
+			"Ability5"		"disruptor_kinetic_fence"
+			"Ability6"		"disruptor_static_storm"
 		}
 
     }
