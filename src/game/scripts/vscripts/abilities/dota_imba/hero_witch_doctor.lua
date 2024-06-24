@@ -468,7 +468,7 @@ end
 function modifier_imba_voodoo_restoration_heal:OnIntervalThink()
 	local hParent = self:GetParent()
 	local heal_amp = 1 + (self:GetCaster():GetSpellAmplification(false) * 0.01)
-	local heal = (self:GetAbility():GetSpecialValueFor("heal") + (self:GetCaster():GetIntellect() * self:GetAbility():GetSpecialValueFor("int_to_heal") * 0.01)) * heal_amp * self.interval
+	local heal = (self:GetAbility():GetSpecialValueFor("heal") + (self:GetCaster():GetIntellect(false) * self:GetAbility():GetSpecialValueFor("int_to_heal") * 0.01)) * heal_amp * self.interval
 
 	hParent:Heal(heal, self:GetCaster())
 	SendOverheadEventMessage(hParent, OVERHEAD_ALERT_HEAL, hParent, heal, hParent)
@@ -759,7 +759,7 @@ function imba_witch_doctor_death_ward:OnSpellStart()
 end
 
 function imba_witch_doctor_death_ward:CreateWard(vPosition, bIsMiniWard)
-	local damage = self:GetSpecialValueFor("damage") + self:GetCaster():GetIntellect()*self:GetSpecialValueFor("int_to_dmg_pct")/100
+	local damage = self:GetSpecialValueFor("damage") + self:GetCaster():GetIntellect(false)*self:GetSpecialValueFor("int_to_dmg_pct")/100
 	-- #5 TALENT: Mini death ward deal less damage
 	if bIsMiniWard then
 		damage = damage * self:GetCaster():FindTalentValue("special_bonus_imba_witch_doctor_5") * 0.01

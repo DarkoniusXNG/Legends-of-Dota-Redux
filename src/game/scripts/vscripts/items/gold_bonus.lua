@@ -19,17 +19,17 @@ end
 
 item_new_ability_bonus = class(gold_bonus)
 function item_new_ability_bonus:GetGold()
-	return Pregame.optionStore["lodOptionNewAbilitiesBonusGold"] / 16.6666667
+	return 0
 end
 
 item_new_global_ability_bonus = class(gold_bonus)
 function item_new_global_ability_bonus:GetGold()
-  return Pregame.optionStore["lodOptionGlobalNewAbilitiesBonusGold"] / 16.6666667
+  return 0
 end
 
 item_balanced_build_bonus = class(gold_bonus)
 function item_balanced_build_bonus:GetGold()
-  return Pregame.optionStore["lodOptionBalancedBuildBonusGold"] / 16.6666667
+  return 0
 end
 
 gold_bonus_modifier = {}
@@ -69,7 +69,7 @@ LinkLuaModifier("gold_bonus_modifier", "items/gold_bonus", LUA_MODIFIER_MOTION_N
 
 -- modifier_new_global_ability_bonus = class(gold_bonus_modifier)
 -- function modifier_new_global_ability_bonus:GetGold()
---   return math.floor(Pregame.optionStore["lodOptionGlobalNewAbilitiesBonusGold"] / 60)
+--   return 0
 -- end
 -- function modifier_new_global_ability_bonus:GetTexture()
 --   return "alchemist_goblins_greed"
@@ -78,7 +78,7 @@ LinkLuaModifier("gold_bonus_modifier", "items/gold_bonus", LUA_MODIFIER_MOTION_N
 
 -- modifier_balanced_build_bonus = class(gold_bonus_modifier)
 -- function modifier_balanced_build_bonus:GetGold()
---   return math.floor(Pregame.optionStore["lodOptionBalancedBuildBonusGold"] / 60)
+--   return 0
 -- end
 -- function modifier_balanced_build_bonus:GetTexture()
 --   return "alchemist_goblins_greed"

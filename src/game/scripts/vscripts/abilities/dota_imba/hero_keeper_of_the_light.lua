@@ -1302,7 +1302,7 @@ function modifier_imba_keeper_of_the_light_will_o_wisp_blessing:OnCreated()
 	if not IsServer() then return end
 	
 	if self.caster.GetIntellect then
-		self:SetStackCount(self.caster:GetIntellect() * self.ignis_blessing_int_to_damage * 0.01)
+		self:SetStackCount(self.caster:GetIntellect(false) * self.ignis_blessing_int_to_damage * 0.01)
 	end
 end
 

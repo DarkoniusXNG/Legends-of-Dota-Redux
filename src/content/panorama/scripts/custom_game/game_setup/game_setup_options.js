@@ -136,19 +136,6 @@ var basicOptions = {
                         about: 'lodMutatorStrongTowers'
                     },
                     {
-                        name: 'lodOptionPocketTowers',
-                        //patreon: true,
-                        extraInfo: 'lodOptionAboutPocketTowers',
-                        default: {
-                            'lodMutatorNoPocketTowers': 0,
-                        },
-                        states: {
-                            'lodMutatorPocketTowersConsumable': 1,
-                            'lodMutatorPocketTowersCooldown': 300,
-                            'lodMutatorPocketTowersCooldown1': 600
-                        }
-                    },
-                    {
                         about: 'lodMutatorDoubleTowers',
                         values: {
                             enabled: {
@@ -462,10 +449,6 @@ var basicOptions = {
                         name: 'lodOptionDisablePerks',
                         about: 'lodMutatorDisablePerks'
                     },
-                    {
-                        name: 'lodOptionCrazyAllVision',
-                        about: 'lodMutatorAllVision'
-                    },
                     //{
                     //    name: 'lodOptionCrazyWTF',
                     //    about: 'lodMutatorWTF'
@@ -608,27 +591,6 @@ var basicOptions = {
                         about: 'lodMutatorConsumeItems'
                     },
                     {
-                        about: 'lodMutatorOGBonus',
-                        default: {
-                            'lodOptionNewAbilitiesBonusGold': 0,
-                            'lodOptionNewAbilitiesThreshold': 0
-                        },
-                        states: {
-                            'lodMutatorOGBonus1': {
-                                'lodOptionNewAbilitiesBonusGold': 100,
-                                'lodOptionNewAbilitiesThreshold': 20
-                            },
-                            'lodMutatorOGBonus2': {
-                                'lodOptionNewAbilitiesBonusGold': 500,
-                                'lodOptionNewAbilitiesThreshold': 20
-                            },
-                            'lodMutatorOGBonus3': {
-                                'lodOptionNewAbilitiesBonusGold': 1000,
-                                'lodOptionNewAbilitiesThreshold': 20
-                            }
-                        }
-                    },
-                    {
                         name: 'lodOptionLimitPassives',
                         extraInfo: 'lodOptionAboutLimitPassives',
                         about: 'lodMutatorLimitPassives'
@@ -653,11 +615,6 @@ var basicOptions = {
                         //patreon: true,
                         extraInfo: 'lodOptionAboutPeriodicSpellCast',
                         about: 'lodMutatorPeriodicSpellCast'
-                    },
-                    {
-                        name: 'lodOptionDoubleTalents',
-                        extraInfo: 'lodOptionAboutDoubleTalents',
-                        about: 'lodMutatorDoubleTalents'
                     },
                     {
                         name: 'lodOptionConvertableTowers',
@@ -712,10 +669,6 @@ var basicOptions = {
                                 'lodOptionRandomOnDeath': 0
                             }
                         }
-                    },	
-                    {
-                        name: 'lodOptionZombie',
-                        about: 'lodMutatorZombie'
                     },
                 ]
             }
@@ -862,56 +815,6 @@ var advancedOptions = {
                 min: 0,
                 max: 180,
                 step: 1,
-                default: 0
-            },
-            {
-                name: 'lodOptionNewAbilitiesBonusGold',
-                des: 'lodOptionDesNewAbilitiesBonusGold',
-                about: 'lodOptionAboutNewAbilitiesBonusGold',
-                sort: 'range',
-                min: 0,
-                max: 2500,
-                step: 50,
-                default: 0
-            },
-            {
-                name: 'lodOptionNewAbilitiesThreshold',
-                des: 'lodOptionDesNewAbilitiesThreshold',
-                about: 'lodOptionAboutNewAbilitiesThreshold',
-                sort: 'range',
-                min: 0,
-                max: 100,
-                step: 1,
-                default: 20
-            },
-            {
-                name: 'lodOptionGlobalNewAbilitiesBonusGold',
-                des: 'lodOptionDesGlobalNewAbilitiesBonusGold',
-                about: 'lodOptionAboutGlobalNewAbilitiesBonusGold',
-                sort: 'range',
-                min: 0,
-                max: 2500,
-                step: 50,
-                default: 0
-            },
-            {
-                name: 'lodOptionGlobalNewAbilitiesThreshold',
-                des: 'lodOptionDesGlobalNewAbilitiesThreshold',
-                about: 'lodOptionAboutGlobalNewAbilitiesThreshold',
-                sort: 'range',
-                min: 0,
-                max: 100,
-                step: 1,
-                default: 20
-            },
-            {
-                name: 'lodOptionBalancedBuildBonusGold',
-                des: 'lodOptionDesBalancedBuildBonusGold',
-                about: 'lodOptionAboutBalancedBuildBonusGold',
-                sort: 'range',
-                min: 0,
-                max: 3000,
-                step: 100,
                 default: 0
             },
         ]
@@ -1398,16 +1301,16 @@ var advancedOptions = {
             //    step: 1,
             //    default: 0
             //},
-            //{
-            //    name: 'lodOptionGameSpeedGoldModifier',
-            //    des: 'lodOptionDesGameSpeedGoldModifier',
-            //    about: 'lodOptionAboutGameSpeedGoldModifier',
-            //    sort: 'range',
-            //    min: 0,
-            //    max: 1000,
-            //    step: 10,
-            //    default: 0
-            //},
+            {
+                name: 'lodOptionGameSpeedGoldModifier',
+                des: 'lodOptionDesGameSpeedGoldModifier',
+                about: 'lodOptionAboutGameSpeedGoldModifier',
+                sort: 'range',
+                min: 100,
+                max: 1000,
+                step: 10,
+                default: 100
+            },
             {
                 name: 'lodOptionGameSpeedEXPModifier',
                 des: 'lodOptionDesGameSpeedEXPModifier',
@@ -1562,39 +1465,6 @@ var advancedOptions = {
                     {
                         text: 'lodOptionYes',
                         value: 1
-                    }
-                ]
-            },
-            {
-                name: 'lodOptionPocketTowers',
-                des: 'lodOptionDesPocketTowers',
-                about: 'lodOptionAboutPocketTowers',
-                sort: 'dropdown',
-                values: [
-                    {
-                        text: 'lodOptionNoPocketTowers',
-                        value: 0
-                    },{
-                        text: 'lodOptionPocketTowersConsumable',
-                        value: 1
-                    },{
-                        text: 'lodOptionPocketTowersCooldown60',
-                        value: 60
-                    },{
-                        text: 'lodOptionPocketTowersCooldown120',
-                        value: 120
-                    },{
-                        text: 'lodOptionPocketTowersCooldown180',
-                        value: 180
-                    },{
-                        text: 'lodOptionPocketTowersCooldown240',
-                        value: 240
-                    },{
-                        text: 'lodOptionPocketTowersCooldown300',
-                        value: 300
-                    },{
-                        text: 'lodOptionPocketTowersCooldown600',
-                        value: 600
                     }
                 ]
             },
@@ -2229,38 +2099,6 @@ var advancedOptions = {
                 ]
             },
             {
-                name: 'lodOptionCrazyUniversalShop',
-                des: 'lodOptionDesCrazyUniversalShop',
-                about: 'lodOptionAboutCrazyUniversalShop',
-                sort: 'toggle',
-                values: [
-                    {
-                        text: 'lodOptionNo',
-                        value: 0
-                    },
-                    {
-                        text: 'lodOptionYes',
-                        value: 1
-                    }
-                ]
-            },
-            {
-                name: 'lodOptionCrazyAllVision',
-                des: 'lodOptionDesCrazyAllVision',
-                about: 'lodOptionAboutCrazyAllVision',
-                sort: 'toggle',
-                values: [
-                    {
-                        text: 'lodOptionNo',
-                        value: 0
-                    },
-                    {
-                        text: 'lodOptionYes',
-                        value: 1
-                    }
-                ]
-            },
-            {
                 name: 'lodOptionCrazyMulticast',
                 des: 'lodOptionDesCrazyMulticast',
                 about: 'lodOptionAboutCrazyMulticast',
@@ -2502,22 +2340,6 @@ var advancedOptions = {
                 ]
             },
             {
-                name: 'lodOptionDoubleTalents',
-                des: 'lodOptionDesDoubleTalents',
-                about: 'lodOptionAboutDoubleTalents',
-                sort: 'toggle',
-                values: [
-                    {
-                        text: 'lodOptionNo',
-                        value: 0
-                    },
-                    {
-                        text: 'lodOptionYes',
-                        value: 1
-                    }
-                ]
-            },
-            {
                 name: 'lodOptionRandomOnDeath',
                 des: 'lodOptionDesRandomOnDeath',
                 about: 'lodOptionAboutRandomOnDeath',
@@ -2665,22 +2487,6 @@ var advancedOptions = {
                        value: 1
                    }
                ]
-            },
-            {
-                name: 'lodOptionZombie',
-                des: 'lodOptionDesZombie',
-                about: 'lodOptionAboutZombie',
-                sort: 'toggle',
-                values: [
-                    {
-                        text: 'lodOptionNo',
-                        value: 0
-                    },
-                    {
-                        text: 'lodOptionYes',
-                        value: 1
-                    }
-                ]
             },
             //{
             //    name: 'lodOptionMonkeyBusiness',

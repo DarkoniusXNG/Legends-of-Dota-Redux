@@ -222,11 +222,6 @@ function AddTalents(hero,build)
             
         --end 
     end
-    
-    if OptionManager:GetOption('doubleTalents') == 1 then
-        StartTrackingTalentLevels()
-    end    
-    
 end
 
 function GetViableTalents(build)

@@ -772,7 +772,7 @@ end
 function modifier_special_bonus_imba_lich_5:OnIntervalThink()
 	if IsServer() then
 		-- Calculate intelligence bonus
-		local intelligence = self:GetParent():GetIntellect()
+		local intelligence = self:GetParent():GetIntellect(false)
 		local armor_bonus = math.floor(intelligence * self:GetParent():FindTalentValue("special_bonus_imba_lich_5") * 0.01)
 
 		self:SetStackCount(armor_bonus)
@@ -1810,7 +1810,7 @@ function imba_lich_frost_shield:OnSpellStart()
 	if not IsServer() then return end
 	
 	-- IMBAfication: Remnants of Ice Armor
-	local intellect 	= self:GetCaster():GetIntellect()
+	local intellect 	= self:GetCaster():GetIntellect(false)
 	local armor_bonus 	= intellect * self:GetSpecialValueFor("int_armor_pct") / 100
 
 	EmitSoundOn("Hero_Lich.IceAge", self:GetCursorTarget())

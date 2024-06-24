@@ -23,26 +23,6 @@ util.contributors = util.contributors or LoadKeyValues('scripts/kv/contributors.
 util.patrons = util.patrons or LoadKeyValues('scripts/kv/patrons.kv')
 util.patreon_features = util.patreon_features or LoadKeyValues('scripts/kv/patreon_features.kv')
 
-function CDOTABaseAbility:GetTalentSpecialValueFor(value)
-    local base = self:GetSpecialValueFor(value)
-    local talentName
-    local kv = self:GetAbilityKeyValues()
-    for k,v in pairs(kv) do -- trawl through keyvalues
-        if k == "AbilitySpecial" then
-            for l,m in pairs(v) do
-                if m[value] then
-                    talentName = m["LinkedSpecialBonus"]
-                end
-            end
-        end
-    end
-    if talentName then
-        local talent = self:GetCaster():FindAbilityByName(talentName)
-        if talent and talent:GetLevel() > 0 then base = base + talent:GetSpecialValueFor("value") end
-    end
-    return base
-end
-
 -- This function RELIABLY gets a player's name
 -- Note: PlayerResource needs to be loaded (aka, after Activated has been called)
 --       This method is safe for all of our internal uses
@@ -182,6 +162,40 @@ function util:IsTalent(ability)
     end
 
     return string.find(ability_name, "special_bonus_") and ability_name ~= "special_bonus_attributes"
+end
+
+-- Tells you if given spell is an innate
+function util:IsVanillaInnate(ability)
+	local ability_name
+	if type(ability) == "string" then
+		ability_name = ability
+		if ability_name == "" then
+			return false
+		end
+	else
+		if not ability or ability:IsNull() then
+			print("util:IsVanillaInnate: Passed parameter does not exist!")
+			return false
+		end
+		if not ability.GetAbilityName then
+			print("util:IsVanillaInnate: Passed parameter is not an ability!")
+			return false
+		end
+		ability_name = ability:GetAbilityName()
+	end
+
+	local ability_data = GetAbilityKeyValuesByName(ability_name)
+	if not ability_data then
+		print("util:IsVanillaInnate: Ability "..ability_name.." does not exist!")
+		return false
+	end
+
+	if ability_data.Innate ~= nil then
+		if tonumber(ability_data.Innate) == 1 then
+			return true
+		end
+	end
+	return false
 end
 
 function util:sortTable(input)
@@ -525,69 +539,6 @@ function util:getTableLength(t)
   return length
 end
 
-function CDOTABaseAbility:GetAbilityLifeTime(buffer)
-    local kv = self:GetAbilityKeyValues()
-    local duration = self:GetDuration()
-    local delay = 0
-    if not duration then duration = 0 end
-    if self:GetChannelTime() > duration then duration = self:GetChannelTime() end
-    for k,v in pairs(kv) do -- trawl through keyvalues
-        if k == "AbilitySpecial" then
-            for l,m in pairs(v) do
-                for o,p in pairs(m) do
-                    if string.match(o, "duration") then -- look for the highest duration keyvalue
-                        local checkDuration = self:GetLevelSpecialValueFor(o, -1)
-                        if checkDuration > duration then duration = checkDuration end
-                    elseif string.match(o, "delay") then -- look for a delay for spells without duration but do have a delay
-                        local checkDelay = self:GetLevelSpecialValueFor(o, -1)
-                        if checkDelay > duration then delay = checkDelay end
-                    end
-                end
-            end
-        elseif k == "AbilityValues" then
-            for l, m in pairs(v) do
-                if string.match(l, "duration") then
-                    local checkDuration = self:GetLevelSpecialValueFor(l, -1)
-                    if checkDuration > duration then duration = checkDuration end
-                elseif string.match(l, "delay") then
-                    local checkDelay = self:GetLevelSpecialValueFor(l, -1)
-                    if checkDelay > duration then delay = checkDelay end
-                end
-            end
-        end
-    end
-  ------------------------------ SPECIAL CASES -----------------------------
-  if self:GetName() == "juggernaut_omni_slash" then
-    local bounces = self:GetLevelSpecialValueFor("omni_slash_jumps", -1)
-    delay = self:GetLevelSpecialValueFor("omni_slash_bounce_tick", -1) * bounces
-  elseif self:GetName() == "medusa_mystic_snake" then
-    local bounces = self:GetLevelSpecialValueFor("snake_jumps", -1)
-    delay = self:GetLevelSpecialValueFor("jump_delay", -1) * bounces
-  elseif self:GetName() == "witch_doctor_paralyzing_cask" then
-    local bounces = self:GetLevelSpecialValueFor("bounces", -1)
-    delay = self:GetLevelSpecialValueFor("bounce_delay", -1) * bounces
-  elseif self:GetName() == "zuus_arc_lightning" or self:GetName() == "leshrac_lightning_storm" then
-    local bounces = self:GetLevelSpecialValueFor("jump_count", -1)
-    delay = self:GetLevelSpecialValueFor("jump_delay", -1) * bounces
-  elseif self:GetName() == "furion_wrath_of_nature" then
-    local bounces = self:GetLevelSpecialValueFor("max_targets", -1)
-    delay = self:GetLevelSpecialValueFor("jump_delay", -1) * bounces
-  elseif self:GetName() == "death_prophet_exorcism" then
-    local distance = self:GetLevelSpecialValueFor("max_distance", -1) + 2000 -- add spirit break distance to be sure
-    delay = distance / self:GetLevelSpecialValueFor("spirit_speed", -1)
-  elseif self:GetName() == "necrolyte_death_pulse" then
-    local distance = self:GetLevelSpecialValueFor("area_of_effect", -1) + 2000 -- add blink range + buffer zone to be safe
-    delay = distance / self:GetLevelSpecialValueFor("projectile_speed", -1)
-  elseif self:GetName() == "spirit_breaker_charge_of_darkness" then
-    local distance = math.sqrt(15000*15000*2) -- size diagonal of a 15000x15000 square
-    delay = distance / self:GetLevelSpecialValueFor("movement_speed", -1)
-  end
-  --------------------------------------------------------------------------
-    duration = duration + delay
-    if buffer then duration = duration + buffer end
-    return duration
-end
-
 function DebugCalls()
     if not GameRules.DebugCalls then
         print("Starting DebugCalls")
@@ -606,130 +557,6 @@ function DebugCalls()
         GameRules.DebugCalls = false
         debug.sethook(nil, "c")
     end
-end
-
-function CDOTA_BaseNPC:GetUnsafeAbilitiesCount()
-    local count = 0
-    local randomKv = self.randomKv
-    for i = 0, DOTA_MAX_ABILITIES - 1 do
-        if self:GetAbilityByIndex(i) then
-            local ability = self:GetAbilityByIndex(i)
-            local name = ability:GetName()
-            if not randomKv["Safe"][name] and not self.ownedSkill[name] then
-                count = count + 1
-            end
-        end
-    end
-    return count
-end
-
-function CDOTA_BaseNPC:GetSafeAbilitiesCount()
-    local count = 0
-    for i = 0, DOTA_MAX_ABILITIES - 1 do
-        local ability = self:GetAbilityByIndex(i)
-        if ability then
-            local name = ability:GetName()
-            if not DONOTREMOVE[name] then
-                count = count + 1
-            end
-        end
-    end
-    return count
-end
-
-function CDOTABaseAbility:GetTrueCooldown()
-    --if Convars:GetBool('dota_ability_debug') then return 0 end
-    local cooldown = self:GetCooldown(-1)
-    local hero = self:GetCaster()
-    local true_cd = cooldown
-
-    -- Normal Witchcraft
-    local mabWitch = hero:FindAbilityByName('death_prophet_witchcraft')
-    -- OP Witchcraft
-    local mabWitchOP = hero:FindAbilityByName('death_prophet_witchcraft_op')
-    if mabWitch and not mabWitchOP then
-        true_cd = math.max(cooldown - mabWitch:GetLevel(), 1)
-    elseif mabWitchOP and not mabWitch then
-        true_cd = math.max(cooldown - 4 * mabWitchOP:GetLevel(), 1)
-    elseif mabWitch and mabWitchOP then
-    -- Shouldnt be possible but just in case
-        true_cd = math.max(cooldown - 4 * mabWitchOP:GetLevel(), 1)
-    end
-
-    true_cd = true_cd * hero:GetCooldownReduction()
-    return true_cd
-end
-
--- modifierEventTable = {
---     caster = caster,
---     parent = parent,
---     ability = ability,
---     original_duration = duration,
---     modifier_name = modifier_name,
--- }
-function CDOTA_BaseNPC:GetTenacity(modifierEventTable)
-    local tenacity = 1
-    for _, parent_modifier in pairs(self:FindAllModifiers()) do
-        if parent_modifier.GetTenacity then
-            tenacity = tenacity * (1- (parent_modifier:GetTenacity(modifierEventTable)/100))
-        end
-    end
-    return tenacity
-end
-
-
-
-function CDOTA_BaseNPC:GetWillPower(modifierEventTable)
-    local willpower = 1
-    for _, parent_modifier in pairs(self:FindAllModifiers()) do
-        if parent_modifier.GetWillPower then
-            willpower = willpower * (1+ (parent_modifier:GetWillPower(modifierEventTable)/100))
-        end
-    end
-    return willpower
-end
-
-function CDOTA_BaseNPC:GetSummonersBoost(modifierEventTable)
-    local boost = 1
-    for _, parent_modifier in pairs(self:FindAllModifiers()) do
-        if parent_modifier.GetSummonersBoost then
-            boost = boost * (1+ (parent_modifier:GetSummonersBoost(modifierEventTable)/100))
-        end
-    end
-    return boost
-end
-
-function CDOTA_BaseNPC:GetBATReduction()
-    local reduction = 0
-    for _, parent_modifier in pairs(self:FindAllModifiers()) do
-        if parent_modifier.GetBATReductionConstant then
-            reduction = reduction - parent_modifier:GetBATReductionConstant()
-        end
-    end
-    return reduction
-end
-
-function CDOTA_BaseNPC:GetBaseBAT()
-    local reduction = 0
-    local pct = 1
-    local unit_data = GetUnitKeyValuesByName(self:GetUnitName())
-    self.BAT = self.BAT or unit_data.AttackRate
-    local time = self.BAT or 1.7
-    for _, parent_modifier in pairs(self:FindAllModifiers()) do
-        if parent_modifier.GetModifierBaseAttackTimeConstant then
-            if parent_modifier:GetName() ~= "modifier_bat_manager" then
-                time = parent_modifier:GetModifierBaseAttackTimeConstant()
-            end
-        end
-        if parent_modifier.GetBATReductionConstant then
-            reduction = reduction - parent_modifier:GetBATReductionConstant()
-        end
-        if parent_modifier.GetBATReductionPercentage then
-            pct = pct - (parent_modifier:GetBATReductionPercentage() /100)
-        end
-    end
-    time = time * pct
-    return time-reduction
 end
 
 function ShuffleArray(input)
@@ -755,11 +582,6 @@ function util:RandomChoice(input)
         table.insert(temp, k)
     end
     return input[temp[math.random(#temp)]]
-end
-
-function CDOTABaseAbility:HasAbilityFlag(flag)
-    if not GameRules.perks[flag] then return false end
-    return GameRules.perks[flag][self:GetAbilityName()] ~= nil
 end
 
 function util:split(s, delimiter)
@@ -824,52 +646,6 @@ function util:isCoop()
     end
 end
 
-function CDOTA_BaseNPC:FixIllusion(source)
-    for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
-        local abilityTemp = self:GetAbilityByIndex(abilitySlot)
-
-        if abilityTemp and not DONOTREMOVE[abilityTemp:GetAbilityName()] then
-            self:RemoveAbility(abilityTemp:GetAbilityName())
-        end
-    end
-    self:SetAbilityPoints(0)
-    for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
-        local abilityTemp = source:GetAbilityByIndex(abilitySlot)
-
-        if abilityTemp then
-            self:AddAbility(abilityTemp:GetAbilityName())
-            local abilityLevel = abilityTemp:GetLevel()
-            if abilityLevel > 0 then
-                local abilityName = abilityTemp:GetAbilityName()
-                local illusionAbility = self:FindAbilityByName(abilityName)
-                if illusionAbility then
-                    illusionAbility:SetLevel(abilityLevel)
-                    -- TODO: Check if it's toggle passive, if yes toggle it ON
-                end
-            end
-        end
-    end
-end
-
-function CDOTA_BaseNPC:HasAbilityWithFlag(flag)
-    for i = 0, DOTA_MAX_ABILITIES - 1 do
-        local ability = self:GetAbilityByIndex(i)
-        if ability then
-            return ability:HasAbilityFlag(flag)
-        end
-    end
-    return false
-end
-
-function CDOTABaseAbility:IsCustomAbility()
-	local ability_kvs = GetAbilityKeyValuesByName(self:GetAbilityName()) or self:GetAbilityKeyValues()
-	if not ability_kvs then
-		print("IsCustomAbility: Ability "..self:GetAbilityName().." does not exist.")
-		return
-	end
-	return ability_kvs.BaseClass ~= nil and not util:IsTalent(self)
-end
-
 function IsCustomAbilityByName(name)
     if not name then
         return false
@@ -883,10 +659,6 @@ function IsCustomAbilityByName(name)
         return false
     end
     return ability_kvs.BaseClass ~= nil and not util:IsTalent(name)
-end
-
-function CDOTA_BaseNPC:HasUnitFlag(flag)
-    return GameRules.perks[flag][self:GetName()] ~= nil
 end
 
 function GetRandomAbilityFromListForPerk(flag)
@@ -906,22 +678,6 @@ function GetRandomAbilityFromListForPerk(flag)
 
     local random = RandomInt(1,numberOfValues)
     return localTable[random]
-end
-
-
-
-function CDOTA_BaseNPC:IsSleeping()
-    return self:HasModifier("modifier_bane_nightmare") or self:HasModifier("modifier_elder_titan_echo_stomp") or self:HasModifier("modifier_sleep_cloud_effect") or self:HasModifier("modifier_naga_siren_song_of_the_siren")
-end
-
-function CDOTA_BaseNPC:FindItemByName(item_name)
-    for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-        local item = self:GetItemInSlot(i)
-        if item and item:GetAbilityName() == item_name then
-            return item
-        end
-    end
-    return nil
 end
 
 local voteCooldown = 150
@@ -1061,93 +817,6 @@ function util:CreateVoting(votingName, initiator, duration, percent, onaccept, o
     end
 end
 
-function CDOTA_BaseNPC:FindItemByNameEverywhere(item_name)
-    for i = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
-        local item = self:GetItemInSlot(i)
-        if item and item:GetAbilityName() == item_name then
-            return i, item
-        end
-    end
-    local tp_scroll = self:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
-    if tp_scroll then
-        if tp_scroll:GetAbilityName() == item_name then
-            return DOTA_ITEM_TP_SCROLL, tp_scroll
-        end
-    end
-    local neutral_item = self:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-    if neutral_item then
-        if neutral_item:GetAbilityName() == item_name then
-            return DOTA_ITEM_NEUTRAL_SLOT, neutral_item
-        end
-    end
-    return nil, nil
-end
-
-function CDOTA_BaseNPC:IsSpiritBearCustom()
-	return string.find(self:GetUnitName(), "npc_dota_lone_druid_bear")
-end
-
-function IsMonkeyKingCloneCustom(entity)
-	if entity.HasModifier == nil then
-		return true
-	end
-
-	local monkey_king_soldier_modifiers = {
-		"modifier_monkey_king_fur_army_soldier_hidden",
-		"modifier_monkey_king_fur_army_soldier",
-		"modifier_monkey_king_fur_army_thinker",
-		"modifier_monkey_king_fur_army_soldier_inactive",
-		"modifier_monkey_king_fur_army_soldier_in_position",
-	}
-
-	for _, v in pairs(monkey_king_soldier_modifiers) do
-		if entity:HasModifier(v) then
-			return true
-		end
-	end
-
-	return false
-end
-
-function CDOTA_BaseNPC:PopupNumbers(target, pfx, color, lifetime, number, presymbol, postsymbol)
-    local armor = target:GetPhysicalArmorValue(false)
-    local damageReduction = ((0.02 * armor) / (1 + 0.02 * armor))
-    number = number - (number * damageReduction)
-    local lens_count = 0
-    for i=0,5 do
-       local item = self:GetItemInSlot(i)
-       if item ~= nil and item:GetName() == "item_aether_lens" then
-           lens_count = lens_count + 1
-       end
-    end
-    number = number * (1 + (.08 * lens_count) + (self:GetIntellect()/1600))
-
-    number = math.floor(number)
-    local pfxPath = string.format("particles/msg_fx/msg_%s.vpcf", pfx)
-    local pidx
-    if pfx == "gold" or pfx == "lumber" then
-        pidx = ParticleManager:CreateParticleForTeam(pfxPath, PATTACH_CUSTOMORIGIN, target, target:GetTeamNumber())
-    else
-        pidx = ParticleManager:CreateParticle(pfxPath, PATTACH_CUSTOMORIGIN, target)
-    end
-
-    local digits = 0
-    if number ~= nil then
-        digits = #tostring(number)
-    end
-    if presymbol ~= nil then
-        digits = digits + 1
-    end
-    if postsymbol ~= nil then
-        digits = digits + 1
-    end
-
-    ParticleManager:SetParticleControl(pidx, 0, target:GetAbsOrigin())
-    ParticleManager:SetParticleControl(pidx, 1, Vector(tonumber(presymbol), tonumber(number), tonumber(postsymbol)))
-    ParticleManager:SetParticleControl(pidx, 2, Vector(lifetime, digits, 0))
-    ParticleManager:SetParticleControl(pidx, 3, color)
-end
-
 DisableHelpStates = DisableHelpStates or {}
 function CDOTA_PlayerResource:SetDisableHelpForPlayerID(nPlayerID, nOtherPlayerID, disabled)
     if nPlayerID ~= nOtherPlayerID then
@@ -1208,22 +877,23 @@ function util:IsIgnoredForEssenceAura(ability)
 		return true
 	end
 
-	-- Check behavior first
+	-- Ignore toggle abilities
 	local ability_behavior = ability_data.AbilityBehavior
 	if string.find(ability_behavior, "DOTA_ABILITY_BEHAVIOR_TOGGLE") then
 		return true
 	end
 
-	-- If the ability costs no mana, do nothing
+	-- Ignore abilities that cost no mana
 	if ability_mana_cost == 0 then
 		return true
 	end
 
-	-- If the ability has no cooldown, do nothing
-	--if ability_cooldown == 0 then
+	-- Ignore abilities that have no cooldown (but not attack-based spells)
+	--if ability_cooldown == 0 and not string.find(ability_behavior, "DOTA_ABILITY_BEHAVIOR_ATTACK") then
 		--return true
 	--end
 
+	-- Ignore abilities on the list
 	if essence_aura_ignore_list[ability:GetAbilityName()] then
 		return true
 	end
@@ -1263,22 +933,23 @@ function util:IsIgnoredForAftershock(ability)
 		return true
 	end
 
-	-- Check behavior first
+	-- Ignore toggle abilities
 	local ability_behavior = ability_data.AbilityBehavior
 	if string.find(ability_behavior, "DOTA_ABILITY_BEHAVIOR_TOGGLE") then
 		return true
 	end
 
-	-- If the ability costs no mana, do nothing
+	-- Ignore abilities that cost no mana
 	--if ability_mana_cost == 0 then
 		--return true
 	--end
 
-	-- If the ability has no cooldown, do nothing
+	-- Ignore abilities that have no cooldown (but not attack-based spells)
 	if ability_cooldown == 0 and not string.find(ability_behavior, "DOTA_ABILITY_BEHAVIOR_ATTACK") then
 		return true
 	end
 
+	-- Ignore abilities on the list
 	if aftershock_ignore_list[ability:GetAbilityName()] then
 		return true
 	end

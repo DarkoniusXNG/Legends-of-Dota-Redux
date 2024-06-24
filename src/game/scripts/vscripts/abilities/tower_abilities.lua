@@ -476,7 +476,7 @@ function EssenceDrain( keys )
 	-- Fetch target's current attributes
 	local target_str = target:GetStrength()
 	local target_agi = target:GetAgility()
-	local target_int = target:GetIntellect()
+	local target_int = target:GetIntellect(false)
 
 	-- Reduce Strength to a minimum of 1 (prevents making the target a "zombie" for the rest of the match)
 	if target_str > drain_per_hit then

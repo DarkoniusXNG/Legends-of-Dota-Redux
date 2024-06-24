@@ -39,7 +39,8 @@
 			"radius"
 			{
 				"value"							"2000 6000 10000 25000"
-				"special_bonus_unique_axe_2"	"+10000"
+				"special_bonus_unique_axe_2"	"+100"
+				"affected_by_aoe_increase"	"1"
 			}
 				"bonus_armor"			"100"
 			"duration"				"20"

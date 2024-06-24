@@ -77,7 +77,6 @@ local towerClasses = {
 local autoSkill = {
     --nyx_assassin_unburrow = true,
     alchemist_transmuted_scepter = true,
-    --silencer_glaives_of_wisdom_steal = true,
     earth_spirit_stone_caller = true,
 }
 
@@ -346,7 +345,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
         if hero and playerID and not util:isPlayerBot(playerID) then
             for i = 0, DOTA_MAX_ABILITIES - 1 do
                 local ab = hero:GetAbilityByIndex(i)
-                if ab and not DONOTREMOVE[ab:GetAbilityName()] then
+                if ab and not DONOTREMOVE[ab:GetAbilityName()] and not util:IsVanillaInnate(ab) then
                     hero:RemoveAbility(ab:GetName())
                 end
             end
@@ -424,7 +423,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
                 if hero and playerID and not util:isPlayerBot(playerID) then
                     for i = 0, DOTA_MAX_ABILITIES - 1 do
                         local ab = hero:GetAbilityByIndex(i)
-                        if ab and not DONOTREMOVE[ab:GetAbilityName()] then
+                        if ab and not DONOTREMOVE[ab:GetAbilityName()] and not util:IsVanillaInnate(ab) then
                             hero:RemoveAbility(ab:GetName())
                         end
                     end

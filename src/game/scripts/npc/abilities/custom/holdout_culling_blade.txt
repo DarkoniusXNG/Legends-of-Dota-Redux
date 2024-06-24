@@ -73,6 +73,6 @@
                 "speed_aoe"                                            "900"
             }
         }
-        "ReduxCost"                                                            "20"
+        "ReduxCost"                                                            "120"
     }
 }

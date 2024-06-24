@@ -150,9 +150,15 @@ function elandras_blessing(keys)
 
 	local main_stat = unit:GetPrimaryAttribute()
 
-	if main_stat == 0 then fdamage = unit:GetStrength()*damage end
-	if main_stat == 1 then fdamage = unit:GetAgility()*damage end
-	if main_stat == 2 then fdamage = unit:GetIntellect()*damage end
+	if main_stat == DOTA_ATTRIBUTE_STRENGTH then
+		fdamage = unit:GetStrength()*damage
+	elseif main_stat == DOTA_ATTRIBUTE_AGILITY then
+		fdamage = unit:GetAgility()*damage
+	elseif main_stat == DOTA_ATTRIBUTE_INTELLECT then
+		fdamage = unit:GetIntellect(false)*damage
+	elseif main_stat == DOTA_ATTRIBUTE_ALL then
+		fdamage = (unit:GetStrength() + unit:GetAgility() + unit:GetIntellect(false))*damage/3
+	end
 
 	ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN_FOLLOW, attacker) --[[Returns:int
 	Creates a new particle effect

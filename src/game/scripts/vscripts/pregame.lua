@@ -509,9 +509,6 @@ function Pregame:init()
     Timers:CreateTimer(function()
         if util:isSinglePlayerMode() then
             self:setOption('lodOptionBanningUseBanList', 0, true)
-            self:setOption("lodOptionNewAbilitiesBonusGold", 0, true)
-            self:setOption("lodOptionGlobalNewAbilitiesBonusGold", 0, true)
-            self:setOption("lodOptionBalancedBuildBonusGold", 0, true)
         end
     end, DoUniqueString('checkSinglePlayer'), 1.5)
 
@@ -547,7 +544,6 @@ function Pregame:init()
         self:setOption('lodOptionGameSpeedTowersPerLane', 3, true)
         OptionManager:SetOption('banningTime', 50)
         self:setOption('lodOptionBalanceMode', 0, true)
-        self:setOption('lodOptionGameSpeedGoldModifier', 100, true)
         --self:setOption('lodOptionGameSpeedGoldTickRate', 2, true)
         self:setOption('lodOptionGameSpeedEXPModifier', 100, true)
         self:setOption('lodOptionAdvancedHidePicks', 0, true)
@@ -630,7 +626,6 @@ function Pregame:init()
         --self:setOption('lodOptionBanningBalanceMode', 1, true)
         --self:setOption('lodOptionGameSpeedRespawnTimePercentage', 70, true)
         --self:setOption('lodOptionBuybackCooldownTimeConstant', 210, true)
-        self:setOption('lodOptionGameSpeedGoldModifier', 100, true)
         self:setOption('lodOptionLimitPassives', 1, true)
         self:setOption('lodOptionGameSpeedEXPModifier', 100, true)
         self:setOption('lodOptionGameSpeedMaxLevel', 100, true)
@@ -698,7 +693,6 @@ function Pregame:loadDefaultSettings()
     self:setOption('lodOptionBotsSameHero', 0, false)
     self:setOption('lodOptionRefreshCooldownsOnDeath', 0, false)
     self:setOption('lodOptionGlobalCast', 0, false)
-    self:setOption('lodOptionPocketTowers', 0, false)
 
     -- Balance Mode Ban List disabled by default
     self:setOption('lodOptionBanningBalanceMode', 0, true)
@@ -716,7 +710,7 @@ function Pregame:loadDefaultSettings()
     -- Bots get bonus points by default
     self:setOption('lodOptionBotsBonusPoints', 1, true)
 
-    -- Default, we don't ban all invisiblity
+    -- Default, we don't ban all invisibility
     self:setOption('lodOptionBanningBanInvis', 0, true)
 
     -- Starting level is lvl 1
@@ -762,7 +756,6 @@ function Pregame:loadDefaultSettings()
 
     self:setOption('lodOptionLaneCreepBonusAbility', 0, true)
     self:setOption('lodOptionStacking', 0, true)
-    self:setOption('lodOptionZombie', 0, true)
 
     -- Set bot options
     self:setOption('lodOptionBotsRadiant', 0, true)
@@ -781,7 +774,6 @@ function Pregame:loadDefaultSettings()
     self:setOption('lodOptionRandomLaneCreeps', 0, true)
     self:setOption('lodOptionNoHealthbars', 0, true)
     self:setOption('lodOptionConvertableTowers', 0, true)
-    self:setOption('lodOptionDoubleTalents', 0, true)
 
     -- Turn easy mode off
     --self:setOption('lodOptionCrazyEasymode', 0, true)
@@ -832,9 +824,6 @@ function Pregame:loadDefaultSettings()
     -- Disable Fountain Camping
     self:setOption('lodOptionCrazyNoCamping', 1, true)
 
-    -- Disable All Vision
-    self:setOption('lodOptionCrazyAllVision', 0, true)
-
     -- Disable Multicast Madness
     self:setOption('lodOptionCrazyMulticast', 0, true)
 
@@ -871,13 +860,6 @@ function Pregame:loadDefaultSettings()
 
     -- No Dark Forest
     self:setOption('lodOptionBlackForest', 0, true)
-
-    -- Selecting 6 new abilities grants 500 gold
-    self:setOption("lodOptionNewAbilitiesThreshold", 20, true)
-    self:setOption("lodOptionNewAbilitiesBonusGold", 1000, true)
-    self:setOption("lodOptionGlobalNewAbilitiesThreshold", 75, true)
-    self:setOption("lodOptionGlobalNewAbilitiesBonusGold", 1000, true)
-    self:setOption("lodOptionBalancedBuildBonusGold", 0, true)
 end
 
 -- Gets stats for the given player
@@ -2713,57 +2695,6 @@ function Pregame:initOptionSelector()
             return value == 0 or value == 1
         end,
 
-        -- Common -- New abilities bonus
-        lodOptionNewAbilitiesThreshold = function(value)
-            -- It needs to be a whole number between a certain range
-            if type(value) ~= 'number' then return false end
-            if math.floor(value) ~= value then return false end
-            if value < 0 or value > 100 then return false end
-
-            -- Valid
-            return true
-        end,
-
-        lodOptionNewAbilitiesBonusGold = function(value)
-            -- It needs to be a whole number between a certain range
-            if type(value) ~= 'number' then return false end
-            if math.floor(value) ~= value then return false end
-            if value < 0 or value > 2500 then return false end
-
-            -- Valid
-            return true
-        end,
-
-        lodOptionGlobalNewAbilitiesThreshold = function(value)
-            -- It needs to be a whole number between a certain range
-            if type(value) ~= 'number' then return false end
-            if math.floor(value) ~= value then return false end
-            if value < 0 or value > 100 then return false end
-
-            -- Valid
-            return true
-        end,
-
-        lodOptionGlobalNewAbilitiesBonusGold = function(value)
-            -- It needs to be a whole number between a certain range
-            if type(value) ~= 'number' then return false end
-            if math.floor(value) ~= value then return false end
-            if value < 0 or value > 2500 then return false end
-
-            -- Valid
-            return true
-        end,
-
-        lodOptionBalancedBuildBonusGold = function(value)
-            -- It needs to be a whole number between a certain range
-            if type(value) ~= 'number' then return false end
-            if math.floor(value) ~= value then return false end
-            if value < 0 or value > 3000 then return false end
-
-            -- Valid
-            return true
-        end,
-
         -- Gamemode - Duel
         lodOptionDuels = function(value)
             return value == 0 or value == 1
@@ -2857,7 +2788,7 @@ function Pregame:initOptionSelector()
             -- It needs to be a whole number between a certain range
             if type(value) ~= 'number' then return false end
             if math.floor(value) ~= value then return false end
-            if value < 0 or value > 1000 then return false end
+            if value < 100 or value > 1000 then return false end
 
             -- Valid
             return true
@@ -2946,11 +2877,6 @@ function Pregame:initOptionSelector()
         -- Game Speed - Scepter Upgraded
         lodOptionGameSpeedUpgradedUlts = function(value)
             return value == 0 or value == 1 or value == 2
-        end,
-
-        -- Game Speed - Pocket Towers
-        lodOptionPocketTowers = function(value)
-            return value == 0 or value == 1 or value == 60 or value == 120 or value == 180 or value == 240 or value == 300 or value == 600
         end,
 
         -- Game Speed - Stronger Towers
@@ -3153,16 +3079,6 @@ function Pregame:initOptionSelector()
             return value == 0 or value == 1
         end,
 
-        -- Other -- Universal Shop
-        lodOptionCrazyUniversalShop = function(value)
-            return value == 0 or value == 1
-        end,
-
-        -- Other -- All Vision
-        lodOptionCrazyAllVision = function(value)
-            return value == 0 or value == 1
-        end,
-
         -- Other -- Multicast Madness
         lodOptionCrazyMulticast = function(value)
             return value == 0 or value == 1
@@ -3244,11 +3160,6 @@ function Pregame:initOptionSelector()
             return value == 0 or value == 1
         end,
 
-         -- Other - Zombie Apocalypse
-        lodOptionZombie = function(value)
-            return value == 0 or value == 1
-        end,
-
          -- Other -- Memes Redux
         lodOptionMemesRedux = function(value)
             -- When the player activates this potion, they have a chance to hear a meme sound. Becomes more unlikely the more they hear.
@@ -3280,9 +3191,6 @@ function Pregame:initOptionSelector()
         --end,
         -- Mutators
         lodOptionPeriodicSpellCast = function(value)
-            return value == 0 or value == 1
-        end,
-        lodOptionDoubleTalents = function(value)
             return value == 0 or value == 1
         end,
         -- Mutators
@@ -3950,7 +3858,6 @@ function Pregame:processOptions()
         OptionManager:SetOption('respawnModifierConstant', this.optionStore['lodOptionGameSpeedRespawnTimeConstant'])
         OptionManager:SetOption('buybackCooldownConstant', this.optionStore['lodOptionBuybackCooldownTimeConstant'])
         OptionManager:SetOption('freeScepter', this.optionStore['lodOptionGameSpeedUpgradedUlts'])
-        OptionManager:SetOption('pocketTowers', this.optionStore['lodOptionPocketTowers'])
         OptionManager:SetOption('strongTowers', this.optionStore['lodOptionGameSpeedStrongTowers'] == 1)
         OptionManager:SetOption('towerCount', this.optionStore['lodOptionGameSpeedTowersPerLane'])
         OptionManager:SetOption('creepPower', this.optionStore['lodOptionCreepPower'])
@@ -3960,9 +3867,7 @@ function Pregame:processOptions()
         OptionManager:SetOption('laneMultiply', this.optionStore['lodOptionLaneMultiply'])
         OptionManager:SetOption('laneCreepAbility', this.optionStore['lodOptionLaneCreepBonusAbility'])
         OptionManager:SetOption('stacking', this.optionStore['lodOptionStacking'])
-        OptionManager:SetOption('zombie', this.optionStore['lodOptionZombie'])
         OptionManager:SetOption('useFatOMeter', this.optionStore['lodOptionCrazyFatOMeter'])
-        OptionManager:SetOption('universalShops', this.optionStore['lodOptionCrazyUniversalShop'])
         OptionManager:SetOption('allowIngameHeroBuilder', this.optionStore['lodOptionIngameBuilder'] == 1)
         OptionManager:SetOption('botBonusPoints', this.optionStore['lodOptionBotsBonusPoints'] == 1)
         OptionManager:SetOption('botsUniqueSkills', this.optionStore['lodOptionBotsUniqueSkills'])
@@ -3992,7 +3897,6 @@ function Pregame:processOptions()
         --OptionManager:SetOption('superRunes',this.optionStore['lodOptionSuperRunes'])
         OptionManager:SetOption('fastRunes',this.optionStore['lodOptionFastRunes'])
         OptionManager:SetOption('periodicSpellCast',this.optionStore['lodOptionPeriodicSpellCast'])
-        OptionManager:SetOption('doubleTalents',this.optionStore['lodOptionDoubleTalents'])
         OptionManager:SetOption('vampirism',this.optionStore['lodOptionVampirism'])
         OptionManager:SetOption('killstreakPower',this.optionStore['lodOptionKillStreakPower'])
         OptionManager:SetOption('cooldownReduction',this.optionStore['lodOptionCooldownReduction'])
@@ -4016,7 +3920,7 @@ function Pregame:processOptions()
 
         -- Gold per interval
         --GameRules:SetGoldPerTick(this.optionStore['lodOptionGameSpeedGoldTickRate'])
-       -- OptionManager:SetOption('goldPerTick', this.optionStore['lodOptionGameSpeedGoldTickRate'])
+        --OptionManager:SetOption('goldPerTick', this.optionStore['lodOptionGameSpeedGoldTickRate'])
         OptionManager:SetOption('goldModifier', this.optionStore['lodOptionGameSpeedGoldModifier'])
         OptionManager:SetOption('expModifier', this.optionStore['lodOptionGameSpeedEXPModifier'])
         OptionManager:SetOption('sharedXP', this.optionStore['lodOptionGameSpeedSharedEXP'])
@@ -4200,9 +4104,7 @@ function Pregame:processOptions()
         end
 
         -- Enable All Vision
-        if this.optionStore['lodOptionCrazyAllVision'] == 1 then
-            Convars:SetBool('dota_all_vision', true)
-        end
+        --Convars:SetBool('dota_all_vision', true)
 
         if this.optionStore['lodOptionBlackForest'] == 1 then
             --Convars:SetBool('dota_all_vision', true)
@@ -4291,11 +4193,8 @@ function Pregame:processOptions()
                     ['Gamemode: Max Slots'] = this.optionStore['lodOptionCommonMaxSlots'],
                     ['Gamemode: Max Ults'] = this.optionStore['lodOptionCommonMaxUlts'],
                     ['Gamemode: Preset Gamemode'] = this.optionStore['lodOptionGamemode'],
-                    ['Other: Enable All Vision'] = this.optionStore['lodOptionCrazyAllVision'],
-                    ['Other: Zombie Apocalypse'] = this.optionStore['lodOptionZombie'],
                     ['Other: Enable Ingame Hero Builder'] = this.optionStore['lodOptionIngameBuilder'],
                     ['Other: Enable Multicast Madness'] = this.optionStore['lodOptionCrazyMulticast'],
-                    ['Other: Enable Universal Shop'] = this.optionStore['lodOptionCrazyUniversalShop'],
                     ['Other: Enable WTF Mode'] = this.optionStore['lodOptionCrazyWTF'],
                     ['Other: Fat-O-Meter'] = this.optionStore['lodOptionCrazyFatOMeter'],
                     ['Other: Stop Fountain Camping'] = this.optionStore['lodOptionCrazyNoCamping'],
@@ -4318,7 +4217,6 @@ function Pregame:processOptions()
                     ['Bots: Stupefy'] = this.optionStore['lodOptionBotsStupid'],
                     ['Mutators: Fast Runes'] = this.optionStore['fastRunes'],
                     ['Mutators: Periodic Spell Cast'] = this.optionStore['periodicSpellCast'],
-                    ['Mutators: Double Talents'] = this.optionStore['doubleTalents'],
                     ['Mutators: Vampirism'] = this.optionStore['vampirism'],
                     ['Mutators: Kill Streak Power'] = this.optionStore['killstreakPower'],
                     ['Mutators: Cooldown Reduction'] = this.optionStore['cooldownReduction'],
@@ -5172,7 +5070,7 @@ function Pregame:checkForReady()
     end
 end
 
--- Player wants to ban an ability
+-- Player wants to save bans
 function Pregame:onPlayerSaveBans(eventSourceIndex, args)
     -- Grab data
     local playerID = args.PlayerID
@@ -5188,21 +5086,24 @@ function Pregame:onPlayerSaveBans(eventSourceIndex, args)
     end
 
     StatsClient:SetBans(playerID, selectedData)
-    StatsClient:SendBans({ steamid = PlayerResource:GetRealSteamID(playerID), bans = selectedData }, function()
-        CustomGameEventManager:Send_ServerToPlayer(
-            PlayerResource:GetPlayer(playerID),
-            "lodNotification",
-            { text = 'lodSuccessSavedBans', params = { entries = #selectedData } }
-        )
-    end)
+    StatsClient:SendBans(playerID, selectedData)
 end
 
--- Player wants to ban an ability
+-- Player wants to load bans
 function Pregame:onPlayerLoadBans(eventSourceIndex, args)
     -- Grab data
     local playerID = args.PlayerID
-    local bans = StatsClient:GetBans(playerID)
-    if bans == nil then return end
+    StatsClient:GetBans(playerID)
+end
+
+function Pregame:ActualLoadingBans(playerID)
+    local bans = StatsClient.PlayerBans[playerID]
+
+    if not bans or type(bans) ~= "table" then
+        print(bans)
+        CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "lodNotification", { text = "Loading bans failed", params = { entries = n } })
+		return
+    end
 
     local lodOptionBanningHostBanning = self.optionStore['lodOptionBanningHostBanning'] and self.optionStore['lodOptionBanningHostBanning'] > 0
     local lodOptionBanningMaxBans = self.optionStore['lodOptionBanningMaxBans']
@@ -5211,14 +5112,18 @@ function Pregame:onPlayerLoadBans(eventSourceIndex, args)
     if count == 0 and lodOptionBanningHostBanning then count = 1000 end
 
     local n = 1
-    while bans[n] do
-        local value = bans[n]
-        if string.match(value, "npc_dota_hero_") and not self.bannedHeroes[value] and (lodOptionBanningHostBanning or not self.usedBans[playerID] or self.usedBans[playerID].heroBans < lodOptionBanningMaxBans) then
-            self:onPlayerBan(0, { PlayerID = playerID, heroName = value }, true)
-        elseif not self.bannedAbilities[value] and (lodOptionBanningHostBanning or not self.usedBans[playerID] or self.usedBans[playerID].abilityBans < lodOptionBanningMaxBans) then
-            self:onPlayerBan(0, { PlayerID = playerID, abilityName = value }, true)
+    if next(bans) ~= nil then
+        while bans[n] do
+            local value = bans[n]
+            if string.match(value, "npc_dota_hero_") and not self.bannedHeroes[value] and (lodOptionBanningHostBanning or not self.usedBans[playerID] or self.usedBans[playerID].heroBans < lodOptionBanningMaxBans) then
+                self:onPlayerBan(0, { PlayerID = playerID, heroName = value }, true)
+            elseif not self.bannedAbilities[value] and (lodOptionBanningHostBanning or not self.usedBans[playerID] or self.usedBans[playerID].abilityBans < lodOptionBanningMaxBans) then
+                self:onPlayerBan(0, { PlayerID = playerID, abilityName = value }, true)
+            end
+            n = n + 1
         end
-        n = n + 1
+    else
+        n = 0
     end
 
     CustomGameEventManager:Send_ServerToPlayer(
@@ -6759,7 +6664,7 @@ function Pregame:DropGoldOnDeath()
                 attacker = EntIndexToHScript( keys.entindex_attacker )
             end
 
-            if not attacker or not attacker:IsRealHero() or not ent:IsRealHero() or ent:IsIllusion() then return end
+            if not attacker or not attacker:IsRealHero() or not ent:IsRealHero() then return end
 
             -- Neutral Multiplier: Checks if hurt npc is neutral, dead, and if it doesnt have the clone token ability, and their is a valid attacker
             if IsValidEntity(attacker) then
@@ -7657,6 +7562,15 @@ function Pregame:applyExtraAbility( spawnedUnit )
             if spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH then essenceshiftToGive = "slark_essence_shift_strength_lod"
             elseif spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_AGILITY then essenceshiftToGive = "slark_essence_shift_agility_lod"
             elseif spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_INTELLECT then essenceshiftToGive = "slark_essence_shift_intellect_lod"
+            elseif spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_ALL then
+                local randomNumber = RandomInt(1, 3)
+                if randomNumber == 1 then
+                    essenceshiftToGive = "slark_essence_shift_strength_lod"
+                elseif randomNumber == 2 then
+                    essenceshiftToGive = "slark_essence_shift_agility_lod"
+                else
+                    essenceshiftToGive = "slark_essence_shift_intellect_lod"
+                end
             end
         end
 
@@ -7747,15 +7661,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     -- Various Fixes
     Timers:CreateTimer(function()
         if IsValidEntity(spawnedUnit) then
-            -- Silencer Fix NEEDS TO BE RUN EVERY SPAWN (below), AND ON FIXEDHERO FUNCTION
-                --[[if spawnedUnit:HasAbility('silencer_glaives_of_wisdom_steal') then
-                    if not spawnedUnit:HasModifier('modifier_silencer_int_steal') then
-                        spawnedUnit:AddNewModifier(spawnedUnit, spawnedUnit:FindAbilityByName("silencer_glaives_of_wisdom_steal"), 'modifier_silencer_int_steal', {})
-                    end
-                else
-                    spawnedUnit:RemoveModifierByName('modifier_silencer_int_steal')
-                end]]--
-
             -- Apply Bot Difficulty
             if util:isPlayerBot(playerID) then
                 if spawnedUnit:GetTeam() == DOTA_TEAM_GOODGUYS then
@@ -7854,24 +7759,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                     --spawnedUnit:SwapAbilities("sniper_assassinate","sniper_assassinate_redux",false,true)
                     --spawnedUnit:RemoveAbility("sniper_assassinate")
             --end
-            -- Change juxtapose to juxtapose ranged, for ranged heros
-            if spawnedUnit:HasAbility("phantom_lancer_juxtapose_melee") and spawnedUnit:IsRangedAttacker() then
-                    spawnedUnit:AddAbility("phantom_lancer_juxtapose_ranged")
-                    spawnedUnit:SwapAbilities("phantom_lancer_juxtapose_melee","phantom_lancer_juxtapose_ranged",false,true)
-                    spawnedUnit:RemoveAbility("phantom_lancer_juxtapose_melee")
-            end
-            -- Change Feast to Feast ranged, for ranged heros
-            if spawnedUnit:HasAbility("life_stealer_feast_melee") and spawnedUnit:IsRangedAttacker() then
-                    spawnedUnit:AddAbility("life_stealer_feast_ranged")
-                    spawnedUnit:SwapAbilities("life_stealer_feast_melee","life_stealer_feast_ranged",false,true)
-                    spawnedUnit:RemoveAbility("life_stealer_feast_melee")
-            end
-
-            -- if spawnedUnit:HasAbility("monkey_king_jingu_mastery_lod_melee") and spawnedUnit:IsRangedAttacker() then
-            --         spawnedUnit:AddAbility("monkey_king_jingu_mastery_lod_ranged")
-            --         spawnedUnit:SwapAbilities("monkey_king_jingu_mastery_lod_melee","monkey_king_jingu_mastery_lod_ranged",false,true)
-            --         spawnedUnit:RemoveAbility("monkey_king_jingu_mastery_lod_melee")
-            -- end
 
             -- Change Overpower to Overpower ranged, for ranged heros
             if spawnedUnit:HasAbility("ursa_overpower_melee") and spawnedUnit:IsRangedAttacker() then
@@ -8003,40 +7890,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                 bonus_mana = 0
             })
         end
-    end
-
-    -- Give out the spawn zombie ability
-    if this.optionStore['lodOptionZombie'] == 1 then
-        spawnedUnit:AddAbility("summon_zombie")
-        local givenAbility = spawnedUnit:FindAbilityByName("summon_zombie")
-        if givenAbility then
-            givenAbility:SetLevel(givenAbility:GetMaxLevel())
-        end
-    end
-
-    -- Handle pocket tower stuff
-    if OptionManager:GetOption('pocketTowers') ~= 0 and util:isPlayerBot(playerID) == false then --TODO: MAKE BOTS USE POCKET TOWERS
-        Timers:CreateTimer(function()
-            if IsValidEntity(spawnedUnit) then
-                -- If setting is 1, everyone gets a single consumable tower to use
-                if OptionManager:GetOption('pocketTowers') == 1 then
-                    spawnedUnit:AddItemByName('item_redux_pocket_tower')
-                -- Else, everyone gets a tower which has a cooldown
-                elseif OptionManager:GetOption('pocketTowers') == 60 then
-                    spawnedUnit:AddItemByName('item_redux_pocket_tower_permanent_60')
-                elseif OptionManager:GetOption('pocketTowers') == 120 then
-                    spawnedUnit:AddItemByName('item_redux_pocket_tower_permanent_120')
-                elseif OptionManager:GetOption('pocketTowers') == 180 then
-                    spawnedUnit:AddItemByName('item_redux_pocket_tower_permanent_180')
-                elseif OptionManager:GetOption('pocketTowers') == 240 then
-                    spawnedUnit:AddItemByName('item_redux_pocket_tower_permanent_240')
-                elseif OptionManager:GetOption('pocketTowers') == 300 then
-                    spawnedUnit:AddItemByName('item_redux_pocket_tower_permanent_300')
-                elseif OptionManager:GetOption('pocketTowers') == 600 then
-                    spawnedUnit:AddItemByName('item_redux_pocket_tower_permanent_600')
-                end
-            end
-        end, DoUniqueString('givePocketTowers'), 1)
     end
 
     -- Give out the global cast range ability
@@ -8185,46 +8038,123 @@ function Pregame:fixSpawningIssues()
 
                 if not spawnedUnit:IsClone() then
                     -- ILLUSION HAVING WRONG STATS FIX START --
-                    local realHero
-                    if spawnedUnit.IsIllusion and spawnedUnit:IsIllusion() and spawnedUnit:IsHero() then
-                      -- Search nearby radius to find the real hero
-                        local nearbyUnits = Entities:FindAllInSphere(spawnedUnit:GetAbsOrigin(), 20000)
-                        local filteredNearbyUnits = {}
-                        for i, unit in pairs(nearbyUnits) do
-                            if not unit.IsRealHero or not unit:IsRealHero()  then
-                                nearbyUnits[i] = nil
-                            else
-                                -- We have found the real hero if: Hero is Real and Not Illusion and unit has same name as the spawned illusion
-                                if unit and unit:GetName() == spawnedUnit:GetName() then
-                                    table.insert(filteredNearbyUnits, unit)
-                                end
-                            end
-                        end
-                        if #filteredNearbyUnits > 1 then
-                            for _, unit in pairs(filteredNearbyUnits) do
-                                if unit and unit.GetItemInSlot and unit:GetName() ~= "" and unit:GetLevel() == spawnedUnit:GetLevel() then
-                                    for j = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
-                                        if unit:GetItemInSlot(j) and spawnedUnit:GetItemInSlot(j) and unit:GetItemInSlot(j):GetAbilityName() == spawnedUnit:GetItemInSlot(j):GetAbilityName() then
-                                            realHero = unit
-                                            break
-                                        end
+                    Timers:CreateTimer(function()
+                        local realHero
+                        if spawnedUnit.IsIllusion and spawnedUnit:IsIllusion() and spawnedUnit:IsHero() then
+                            -- local allEntities = Entities:FindAllInSphere(spawnedUnit:GetAbsOrigin(), FIND_UNITS_EVERYWHERE)
+                            -- local heroesWithSameName = {}
+                            -- for _, unit in pairs(allEntities) do
+                                -- if unit and not unit:IsNull() and unit.IsRealHero then
+                                    -- if unit:IsRealHero() and unit ~= spawnedUnit and unit:GetUnitName() == spawnedUnit:GetUnitName() then
+                                        -- table.insert(heroesWithSameName, unit) -- candidates
+                                    -- end
+                                -- end
+                            -- end
+                            -- if #heroesWithSameName > 1 then
+                                -- for _, unit in pairs(heroesWithSameName) do
+                                    -- if unit and unit.GetItemInSlot and unit:GetName() ~= "" and unit:GetLevel() == spawnedUnit:GetLevel() then
+                                        -- for j = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+                                            -- if unit:GetItemInSlot(j) and spawnedUnit:GetItemInSlot(j) and unit:GetItemInSlot(j):GetAbilityName() == spawnedUnit:GetItemInSlot(j):GetAbilityName() then
+                                                -- realHero = unit
+                                                -- break
+                                            -- end
+                                        -- end
+                                    -- end
+                                -- end
+                            -- else
+                                -- realHero = heroesWithSameName[1]
+                            -- end
+                            
+                            local candidates = {}
+                            local illusion_mod = spawnedUnit:FindModifierByName("modifier_illusion")
+                            if illusion_mod then
+                                local caster = illusion_mod:GetCaster()
+                                if caster then
+                                    if caster:GetUnitName() == spawnedUnit:GetUnitName() then
+                                        table.insert(candidates, caster)
                                     end
                                 end
                             end
-                        else
-                            realHero = filteredNearbyUnits[1]
-                        end
+                            
+                            local ally_heroes = FindUnitsInRadius(
+                                spawnedUnit:GetTeamNumber(),
+                                spawnedUnit:GetAbsOrigin(),
+                                spawnedUnit,
+                                FIND_UNITS_EVERYWHERE,
+                                DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+                                DOTA_UNIT_TARGET_HERO,
+                                DOTA_UNIT_TARGET_FLAG_DEAD + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD,
+                                FIND_ANY_ORDER,
+                                false
+                            )
+                            local enemy_heroes = FindUnitsInRadius(
+                                spawnedUnit:GetTeamNumber(),
+                                spawnedUnit:GetAbsOrigin(),
+                                nil,
+                                FIND_UNITS_EVERYWHERE,
+                                DOTA_UNIT_TARGET_TEAM_ENEMY,
+                                DOTA_UNIT_TARGET_HERO,
+                                DOTA_UNIT_TARGET_FLAG_DEAD + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD,
+                                FIND_ANY_ORDER,
+                                false
+                            )
 
-                      -- If we found the real hero, make illusion have same stats as original
-                        if realHero then
-                            Timers:CreateTimer(function()
+                            -- Ally heroes
+                            for _, unit in pairs(ally_heroes) do
+                                if unit and not unit:IsNull() and unit.IsRealHero then
+                                    if unit:IsRealHero() and unit ~= spawnedUnit and unit:GetUnitName() == spawnedUnit:GetUnitName() and unit:GetLevel() == spawnedUnit:GetLevel() then
+                                        table.insert(candidates, unit)
+                                    end
+                                end
+                            end
+
+                            -- Enemy heroes
+                            for _, unit in pairs(enemy_heroes) do
+                                if unit and not unit:IsNull() and unit.IsRealHero then
+                                    if unit:IsRealHero() and unit:GetUnitName() == spawnedUnit:GetUnitName() and unit:GetLevel() == spawnedUnit:GetLevel() then
+                                        table.insert(candidates, unit)
+                                    end
+                                end
+                            end
+
+                            -- Compare inventories of the illusion and hero candidates
+                            for _, unit in ipairs(candidates) do
+                                if unit.GetItemInSlot then
+                                    local same_inventory = true
+                                    for j = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+                                        local illusion_item = spawnedUnit:GetItemInSlot(j)
+                                        local hero_item = unit:GetItemInSlot(j)
+                                        if not illusion_item then
+                                            if hero_item then
+                                                same_inventory = false
+                                                break
+                                            end
+                                        elseif hero_item then 
+                                            if hero_item:GetAbilityName() ~= illusion_item:GetAbilityName() then
+                                                same_inventory = false
+                                                break
+                                            end
+                                        else
+                                            same_inventory = false
+                                            break
+                                        end
+                                    end
+                                    if same_inventory then
+                                        realHero = unit
+                                        break
+                                    end
+                                end
+                            end
+
+                            -- If we found the real hero, make illusion have same stats as original
+                            if realHero then
                                 -- Modify illusions stats so that they are the same as the owning hero
                                 spawnedUnit:FixIllusion(realHero)
-                            end, DoUniqueString('FixIllusionSkills'), .1)
-                        else
-                            print("Cant find real hero, not changing a thing")
+                            else
+                                print("Cant find real hero, not changing a thing")
+                            end
                         end
-                    end
+                    end, DoUniqueString('FixIllusionSkills'), 0.1)
 
                     Timers:CreateTimer(function()
                         if IsValidEntity(spawnedUnit) then
@@ -8238,7 +8168,7 @@ function Pregame:fixSpawningIssues()
                                 end
                             end
                         end
-                    end, DoUniqueString('fixBrokenSkills'), .1)
+                    end, DoUniqueString('fixBrokenSkills'), 0.15)
                 end
             end
         end
@@ -8247,10 +8177,10 @@ function Pregame:fixSpawningIssues()
         if IsValidEntity(spawnedUnit) and not spawnedUnit:IsSpiritBearCustom() then
             -- Filter gold modifier here instead of in filtergold in ingame because this makes the popup correct
             local goldModifier = OptionManager:GetOption('goldModifier')
-            if goldModifier ~= 100 and not spawnedUnit.bountyAdjusted then
-                -- Non hero units that respawn should only be adjusted once, this are things like bears or familiars
+            if goldModifier > 100 and not spawnedUnit.bountyAdjusted then
+                -- Non hero units that respawn should only be adjusted once, this are things like familiars
                 if not spawnedUnit:IsHero() then
-                 spawnedUnit.bountyAdjusted = true
+					spawnedUnit.bountyAdjusted = true
                 end
                 local newBounty = spawnedUnit:GetGoldBounty() * goldModifier / 100
                 spawnedUnit:SetMaximumGoldBounty(newBounty)

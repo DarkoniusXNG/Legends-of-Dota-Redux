@@ -283,10 +283,6 @@ var commandList = [
 				chatCommand: "antirat",
 			},
 			{
-				title: "voteEnableUniversalShops",
-				chatCommand: "universalshops",
-			},
-			{
 				title: "voteEnableRespawn",
 				chatCommand: "enablerespawn",
 			},

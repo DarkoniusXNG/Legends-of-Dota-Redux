@@ -6,7 +6,7 @@ function OnAttack( keys )
 
 	if caster:IsIllusion() then return end
 
-	local damage_int_pct_add = caster:GetIntellect()
+	local damage_int_pct_add = caster:GetIntellect(false)
 
 	if damage_int_pct_add then
 		damage_int_pct_add = damage_int_pct_add / 16 / 100 + 1

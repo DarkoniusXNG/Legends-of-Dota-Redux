@@ -24,35 +24,6 @@ modifier_stats_tome = {
 	end,
 }
 
---these two listeners are just for volvos illusions. the tome modifiers are given to custom illusions in the util function that makes them
-ListenToGameEvent("dota_illusions_created", function(keys)
-	_G.lastIllusionCreator = keys.original_entindex
-end, nil)
-
-ListenToGameEvent("npc_spawned", function(keys)
-	local illusion = EntIndexToHScript(keys.entindex)
-
-	--not using timers here because it was giving me errors
-	illusion:SetContextThink(DoUniqueString("statTomesForIllusions"), function()
-		
-		--make sure this is a valve illusion
-		if not illusion or illusion:IsNull() or not illusion:IsIllusion() or illusion:HasModifier("modifier_stats_tome") then return end
-
-		local original = _G.lastIllusionCreator and EntIndexToHScript(_G.lastIllusionCreator)
-		if not original or original:IsNull() then return end
-
-		--make sure this unit actually has stats
-		if illusion.GetStrength then
-			--copy over all the stat modifiers from the original hero
-			for k,v in pairs(original:FindAllModifiersByName("modifier_stats_tome")) do
-				local instance = illusion:AddNewModifier(illusion, v:GetAbility(), "modifier_stats_tome", {stat = v.stat})
-				instance:SetStackCount(v:GetStackCount())
-			end
-		end
-		return
-	end, 0.1)
-end, nil)
-
 --creates and stores a new stats modifier to preserve the previous uses of the lower level tomes.
 function LevelTome(keys)
 	if keys.caster:IsIllusion() then return end

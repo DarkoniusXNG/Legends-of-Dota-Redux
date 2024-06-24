@@ -1512,7 +1512,7 @@ function Ingame:initGoldBalancer()
     local gamemode = GameRules:GetGameModeEntity()
 
     -- Filter event
-    gamemode:SetModifyGoldFilter(Dynamic_Wrap(Ingame, "FilterModifyGold"), self)
+    --gamemode:SetModifyGoldFilter(Dynamic_Wrap(Ingame, "FilterModifyGold"), self)
     gamemode:SetModifyExperienceFilter(Dynamic_Wrap(Ingame, "FilterModifyExperience"), self)
     gamemode:SetBountyRunePickupFilter(Dynamic_Wrap(Ingame, "BountyRunePickupFilter"), self)
 
@@ -1587,45 +1587,12 @@ function Ingame:recalculatePlayerCounts()
     end
 end
 
--- Attempt to balance gold
+-- Attempt to balance gold - gold filter does not trigger for half the gold stuff
 function Ingame:FilterModifyGold(filterTable)
-    -- Grab useful information
-    local playerID = filterTable.player_id_const
-    local teamID = PlayerResource:GetTeam(playerID)
-
-    -- Grab the gold modifier
-    local goldModifier = OptionManager:GetOption('goldModifier')
-
-    --print(filterTable.gold)
-    if goldModifier ~= 100 then
-        -- If the gold is from killing heroes, creeps, or roshan, do nothing, its handled in pregame.lua
-        if filterTable.reason_const ~= 12 and filterTable.reason_const ~= 13 and filterTable.reason_const ~= 14 then
-            filterTable.gold = math.ceil(filterTable.gold * goldModifier / 100)
-        end
-    end
-    --print(filterTable.gold)
-
-    -- Disabled this due to other balance mechanics being in play
-
-    --local myTeam = 1
-    --local enemyTeam = 1
-
-    --if teamID == DOTA_TEAM_GOODGUYS then
-    --    myTeam = self.playersOnTeam.radiant
-    --    enemyTeam = self.playersOnTeam.dire
-    --elseif teamID == DOTA_TEAM_BADGUYS then
-    --    myTeam = self.playersOnTeam.dire
-    --    enemyTeam = self.playersOnTeam.radiant
-    --end
-
-    -- Slow down the gold intake for the team with more players
-    --local ratio = enemyTeam / myTeam
-    --if ratio < 1 then
-    --    ratio = 1 - (1 - ratio) / 2
-    --
-    --    filterTable.gold = math.ceil(filterTable.gold * ratio)
-    --end
-
+    -- local gold = filterTable.gold
+    -- local playerID = filterTable.player_id_const
+    -- local reason = filterTable.reason_const
+    -- local reliable = filterTable.reliable == 1
     return true
 end
 

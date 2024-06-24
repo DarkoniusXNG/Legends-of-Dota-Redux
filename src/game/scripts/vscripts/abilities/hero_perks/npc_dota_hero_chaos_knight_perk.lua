@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Chaos Knight
---		Perk: Cripple free ability
+--		Perk: Chaos Strike free ability + CK illusions do bonus damage
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_chaos_knight_perk = modifier_npc_dota_hero_chaos_knight_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -23,22 +23,33 @@ end
 function modifier_npc_dota_hero_chaos_knight_perk:GetTexture()
 	return "custom/npc_dota_hero_chaos_knight_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_chaos_knight_perk:OnCreated()
-	if IsServer() then
-		local caster = self:GetCaster()
-		local ab = caster:FindAbilityByName("lycan_summon_wolves_critical_strike")
+	if IsServer() and not self:GetParent():IsIllusion() then
+		local caster = self:GetParent()
+		local ab = caster:FindAbilityByName("chaos_knight_chaos_strike")
 		if ab then
 			ab:UpgradeAbility(false)
-			--ab:SetLevel(1)
 		else
-			ab = caster:AddAbility("lycan_summon_wolves_critical_strike")
-            --ab:SetStolen(true)
-            ab:SetActivated(true)
-            ab:SetLevel(1)
+			ab = caster:AddAbility("chaos_knight_chaos_strike")
+			--ab:SetStolen(true)
+			ab:SetActivated(true)
+			ab:SetLevel(1)
 		end
+		self.apply_to_illusions = true
 	end
+end
+
+function modifier_npc_dota_hero_chaos_knight_perk:DeclareFunctions()
+    return {
+        MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
+    }
+end
+
+function modifier_npc_dota_hero_chaos_knight_perk:GetModifierTotalDamageOutgoing_Percentage()
+    if self:GetParent():IsIllusion() then
+        return 25
+    else 
+        return 0
+    end
 end

@@ -1,7 +1,6 @@
 // Dota Heroes File
 "DOTAHeroes"
 {
-
 	//=================================================================================================================
 	// HERO: Antimage
 	//=================================================================================================================
@@ -33,6 +32,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------	
 		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
 
 		"Bot"
 		{
@@ -231,6 +231,7 @@
 	"npc_dota_hero_bloodseeker"
 	{
 		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
 
 		"Bot"
 		{
@@ -792,28 +793,6 @@
 				"RequiresSetup"		"1"
 			}
 		}
-		"Persona"
-		{
-			"1"
-			{
-			"name"					"npc_dota_hero_mirana_persona1"
-			}
-		}
-		{
-			"trot"		"0"
-			"run"		"335"
-		}
-		"animation_transitions"
-		{
-			"ACT_DOTA_RUN"
-			{
-		 		"regular"	"0.5"
-			}	
-			"ACT_DOTA_IDLE"
-			{
-		 		"regular"	"0.8"
-			}
-		}
 	}
 
 	"npc_dota_hero_nevermore"
@@ -932,6 +911,8 @@
 
 	"npc_dota_hero_phantom_lancer"
 	{
+		"ProjectileSpeed"		"900"
+
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_PUSH_SUPPORT | DOTA_BOT_HARD_CARRY"
@@ -1196,6 +1177,7 @@
 	"npc_dota_hero_sand_king"
 	{
 		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
 
 		"Bot"
 		{
@@ -1403,6 +1385,7 @@
 	"npc_dota_hero_tiny"
 	{
 		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
 
 		"Bot"
 		{
@@ -1787,6 +1770,7 @@
 	"npc_dota_hero_kunkka"
 	{
 		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
 
 		"Bot"
 		{
@@ -2316,6 +2300,7 @@
 	"npc_dota_hero_tidehunter"
 	{
 		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
 
 		"Bot"
 		{
@@ -2525,6 +2510,7 @@
 	"npc_dota_hero_riki"
 	{
 		"BotImplemented"		"0"
+		"ProjectileSpeed"		"900"
 
 		"Bot"
 		{
@@ -2971,8 +2957,8 @@
 	"npc_dota_hero_beastmaster"
 	{
 		"AbilityLayout"		"6"
-
 		"ProjectileSpeed"		"900"
+
 		"precache"
 		{
 			"model"		"models/heroes/beastmaster/beastmaster_bird.vmdl"
@@ -2981,7 +2967,6 @@
 
 		"Bot"
 		{
-
 			"HeroType"		"DOTA_BOT_STUN_SUPPORT | DOTA_BOT_TANK"
 			"LaningInfo"
 			{
@@ -3041,6 +3026,7 @@
 	"npc_dota_hero_faceless_void"
 	{
 		"ProjectileSpeed"		"900"
+
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_HARD_CARRY"
@@ -3152,6 +3138,7 @@
 	"npc_dota_hero_death_prophet"
 	{
 		"BotImplemented"		"1"
+
 		"precache"
 		{
 			"model"		"models/heroes/death_prophet/death_prophet_ghost.vmdl"
@@ -3251,6 +3238,7 @@
 	"npc_dota_hero_phantom_assassin"
 	{
 		"BotImplemented"		"1"
+
 		"ProjectileSpeed"		"900"
 
 		"Bot"
@@ -3353,6 +3341,7 @@
 		{
 			"model"		"models/heroes/pugna/pugna_ward.vmdl"
 		}
+
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_PUSH_SUPPORT"
@@ -3371,7 +3360,6 @@
 	
 	"npc_dota_hero_templar_assassin"
 	{
-		
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_HARD_CARRY"
@@ -3821,6 +3809,7 @@
 	"npc_dota_hero_rattletrap"
 	{
 		"ProjectileSpeed"		"900"
+
 		"precache"
 		{
 			"model"		"models/heroes/rattletrap/rattletrap_cog.vmdl"
@@ -4120,6 +4109,7 @@
 	"npc_dota_hero_night_stalker"
 	{
 		"ProjectileSpeed"		"900"
+
 		"precache"
 		{
 			"model"		"models/heroes/nightstalker/nightstalker_night.vmdl"
@@ -4624,6 +4614,7 @@
 	"npc_dota_hero_lycan"
 	{
 		"ProjectileSpeed"		"900"
+
 		"precache"
 		{
 			"model"		"models/heroes/lycan/lycan_wolf.vmdl"
@@ -4873,6 +4864,7 @@
 	"npc_dota_hero_undying"
 	{
 		"ProjectileSpeed"		"900"
+
 		"precache"
 		{
 			"model"		"models/heroes/undying/undying_flesh_golem.vmdl"
@@ -5074,88 +5066,8 @@
 	
 	"npc_dota_hero_troll_warlord"
 	{
-		"AbilityLayout"		"5"
-		{
-		}
-		{
-			"fast"		"200"
-			"faster"	"320"
-			"fastest"	"430"
-		}
-		{
-			"walk"		"0"
-			"run"		"350"
-			"run_fast"	"400"
-		}
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_troll_warlord/troll_loadout.vpcf"		"loadout"
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"armor"
-				"SlotText"		"#LoadoutSlot_Armor"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"4000"
-				"MaxPolygonsLOD1"		"1600"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"shoulder"
-				"SlotText"		"#LoadoutSlot_Shoulder"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3500"
-				"MaxPolygonsLOD1"		"1400"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"5"
-			{
-				"SlotIndex" "5"
-				"SlotName" "ability_effects_1"
-				"SlotText" "troll_warlord_berserkers_rage"
-				"DisplayInLoadout" "0"
-			}		
-			"6"
-			{
-				"SlotIndex" "6"
-				"SlotName" "ability_effects_2"
-				"SlotText" "troll_warlord_whirling_axes_ranged"
-				"DisplayInLoadout" "0"
-			}
-		}
+		"AbilityLayout"		"6"
+
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_HARD_CARRY"
@@ -5171,8 +5083,11 @@
 			}
 		}
 	}
+
 	"npc_dota_hero_centaur"
 	{
+		"ProjectileSpeed"		"900"
+
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_SEMI_CARRY | DOTA_BOT_TANK"
@@ -5187,217 +5102,12 @@
 				"RequiresSetup"		"1"
 			}
 		}
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_centaur/centaur_loadout.vpcf"		"loadout"
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"shoulder"
-				"SlotText"		"#LoadoutSlot_Shoulder"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2000"
-				"MaxPolygonsLOD1"		"800"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"belt"
-				"SlotText"		"#LoadoutSlot_Belt"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"1000"
-				"MaxPolygonsLOD1"		"600"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"arms"
-				"SlotText"		"#LoadoutSlot_Arms"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"1500"
-				"MaxPolygonsLOD1"		"600"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"back"
-				"SlotText"		"#LoadoutSlot_Back"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2000"
-				"MaxPolygonsLOD1"		"800"
-			}
-			"6"
-			{
-				"SlotIndex"		"6"
-				"SlotName"		"tail"
-				"SlotText"		"#LoadoutSlot_Tail"
-				"TextureWidth"		"256"
-				"TextureHeight"		"128"
-				"MaxPolygonsLOD0"		"500"
-				"MaxPolygonsLOD1"		"300"
-			}
-			"7"
-			{
-				"SlotIndex"		"7"
-				"SlotName"		"summon"
-				"SlotText"		"#LoadoutSlot_Pet"
-				"ShowItemOnGeneratedUnits" "1"
-				"GeneratesUnits"
-				{
-					"0" "npc_dota_companion"
-				}
-			}
-			"8"
-			{
-				"SlotIndex"		"8"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"9"
-			{
-				"SlotIndex"		"9"
-				"SlotName"		"costume"
-				"SlotText"		"#LoadoutSlot_Costume"
-			}
-			"10"
-			{
-				"SlotIndex" "10"
-				"SlotName" "ability_effects_1"
-				"SlotText" "centaur_hoof_stomp"
-				"DisplayInLoadout" "0"
-			}
-			"11"
-			{
-				"SlotIndex" "11"
-				"SlotName" "ability_effects_2"
-				"SlotText" "centaur_double_edge"
-				"DisplayInLoadout" "0"
-			}
-			"12"
-			{
-				"SlotIndex" "11"
-				"SlotName" "ability_effects_4"
-				"SlotText" "centaur_stampede"
-				"DisplayInLoadout" "0"
-			}
-		}
 	}
+	
 	"npc_dota_hero_magnataur"
 	{
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_magnataur/magnus_loadout.vpcf"		"loadout"
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"misc"
-				"SlotText"		"#LoadoutSlot_Misc"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"1500"
-				"MaxPolygonsLOD1"		"600"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"belt"
-				"SlotText"		"#LoadoutSlot_Belt"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"4000"
-				"MaxPolygonsLOD1"		"1600"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"arms"
-				"SlotText"		"#LoadoutSlot_Arms"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"1500"
-				"MaxPolygonsLOD1"		"600"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"6"
-			{
-				"SlotIndex"		"6"
-				"SlotName"		"costume"
-				"SlotText"		"#LoadoutSlot_Costume"
-			}
-			"7"
-			{
-				"SlotIndex" "7"
-				"SlotName" "ability_effects_4"
-				"SlotText" "magnataur_reverse_polarity"
-				"DisplayInLoadout" "0"
-			}
-			"8"
-			{
-				"SlotIndex" "8"
-				"SlotName" "ability_effects_1"
-				"SlotText" "magnataur_shockwave"
-				"DisplayInLoadout" "0"
-			}
-		}
+		"ProjectileSpeed"		"900"
+
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_TANK | DOTA_BOT_STUN_SUPPORT"
@@ -5413,113 +5123,11 @@
 			}
 		}
 	}
+	
 	"npc_dota_hero_shredder"
 	{
-		{
-		}
+		"ProjectileSpeed"		"900"
 
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_shredder/shredder_loadout.vpcf"		"loadout"
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"offhand_weapon"
-				"SlotText"		"#LoadoutSlot_OffHand_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"521"
-				"TextureHeight"		"521"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"shoulder"
-				"SlotText"		"#LoadoutSlot_Shoulder"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"back"
-				"SlotText"		"#LoadoutSlot_Back"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"armor"
-				"SlotText"		"#LoadoutSlot_Armor"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"1500"
-				"MaxPolygonsLOD1"		"600"
-			}
-			"6"
-			{
-				"SlotIndex"		"6"
-				"SlotName"		"belt"
-				"SlotText"		"#LoadoutSlot_belt"
-			}
-			"7"
-			{
-				"SlotIndex"		"7"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"8"
-			{
-				"SlotIndex"		"8"
-				"SlotName"		"ambient_effects"
-				"SlotText"		"#LoadoutSlot_Ambient_Effects"
-				"DisplayInLoadout"		"0"
-			}
-			"9"
-			{
-				"SlotIndex" "9"
-				"SlotName" "ability_effects_2"
-				"SlotText" "shredder_timber_chain"
-				"DisplayInLoadout" "0"
-			}		
-			"10"
-			{
-				"SlotIndex" "10"
-				"SlotName" "ability_effects_4"
-				"SlotText" "shredder_chakram"
-				"DisplayInLoadout" "0"
-			}
-		}
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_TANK"
@@ -5535,120 +5143,12 @@
 			}
 		}
 	}
+	
 	"npc_dota_hero_bristleback"
 	{
 		"BotImplemented"		"1"
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_bristleback/bristleback_loadout.vpcf"		"loadout"
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"back"
-				"SlotText"		"#LoadoutSlot_Back"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"neck"
-				"SlotText"		"#LoadoutSlot_Neck"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"arms"
-				"SlotText"		"#LoadoutSlot_arms"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"1500"
-				"MaxPolygonsLOD1"		"600"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"summon"
-				"SlotText"		"#LoadoutSlot_Pet"
-				"ShowItemOnGeneratedUnits" "1"
-				"GeneratesUnits"
-				{
-					"0" "npc_dota_companion"
-				}
-			}
-			"6"
-			{
-				"SlotIndex"		"6"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"7"
-			{
-				"SlotIndex"		"7"
-				"SlotName"		"ambient_effects"
-				"SlotText"		"#LoadoutSlot_Ambient_Effects"
-				"DisplayInLoadout"		"0"
-			}
-			"8"
-			{
-				"SlotIndex" "8"
-				"SlotName" "ability_effects_1"
-				"SlotText" "bristleback_viscous_nasal_goo"
-				"DisplayInLoadout" "0"
-			}
-			"9"
-			{
-				"SlotIndex" "9"
-				"SlotName" "ability_effects_2"
-				"SlotText" "bristleback_quill_spray"
-				"DisplayInLoadout" "0"
-			}
-			"10"
-			{
-				"SlotIndex" "10"
-				"SlotName" "ability_effects_4"
-				"SlotText" "bristleback_warpath"
-				"DisplayInLoadout" "0"
-			}
-			"11"
-			{
-				"SlotIndex" "11"
-				"SlotName" "ability_effects_3"
-				"SlotText" "bristleback_bristleback"
-				"DisplayInLoadout" "0"
-			}			
-		}
+		"ProjectileSpeed"		"900"
+
 		"Bot"
 		{
 			"Loadout"
@@ -5745,122 +5245,11 @@
 			}
 		}
 	}
+
 	"npc_dota_hero_tusk"
 	{
-		{
-		}
+		"ProjectileSpeed"		"900"
 
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_tusk/tusk_loadout.vpcf"		"loadout"
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"back"
-				"SlotText"		"#LoadoutSlot_Back"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"neck"
-				"SlotText"		"#LoadoutSlot_Tusk_Tusks"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"1500"
-				"MaxPolygonsLOD1"		"600"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"shoulder"
-				"SlotText"		"#LoadoutSlot_Shoulder"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"arms"
-				"SlotText"		"#LoadoutSlot_Tusk_Fist"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"1500"
-				"MaxPolygonsLOD1"		"600"
-			}
-			"6"
-			{
-				"SlotIndex"		"6"
-				"SlotName"		"ability3"
-				"SlotText"		"#LoadoutSlot_Tusk_FrozenSigil"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-				"no_import"		"1"
-				"GeneratesUnits"
-				{
-					"0" "npc_dota_tusk_frozen_sigil"
-				}
-			}
-			"7"
-			{
-				"SlotIndex"		"7"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"8"
-			{
-				"SlotIndex"		"8"
-				"SlotName"		"ambient_effects"
-				"SlotText"		"#LoadoutSlot_Ambient_Effects"
-				"DisplayInLoadout"		"0"
-			}
-			"9"
-			{
-				"SlotIndex" "9"
-				"SlotName" "ability_effects_3"
-				"SlotText" "tusk_walrus_punch"
-				"DisplayInLoadout" "0"
-			}
-			"10"
-			{
-				"SlotIndex" "10"
-				"SlotName" "ability_effects_1"
-				"SlotText" "tusk_ice_shards"
-				"DisplayInLoadout" "0"
-			}
-		}
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_SEMI_CARRY"
@@ -5877,104 +5266,11 @@
 
 		}
 	}
+	
 	"npc_dota_hero_skywrath_mage"
 	{
 		"BotImplemented"		"1"
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_skywrath_mage/skywrath_loadout.vpcf"		"loadout"
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"back"
-				"SlotText"		"#LoadoutSlot_Wings"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"4000"
-				"MaxPolygonsLOD1"		"1600"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"belt"
-				"SlotText"		"#LoadoutSlot_Belt"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2000"
-				"MaxPolygonsLOD1"		"800"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"shoulder"
-				"SlotText"		"#LoadoutSlot_Shoulder"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"arms"
-				"SlotText"		"#LoadoutSlot_arms"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"1500"
-				"MaxPolygonsLOD1"		"600"
-			}
-			"6"
-			{
-				"SlotIndex"		"6"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"7"
-			{
-				"SlotIndex"		"7"
-				"SlotName"		"costume"
-				"SlotText"		"#LoadoutSlot_Costume"
-			}
-			"8"
-			{
-				"SlotIndex" "8"
-				"SlotName" "ability_effects_1"
-				"SlotText" "skywrath_mage_arcane_bolt"
-				"DisplayInLoadout" "0"
-			}
-			"9"
-			{
-				"SlotIndex" "9"
-				"SlotName" "ability_effects_4"
-				"SlotText" "skywrath_mage_mystic_flare"
-				"DisplayInLoadout" "0"
-			}
-		}
+
 		"Bot"
 		{
 			"Loadout"
@@ -6082,108 +5378,11 @@
 			}
 		}
 	}
+	
 	"npc_dota_hero_abaddon"
 	{
-		{
-			"walk"		"0"
-			"<none>"	"350"
-		}
-		{
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"back"
-				"SlotText"		"#LoadoutSlot_Back"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"shoulder"
-				"SlotText"		"#LoadoutSlot_Shoulder"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"mount"
-				"SlotText"		"#LoadoutSlot_Mount"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"6000"
-				"MaxPolygonsLOD1"		"2400"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"6"
-			{
-				"SlotIndex"		"6"
-				"SlotName"		"ambient_effects"
-				"SlotText"		"#LoadoutSlot_Ambient_Effects"
-				"DisplayInLoadout"		"0"
-			}
-			"7"
-			{
-				"SlotIndex"		"7"
-				"SlotName"		"ability_effects_1"
-				"SlotText"		"abaddon_death_coil"
-				"DisplayInLoadout" "0"
-			}
-			"8"
-			{
-				"SlotIndex"		"8"
-				"SlotName"		"ability_effects_2"
-				"SlotText"		"abaddon_aphotic_shield"
-				"DisplayInLoadout" "0"
-			}
-			"9"
-			{
-				"SlotIndex"		"9"
-				"SlotName"		"ability_effects_3"
-				"SlotText"		"abaddon_frostmourne"
-				"DisplayInLoadout" "0"
-			}
-			"10"
-			{
-				"SlotIndex"		"10"
-				"SlotName"		"ability_effects_4"
-				"SlotText"		"abaddon_borrowed_time"
-				"DisplayInLoadout" "0"
-			}
-		}
+		"ProjectileSpeed"		"900"
+
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_TANK | DOTA_BOT_PURE_SUPPORT"
@@ -6199,96 +5398,11 @@
 			}
 		}
 	}
+	
 	"npc_dota_hero_elder_titan"
 	{
-		{
-		}
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_elder_titan/elder_titan_loadout.vpcf"		"loadout"
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"back"
-				"SlotText"		"#LoadoutSlot_Back"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"shoulder"
-				"SlotText"		"#LoadoutSlot_Shoulder"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"arms"
-				"SlotText"		"#LoadoutSlot_arms"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"1500"
-				"MaxPolygonsLOD1"		"600"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"7"
-			{
-				"SlotIndex"		"7"
-				"SlotName"		"summon"
-				"SlotText"		"#LoadoutSlot_ElderTitan_AstralSpirit"
-				"DisplayInLoadout" "0"
-			}
-			"8"
-			{
-				"SlotIndex" "8"
-				"SlotName" "ability_effects_1"
-				"SlotText" "elder_titan_echo_stomp"
-				"DisplayInLoadout" "0"
-			}
-			"9"
-			{
-				"SlotIndex" "9"
-				"SlotName" "ability_effects_4"
-				"SlotText" "elder_titan_earth_splitter"
-				"DisplayInLoadout" "0"
-			}
-		}
+		"ProjectileSpeed"		"900"
+
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_TANK"
@@ -6304,114 +5418,11 @@
 			}
 		}
 	}
+	
 	"npc_dota_hero_legion_commander"
 	{
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_legion_commander/legion_loadout.vpcf"		"loadout"
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"back"
-				"SlotText"		"#LoadoutSlot_LegionCommander_Banners"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"shoulder"
-				"SlotText"		"#LoadoutSlot_Shoulder"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"arms"
-				"SlotText"		"#LoadoutSlot_arms"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"1500"
-				"MaxPolygonsLOD1"		"600"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"legs"
-				"SlotText"		"#LoadoutSlot_Legs"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"6"
-			{
-				"SlotIndex"		"6"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"7"
-			{
-				"SlotIndex"		"7"
-				"SlotName"		"summon"
-				"SlotText"		"#LoadoutSlot_Pet"
-				"ShowItemOnGeneratedUnits" "1"
-				"GeneratesUnits"
-				{
-					"0" "npc_dota_companion"
-				}
-			}
-			"8"
-			{
-				"SlotIndex"		"8"
-				"SlotName"		"costume"
-				"SlotText"		"#LoadoutSlot_Costume"
-			}
-			"9"
-			{
-				"SlotIndex" "9"
-				"SlotName" "ability_effects_1"
-				"SlotText" "legion_commander_overwhelming_odds"
-				"DisplayInLoadout" "0"
-			}
-			"10"
-			{
-				"SlotIndex" "10"
-				"SlotName" "ability_effects_2"
-				"SlotText" "legion_commander_press_the_attack"
-				"DisplayInLoadout" "0"
-			}
-		}
+		"ProjectileSpeed"		"900"
+
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_TANK | DOTA_BOT_GANKER | DOTA_BOT_SEMI_CARRY"
@@ -6427,105 +5438,11 @@
 			}
 		}
 	}
+	
 	"npc_dota_hero_ember_spirit"
 	{
-		{
-		}
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_ember_spirit/ember_spirit_loadout.vpcf"		"loadout"
-			}
-		}
-		"animation_transitions"
-		{
-			"ACT_DOTA_RUN"
-			{
-				"regular"		"0.500000"
-				"aggressive"		"0.500000"
-			}
-			"ACT_DOTA_IDLE"
-			{
-				"regular"		"0.250000"
-				"aggressive"		"0.250000"
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"offhand_weapon"
-				"SlotText"		"#LoadoutSlot_Offhand_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"shoulder"
-				"SlotText"		"#LoadoutSlot_Shoulder"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"arms"
-				"SlotText"		"#LoadoutSlot_arms"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"1500"
-				"MaxPolygonsLOD1"		"600"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"belt"
-				"SlotText"		"#LoadoutSlot_Belt"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2000"
-				"MaxPolygonsLOD1"		"800"
-			}
-			"6"
-			{
-				"SlotIndex"		"6"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"7"
-			{
-				"SlotIndex" "7"
-				"SlotName" "ability_effects_3"
-				"SlotText" "ember_spirit_flame_guard"
-				"DisplayInLoadout" "0"
-			}
-		}
+		"ProjectileSpeed"		"900"
+
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_HARD_CARRY"
@@ -6541,114 +5458,11 @@
 			}
 		}
 	}
+
 	"npc_dota_hero_earth_spirit"
 	{
+		"ProjectileSpeed"		"900"
 
-		{
-		}
-
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_earth_spirit/earth_spirit_loadout.vpcf"		"loadout"
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"neck"
-				"SlotText"		"#LoadoutSlot_neck"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"belt"
-				"SlotText"		"#LoadoutSlot_belt"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1400"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"arms"
-				"SlotText"		"#LoadoutSlot_arms"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"1500"
-				"MaxPolygonsLOD1"		"600"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"body_head"
-				"SlotText"		"#LoadoutSlot_Head"
-				"DisplayInLoadout"		"0"
-			}
-			"6"
-			{
-				"SlotIndex"		"6"
-				"SlotName"		"ability4"
-				"SlotText"		"#LoadoutSlot_EarthSpirit_StoneRemnant"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"3000"
-				"LoadoutPreviewMode"		"particle"
-			}
-			"7"
-			{
-				"SlotIndex"		"7"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"8"
-			{
-				"SlotIndex"		"8"
-				"SlotName"		"ambient_effects"
-				"SlotText"		"#LoadoutSlot_Ambient_Effects"
-				"DisplayInLoadout"		"0"
-			}
-			"9"
-			{
-				"SlotIndex" "9"
-				"SlotName" "ability_effects_2"
-				"SlotText" "earth_spirit_rolling_boulder"
-				"DisplayInLoadout" "0"
-			}
-		}
-		{
-			"Particles"
-			{
-			}
-		}
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_GANKER"
@@ -6664,98 +5478,14 @@
 			}
 		}	
 	}
+	
 	"npc_dota_hero_terrorblade"
 	{
-		"TransformedLoadoutScale"  "1.13"		//demon form
-		{
-		}
-
-
 		"precache"
 		{
 			"model"		"models/heroes/terrorblade/demon.vmdl"
 		}
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_terrorblade/terrorblade_loadout.vpcf"		"loadout"
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"2000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"back"
-				"SlotText"		"#LoadoutSlot_Back"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3500"
-				"MaxPolygonsLOD1"		"1400"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"armor"
-				"SlotText"		"#LoadoutSlot_Armor"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"ability3"
-				"SlotText"		"#LoadoutSlot_TerrorBlade_Demon"
-				"no_import"		"1"
-				"LoadoutPreviewMode"		"transformation"
-				"TextureWidth"		"1024"
-				"TextureHeight"		"1024"
-				"MaxPolygonsLOD0"	"6000"
-				"MaxPolygonsLOD1"	"3000"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"6"
-			{
-				"SlotIndex"		"6"
-				"SlotName"		"ambient_effects"
-				"SlotText"		"#LoadoutSlot_Ambient_Effects"
-				"DisplayInLoadout"		"0"
-			}
-			"7"
-			{
-				"SlotIndex" "7"
-				"SlotName" "ability_effects_4"
-				"SlotText" "terrorblade_sunder"
-				"DisplayInLoadout" "0"
-			}
-		}
+
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_HARD_CARRY"
@@ -6771,96 +5501,9 @@
 			}
 		}
 	}
+	
 	"npc_dota_hero_phoenix"
 	{
-		{
-		}
-
-		{
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"back"
-				"SlotText"		"#LoadoutSlot_Wings"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"5000"
-				"MaxPolygonsLOD1"		"2000"
-				"no_import"		"1" //imported using template
-			}
-
-			"2"	
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"ambient_effects"
-				"SlotText"		"#LoadoutSlot_Ambient_Effects"
-				"DisplayInLoadout"		"0"
-			}
-
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"ability_ultimate"
-				"SlotText"		"#LoadoutSlot_Phoenix_Supernova"
-//				"LoadoutPreviewMode"		"transformation"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-				"no_import"		"1" //imported using template
-				"GeneratesUnits"
-				{
-					"0" "npc_dota_phoenix_sun"
-				}
-			}
-			"5"
-			{
-				"SlotIndex" "5"
-				"SlotName" "ability_effects_1"
-				"SlotText" "phoenix_icarus_dive"
-				"DisplayInLoadout" "0"
-			}	
-			"6"
-			{
-				"SlotIndex" "6"
-				"SlotName" "ability_effects_2"
-				"SlotText" "phoenix_fire_spirits"
-				"DisplayInLoadout" "0"
-			}
-			"7"
-			{
-				"SlotIndex" "7"
-				"SlotName" "ability_effects_3"
-				"SlotText" "phoenix_sun_ray"
-				"DisplayInLoadout" "0"
-			}	
-			"8"
-			{
-				"SlotIndex" "8"
-				"SlotName" "ability_effects_4"
-				"SlotText" "phoenix_supernova"
-				"DisplayInLoadout" "0"
-			}
-		}
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_SUPPORT"
@@ -6874,93 +5517,13 @@
 				"ProvidesSetup"		"0"
 				"RequiresSetup"		"0"
 			}
-
 		}
 	}
+
 	"npc_dota_hero_oracle"
 	{
 		"BotImplemented"		"1"
-		{
-			"fast"		"145"
-			"faster"	"195"
-			"fastest"	"350"
-		}
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_oracle/oracle_loadout.vpcf"		"loadout"
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"armor"
-				"SlotText"		"#LoadoutSlot_Armor"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3500"
-				"MaxPolygonsLOD1"		"1400"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"back"
-				"SlotText"		"#LoadoutSlot_Back"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"ambient_effects"
-				"SlotText"		"#LoadoutSlot_Ambient_Effects"
-				"DisplayInLoadout"		"0"
-			}
-			"6"
-			{
-				"SlotIndex" "6"
-				"SlotName" "ability_effects_1"
-				"SlotText" "oracle_fortunes_end"
-				"DisplayInLoadout" "0"
-			}	
-			"7"
-			{
-				"SlotIndex" "7"
-				"SlotName" "ability_effects_3"
-				"SlotText" "oracle_purifying_flames"
-				"DisplayInLoadout" "0"
-			}
-		}
+
 		"Bot"
 		{
 			"Loadout"
@@ -7058,131 +5621,9 @@
 			}
 		}
 	}
+
 	"npc_dota_hero_techies"
 	{
-		{
-		}
-
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_techies/techies_loadout.vpcf"		"loadout"
-			}
-		}
-		"CombatClassAttack"		"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"		"DOTA_COMBAT_CLASS_DEFEND_HERO"
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Techies_Bazooka"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Techies_Squee"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3500"
-				"MaxPolygonsLOD1"		"1500"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"back"
-				"SlotText"		"#LoadoutSlot_Techies_Spoon"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"	"3500"
-				"MaxPolygonsLOD1"	"1400"
-			}
-			"3"
-			{
-				"SlotIndex"			"3"
-				"SlotName"			"shoulder"
-				"SlotText"			"#LoadoutSlot_Techies_Spleen"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"	"3500"
-				"MaxPolygonsLOD1"	"1400"
-			}
-			"4"
-			{
-				"no_import"		"1"
-				"SlotIndex"		"4"
-				"SlotName"		"arms"
-				"SlotText"		"#LoadoutSlot_Techies_RemoteMines"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"1500"
-				"MaxPolygonsLOD1"		"600"
-				"GeneratesUnits"
-				{
-					"0" "npc_dota_techies_remote_mine"
-					"1" "npc_dota_techies_stasis_trap"
-					"2" "npc_dota_techies_land_mine"
-				}
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"mount"
-				"SlotText"		"#LoadoutSlot_Techies_Cart"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"	"5000"
-				"MaxPolygonsLOD1"	"2000"
-			}
-			"6"
-			{
-				"no_import"		"1"
-				"SlotIndex"		"6"
-				"SlotName"		"belt"
-				"SlotText"		"#LoadoutSlot_Techies_Sign"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"	"1000"
-				"MaxPolygonsLOD1"	"420"
-				"GeneratesUnits"
-				{
-					"0" "npc_dota_techies_minefield_sign"
-				}
-			}
-			"7"
-			{
-				"SlotIndex"		"7"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"8"
-			{
-				"SlotIndex" "8"
-				"SlotName" "ability_effects_2"
-				"SlotText" "techies_sticky_bomb"
-				"DisplayInLoadout" "0"
-			}
-			"9"
-			{
-				"SlotIndex" "9"
-				"SlotName" "ability_effects_3"
-				"SlotText" "techies_minefield_sign"
-				"DisplayInLoadout" "0"
-			}
-			"10"
-			{
-				"SlotIndex" "10"
-				"SlotName" "ability_effects_4"
-				"SlotText" "techies_land_mines"
-				"DisplayInLoadout" "0"
-			}
-		}
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_GANKER"
@@ -7201,71 +5642,6 @@
 
 	"npc_dota_hero_winter_wyvern"
 	{
-		{
-			"fast"		"155"
-			"faster"	"205"
-			"fastest"	"300"
-		}
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_winter_wyvern/wyvern_loadout.vpcf"		"loadout"
-			}
-		}
-		"CombatClassAttack"		"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"		"DOTA_COMBAT_CLASS_DEFEND_HERO"
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"DisplayInLoadout" "0"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"back"
-				"SlotText"		"#LoadoutSlot_Back"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"8000"
-				"MaxPolygonsLOD1"		"3200"
-				"MaxBonesLOD0"			"80"
-				"MaxBonesLOD1"			"80"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"ambient_effects"
-				"SlotText"		"#LoadoutSlot_Ambient_Effects"
-				"DisplayInLoadout"		"0"
-			}
-			"5"
-			{
-				"SlotIndex" "5"
-				"SlotName" "ability_effects_3"
-				"SlotText" "winter_wyvern_cold_embrace"
-				"DisplayInLoadout" "0"
-			}
-		}
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_PURE_SUPPORT"
@@ -7308,97 +5684,8 @@
 	//=================================================================================================================
 	"npc_dota_hero_abyssal_underlord"
 	{
-		{
-			"fast"		"170"
-			"faster"	"275"
-			"fastest"	"350"
-		}
-		{
-			"walk"		"0"
-			"run"		"395"
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"	"2500"
-				"MaxPolygonsLOD1"	"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"	"3000"
-				"MaxPolygonsLOD1"	"1200"
-			}
+		"ProjectileSpeed"		"900"
 
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"armor"
-				"SlotText"		"#LoadoutSlot_Armor"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"	"6000"
-				"MaxPolygonsLOD1"	"2400"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"ambient_effects"
-				"SlotText"		"#LoadoutSlot_Ambient_Effects"
-				"DisplayInLoadout"	"0"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"body_head"
-				"SlotText"		"#LoadoutSlot_Head"
-				"DisplayInLoadout" 	"0"
-			}
-			"6"
-			{
-				"SlotIndex"		"6"
-				"SlotName"		"ability_effects_1"
-				"SlotText"		"abyssal_underlord_firestorm"
-				"DisplayInLoadout" "0"
-			}
-			"7"
-			{
-				"SlotIndex"		"7"
-				"SlotName"		"ability_effects_2"
-				"SlotText"		"abyssal_underlord_pit_of_malice"
-				"DisplayInLoadout" "0"
-			}
-			"8"
-			{
-				"SlotIndex"		"8"
-				"SlotName"		"ability_effects_3"
-				"SlotText"		"abyssal_underlord_atrophy_aura"
-				"DisplayInLoadout" "0"
-			}
-			"9"
-			{
-				"SlotIndex"		"9"
-				"SlotName"		"ability_effects_4"
-				"SlotText"		"abyssal_underlord_dark_portal"
-				"DisplayInLoadout" "0"
-			}
-		}
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_TANK | DOTA_BOT_PUSH_SUPPORT"
@@ -7417,89 +5704,8 @@
 
 	"npc_dota_hero_monkey_king"
 	{
-		{
-		}
-		{
-			"fast"		"170"
-			"faster"	"275"
-			"fastest"	"350"
-		}
-		"AttackRangeActivityModifiers"
-		{
-			"attack_normal_range"	"0"
-			"attack_long_range"		"200"
-		}
-		{
-			"walk"		"0"
-			"run"		"390"
-			"run_fast"	"440"
-		}
-		// Items
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"armor"
-				"SlotText"		"#LoadoutSlot_Armor"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"4000"
-				"MaxPolygonsLOD1"		"1600"
-			}
+		"ProjectileSpeed"		"900"
 
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"shoulder"
-				"SlotText"		"#LoadoutSlot_Shoulder"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"5"
-			{
-				"SlotIndex" "5"
-				"SlotName" "ability_effects_1"
-				"SlotText" "monkey_king_boundless_strike"
-				"DisplayInLoadout" "0"
-			}	
-			"6"
-			{
-				"SlotIndex" "6"
-				"SlotName" "ability_effects_4"
-				"SlotText" "monkey_king_wukongs_command"
-				"DisplayInLoadout" "0"
-			}
-		}
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_SEMI_CARRY | DOTA_BOT_GANKER"
@@ -7521,93 +5727,8 @@
 	//=================================================================================================================
 	"npc_dota_hero_pangolier"
 	{
-		{
-			"fast"		"170"
-			"faster"	"275"
-			"fastest"	"350"
-		}
-		{
-			"walk"		"0"
-			"run"		"400"
-		}
-		"ReleaseTimestamp"			"1509390000"
+		"ProjectileSpeed"		"900"
 
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_pangolier/pangolier_loadout.vpcf"		"loadout"
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"			"0"
-				"SlotName"			"weapon"
-				"SlotText"			"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"	"2500"
-				"MaxPolygonsLOD1"	"1000"
-			}
-			"1"
-			{
-				"SlotIndex"			"1"
-				"SlotName"			"head"
-				"SlotText"			"#LoadoutSlot_Head"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"	"3000"
-				"MaxPolygonsLOD1"	"1200"
-			}
-			"2"
-			{
-				"SlotIndex"			"2"
-				"SlotName"			"armor"
-				"SlotText"			"#LoadoutSlot_Armor"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"	"5000"
-				"MaxPolygonsLOD1"	"2000"
-			}
-			"3"
-			{
-				"SlotIndex"			"3"
-				"SlotName"			"offhand_weapon"
-				"SlotText"			"#LoadoutSlot_Offhand_Weapon"
-				"TextureWidth"		"256"   
-				"TextureHeight"		"256"   
-				"MaxPolygonsLOD0"	"2500"  
-				"MaxPolygonsLOD1"	"1000"  
-			}
-			"4"
-			{
-				"SlotIndex"			"4"
-				"SlotName"			"taunt"
-				"SlotText"			"#LoadoutSlot_Taunt"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"ambient_effects"
-				"SlotText"		"#LoadoutSlot_Ambient_Effects"
-				"DisplayInLoadout"		"0"
-			}
-			"6"
-			{
-				"SlotIndex" "6"
-				"SlotName" "ability_effects_1"
-				"SlotText" "pangolier_swashbuckle"
-				"DisplayInLoadout" "0"
-			}	
-			"7"
-			{
-				"SlotIndex" "7"
-				"SlotName" "ability_effects_2"
-				"SlotText" "pangolier_shield_crash"
-				"DisplayInLoadout" "0"
-			}
-		}
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_GANKER"
@@ -7629,138 +5750,7 @@
 	//=================================================================================================================
 	"npc_dota_hero_dark_willow"
 	{
-		{
-		}
-		{
-			"fast"		"200"
-			"faster"	"300"
-		}
-		{
-			"walk"		"0"
-			"run"		"340"
-		}
-		"ReleaseTimestamp"		"1509390000"
 
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_dark_willow/dark_willow_loadout.vpcf"		"loadout"
-			}
-		}
-		"AbilityPreview"
-		{
-			"resource"		"resource/UI/Heroes/default.res"
-			"movie"		"media/heroes/default"
-			"resource"		"resource/UI/Heroes/default.res"
-			"resource"		"resource/UI/Heroes/default.res"
-			"resource"		"resource/UI/Heroes/default.res"
-			"resource"		"resource/UI/Heroes/default.res"
-		}
-		"ItemSlots"
-		{
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"armor"
-				"SlotText"		"#LoadoutSlot_Armor"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1500"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"back"
-				"SlotText"		"#LoadoutSlot_Wings"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"4000"
-				"MaxPolygonsLOD1"		"1600"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"offhand_weapon"
-				"SlotText"		"#LoadoutSlot_offhand_weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-				"GeneratesUnits"
-				{
-					"0" "npc_dota_dark_willow_creature"
-				}
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"belt"
-				"SlotText"		"#LoadoutSlot_Belt"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"1500"
-				"MaxPolygonsLOD1"		"750"
-			}
-
-			"6"
-			{
-				"SlotIndex"		"6"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"7"
-			{
-				"SlotIndex"		"7"
-				"SlotName"		"ambient_effects"
-				"SlotText"		"#LoadoutSlot_Ambient_Effects"
-				"DisplayInLoadout"		"0"
-			}
-			"8"
-			{
-				"SlotIndex"		"8"
-				"SlotName"		"costume"
-				"SlotText"		"#LoadoutSlot_Costume"
-			}
-			"9"
-			{
-				"SlotIndex" "9"
-				"SlotName" "ability_effects_1"
-				"SlotText" "dark_willow_bramble_maze"
-				"DisplayInLoadout" "0"
-			}
-			"10"
-			{
-				"SlotIndex" "10"
-				"SlotName" "ability_effects_2"
-				"SlotText" "dark_willow_shadow_realm"
-				"DisplayInLoadout" "0"
-			}
-			"11"
-			{
-				"SlotIndex" "11"
-				"SlotName" "ability_effects_3"
-				"SlotText" "dark_willow_cursed_crown"
-				"DisplayInLoadout" "0"
-			}
-			"12"
-			{
-				"SlotIndex" "12"
-				"SlotName" "ability_effects_4"
-				"SlotText" "dark_willow_terrorize"
-				"DisplayInLoadout" "0"
-			}
-		}
 	}
 
 	//=================================================================================================================
@@ -7768,101 +5758,6 @@
 	//=================================================================================================================
 	"npc_dota_hero_grimstroke"
 	{
-
-
-		{
-			"fast"		"150"
-			"faster"	"240"
-			"fastest"	"330"
-		}
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_grimstroke/grimstroke_loadout.vpcf"
-				{
-					"0"
-					{
-						"type"		"follow_attachment"
-						"location"	"attach_hitloc"
-					}
-					"1"
-					{
-						"type"		"follow_origin"
-						"position"	"0 0 0"
-					}
-				}
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"			"0"
-				"SlotName"			"weapon"
-				"SlotText"			"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"			"4"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"	"3000"
-				"MaxPolygonsLOD1"	"1200"
-			}
-			"2"
-			{
-				"SlotIndex"			"3"
-				"SlotName"			"armor"
-				"SlotText"			"#LoadoutSlot_Armor"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"	"4000"
-				"MaxPolygonsLOD1"	"1600"
-			}
-			"3"
-			{
-				"SlotIndex"			"2"
-				"SlotName"			"belt"
-				"SlotText"			"#LoadoutSlot_Belt"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"	"3000"
-				"MaxPolygonsLOD1"	"1200"
-			}
-			"4"
-			{
-				"SlotIndex"			"5"
-				"SlotName"			"taunt"
-				"SlotText"			"#LoadoutSlot_Taunt"
-			}
-			"5"
-			{
-				"SlotIndex"			"6"
-				"SlotName"			"ambient_effects"
-				"SlotText"			"#LoadoutSlot_Ambient_Effects"
-				"DisplayInLoadout"	"0"
-			}
-			"6"
-			{
-				"SlotIndex" "7"
-				"SlotName" "ability_effects_1"
-				"SlotText" "grimstroke_dark_artistry"
-				"DisplayInLoadout" "0"
-			}
-			"7"
-			{
-				"SlotIndex" "8"
-				"SlotName" "ability_effects_4"
-				"SlotText" "grimstroke_soul_chain"
-				"DisplayInLoadout" "0"
-			}
-		}
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_STUN_SUPPORT | DOTA_BOT_GANKER"
@@ -7881,100 +5776,8 @@
 
 	"npc_dota_hero_mars"
 	{
-		{
-			"fast"		"140"
-			"faster"	"180"
-			"fastest"	"230"
-			"super_fast"	"300"
-		}
-		"AttackRangeActivityModifiers"
-		{
-			"attack_closest_range"	"0"
-			"attack_close_range"	"90"
-			"attack_medium_range"	"150"
-			"attack_long_range"		"250"
-		}
-		{
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
+		"ProjectileSpeed"		"900"
 
-				// disable his head slot for now
-				"DisplayInLoadout"		"0"
-				"no_import"				"1"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"armor"
-				"SlotText"		"#LoadoutSlot_Armor"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"5000"
-				"MaxPolygonsLOD1"		"2000"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"legs"
-				"SlotText"		"#LoadoutSlot_Legs"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3500"
-				"MaxPolygonsLOD1"		"1400"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"offhand_weapon"
-				"SlotText"		"#LoadoutSlot_Offhand_Weapon"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"6"
-			{
-				"SlotIndex"		"6"
-				"SlotName"		"costume"
-				"SlotText"		"#LoadoutSlot_Costume"
-			}
-			"7"
-			{
-				"SlotIndex" "7"
-				"SlotName" "ability_effects_1"
-				"SlotText" "mars_spear"
-				"DisplayInLoadout" "0"
-			}	
-			"8"
-			{
-				"SlotIndex" "8"
-				"SlotName" "ability_effects_2"
-				"SlotText" "mars_gods_rebuke"
-				"DisplayInLoadout" "0"
-			}
-		}
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_TANK | DOTA_BOT_SEMI_CARRY"
@@ -7993,96 +5796,8 @@
 	
 	"npc_dota_hero_void_spirit"
 	{
-		{
-			"fast"		"150"
-			"faster"	"200"
-		}
-		{
-			"jog"		"0"
-			"run"		"345"
-			"run_fast"	"400"
-		}
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_void_spirit/void_spirit_loadout.vpcf"
-				{
-					"0"
-					{
-						"type"		"follow_origin"
-						"location"	"attach_hitloc"
-					}
-				}
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"1"
-			{
-				"SlotIndex"			"1"
-				"SlotName"			"armor"
-				"SlotText"			"#LoadoutSlot_Armor"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"	"5000"
-				"MaxPolygonsLOD1"	"2000"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1200"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"belt"
-				"SlotText"		"#LoadoutSlot_belt"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"4000"
-				"MaxPolygonsLOD1"		"1600"
-			}
-			"5"
-			{
-				"SlotIndex"		"5"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"6"
-			{
-				"SlotIndex"		"6"
-				"SlotName"		"ambient_effects"
-				"SlotText"		"#LoadoutSlot_Ambient_Effects"
-				"DisplayInLoadout"		"0"
-			}
-			"7"
-			{
-				"SlotIndex" "7"
-				"SlotName" "ability_effects_4"
-				"SlotText" "void_spirit_astral_step"
-				"DisplayInLoadout" "0"
-			}
-		}
-		{
-			"Particles"
-			{
-			}
-		}
+		"ProjectileSpeed"		"900"
+
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_GANKER"
@@ -8099,96 +5814,8 @@
 		}	
 	}
 
-
 	"npc_dota_hero_snapfire"
 	{
-		{
-		}		
-		{
-			"fast"		"170"
-			"faster"	"320"
-		}
-		{
-			"walk"		"0"
-			"run"		"350"
-			"run_fast"	"440"
-			"run_haste"	"540"
-		}
-
-	
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"			"0"
-				"SlotName"			"head"
-				"SlotText"			"#LoadoutSlot_Head"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"	"2500"
-				"MaxPolygonsLOD1"	"1000"
-			}
-			"1"
-			{
-				"SlotIndex"			"1"
-				"SlotName"			"costume"
-				"SlotText"			"#LoadoutSlot_Costume"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"	"3500"
-				"MaxPolygonsLOD1"	"1400"
-			}
-			"2"
-			{
-				"SlotIndex"			"2"
-				"SlotName"			"armor"
-				"SlotText"			"#LoadoutSlot_Armor"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"	"5000"
-				"MaxPolygonsLOD1"	"2000"
-			}
-			"3"
-			{
-				"SlotIndex"			"3"
-				"SlotName"			"mount"
-				"SlotText"			"#LoadoutSlot_Mount"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"	"6000"
-				"MaxPolygonsLOD1"	"2400"
-			}
-			"4"
-			{
-				"SlotIndex"			"4"
-				"SlotName"			"weapon"
-				"SlotText"			"#LoadoutSlot_Weapon"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"	"2500"
-				"MaxPolygonsLOD1"	"1000"
-			}
-			"5"
-			{
-				"SlotIndex"			"5"
-				"SlotName"			"taunt"
-				"SlotText"			"#LoadoutSlot_Taunt"
-			}
-			"6"
-			{
-				"SlotIndex"			"6"
-				"SlotName"			"ambient_effects"
-				"SlotText"			"#LoadoutSlot_Ambient_Effects"
-				"DisplayInLoadout"	"0"
-			}
-			"7"
-			{
-				"SlotIndex" "7"
-				"SlotName" "ability_effects_3"
-				"SlotText" "snapfire_lil_shredder"
-				"DisplayInLoadout" "0"
-			}
-		}
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_STUN_SUPPORT | DOTA_BOT_GANKER"
@@ -8213,95 +5840,8 @@
 
 	"npc_dota_hero_dawnbreaker"
 	{
-		
-		"AttackRangeActivityModifiers"
-		{
-			"attack_short_range"	"0"
-			"attack_long_range"		"80"
-		}
-		{
-			"walk"		"0"
-			"run"		"350"
-			"run_fast"	"440"
-		//	"run_haste"	"540"
-		}
-		{
-			"fast"		"180"
-		//	"faster"	"300"
-		}
-		"animation_transitions"
-		{
-			"ACT_DOTA_RUN"
-			{
-				"regular"		"0.300000"
-			}
-			"ACT_DOTA_IDLE"
-			{
-				"regular"		"0.40000"
-			}
-		}
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_dawnbreaker/dawnbreaker_loadout.vpcf"
-				{
-					"0"
-					{
-						"type"		"follow_origin"
-						"location"		"attach_hitloc"
-					}
-				}
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head_Accessory"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"4000"
-				"MaxPolygonsLOD1"		"1600"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"arms"
-				"SlotText"		"#LoadoutSlot_Arms"
-				"TextureWidth"		"256"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"armor"
-				"SlotText"		"#LoadoutSlot_Armor"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"5000"
-				"MaxPolygonsLOD1"		"2000"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"weapon"
-				"SlotText"		"#LoadoutSlot_Weapon"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1000"
-			}
-			"4"
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-		}
+		"ProjectileSpeed"		"900"
+
 		"Bot"
 		{
 			"HeroType"		"DOTA_BOT_TANK | DOTA_BOT_GANKER | DOTA_BOT_SEMI_CARRY"
@@ -8317,108 +5857,22 @@
 			}
 		}
 	}
+	
 	"npc_dota_hero_marci"
 	{
 		"BotImplemented"		"0"
-
 		"ProjectileSpeed"			"900"
 	}
+
 	"npc_dota_hero_primal_beast"
 	{
-		"RareIdleExpression" 		"scenes/primal_beast/primal_beast_exp_idle_02.vcd"
-		"MaxModelScaleMultiplier"	"1.25"
-		{
-		}		
-		{
-			"fast"		"200"
-		}
-		"ShowcasePlayIdleExpression" "0"
-		"animation_transitions"
-		{
-			"ACT_DOTA_IDLE"
-			{
-		 		"regular"	"0.9"
-			}
-			"ACT_DOTA_RUN"
-			{
-				"regular"		"0.9"
-			}
-		}
-		{
-			"Particles"
-			{
-				"particles/units/heroes/hero_primal_beast/primal_beast_loadout.vpcf"
-				{
-					"0"
-					{
-						"type"		"follow_origin"
-						"location"	"attach_hitloc"
-					}
-				}
-			}
-		}
-		"ItemSlots"
-		{
-			"0"
-			{
-				"SlotIndex"		"0"
-				"SlotName"		"head"
-				"SlotText"		"#LoadoutSlot_Head"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1250"
-			}
-			"1"
-			{
-				"SlotIndex"		"1"
-				"SlotName"		"arms"
-				"SlotText"		"#LoadoutSlot_Arms"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"3000"
-				"MaxPolygonsLOD1"		"1500"
-			}
-			"2"
-			{
-				"SlotIndex"		"2"
-				"SlotName"		"back"
-				"SlotText"		"#LoadoutSlot_Back"
-				"TextureWidth"		"512"
-				"TextureHeight"		"512"
-				"MaxPolygonsLOD0"		"4000"
-				"MaxPolygonsLOD1"		"2000"
-			}
-			"3"
-			{
-				"SlotIndex"		"3"
-				"SlotName"		"legs"
-				"SlotText"		"#LoadoutSlot_Legs"
-				"TextureWidth"		"512"
-				"TextureHeight"		"256"
-				"MaxPolygonsLOD0"		"2500"
-				"MaxPolygonsLOD1"		"1250"
-			}
-			"4"	
-			{
-				"SlotIndex"		"4"
-				"SlotName"		"taunt"
-				"SlotText"		"#LoadoutSlot_Taunt"
-			}
-			"5"
-			{
-				"SlotIndex" "5"
-				"SlotName" "ability_effects_1"
-				"SlotText" "primal_beast_onslaught"
-				"DisplayInLoadout" "0"
-			}
-		}
-	}
-	"npc_dota_hero_muerta"
-	{
-		"RandomEnabled"		"1"
 		"BotImplemented"		"0"
+		"ProjectileSpeed"		"900"
 	}
 
+	"npc_dota_hero_muerta"
+	{
+		"BotImplemented"		"0"
+	}
 }
 

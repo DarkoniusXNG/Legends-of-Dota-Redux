@@ -1335,42 +1335,7 @@ function GetSpellPower(unit)
 		return 0
 	end
 
-	-- Adjust base spell power based on current intelligence
-	local unit_intelligence = unit:GetIntellect()
-	local spell_power = unit_intelligence * 0.125
-
-	-- Adjust spell power based on War Veteran stacks
-	if unit:HasModifier("modifier_imba_unlimited_level_powerup") then
-		spell_power = spell_power + 2 * unit:GetModifierStackCount("modifier_imba_unlimited_level_powerup", unit)
-	end
-
-	-- Define item-based item power values
-	local item_spell_power = {}
-	item_spell_power["item_imba_aether_lens"] = 10
-	item_spell_power["item_imba_nether_wand"] = 10
-	item_spell_power["item_imba_elder_staff"] = 20
-	item_spell_power["item_imba_orchid"] = 25
-	item_spell_power["item_imba_bloodthorn"] = 30
-	item_spell_power["item_imba_rapier_magic"] = 70
-	item_spell_power["item_imba_rapier_magic_2"] = 200
-	item_spell_power["item_imba_rapier_cursed"] = 200
-
-	-- Fetch current bonus spell power from items, if existing
-	for i = 0, 5 do
-		local current_item = unit:GetItemInSlot(i)
-		if current_item then
-			local current_item_name = current_item:GetName()
-			if item_spell_power[current_item_name] then
-				spell_power = spell_power + item_spell_power[current_item_name]
-			end
-		end
-	end
-
-	-- Fetch bonus spell power from talents
-	spell_power = spell_power + GetSpellPowerFromTalents(unit)
-
-	-- Return current spell power
-	return spell_power
+	return unit:GetSpellAmplification(false)
 end
 
 -- Returns true if a hero has red hair
@@ -1864,7 +1829,7 @@ function ApplyAllRandomOmgAbilities( hero )
 	-- Remove default abilities
 	for i = 0, DOTA_MAX_ABILITIES - 1 do
 		local old_ability = hero:GetAbilityByIndex(i)
-		if old_ability and not DONOTREMOVE[old_ability:GetAbilityName()] then
+		if old_ability and not DONOTREMOVE[old_ability:GetAbilityName()] and not util:IsVanillaInnate(old_ability) then
 			hero:RemoveAbility(old_ability:GetAbilityName())
 		end
 	end
