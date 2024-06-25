@@ -4,81 +4,56 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                    "zuus_arc_lightning"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"                    "zuus_arc_lightning"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"   
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-        "AbilityTextureName"                                                   "custom/zuus_arc_lightning_op"
-        "ReduxFlags"                                                           ""
-        "ReduxPerks"                                                           "lightning"
-        "ReduxCost"                                                            "120"
-        
-        // Casting
-        //-------------------------------------------------------------------------------------------------------------
+        "AbilityTextureName"            "custom/zuus_arc_lightning_op"
+        "ReduxFlags"                    ""
+        "ReduxPerks"                    "lightning"
+        "ReduxCost"                     "120"
         "AbilityCastRange"              "850"
         "AbilityCastPoint"              "0.2"
-
-        // Damage.
-        //-------------------------------------------------------------------------------------------------------------
-        //"AbilityDamage"                 "100 140 180 220"
-
-        // Time     
-        //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "1.6"
+        "AbilityManaCost"               "75 80 85 90"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 
-        // Cost
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "65 70 75 80"
-
-        // Special
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-			"01"
+        "AbilityValues"
+		{
+			"arc_damage"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"arc_damage"			"100 140 180 220"
-				"LinkedSpecialBonus"	"special_bonus_unique_zeus_2"
+				"value"			"100 140 180 220"
+				"special_bonus_unique_zeus_2"	"+80"
 			}
-			"02"
+			"radius"				
 			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"3500"
+				"value"			"7777"
+				"affected_by_aoe_increase"	"1"
 			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"jump_count"			"100"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"jump_delay"			"0.05 0.05 0.05 0.05"
-			}
-        }
+			"jump_count"			"10 20 30 40"
+			"jump_delay"			"0.25 0.2 0.15 0.1"
+		}
     }
 
     "lich_chain_frost_op"
     {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                    "lich_chain_frost"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"                    "lich_chain_frost"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
         "FightRecapLevel"               "2"
-        "AbilityTextureName"                                                   "custom/lich_chain_frost_op"
-        "ReduxFlags"                                                           "upgradeable"
-        "ReduxPerks"                                                           "ice"
-        "ReduxCost"                                                            "120"
-        "HasScepterUpgrade"         "1"
+        "AbilityTextureName"            "custom/lich_chain_frost_op"
+        "ReduxFlags"                    ""
+        "ReduxPerks"                    "ice"
+        "ReduxCost"                     "120"
+        "HasScepterUpgrade"         	"0"
 
         "precache"
         {
@@ -87,44 +62,62 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
         }
         
-        // Casting
-        //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "750"
         "AbilityCastPoint"              "0.3"
-
-        // Time     
-        //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "60.0 40.0 30.0"
-
-        // Cost
-        //-------------------------------------------------------------------------------------------------------------
         "AbilityManaCost"               "180 300 420"
-
-        // Stats
-        //-------------------------------------------------------------------------------------------------------------
         "AbilityModifierSupportValue"   "0.0"   // Primarily about the damage
 
-        // Special
-        //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
 		{
 			"damage"
 			{
-				"value"		"100 200 300"
-				"special_bonus_unique_lich_7" "+200"
+				"value"		"250 400 550"
 			}
-			"jumps"					"25 50 75"
-			"jump_range"			"800"
-			"slow_movement_speed"	"-65 -75 -85"
-			"slow_attack_speed"		"-65 -75 -85"
-			"slow_duration"			"2.5 3.0 3.5"
-			"projectile_speed"		"2000"
-			"vision_radius"			"1000"
-			"bonus_jump_damage"		"20 30 40"
-			"initial_projectile_speed"		"2000"
+			"bonus_jump_damage"		
+			{
+				"value"			"20 30 40"
+				"CalculateSpellDamageTooltip" "1"
+			}
+			"jumps"					"15 30 45"
+			"jump_range"			
+			{
+				"value"			"1200"
+				"affected_by_aoe_increase"	"1"
+			}
+			"slow_movement_speed"	"-65 -85 -105"
+			"slow_attack_speed"		"-65 -85 -105"
+			"slow_duration"			"2.5"
+			"initial_projectile_speed"		"1050"
+			"projectile_speed"		"1050"
+			"vision_radius"			
+			{
+				"value"				"1200"
+				"affected_by_aoe_increase"		"1"
+			}
 			"has_unlimited_jumps"
 			{
 				"special_bonus_unique_lich_5"	"+1"
+			}
+			"should_fire_chain_frost_on_death"
+			{
+				"value"		"1"
+				"special_bonus_unique_lich_7" "+1"
+			}
+			"bonus_jumps_per_hero_killed"
+			{
+				"value"					"3"
+				"special_bonus_facet_lich_growing_cold"			"+3"				
+			}
+			"bonus_jumps_per_creep_killed"
+			{
+				"value"											"1"
+				"special_bonus_facet_lich_growing_cold"			"+1"				
+			}
+			"frostbound_duration"						
+			{
+				"value"							"10"
+				"special_bonus_facet_lich_frostbound"			"+10"				
 			}
 		}			
     }
