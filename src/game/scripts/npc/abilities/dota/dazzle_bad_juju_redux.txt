@@ -17,7 +17,7 @@
         "AbilityCastRange"              "1200"
         
         "ReduxCost"                                                            "40"
-        "ReduxBans"                                                            "death_prophet_witchcraft | storm_spirit_ball_lightning"
+        "ReduxBans"                                                            "storm_spirit_ball_lightning"
         "ReduxBanCategory"                                                     "SpammableSpells"
         "ReduxFlags"                                                           "cooldown"
 

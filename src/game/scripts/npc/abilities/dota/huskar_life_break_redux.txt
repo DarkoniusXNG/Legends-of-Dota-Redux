@@ -2,9 +2,7 @@
 {
     "huskar_life_break_redux"
     {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                            "huskar_life_break"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"                            "huskar_life_break"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityTextureName"            "custom/huskar_life_break_redux"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"     
@@ -28,82 +26,68 @@
         "ReduxPerks"                                                           "self_damage"
         "ReduxCost"                                                            "40"
         "ReduxBans"                                                            "spell_lab_symbiotic"
-
-        // Casting
-        //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"              "0.3 0.3 0.3"
-
-        // Time     
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "48"
-
-        // Cost
-        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "32 28 24"
         "AbilityManaCost"               "0 0 0"     
-        
-        // Cast Range
-        //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "550"
-        
-        // Casting
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityDuration"               "4 5 6"
-        
-        // Special
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "health_cost_percent"       "0.34 0.38 0.42"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "health_damage"             "0.34 0.38 0.42"
-            }
-            "03"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "health_damage_scepter"     "0.65"
-            }
-            "04"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "charge_speed"              "1200"
-            }
-            "05"
-            {
-                "var_type"                          "FIELD_INTEGER"
-                "tooltip_health_damage"             "34 38 42"
-            }
-            "06"
-            {
-                "var_type"                          "FIELD_INTEGER"
-                "tooltip_health_cost_percent"       "34 38 42"
-                "CalculateSpellDamageTooltip"       "1"
-            }
-            "07"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "movespeed"                 "-40 -50 -60"
-            }
-            "08"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "slow_durtion_tooltip"      "4 5 6"
-            }
-            "09"
-            {
-                "var_type"                          "FIELD_INTEGER"
-                "tooltip_health_damage_scepter"     "65"
-            }
-            "10"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "cooldown_scepter"          "16"
-            }
-        }
+        "AbilityDuration"               "3 4 5"
+        "AbilityValues"
+		{
+			"health_cost_percent"		"0.32 0.38 0.44"
+			"health_damage"				
+			{
+				"value"	"0.32 0.38 0.44"
+				"special_bonus_unique_huskar" "+0.2"
+			}
+			"charge_speed"				"1200"
+			"tooltip_health_damage"				
+			{
+				"value"		"32 38 44"
+				"special_bonus_unique_huskar" "+20"
+			}
+			"tooltip_health_cost_percent"		
+			{
+				"value"			"32 38 44"
+				"CalculateSpellDamageTooltip"		"1"
+				"DamageTypeTooltip"					"DAMAGE_TYPE_MAGICAL"
+			}
+			"movespeed"					"-60 -60 -60"
+			"attack_speed"				"60 100 140"
+			"slow_duration_tooltip"		
+			{
+				"value"				"3 4 5"
+				"special_bonus_unique_huskar_4" "+2"
+			}
+			"taunt_duration"		
+			{
+				"value"		"3.0"
+				"RequiresScepter"		"1"
+			}
+			"cast_range_bonus"		
+			{
+				"value"		"250"
+				"RequiresScepter"		"1"
+			}
+			"splash_radius"
+			{
+				"value"						"0"
+				"special_bonus_facet_huskar_bloodbath"	"=500"
+				"affected_by_aoe_increase"	"1"
+				"RequiresFacet"			"huskar_bloodbath"
+			}
+			"life_break_heal_radius"
+			{
+				"value"						"0"
+				"special_bonus_facet_huskar_nothl_transfusion"		"=400"
+				"affected_by_aoe_increase"	"1"
+				"RequiresFacet"			"huskar_nothl_transfusion"
+			}
+			"life_break_heal_pct"
+			{
+				"value"						"0"
+				"special_bonus_facet_huskar_nothl_transfusion"	"0"
+				"RequiresFacet"			"huskar_nothl_transfusion"
+			}
+		}
     }
 }
