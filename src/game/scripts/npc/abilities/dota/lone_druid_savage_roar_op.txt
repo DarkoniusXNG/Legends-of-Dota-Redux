@@ -9,28 +9,48 @@
         "SpellDispellableType"                                                 "SPELL_DISPELLABLE_YES"
         "AbilityTextureName"                                                   "custom/lone_druid_savage_roar_op"
         "AbilityCastPoint"                                                     "0.1"
-        "AbilityCooldown"                                                      "70 60 50"
         "AbilityManaCost"                                                      "150"
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "99999"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_speed"                                          "20"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "4 5 6"
-            }
-        }
+        "AbilityValues"
+		{
+				"radius"				
+				{
+					"value"		"900"
+					"special_bonus_unique_lone_druid_savage_roar_aoe"				"+300"
+					"affected_by_aoe_increase"	"1"
+				}
+				"bonus_speed"			"-10 -15 -20 -25"
+				"duration"				"1.0 1.5 2.0 2.5"
+				"only_affects_player_units"	"0"
+				"shard_radius"
+				{
+					"value"					"2000"
+					"RequiresShard"				"1"
+					"affected_by_aoe_increase"	"1"
+				}
+				"shard_movement_speed_pct"				
+				{
+					"value"					"15"
+					"RequiresShard"				"1"
+				}
+				"shard_attack_speed"				
+				{
+					"value"				"60"
+					"RequiresShard"				"1"
+				}
+				"shard_duration"				
+				{
+					"value"				"5.0"
+					"RequiresShard"				"1"
+				}
+				"AbilityCooldown"				
+				{
+					"value"				"35 30 25 20"
+					"special_bonus_unique_lone_druid_4"			"-10"
+				}
+		}
         "ReduxCost"                                                            "120"
-        "ReduxBans"                                                            "tinker_rearm"
+        "ReduxBans"                                                            ""
         "ReduxFlags"                                                           ""
+		"ReduxPerks"				"enemyMoving"
     }
 }
