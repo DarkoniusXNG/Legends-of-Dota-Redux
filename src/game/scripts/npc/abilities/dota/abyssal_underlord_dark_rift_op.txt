@@ -5,7 +5,7 @@
         "BaseClass"                                                            "abyssal_underlord_dark_rift"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-        "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP"
         "AbilityUnitTargetFlags"                                               "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
         "AbilityTextureName"                                                   "custom/abyssal_underlord_dark_rift_op"
@@ -17,11 +17,11 @@
         "AbilityValues"
 		{
 
-			"radius"						"25000"
-			"teleport_delay"				"4.0 2.0 0.0"
+			"radius"						"3000 6000 9000"
+			"teleport_delay"				"3 2 1"
 			"scepter_health_bonus" 
 			{
-				"special_bonus_scepter"	"+1000 +2000 +3000"
+				"special_bonus_scepter"	"+2000 +4000 +6000"
 			}			
 		}
         "ReduxPerks"                                                           "teleport"
