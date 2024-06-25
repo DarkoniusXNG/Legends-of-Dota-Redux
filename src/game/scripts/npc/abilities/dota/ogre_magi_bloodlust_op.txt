@@ -2,54 +2,45 @@
 {
     "ogre_magi_bloodlust_op"
     {
-        "BaseClass"                                                            "ogre_magi_bloodlust"
-        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
-        "AbilityUnitTargetFlags"                                               "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-        "SpellImmunityType"                                                    "SPELL_IMMUNITY_ALLIES_YES"
-        "AbilityTextureName"                                                   "custom/ogre_magi_bloodlust_op"
-        "SpellDispellableType"                                                 "SPELL_DISPELLABLE_YES"
-        "MaxLevel"                                                             "7"
-        "AbilityCastRange"                                                     "700"
-        "AbilityCastPoint"                                                     "0.1"
-        "AbilityCooldown"                                                      "20 18 16 14 12 10 8"
-        "AbilityManaCost"                                                      "50"
-        "AbilitySpecial"
-        {
-            "01"
+        "BaseClass"                    	"ogre_magi_bloodlust"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ALLIES_YES"
+        "AbilityTextureName"            "custom/ogre_magi_bloodlust_op"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+        "MaxLevel"                      "4"
+        "AbilityCastRange"              "900"
+        "AbilityCastPoint"              "0.1"
+        "AbilityCooldown"               "10"
+        "AbilityManaCost"               "40"
+        "AbilityValues"
+		{
+			"modelscale"				"35.0"
+			"bonus_movement_speed"		"15 20 25 30"
+			"bonus_attack_speed"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"modelscale"		"25 27 29 31 33 35 37"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"		"7 9 11 13 15 17 19 21"
+				"value"					"30 60 90 120"
+				"special_bonus_unique_ogre_magi" "+50"
 			}
-			"03"
+			"self_bonus"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"30 40 50 60 70 80 90"
-				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi"
+				"value"					"60 90 120 150"
+				"special_bonus_unique_ogre_magi" "+90"
 			}
-			"04"
+			"duration"					"90"
+			"multicast_bloodlust_aoe"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"self_bonus"	"30 50 70 90 110 130 150"
-				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi"
+				"value"						"700"
+				"affected_by_aoe_increase"	"1"
 			}
-			"05"
+			"required_level"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"30 40 50 60 70 80 90"
+				"value"						"1"
+				"special_bonus_facet_ogre_magi_learning_curve"	"-1"
 			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"multicast_bloodlust_aoe"			"700"
-			}
-        }
+		}
         "ReduxPerks"                                                           "support | rage"
         "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           ""
