@@ -7767,14 +7767,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                     spawnedUnit:RemoveAbility("ursa_overpower_melee")
             end
 
-            if spawnedUnit:HasAbility("phantom_assassin_coup_de_grace_melee") and spawnedUnit:IsRangedAttacker() then
-                    spawnedUnit:AddAbility("phantom_assassin_coup_de_grace_ranged")
-                    spawnedUnit:SwapAbilities("phantom_assassin_coup_de_grace_melee","phantom_assassin_coup_de_grace_ranged",false,true)
-                    spawnedUnit:RemoveAbility("phantom_assassin_coup_de_grace_melee")
-            end
-
-
-
             -- Custom Flesh Heap fixes
             --[[for abilitySlot=0,6 do
                 local abilityTemp = spawnedUnit:GetAbilityByIndex(abilitySlot)

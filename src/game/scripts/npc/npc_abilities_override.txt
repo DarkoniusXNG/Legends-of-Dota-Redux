@@ -10565,11 +10565,7 @@
 
         "special_bonus_unique_wraith_king_1"
         {
-            "TalentRequiredAbility"
-            {
-                "1" "skeleton_king_reincarnation"
-                "2" "skeleton_king_reincarnation_redux"
-            }
+            "TalentRequiredAbility"                                                   "skeleton_king_reincarnation"
         }
         "special_bonus_unique_wraith_king_2"
         {
@@ -10584,8 +10580,7 @@
             "TalentRequiredAbility"
             {
                 "1" "skeleton_king_reincarnation"
-                "2" "skeleton_king_reincarnation_redux"
-                "3" "skeleton_king_hellfire_blast"
+                "2" "skeleton_king_hellfire_blast"
             }
         }
         "special_bonus_unique_wraith_king_5"

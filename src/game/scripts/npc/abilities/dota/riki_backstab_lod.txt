@@ -47,5 +47,6 @@
         "ReduxFlags"                                                           "attack_modifier | dota_custom"
         "ReduxPerks"                                                           "attack_modifier"
         "ReduxCost"                                                            "10"
+        "ReduxBans"                                                            "riki_innate_backstab"
     }
 }
