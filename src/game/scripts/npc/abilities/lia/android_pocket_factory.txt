@@ -53,6 +53,6 @@
         "ReduxFlags"                                                           "summon"
         "ReduxPerks"                                                           "scientific | summon_non_ult"
         "ReduxCost"                                                            "120"
-        "ReduxBans"                                                            "tinker_rearm | tinker_rearm_lod"
+        "ReduxBans"                                                            "tinker_rearm"
     }
 }
