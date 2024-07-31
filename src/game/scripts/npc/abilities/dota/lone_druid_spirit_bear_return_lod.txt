@@ -1,0 +1,15 @@
+"DOTAAbilities"
+{
+	"lone_druid_spirit_bear_return_lod"
+	{
+		"BaseClass"                                                            "ability_lua"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"                                                   "custom/lone_druid_spirit_bear_return_lod_OP"
+
+		"AbilityCooldown"                                                      "60 50 40 30"
+		"AbilityManaCost"                                                      "100 125 150 175"
+		"ReduxFlags"                                                           "mobility | doNotRandom"
+		"ReduxPerks"                                                           "neutral | mobility | teleport"
+		"ReduxCost"                                                            "120"
+	}
+}

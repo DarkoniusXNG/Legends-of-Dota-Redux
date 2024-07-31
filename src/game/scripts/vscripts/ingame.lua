@@ -910,7 +910,7 @@ function Ingame:FatOMeterAnimate(dt)
             hero:SetModelScale(default + target)
 
             --Meepo/Arc Warden ult checker
-            if hero:HasAbility('meepo_divided_we_stand') or hero:HasAbility('arc_warden_tempest_double') or hero:HasAbility('arc_warden_tempest_double_redux') then
+            if hero:HasAbility('meepo_divided_we_stand') or hero:HasAbility('arc_warden_tempest_double') then
                 local clones = Entities:FindAllByName(hero:GetClassname())
 
                 for k, heroClone in pairs(clones) do
@@ -983,7 +983,7 @@ function Ingame:balancePlayer(playerID, newTeam)
                 hero:SetTimeUntilRespawn(1)
 
                 -- Check if we have any meepo clones
-                if hero:HasAbility('arc_warden_tempest_double') or hero:HasAbility('arc_warden_tempest_double_redux') then
+                if hero:HasAbility('arc_warden_tempest_double') then
                     local clones = Entities:FindAllByName(hero:GetClassname())
 
                     for k, tempestDouble in pairs(clones) do

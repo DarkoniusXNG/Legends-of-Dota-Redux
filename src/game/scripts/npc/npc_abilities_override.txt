@@ -1593,14 +1593,14 @@
         {
             "ReduxFlags"                                                           "upgradeable | wtfAutoBan | semi_passive"
             "ReduxCost"                                                            "80"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux | meepo_divided_we_stand | phoenix_supernova"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand | phoenix_supernova"
         }
         "ancient_apparition_ice_blast"
         {
             "ReduxFlags"                                                           "wtfAutoBan"
             "ReduxPerks"                                                           "ice | skillshot"
             "ReduxCost"                                                            "20"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux | meepo_divided_we_stand"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
         }
         "axe_culling_blade"
         {
@@ -1698,7 +1698,7 @@
         {
             "ReduxFlags"                                                           "illusion"
             "ReduxPerks"                                                           "illusion"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
         }
 
         "dazzle_weave"
@@ -1758,7 +1758,7 @@
         {
             "ReduxFlags"                                                           "stun"
             "ReduxCost"                                                            "20"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux | meepo_divided_we_stand"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
         }
         "faceless_void_backtrack"
         {
@@ -1851,7 +1851,7 @@
         {
             "ReduxFlags"                                                           "upgradeable | doNotRandom"
             "ReduxCost"                                                            "500"
-            "ReduxBans"                                                            "arc_warden_tempest_double | arc_warden_tempest_double_redux | meepo_divided_we_stand | spell_lab_symbiotic"
+            "ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand | spell_lab_symbiotic"
         }
         "naga_siren_song_of_the_siren"
         {
@@ -1863,19 +1863,19 @@
             "ReduxPerks"                                                           "nature"
             "ReduxFlags"                                                           "upgradeable | wtfAutoBan"
             "ReduxCost"                                                            "10"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux | meepo_divided_we_stand"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
         }
         "necrolyte_reapers_scythe"
         {
             "ReduxFlags"                                                           "stun"
             "ReduxCost"                                                            "10"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux | meepo_divided_we_stand"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
         }
         "omniknight_guardian_angel"
         {
             "ReduxFlags"                                                           "upgradeable | support | wtfAutoBan"
             "ReduxPerks"                                                           "support | light"
-            "ReduxBans"                                                            "arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "arc_warden_tempest_double"
         }
         "oracle_purifying_flames"
         {
@@ -1890,7 +1890,7 @@
         {
             "ReduxFlags"                                                           "upgradeable | stun"
             "ReduxPerks"                                                           "fire"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
         }
         "puck_dream_coil"
         {
@@ -1914,7 +1914,7 @@
         {
             "ReduxFlags"                                                           "upgradeable | physical"
             "ReduxPerks"                                                           "lightning | physical"
-            "ReduxBans"                                                            "visage_summon_familiars_stone_form | tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "visage_summon_familiars_stone_form | tinker_rearm | arc_warden_tempest_double"
         }
         "sandking_burrowstrike"
         {
@@ -1952,13 +1952,13 @@
         {
             "ReduxFlags"                                                           "upgradeable | wtfAutoBan"
             "ReduxCost"                                                            "20"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
         }
         "silencer_global_silence"
         {
             "ReduxFlags"                                                           "support | silence | wtfAutoBan"
             "ReduxPerks"                                                           "support | silence"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
         }
         "skywrath_mage_mystic_flare"
         {
@@ -1985,7 +1985,7 @@
         {
             "ReduxFlags"                                                           "upgradeable | doNotRandom"
             "ReduxPerks"                                                           "scientific | trap | explosive"
-            "ReduxBans"                                                            "arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "arc_warden_tempest_double"
         }
         "tidehunter_gush"
         {
@@ -2046,14 +2046,14 @@
         {
             "ReduxFlags"                                                           "summon"
             "ReduxCost"                                                            "20"
-            "ReduxBans"                                                            "arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "arc_warden_tempest_double"
         }
         "warlock_rain_of_chaos"
         {
             "ReduxFlags"                                                           "upgradeable | stun | summon | wtfAutoBan"
             "ReduxPerks"                                                           "fire"
             "ReduxCost"                                                            "20"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
         }
         "weaver_time_lapse"
         {
@@ -2081,14 +2081,14 @@
         {
             "ReduxFlags"                                                           "upgradeable | wtfAutoBan"
             "ReduxCost"                                                            "120"
-            "ReduxBans"                                                            "imba_dazzle_shallow_grave_passive | tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "imba_dazzle_shallow_grave_passive | tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
         }
         "zuus_thundergods_wrath"
         {
             "ReduxFlags"                                                           "wtfAutoBan"
             "ReduxPerks"                                                           "lightning"
             "ReduxCost"                                                            "20"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux | meepo_divided_we_stand"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
         }
         "skywrath_mage_concussive_shot"
         {
@@ -2685,7 +2685,7 @@
             "ReduxFlags"                                                           "mobility"
             "ReduxPerks"                                                           "mobility"
             "ReduxCost"                                                            "80"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
         }
         "templar_assassin_meld"
         {
@@ -2760,7 +2760,7 @@
         {
             "ReduxFlags"                                                           "mobility"
             "ReduxPerks"                                                           "mobility | scientific | self_damage | explosive"
-            "ReduxBans"                                                            "imba_dazzle_shallow_grave_passive | arc_warden_tempest_double | arc_warden_tempest_double_redux | spell_lab_symbiotic"
+            "ReduxBans"                                                            "imba_dazzle_shallow_grave_passive | arc_warden_tempest_double | spell_lab_symbiotic"
         }
         "phoenix_icarus_dive"
         {
@@ -3558,7 +3558,7 @@
         {
             "ReduxFlags"                                                           "stun"
             "ReduxPerks"                                                           "enemyMoving"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
         }
         "earth_spirit_boulder_smash"
         {
@@ -3569,7 +3569,7 @@
         {
             "ReduxFlags"                                                           "stun"
             "ReduxPerks"                                                           "scientific | trap"
-            "ReduxBans"                                                            "arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "arc_warden_tempest_double"
         }
         "leshrac_split_earth"
         {
@@ -3608,7 +3608,7 @@
         {
             "ReduxFlags"                                                           "stun"
             "ReduxPerks"                                                           "water"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
         }
         "winter_wyvern_winters_curse"
         {
@@ -3672,7 +3672,7 @@
         {
             "ReduxPerks"                                                           "nature"
             "ReduxFlags"                                                           "stun"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
         }
         "abyssal_underlord_pit_of_malice"
         {
@@ -3886,7 +3886,7 @@
         {
             "ReduxFlags"                                                           "illusion | wtfAutoBan | doNotRandom"
             "ReduxPerks"                                                           "illusion"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
 			"AbilityCooldown"				"160 150 140 130"
 			"MaxLevel"						"4"
 			"AbilityValues"
@@ -3903,6 +3903,7 @@
 		{
 			"ReduxFlags"                    "illusion"
             "ReduxPerks"                    "illusion"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
 		}
         "terrorblade_reflection"
         {
@@ -4102,7 +4103,7 @@
         {
             "ReduxPerks"                                                           "lightning"
             "ReduxCost"                                                            "80"
-            "ReduxBans"                                                            "imba_omniknight_purification | tinker_rearm | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "imba_omniknight_purification | tinker_rearm"
         }
         "disruptor_thunder_strike"
         {
@@ -4220,7 +4221,7 @@
         "gyrocopter_call_down"
         {
             "ReduxPerks"                                                           "scientific | skillshot | explosive"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | arc_warden_tempest_double_redux | meepo_divided_we_stand"
+            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
             "ReduxFlags"                                                           "wtfAutoBan"
         }
         "gyrocopter_rocket_barrage"
@@ -4278,7 +4279,7 @@
         "techies_land_mines"
         {
             "ReduxPerks"                                                           "scientific | trap | explosive"
-            "ReduxBans"                                                            "arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "arc_warden_tempest_double"
         }
         "tinker_march_of_the_machines"
         {
@@ -4288,7 +4289,7 @@
         {
             "ReduxPerks"                                                           "scientific | channeled | refresh"
             "ReduxCost"                                                            "500"
-            "ReduxBans"                                                            "dazzle_shallow_grave | lich_absolute_zero | arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "dazzle_shallow_grave | lich_absolute_zero | arc_warden_tempest_double"
             "ReduxFlags"                                                           "cooldown"
         }
         "chen_penitence"
@@ -4883,7 +4884,7 @@
         }
         "techies_focused_detonate"
         {
-            "ReduxBans"                                                            "arc_warden_tempest_double | arc_warden_tempest_double_redux"
+            "ReduxBans"                                                            "arc_warden_tempest_double"
             "ReduxFlags"                                                           "doNotRandom"
         }
         "alchemist_chemical_rage_lod"

@@ -247,7 +247,7 @@
             "leshrac_diabolic_edict"            "1"
             "leshrac_lightning_storm"            "1"
             "leshrac_pulse_nova"            "1"
-            //"leshrac_pulse_nova_redux"       "1"
+            //"leshrac_pulse_nova_redux"       "1" // not needed for now
             "leshrac_split_earth"            "1"
             "lich_chain_frost"            "1"
             //"lich_dark_ritual"            "1"             // does not exist, removed from the game
@@ -343,13 +343,13 @@
             "nyx_assassin_spiked_carapace"            "1"
             "nyx_assassin_vendetta"            "1"
             "nyx_assassin_burrow"            "1"
-            "nyx_assassin_burrow_redux"            "1"
+            "nyx_assassin_burrow_redux"            "1" // Burrow without invis
             "obsidian_destroyer_arcane_orb"            "1"
             "obsidian_destroyer_astral_imprisonment"            "1"
-            "obsidian_destroyer_astral_imprisonment_redux" "1"
+            "obsidian_destroyer_astral_imprisonment_redux" "1" // Old Astral Imprisonment (6.86-7.27d)
 			"obsidian_destroyer_essence_aura"	"1"
-            "obsidian_destroyer_essence_aura_lod"            "1"
-            "obsidian_destroyer_essence_aura_redux"            "1"
+            "obsidian_destroyer_essence_aura_lod"            "1" // Essence Aura (pre 7.20)
+            "obsidian_destroyer_essence_aura_redux"            "1" // Essence Aura (pre 7.20) Redux
             "obsidian_destroyer_sanity_eclipse"            "1"
             "obsidian_destroyer_equilibrium"                "1"
             "ogre_magi_bloodlust"            "1"
@@ -453,7 +453,7 @@
             "spectre_desolate"            "1"
             "spectre_dispersion"            "1"
             "spectre_haunt"            "1"
-            //"spectre_reality"            "1"
+            //"spectre_reality"            "1" // sub-ability of Haunt and Shadow Step
             "spectre_haunt_single"            "1"
             "spectre_spectral_dagger"            "1"
             "spirit_breaker_charge_of_darkness"            "1"
@@ -470,7 +470,7 @@
             "sven_great_cleave"            "1"
             "sven_storm_bolt"            "1"
             "sven_warcry"            "1"
-            //"techies_focused_detonate"            "1"
+            //"techies_focused_detonate"            "1" // sub-ability of Remote Mines
             "techies_land_mines"            "1"
             "techies_remote_mines"            "1"
             "techies_stasis_trap"            "1"
@@ -481,7 +481,7 @@
             "templar_assassin_psionic_trap"            "1"
             "templar_assassin_trap_teleport"            "1"
             "templar_assassin_refraction"            "1"
-            //"templar_assassin_trap"            "1"
+            //"templar_assassin_trap"            "1" // sub-ability of Psionic Trap
             "terrorblade_conjure_image"            "1"
             "terrorblade_metamorphosis"            "1"
             "terrorblade_reflection"            "1"
@@ -497,8 +497,8 @@
             "tiny_avalanche"            "1"
             "tiny_craggy_exterior"            "1"
             "tiny_grow"            "1"
-            "tiny_grow_lod"            "1"
-            "tiny_grow_lod_redux"            "1"
+            "tiny_grow_lod"            "1" // Grow (pre 7.07)
+            "tiny_grow_lod_redux"            "1" // Grow (pre 7.07) Redux
             "tiny_toss"            "1"
             "tiny_tree_channel"     "1"
             "tiny_tree_grab"     "1"
@@ -584,7 +584,7 @@
             "zuus_static_field"            "1"
             "zuus_thundergods_wrath"            "1"
             "zuus_cloud"                     "1"
-            //"life_stealer_consume"            "1"
+            //"life_stealer_consume"            "1" // sub-ability of Infest
             "shadow_demon_demonic_purge"            "1"
             "shredder_chakram_2"            "1"
             "earth_spirit_petrify"            "1"
@@ -599,7 +599,6 @@
             "arc_warden_magnetic_field"            "1"
             "arc_warden_spark_wraith"            "1"
             "arc_warden_tempest_double"            "1"
-            //"arc_warden_tempest_double_redux"            "1" // needs fixing
             "death_prophet_spirit_siphon"            "1"
             "faceless_void_time_dilation"            "1"
             "lone_druid_savage_roar"            "1"
@@ -617,7 +616,7 @@
             // Ogre magi ulty
             "ogre_magi_unrefined_fireblast"            "1"
             // Meepo Ulty
-            //"meepo_divided_we_stand"            "1"
+            //"meepo_divided_we_stand"            "1" // moved to single player abilities
             // Rearm
             "tinker_rearm"            "1"
             // Riki
@@ -628,7 +627,7 @@
             "earthshaker_aftershock"            "1"
             "pangolier_swashbuckle" "1"
             "pangolier_shield_crash"      "1"
-            //"pangolier_heartpiercer"      "1" // empty ability
+            //"pangolier_heartpiercer"      "1" // does not work
             "pangolier_gyroshell"   "1"
             "pangolier_lucky_shot"   "1"
             "dark_willow_bramble_maze"    "1"
@@ -642,8 +641,8 @@
             "grimstroke_soul_chain"    "1"
 			"grimstroke_dark_portrait" "1"
 			"grimstroke_ink_over"	"1"
-            //"grimstroke_scepter"    "1"
-            //"sled_penguin_redux"  "1"				// errors
+            //"grimstroke_scepter"    "1" // does not exist, removed from the game
+            //"sled_penguin_redux"  "1"	// TODO: Check what this is and maybe fix it
             "hoodwink_acorn_shot"   "1"
             "hoodwink_bushwhack"    "1"
             "hoodwink_scurry"       "1"
@@ -652,8 +651,8 @@
             "hoodwink_hunters_boomerang"	"1"
             "dawnbreaker_fire_wreath" "1"
             "dawnbreaker_celestial_hammer" "1"
-            //"dawnbreaker_converge" "1"
-            "dawnbreaker_luminosity" "1"      // crashes game: CGameParticleManager::SetParticleControlEnt: Unable to lookup attachment attach_weapon_core_fx
+            //"dawnbreaker_converge" "1" // sub-ability of Celestial Hammer
+            "dawnbreaker_luminosity" "1"
             "dawnbreaker_solar_guardian" "1"
             "life_stealer_ghoul_frenzy" "1"
 
@@ -665,7 +664,7 @@
             "rattletrap_jetpack"                "1"   // ok
             "dark_seer_normal_punch"            "1"   // ok - added warning text
             "dragon_knight_fireball"            "1"   // ok
-            //"faceless_void_time_walk_reverse"   "1"   // requires timewalk
+            //"faceless_void_time_walk_reverse"   "1"   // sub-ability of Time Walk
             "jakiro_liquid_ice"                 "1"   // misses? (with melee hero), hits but doesnt debuff (with ranged hero)
             "juggernaut_swift_slash"            "1"   // needs omnislash - added warning text
             "kunkka_tidal_wave"                 "1"   // ok
@@ -692,7 +691,7 @@
 
             // Abilities added in 7.3
             "broodmother_sticky_snare"          "1"
-            //"abyssal_underlord_dark_portal"     "1" // needs fixing
+            //"abyssal_underlord_dark_portal"     "1" // TODO: needs fixing by adding the sub-ability
             "windrunner_gale_force"             "1"
             "windrunner_gale_force_op"          "1"
             "slark_depth_shroud"				"1"   // needs shadow dance - added warning text
@@ -739,7 +738,7 @@
 			"primal_beast_trample"				"1"
 			"primal_beast_uproar"				"1"
 			"primal_beast_rock_throw"			"1"
-			// "primal_beast_onslaught_release"	"1"	// sub-ability
+			// "primal_beast_onslaught_release"	"1"	// sub-ability of Onslaught
 			"primal_beast_pulverize"			"1"
 
 			// UNIMPLEMENTED SKILLS
@@ -783,8 +782,8 @@
 			"centaur_work_horse"            "1" // added warning text
 			"bounty_hunter_wind_walk_ally"  "1"
 			//"chen_martyrdom"				"1" // crashes the game when used on self
-			"warlock_imp_explode"			"1"
-			"warlock_imp_explode_major"		"1"
+			"warlock_imp_explode"			"1" // you lose control of your hero
+			"warlock_imp_explode_major"		"1" // you lose control of your hero
 
 			// 7.36
 			"abaddon_font_of_avernus"		"1"
@@ -1085,8 +1084,7 @@
                 "lone_druid_spirit_bear_demolish"                "1"
                 "lone_druid_spirit_bear_entangle"                "1"
 				"lone_druid_spirit_bear_fetch"					 "1"
-                //"lone_druid_spirit_bear_return"                "1"
-                "lone_druid_spirit_bear_return_lod"                "1"
+                "lone_druid_spirit_bear_return"                "1"
             }
 
             "satyr_group" {
@@ -1603,6 +1601,7 @@
                   "crater" "1"
                   //"ranged_punch" "1"                      //crashes tools mode, no spell effect in normal game
                   "pushing_blast" "1"
+				//"lone_druid_spirit_bear_return_lod"   "1" // TODO: Rewrite to be the old behaviour
             }
 
         }
@@ -2412,7 +2411,6 @@
                   "zuus_arc_lightning_op"                   "1"
                   "zuus_lightning_bolt_global"              "1"
                   "lone_druid_savage_roar_op"               "1"
-                  "lone_druid_spirit_bear_return_lod_OP"    "1"
                   "tinker_heat_seeking_missile_redux"       "1"
                   "shadow_shaman_mass_serpent_ward_redux"   "1"
                   "legion_commander_duel_redux"             "1"
