@@ -2905,7 +2905,7 @@
         {
             "ReduxFlags"                                                           "tank"
             "ReduxCost"                                                            "40"
-            "ReduxBans"                                                            "centaur_return | nyx_assassin_burrow | nyx_assassin_burrow_redux | huskar_life_break | huskar_life_break_redux"
+            "ReduxBans"                                                            "centaur_return | nyx_assassin_burrow | nyx_assassin_burrow_redux | huskar_life_break"
         }
         "phantom_assassin_blur"
         {
@@ -11313,11 +11313,7 @@
 
         "special_bonus_unique_antimage"
         {
-            "TalentRequiredAbility"
-            {
-                "1" "antimage_blink"
-                "2" "antimage_blink_redux"
-            }
+            "TalentRequiredAbility"                                                   "antimage_blink"
         }
         "special_bonus_unique_antimage_2"
         {
@@ -11325,11 +11321,7 @@
         }
         "special_bonus_unique_antimage_3"
         {
-            "TalentRequiredAbility"
-            {
-                "1" "antimage_blink"
-                "2" "antimage_blink_redux"
-            }
+            "TalentRequiredAbility"                                                   "antimage_blink"
         }
         "special_bonus_unique_antimage_4"
         {
@@ -11337,11 +11329,7 @@
         }
         "special_bonus_unique_antimage_5"
         {
-            "TalentRequiredAbility"
-            {
-                "1" "antimage_blink"
-                "2" "antimage_blink_redux"
-            }
+            "TalentRequiredAbility"                                                   "antimage_blink"
         }
         "special_bonus_unique_antimage_6"
         {
@@ -11415,11 +11403,7 @@
         }
         "special_bonus_unique_alchemist_4"
         {
-            "TalentRequiredAbility"
-            {
-                "1" "alchemist_chemical_rage"
-                "2" "alchemist_chemical_rage_redux"
-            }
+            "TalentRequiredAbility"                                                   "alchemist_chemical_rage"
         }
         "special_bonus_unique_alchemist_5"
         {
@@ -11427,11 +11411,7 @@
         }
         "special_bonus_unique_alchemist_6"
         {
-            "TalentRequiredAbility"
-            {
-                "1" "alchemist_chemical_rage"
-                "2" "alchemist_chemical_rage_redux"
-            }
+            "TalentRequiredAbility"                                                   "alchemist_chemical_rage"
         }
 		"special_bonus_unique_alchemist_7"
         {
@@ -11439,11 +11419,7 @@
         }
 		"special_bonus_unique_alchemist_8"
         {
-            "TalentRequiredAbility"
-            {
-                "1" "alchemist_chemical_rage"
-                "2" "alchemist_chemical_rage_redux"
-            }
+            "TalentRequiredAbility"                                                   "alchemist_chemical_rage"
         }
 
 

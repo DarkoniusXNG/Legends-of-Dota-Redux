@@ -58,8 +58,6 @@ for heroName, value in pairs(herolist) do
 end
 
 local manualActivate = {
-    keeper_of_the_light_blinding_light_lod = true,
-    keeper_of_the_light_recall_lod = true,
     keeper_of_the_light_blinding_light_imba = true,
     keeper_of_the_light_recall_imba = true,
     imba_queenofpain_delightful_torment = true,
