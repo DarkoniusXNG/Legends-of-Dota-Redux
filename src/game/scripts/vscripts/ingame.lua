@@ -910,7 +910,7 @@ function Ingame:FatOMeterAnimate(dt)
             hero:SetModelScale(default + target)
 
             --Meepo/Arc Warden ult checker
-            if hero:HasAbility('meepo_divided_we_stand') or hero:HasAbility('arc_warden_tempest_double') or hero:HasAbility('arc_warden_tempest_double_redux') then
+            if hero:HasAbility('meepo_divided_we_stand') or hero:HasAbility('arc_warden_tempest_double') then
                 local clones = Entities:FindAllByName(hero:GetClassname())
 
                 for k, heroClone in pairs(clones) do
@@ -983,7 +983,7 @@ function Ingame:balancePlayer(playerID, newTeam)
                 hero:SetTimeUntilRespawn(1)
 
                 -- Check if we have any meepo clones
-                if hero:HasAbility('arc_warden_tempest_double') or hero:HasAbility('arc_warden_tempest_double_redux') then
+                if hero:HasAbility('arc_warden_tempest_double') then
                     local clones = Entities:FindAllByName(hero:GetClassname())
 
                     for k, tempestDouble in pairs(clones) do
@@ -1278,18 +1278,9 @@ function Ingame:handleRespawnModifier()
                 -- Ensure we are not using aegis!
                 if hero:IsReincarnating() then
                     local reincarnation = hero:FindAbilityByName("skeleton_king_reincarnation")
-                    local reincarnation2 = hero:FindAbilityByName("skeleton_king_reincarnation_redux")
                     if reincarnation then
                         local respawnTime = reincarnation:GetSpecialValueFor("reincarnate_time")
                         if reincarnation:GetTrueCooldown() - reincarnation:GetCooldownTimeRemaining() < respawnTime - 1 then
-                            hero:SetTimeUntilRespawn(respawnTime)
-                        end
-                    else
-                        hero:SetTimeUntilRespawn(5)
-                    end
-                    if reincarnation2 then
-                        local respawnTime = reincarnation2:GetSpecialValueFor("reincarnate_time")
-                        if reincarnation2:GetTrueCooldown() - reincarnation2:GetCooldownTimeRemaining() < respawnTime - 1 then
                             hero:SetTimeUntilRespawn(respawnTime)
                         end
                     else

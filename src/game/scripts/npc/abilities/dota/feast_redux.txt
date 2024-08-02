@@ -4,7 +4,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                            "life_stealer_feast"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"                            "ability_lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"            "custom/life_stealer_feast_melee"
@@ -16,47 +16,28 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
         {
-            "hp_leech_percent"
+            "hp_leech_percent_melee"
             {
                 "value"		"1.25 1.75 2.25 2.75"
                 "special_bonus_unique_lifestealer_3"	"+1.0"
             }
-            "hp_damage_percent"
+            "hp_damage_percent_melee"
             {
                 "value"		"1.25 1.75 2.25 2.75"
                 "special_bonus_unique_lifestealer_3"	"+1.0"
                 "CalculateSpellDamageTooltip"	"0"
             }
-            "creep_deny_percent"		"75"
-        }
-    }
-
-    "life_stealer_feast_ranged"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                            "life_stealer_feast"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
-        "AbilityTextureName"            "custom/life_stealer_feast_melee"
-
-
-        // Special
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityValues"
-        {
-            "hp_leech_percent"
+            "hp_leech_percent_ranged"
             {
                 "value"		"1.0 1.25 1.5 1.75"
                 "special_bonus_unique_lifestealer_3"	"+1.0"
             }
-            "hp_damage_percent"
+            "hp_damage_percent_ranged"
             {
                 "value"		"1.0 1.25 1.5 1.75"
                 "special_bonus_unique_lifestealer_3"	"+1.0"
                 "CalculateSpellDamageTooltip"	"0"
             }
-            "creep_deny_percent"		"75"
         }
     }
 }

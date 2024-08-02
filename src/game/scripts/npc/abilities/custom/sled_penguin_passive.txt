@@ -147,38 +147,4 @@
 			}
 		}
 	}
-
-	"special_bonus_unique_sled_penguin_0" 
-    {
-        "BaseClass"               "special_bonus_unique_antimage_3"
-        "TalentRank"              "1"
-        "TalentRequiredAbility" 	"sled_penguin_redux"
-        "AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "value"                                                "1"
-            }
-        }
-    }
-
-    "special_bonus_unique_sled_penguin_1" 
-    {
-        "BaseClass"               "special_bonus_unique_antimage_3"
-        "TalentRank"              "4"
-        "TalentRequiredAbility" "sled_penguin_redux"
-        "AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "value"                                                "1"
-            }
-        }
-    }
 }

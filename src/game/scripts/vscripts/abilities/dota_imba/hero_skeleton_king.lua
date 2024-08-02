@@ -456,7 +456,7 @@ LinkLuaModifier("modifier_imba_vampiric_aura", "abilities/dota_imba/hero_skeleto
 LinkLuaModifier("modifier_imba_vampiric_aura_buff", "abilities/dota_imba/hero_skeleton_king.lua", LUA_MODIFIER_MOTION_NONE)
 
 function imba_wraith_king_vampiric_aura:GetAbilityTextureName()
-   return "skeleton_king_vampiric_aura"
+   return "custom/skeleton_king_vampiric_aura"
 end
 
 function imba_wraith_king_vampiric_aura:OnToggle() return nil end
