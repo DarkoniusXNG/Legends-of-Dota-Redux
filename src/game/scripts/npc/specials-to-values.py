@@ -4,8 +4,8 @@ def parse_ability_special(ability_special_text):
     """
     Parse the 'AbilitySpecial' section from the old format.
     """
-    # Regex to extract each special block
-    special_pattern = re.compile(r'"(\d+)"\s*\{([^}]+)\}', re.DOTALL)
+    # Regex to extract each special block, allowing for comments after the block number
+    special_pattern = re.compile(r'"(\d+)"(?:\s*//[^\n]*)?\s*\{([^}]+)\}', re.DOTALL)
     specials = []
 
     # Find all special entries
