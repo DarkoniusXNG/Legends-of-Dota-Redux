@@ -7,13 +7,9 @@
         "AbilityTextureName"                                                   "custom/basic_health_bonus"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "health_bonus"                                          "200 400 700 1000"
-            }
+            "health_bonus" "200 400 700 1000"
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "0"
@@ -26,13 +22,9 @@
         "AbilityTextureName"                                                   "custom/basic_health_bonus_op"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "health_bonus"                                          "1000 2000 3000 4000"
-            }
+            "health_bonus" "1000 2000 3000 4000"
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "120"

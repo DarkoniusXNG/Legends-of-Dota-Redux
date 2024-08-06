@@ -28,37 +28,13 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "search_radius"             "900"
-            }
-
-            "02"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "bounce_delay"              "0.5"
-            }
-
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "bounce_radius"             "600"
-            }
-
-            "04"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "heal_amount"               "150 250 350"
-            }
-
-            "05"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "hp_threshold"              "85"
-            }
+            "search_radius" "900"
+            "bounce_delay" "0.5"
+            "bounce_radius" "600"
+            "heal_amount" "150 250 350"
+            "hp_threshold" "85"
         }
     }
 
@@ -87,37 +63,13 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "search_radius"             "900"
-            }
-
-            "02"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "bounce_delay"              "0.5"
-            }
-
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "bounce_radius"             "600"
-            }
-
-            "04"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "heal_amount"               "150 250 350"
-            }
-
-            "05"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "hp_threshold"              "85"
-            }
+            "search_radius" "900"
+            "bounce_delay" "0.5"
+            "bounce_radius" "600"
+            "heal_amount" "150 250 350"
+            "hp_threshold" "85"
         }
     }
 }

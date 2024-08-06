@@ -15,18 +15,10 @@
         {
             "particle"                                                     "particles/abaddon_aphotic_shield.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "lol"                                                  "45 60 75 90"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "lol1"                                                 "2"
-            }
+            "lol" "45 60 75 90"
+            "lol1" "2"
         }
         "ReduxFlags"                                                           "support"
         "ReduxPerks"                                                           "support"

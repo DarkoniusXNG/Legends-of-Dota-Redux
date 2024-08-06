@@ -42,44 +42,15 @@
         "AoERadius"                     "425 450 475 500"
         "AbilityProcsMagicStick"        "1"
         
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "duration"              "8"
-            }
-            
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "eruption_duration"     "2"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "ministun_duration"     "0.7"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "damage"                "60 80 100 120"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "radius"                "450 500 550 600"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "slow_pct"              "-20 -25 -30 -35"
-            }
-            "07"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "duration_2"              "6.5"
-            }
+            "duration" "8"
+            "eruption_duration" "2"
+            "ministun_duration" "0.7"
+            "damage" "60 80 100 120"
+            "radius" "450 500 550 600"
+            "slow_pct" "-20 -25 -30 -35"
+            "duration_2" "6.5"
         }
 
         "OnSpellStart"
@@ -241,33 +212,13 @@
 
         "AbilityManaCost"               "90 95 100 105"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "duration"                  "10"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "illusion_taken"            "100"
-            }
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "illusion_dealt"            "-25"
-            }
-            "04"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "illusion_taken_tt"         "200"
-            }
-            "05"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "illusion_dealt_tt"         "75"
-            }
+            "duration" "10"
+            "illusion_taken" "100"
+            "illusion_dealt" "-25"
+            "illusion_taken_tt" "200"
+            "illusion_dealt_tt" "75"
         }
 
         "OnSpellStart"
@@ -388,18 +339,10 @@
         }
 
         "AbilityCastRange"              "1200"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "aoe"               "1200"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "resistance_loss"   "-4 -5 -6 -7"
-            }  
+            "aoe" "1200"
+            "resistance_loss" "-4 -5 -6 -7"
         }
         "Modifiers"
         {
@@ -488,48 +431,16 @@
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "MaxLevel"                      "3"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "projectle_speed"           "1200"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "mana_damage_lost"          "50 75 100"
-            }
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "attack_lost"           "-40 -60 -80"
-            }
-            "04"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "damage_multiplier"     "16 24 32" 
-            }
-            "05"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "blast_radius"              "600"
-            }
-            "06"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "duration"                  "8"
-            }
-            "07"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "scepter_duration"          "12"
-            }
-			"08"
-			{
-                "var_type"                  "FIELD_INTEGER"
-                "ms_lost"          "-10 -15 -20"
-            }
+            "projectle_speed" "1200"
+            "mana_damage_lost" "50 75 100"
+            "attack_lost" "-40 -60 -80"
+            "damage_multiplier" "16 24 32"
+            "blast_radius" "600"
+            "duration" "8"
+            "scepter_duration" "12"
+            "ms_lost" "-10 -15 -20"
         }
 
         "OnSpellStart"

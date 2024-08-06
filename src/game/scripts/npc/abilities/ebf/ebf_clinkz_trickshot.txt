@@ -10,23 +10,11 @@
         "AbilityCooldown"                                                      "40.0 37.0 34.0 31.0"
         "AbilityCastPoint"                                                     "0.0 0.0 0.0 0.0"
         "AbilityManaCost"                                                      "150"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "6.0"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "double_interval"                                      "1.7 1.4 1.1 0.8"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "targets_scepter"                                      "4"
-            }
+            "duration" "6.0"
+            "double_interval" "1.7 1.4 1.1 0.8"
+            "targets_scepter" "4"
         }
         "precache"
         {

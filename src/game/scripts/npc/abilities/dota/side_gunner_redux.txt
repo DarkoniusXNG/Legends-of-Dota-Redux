@@ -15,23 +15,11 @@
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"interval"			"4.8 3.6 2.4 1.2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"interval_scepter"	"4.0 3.0 2.0 1.0"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"range"				"700"
-			}
-		}
+		"AbilityValues"
+        {
+            "interval" "4.8 3.6 2.4 1.2"
+            "interval_scepter" "4.0 3.0 2.0 1.0"
+            "range" "700"
+        }
 	}
 }

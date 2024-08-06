@@ -42,38 +42,14 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "instant_heal"          "30 60 90 120"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "heal_per_sec"          "1.5 2.0 2.5 3.0"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "heal_duration"         "5"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "projectile_radius"     "125"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "projectile_speed"      "2000"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "projectile_range"      "1500"
-            }
+            "instant_heal" "30 60 90 120"
+            "heal_per_sec" "1.5 2.0 2.5 3.0"
+            "heal_duration" "5"
+            "projectile_radius" "125"
+            "projectile_speed" "2000"
+            "projectile_range" "1500"
         }
 
         "OnSpellStart"
@@ -165,38 +141,14 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_damage"          "15 20 25 30"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_spell_damage"    "8 12 16 20"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "power_duration"        "5"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "projectile_radius"     "125"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "projectile_speed"      "1500"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "projectile_range"      "1500"
-            }
+            "bonus_damage" "15 20 25 30"
+            "bonus_spell_damage" "8 12 16 20"
+            "power_duration" "5"
+            "projectile_radius" "125"
+            "projectile_speed" "1500"
+            "projectile_range" "1500"
         }
 
         "OnSpellStart"
@@ -264,18 +216,10 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "swoop_duration"        "0.6"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "cast_range"        "1000 2000 3000 4000"
-            }
+            "swoop_duration" "0.6"
+            "cast_range" "1000 2000 3000 4000"
         }
 
         "OnSpellStart"
@@ -334,18 +278,10 @@
                 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "base_regen"                "15"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "regen_per_level"           "1 2 3 4"
-            }
+            "base_regen" "15"
+            "regen_per_level" "1 2 3 4"
         }
 
         "Modifiers"
@@ -454,38 +390,14 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "effect_radius"         "800"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "initial_heal"          "50"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "heal_over_time"        "10 15 20"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "damage_reduction"      "-50 -60 -70"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "duration"              "3"
-            }
-            "06"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "damage_reduction_tooltip"  "50 60 70"
-            }
+            "effect_radius" "800"
+            "initial_heal" "50"
+            "heal_over_time" "10 15 20"
+            "damage_reduction" "-50 -60 -70"
+            "duration" "3"
+            "damage_reduction_tooltip" "50 60 70"
         }
 
         "OnSpellStart"

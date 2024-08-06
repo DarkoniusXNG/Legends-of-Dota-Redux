@@ -21,16 +21,10 @@
 		"AbilityManaCost" "150"
 		"ReduxBans"              "furion_wrath_of_nature"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"radius" "550"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"duration" "6 8 10"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "550"
+            "duration" "6 8 10"
+        }
 	}
 }

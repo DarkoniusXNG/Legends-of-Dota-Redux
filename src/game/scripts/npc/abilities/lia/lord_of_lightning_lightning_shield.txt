@@ -24,28 +24,12 @@
 			"particle"													   "particles/items2_fx/mjollnir_shield.vpcf"
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "350"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage_per_second"                                    "65 100 135 170"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "think_interval"                                       "0.3"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "duration"                                             "14"
-            }
+            "radius" "350"
+            "damage_per_second" "65 100 135 170"
+            "think_interval" "0.3"
+            "duration" "14"
         }
         "OnSpellStart"
         {

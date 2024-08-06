@@ -6,16 +6,10 @@
 		"AbilityCastRange" "1"
 		"AbilityTextureName" "custom/creep_health_buff"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_FLOAT"
-				"bonus_hp" "10 30 50 70 90 110 130 150 170 190 210 230 250 270 290 310 330 350 370 390"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"radius" "1"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_hp" "10 30 50 70 90 110 130 150 170 190 210 230 250 270 290 310 330 350 370 390"
+            "radius" "1"
+        }
 	}
 }

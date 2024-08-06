@@ -60,24 +60,11 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"radius_d"	"1200 1400 1600"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"radius_n"	"800 900 1000"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"duration"	"15 25 40"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius_d" "1200 1400 1600"
+            "radius_n" "800 900 1000"
+            "duration" "15 25 40"
+        }
 	}
 }

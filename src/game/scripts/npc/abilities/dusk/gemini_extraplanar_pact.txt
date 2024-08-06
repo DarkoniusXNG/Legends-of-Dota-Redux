@@ -37,29 +37,13 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_regen"			"40 60 80 100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"15 30 45 60"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"6"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"out_of_game_duration"	"2.25"
-			}
-		}
+		"AbilityValues"
+        {
+            "health_regen" "40 60 80 100"
+            "mana_regen" "15 30 45 60"
+            "duration" "6"
+            "out_of_game_duration" "2.25"
+        }
 
 		"precache"
 		{

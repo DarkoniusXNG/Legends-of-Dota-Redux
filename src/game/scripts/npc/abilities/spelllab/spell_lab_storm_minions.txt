@@ -12,28 +12,12 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
         "HasScepterUpgrade"                                                    "0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "health"						"100"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-        				"mana"						"300 400 500 600"
-            }
-            "03"
-            {
-      				"var_type"				"FIELD_INTEGER"
-      				"damage"            "45 60 75 90"
-            }
-            "04"
-            {
-      				"var_type"				"FIELD_INTEGER"
-      				"duration"            "45"
-            }
+            "health" "100"
+            "mana" "300 400 500 600"
+            "damage" "45 60 75 90"
+            "duration" "45"
         }
         "precache"
         {
@@ -55,13 +39,9 @@
     	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
       "ScriptFile"                                                           "abilities/spell_lab/storm/storm_minions.lua"
       "AbilityTextureName"                                                   "custom/spell_lab_storm_minion_passive"
-      "AbilitySpecial"
-      {
-          "01"
-          {
-    				"var_type"				"FIELD_INTEGER"
-    				"mana"	"300 400 500 600"
-          }
-      }
+      "AbilityValues"
+        {
+            "mana" "300 400 500 600"
+        }
     }
 }

@@ -6,22 +6,12 @@
 		"MaxLevel" "3"
 		"AOERadius" "1000"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"radius" "1000"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"targets" "3"
-			}
-
-			"03" {
-				"var_type" "FIELD_INTEGER"
-				"heal_amount" "15 30 45"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "1000"
+            "targets" "3"
+            "heal_amount" "15 30 45"
+        }
 
 		"OnSpellStart" {
 			"RunScript" {

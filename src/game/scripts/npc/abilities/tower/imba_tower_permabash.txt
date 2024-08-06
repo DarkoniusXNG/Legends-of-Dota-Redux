@@ -9,18 +9,10 @@
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCooldown"                                                      "4 3 2"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bash_damage"                                          "50 100 150"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "bash_duration"                                        "1.25"
-            }
+            "bash_damage" "50 100 150"
+            "bash_duration" "1.25"
         }
         "Modifiers"
         {

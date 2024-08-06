@@ -10,18 +10,10 @@
         "AbilityCastRange"                                                     "1200"
         "AbilityCooldown"                                                      "6 5 4"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "burn_aoe"                                             "1200"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "burn_pct"                                             "30"
-            }
+            "burn_aoe" "1200"
+            "burn_pct" "30"
         }
         "Modifiers"
         {

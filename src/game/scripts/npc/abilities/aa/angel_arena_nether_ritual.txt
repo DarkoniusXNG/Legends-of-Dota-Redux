@@ -7,33 +7,13 @@
         "AbilityTextureName"                                                   "custom/angel_arena_nether_ritual"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "MaxLevel"                                                             "3"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "bonus_hp_regen"                                       "15.0 18.0 21.0"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_armor"                                          "4 8 12"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_damage"                                         "5 7 9"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_movespeed"                                      "3 6 9"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "base_attack_time"                                     "1.6 1.55 1.5"
-            }
+            "bonus_hp_regen" "15.0 18.0 21.0"
+            "bonus_armor" "4 8 12"
+            "bonus_damage" "5 7 9"
+            "bonus_movespeed" "3 6 9"
+            "base_attack_time" "1.6 1.55 1.5"
         }
         "Modifiers"
         {

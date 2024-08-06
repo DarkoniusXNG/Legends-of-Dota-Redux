@@ -5,13 +5,9 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/aether_range_lod_OP"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "cast_range_bonus"                                     "400 600 800 1000"
-            }
+            "cast_range_bonus" "400 600 800 1000"
         }
         "OnOwnerSpawned"
         {

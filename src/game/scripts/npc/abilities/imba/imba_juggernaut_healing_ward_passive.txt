@@ -10,23 +10,11 @@
         "AbilityCastRange"                                                     "500"
         "AbilityCooldown"                                                      "0.0"
         "AbilityManaCost"                                                      "0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "heal_radius"                                          "500"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "heal_per_sec"                                         "2 3 4 5"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "health"                                               "3 3 6 9"
-            }
+            "heal_radius" "500"
+            "heal_per_sec" "2 3 4 5"
+            "health" "3 3 6 9"
         }
         "Modifiers"
         {

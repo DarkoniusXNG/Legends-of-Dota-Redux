@@ -11,23 +11,11 @@
         "AbilityTextureName"                                                   "custom/cherub_flower_blue"
         "MaxLevel"                                                             "4"
         "AOERadius"                                                            "1000"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "1000"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "restore_amount"                                       "30 45 60 75"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "flower_health"                                        "250 400 550 700"
-            }
+            "radius" "1000"
+            "restore_amount" "30 45 60 75"
+            "flower_health" "250 400 550 700"
         }
         "precache"
         {

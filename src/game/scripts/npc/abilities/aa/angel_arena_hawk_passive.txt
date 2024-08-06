@@ -5,17 +5,11 @@
 		"AbilityTextureName" "custom/angel_arena_hawk_passive"
 		"MaxLevel" "4"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"bonus_damage" "30 45 60 75"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"bonus_armor" "10 15 20 25"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_damage" "30 45 60 75"
+            "bonus_armor" "10 15 20 25"
+        }
 
 		"Modifiers" {
 			"modifier_hawk" {

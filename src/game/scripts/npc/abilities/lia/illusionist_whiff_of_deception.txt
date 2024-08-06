@@ -45,18 +45,10 @@
                 "Target"                                               "CASTER"
             }
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "500"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "value_p"                                              "0.8 1.1 1.3"
-            }
+            "radius" "500"
+            "value_p" "0.8 1.1 1.3"
         }
         "Modifiers"
         {

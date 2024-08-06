@@ -8,14 +8,10 @@
 		"AbilityTextureName"			"blue_dragonspawn_sorcerer_evasion"
 		"MaxLevel" 						"4"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"evasion"			"15 30 45 60"
-			}
-		}
+		"AbilityValues"
+        {
+            "evasion" "15 30 45 60"
+        }
         "ReduxPerks"                                                           "neutral"
         "ReduxFlags"                                                           "doNotRandom"
 	}

@@ -29,38 +29,14 @@
             "soundfile"     "sounds/weapons/hero/tinker/laser_impact.vsnd"
         }
     
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "range"             "1200"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "radius"            "300"
-            }
-            "03"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "shots"             "6 8 10 12"
-            }
-            "04"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "mortar_damage"     "100"
-            }
-            "05"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "shot_interval"         "0.5 0.4 0.3 0.2"
-            }
-            "06"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "duration"          "3.0 3.2 3.0 2.4"
-            }
+            "range" "1200"
+            "radius" "300"
+            "shots" "6 8 10 12"
+            "mortar_damage" "100"
+            "shot_interval" "0.5 0.4 0.3 0.2"
+            "duration" "3.0 3.2 3.0 2.4"
         }
         "OnUpgrade"
         {
@@ -117,23 +93,11 @@
         "AbilityCastPoint"              "0.0"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
     
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "radius"            "300"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "duration"          "18 20 22 24"
-            }
-            "03"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "mortar_damage"         "120"
-            }
+            "radius" "300"
+            "duration" "18 20 22 24"
+            "mortar_damage" "120"
         }
     
         "precache"
@@ -250,38 +214,14 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
         }
     
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "shock_range"   "350"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "slow_duration"     "1.0 1.4 1.8 2.2"
-            }
-            "03"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "shock_damage"  "160 200 240 280"
-            }
-            "04"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "shock_null_duration"   "3"
-            }
-            "05"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "shock_bot_duration"    "180 200 220 240" 
-            }
-            "06"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "movespeed_slow_percentage" "300" 
-            }   
+            "shock_range" "350"
+            "slow_duration" "1.0 1.4 1.8 2.2"
+            "shock_damage" "160 200 240 280"
+            "shock_null_duration" "3"
+            "shock_bot_duration" "180 200 220 240"
+            "movespeed_slow_percentage" "300"
         }
     }
     //=================================================================================================================
@@ -305,63 +245,19 @@
             "particle"  "particles/units/heroes/hero_doom_bringer/doom_infernal_blade_impact.vpcf"
             "particle"  "particles/econ/items/dragon_knight/dk_immortal_dragon/dragon_knight_dragon_tail_projectile_iron_dragon.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "armor_bonus"           "10 15 20"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "turn_rate_slow"        "-40 -25 -10"
-            }
-            "03"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "splash_radius"         "300 325 350"
-            }
-            "04"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "transform_time"    "0.75 0.5 0.25"
-            }
-            "05"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "mortar_shot_range" "1600 2000 2400"
-            }
-            "06"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "missile_speed"         "2500"
-            }
-            "07"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "attack_bonus"          "50 100 150"
-            }
-            "08"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "attack_bonus_range"    "1500 2250 3000"
-            }
-            "09"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "attack_min_range"      "300"
-            }
-            "10"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "bat_increase"          "1.0 0.8 0.6"
-            }
-            "11"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "seconds_per_attack"    "2.5 2.2 1.9"
-            }
+            "armor_bonus" "10 15 20"
+            "turn_rate_slow" "-40 -25 -10"
+            "splash_radius" "300 325 350"
+            "transform_time" "0.75 0.5 0.25"
+            "mortar_shot_range" "1600 2000 2400"
+            "missile_speed" "2500"
+            "attack_bonus" "50 100 150"
+            "attack_bonus_range" "1500 2250 3000"
+            "attack_min_range" "300"
+            "bat_increase" "1.0 0.8 0.6"
+            "seconds_per_attack" "2.5 2.2 1.9"
         }
         "OnToggleOn"
         {
@@ -505,43 +401,15 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
         }
     
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "damage_per_second" "20 35 50 65"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "duration"          "12"
-            }
-            "03"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "armor_reduction"   "-1 -2 -3 -4"
-            }
-            "04"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "slow_duration"     "3"
-            }
-            "05"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "ms_slow"           "20 25 30 35"
-            }
-            "06"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "siege_radius"      "450"
-            }
-            "07"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "cooldown"          "3"
-            }
+            "damage_per_second" "20 35 50 65"
+            "duration" "12"
+            "armor_reduction" "-1 -2 -3 -4"
+            "slow_duration" "3"
+            "ms_slow" "20 25 30 35"
+            "siege_radius" "450"
+            "cooldown" "3"
         }
         "Modifiers"
         {

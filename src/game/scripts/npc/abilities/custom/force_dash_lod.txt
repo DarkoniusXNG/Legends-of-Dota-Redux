@@ -17,18 +17,10 @@
             "particle"                                                     "particles/status_fx/status_effect_forcestaff.vpcf"
             "sound"                                                        "sounds/items/force_staff.vsnd"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "distance"                                             "600"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "0.5"
-            }
+            "distance" "600"
+            "duration" "0.5"
         }
         "OnSpellStart"
         {

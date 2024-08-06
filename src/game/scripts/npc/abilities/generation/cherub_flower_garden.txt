@@ -13,58 +13,18 @@
         "AbilityProcsMagicStick"                                               "1"
         "AnimationPlaybackRate"                                                "0.2"
         "HasScepterUpgrade"                                                    "1"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "10"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "red_flower_damage"                                    "70 85 100"
-            }
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "64"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "flower_health"                                        "400 550 700"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "scepter_flower_armor"                                 "5 10 15"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "scepter_damage_return"                                "15 20 25"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "pink_flower_heal"                                     "15 30 45"
-            }
-            "06"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "blue_flower_restore"                                  "20 35 50"
-            }
-            "07"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "yellow_flower_bonus"                                  "30 40 55"
-            }
-            "08"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "purple_flower_buff"                                   "30 40 50"
-            }
-            "09"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "white_flower_damage"                                  "45 60 75"
-            }
+            "red_flower_damage" "70 85 100"
+            "radius" "64"
+            "flower_health" "400 550 700"
+            "scepter_flower_armor" "5 10 15"
+            "scepter_damage_return" "15 20 25"
+            "pink_flower_heal" "15 30 45"
+            "blue_flower_restore" "20 35 50"
+            "yellow_flower_bonus" "30 40 55"
+            "purple_flower_buff" "30 40 50"
+            "white_flower_damage" "45 60 75"
         }
         "precache"
         {

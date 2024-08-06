@@ -7,28 +7,12 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"                                                   "custom/slark_essence_shift_lod"
         "ReduxFlags"                                                    "underpowered"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "ranged_chance"                                        "65"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "agi_gain"                                             "3"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "stat_loss"                                            "-1"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "15 30 60 120"
-            }
+            "ranged_chance" "65"
+            "agi_gain" "3"
+            "stat_loss" "-1"
+            "duration" "15 30 60 120"
         }
         "Modifiers"
         {

@@ -10,17 +10,11 @@
 		"AbilityType" "DOTA_ABILITY_TYPE_BASIC"
 		"RequiredLevel" "1"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"tree_radius" "650 700 750"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"tree_duration" "60"
-			}
-		}
+		"AbilityValues"
+        {
+            "tree_radius" "650 700 750"
+            "tree_duration" "60"
+        }
 
 		"Modifiers" {
 			"modifier_imba_tower_forest" {

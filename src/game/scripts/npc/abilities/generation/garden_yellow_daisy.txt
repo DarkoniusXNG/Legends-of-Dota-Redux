@@ -6,17 +6,11 @@
 		"MaxLevel" "3"
 		"AOERadius" "700"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"radius" "700"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"attackspeed_bonus" "35 45 60"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "700"
+            "attackspeed_bonus" "35 45 60"
+        }
 
 		"OnSpellStart" {
 			"RunScript" {

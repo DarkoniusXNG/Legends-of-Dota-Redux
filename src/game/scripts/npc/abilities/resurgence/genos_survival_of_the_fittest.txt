@@ -12,21 +12,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"regen"						"0.5 1.0 1.5 2.0"
-			}
-			
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed"						"0"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "regen" "0.5 1.0 1.5 2.0"
+            "speed" "0"
+        }
 
 		  "precache" 
 		   {

@@ -14,18 +14,10 @@
         "MaxLevel"                                                             "3"
         "AbilityCooldown"                                                      "80 60 40"
         "AbilityManaCost"                                                      "100"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "750 800 850"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "4.0 5.5 7.0"
-            }
+            "radius" "750 800 850"
+            "duration" "4.0 5.5 7.0"
         }
         "OnSpellStart"
         {

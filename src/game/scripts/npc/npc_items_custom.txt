@@ -45,13 +45,9 @@
             }
         }
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "bonus_hp"                  "1000"
-            }
+            "bonus_hp" "1000"
         }
     }
 
@@ -91,29 +87,13 @@
     "ItemKillable"                  "0"
     "ItemDroppable"                 "0"
     
-    "AbilitySpecial"
-    {
-        "01"
+    "AbilityValues"
         {
-            "var_type"                  "FIELD_FLOAT"
-            "phase_duration"            "12.0"
+            "phase_duration" "12.0"
+            "phase_movement_speed" "30"
+            "bonus_movement_speed" "100"
+            "bonus_damage" "20"
         }
-        "02"
-        {
-            "var_type"                  "FIELD_INTEGER"
-            "phase_movement_speed"      "30"
-        }
-        "03"
-        {
-            "var_type"                  "FIELD_INTEGER"
-            "bonus_movement_speed"      "100"
-        }
-        "04"
-        {
-            "var_type"                  "FIELD_INTEGER"
-            "bonus_damage"              "20"
-        }
-    }
     
     "OnSpellStart"
     {
@@ -200,12 +180,6 @@
 		"ItemPurchasable"                                     "0"
 		"SideShop"                                            "0"
 		"ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-		}
 	}
 
     "item_health_modifier"
@@ -352,13 +326,9 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "hp_restore_pct"        "20"
-            }
+            "hp_restore_pct" "20"
         }
     }
 
@@ -398,13 +368,9 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "mana_restore_pct"      "20"
-            }
+            "mana_restore_pct" "20"
         }
     }
 
@@ -1209,83 +1175,23 @@
         
         // Special  
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_intellect"       "15"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_strength"        "10"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "summon_duration"       "50"
-            }           
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "warrior_health_tooltip"    "700"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "warrior_damage_tooltip"    "75"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "warrior_mana_feedback" "35"
-            }
-            "07"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "warrior_mana_break_tooltip"    "35"
-            }
-            "08"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "explosion"             "550"
-            }           
-            "09"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "warrior_truesight"     "1000"
-            }
-            "10"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "archer_health_tooltip" "700"
-            }
-            "11"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "archer_damage_tooltip" "60"
-            }
-            "12"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "archer_mana_burn"      "200"
-            }
-            "13"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "archer_aura_radius_tooltip"    "900"
-            }
-            "14"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "archer_move_speed" "5"
-            }
-            "15"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "archer_attack_speed"   "15"
-            }   
+            "bonus_intellect" "15"
+            "bonus_strength" "10"
+            "summon_duration" "50"
+            "warrior_health_tooltip" "700"
+            "warrior_damage_tooltip" "75"
+            "warrior_mana_feedback" "35"
+            "warrior_mana_break_tooltip" "35"
+            "explosion" "550"
+            "warrior_truesight" "1000"
+            "archer_health_tooltip" "700"
+            "archer_damage_tooltip" "60"
+            "archer_mana_burn" "200"
+            "archer_aura_radius_tooltip" "900"
+            "archer_move_speed" "5"
+            "archer_attack_speed" "15"
         }
     }
 
@@ -1339,23 +1245,11 @@
         //
 
         // THESE VALUES ARE PURELY FOR THE TOOLTIPS, REAL VALUES ARE IN ABILITY "ability_consumable_item_container"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "greater_crit_bonus_damage"          "88"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "greater_crit_crit_chance"           "30"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "greater_crit_crit_multiplier"       "225"
-            }
+            "greater_crit_bonus_damage" "88"
+            "greater_crit_crit_chance" "30"
+            "greater_crit_crit_multiplier" "225"
         }
     }
     "item_octarine_core_consumable"
@@ -1387,33 +1281,13 @@
         //
 
         // THESE VALUES ARE PURELY FOR THE TOOLTIPS, REAL VALUES ARE IN ABILITY "ability_consumable_item_container"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "octarine_core_bonus_health"          "425"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "octarine_core_bonus_mana"            "725"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "octarine_core_cast_range_bonus"   "225"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "octarine_core_bonus_mana_regen"        "3"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "octarine_core_bonus_cooldown"        "25"
-            }
+            "octarine_core_bonus_health" "425"
+            "octarine_core_bonus_mana" "725"
+            "octarine_core_cast_range_bonus" "225"
+            "octarine_core_bonus_mana_regen" "3"
+            "octarine_core_bonus_cooldown" "25"
         }
     }
 
@@ -1433,29 +1307,12 @@
         "ItemCost"                      "4975"
         "AbilityGoldCost"               "4975"
         "ItemPurchasable"              "0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "monkey_king_bar_bonus_damage"          "40"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "monkey_king_bar_bonus_attack_speed"    "35"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "monkey_king_bar_bonus_chance"          "75"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "monkey_king_bar_bonus_chance_damage"           "70"
-            }
-            
+            "monkey_king_bar_bonus_damage" "40"
+            "monkey_king_bar_bonus_attack_speed" "35"
+            "monkey_king_bar_bonus_chance" "75"
+            "monkey_king_bar_bonus_chance_damage" "70"
         }
     }
 
@@ -1482,28 +1339,12 @@
         //
 
         // THESE VALUES ARE PURELY FOR THE TOOLTIPS, REAL VALUES ARE IN ABILITY "ability_consumable_item_container"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "butterfly_bonus_agility"         "35"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "butterfly_bonus_evasion"         "35"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "butterfly_bonus_attack_speed"    "30"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "butterfly_bonus_damage"  "25"
-            }
+            "butterfly_bonus_agility" "35"
+            "butterfly_bonus_evasion" "35"
+            "butterfly_bonus_attack_speed" "30"
+            "butterfly_bonus_damage" "25"
         }
     }
 
@@ -1571,23 +1412,11 @@
             "particle"  "particles/items3_fx/silver_edge_slow.vpcf"
         }
         
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_all_stats"       "20"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "break_duration"        "6"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "damage_reduction"      "50"
-            }
+            "bonus_all_stats" "20"
+            "break_duration" "6"
+            "damage_reduction" "50"
         }
         
         "OnSpellStart"
@@ -1704,23 +1533,11 @@
             "particle"  "particles/items3_fx/silver_edge_slow.vpcf"
         }
         
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_all_stats"       "0"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "break_duration"        "6"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "damage_reduction"      "50"
-            }
+            "bonus_all_stats" "0"
+            "break_duration" "6"
+            "damage_reduction" "50"
         }
         
         "OnSpellStart"
@@ -1898,28 +1715,12 @@
         "AbilityGoldCost"               "2375"
         "ItemPurchasable"              "0"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "vladimir_mana_regen_aura"       "2.0"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "vladimir_lifesteal_aura"            "15"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "vladimir_damage_aura"           "18"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "vladimir_aura_radius"   "1200"
-            }       
+            "vladimir_mana_regen_aura" "2.0"
+            "vladimir_lifesteal_aura" "15"
+            "vladimir_damage_aura" "18"
+            "vladimir_aura_radius" "1200"
         }
     }
 
@@ -1938,33 +1739,13 @@
         "AbilityGoldCost"               "3000"
         "ItemPurchasable"              "0"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "aeon_disk_bonus_health"          "250"
-            }           
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "aeon_disk_bonus_mana"            "300"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "aeon_disk_health_threshold_pct"          "70"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "aeon_disk_status_resistance"         "75"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "aeon_disk_buff_duration"     "2.5"
-            }
+            "aeon_disk_bonus_health" "250"
+            "aeon_disk_bonus_mana" "300"
+            "aeon_disk_health_threshold_pct" "70"
+            "aeon_disk_status_resistance" "75"
+            "aeon_disk_buff_duration" "2.5"
         }
     }
 
@@ -1989,11 +1770,6 @@
         "ItemInitialCharges"            "1"
         "ItemQuality"                   "component"
         "ItemPurchasable"               "1"
-
-        "AbilitySpecial"
-        {
-         
-        }
 
         "precache"
         {

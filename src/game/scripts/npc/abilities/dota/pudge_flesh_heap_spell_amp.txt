@@ -11,18 +11,10 @@
         {
             "particle"                                                     "particles/units/heroes/hero_pudge/pudge_fleshheap_count.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "flesh_heap_spell_amp_buff_amount"                     "0.3 0.6 0.9 1.2"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "flesh_heap_range"                                     "450"
-            }
+            "flesh_heap_spell_amp_buff_amount" "0.3 0.6 0.9 1.2"
+            "flesh_heap_range" "450"
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "40"

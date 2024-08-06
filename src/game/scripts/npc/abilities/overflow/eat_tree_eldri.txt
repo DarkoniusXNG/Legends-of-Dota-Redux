@@ -16,29 +16,13 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"                  "FIELD_FLOAT"
-				"duration"					"75 80 85 90"
-			}
-			"02"
-			{
-				"var_type"                  "FIELD_INTEGER"
-				"bonus"						"3 4 5 6"
-			}
-			"03"
-			{
-				"var_type"                  "FIELD_FLOAT"
-				"regen"						"0.05 0.1 0.15 0.2"
-			}
-			"04"
-			{
-				"var_type"                  "FIELD_INTEGER"
-				"mana_cost_per_stack"		"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "75 80 85 90"
+            "bonus" "3 4 5 6"
+            "regen" "0.05 0.1 0.15 0.2"
+            "mana_cost_per_stack" "12"
+        }
 		"precache"
 		{
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"

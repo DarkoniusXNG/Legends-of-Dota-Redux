@@ -6,23 +6,11 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/illusionist_agility_paws"
         "MaxLevel"                                                             "4"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_agility"                                        "1 2 3 4"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "prt_bonus"                                            "15"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "max_bonus"                                            "200"
-            }
+            "bonus_agility" "1 2 3 4"
+            "prt_bonus" "15"
+            "max_bonus" "200"
         }
         "Modifiers"
         {

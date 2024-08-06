@@ -11,23 +11,11 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "FightRecapLevel"                                                      "1"
         "HasScepterUpgrade"                                                    "1"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "stacks"                                               "2 3 4"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "chance_scepter"                                       "40"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "60.0"
-            }
+            "stacks" "2 3 4"
+            "chance_scepter" "40"
+            "duration" "60.0"
         }
         "precache"
         {

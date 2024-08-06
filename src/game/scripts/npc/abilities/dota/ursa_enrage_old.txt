@@ -8,18 +8,10 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityCooldown"                                                      "25"
         "AbilityManaCost"                                                      "0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "current_health_as_damage"                             "5 6 7"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "duration"                                             "15"
-            }
+            "current_health_as_damage" "5 6 7"
+            "duration" "15"
         }
         "Precache"
         {

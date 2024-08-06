@@ -24,43 +24,15 @@
             "particle"                                                      "particles/units/heroes/hero_tinker/tinker_rearm.vpcf"
             "soundfile"                                                     "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage"                                               "30 50 70 90"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "projectile_count"                                     "24"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "stun_duration"                                        "1"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "400"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "projectile_speed"                                     "700"
-            }
-            "06"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "projectile_radius"                                    "135"
-            }
-            "07"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "projectile_interval"                                  "0.036"
-            }
+            "damage" "30 50 70 90"
+            "projectile_count" "24"
+            "stun_duration" "1"
+            "radius" "400"
+            "projectile_speed" "700"
+            "projectile_radius" "135"
+            "projectile_interval" "0.036"
         }
         "OnSpellStart"
         {

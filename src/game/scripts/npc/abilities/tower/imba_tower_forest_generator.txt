@@ -11,18 +11,10 @@
         "AbilityCooldown"                                                      "30"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "RequiredLevel"                                                        "1"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "tree_radius"                                          " 3000"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "tree_duration"                                        "9999"
-            }
+            "tree_radius" " 3000"
+            "tree_duration" "9999"
         }
         "Modifiers"
         {

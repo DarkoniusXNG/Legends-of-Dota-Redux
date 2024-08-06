@@ -68,28 +68,12 @@
                 }
             }
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "mana_regen"                                           "1.0 1.5 2.0 2.5"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "mana_regen_pct"                                       "0.5 1.0 1.5 2.0"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "buff_duration"                                        "10.0"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "self_mana_regen"                                      "3.0 4.5 6.0 7.5"
-            }
+            "mana_regen" "1.0 1.5 2.0 2.5"
+            "mana_regen_pct" "0.5 1.0 1.5 2.0"
+            "buff_duration" "10.0"
+            "self_mana_regen" "3.0 4.5 6.0 7.5"
         }   
         "ReduxFlags"                                                           "support | mana | semi_passive"
         "ReduxPerks"                                                           "support"

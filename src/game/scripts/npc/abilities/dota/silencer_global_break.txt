@@ -17,13 +17,9 @@
             "particle"                                                     "particles/units/heroes/hero_silencer/silencer_global_silence.vpcf"
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "duration"                                             "4 6 8"
-            }
+            "duration" "4 6 8"
         }
         "OnSpellStart"
         {

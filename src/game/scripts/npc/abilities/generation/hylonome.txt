@@ -46,33 +46,13 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "cast_range"            "600 700 800 900"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "distance"              "-350 -450 -550 -650"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "move_slow"             "-40"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "duration"              "5"
-            }   
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "damage"                "70 140 210 280"
-            }
+            "cast_range" "600 700 800 900"
+            "distance" "-350 -450 -550 -650"
+            "move_slow" "-40"
+            "duration" "5"
+            "damage" "70 140 210 280"
         }
         "precache"
         {
@@ -207,33 +187,13 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "cast_range"            "400 700 1000 1300"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "distance"              "-300 -600 -900 -1200"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "move_slow"             "-70"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "duration"              "5"
-            }   
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "damage"                "200 250 300 350"
-            }
+            "cast_range" "400 700 1000 1300"
+            "distance" "-300 -600 -900 -1200"
+            "move_slow" "-70"
+            "duration" "5"
+            "damage" "200 250 300 350"
         }
         "precache"
         {
@@ -345,28 +305,12 @@
         "AbilityTextureName"            "custom/hylonome_battle_rhythm"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "bonus_evasion"         "5 7.5 10 12.5"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "bonus_movement_speed"  "5 6 7 8"
-            }
-            "03"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "max_stacks"        "7"
-            }
-            "04"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "duration"          "12"
-            }
+            "bonus_evasion" "5 7.5 10 12.5"
+            "bonus_movement_speed" "5 6 7 8"
+            "max_stacks" "7"
+            "duration" "12"
         }
 
         "precache"
@@ -539,23 +483,11 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "bonus_damage"      "500"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "stacks"            "5"
-            }
-            "03"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "duration"          "15"
-            }
+            "bonus_damage" "500"
+            "stacks" "5"
+            "duration" "15"
         }
     }
 
@@ -589,33 +521,13 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "radius"            "500"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "heal_reduction"    "15 30 45 60"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "chance"            "15 20 25 30"
-            }
-            "05"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "bleed_damage"      "7"
-            }
-            "04"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "duration"          "6"
-            }
+            "radius" "500"
+            "heal_reduction" "15 30 45 60"
+            "chance" "15 20 25 30"
+            "bleed_damage" "7"
+            "duration" "6"
         }
 
         //Ability
@@ -756,43 +668,15 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_shadow_demon.vsndevts"
         }
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "damage_per_second"     "80 120 160"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "movement_slow"         "-15 -20 -25"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "interval"          "0.1"
-            }
-            "04"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "lifesteal"             "50"
-            }
-            "05"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "distance"              "750"
-            }
-            "06"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "duration"              "12.0"
-            }
-            "07"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "radius_scepter"        "750"
-            }
+            "damage_per_second" "80 120 160"
+            "movement_slow" "-15 -20 -25"
+            "interval" "0.1"
+            "lifesteal" "50"
+            "distance" "750"
+            "duration" "12.0"
+            "radius_scepter" "750"
         }
         "OnSpellStart"
         {
@@ -969,19 +853,10 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "test"              "2"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "radius"                "1200"
-            }
+            "test" "2"
+            "radius" "1200"
         }
         
         "precache"

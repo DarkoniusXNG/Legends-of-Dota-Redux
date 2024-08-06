@@ -6,17 +6,11 @@
 		"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
 		"ReduxFlags" "doNotRandom"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"bash_chance" "8"
-			}
-
-			"02" {
-				"var_type" "FIELD_FLOAT"
-				"stun_hero_duration" "0.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "bash_chance" "8"
+            "stun_hero_duration" "0.5"
+        }
 
 		"Modifiers" {
 			"modifier_bash" {

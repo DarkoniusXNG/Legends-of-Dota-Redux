@@ -13,58 +13,18 @@
         "AbilityCooldown"                                                      "5.0"
         "AbilityManaCost"                                                      "90 100 110 120"
         "AbilityCastPoint"                                                     "0.1"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "10"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "spawn_distance"                                       "250"
-            }
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "350"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "delay"                                                "10.0"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage"                                               "125 200 275 350"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "lifesteal_hero"                                       "40"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "lifesteal_creep"                                      "10"
-            }
-            "06"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "spore_health"                                         "150"
-            }
-            "07"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "spore_movespeed"                                      "500"
-            }
-            "08"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "heal_hero"                                            "40 70 100 130"
-            }
-            "09"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "heal_creep"                                           "10 17.5 25 32.5"
-            }
+            "spawn_distance" "250"
+            "radius" "350"
+            "delay" "10.0"
+            "damage" "125 200 275 350"
+            "lifesteal_hero" "40"
+            "lifesteal_creep" "10"
+            "spore_health" "150"
+            "spore_movespeed" "500"
+            "heal_hero" "40 70 100 130"
+            "heal_creep" "10 17.5 25 32.5"
         }
         "precache"
         {

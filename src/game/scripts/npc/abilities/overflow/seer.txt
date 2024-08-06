@@ -11,7 +11,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0.1 0.1 0.1 0.1"
+		"AbilityCastPoint"				"0.1"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"custom/seer"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
@@ -30,11 +30,6 @@
 		{
 			"particle"	"particles/units/heroes/hero_dark_seer/dark_seer_loadout.vpcf"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_dark_seer.vsndevts"
-		}
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
 		}
 	}
 }

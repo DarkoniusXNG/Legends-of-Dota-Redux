@@ -14,23 +14,11 @@
             "particle"                                                     "particles/units/heroes/hero_clinkz/clinkz_strafe_fire.vpcf"
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "bonus_armor"                                          "40.0 60.0 75.0"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_damage"                                         "80 100 120"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "15"
-            }
+            "bonus_armor" "40.0 60.0 75.0"
+            "bonus_damage" "80 100 120"
+            "duration" "15"
         }
         "OnSpellStart"
         {

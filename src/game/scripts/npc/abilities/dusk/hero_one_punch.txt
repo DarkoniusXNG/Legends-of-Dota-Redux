@@ -40,44 +40,16 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit"						"150 175 200"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"landing_delay"				"1.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"landing_aoe"				"500"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"landing_damage"			"200 250 300"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"landing_stun"				"1.5 1.75 2.0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"scepter_crit"				"175 200 225"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"scepter_landing_damage"	"250 300 350"
-			}
-		}
+		"AbilityValues"
+        {
+            "crit" "150 175 200"
+            "landing_delay" "1.0"
+            "landing_aoe" "500"
+            "landing_damage" "200 250 300"
+            "landing_stun" "1.5 1.75 2.0"
+            "scepter_crit" "175 200 225"
+            "scepter_landing_damage" "250 300 350"
+        }
 		
 		"precache"
 		{

@@ -4,24 +4,45 @@
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"SpellImmunityType" "SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityCastPoint" "0.1"
-		"AbilityCooldown" "0"
 		"AbilityManaCost" "0"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"radius" "325"
+		"AbilityValues"
+        {
+			"radius"				
+			{
+				"value"		"350"
+				"special_bonus_unique_lone_druid_savage_roar_aoe"				"+150"
+				"affected_by_aoe_increase"	"1"
 			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"bonus_speed" "0"
+			"bonus_speed"			"0"
+			"duration"				"2.0"
+			"only_affects_player_units"	"1"
+			"shard_radius"
+			{
+				"value"					"700"
+				"RequiresShard"				"1"
+				"affected_by_aoe_increase"	"1"
 			}
-
-			"03" {
-				"var_type" "FIELD_FLOAT"
-				"duration" "2"
+			"shard_movement_speed_pct"				
+			{
+				"value"					"15"
+				"RequiresShard"				"1"
 			}
-		}
+			"shard_attack_speed"				
+			{
+				"value"				"40"
+				"RequiresShard"				"1"
+			}
+			"shard_duration"				
+			{
+				"value"				"5.0"
+				"RequiresShard"				"1"
+			}
+			"AbilityCooldown"				
+			{
+				"value"				"10"
+				"special_bonus_unique_lone_druid_4"			"-7"
+			}
+        }
 	}
 }

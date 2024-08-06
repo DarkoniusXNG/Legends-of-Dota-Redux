@@ -14,17 +14,11 @@
 		"AbilityManaCost" "100 120 140 160"
 		"MaxLevel" "4"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"damage" "120 200 280 360"
-			}
-
-			"02" {
-				"var_type" "FIELD_FLOAT"
-				"damage_pct" "10.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "120 200 280 360"
+            "damage_pct" "10.0"
+        }
 
 		"precache" {
 			"particle" "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_msg.vpcf"

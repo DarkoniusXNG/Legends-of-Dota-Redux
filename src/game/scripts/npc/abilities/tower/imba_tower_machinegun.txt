@@ -8,13 +8,9 @@
         "MaxLevel"                                                             "3"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_as"                                             "75 125 175"
-            }
+            "bonus_as" "75 125 175"
         }
         "Modifiers"
         {

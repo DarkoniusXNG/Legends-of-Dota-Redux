@@ -4727,7 +4727,7 @@
         {
             "ReduxPerks"                                                           "rage"
             "ReduxCost"                                                            "80"
-            "ReduxBans"                                                            "ursa_overpower_melee | tusk_walrus_punch | earthshaker_enchant_totem"
+            "ReduxBans"                                                            "tusk_walrus_punch | earthshaker_enchant_totem"
         }
         "lycan_howl"
         {

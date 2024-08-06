@@ -33,43 +33,15 @@
         "AOERadius"         "%radius"
  
         // Special
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"      "FIELD_FLOAT"
-                "dps"           "30 45 60 75"
-            }
-            "02"
-            {
-                "var_type"      "FIELD_FLOAT"
-                "reflect"       "80"
-            }
-            "03"
-            {
-                "var_type"      "FIELD_INTEGER"
-                "radius"        "1600"
-            }
-            "04"
-            {
-                "var_type"      "FIELD_INTEGER"
-                "duration"      "40"
-            }
-            "05" //Must be double attacks to destroy
-            {
-                "var_type"      "FIELD_INTEGER"
-                "maximum_reflections"   "6 10 14 18"
-            }
-            "06" //Must be one half number of maximum reflections
-            {
-                "var_type"      "FIELD_INTEGER"
-                "attacks_to_destroy"    "3 5 7 9"
-            }
-            "07"
-            {
-                "var_type"      "FIELD_INTEGER"
-                "hero_value"        "4"
-            }
+            "dps" "30 45 60 75"
+            "reflect" "80"
+            "radius" "1600"
+            "duration" "40"
+            "maximum_reflections" "6 10 14 18" // Must be double attacks_to_destroy
+            "attacks_to_destroy" "3 5 7 9"
+            "hero_value" "4"
         }
  
         "precache"
@@ -204,29 +176,12 @@
         "AbilityProcsMagicStick" "1"
  
         //Special
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"  "FIELD_INTEGER"
-                "range"     "900"
-            }
-            "02"
-            {
-                "var_type"  "FIELD_FLOAT"
-                "duration"  "6 8 10"
-            }
-            "03"
-            {
-                "var_type"  "FIELD_INTEGER"
-                "scepter_duration"    "10 15 20"
-            }
-            "04"
-            {
-                "var_type"  "FIELD_INTEGER"
-                "radius"    "900"
-            }
-            
+            "range" "900"
+            "duration" "6 8 10"
+            "scepter_duration" "10 15 20"
+            "radius" "900"
         }
  
         "precache"
@@ -377,23 +332,11 @@
         "AbilityManaCost"       "30"
  
         // Special
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"      "FIELD_INTEGER"
-                "bonus_damage"      "45 55 65 75"
-            }
-            "02"
-            {
-                "var_type"      "FIELD_FLOAT"
-                "duration_buff"     "1.5 2.0 2.5 3.0"
-            }
-            "03"
-            {
-                "var_type"      "FIELD_FLOAT"
-                "duration_debuff"   "1.0"
-            }
+            "bonus_damage" "45 55 65 75"
+            "duration_buff" "1.5 2.0 2.5 3.0"
+            "duration_debuff" "1.0"
         }
  
         "precache"
@@ -500,23 +443,11 @@
         "AbilityCastRange"      "%radius"
  
         // Special
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"      "FIELD_FLOAT"
-                "ias"           "1.1 1.3 1.5 1.7"
-            }
-            "02"
-            {
-                "var_type"      "FIELD_INTEGER"
-                "radius"        "600 700 800 900"
-            }
-            "03"
-            {
-                "var_type"      "FIELD_FLOAT"
-                "duration_max"      "1.0 1.2 1.4 1.6"
-            }
+            "ias" "1.1 1.3 1.5 1.7"
+            "radius" "600 700 800 900"
+            "duration_max" "1.0 1.2 1.4 1.6"
         }
  
         "precache"

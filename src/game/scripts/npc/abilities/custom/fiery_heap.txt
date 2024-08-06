@@ -11,43 +11,15 @@
         {
             "particle"                                                     "particles/units/heroes/hero_pudge/pudge_fleshheap_count.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "attack_speed_bonus"                  "3 5 7 9"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "move_speed_bonus"                                     "2 4 6 8"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "int_bonus"                                     "1.0 1.5 2.0 2.5"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "health_bonus"                                     "5 10 15 20"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "cast_range_bonus"                                     "4 8 12 16"
-            }
-            "06"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "model_scale_bonus"                                     "0.05"
-            }
-            "07"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "spell_lifesteal_bonus"                                     "0.1 0.2 0.3 0.4"
-            }
+            "attack_speed_bonus" "3 5 7 9"
+            "move_speed_bonus" "2 4 6 8"
+            "int_bonus" "1.0 1.5 2.0 2.5"
+            "health_bonus" "5 10 15 20"
+            "cast_range_bonus" "4 8 12 16"
+            "model_scale_bonus" "0.05"
+            "spell_lifesteal_bonus" "0.1 0.2 0.3 0.4"
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "120"
@@ -61,13 +33,9 @@
         "TalentRequiredAbility" "ranged_punch"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "value"                                                "1"
-            }
+            "value" "1"
         }
     }
 }

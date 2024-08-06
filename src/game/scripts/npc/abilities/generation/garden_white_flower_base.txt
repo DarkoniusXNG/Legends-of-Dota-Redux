@@ -11,23 +11,11 @@
         "AnimationPlaybackRate"                                                "0.2"
         "MaxLevel"                                                             "4"
         "AOERadius"                                                            "900"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "range"                                                "900"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "white_flower_damage"                                  "30 45 60 75"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "flower_health"                                        "250 400 550 700"
-            }
+            "range" "900"
+            "white_flower_damage" "30 45 60 75"
+            "flower_health" "250 400 550 700"
         }
         "precache"
         {

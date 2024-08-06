@@ -19,23 +19,11 @@
         {
             "particle"                                                     "particles/units/heroes/hero_invoker/invoker_retro_deafening_blast_impact.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "mute_duration"                                        "3 4 5 6"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "damage"                                               "120 200 280 360"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "pip_current"                                          "1"
-            }
+            "mute_duration" "3 4 5 6"
+            "damage" "120 200 280 360"
+            "pip_current" "1"
         }
         "OnSpellStart"
         {

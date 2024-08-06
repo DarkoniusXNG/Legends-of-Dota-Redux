@@ -16,18 +16,10 @@
         {
             "particle"                                                     "particles/units/heroes/hero_abaddon/abaddon_death_coil_explosion_f.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "chanceVal"                                            "33"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "adsorbVal"                                            "60 90 120 150"
-            }
+            "chanceVal" "33"
+            "adsorbVal" "60 90 120 150"
         }
         "OnRespawn"
         {

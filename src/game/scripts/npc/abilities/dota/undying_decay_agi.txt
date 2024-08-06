@@ -16,48 +16,16 @@
         "AOERadius"                                                            "325"
         "AbilityCooldown"                                                      "10.0 8.0 6.0 4.0"
         "AbilityManaCost"                                                      "85 90 95 100"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "decay_damage"                                         "120 180 220 280"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "agi_steal"                                            "6"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "agi_steal_enemy"                                      "-6"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "decay_duration"                                       "60.0"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "agi_steal_scepter"                                    "15"
-            }
-            "06"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "agi_steal_enemy_scepter"                              "-15"
-            }
-            "07"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "stat_scale_up"                                        "2"
-            }
-            "08"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "400"
-            }
+            "decay_damage" "120 180 220 280"
+            "agi_steal" "6"
+            "agi_steal_enemy" "-6"
+            "decay_duration" "60.0"
+            "agi_steal_scepter" "15"
+            "agi_steal_enemy_scepter" "-15"
+            "stat_scale_up" "2"
+            "radius" "400"
         }
         "precache"
         {

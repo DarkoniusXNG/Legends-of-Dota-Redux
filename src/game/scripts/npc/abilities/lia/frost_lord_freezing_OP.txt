@@ -15,18 +15,10 @@
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_crystalmaiden/maiden_frostbite.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "freezing_chance"                                      "20 30 40 50"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "stun_hero_duration"                                   "0.5 1.0 1.5 2.0"
-            }
+            "freezing_chance" "20 30 40 50"
+            "stun_hero_duration" "0.5 1.0 1.5 2.0"
         }
         "Modifiers"
         {

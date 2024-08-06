@@ -15,28 +15,12 @@
         "AbilityCastPoint"                                                     "0.0 0.0 0.0 0.0"
         "AbilityManaCost"                                                      "30"
         "MaxLevel"                                                             "4"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "30.0"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_attack_speed"                                   "60 75 90 105"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_damage"                                         "20 18 16 14"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "damage_pct"                                           "0.6 1.2 1.8 2.4"
-            }
+            "duration" "30.0"
+            "bonus_attack_speed" "60 75 90 105"
+            "bonus_damage" "20 18 16 14"
+            "damage_pct" "0.6 1.2 1.8 2.4"
         }
         "OnSpellStart"
         {

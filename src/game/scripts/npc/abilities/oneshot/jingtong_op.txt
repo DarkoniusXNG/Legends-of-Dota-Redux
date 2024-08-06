@@ -6,13 +6,9 @@
         "AbilityTextureName"                                                   "custom/jingtong_op"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "ScriptFile"                                                           "abilities/jingtong_op.lua"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "reduce"                                               "15 30 45 60"
-            }
+            "reduce" "15 30 45 60"
         }
         "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           "cooldown"

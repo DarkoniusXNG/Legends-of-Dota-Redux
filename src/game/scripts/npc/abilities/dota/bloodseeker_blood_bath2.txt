@@ -10,23 +10,11 @@
         {
             "particle"                                                     "particles/units/heroes/hero_bloodseeker/bloodseeker_bloodbath.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "heal_radius"                                          "600"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "hero_max_hp_heal"                                     "20 40 60 80"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "non_hero_max_hp_heal"                                 "15 20 25 30"
-            }
+            "heal_radius" "600"
+            "hero_max_hp_heal" "20 40 60 80"
+            "non_hero_max_hp_heal" "15 20 25 30"
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "80"

@@ -17,19 +17,11 @@
 			"particle"	"particles/chi_strike_wave.vpcf"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"range"			"900 1000 1100 1200"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed"			"2000"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "900 1000 1100 1200"
+            "speed" "2000"
+        }
 		"ReduxFlags"                                                           "aoe_attack | attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier"
 		"ReduxCost"																														"120"
