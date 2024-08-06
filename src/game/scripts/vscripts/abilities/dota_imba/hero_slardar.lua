@@ -374,10 +374,14 @@ function modifier_imba_rip_current_movement:RipCurrentLand()
 	for _, enemy in pairs(enemies) do
 		if not enemy:IsMagicImmune() then
 			-- Apply damage
-			local damageTable = {victim = enemy,
+			local damageTable = {
+				victim = enemy,
 				attacker = self.caster,
 				damage = damage,
-				damage_type = DAMAGE_TYPE_PHYSICAL}
+				damage_type = DAMAGE_TYPE_PHYSICAL,
+				ability = self.ability,
+				damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+			}
 
 			ApplyDamage(damageTable)
 
@@ -627,10 +631,14 @@ function SlithereenCrush(self)
 			ParticleManager:SetParticleControl(particle_hit_fx, 0, enemy:GetAbsOrigin())
 
 			-- Damage nearby enemies
-			local damageTable = {victim = enemy,
+			local damageTable = {
+				victim = enemy,
 				attacker = caster,
 				damage = damage,
-				damage_type = DAMAGE_TYPE_PHYSICAL}
+				damage_type = DAMAGE_TYPE_PHYSICAL,
+				ability = ability,
+				damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+			}
 
 			ApplyDamage(damageTable)
 

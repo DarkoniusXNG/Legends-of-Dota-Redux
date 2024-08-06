@@ -40,7 +40,8 @@ function modifier_spike_trap_thinker_lua:OnIntervalThink()
 						attacker = self:GetCaster(),
 						damage = self.light_strike_array_damage,
 						damage_type = DAMAGE_TYPE_PHYSICAL,
-						ability = self:GetAbility()
+						ability = self:GetAbility(),
+						damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
 					}
 
 					ApplyDamage( damage )

@@ -1680,12 +1680,12 @@ function modifier_imba_reincarnation_wraith_form:OnDestroy()
 
 		if self.parent:IsAlive() then
 			local damageTable = {
-			victim = self.parent,
-			attacker = self.original_killer,
-			damage = 100000000,
-			damage_type = DAMAGE_TYPE_PURE,
-			ability = self.ability_killer,
-			damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY + DOTA_DAMAGE_FLAG_BYPASSES_BLOCK + DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_REFLECTION,
+				victim = self.parent,
+				attacker = self.original_killer,
+				damage = self.parent:GetHealth() + 1,
+				damage_type = DAMAGE_TYPE_PURE,
+				ability = self.ability_killer,
+				damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY + DOTA_DAMAGE_FLAG_BYPASSES_ALL_BLOCK + DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_REFLECTION,
 			}
 			ApplyDamage(damageTable)
 		end

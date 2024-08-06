@@ -303,11 +303,14 @@ function modifier_imba_trembling_steps_buff:OnUnitMoved()
 		for _,enemy in pairs(enemies) do
 			-- Damage units
 			if not enemy:IsMagicImmune() then
-				local damageTable = {victim = enemy,
+				local damageTable = {
+					victim = enemy,
 					attacker = self.caster,
 					damage = self.trembling_steps_damage,
 					damage_type = DAMAGE_TYPE_PHYSICAL,
-					ability = self.ability}
+					ability = self.ability,
+					damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+				}
 
 				ApplyDamage(damageTable)
 			end

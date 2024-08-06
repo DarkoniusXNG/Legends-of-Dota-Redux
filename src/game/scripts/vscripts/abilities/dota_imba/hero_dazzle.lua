@@ -197,7 +197,14 @@ function modifier_imba_dazzle_poison_touch_debuff:OnIntervalThink()
 		totalDamage = baseDamage + stackDamage * stacks
 
 		SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_POISON_DAMAGE, self:GetParent(), totalDamage, nil)
-		ApplyDamage({victim = self:GetParent(), attacker = ability:GetCaster(), damage = totalDamage, damage_type = DAMAGE_TYPE_PHYSICAL})
+		ApplyDamage({
+			victim = self:GetParent(),
+			attacker = ability:GetCaster(),
+			damage = totalDamage,
+			damage_type = DAMAGE_TYPE_PHYSICAL,
+			ability = ability,
+			damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+		})
 	end
 end
 
@@ -1261,7 +1268,14 @@ function imba_dazzle_shadow_wave:WaveHit(unit, isAlly, poisonTouched)
 		else
 			-- If enemy, deal damage and check for poison
 			-- If poison was found, and it has more stacks than an older poison instance, change poisonTouched so further bounces apply it as well (with the updated value)
-			ApplyDamage({victim = unit, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
+			ApplyDamage({
+				victim = unit,
+				attacker = caster,
+				damage = damage,
+				damage_type = DAMAGE_TYPE_PHYSICAL,
+				ability = self,
+				damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+			})
 			local poisonTouchAbility = caster:FindAbilityByName("imba_dazzle_poison_touch")
 			local oldMod = unit:FindModifierByName("modifier_imba_dazzle_poison_touch_debuff")
 			if poisonTouched and poisonTouchAbility then
@@ -1286,7 +1300,14 @@ function imba_dazzle_shadow_wave:WaveHit(unit, isAlly, poisonTouched)
 				ParticleManager:ReleaseParticleIndex(damage_particle)
 
 				if target:GetTeamNumber() ~= caster:GetTeamNumber() then
-					ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
+					ApplyDamage({
+						victim = target,
+						attacker = caster,
+						damage = damage,
+						damage_type = DAMAGE_TYPE_PHYSICAL,
+						ability = self,
+						damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+					})
 				else
 					target:Heal(totalHeal, caster)
 					SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, target, totalHeal, nil)
