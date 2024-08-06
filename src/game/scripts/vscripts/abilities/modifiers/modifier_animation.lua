@@ -391,7 +391,6 @@ function modifier_animation:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE,
-    MODIFIER_PROPERTY_OVERRIDE_ANIMATION_WEIGHT,
     MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
   }
  
@@ -404,10 +403,6 @@ end
 
 function modifier_animation:GetOverrideAnimationRate(...)
   return self.rate
-end
-
-function modifier_animation:GetOverrideAnimationWeight(...)
-  return 1
 end
 
 function modifier_animation:GetActivityTranslationModifiers(...)

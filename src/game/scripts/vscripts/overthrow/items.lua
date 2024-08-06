@@ -32,7 +32,7 @@ function COverthrowGameMode:SpawnGoldEntity( spawnPoint )
 	local newItem = CreateItem( "item_bag_of_gold", nil, nil )
 	local drop = CreateItemOnPositionForLaunch( spawnPoint, newItem )
 	local dropRadius = RandomFloat( self.m_GoldRadiusMin, self.m_GoldRadiusMax )
-	newItem:LaunchLootInitialHeight( false, 0, 500, 0.75, spawnPoint + RandomVector( dropRadius ) )
+	newItem:LaunchLootInitialHeight( false, 0, 500, 0.75, spawnPoint + RandomVector( dropRadius ), nil )
 	newItem:SetContextThink( "KillLoot", function() return self:KillLoot( newItem, drop ) end, 20 )
 end
 
@@ -316,7 +316,7 @@ function COverthrowGameMode:TreasureDrop( treasureCourier )
 	local newItem = CreateItem( "item_treasure_chest", nil, nil )
 	local drop = CreateItemOnPositionForLaunch( spawnPoint, newItem )
 	drop:SetForwardVector( treasureCourier:GetRightVector() ) -- oriented differently
-	newItem:LaunchLootInitialHeight( false, 0, 50, 0.25, spawnPoint )
+	newItem:LaunchLootInitialHeight( false, 0, 50, 0.25, spawnPoint, nil )
 
 	--Stop the particle effect
 	DoEntFire( "item_spawn_particle_" .. self.itemSpawnIndex, "stopplayendcap", "0", 0, self, self )
