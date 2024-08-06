@@ -39,7 +39,7 @@ function item_assault_consumable:OnSpellStart()
 		caster.assault_attack_speed_aura_lod = aura_as
 		caster.assault_bonus_armor_aura_lod = aura_pos_armor
 		caster.assault_minus_armor_aura_lod = aura_neg_armor
-		self:SpendCharge()
+		self:SpendCharge(0.1)
 	end
 end
 

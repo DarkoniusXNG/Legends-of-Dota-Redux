@@ -1,7 +1,3 @@
-function SpendChargeRight(keys)
-	SpendCharge(keys.ability, 1)
-end
-
 function SetMaxLevel(keys)
 	local ability = keys.ability
 	ability:SetLevel(ability:GetMaxLevel())
