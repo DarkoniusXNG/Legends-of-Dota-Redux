@@ -11,8 +11,8 @@
         "AbilityTextureName"                                                   "custom/illusionist_mastery_of_illusions"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "MaxLevel"                                                             "3"
-        "AbilityCastRange"                                                     "700 700 700"
-        "AbilityCastPoint"                                                     "0.0 0.0 0.0"
+        "AbilityCastRange"                                                     "700"
+        "AbilityCastPoint"                                                     "0.0"
         "AbilityCooldown"                                                      "30.0"
         "AbilityManaCost"                                                      "100 120 140"
         "AbilityValues"
@@ -48,8 +48,8 @@
                 "EffectAttachType"                                     "follow_origin"
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE""%reduce_spell_damage_pct"
-                    "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL""1"
+                    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE"  "%reduce_spell_damage_pct"
+                    "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL"          "1"
                 }
                 "States"
                 {

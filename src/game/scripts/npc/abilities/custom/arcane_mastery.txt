@@ -34,7 +34,7 @@
             "FireSound"
             {
                 "EffectName"                                           "Custom.Arcane_Mastery_Phase"
-                "target"                                               "CASTER"
+                "Target"                                               "CASTER"
             }
         }
         "OnSpellStart"
@@ -47,7 +47,7 @@
             "FireSound"
             {
                 "EffectName"                                           "Custom.Arcane_Mastery"
-                "target"                                               "CASTER"
+                "Target"                                               "CASTER"
             }
         }
         "Modifiers"
