@@ -85,20 +85,13 @@ if CDOTABaseAbility then
 
 	function CDOTABaseAbility:GetTrueCooldown()
 		--if Convars:GetBool('dota_ability_debug') then return 0 end
-		local cooldown = self:GetCooldown(-1)
+		local cooldown = self:GetCooldown(-1) -- TODO: Check if this returns cooldown after CDR
 		local hero = self:GetCaster()
 		local true_cd = cooldown
 
-		-- Normal Witchcraft
-		local mabWitch = hero:FindAbilityByName('death_prophet_witchcraft')
 		-- OP Witchcraft
 		local mabWitchOP = hero:FindAbilityByName('death_prophet_witchcraft_op')
-		if mabWitch and not mabWitchOP then
-			true_cd = math.max(cooldown - mabWitch:GetLevel(), 1)
-		elseif mabWitchOP and not mabWitch then
-			true_cd = math.max(cooldown - 4 * mabWitchOP:GetLevel(), 1)
-		elseif mabWitch and mabWitchOP then
-		-- Shouldnt be possible but just in case
+		if mabWitchOP then
 			true_cd = math.max(cooldown - 4 * mabWitchOP:GetLevel(), 1)
 		end
 
