@@ -16,23 +16,11 @@
             "particle"                                                     "particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf"
         }
         "AbilityCooldown"                                                      "50.0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "min_health"                                           "2"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "passive_cooldown_scepter"                             "50.0"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "passive_duration"                                     "3.5"
-            }
+            "min_health" "2"
+            "passive_cooldown_scepter" "50.0"
+            "passive_duration" "3.5"
         }
         "OnSpellStart"
         {

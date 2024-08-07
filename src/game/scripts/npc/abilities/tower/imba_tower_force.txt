@@ -10,28 +10,12 @@
         "AbilityCastRange"                                                     "800"
         "AbilityCooldown"                                                      "4"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "force_aoe"                                            "800"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "force_distance"                                       "300 350 400"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "force_duration"                                       "0.4 0.8 1.2"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "min_creeps"                                           "4"
-            }
+            "force_aoe" "800"
+            "force_distance" "300 350 400"
+            "force_duration" "0.4 0.8 1.2"
+            "min_creeps" "4"
         }
         "Modifiers"
         {

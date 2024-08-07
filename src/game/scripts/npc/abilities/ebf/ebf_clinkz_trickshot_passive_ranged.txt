@@ -8,18 +8,10 @@
         "FightRecapLevel"                                                      "1"
         "AbilityTextureName"                                                   "custom/ebf_clinkz_trickshot_passive"
         "HasScepterUpgrade"                                                    "1"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "double_interval"                                      "2.0 1.4 0.8"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "targets_scepter"                                      "4"
-            }
+            "double_interval" "2.0 1.4 0.8"
+            "targets_scepter" "4"
         }
         "precache"
         {

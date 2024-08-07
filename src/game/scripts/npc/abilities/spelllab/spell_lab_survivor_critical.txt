@@ -8,21 +8,13 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "HasScepterUpgrade"                                                    "0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-        				"bonus"						"10.0 15.0 20.0 25.0" //damage ptc
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-        				"chance"						"25.0"
-            }
+            "bonus" "10.0 15.0 20.0 25.0" // crit damage
+            "chance" "25.0"
         }
         "ReduxFlags"                                                           "crit | attack_modifier"
-        "ReduxBans"                                                            ""
+        //"ReduxBans"                                                            ""
         //"ReduxPerks"                                                           ""
         "ReduxCost"                                                            "120"
     }

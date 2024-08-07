@@ -7,12 +7,10 @@
 		"AbilitySharedWithTeammates" "1"
 		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"bonus_range" "100"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_range" "100"
+        }
 
 		"Modifiers" {
 			"modifier_imba_tower_multishot" {

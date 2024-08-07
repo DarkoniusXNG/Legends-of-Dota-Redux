@@ -48,7 +48,7 @@ function ApplyDamageReductionModifierConsume( keys )
   
   local consumeable = caster:FindItemByName("item_redux_silver_consume")
   if consumeable then
-    consumeable:SpendCharge()
+    consumeable:SpendCharge(0.1)
   end
 
 end

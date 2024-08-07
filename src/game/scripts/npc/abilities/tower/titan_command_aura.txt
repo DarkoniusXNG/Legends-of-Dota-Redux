@@ -13,28 +13,12 @@
         "AbilityCooldown"                                                      "0"
         "AbilityManaCost"                                                      "0"
         "AbilityModifierSupportValue"                                          "0.0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "1200"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_armor"                                          "5 10 15"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "bonus_regen"                                          "15 25 35"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_damage"                                         "5 8 11"
-            }
+            "radius" "1200"
+            "bonus_armor" "5 10 15"
+            "bonus_regen" "15 25 35"
+            "bonus_damage" "5 8 11"
         }
         "precache"
         {

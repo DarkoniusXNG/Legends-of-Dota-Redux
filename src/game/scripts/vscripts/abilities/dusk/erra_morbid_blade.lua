@@ -15,15 +15,17 @@ if IsServer() then
 		local sound = "Erra.MorbidBlade"
 		local particle = "particles/units/heroes/hero_erra/morbid_blade.vpcf"
 
-		local enemy_found = FindUnitsInRadius( caster:GetTeamNumber(),
-	                  point,
-	                  nil,
-	                    radius,
-	                    DOTA_UNIT_TARGET_TEAM_ENEMY,
-	                    DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_CREEP,
-	                    DOTA_UNIT_TARGET_FLAG_NONE,
-	                    FIND_CLOSEST,
-	                    false)
+		local enemy_found = FindUnitsInRadius(
+      caster:GetTeamNumber(),
+	    point,
+	    nil,
+	    radius,
+	    DOTA_UNIT_TARGET_TEAM_ENEMY,
+	    DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_CREEP,
+	    DOTA_UNIT_TARGET_FLAG_NONE,
+	    FIND_ANY_ORDER,
+	    false
+    )
 		-- Check for Health amount
 		local damage_type = DAMAGE_TYPE_PHYSICAL
 		for k,v in pairs(enemy_found) do

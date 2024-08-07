@@ -7,23 +7,11 @@
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityTextureName"                                                   "custom/octarine_vampirism_lod"
         "ScriptFile"                                                           "abilities/octarine_vampirism_lod.lua"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "hero_lifesteal"                                       "15 20 25 30"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "creep_lifesteal"                                      "3 6 9 12"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "radius"                                               "1200"
-            }
+            "hero_lifesteal" "15 20 25 30"
+            "creep_lifesteal" "3 6 9 12"
+            "radius" "1200"
         }
         "ReduxFlags"                                                           "support"
         "ReduxPerks"                                                           "support | aura"

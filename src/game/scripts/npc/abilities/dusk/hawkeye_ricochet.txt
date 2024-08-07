@@ -37,19 +37,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hits"						"4"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_reduction"			"-80 -70 -60 -50"
-			}
-		}
+		"AbilityValues"
+        {
+            "hits" "4"
+            "damage_reduction" "-80 -70 -60 -50"
+        }
 		
 		"precache"
 		{

@@ -15,19 +15,11 @@
 			"particle" "particles/items_fx/electrical_arc_01_system.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"proc_chance"			"16 24 32 40"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cooldown_reduction"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "proc_chance" "16 24 32 40"
+            "cooldown_reduction" "1"
+        }
 	}
 
 	"aabs_nightshadow_op"
@@ -46,19 +38,11 @@
 			"particle" "particles/items_fx/electrical_arc_01_system.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"proc_chance"			"20 30 40 50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cooldown_reduction"			"2.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "proc_chance" "20 30 40 50"
+            "cooldown_reduction" "2.5"
+        }
 	}
 
 	"aabs_thunder_musket"
@@ -71,24 +55,12 @@
 		"MaxLevel"						"4"
 		"AbilityCooldown"				"6 5 4 3"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"thunderstruck_cooldown"		"6 5 4 3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"thunderstruck_bonus_attack_range"		"250"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"thunderstruck_magical_damage"		"110 140 170 200"
-			}
-		}
+		"AbilityValues"
+        {
+            "thunderstruck_cooldown" "6 5 4 3"
+            "thunderstruck_bonus_attack_range" "250"
+            "thunderstruck_magical_damage" "110 140 170 200"
+        }
 	}
 
 	"genos_survival_of_the_fittest"
@@ -104,21 +76,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"regen"						"0.5 1.0 1.5 2.0"
-			}
-			
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed"						"0"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "regen" "0.5 1.0 1.5 2.0"
+            "speed" "0"
+        }
 
 		  "precache" 
 		   {

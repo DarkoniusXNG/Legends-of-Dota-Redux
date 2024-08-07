@@ -31,43 +31,15 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal"					"100 200 300"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_speed"		"400"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"health_regen"	"0"
-			}		
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"mana_regen"	"0"
-			}	
-			"06"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"regen_duration"		"0"
-			}			
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"hero_multiplier" "0"
-			}
-		}
+		"AbilityValues"
+        {
+            "area_of_effect" "900"
+            "heal" "100 200 300"
+            "projectile_speed" "400"
+            "health_regen" "0"
+            "mana_regen" "0"
+            "regen_duration" "0"
+            "hero_multiplier" "0"
+        }
 	}
 }

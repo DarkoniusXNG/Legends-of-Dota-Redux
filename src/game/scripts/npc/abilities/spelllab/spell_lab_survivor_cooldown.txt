@@ -8,23 +8,11 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "HasScepterUpgrade"                                                    "0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-        				"bonus"						"1 2 3 4"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-        				"battle_thirst"						"45.0"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-        				"max"						"50.0"
-            }
+            "bonus" "1 2 3 4"
+            "battle_thirst" "45.0"
+            "max" "50.0"
         }
         "ReduxFlags"                                                           "cooldown"
         "ReduxBans"                                                            ""
@@ -40,13 +28,9 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "HasScepterUpgrade"                                                    "0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                        "bonus"                     "4.0 5.0 6.0 7.0"
-            }
+            "bonus" "4.0 5.0 6.0 7.0"
         }
         "ReduxFlags"                                                           "cooldown"
         "ReduxBans"                                                            ""

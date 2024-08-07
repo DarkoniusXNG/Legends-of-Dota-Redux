@@ -10,13 +10,9 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"MaxLevel" 						"1"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"1200"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "1200"
+        }
 	}
 }

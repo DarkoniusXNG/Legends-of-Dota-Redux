@@ -13,29 +13,13 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"chance_pct"			"20"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"2 3 4 5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow"			"40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"chance_pct_ranged"			"10"
-			}
-		}
+		"AbilityValues"
+        {
+            "chance_pct" "20"
+            "duration" "2 3 4 5"
+            "slow" "40"
+            "chance_pct_ranged" "10"
+        }
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 		"ReduxFlags"                                                           "attack_modifier"
         "ReduxPerks"                                                           "attack_modifier | silence | disarm"

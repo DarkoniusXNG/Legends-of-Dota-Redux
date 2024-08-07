@@ -8,28 +8,12 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"                                                   "custom/imba_omniknight_degen_aura"
         "AbilityCastRange"                                                     "400 500 600 700"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "400 500 600 700"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "stack_rate"                                           "1.0"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "sticky_time"                                          "1.1"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "stack_reduction_pct"                                  "3 4 5 6"
-            }
+            "radius" "400 500 600 700"
+            "stack_rate" "1.0"
+            "sticky_time" "1.1"
+            "stack_reduction_pct" "3 4 5 6"
         }
         "precache"
         {

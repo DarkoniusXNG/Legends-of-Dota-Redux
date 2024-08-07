@@ -4,10 +4,11 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "techies_suicide"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
         "FightRecapLevel"               "1"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "MaxLevel"                      "1"
@@ -29,54 +30,33 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
+			"radius"				
 			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"				"800"
+				"value"		"800"
+				"affected_by_aoe_increase"	"1"	
 			}
-			"02"
+			"damage"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"10000"
-				"LinkedSpecialBonus"		"special_bonus_unique_techies"
+				"value"			"1500"
+				"special_bonus_unique_techies" "+200"
 			}
-			"03"
+			"stun_duration"				"6"
+			"hp_cost"			
 			{
-				"var_type"					"FIELD_FLOAT"
-				"silence_duration"			"15"
-			} 
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hp_cost"			"200"
-			} 
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"0.75"
+				"value" 			"200"
+				"DamageTypeTooltip"									"DAMAGE_TYPE_PURE"
+				"CalculateSpellDamageTooltip"						 "0"
 			}
-			"06"
+			"hp_dmg"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_bonus_cast_range"				"1000"
-				"RequiresShard"			"1"
+				"value"												"0"
+				"special_bonus_facet_techies_spleens_secret_sauce" "=15"
+				"DamageTypeTooltip"									"DAMAGE_TYPE_PURE"
+				"CalculateSpellDamageTooltip"						 "0"
 			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"shard_stun_duration"				"6"
-				"RequiresShard"			"1"
-			}							
+			"duration"				"0.75"
         }
     }
-//    "OnSpellStart"
-//    {
-//        "RunScript"
-//        {
-//            "ScriptFile"    "abilities/mega_ultimates/mega_suicide.lua"
-//            "Function"        "KABOOM"
-//        }
-//    }
 }

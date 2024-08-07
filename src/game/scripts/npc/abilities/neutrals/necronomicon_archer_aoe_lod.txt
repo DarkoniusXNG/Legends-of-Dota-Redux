@@ -5,23 +5,22 @@
         "BaseClass"                                                            "necronomicon_archer_aoe"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilitySpecial"
+        "MaxLevel"                                                             "4"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "1200"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "ms_bonus"                                             "8 10 12 14"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "as_bonus"                                             "15 20 25 30"
-            }
+			"radius"
+			{
+				"value" "1200"
+				"affected_by_aoe_increase"	"1"
+			}
+			"ms_bonus"
+			{
+				"value" "5 7 9 11"
+			}
+			"as_bonus"
+			{
+				"value" "10 15 20 25"
+			}
         }
         "ReduxFlags"                                                           "support"
         "ReduxPerks"                                                           "support | neutral | aura"

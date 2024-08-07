@@ -4,16 +4,10 @@
 		"MaxLevel" "4"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_FLOAT"
-				"bonus_hp" "10 30 50 70 90 110 130 150 170 190"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"radius" "900"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_hp" "10 30 50 70 90 110 130 150 170 190"
+            "radius" "900"
+        }
 	}
 }

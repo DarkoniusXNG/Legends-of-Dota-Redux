@@ -704,11 +704,14 @@ function modifier_imba_tower_thorns_aura_buff:OnAttackLanded( keys )
 			end
 
 			-- Apply damage
-			local damageTable = {victim = attacker,
+			local damageTable = {
+				victim = attacker,
 				attacker = self.parent,
 				damage = return_damage,
 				damage_type = DAMAGE_TYPE_PHYSICAL,
-				ability = self.ability}
+				ability = self.ability,
+				damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+			}
 
 			ApplyDamage(damageTable)
 		end

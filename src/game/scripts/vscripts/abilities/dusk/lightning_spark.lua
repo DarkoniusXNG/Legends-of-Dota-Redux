@@ -38,7 +38,7 @@ function modifier_spark:OnAbilityExecuted(params)
 
 			for k,v in pairs(en) do
 				ParticleManager:CreateParticle("particles/units/heroes/hero_lightning/spark.vpcf", PATTACH_ABSORIGIN_FOLLOW, v)
-				self:GetAbility():InflictDamage(v,p,damage,DAMAGE_TYPE_MAGICAL)
+				InflictDamage(v,p,self:GetAbility(),damage,DAMAGE_TYPE_MAGICAL)
 				v:AddNewModifier(p, self:GetAbility(), "modifier_spark_slow", {Duration=slow_duration}) --[[Returns:void
 				No Description Set
 				]]

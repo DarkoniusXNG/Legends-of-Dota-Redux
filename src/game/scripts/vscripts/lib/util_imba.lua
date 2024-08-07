@@ -1137,7 +1137,7 @@ end]]--
 					
 					local drop = CreateItemOnPositionSync( unit:GetAbsOrigin(), newItem )
 					local dropTarget = unit:GetAbsOrigin() + RandomVector( RandomFloat( 300, 450 ) )
-					newItem:LaunchLoot( true, 300, 0.75, dropTarget )
+					newItem:LaunchLoot( true, 300, 0.75, dropTarget, nil )
 					EmitSoundOn( "Dungeon.TreasureItemDrop", unit )
 				end
 			end

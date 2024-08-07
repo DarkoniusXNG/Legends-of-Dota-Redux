@@ -43,19 +43,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"summon_time"			"3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"20 40 60 80"
-			}
-		}
+		"AbilityValues"
+        {
+            "summon_time" "3"
+            "duration" "20 40 60 80"
+        }
 
 		"OnSpellStart"
 		{

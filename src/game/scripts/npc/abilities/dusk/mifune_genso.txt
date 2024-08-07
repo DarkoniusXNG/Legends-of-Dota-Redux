@@ -35,39 +35,15 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"illusion_damage"				"-75" // percentage total
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"illusion_incoming"				"400" // percentage total
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"illusion_duration"				"5 6 7 8"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"illusion_tooltip"				"25" // percentage total
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"illusion_bonus_movespeed"		"25"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"illusions"						"1 2 3 4"
-			}
-		}
+		"AbilityValues"
+        {
+            "illusion_damage" "-75"
+            "illusion_incoming" "400"
+            "illusion_duration" "5 6 7 8"
+            "illusion_tooltip" "25"
+            "illusion_bonus_movespeed" "25"
+            "illusions" "1 2 3 4"
+        }
 		
 		"precache"
 		{

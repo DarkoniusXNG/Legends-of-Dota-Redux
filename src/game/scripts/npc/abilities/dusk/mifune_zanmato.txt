@@ -38,38 +38,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"700"
-			}
-			
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_hero_damage"			"100 150 200"
-			}
-						
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"attack_interval"			"0.2"
-			}
-
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"creep_damage_penalty"		"0"
-			}
-
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"orb_damage"				"100 140 180"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "700"
+            "bonus_hero_damage" "100 150 200"
+            "attack_interval" "0.2"
+            "creep_damage_penalty" "0"
+            "orb_damage" "100 140 180"
+        }
 		
 		"precache"
 		{

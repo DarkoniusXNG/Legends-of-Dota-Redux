@@ -19,42 +19,16 @@
 		"AbilityCooldown" "14"
 		"AbilityManaCost" "130 160 190"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"damage" "225 300 375"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"damage_per_second" "15 30 45"
-			}
-
-			"03" {
-				"var_type" "FIELD_INTEGER"
-				"start_radius" "150"
-			}
-
-			"04" {
-				"var_type" "FIELD_INTEGER"
-				"end_radius" "150"
-			}
-
-			"05" {
-				"var_type" "FIELD_INTEGER"
-				"range" "650 700 750"
-			}
-
-			"06" {
-				"var_type" "FIELD_INTEGER"
-				"speed" "950"
-			}
-
-			"07" {
-				"var_type" "FIELD_FLOAT"
-				"duration" "6 7 8"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "225 300 375"
+            "damage_per_second" "15 30 45"
+            "start_radius" "150"
+            "end_radius" "150"
+            "range" "650 700 750"
+            "speed" "950"
+            "duration" "6 7 8"
+        }
 
 		"OnSpellStart" {
 			"LinearProjectile" {

@@ -34,43 +34,15 @@
 		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"health_regen"	"10 20 30"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_regen"	"30 45 60"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"evasion"	"90"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"magic_weak"	"-75"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius_scepter"	"600"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration"	"20"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"building_reduction"				"40"
-			}
-		}
+		"AbilityValues"
+        {
+            "health_regen" "10 20 30"
+            "mana_regen" "30 45 60"
+            "evasion" "90"
+            "magic_weak" "-75"
+            "radius_scepter" "600"
+            "duration" "20"
+            "building_reduction" "40"
+        }
 	}
 }

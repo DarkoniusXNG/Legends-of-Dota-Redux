@@ -21,16 +21,11 @@
 		"AbilityCooldown" "60 55 50"
 		"AbilityManaCost" "100 125 150"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"damage" "75 100 125"
-			}
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"duration" "40"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "75 100 125"
+            "duration" "40"
+        }
 
 		"OnSpellStart" {
 			"RunScript" {

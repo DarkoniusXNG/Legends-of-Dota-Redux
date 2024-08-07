@@ -15,28 +15,12 @@
         "HasScepterUpgrade"                                                    "0"
     		"AbilityChannelTime"      "30.0"
         "AoERadius"               "220"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"						"220"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "damage"						"2.0 2.6 3.2"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "interval"						"0.25"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "channel_time"						"30.0"
-            }
+            "radius" "220"
+            "damage" "2.0 2.6 3.2"
+            "interval" "0.25"
+            "channel_time" "30.0"
         }
         "precache"
         {
@@ -55,13 +39,9 @@
     	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
       "ScriptFile"                                                           "abilities/spell_lab/ggs/ggs.lua"
       "AbilityTextureName"                                                   "custom/spell_lab_ggs"
-      "AbilitySpecial"
-      {
-          "01"
-          {
-              "var_type"                                             "FIELD_INTEGER"
-              "radius"						"225"
-          }
-      }
+      "AbilityValues"
+        {
+            "radius" "225"
+        }
     }
 }

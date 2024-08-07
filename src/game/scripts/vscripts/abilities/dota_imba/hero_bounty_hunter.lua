@@ -984,7 +984,8 @@ function modifier_imba_shadow_walk_buff_invis:OnAttackLanded(keys)
 				damage = self.bonus_damage,
 				damage_type = DAMAGE_TYPE_PHYSICAL,
 				attacker = self.caster,
-				ability = self.ability
+				ability = self.ability,
+				damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
 			}
 
 			ApplyDamage(damageTable)

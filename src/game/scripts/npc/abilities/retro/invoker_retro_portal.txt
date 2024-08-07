@@ -24,28 +24,12 @@
             "particle"                                                     "particles/units/heroes/hero_invoker/invoker_retro_portal_drain.vpcf"
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_meepo.vsndevts"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage"                                               "0"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "cast_range"                                           "1200 1800 2400 3000"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "cast_point"                                           ".75"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "pip_current"                                          "1"
-            }
+            "damage" "0"
+            "cast_range" "1200 1800 2400 3000"
+            "cast_point" ".75"
+            "pip_current" "1"
         }
         "OnAbilityPhaseStart"
         {

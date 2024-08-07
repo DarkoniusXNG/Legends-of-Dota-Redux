@@ -5,14 +5,14 @@
         "BaseClass"                                                            "necronomicon_warrior_last_will"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
+        "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
         "MaxLevel"                                                             "4"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "explosion"                                            "400 800 1200 1600"
-            }
+			"explosion"
+			{
+				"value" "600 800 1000 1200"
+			}
         }
         "ReduxPerks"                                                           "neutral"
     }

@@ -35,24 +35,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"duration"						"30"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage"						"150 225 300"
-			}
-		//	"03"
-		//	{
-		//		"var_type"						"FIELD_INTEGER"
-		//		"scepter_mult"					"75"
-		//	}
-		}
+		"AbilityValues"
+        {
+            "duration" "30"
+            "damage" "150 225 300"
+        }
 		
 		"precache"
 		{

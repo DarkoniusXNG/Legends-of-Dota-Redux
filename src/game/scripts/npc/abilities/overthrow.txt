@@ -457,34 +457,14 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"start_radius"			"150"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"end_radius"			"250"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"650"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1050"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"fire_damage"			"400"
-			}
-		}
+		"AbilityValues"
+        {
+            "start_radius" "150"
+            "end_radius" "250"
+            "range" "650"
+            "speed" "1050"
+            "fire_damage" "400"
+        }
 	}
 
 	"breathe_poison"
@@ -511,59 +491,19 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"start_radius"			"150"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"end_radius"			"250"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"650"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"poison_damage"			"0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"15.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"strike_damage"			"100"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tick_damage"			"100"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"tick_interval"			"3.0"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_slow"			"-50"
-			}
-		}
+		"AbilityValues"
+        {
+            "start_radius" "150"
+            "end_radius" "250"
+            "range" "650"
+            "speed" "1200"
+            "poison_damage" "0"
+            "duration" "15.0"
+            "strike_damage" "100"
+            "tick_damage" "100"
+            "tick_interval" "3.0"
+            "movement_slow" "-50"
+        }
 	}
 
 	"spike_trap"
@@ -591,36 +531,14 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"light_strike_array_aoe"	"192"
-			}
-			
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"light_strike_array_delay_time"	"0.65"
-			}
-						
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"light_strike_array_stun_duration"	"1.6"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_animation"			"12"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"light_strike_array_damage"			"600"
-			}
-		}
+		"AbilityValues"
+        {
+            "light_strike_array_aoe" "192"
+            "light_strike_array_delay_time" "0.65"
+            "light_strike_array_stun_duration" "1.6"
+            "cast_animation" "12"
+            "light_strike_array_damage" "600"
+        }
 	}
 	"pendulum_trap"
 	{
@@ -649,23 +567,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"10000"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range_scepter"		"60000"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_delay"				"0"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "10000"
+            "cast_range_scepter" "60000"
+            "damage_delay" "0"
+        }
 	}
 }

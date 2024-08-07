@@ -10,18 +10,10 @@
         "AbilityCastRange"                                                     "800 1000 1200"
         "AbilityCooldown"                                                      "9 8 7"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "silence_radius"                                       "800 1000 1200"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "silence_duration"                                     "2.5 3.0 3.5"
-            }
+            "silence_radius" "800 1000 1200"
+            "silence_duration" "2.5 3.0 3.5"
         }
         "Modifiers"
         {

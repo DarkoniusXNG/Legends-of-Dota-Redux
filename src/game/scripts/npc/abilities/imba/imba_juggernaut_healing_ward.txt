@@ -17,43 +17,15 @@
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_juggernaut/juggernaut_ward_heal.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "heal_radius"                                          "500"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "heal_per_sec"                                         "2 3 4 5"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "health"                                               "3 3 6 9"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "duration"                                             "25"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius_bonus_totem"                                   "250"
-            }
-            "06"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "heal_bonus_totem"                                     "2"
-            }
-            "07"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "health_bonus_totem"                                   "9"
-            }
+            "heal_radius" "500"
+            "heal_per_sec" "2 3 4 5"
+            "health" "3 3 6 9"
+            "duration" "25"
+            "radius_bonus_totem" "250"
+            "heal_bonus_totem" "2"
+            "health_bonus_totem" "9"
         }
         "OnSpellStart"
         {

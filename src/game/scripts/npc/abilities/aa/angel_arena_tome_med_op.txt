@@ -10,23 +10,11 @@
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO"
         "AbilityTextureName"                                                   "custom/tome_med_op"
         "AbilityCastPoint"                                                     "0.0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "health"                                               "40"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "mana"                                                 "20"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "gold_cost_toolip"                                     "150 125 100 60"
-            }
+            "health" "40"
+            "mana" "20"
+            "gold_cost_toolip" "150 125 100 60"
         }
         "OnSpellStart"
         {

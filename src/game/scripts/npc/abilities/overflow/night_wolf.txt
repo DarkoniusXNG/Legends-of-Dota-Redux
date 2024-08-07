@@ -16,33 +16,13 @@
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_night_stalker/nightstalker_ulti.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "attack_range"                                         "165"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "move_speed"                                           "75 100 125"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "attack_speed"                                         "60 100 140"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "max"                                                  "550 650 750"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_vision_scepter"                                 "600 800 1000"
-            }
+            "attack_range" "165"
+            "move_speed" "75 100 125"
+            "attack_speed" "60 100 140"
+            "max" "550 650 750"
+            "bonus_vision_scepter" "600 800 1000"
         }
         "ReduxCost"                                                            "20"
     }

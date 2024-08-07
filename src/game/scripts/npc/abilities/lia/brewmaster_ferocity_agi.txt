@@ -10,16 +10,10 @@
 		"MaxLevel" "4"
 		"AbilityCastRange" "600"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"bonus_agility" "2 3 4 5"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"radius" "600"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_agility" "2 3 4 5"
+            "radius" "600"
+        }
 	}
 }

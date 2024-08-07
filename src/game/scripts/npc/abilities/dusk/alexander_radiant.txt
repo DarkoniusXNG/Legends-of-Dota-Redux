@@ -31,29 +31,13 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"duration"						"8"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"regen"							"5 8 11 13"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"miss"							"40 45 50 55"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"400 425 450 475"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "8"
+            "regen" "5 8 11 13"
+            "miss" "40 45 50 55"
+            "radius" "400 425 450 475"
+        }
 		
 		"precache"
 		{

@@ -16,28 +16,12 @@
             "particle"                                                     "particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf"
         }
         "AbilityManaCost"                                                      "150 175 200"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "4.0"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "675"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "armor_reduction"                                      "-5 -7 -9"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage"                                               "50 75 100"
-            }
+            "duration" "4.0"
+            "radius" "675"
+            "armor_reduction" "-5 -7 -9"
+            "damage" "50 75 100"
         }
         "OnSpellStart"
         {

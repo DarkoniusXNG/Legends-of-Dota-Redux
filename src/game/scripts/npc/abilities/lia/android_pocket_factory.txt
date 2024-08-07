@@ -18,23 +18,11 @@
             "model"                                                        "models/items/rattletrap/forge_warrior_rocket_cannon/forge_warrior_rocket_cannon.vmdl"
             "particle"                                                     "particles/units/heroes/hero_techies/techies_suicide.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "factory_duration"                                     "45"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "goblin_hp"                                            "125 325 525"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "goblin_damage"                                        "15 40 65"
-            }
+            "factory_duration" "45"
+            "goblin_hp" "125 325 525"
+            "goblin_damage" "15 40 65"
         }
         "OnSpellStart"
         {

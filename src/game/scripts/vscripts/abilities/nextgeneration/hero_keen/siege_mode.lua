@@ -15,17 +15,27 @@ function SplashAttack (keys)
 	local ability = caster:FindAbilityByName("keen_commander_siege_mode")
 	local radius = ability:GetLevelSpecialValueFor("splash_radius",ability:GetLevel() -1 )
 
-	local units = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), caster, radius,
-			DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_CREEP + DOTA_UNIT_TARGET_HERO, 0, 0, false )
+	local units = FindUnitsInRadius(
+		caster:GetTeamNumber(),
+		target:GetAbsOrigin(),
+		caster,
+		radius,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_CREEP + DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+		FIND_ANY_ORDER,
+		false
+	)
 	
 	for _,unit in pairs( units ) do
 		if unit ~= target then
-			local DamageTable = 
-			{
+			local DamageTable = {
 				attacker = caster,
 				damage_type = DAMAGE_TYPE_PHYSICAL,
 				damage = caster:GetAverageTrueAttackDamage(unit),
-				victim = unit
+				victim = unit,
+				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL,
+      			ability = ability,
 			}
 			ApplyDamage(DamageTable)
 		end

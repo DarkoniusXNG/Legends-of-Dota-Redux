@@ -429,7 +429,8 @@ function modifier_imba_swashbuckle_slashes:OnIntervalThink()
 				end
 
 				--Apply the damage from the slash
-				local damageTable = {victim = enemy,
+				local damageTable = {
+					victim = enemy,
 					damage = self.damage,
 					damage_type = DAMAGE_TYPE_PHYSICAL,
 					damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
@@ -1221,15 +1222,14 @@ function modifier_imba_shield_crash_block:OnAttack(keys)
 						if self:GetCaster():HasTalent("special_bonus_imba_pangolier_8") then
 
 							--Apply the damage from the slash
-							local damageTable = {victim = enemy,
+							local damageTable = {
+								victim = enemy,
 								damage = self.counter_damage,
 								damage_type = DAMAGE_TYPE_PHYSICAL,
 								damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
 								attacker = self:GetCaster(),
 								ability = nil
 							}
-
-
 
 							ApplyDamage(damageTable)
 
@@ -1238,7 +1238,8 @@ function modifier_imba_shield_crash_block:OnAttack(keys)
 
 						else --No talent: only perform a fake basic attack for the on-hit effects
 							--Apply the damage from the slash
-							local damageTable = {victim = enemy,
+							local damageTable = {
+								victim = enemy,
 								damage = self.counter_damage,
 								damage_type = DAMAGE_TYPE_PHYSICAL,
 								damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
@@ -1514,10 +1515,11 @@ function modifier_imba_heartpiercer_debuff:OnIntervalThink()
 		if self:GetCaster():HasTalent("special_bonus_imba_pangolier_5") then
 			local damage_per_tick = self.damage_per_second * self.talent_interval
 
-			local damageTable = {victim = self:GetParent(),
+			local damageTable = {
+				victim = self:GetParent(),
 				damage = damage_per_tick,
 				damage_type = DAMAGE_TYPE_PHYSICAL,
-				damage_flags = DOTA_DAMAGE_FLAG_NONE,
+				damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
 				attacker = self:GetCaster(),
 				ability = self:GetAbility()
 			}

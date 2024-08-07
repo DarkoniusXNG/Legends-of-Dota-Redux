@@ -24,28 +24,12 @@
     
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "mana_per_second"  "10 10 10 10"
-      }
-      "02"
-	  {
-		"var_type"				"FIELD_INTEGER"
-		"points_per_tick"		"1"
-	  }
-      "03"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "stats_per_second"   "0.5 0.25 0.125 0.0625"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_int"     "3 5 7 9"
-      }
-    }
+    "AbilityValues"
+        {
+            "mana_per_second" "10 10 10 10"
+            "points_per_tick" "1"
+            "stats_per_second" "0.5 0.25 0.125 0.0625"
+            "bonus_int" "3 5 7 9"
+        }
   }
 }

@@ -4,37 +4,24 @@
     {
         "BaseClass"                                                            "black_dragon_fireball"
         "MaxLevel"                                                             "4"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "FightRecapLevel"                                                      "1"
         "AbilityCastRange"                                                     "1000"
-        "AbilityCastPoint"                                                     "0.3 0.3 0.3 0.3"
-        "AbilityCooldown"                                                      "12"
+        "AbilityCastPoint"                                                     "0.3"
+        "AbilityCooldown"                                                      "15 14 13 12"
         "AbilityManaCost"                                                      "100 115 130 145"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "300"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage"                                               "100"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "4.0 6.0 8.0 10.0"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "burn_interval"                                        "0.5"
-            }
+			"radius"						
+			{
+				"value"			"300"
+				"affected_by_aoe_increase"		"1"
+			}
+			"damage"			"80 90 100 110"
+			"duration"			"9 10 11 12"
+			"burn_interval"			"0.5"
         }
         "ReduxPerks"                                                           "neutral"
     }

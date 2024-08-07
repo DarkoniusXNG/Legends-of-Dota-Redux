@@ -7,23 +7,11 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/kret_lust_for_life"
         "MaxLevel"                                                             "4"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "intellect_sacrifice"                                  "0"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "tolltip"                                              "2"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "health_regen_percent"                                 "0.04 0.06 0.08 0.10"
-            }
+            "intellect_sacrifice" "0"
+            "tolltip" "2"
+            "health_regen_percent" "0.04 0.06 0.08 0.10"
         }
         "ReduxFlags"                                                           "tank"
         "ReduxCost"                                                            "30"

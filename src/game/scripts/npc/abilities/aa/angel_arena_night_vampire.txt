@@ -7,23 +7,11 @@
         "AbilityTextureName"                                                   "custom/angel_arena_night_vampire"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "MaxLevel"                                                             "3"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_day"                                            "1 2 3"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_night"                                          "3 6 9"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "base_attack_time"                                     "1.6 1.5 1.4"
-            }
+            "bonus_day" "1 2 3"
+            "bonus_night" "3 6 9"
+            "base_attack_time" "1.6 1.5 1.4"
         }
         "Modifiers"
         {

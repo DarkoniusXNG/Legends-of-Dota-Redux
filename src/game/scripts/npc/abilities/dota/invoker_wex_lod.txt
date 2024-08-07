@@ -7,21 +7,11 @@
 		"AbilityCooldown" "0"
 		"AbilityManaCost" "0"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"attack_speed_per_instance" "2 6 10 14"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"move_speed_per_instance" "1 3 5 7"
-			}
-
-			"03" {
-				"var_type" "FIELD_INTEGER"
-				"bonus_agility" "2 6 10 14"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_speed_per_instance" "2 6 10 14"
+            "move_speed_per_instance" "1 3 5 7"
+            "bonus_agility" "2 6 10 14"
+        }
 	}
 }

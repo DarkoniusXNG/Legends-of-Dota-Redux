@@ -29,28 +29,12 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "armor_per_stack"   "-0.5 -1 -1.5 -2"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "slow_per_stack"    "-6 -8 -10 -12"
-            }
-            "03"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "duration"          "8"
-            }
-            "04"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "root_duration"     "1"
-            }
+            "armor_per_stack" "-0.5 -1 -1.5 -2"
+            "slow_per_stack" "-6 -8 -10 -12"
+            "duration" "8"
+            "root_duration" "1"
         }
 
         // Precache
@@ -255,33 +239,13 @@
         
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "mana_cost_pct"             "2"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "damage_per_sec"            "10 15 20 25"
-            }
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "duration"                  "15"
-            }
-            "04"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "fade_time"                 "0.2"
-            }
-            "05"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "damage_per_tick"               "2 3 4 5"
-            }
+            "mana_cost_pct" "2"
+            "damage_per_sec" "10 15 20 25"
+            "duration" "15"
+            "fade_time" "0.2"
+            "damage_per_tick" "2 3 4 5"
         }
 
         "OnSpellStart"
@@ -433,18 +397,10 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "evasion_per_hp_pct"        "0.35 0.5 0.65 0.8"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "damage_per_mana_pct"       "0.35 0.5 0.65 0.8"
-            }
+            "evasion_per_hp_pct" "0.35 0.5 0.65 0.8"
+            "damage_per_mana_pct" "0.35 0.5 0.65 0.8"
         }
 
         "Modifiers"
@@ -542,43 +498,15 @@
         
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "self_damage"               "40"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "damage_per_health"         "30 40 50"
-            }
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "self_burn"                 "40"
-            }
-            "04"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "burn_per_mana"             "30 40 50"
-            }
-            "05"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "damage_duration"           "3"
-            }
-            "06"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "damage_radius"         "600"
-            }
-            "07"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "tick_rate"                 "0.03"
-            }
+            "self_damage" "40"
+            "damage_per_health" "30 40 50"
+            "self_burn" "40"
+            "burn_per_mana" "30 40 50"
+            "damage_duration" "3"
+            "damage_radius" "600"
+            "tick_rate" "0.03"
         }
         "OnAbilityPhaseStart"
         {

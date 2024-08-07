@@ -383,7 +383,7 @@ function modifier_imba_bristleback_quillspray_thinker:OnIntervalThink()
 				victim 			= enemy,
 				damage 			= math.min(self.quill_base_damage + (self.quill_stack_damage * quill_spray_stacks), self.max_damage),
 				damage_type		= DAMAGE_TYPE_PHYSICAL,
-				damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
+				damage_flags 	= DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
 				attacker 		= self.caster,
 				ability 		= self.ability
 			}

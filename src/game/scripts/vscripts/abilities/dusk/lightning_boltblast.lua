@@ -28,15 +28,12 @@ if IsServer() then
 	end
 
 	function modifier_boltblast:OnDestroy()
+		local ability = self:GetAbility()
+		local c = ability:GetCaster()
 
-		local c = self:GetAbility():GetCaster()
-
-		local damage = self:GetAbility():GetSpecialValueFor("explosion_damage") --[[Returns:table
-		No Description Set
-		]]
-
-		local radius = self:GetAbility():GetSpecialValueFor("radius")
-		local slow_duration = self:GetAbility():GetSpecialValueFor("slow_duration")
+		local damage = ability:GetSpecialValueFor("explosion_damage")
+		local radius = ability:GetSpecialValueFor("radius")
+		local slow_duration = ability:GetSpecialValueFor("slow_duration")
 
 		self:GetParent():StopSound("Hero_Invoker.EMP.Charge")
 
@@ -44,10 +41,8 @@ if IsServer() then
 
 		local en = FindEnemies(c,self:GetParent():GetAbsOrigin(),radius)
 		for k,v in pairs(en) do
-			self:GetAbility():InflictDamage(v,c,damage,DAMAGE_TYPE_MAGICAL)
-			v:AddNewModifier(c, self:GetAbility(), "modifier_boltblast_slow", {Duration=slow_duration}) --[[Returns:void
-			No Description Set
-			]]
+			InflictDamage(v,c,ability,damage,DAMAGE_TYPE_MAGICAL)
+			v:AddNewModifier(c, ability, "modifier_boltblast_slow", {duration=slow_duration})
 		end
 	end
 
@@ -83,4 +78,16 @@ end
 
 function modifier_boltblast_slow:GetModifierAttackSpeedBonus_Constant()
 	return self:GetAbility():GetSpecialValueFor("attack_slow")
+end
+
+function InflictDamage(target,attacker,ability,damage,damage_type,flags)
+	local flags = flags or 0
+	ApplyDamage({
+	    victim = target,
+	    attacker = attacker,
+	    damage = damage,
+	    damage_type = damage_type,
+	    damage_flags = flags,
+	    ability = ability
+  	})
 end

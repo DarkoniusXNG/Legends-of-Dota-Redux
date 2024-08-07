@@ -8,18 +8,10 @@
         "MaxLevel"                                                             "3"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage_increase"                                      "10 15 20"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "debuff_duration"                                      "5"
-            }
+            "damage_increase" "10 15 20"
+            "debuff_duration" "5"
         }
         "Modifiers"
         {

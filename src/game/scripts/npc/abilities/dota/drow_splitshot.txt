@@ -24,23 +24,11 @@
 	       "particle"  "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
 	    }
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"		"FIELD_INTEGER"
-                "split_count"		"1 2 3"
-            }
-            "02"
-            {
-                "var_type"		"FIELD_FLOAT"
-                "search_radius"		"375"
-            }
-            "03"
-            {
-                "var_type"		"FIELD_INTEGER"
-                "damage_reduction"	"50 40 30"
-            }
+            "split_count" "1 2 3"
+            "search_radius" "375"
+            "damage_reduction" "50 40 30"
         }
     }
 }

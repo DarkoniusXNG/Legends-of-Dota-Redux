@@ -14,23 +14,11 @@
         {
             "soundfile"                                                    "sounds/weapons/hero/razor/plasma_field.vsnd"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "plasma_radius"                                        "700"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "plasma_damage_min"                                    "100 200 300"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "plasma_damage_max"                                    "200 400 600"
-            }
+            "plasma_radius" "700"
+            "plasma_damage_min" "100 200 300"
+            "plasma_damage_max" "200 400 600"
         }
         "Modifiers"
         {

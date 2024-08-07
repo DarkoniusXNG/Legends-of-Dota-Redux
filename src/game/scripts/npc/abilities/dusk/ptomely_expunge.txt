@@ -37,39 +37,15 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"2.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_drain"				"35 45 55"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"600"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow"						"90"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"scepter_mana_drain"		"40"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"base_drain"				"200 300 400"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "2.0"
+            "mana_drain" "35 45 55"
+            "radius" "600"
+            "slow" "90"
+            "scepter_mana_drain" "40"
+            "base_drain" "200 300 400"
+        }
 		
 		"precache"
 		{

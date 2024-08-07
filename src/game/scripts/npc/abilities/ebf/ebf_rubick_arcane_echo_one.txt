@@ -11,18 +11,10 @@
             "particle"                                                     "particles/rubick_spell_echo.vpcf"
         }
         "AbilityCooldown"                                                      "30.0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "delay"                                                "0.5"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage_reduction"                                     "50"
-            }
+            "delay" "0.5"
+            "damage_reduction" "50"
         }
         "Modifiers"
         {

@@ -448,42 +448,6 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
 
             -- Check for witchcraft
             if not noWitchcraft[keys.abilityname] and not hero:PassivesDisabled() then
-                local mabWitch = hero:FindAbilityByName('death_prophet_witchcraft')
-
-                if mabWitch then
-                    -- Grab the level of the ability
-                    local lvl = mabWitch:GetLevel()
-
-                    if lvl > 0 then
-                        local ab = hero:FindAbilityByName(keys.abilityname)
-
-                        if ab then
-                            local reduction = lvl * -1
-
-                            -- CDR fix
-                            reduction = reduction * hero:GetCooldownReduction()
-
-                            local timeRemaining = ab:GetCooldownTimeRemaining()
-                            local newCooldown = timeRemaining + reduction
-                            if newCooldown < 1 then
-                                newCooldown = 1
-                            end
-
-                            if newCooldown < timeRemaining then
-                                ab:EndCooldown()
-                                if newCooldown > 0 then
-                                    ab:StartCooldown(newCooldown)
-                                end
-                            end
-
-                            -- Mana refund
-                            local manaRefund = 5 + 5 * lvl
-                            local currentMana = hero:GetMana()
-                            hero:SetMana(currentMana + manaRefund)
-                        end
-                    end
-                end
-
                 local mabWitchOP = hero:FindAbilityByName('death_prophet_witchcraft_op')
                 if mabWitchOP then
                     -- Grab the level of the ability

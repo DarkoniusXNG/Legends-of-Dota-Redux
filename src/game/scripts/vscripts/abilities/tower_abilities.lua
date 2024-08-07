@@ -438,7 +438,14 @@ function GrievousWounds( keys )
 	local total_damage = base_damage * ( 1 + current_stacks * damage_increase / 100 )
 
 	-- Apply damage
-	ApplyDamage({attacker = caster, victim = target, ability = ability, damage = total_damage, damage_type = DAMAGE_TYPE_PHYSICAL})
+	ApplyDamage({
+		attacker = caster,
+		victim = target,
+		ability = ability,
+		damage = total_damage,
+		damage_type = DAMAGE_TYPE_PHYSICAL,
+		damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+	})
 
 	-- Apply bonus damage modifier
 	AddStacks(ability, caster, target, modifier_debuff, 1, true)

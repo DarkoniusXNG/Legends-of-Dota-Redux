@@ -35,14 +35,10 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"transmute_gold"				"80 120 160 200"
-			}
-		}
+		"AbilityValues"
+        {
+            "transmute_gold" "80 120 160 200"
+        }
 		
 		"precache"
 		{

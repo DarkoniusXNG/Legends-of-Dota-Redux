@@ -12,28 +12,12 @@
         {
             "particle"                                                     "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_essence_effect.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "900 900 900 900"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_mana"                                           "75 150 225 300"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "restore_amount"                                       "10 15 20 25"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "restore_chance"                                       "20"
-            }
+            "radius" "1200"
+            "bonus_mana" "75 150 225 300"
+            "restore_amount" "10 15 20 25"
+            "restore_chance" "20"
         }
         "Modifiers"
         {

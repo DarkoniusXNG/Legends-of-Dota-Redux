@@ -27,33 +27,13 @@
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
         }
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "275 300 325 350"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage"                                               "80 110 140 170"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "duration"                                             "5"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "delay"                                                "0.25"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "interval"                                             "0.25"
-            }
+            "radius" "275 300 325 350"
+            "damage" "80 110 140 170"
+            "duration" "5"
+            "delay" "0.25"
+            "interval" "0.25"
         }
         "ReduxPerks"                                                           "fire | skillshot"
     }

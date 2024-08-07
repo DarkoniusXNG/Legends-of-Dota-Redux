@@ -34,12 +34,6 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityModifierSupportValue"	"0.0"	// All about the damage
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-		}
 		
 		"precache"
 		{
@@ -54,10 +48,6 @@
 				"ScriptFile" "abilities/dusk/hawkeye_abilities.lua"
 				"Function" "hawkeye_double_tap_end"
 			}
-		}
-		
-		"Modifiers"
-		{
 		}
 
 		"ReduxPerks"	""

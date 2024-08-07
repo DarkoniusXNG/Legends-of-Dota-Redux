@@ -6,28 +6,12 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/necrolyte_sadist_lod"
         "AbilityCastRange"                                                     "1200"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "mana_regen"                                           "4 8 12 16"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "health_regen"                                         "4 6 8 10"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "hero_multiplier"                                      "10"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "regen_duration"                                       "8"
-            }
+            "mana_regen" "4 8 12 16"
+            "health_regen" "4 6 8 10"
+            "hero_multiplier" "10"
+            "regen_duration" "8"
         }
         "Modifiers"
         {

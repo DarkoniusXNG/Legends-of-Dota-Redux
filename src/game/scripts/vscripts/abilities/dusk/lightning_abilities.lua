@@ -22,7 +22,7 @@ function DealDamage(target,attacker,damageAmount,damageType,damageFlags,ability)
   local dtype = damageType
   local flags = damageFlags or DOTA_DAMAGE_FLAG_NONE
   -- Damage Flags are:
-  -- DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
+  -- DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK
   -- DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY
   -- DOTA_DAMAGE_FLAG_BYPASSES_MAGIC_BLOCK
   -- DOTA_DAMAGE_FLAG_BYPASSES_MAGIC_IMMUNITY

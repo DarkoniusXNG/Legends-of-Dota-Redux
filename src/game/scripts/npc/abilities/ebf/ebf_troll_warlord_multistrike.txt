@@ -5,23 +5,11 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/troll_multistrike"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "max_stacks"                                           "5"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "chance_per_stack"                                     "5 10 15 20"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "stack_duration"                                       "20"
-            }
+            "max_stacks" "5"
+            "chance_per_stack" "5 10 15 20"
+            "stack_duration" "20"
         }
         "Modifiers"
         {

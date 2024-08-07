@@ -43,7 +43,7 @@ function item_skadi_consumable:OnSpellStart()
 	if caster == target and not caster:HasModifier("modifier_item_skadi_lod_consumed") then
 		caster:AddNewModifier(caster, self, "modifier_item_skadi_lod_consumed", table_to_send)
 		caster:EmitSound("DOTA_Item.Cheese.Activate")
-		self:SpendCharge()
+		self:SpendCharge(0.1)
 	end
 end
 

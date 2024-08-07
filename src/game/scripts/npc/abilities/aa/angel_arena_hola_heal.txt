@@ -16,27 +16,13 @@
 		"AbilityCooldown" "60.0"
 		"AbilityManaCost" "200 300 400"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"radius" "700"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"heal" "300 450 600"
-			}
-
-			"03" {
-				"var_type" "FIELD_INTEGER"
-				"damage" "300 450 600"
-			}
-
-			"04" {
-				"var_type" "FIELD_FLOAT"
-				"heal_percent" "10.0 15.0 20.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "700"
+            "heal" "300 450 600"
+            "damage" "300 450 600"
+            "heal_percent" "10.0 15.0 20.0"
+        }
 
 		"OnSpellStart" {
 			"FireSound" {

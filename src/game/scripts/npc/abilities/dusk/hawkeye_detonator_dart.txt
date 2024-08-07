@@ -37,34 +37,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"350 500 650"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"ticks"						"3"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"initial_damage"			"100 150 200"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"tick_time"					"1.00"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"700"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "350 500 650"
+            "ticks" "3"
+            "initial_damage" "100 150 200"
+            "tick_time" "1.00"
+            "radius" "700"
+        }
 		
 		"precache"
 		{

@@ -14,17 +14,11 @@
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
 		}
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"radius_damage" "500"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"koef_damage" "3 6 9 12"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius_damage" "500"
+            "koef_damage" "3 6 9 12"
+        }
 
 		"OnSpellStart" {
 			"RunScript" {

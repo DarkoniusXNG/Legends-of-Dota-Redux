@@ -7,27 +7,13 @@
 		"AbilityCastRange" "900"
 		"AbilityCooldown" "0.25"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"chance_dmg" "12 15 18 21"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"radius" "900"
-			}
-
-			"03" {
-				"var_type" "FIELD_FLOAT"
-				"damage_per_int" ".5 .75 1 2"
-			}
-
-			"04" {
-				"var_type" "FIELD_INTEGER"
-				"radius_dop_dmg" "200"
-			}
-		}
+		"AbilityValues"
+        {
+            "chance_dmg" "12 15 18 21"
+            "radius" "900"
+            "damage_per_int" ".5 .75 1 2"
+            "radius_dop_dmg" "200"
+        }
 
 		"precache" {
 			"particle" "particles/units/heroes/hero_zuus/zuus_lightning_bolt.vpcf"

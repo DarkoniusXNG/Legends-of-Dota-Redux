@@ -4,18 +4,10 @@
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName" "custom/aether_range_lod"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"cast_range_bonus" "150 250 350 450"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"damage_per_second" "16 24 32 40"
-				"LinkedSpecialBonus" "special_bonus_unique_axe"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range_bonus" "150 250 350 450"
+        }
 
 		"OnOwnerSpawned" {
 			"RunScript" {

@@ -7760,13 +7760,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                     --spawnedUnit:RemoveAbility("sniper_assassinate")
             --end
 
-            -- Change Overpower to Overpower ranged, for ranged heros
-            if spawnedUnit:HasAbility("ursa_overpower_melee") and spawnedUnit:IsRangedAttacker() then
-                    spawnedUnit:AddAbility("ursa_overpower_ranged")
-                    spawnedUnit:SwapAbilities("ursa_overpower_melee","ursa_overpower_ranged",false,true)
-                    spawnedUnit:RemoveAbility("ursa_overpower_melee")
-            end
-
             -- Custom Flesh Heap fixes
             --[[for abilitySlot=0,6 do
                 local abilityTemp = spawnedUnit:GetAbilityByIndex(abilitySlot)

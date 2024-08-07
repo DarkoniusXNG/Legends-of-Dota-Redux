@@ -14,18 +14,10 @@
         "AbilityCooldown"                                                      "0"
         "AbilityManaCost"                                                      "0"
         "AbilityModifierSupportValue"                                          "0.0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage"                                               "20 40 60"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "900"
-            }
+            "damage" "20 40 60"
+            "radius" "900"
         }
         "Modifiers"
         {

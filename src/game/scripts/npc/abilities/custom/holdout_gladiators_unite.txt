@@ -9,31 +9,13 @@
 		"AbilityCooldown" "60.0"
 		"AbilityManaCost" "150 200 250"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"radius" "1200"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"bonus_armor_per_hero" "5 7 9"
-			}
-
-			"03" {
-				"var_type" "FIELD_INTEGER"
-				"bonus_damage_per_hero" "10 15 20"
-			}
-
-			"04" {
-				"var_type" "FIELD_INTEGER"
-				"lifesteal_per_hero" "10 15 20"
-			}
-
-			"05" {
-				"var_type" "FIELD_FLOAT"
-				"duration" "20.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "1200"
+            "bonus_armor_per_hero" "5 7 9"
+            "bonus_damage_per_hero" "10 15 20"
+            "lifesteal_per_hero" "10 15 20"
+            "duration" "20.0"
+        }
 	}
 }

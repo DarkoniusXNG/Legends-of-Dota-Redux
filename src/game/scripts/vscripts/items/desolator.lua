@@ -32,7 +32,7 @@ function item_desolator_consumable:OnSpellStart()
 		caster:AddNewModifier(caster, self, "modifier_item_desolator_lod_consumed", table_to_send)
 		caster:EmitSound("DOTA_Item.IronTalon.Activate")
 		caster.desolator_stacks_lod = nil -- since we gave max stacks when consumed, remove the counter
-		self:SpendCharge()
+		self:SpendCharge(0.1)
 	end
 end
 

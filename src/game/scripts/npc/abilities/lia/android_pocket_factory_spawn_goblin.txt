@@ -7,17 +7,11 @@
 		"AbilityCooldown" "2.0"
 		"ReduxFlags" "doNotRandom"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"goblin_duration" "30"
-			}
-
-			"02" {
-				"var_type" "FIELD_FLOAT"
-				"spawn_ratio" "2.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "goblin_duration" "30"
+            "spawn_ratio" "2.0"
+        }
 
 		"Modifiers" {
 			"modifier_spawn_goblin" {

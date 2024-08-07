@@ -24,28 +24,12 @@
 		"particle"	"particles/eldri_sentryvpcf.vpcf"
 		"particle"	"particles/black_laguna.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"12.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"			"1200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"d_damage"			"90 160 230 300"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"				"1.0 1.5 2.0 2.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "12.0"
+            "radius" "1200"
+            "d_damage" "90 160 230 300"
+            "stun_duration" "1.0 1.5 2.0 2.5"
+        }
 	}
 }
