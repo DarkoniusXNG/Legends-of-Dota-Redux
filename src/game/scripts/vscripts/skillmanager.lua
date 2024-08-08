@@ -43,7 +43,7 @@ for heroName, value in pairs(herolist) do
             heroIDToName[heroData.HeroID] = heroName
 
             -- Loop over all possible slots
-            for i = 1, DOTA_MAX_ABILITIES do
+            for i = 1, DOTA_MAX_ABILITIES - 1 do
                 -- Grab the ability
                 local ab = heroData['Ability'..i]
 
@@ -69,13 +69,6 @@ local towerClasses = {
     npc_dota_building = true,
     npc_dota_fort = true,
     npc_dota_tower = true
-}
-
--- Auto set this to max level
-local autoSkill = {
-    --nyx_assassin_unburrow = true,
-    alchemist_transmuted_scepter = true,
-    earth_spirit_stone_caller = true,
 }
 
 
@@ -188,7 +181,7 @@ function SkillManager:GetHeroSkills(heroClass)
 
     -- Build list of abilities
     local heroData = GetUnitKeyValuesByName(heroClass)
-    for i = 1, DOTA_MAX_ABILITIES do
+    for i = 1, DOTA_MAX_ABILITIES - 1 do
         local ab = heroData["Ability"..i]
         if ab and ab ~= '' and ab ~= 'special_bonus_attributes' then --and ab ~= 'generic_hidden' then
             table.insert(skills, ab)
@@ -644,11 +637,6 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
                 local newAb = hero:AddAbility(multV)
                 if newAb then
                     newAb:SetHidden(false)
-
-                    -- Check for auto skilling
-                    if autoSkill[v] then
-                        newAb:SetLevel(newAb:GetMaxLevel())
-                    end
                 end
 
                 -- Insert
@@ -766,14 +754,6 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
 
             -- Store that we have it
             currentSkillList[hero][abNum] = realAbility
-
-            -- Check for auto skilling
-            if autoSkill[k] then
-                local newAb = hero:FindAbilityByName(realAbility)
-                if newAb then
-                    newAb:SetLevel(newAb:GetMaxLevel())
-                end
-            end
         end
     end
     -- Handle cooldowns

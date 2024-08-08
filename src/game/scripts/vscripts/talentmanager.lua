@@ -26,7 +26,7 @@ function StoreTalents()
         -- Find first talent
         if params then
             local talentIndex = params.AbilityTalentStart or baseHero.AbilityTalentStart
-            for i = 1, DOTA_MAX_ABILITIES do
+            for i = 1, DOTA_MAX_ABILITIES - 1 do
                 if params["Ability"..i] and util:IsTalent(params["Ability"..i]) then
                     talentIndex = i
                     break

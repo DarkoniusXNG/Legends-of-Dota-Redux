@@ -39,8 +39,6 @@ function AddModifier(keys)
 		max_bonus = ability2:GetSpecialValueFor("max_bonus")
 	end
 
-
-	
 	if not caster.curr_agi then
 		caster.curr_agi = 0
 	end
