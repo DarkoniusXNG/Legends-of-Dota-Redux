@@ -839,7 +839,7 @@
         {
             "MaxLevel"                                                             "3"
             "ReduxFlags"                                                           "mobility | invis | doNotRandom"
-            "ReduxPerks"                                                           "mobility"
+            "ReduxPerks"                                                           "mobility | invis"
         }
 		"brewmaster_void_astral_pulse"
 		{
@@ -1426,6 +1426,11 @@
             "ReduxFlags"                                                           "attack_modifier"
             "ReduxPerks"                                                           "neutral | attack_modifier"
         }
+		"lycan_summon_wolves_invisibility"
+		{
+			"ReduxFlags"                                                           "invis"
+			"ReduxPerks"                                                           "invis | neutral"
+		}
         "harpy_storm_chain_lightning"
         {
             "MaxLevel"                      "4"
@@ -2580,31 +2585,36 @@
         "riki_permanent_invisibility"
         {
             "ReduxFlags"                                                           "invis | physical"
-            "ReduxPerks"                                                           "physical"
+            "ReduxPerks"                                                           "invis | physical"
             "ReduxCost"                                                            "120"
         }
 		"riki_backstab"
 		{
             "ReduxFlags"                                                           "invis | physical"
-            "ReduxPerks"                                                           "physical"
+            "ReduxPerks"                                                           "invis | physical"
             "ReduxCost"                                                            "120"
         }
         "bounty_hunter_wind_walk"
         {
             "ReduxFlags"                                                           "mobility | invis"
-            "ReduxPerks"                                                           "mobility"
+            "ReduxPerks"                                                           "mobility | invis"
             "ReduxCost"                                                            "40"
         }
+		"bounty_hunter_wind_walk_ally"
+		{
+			"ReduxFlags"                                                           "mobility | invis"
+			"ReduxPerks"                                                           "mobility | invis"
+		}
         "clinkz_wind_walk"
         {
             "ReduxFlags"                                                           "mobility | invis"
-            "ReduxPerks"                                                           "mobility"
+            "ReduxPerks"                                                           "mobility | invis"
             "ReduxCost"                                                            "40"
         }
         "treant_natures_guise"
         {
             "ReduxFlags"                   	"mobility | invis"
-            "ReduxPerks"                    "mobility | nature"
+            "ReduxPerks"                    "mobility | invis | nature"
             "ReduxCost"                     "10"
 			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 			"MaxLevel"						"4"
@@ -2654,14 +2664,14 @@
         "nyx_assassin_vendetta"
         {
             "ReduxFlags"                                                           "mobility | invis"
-            "ReduxPerks"                                                           "mobility"
+            "ReduxPerks"                                                           "mobility | invis"
             "ReduxCost"                                                            "10"
         }
         "nyx_assassin_burrow"
         {
 			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
             "ReduxFlags"                    "invis | mana | tank | upgradeable"
-            "ReduxPerks"                    "earth"
+            "ReduxPerks"                    "earth | invis"
             "ReduxCost"                     "20"
             "ReduxBans"                     "nyx_assassin_burrow_redux"
 			"MaxLevel"						"4"
@@ -2682,27 +2692,27 @@
         }
         "slark_shadow_dance"
         {
-            "ReduxFlags"                                                           "mobility"
-            "ReduxPerks"                                                           "mobility"
+            "ReduxFlags"                                                           "invis"
+            "ReduxPerks"                                                           "invis"
             "ReduxCost"                                                            "80"
             "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
         }
         "templar_assassin_meld"
         {
             "ReduxFlags"                                                           "invis | physical"
-            "ReduxPerks"                                                           "physical"
+            "ReduxPerks"                                                           "invis | physical"
             "ReduxCost"                                                            "10"
         }
         "weaver_shukuchi"
         {
             "ReduxFlags"                                                           "mobility | invis"
-            "ReduxPerks"                                                           "mobility"
+            "ReduxPerks"                                                           "mobility | invis"
             "ReduxCost"                                                            "80"
         }
         "sandking_sand_storm"
         {
             "ReduxFlags"                                                           "invis"
-            "ReduxPerks"                                                           "earth"
+            "ReduxPerks"                                                           "earth | invis"
             "ReduxCost"                                                            "10"
         }
         "queenofpain_blink"
@@ -2746,7 +2756,7 @@
         "windrunner_windrun"
         {
             "ReduxFlags"                                                           "mobility | invis | upgradeable"
-            "ReduxPerks"                                                           "mobility | ranger"
+            "ReduxPerks"                                                           "mobility | invis | ranger"
             "ReduxCost"                                                            "10"
         }
         "juggernaut_blade_fury"
@@ -3774,8 +3784,8 @@
 
         "lycan_summon_wolves"
         {
-            "ReduxFlags"                                                           "summon | invis | physical"
-            "ReduxPerks"                                                           "summon_non_ult | invis | physical"
+            "ReduxFlags"                                                           "summon | physical"
+            "ReduxPerks"                                                           "summon_non_ult | physical"
         }
         "furion_force_of_nature"
         {
@@ -5438,7 +5448,7 @@
         "hoodwink_decoy"
 		{
 			"ReduxFlags"					"invis | upgradeable | mobility"
-			"ReduxPerks"					"mobility"
+			"ReduxPerks"					"invis | mobility"
 			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 			"MaxLevel"						"4"
 			"AbilityCooldown"				"30.0 26.0 22.0 18.0"
@@ -5675,7 +5685,7 @@
 
         "slark_depth_shroud"
         {
-			"ReduxPerks"                    "invis"
+			"ReduxPerks"                    "water | invis"
 			"ReduxFlags"					"invis"
 			"MaxLevel"                      "4"
 			"AbilityCooldown"               "75 65 55 45"
@@ -6565,7 +6575,6 @@
         "invoker_ghost_walk_ad"
         {
             "AbilityTextureName"            "invoker_ghost_walk_ad_png"
-			"ReduxPerks"                    "invis | ice | mobility"
 			"AbilityManaCost"				"80 100 120 140"
 			"AbilityValues"
 			{
@@ -6583,6 +6592,8 @@
 				"self_slow"		"-15 -5 5 15"
 				"aura_fade_time"		"2.0"
 			}
+			"ReduxPerks"                    "ice | mobility | invis"
+			"ReduxFlags"                    "invis | mobility"
         }
         "invoker_ice_wall_ad"
         {

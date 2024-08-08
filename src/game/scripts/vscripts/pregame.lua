@@ -1871,7 +1871,7 @@ function Pregame:networkHeroes()
             if heroData.BotImplemented == 1 then
                 self.botHeroes[heroName] = {}
 
-                for i = 1, DOTA_MAX_ABILITIES do
+                for i = 1, DOTA_MAX_ABILITIES - 1 do
                     local abName = heroData['Ability' .. i]
                     if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
                         table.insert(self.botHeroes[heroName], abName)
@@ -1937,7 +1937,7 @@ function Pregame:networkHeroes()
                 end
             else
                 local sn = 1
-                for i = 1, DOTA_MAX_ABILITIES do
+                for i = 1, DOTA_MAX_ABILITIES - 1 do
                     local abName = heroData['Ability' .. i]
                     if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
                         theData['Ability' .. sn] = abName
@@ -1948,7 +1948,7 @@ function Pregame:networkHeroes()
 
             local sb = 1
             local talentStartIndex = heroData.AbilityTalentStart or baseHero.AbilityTalentStart
-            for i = tonumber(talentStartIndex), DOTA_MAX_ABILITIES do
+            for i = tonumber(talentStartIndex), DOTA_MAX_ABILITIES - 1 do
                 local abName = heroData['Ability' .. i]
                 if abName and util:IsTalent(abName) then
                     theData['SpecialBonus'..tostring(math.ceil(sb / 2))] = theData['SpecialBonus'..tostring(math.ceil(sb / 2))] or {}
@@ -1963,7 +1963,7 @@ function Pregame:networkHeroes()
             allowedHeroes[heroName] = true
 
             -- Store the owners
-            for i = 1, DOTA_MAX_ABILITIES do
+            for i = 1, DOTA_MAX_ABILITIES - 1 do
                 local abName = theData['Ability'..i]
                 if abName and abName ~= '' and abName ~= 'special_bonus_attributes' and abName ~= 'generic_hidden' then
                     self.abilityHeroOwner[abName] = heroName
