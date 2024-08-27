@@ -1,4 +1,6 @@
-    "DOTAAbilities"
+#base "heroes\ringmaster.txt"
+
+	"DOTAAbilities"
     {
 		"shredder_twisted_chakram"
 		{
@@ -3767,7 +3769,7 @@
          "dark_willow_terrorize"
         {
             "ReduxFlags"                                                           "stun"
-            "ReduxPerks"                                                           "skillshot"
+            "ReduxPerks"                                                           "skillshot | enemyMoving"
         }
 
         "dark_willow_shadow_realm"
