@@ -1931,16 +1931,19 @@ function Pregame:networkHeroes()
                 self.heroRole[heroName] = 'melee'
             end
 
-            if heroToSkillMap[heroName] then
-                for k,v in pairs(heroToSkillMap[heroName]) do
-                    theData[k] = v
+            local sn = 1
+            for i = 1, DOTA_MAX_ABILITIES - 1 do
+                local abName = heroData['Ability' .. i]
+                if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
+                    theData['Ability' .. sn] = abName
+                    sn = sn + 1
                 end
-            else
-                local sn = 1
-                for i = 1, DOTA_MAX_ABILITIES - 1 do
-                    local abName = heroData['Ability' .. i]
-                    if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
-                        theData['Ability' .. sn] = abName
+            end
+
+            if heroToSkillMap[heroName] then
+                for _, v in pairs(heroToSkillMap[heroName]) do
+                    if v and v ~= '' then
+                        theData['Ability' .. sn] = v
                         sn = sn + 1
                     end
                 end
