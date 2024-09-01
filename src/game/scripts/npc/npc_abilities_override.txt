@@ -4,6 +4,7 @@
 #base "heroes\necrophos.txt"
 #base "heroes\night_stalker.txt"
 #base "heroes\ringmaster.txt"
+#base "heroes\spectre.txt"
 #base "heroes\underlord.txt"
 
 	"DOTAAbilities"
@@ -2532,11 +2533,6 @@
             "ReduxCost"                                                            "20"
             "ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
         }
-        "spectre_spectral_dagger"
-        {
-            "ReduxFlags"                                                           "mobility"
-            "ReduxPerks"                                                           "mobility | dagger | skillshot"
-        }
         "shredder_timber_chain"
         {
             "ReduxFlags"                                                           "mobility"
@@ -2882,12 +2878,6 @@
         {
             "ReduxFlags"                                                           "tank"
             "ReduxCost"                                                            "30"
-        }
-        "spectre_dispersion"
-        {
-            "ReduxFlags"                                                           "tank"
-            "ReduxCost"                                                            "40"
-            "ReduxBans"                                                            "centaur_return | nyx_assassin_burrow | nyx_assassin_burrow_redux | huskar_life_break"
         }
         "phantom_assassin_blur"
         {
@@ -3236,11 +3226,6 @@
         {
             "ReduxFlags"                                                           "attack_modifier"
             "ReduxPerks"                                                           "attack_modifier | poison"
-        }
-        "spectre_desolate"
-        {
-            "ReduxFlags"                                                           "attack_modifier"
-            "ReduxPerks"                                                           "attack_modifier"
         }
         "jakiro_liquid_fire"
         {
@@ -3799,29 +3784,6 @@
             "ReduxFlags"                                                           "illusion"
             "ReduxPerks"                                                           "illusion"
         }
-        "spectre_haunt"
-        {
-            "ReduxFlags"                                                           "illusion | wtfAutoBan | doNotRandom"
-            "ReduxPerks"                                                           "illusion"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
-			"AbilityCooldown"				"160 150 140 130"
-			"MaxLevel"						"4"
-			"AbilityValues"
-			{
-				"duration"					"7.0 8.0 9.0 10.0"
-				"illusion_damage_outgoing"	"-20 -15 -10 -5"
-				"tooltip_outgoing"	"80 85 90 95"
-				"illusion_damage_incoming"	"100"
-				"tooltip_illusion_total_damage_incoming"	"200"
-				"attack_delay"				"0"
-			}
-        }
-		"spectre_haunt_single"
-		{
-			"ReduxFlags"                    "illusion"
-            "ReduxPerks"                    "illusion"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
-		}
         "terrorblade_reflection"
         {
             "ReduxFlags"                                                           "illusion"
@@ -4790,10 +4752,6 @@
         "ember_spirit_activate_fire_remnant"
         {
             "ReduxFlags"                                                           "doNotRandom | mobility"
-        }
-        "spectre_reality"
-        {
-            "ReduxFlags"                                                           "doNotRandom"
         }
         "shadow_demon_shadow_poison_release"
         {
@@ -9143,44 +9101,6 @@
         {
             "TalentRequiredAbility"                                                   "sniper_headshot"
         }
-
-
-
-
-        "special_bonus_unique_spectre"
-        {
-            "TalentRequiredAbility"                                                   "spectre_spectral_dagger"
-        }
-        "special_bonus_unique_spectre_2"
-        {
-            "TalentRequiredAbility"                                                   "spectre_desolate"
-        }
-        "special_bonus_unique_spectre_3"
-        {
-            "TalentRequiredAbility"                                                   "spectre_spectral_dagger"
-        }
-        "special_bonus_unique_spectre_4"
-        {
-            "TalentRequiredAbility"
-            {
-              "1" "spectre_haunt"
-              "2" "spectre_haunt_single"
-            }
-        }
-        "special_bonus_unique_spectre_5"
-        {
-            "TalentRequiredAbility"                                                   "spectre_dispersion"
-        }
-        "special_bonus_unique_spectre_6"
-        {
-            "TalentRequiredAbility"                                                   "spectre_spectral_dagger"
-        }
-        "special_bonus_unique_spectre_desolate_radius"
-        {
-            "TalentRequiredAbility"                                                   "spectre_desolate"
-        }
-
-
 
         "special_bonus_unique_spirit_breaker_1"
         {

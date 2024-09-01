@@ -1,0 +1,173 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Spectre: Spectral Dagger
+	//=================================================================================================================
+	"spectre_spectral_dagger"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | dagger | skillshot"
+	}
+
+	//=================================================================================================================
+	// Spectre: Desolate
+	//=================================================================================================================
+	"spectre_desolate"
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier"
+	}
+
+	//=================================================================================================================
+	// Spectre: Dispersion
+	//=================================================================================================================
+	"spectre_dispersion"
+	{
+		"ReduxFlags"                                                           "tank"
+		"ReduxCost"                                                            "40"
+		"ReduxBans"                                                            "centaur_return | nyx_assassin_burrow | nyx_assassin_burrow_redux | huskar_life_break"
+	}
+
+	//=================================================================================================================
+	// Spectre: Haunt
+	//=================================================================================================================
+	"spectre_haunt"
+	{
+		"AbilityCooldown"				"160 150 140 130"
+		"MaxLevel"						"4"
+		"AbilityValues"
+		{
+			"duration"					"7.0 8.0 9.0 10.0"
+			"illusion_damage_outgoing"
+			{
+				"value" "-20 -15 -10 -5"
+				"special_bonus_unique_spectre_4" "+30"
+			}
+			"tooltip_outgoing"
+			{
+				"value" "80 85 90 95"
+				"special_bonus_unique_spectre_4" "+30"
+			}
+			"illusion_damage_incoming"	"100"
+			"tooltip_illusion_total_damage_incoming"	"200"
+			"attack_delay"				"0"
+			"destroy_if_target_is_dead"
+			{
+				"value"										"1"
+				"special_bonus_facet_spectre_twist_the_knife"	"=0"
+			}
+		}
+
+		"ReduxFlags"                                                           "illusion | wtfAutoBan | doNotRandom"
+		"ReduxPerks"                                                           "illusion"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
+	}
+
+	//=================================================================================================================
+	// Spectre: Haunt Single
+	//=================================================================================================================
+	"spectre_haunt_single"
+	{
+		"AbilityValues"
+		{
+			"duration"					"5.0 6.0 7.0"
+			"illusion_damage_outgoing"
+			{
+				"value" "-60 -40 -20"
+				"special_bonus_unique_spectre_4" "+30"
+			}
+			"tooltip_outgoing"
+			{
+				"value" "40 60 80"
+				"special_bonus_unique_spectre_4" "+30"
+			}
+			"illusion_damage_incoming"	"100"
+			"tooltip_illusion_total_damage_incoming"	"200"
+			"attack_delay"				"0"
+			"destroy_if_target_is_dead"
+			{
+				"value"										"1"
+				"special_bonus_facet_spectre_twist_the_knife"	"=0"
+			}
+		}
+
+		"ReduxFlags"                                                           "illusion"
+		"ReduxPerks"                                                           "illusion"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
+	}
+
+	//=================================================================================================================
+	// Spectre: Reality
+	//=================================================================================================================
+	"spectre_reality"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	//=================================================================================================================
+	// Spectre: Innate No Collision
+	//=================================================================================================================
+	"spectre_spectral"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_spectre"
+	{
+		"TalentRequiredAbility"                                                   "spectre_spectral_dagger"
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_spectre_2"
+	{
+		"TalentRequiredAbility"                                                   "spectre_desolate"
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_spectre_3"
+	{
+		"TalentRequiredAbility"                                                   "spectre_spectral_dagger"
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_spectre_4"
+	{
+		"TalentRequiredAbility"
+		{
+		  "1" "spectre_haunt"
+		  "2" "spectre_haunt_single"
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_spectre_5"
+	{
+		"TalentRequiredAbility"                                                   "spectre_dispersion"
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_spectre_6"
+	{
+		"TalentRequiredAbility"                                                   "spectre_spectral_dagger"
+	}
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_spectre_desolate_radius"
+	{
+		"TalentRequiredAbility"                                                   "spectre_desolate"
+	}
+}
