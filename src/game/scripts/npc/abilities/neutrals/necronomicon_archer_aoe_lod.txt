@@ -3,7 +3,6 @@
     "necronomicon_archer_aoe_lod"
     {
         "BaseClass"                                                            "necronomicon_archer_aoe"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "MaxLevel"                                                             "4"
         "AbilityValues"

@@ -1,4 +1,10 @@
+#base "heroes\arc_warden.txt"
+#base "heroes\kunkka.txt"
+#base "heroes\naga_siren.txt"
+#base "heroes\necrophos.txt"
+#base "heroes\night_stalker.txt"
 #base "heroes\ringmaster.txt"
+#base "heroes\underlord.txt"
 
 	"DOTAAbilities"
     {
@@ -1860,21 +1866,10 @@
             "ReduxCost"                                                            "500"
             "ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand | spell_lab_symbiotic"
         }
-        "naga_siren_song_of_the_siren"
-        {
-            "ReduxFlags"                                                           "support"
-            "ReduxPerks"                                                           "support | sleep"
-        }
         "furion_wrath_of_nature"
         {
             "ReduxPerks"                                                           "nature"
             "ReduxFlags"                                                           "upgradeable | wtfAutoBan"
-            "ReduxCost"                                                            "10"
-            "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
-        }
-        "necrolyte_reapers_scythe"
-        {
-            "ReduxFlags"                                                           "stun"
             "ReduxCost"                                                            "10"
             "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
         }
@@ -2193,11 +2188,6 @@
             "ReduxPerks"                                                           "support"
             "ReduxCost"                                                            "10"
         }
-        "necrolyte_death_pulse"
-        {
-            "ReduxFlags"                                                           "support"
-            "ReduxPerks"                                                           "support"
-        }
         "ogre_magi_bloodlust"
         {
             "ReduxFlags"                                                           "support"
@@ -2329,21 +2319,6 @@
         {
             "ReduxFlags"                                                           "support"
             "ReduxPerks"                                                           "support | light"
-        }
-        "abyssal_underlord_dark_rift"
-        {
-            "ReduxFlags"                                                           "support"
-            "ReduxPerks"                                                           "support | teleport | demon"
-        }
-		"abyssal_underlord_dark_portal"
-		{
-			"ReduxFlags"	"support | mobility | upgradeable"
-			"ReduxPerks"	"support | mobility | demon | teleport"
-		}
-        "arc_warden_magnetic_field"
-        {
-            "ReduxFlags"                                                           "support"
-            "ReduxPerks"                                                           "support | lightning"
         }
         "treant_living_armor"
         {
@@ -2832,11 +2807,6 @@
             "ReduxFlags"                                                           "mobility | stun"
             "ReduxPerks"                                                           "mobility"
         }
-        "kunkka_x_marks_the_spot"
-        {
-            "ReduxFlags"                                                           "mobility"
-            "ReduxPerks"                                                           "mobility | enemyMoving"
-        }
         "keeper_of_the_light_recall"
         {
 			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
@@ -2921,8 +2891,7 @@
         }
         "phantom_assassin_blur"
         {
-            "ReduxFlags"                                                           "tank | upgradeable"
-            "ReduxCost"                                                            "30"
+            "ReduxFlags"                                                           "upgradeable"
         }
         "viper_corrosive_skin"
         {
@@ -3137,12 +3106,6 @@
 				}
 				"damage_percent"			"100"
 			}
-        }
-        "kunkka_tidebringer"
-        {
-            "ReduxFlags"                                                           "aoe_attack | attack_modifier | physical"
-            "ReduxPerks"                                                           "attack_modifier | water | autocast_basic | physical"
-            "ReduxCost"                                                            "40"
         }
         "sven_great_cleave"
         {
@@ -3418,45 +3381,6 @@
             "ReduxPerks"                                                           "earth | skillshot"
             "ReduxCost"                                                            "10"
         }
-        "kunkka_torrent"
-        {
-            "ReduxFlags"                                                           "stun"
-            "ReduxPerks"                                                           "water | skillshot"
-            "ReduxBans"                                                            "batrider_sticky_napalm"
-        }
-		"kunkka_torrent_storm"
-		{
-			"MaxLevel"						"4"
-			"ReduxFlags"                                                           "stun | upgradeable"
-            "ReduxPerks"                                                           "water"
-            "ReduxBans"                                                            "batrider_sticky_napalm"
-			"AbilityCooldown"				"75 65 55 45"
-			"AbilityManaCost"				"275"
-			"AbilityValues"
-			{
-				"torrent_interval"
-				{
-					"value"				"0.25 0.22 0.19 0.16"
-					"RequiresScepter"	"1"
-				}
-				"torrent_duration"
-				{
-					"value"				"4.0 4.5 5.0 5.5"
-					"RequiresScepter"	"1"
-				}
-				"torrent_min_distance"
-				{
-					"value"				"115"
-					"RequiresScepter"	"1"
-				}
-				"torrent_max_distance"
-				{
-					"value"				"1100"
-					"RequiresScepter"	"1"
-					"affected_by_aoe_increase"	"1"
-				}
-			}
-		}
         "lina_light_strike_array"
         {
             "ReduxFlags"                                                           "stun"
@@ -3676,20 +3600,11 @@
         {
             "ReduxPerks"                                                           "earth | skillshot"
         }
-        "naga_siren_ensnare"
-        {
-            "ReduxFlags"                                                           "upgradeable"
-        }
         "treant_overgrowth"
         {
             "ReduxPerks"                                                           "nature"
             "ReduxFlags"                                                           "stun"
             "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
-        }
-        "abyssal_underlord_pit_of_malice"
-        {
-            "ReduxFlags"                                                           "upgradeable"
-            "ReduxPerks"                                                           "earth | trap | demon"
         }
         "broodmother_spawn_spiderlings"
         {
@@ -3857,11 +3772,6 @@
             "ReduxFlags"                                                           "silence | mobility | upgradeable"
             "ReduxPerks"                                                           "silence | mobility"
         }
-        "night_stalker_crippling_fear"
-        {
-            "ReduxFlags"                                                           "silence"
-            "ReduxPerks"                                                           "silence | demon"
-        }
         "drow_ranger_wave_of_silence"
         {
             "ReduxFlags"                                                           "silence"
@@ -3870,11 +3780,6 @@
         "chaos_knight_phantasm"
         {
             "ReduxFlags"                                                           "illusion | upgradeable"
-            "ReduxPerks"                                                           "illusion"
-        }
-        "naga_siren_mirror_image"
-        {
-            "ReduxFlags"                                                           "illusion"
             "ReduxPerks"                                                           "illusion"
         }
         "morphling_replicate"
@@ -4030,10 +3935,6 @@
         {
             "ReduxPerks"                                                           "fire | skillshot | enemyMoving | explosive"
         }
-        "abyssal_underlord_firestorm"
-        {
-            "ReduxPerks"                                                           "fire | demon"
-        }
         "crystal_maiden_crystal_nova"
         {
             "ReduxPerks"                                                           "ice"
@@ -4103,20 +4004,6 @@
         {
             "ReduxPerks"                                                           "poison"
         }
-        "arc_warden_flux"
-        {
-            "ReduxPerks"                                                           "lightning"
-        }
-        "arc_warden_spark_wraith"
-        {
-            "ReduxPerks"                                                           "lightning | trap | upgradeable"
-        }
-        "arc_warden_tempest_double"
-        {
-            "ReduxPerks"                                                           "lightning"
-            "ReduxCost"                                                            "80"
-            "ReduxBans"                                                            "imba_omniknight_purification | tinker_rearm"
-        }
         "disruptor_thunder_strike"
         {
             "ReduxPerks"                                                           "lightning"
@@ -4179,10 +4066,6 @@
         "morphling_morph_replicate"
         {
             "ReduxPerks"                                                           "water | upgradeable"
-        }
-        "naga_siren_rip_tide"
-        {
-            "ReduxPerks"                                                           "water"
         }
         "slark_dark_pact"
         {
@@ -4420,10 +4303,6 @@
         {
             "ReduxPerks"                                                           "self_damage"
         }
-        "abyssal_underlord_atrophy_aura"
-        {
-            "ReduxPerks"                                                           "aura"
-        }
         "beastmaster_inner_beast"
         {
             "ReduxPerks"                                                           "aura | support"
@@ -4431,10 +4310,6 @@
         "elder_titan_natural_order"
         {
             "ReduxPerks"                                                           "aura | earth"
-        }
-        "necrolyte_heartstopper_aura"
-        {
-            "ReduxPerks"                                                           "aura"
         }
         "necronomicon_warrior_sight"
         {
@@ -4646,11 +4521,6 @@
         {
             "ReduxPerks"                                                           "skillshot | physical"
             "ReduxFlags"                                                           "physical"
-        }
-        "kunkka_ghostship"
-        {
-			"ReduxFlags"														  "stun"
-            "ReduxPerks"                                                           "skillshot | water"
         }
         "pugna_nether_blast"
         {
@@ -5255,38 +5125,6 @@
 				"duration"				"3"
 				"hp_restore"				"25 35 45 55"
 			}
-
-		}
-
-		"naga_siren_reel_in"
-		{
-			"ReduxFlags"					"upgradeable"
-			"ReduxPerks"                	"enemyMoving | water | channeled"
-			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-			"MaxLevel"						"4"
-			"AbilityCastRange"				"1400 1600 1800 2000"
-			"AbilityCooldown"				"8 7 6 5"
-			"AbilityManaCost"				"0"
-			"AbilityChannelTime"				"5"
-			"AbilityValues"
-			{
-				"radius"
-				{
-					"value"						"1600 1800 2000 2200"
-					"affected_by_aoe_increase"	"1"
-				}
-				"pull_strength"				"200 250 300 350"
-				"min_pull_distance"			"100"
-				"can_target_magic_immune"
-				{
-					"value"							"0"
-					"special_bonus_scepter"			"+1"
-				}
-				"can_target_invulnerable"
-				{
-					"value"							"1"
-				}
-			}
 		}
 
 		"furion_curse_of_the_forest"
@@ -5407,11 +5245,6 @@
         {
             "ReduxPerks"                     "demon"
         }
-        "night_stalker_void"
-        {
-            "ReduxPerks"                                                           "demon"
-            "ReduxFlags"                                                           "upgradeable"
-        }
         "terrorblade_sunder"
         {
             "ReduxPerks"                                                           "demon | self_damage"
@@ -5440,11 +5273,6 @@
         {
             "ReduxPerks"                                                           "skillshot"
             "ReduxFlags"                                                           ""
-        }
-        "night_stalker_darkness"
-        {
-            "ReduxPerks"                                                           "demon | mobility"
-            "ReduxFlags"                                                           "mobility"
         }
 
         "hoodwink_decoy"
@@ -5831,27 +5659,6 @@
 				"max_root"		"5 6 7 8"
 			}
 		}
-
-        "kunkka_tidal_wave"
-        {
-			"MaxLevel"                      "4"
-			"ReduxPerks"	"enemyMoving | water"
-			"AbilityCastRange"              "1400"
-			"AbilityCooldown"               "12 11 10 9"
-			"AbilityManaCost"               "75"
-			"AbilityValues"
-			{
-				"speed"		"700"
-				"radius"
-				{
-					"value"		"750 800 850 900"
-					"affected_by_aoe_increase"	"1"
-				}
-				"damage"		"180 220 260 300"
-				"duration"		"1.0 1.25 1.5 1.75"
-				"knockback_distance"		"600"
-			}
-        }
 
         "juggernaut_swift_slash"
     	{
@@ -6296,28 +6103,6 @@
 				"duration"
 				{
 					"value" "3.0 3.25 3.5 3.75"
-				}
-			}
-		}
-
-		"necrolyte_death_seeker"
-		{
-			"MaxLevel"						"4"
-			"AbilityCooldown"				"16 15 14 13"
-			"AbilityManaCost"				"125"
-			"AbilityValues"
-			{
-				"projectile_multiplier"
-				{
-					"value" "175 200 225 250"
-				}
-				"ethereal_duration"
-				{
-					"value" "2.5"
-				}
-				"magic_resistance_reduction"
-				{
-					"value" "25 30 35 40"
 				}
 			}
 		}
@@ -7781,47 +7566,6 @@
             "TalentRequiredAbility"                                                   "keeper_of_the_light_illuminate"
         }
 
-
-
-        "special_bonus_unique_kunkka"
-        {
-            "TalentRequiredAbility"                                                   "kunkka_torrent"
-        }
-        "special_bonus_unique_kunkka_2"
-        {
-            "TalentRequiredAbility"                                                   "kunkka_torrent"
-        }
-        "special_bonus_unique_kunkka_3"
-        {
-            "TalentRequiredAbility"                                                   "kunkka_ghostship"
-        }
-        "special_bonus_unique_kunkka_4"
-        {
-            "TalentRequiredAbility"                                                   "kunkka_tidebringer"
-        }
-        "special_bonus_unique_kunkka_5"
-        {
-            "TalentRequiredAbility"                                                   "kunkka_tidebringer"
-        }
-        "special_bonus_unique_kunkka_6"
-        {
-            "TalentRequiredAbility"                                                   "kunkka_x_marks_the_spot"
-        }
-        "special_bonus_unique_kunkka_7"
-        {
-            "TalentRequiredAbility"                                                   "kunkka_torrent"
-        }
-		"special_bonus_unique_kunkka_tidebringer_slow"
-        {
-            "TalentRequiredAbility"                                                   "kunkka_tidebringer"
-        }
-        "special_bonus_unique_kunkka_torrent_cooldown"
-        {
-            "TalentRequiredAbility"                                                   "kunkka_torrent"
-        }
-
-
-
         "special_bonus_unique_legion_commander"
         {
             "TalentRequiredAbility"                                                   "legion_commander_duel"
@@ -8424,82 +8168,6 @@
             "TalentRequiredAbility"                                                   "morphling_waveform"
         }
 
-
-        "special_bonus_unique_naga_siren"
-        {
-            "TalentRequiredAbility"                                                   "naga_siren_mirror_image"
-        }
-        "special_bonus_unique_naga_siren_2"
-        {
-            "TalentRequiredAbility"
-			{
-				"1"			"naga_siren_rip_tide"
-				"2"			"naga_siren_deluge"
-			}
-        }
-        "special_bonus_unique_naga_siren_3"
-        {
-            "TalentRequiredAbility"                                                   "naga_siren_rip_tide"
-        }
-        "special_bonus_unique_naga_siren_4"
-        {
-            "TalentRequiredAbility"                                                   "naga_siren_mirror_image"
-        }
-        "special_bonus_unique_naga_siren_5"
-        {
-            "TalentRequiredAbility"                                                   "naga_siren_song_of_the_siren"
-        }
-        "special_bonus_unique_naga_siren_6"
-        {
-            "TalentRequiredAbility"                                                   "naga_siren_mirror_image"
-        }
-        "special_bonus_unique_naga_siren_7"
-        {
-            "TalentRequiredAbility"                                                   "naga_siren_song_of_the_siren"
-        }
-		"special_bonus_unique_naga_siren_net_cooldown"
-        {
-            "TalentRequiredAbility"                                                   "naga_siren_ensnare"
-        }
-		"special_bonus_unique_naga_siren_net_breaks"
-		{
-            "TalentRequiredAbility"                                                   "naga_siren_ensnare"
-        }
-
-
-
-        "special_bonus_unique_necrophos"
-        {
-            "TalentRequiredAbility"                                                   "necrolyte_death_pulse"
-        }
-        "special_bonus_unique_necrophos_2"
-        {
-            "TalentRequiredAbility"                                                   "necrolyte_heartstopper_aura"
-        }
-        "special_bonus_unique_necrophos_3"
-        {
-            "TalentRequiredAbility"                                                   "necrolyte_sadist"
-        }
-        "special_bonus_unique_necrophos_4"
-        {
-            "TalentRequiredAbility"                                                   "necrolyte_death_pulse"
-        }
-        "special_bonus_unique_necrophos_5"
-        {
-            "TalentRequiredAbility"                                                   "necrolyte_heartstopper_aura"
-        }
-        "special_bonus_unique_necrophos_6"
-        {
-            "TalentRequiredAbility"                                                   "necrolyte_reapers_scythe"
-        }
-		"special_bonus_unique_necrophos_heartstopper_regen_duration"
-        {
-            "TalentRequiredAbility"                                                   "necrolyte_sadist"
-        }
-
-
-
-
         "special_bonus_unique_nevermore_1"
         {
             "TalentRequiredAbility"                                                   "nevermore_necromastery"
@@ -8556,44 +8224,6 @@
                 "3" "nevermore_shadowraze3"
             }
         }
-
-
-
-        "special_bonus_unique_night_stalker"
-        {
-            "TalentRequiredAbility"                                                   "night_stalker_darkness"
-        }
-        "special_bonus_unique_night_stalker_2"
-        {
-            "TalentRequiredAbility"                                                   "night_stalker_hunter_in_the_night"
-        }
-        "special_bonus_unique_night_stalker_3"
-        {
-            "TalentRequiredAbility"                                                   "night_stalker_darkness"
-        }
-        "special_bonus_unique_night_stalker_4"
-        {
-            "TalentRequiredAbility"                                                   "night_stalker_void"
-        }
-        "special_bonus_unique_night_stalker_5"
-        {
-            "TalentRequiredAbility"                                                   "night_stalker_hunter_in_the_night"
-        }
-        "special_bonus_unique_night_stalker_6"
-        {
-            "TalentRequiredAbility"                                                   "night_stalker_crippling_fear"
-        }
-        "special_bonus_unique_night_stalker_7"
-        {
-            "TalentRequiredAbility"                                                   "night_stalker_darkness"
-        }
-		"special_bonus_unique_night_stalker_hunter_status_resist"
-        {
-            "TalentRequiredAbility"                                                   "night_stalker_hunter_in_the_night"
-        }
-
-
-
 
         "special_bonus_unique_nyx"
         {
@@ -10047,48 +9677,6 @@
             "TalentRequiredAbility"                                                   "tusk_walrus_punch"
         }
 
-
-
-
-        "special_bonus_unique_underlord"
-        {
-            "TalentRequiredAbility"                                                   "abyssal_underlord_pit_of_malice"
-        }
-        "special_bonus_unique_underlord_2"
-        {
-            "TalentRequiredAbility"                                                   "abyssal_underlord_firestorm"
-        }
-        "special_bonus_unique_underlord_3"
-        {
-            "TalentRequiredAbility"                                                   "abyssal_underlord_atrophy_aura"
-        }
-        "special_bonus_unique_underlord_4"
-        {
-            "TalentRequiredAbility"                                                   "abyssal_underlord_firestorm"
-        }
-        "special_bonus_unique_underlord_5"
-        {
-            "TalentRequiredAbility"                                                   "abyssal_underlord_firestorm"
-        }
-        "special_bonus_unique_underlord_6"
-        {
-            "TalentRequiredAbility"                                                   "abyssal_underlord_pit_of_malice"
-        }
-        "special_bonus_unique_underlord_7"
-        {
-            "TalentRequiredAbility"                                                   "abyssal_underlord_firestorm"
-        }
-        "special_bonus_unique_underlord_8"
-        {
-            "TalentRequiredAbility"                                                   "abyssal_underlord_firestorm"
-        }
-        "special_bonus_unique_underlord_9"
-        {
-            "TalentRequiredAbility"                                                   "abyssal_underlord_atrophy_aura"
-        }
-
-
-
         "special_bonus_unique_undying"
         {
             "TalentRequiredAbility"                                                   "undying_tombstone"
@@ -11275,47 +10863,6 @@
         {
             "TalentRequiredAbility"                                                   "bane_enfeeble"
         }
-
-
-
-        "special_bonus_unique_arc_warden"
-        {
-            "TalentRequiredAbility"                                                   "arc_warden_spark_wraith"
-        }
-        "special_bonus_unique_arc_warden_2"
-        {
-            "TalentRequiredAbility"                                                   "arc_warden_flux"
-        }
-        "special_bonus_unique_arc_warden_3"
-        {
-            "TalentRequiredAbility"                                                   "arc_warden_magnetic_field"
-        }
-        "special_bonus_unique_arc_warden_4"
-        {
-            "TalentRequiredAbility"                                                   "arc_warden_flux"
-        }
-        "special_bonus_unique_arc_warden_5"
-        {
-            "TalentRequiredAbility"                                                   "arc_warden_flux"
-        }
-        "special_bonus_unique_arc_warden_6"
-        {
-            "TalentRequiredAbility"                                                   "arc_warden_tempest_double"
-        }
-		"special_bonus_unique_arc_warden_7"
-        {
-            "TalentRequiredAbility"                                                   "arc_warden_tempest_double"
-        }
-		"special_bonus_unique_arc_warden_8"
-		{
-            "TalentRequiredAbility"                                                   "arc_warden_tempest_double"
-        }
-		"special_bonus_unique_arc_warden_9"
-		{
-            "TalentRequiredAbility"                                                   "arc_warden_magnetic_field"
-        }
-
-
 
         "special_bonus_unique_antimage"
         {

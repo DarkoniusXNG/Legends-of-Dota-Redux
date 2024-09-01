@@ -376,7 +376,7 @@
 #base "abilities\spelllab\souls\mana_regen.txt"
 #base "abilities\spelllab\souls\move_speed.txt"
 #base "abilities\spelllab\souls\spell_boost.txt"
-#base "abilities\imba\imba_abilities.kv"
+#base "abilities\imba\imba_abilities.txt"
 #base "abilities\lia\akron_explosion.txt"
 #base "abilities\lia\ancient_priestess_ritual_protection.txt"
 #base "abilities\lia\ancient_priestess_spirit_link.txt"

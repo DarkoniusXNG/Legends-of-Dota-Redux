@@ -831,15 +831,19 @@ function modifier_imba_fury_swipes:GetModifierProcAttack_BonusDamage_Physical( k
 			-- Add debuff/increment stacks if already exists
 			if target:HasModifier(fury_swipes_debuff) then
 				fury_swipes_debuff_handler = target:FindModifierByName(fury_swipes_debuff)
-				fury_swipes_debuff_handler:IncrementStackCount()
 			else
-				target:AddNewModifier(caster, ability, fury_swipes_debuff, {duration = stack_duration})
-				fury_swipes_debuff_handler = target:FindModifierByName(fury_swipes_debuff)
-				fury_swipes_debuff_handler:IncrementStackCount()
+				fury_swipes_debuff_handler = target:AddNewModifier(caster, ability, fury_swipes_debuff, {duration = stack_duration})
 			end
 
-			-- Refresh stack duration
-			fury_swipes_debuff_handler:ForceRefresh()
+			if not fury_swipes_debuff_handler then
+				fury_swipes_debuff_handler = target:FindModifierByName(fury_swipes_debuff)
+			end
+
+			if fury_swipes_debuff_handler then
+				fury_swipes_debuff_handler:IncrementStackCount()
+				-- Refresh stack duration
+				fury_swipes_debuff_handler:ForceRefresh()
+			end
 
 			-- Add fury swipe impact particle
 			local swipes_particle_fx = ParticleManager:CreateParticle(swipes_particle, PATTACH_ABSORIGIN, target)
@@ -847,7 +851,10 @@ function modifier_imba_fury_swipes:GetModifierProcAttack_BonusDamage_Physical( k
 			ParticleManager:ReleaseParticleIndex(swipes_particle_fx)
 
 			-- Get stack count
-			local fury_swipes_stacks = fury_swipes_debuff_handler:GetStackCount()
+			local fury_swipes_stacks = 1
+			if fury_swipes_debuff_handler then
+				fury_swipes_stacks = fury_swipes_debuff_handler:GetStackCount()
+			end
 
 			-- Calculate damage
 			damage = damage_per_stack * fury_swipes_stacks
