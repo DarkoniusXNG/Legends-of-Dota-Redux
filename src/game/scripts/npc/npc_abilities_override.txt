@@ -4728,10 +4728,6 @@
             "ReduxBans"                                                            "arc_warden_tempest_double"
             "ReduxFlags"                                                           "doNotRandom"
         }
-        "alchemist_chemical_rage_lod"
-        {
-            "ReduxBans"                                                            "meepo_divided_we_stand"
-        }
         "bristleback_quill_spray"
         {
             "ReduxFlags"                                                           "physical"

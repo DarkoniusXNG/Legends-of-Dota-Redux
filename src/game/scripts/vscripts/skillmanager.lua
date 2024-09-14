@@ -20,14 +20,12 @@ local multiplierSkills = GameRules.KVs["npc_abilities_custom"]
 -- Table of player's active skills to make swapping super fast
 local activeSkills = {}
 
-local meleeMap = {
-    -- Remap troll ulty
-    -- troll_warlord_berserkers_rage = 'troll_warlord_berserkers_rage_melee'
-}
+local meleeMap = {}
 
 local meleeList = {}
 local heroIDToName = {}
 local skillOwningHero = {}
+local heroToSkillMap = GameRules.KVs.abilitylist.heroToSkillMap
 
 local herolist = GameRules.KVs.herolist
 
@@ -51,6 +49,15 @@ for heroName, value in pairs(herolist) do
                 if ab and ab ~= '' and ab ~= 'special_bonus_attributes' and ab ~= 'generic_hidden' then
                     -- Yep, store this hero as the owner
                     skillOwningHero[ab] = heroData.HeroID
+                end
+            end
+
+            -- Check abilities.kv for hero owners of abilities
+            if heroToSkillMap[heroName] then
+                for _, v in pairs(heroToSkillMap[heroName]) do
+                    if v and v ~= '' then
+                        skillOwningHero[v] = heroData.HeroID
+                    end
                 end
             end
         end
