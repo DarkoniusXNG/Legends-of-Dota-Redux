@@ -27,7 +27,7 @@ function Damage( event )
 							
 	caster:SpendMana(dmg, ability)
 
-	local particle1 = ParticleManager:CreateParticle("particles/lion_spell_voodoo.vpcf", PATTACH_ABSORIGIN, caster)
+	local particle1 = ParticleManager:CreateParticle("particles/units/heroes/hero_lion/lion_spell_voodoo.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(particle1, 1, caster:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(particle1)
 	
