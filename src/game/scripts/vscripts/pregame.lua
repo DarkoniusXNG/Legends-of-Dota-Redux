@@ -6828,14 +6828,12 @@ function Pregame:generateBotBuilds(singleID)
             npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_vengefulspirit = true, -- Crashes
-
         }
     else
         brokenBots = {
             npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_vengefulspirit = true, -- Crashes
-
         }
     end
 
