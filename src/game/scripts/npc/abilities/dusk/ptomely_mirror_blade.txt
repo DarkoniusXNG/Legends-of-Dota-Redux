@@ -13,6 +13,8 @@
 		"AnimationPlaybackRate"		 "1"
 		"FightRecapLevel"			   "1"
 		"AbilityTextureName"			"custom/ptomely_mirror_blade"
+		"ReduxPerks"					"physical | skillshot"
+		"ReduxFlags"					"physical"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

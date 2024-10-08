@@ -18,6 +18,8 @@
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AoERadius"						"400"
 		"AbilityTextureName"			"custom/ptomely_astralise"
+		"ReduxPerks"					"support"
+		"ReduxFlags"					"stun | support"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -57,6 +59,5 @@
 			"particle" "particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet_frozen.vpcf"
 			"soundfile" "soundevents/hero_ptomely.vsndevts"
 		}
-
 	}
 }

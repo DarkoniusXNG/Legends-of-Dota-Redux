@@ -134,6 +134,7 @@
                 "EffectName"                                           "particles/undying_decay_agility_buff.vpcf"
             }
         }
-        "ReduxFlags"                                                           "dota_custom | doNotRandom"
+        "ReduxFlags"                                                           "dota_custom | doNotRandom | upgradeable"
+        "ReduxPerks"                                                           "skillshot | drain"
     }
 }

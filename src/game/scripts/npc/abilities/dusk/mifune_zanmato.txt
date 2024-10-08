@@ -17,6 +17,8 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityTextureName"			"custom/mifune_zanmato"
+		"ReduxPerks"					"physical"
+		"ReduxFlags"					"physical | upgradeable"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

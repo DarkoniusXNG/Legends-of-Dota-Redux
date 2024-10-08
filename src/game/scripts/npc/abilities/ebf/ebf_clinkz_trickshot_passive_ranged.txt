@@ -11,7 +11,7 @@
         "AbilityValues"
         {
             "double_interval" "2.0 1.4 0.8"
-            "targets_scepter" "4"
+            "targets_scepter" "3"
         }
         "precache"
         {
@@ -62,6 +62,7 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "doNotRandom"
+        "ReduxFlags"                                                           "aoe_attack | upgradeable | doNotRandom"
+        "ReduxPerks"                                                           "ranger"
     }
 }

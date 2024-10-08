@@ -104,6 +104,7 @@
                 }
             }
         }
-
+        "ReduxFlags"                                                           "stun | physical"
+        "ReduxPerks"                                                           "earth | demon | physical"
     }
 }

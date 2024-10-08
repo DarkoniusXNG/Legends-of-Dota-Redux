@@ -15,6 +15,8 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityTextureName"			"custom/ptomely_enthrall"
+		"ReduxPerks"					"support"
+		"ReduxFlags"					"support"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

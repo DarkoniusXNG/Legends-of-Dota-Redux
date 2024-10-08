@@ -10,8 +10,8 @@
         "HasScepterUpgrade"                                                    "1"
         "AbilityValues"
         {
-            "double_interval" "1.0 0.7 0.4"
-            "targets_scepter" "4"
+            "double_interval" "1.5 1.0 0.5"
+            "targets_scepter" "3"
         }
         "precache"
         {
@@ -62,7 +62,8 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "aoe_attack"
+        "ReduxFlags"                                                           "aoe_attack | upgradeable"
+        "ReduxPerks"                                                           "ranger"
         "ReduxCost"                                                            "120"
     }
 }

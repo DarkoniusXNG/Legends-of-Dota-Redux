@@ -156,6 +156,6 @@
                 }
             }
         }
-        "ReduxPerks"                                                           "explosive"
+        "ReduxPerks"                                                           "nature | explosive"
     }
 }

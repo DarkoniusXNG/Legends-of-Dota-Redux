@@ -97,6 +97,6 @@
             }
         }
         "ReduxFlags"                                                           "attack_modifier | illusion"
-        "ReduxPerks"                                                           "attack_modifier | illusion"
+        "ReduxPerks"                                                           "attack_modifier | illusion | ranger | autocast_basic"
     }
 }

@@ -31,5 +31,7 @@
 				"dmg_pct" "%damage_pct"
 			}
 		}
+
+		"ReduxPerks"	"fire"
 	}
 }

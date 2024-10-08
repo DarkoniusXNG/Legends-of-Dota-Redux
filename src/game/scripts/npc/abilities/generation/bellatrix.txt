@@ -305,7 +305,7 @@
         //Cost
         "AbilityManaCost"               "80 90 100 110"
         "AbilityProcsMagicStick"        "1"
-
+        "ReduxPerks"                    "self_damage | skillshot | enemyMoving"
 
         "Precache"
         {
