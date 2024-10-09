@@ -13,6 +13,8 @@
 		"FightRecapLevel"			   "1"
 		"AbilityTextureName"			"custom/erra_morbid_blade"
 		"AoERadius"					 "%radius"
+		"ReduxPerks"					"physical"
+		"ReduxFlags"					"physical"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -49,10 +51,5 @@
 			"soundfile" "soundevents/hero_erra.vsndevts"
 			"particle"  "particles/units/heroes/hero_erra/morbid_blade.vpcf"
 		}
-
-		"Modifiers"
-		{
-		}
-
 	}
 }

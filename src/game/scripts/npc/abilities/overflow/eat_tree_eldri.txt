@@ -13,6 +13,7 @@
 		"AbilityCastRange"              "250"
 		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_TREE"
+		"ReduxPerks"                                                           "nature"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------

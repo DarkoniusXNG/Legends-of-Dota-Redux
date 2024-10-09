@@ -135,6 +135,7 @@
                 "IsBuff"                                               "1"
             }
         }
-        "ReduxFlags"                                                           "dota_custom | doNotRandom"
+        "ReduxFlags"                                                           "dota_custom | doNotRandom | upgradeable"
+        "ReduxPerks"                                                           "skillshot | drain"
     }
 }

@@ -61,5 +61,7 @@
                 }
             }
         }
+        "ReduxPerks"                                                           "support | light"
+        "ReduxFlags"                                                           "support | tank"
     }
 }

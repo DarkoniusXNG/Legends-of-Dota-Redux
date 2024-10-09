@@ -72,5 +72,7 @@
                 "EffectAttachType"                                     "follow_origin"
             }
         }
+        "ReduxPerks"                                                           "support | silence"
+        "ReduxFlags"                                                           "support | silence"
     }
 }

@@ -16,6 +16,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AnimationPlaybackRate"			"0.9"
 		"AbilityTextureName"			"custom/mifune_raigeki"
+		"ReduxPerks"					"lightning | skillshot"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

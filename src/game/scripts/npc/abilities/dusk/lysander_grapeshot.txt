@@ -17,6 +17,9 @@
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"custom/lysander_grapeshot"
+		"ReduxPerks"					"physical"
+		"ReduxFlags"					"physical | crit | stun"
+		"ReduxBans"						"earthshaker_enchant_totem"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -121,7 +124,5 @@
 				"IsBuff"			"1"
 			}
 		}
-
-        	"ReduxBans"                                                            "earthshaker_enchant_totem"
 	}
 }

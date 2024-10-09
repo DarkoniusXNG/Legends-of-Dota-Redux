@@ -464,7 +464,7 @@
         "FightRecapLevel"               "2"
         "AbilityTextureName"            "custom/achlys_death_mist"
         "AbilityProcsMagicStick"        "1"
-
+        "ReduxPerks"                    "self_damage"
 
         // Precache
         //-------------------------------------------------------------------------------------------------------------

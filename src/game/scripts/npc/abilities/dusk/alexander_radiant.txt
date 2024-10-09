@@ -11,6 +11,7 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityTextureName"			"custom/alexander_radiant"
+		"ReduxPerks"					"light"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -45,10 +46,5 @@
 			"particle" "particles/status_fx/status_effect_keeper_spirit_form.vpcf"
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
 		}
-		
-		"Modifiers"
-		{
-		}
-
 	}
 }
