@@ -168,7 +168,7 @@
 			"item_ancient_guardian"				"1"
 			"item_avianas_feather"			"1"
 			"item_rattlecage"				"1"
-
+			"item_havoc_hammer"             "1"
 		}
 	}
 	"5"
