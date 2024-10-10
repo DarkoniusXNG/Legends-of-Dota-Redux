@@ -1,0 +1,125 @@
+// Abilities for alchemist
+"DOTAAbilities"
+{
+ 	//=================================================================================================================
+	// Alchemist: Berserk Potion (Shard)
+	//=================================================================================================================
+	"alchemist_berserk_potion"
+	{
+		"ReduxPerks"                    "support | rage"
+		"ReduxFlags"                    "support"
+		"AbilityCastRange"				"800 900 1000 1100"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"35 32 29 26"
+		"AbilityManaCost"				"100"
+		"AbilityValues"
+		{
+			"duration"		"15"
+			"attack_speed"		"50 55 60 65"
+			"hp_regen"		"40 45 50 55"
+			"projectile_speed"			"900 1000 1100 1200"
+			"move_speed"			"30 35 40 45"
+			"chemical_rage_cooldown_reduction_pct"
+			{
+				"value"					"0"
+				"special_bonus_facet_alchemist_mixologist"				"=50"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Alchemist: Acid Spray
+	//=================================================================================================================
+	"alchemist_acid_spray"
+	{
+		"ReduxFlags"                    "physical"
+		"ReduxPerks"                    "poison | scientific | physical"
+	}
+
+	//=================================================================================================================
+	// Alchemist: Unstable Concoction
+	//=================================================================================================================
+	"alchemist_unstable_concoction"
+	{
+		"ReduxFlags"                    "stun | physical"
+		"ReduxPerks"                    "scientific | physical | explosive"
+	}
+
+	//=================================================================================================================
+	// Alchemist: Unstable Concoction Throw
+	//=================================================================================================================
+	"alchemist_unstable_concoction_throw"
+	{
+		"ReduxFlags"                   	"stun | physical"
+		"ReduxPerks"                    "scientific | physical | explosive"
+	}
+
+	//=================================================================================================================
+	// Alchemist: Goblin's Greed
+	//=================================================================================================================
+	"alchemist_goblins_greed"
+	{
+		"ReduxPerks"                    "scientific"
+		"ReduxCost"                     "30"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+	}
+
+	//=================================================================================================================
+	// Alchemist: Chemical Rage
+	//=================================================================================================================
+	"alchemist_chemical_rage"
+	{
+		"ReduxFlags"                    "tank"
+		"ReduxPerks"                    "scientific | rage"
+		"ReduxCost"                     "80"
+	}
+	
+	//=================================================================================================================
+	// Alchemist: Corrosive Weaponry
+	//=================================================================================================================
+	"alchemist_corrosive_weaponry"
+	{
+		"ReduxFlags"                    "attack_modifier"
+		"ReduxPerks"                    "poison"
+	}
+	
+	"special_bonus_unique_alchemist"
+	{
+		"TalentRequiredAbility"         "alchemist_unstable_concoction"
+	}
+	
+	"special_bonus_unique_alchemist_2"
+	{
+		"TalentRequiredAbility"         "alchemist_unstable_concoction"
+	}
+	
+	"special_bonus_unique_alchemist_3"
+	{
+		"TalentRequiredAbility"         "alchemist_acid_spray"
+	}
+	
+	"special_bonus_unique_alchemist_4"
+	{
+		"TalentRequiredAbility"         "alchemist_chemical_rage"
+	}
+	
+	"special_bonus_unique_alchemist_5"
+	{
+		"TalentRequiredAbility"         "alchemist_acid_spray"
+	}
+	
+	"special_bonus_unique_alchemist_6"
+	{
+		"TalentRequiredAbility"        	"alchemist_chemical_rage"
+	}
+	
+	"special_bonus_unique_alchemist_7"
+	{
+		"TalentRequiredAbility"         "alchemist_goblins_greed"
+	}
+	
+	"special_bonus_unique_alchemist_8"
+	{
+		"TalentRequiredAbility"         "alchemist_chemical_rage"
+	}
+}
