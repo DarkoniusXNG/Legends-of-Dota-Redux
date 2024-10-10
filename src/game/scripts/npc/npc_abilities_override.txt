@@ -1,4 +1,8 @@
+#base "heroes\abaddon.txt"
+#base "heroes\alchemist.txt"
+#base "heroes\ancient_apparition.txt"
 #base "heroes\arc_warden.txt"
+#base "heroes\invoker.txt"
 #base "heroes\kunkka.txt"
 #base "heroes\naga_siren.txt"
 #base "heroes\necrophos.txt"
@@ -6,7 +10,6 @@
 #base "heroes\ringmaster.txt"
 #base "heroes\spectre.txt"
 #base "heroes\underlord.txt"
-#base "heroes\invoker.txt"
 
 "DOTAAbilities"
 {
@@ -230,12 +233,6 @@
 			"arc_lightning_damage_pct"		"50 60 70 80"
 			"arc_lightning_damage_illusion_pct"		"20 25 30 35"
 		}
-	}
-
-	"alchemist_goblins_greed"
-	{
-		"ReduxPerks"                                                           "scientific"
-		"ReduxCost"                                                            "30"
 	}
 
 	"drow_ranger_glacier"
@@ -1939,19 +1936,7 @@
 		"ReduxFlags"                                                           "upgradeable"
 		"ReduxPerks"                                                           "scientific"
 	}
-	"abaddon_borrowed_time"
-	{
-		"ReduxFlags"                                                           "upgradeable | wtfAutoBan | semi_passive"
-		"ReduxCost"                                                            "80"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand | phoenix_supernova"
-	}
-	"ancient_apparition_ice_blast"
-	{
-		"ReduxFlags"                                                           "wtfAutoBan"
-		"ReduxPerks"                                                           "ice | skillshot"
-		"ReduxCost"                                                            "20"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
-	}
+
 	"axe_culling_blade"
 	{
 		"ReduxPerks"                                                           "rage"
@@ -2439,17 +2424,6 @@
 		"ReduxPerks"                                                           "light"
 	}
 
-	"abaddon_aphotic_shield"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
-		"ReduxCost"                                                            "10"
-	}
-	"abaddon_death_coil"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | self_damage"
-	}
 	"disruptor_glimpse"
 	{
 		"ReduxFlags"                                                           "support"
@@ -2716,11 +2690,6 @@
 		"ReduxFlags"                                                           "support | mobility"
 		"ReduxPerks"                                                           "support | mobility"
 		"ReduxCost"                                                            "10"
-	}
-	"ancient_apparition_ice_vortex"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | ice"
 	}
 	"bounty_hunter_track"
 	{
@@ -3148,13 +3117,7 @@
 		"ReduxPerks"                                                           "rage"
 		"ReduxCost"                                                            "20"
 	}
-	"alchemist_chemical_rage"
-	{
-		"ReduxFlags"                                                           "tank"
-		"ReduxPerks"                                                           "scientific | rage"
-		"ReduxCost"                                                            "80"
-		"ReduxBans"                                                            "meepo_divided_we_stand"
-	}
+
 	"centaur_return"
 	{
 		"ReduxFlags"                                                           "tank | physical"
@@ -3457,17 +3420,7 @@
 		"ReduxFlags"                                                           "attack_modifier | physical"
 		"ReduxPerks"                                                           "attack_modifier | fire | autocast_basic | physical | ranger"
 	}
-	"abaddon_frostmourne"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | ice"
-		"ReduxCost"                                                            "10"
-	}
-	"ancient_apparition_chilling_touch"
-	{
-		"ReduxFlags"                                                           "attack_modifier | upgradeable"
-		"ReduxPerks"                                                           "attack_modifier | ice"
-	}
+
 	"slark_essence_shift"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
@@ -3657,21 +3610,10 @@
 		"ReduxFlags"                                                           "stun | physical"
 		"ReduxPerks"                                                           "poison | physical"
 	}
-
-	"ancient_apparition_cold_feet"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "ice"
-	}
 	"gyrocopter_homing_missile"
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "scientific | explosive"
-	}
-	"alchemist_unstable_concoction"
-	{
-		"ReduxFlags"                                                           "stun | physical"
-		"ReduxPerks"                                                           "scientific | physical | explosive"
 	}
 	"chaos_knight_chaos_bolt"
 	{
@@ -4108,11 +4050,6 @@
 	{
 		"ReduxFlags"                                                           "tank | upgradeable"
 		"ReduxBans"                                                            "tinker_rearm"
-	}
-	"alchemist_acid_spray"
-	{
-		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"                                                           "poison | scientific | physical"
 	}
 	"pudge_rot"
 	{
@@ -5671,28 +5608,6 @@
 			"max_distance"				"2000"
 			"range_reduction"		"40 50 60 70"
 			"debuff_duration"		"2 2.5 3 3.5"
-		}
-	}
-
-	"alchemist_berserk_potion"
-	{
-		"ReduxPerks"                                                           "support | rage"
-		"ReduxFlags"                                                           "support"
-		"MaxLevel"                      "4"
-		"AbilityCooldown"               "35 30 25 20"
-		"AbilityManaCost"               "100"
-		"AbilityValues"
-		{
-			"duration"		"15"
-			"attack_speed"		"50 55 60 65"
-			"hp_regen"		"40 45 50 55"
-			"projectile_speed"			"900"
-			"move_speed"			"30 35 40 45"
-			"chemical_rage_cooldown_reduction_pct"
-			{
-				"value"					"0"
-				"special_bonus_facet_alchemist_mixologist"				"=50"
-			}
 		}
 	}
 
@@ -10654,118 +10569,6 @@
 	{
 		"TalentRequiredAbility"                                                   "antimage_mana_void"
 	}
-
-
-
-	"special_bonus_unique_ancient_apparition_1"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_cold_feet"
-	}
-	"special_bonus_unique_ancient_apparition_2"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_chilling_touch"
-	}
-	"special_bonus_unique_ancient_apparition_3"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_ice_vortex"
-	}
-	"special_bonus_unique_ancient_apparition_4"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_ice_vortex"
-	}
-	"special_bonus_unique_ancient_apparition_5"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_ice_blast"
-	}
-	"special_bonus_unique_ancient_apparition_6"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_cold_feet"
-	}
-	"special_bonus_unique_ancient_apparition_7"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_chilling_touch"
-	}
-	"special_bonus_unique_ancient_apparition_8"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_cold_feet"
-	}
-	"special_bonus_unique_ancient_apparition_ice_vortex_duration"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_ice_vortex"
-	}
-
-
-
-	"special_bonus_unique_alchemist"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_unstable_concoction"
-	}
-	"special_bonus_unique_alchemist_2"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_unstable_concoction"
-	}
-	"special_bonus_unique_alchemist_3"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_acid_spray"
-	}
-	"special_bonus_unique_alchemist_4"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_chemical_rage"
-	}
-	"special_bonus_unique_alchemist_5"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_acid_spray"
-	}
-	"special_bonus_unique_alchemist_6"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_chemical_rage"
-	}
-	"special_bonus_unique_alchemist_7"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_goblins_greed"
-	}
-	"special_bonus_unique_alchemist_8"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_chemical_rage"
-	}
-
-
-
-	"special_bonus_unique_abaddon"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_aphotic_shield"
-	}
-	"special_bonus_unique_abaddon_2"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_death_coil"
-	}
-	"special_bonus_unique_abaddon_3"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_frostmourne"
-	}
-	"special_bonus_unique_abaddon_4"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_death_coil"
-	}
-	"special_bonus_unique_abaddon_5"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_frostmourne"
-	}
-	"special_bonus_unique_abaddon_6"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_frostmourne"
-	}
-	"special_bonus_unique_abaddon_7"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_aphotic_shield"
-	}
-	"special_bonus_unique_abaddon_immolation"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_borrowed_time"
-	}
-
-
-
 
 	"special_bonus_unique_grimstroke_1"
 	{
