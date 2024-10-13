@@ -1,0 +1,156 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Ability: Bane Enfeeble
+	//=================================================================================================================
+	"bane_enfeeble"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilitySound"					"Hero_Bane.Enfeeble"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"800 900 1000 1100"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"28 21 14 7"
+
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120"
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage_reduction"						"55 60 65 70"
+			"heal_reduction"
+			{
+				"value" 							"0"
+			}
+			"cast_reduction"
+			{
+				"value"								"30"
+				"special_bonus_unique_bane_11"		"+20"
+			}
+			"duration"	"9"
+			"enfeeble_tick_damage"
+			{
+				"value"			"12 18 24 30"
+				"special_bonus_unique_bane_10"				"+13"
+				"CalculateSpellDamageTooltip" "1"
+			}
+			"enfeeble_heal_pct"
+			{
+				"value"					"0"
+			}
+			"damage_tick_rate"				"1.0"
+		}
+	}
+	
+	//=================================================================================================================
+	// Ability: Bane Brain Sap
+	//=================================================================================================================
+	"bane_brain_sap"
+	{
+		"ReduxPerks"                                "drain"
+	}
+	
+	//=================================================================================================================
+	// Ability: Bane Fiend's Grip
+	//=================================================================================================================
+	"bane_fiends_grip"
+	{
+		"ReduxFlags"                                "upgradeable | stun"
+		"ReduxPerks"                                "drain | channeled"
+		"ReduxCost"                                 "10"
+	}
+	
+	//=================================================================================================================
+	// Bane: Nightmare
+	//=================================================================================================================
+	"bane_nightmare"
+	{
+		"ReduxPerks"                                "sleep"
+	}
+
+	//=================================================================================================================
+	// Bane: Nightmare Wake Up
+	//=================================================================================================================
+	"bane_nightmare_end"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+		"MaxLevel"						"1"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
+	}
+
+	//=================================================================================================================
+	// Bane: Innate Equal Stats
+	//=================================================================================================================
+	"bane_ichor_of_nyctasha"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+
+		"MaxLevel"						"1"
+		"Innate"						"1"
+	}
+
+	"special_bonus_unique_bane_1"
+	{
+		"TalentRequiredAbility"         "bane_enfeeble"
+	}
+	"special_bonus_unique_bane_2"
+	{
+		"TalentRequiredAbility"         "bane_brain_sap"
+	}
+	"special_bonus_unique_bane_3"
+	{
+		"TalentRequiredAbility"         "bane_fiends_grip"
+	}
+	"special_bonus_unique_bane_4"
+	{
+		"TalentRequiredAbility"         "bane_enfeeble"
+	}
+	"special_bonus_unique_bane_5"
+	{
+		"TalentRequiredAbility"         "bane_nightmare"
+	}
+	"special_bonus_unique_bane_6"
+	{
+		"TalentRequiredAbility"         "bane_enfeeble"
+	}
+	"special_bonus_unique_bane_7"
+	{
+		"TalentRequiredAbility"         "bane_brain_sap"
+	}
+	"special_bonus_unique_bane_8"
+	{
+		"TalentRequiredAbility"         "bane_brain_sap"
+	}
+	"special_bonus_unique_bane_9"
+	{
+		"TalentRequiredAbility"         "bane_fiends_grip"
+	}
+	"special_bonus_unique_bane_10"
+	{
+		"TalentRequiredAbility"         "bane_enfeeble"
+	}
+	"special_bonus_unique_bane_11"
+	{
+		"TalentRequiredAbility"         "bane_enfeeble"
+	}
+}

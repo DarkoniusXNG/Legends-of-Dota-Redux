@@ -1,0 +1,177 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Ability: Antimage Mana Break
+	//=================================================================================================================
+	"antimage_mana_break"
+	{
+		"ReduxFlags"                    "attack_modifier | physical"
+		"ReduxPerks"                    "attack_modifier | physical"
+		"ReduxCost"                     "10"
+	}
+
+	//=================================================================================================================
+	// Innate Ability: Puritan
+	//=================================================================================================================
+	"antimage_persectur"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"						"4"
+		"Innate"						"1"
+		"DependentOnAbility"			"antimage_mana_void"
+		"IsBreakable"					"1"
+
+		"AbilityValues"
+		{
+			"move_slow_min"
+			{
+				"value"								"12.5 15.0 17.5 20"
+				"special_bonus_unique_antimage_5"	"+5"
+			}
+			"move_slow_max"
+			{
+				"value"								"25 30 35 40"
+				"special_bonus_unique_antimage_5"	"+15"
+			}
+			"mana_threshold"						"50"
+			"slow_duration"		"0.75"
+			"zero_tooltip"		"0"
+		}
+	}
+	
+	//=================================================================================================================
+	// Ability: Antimage Blink
+	//=================================================================================================================
+	"antimage_blink"
+	{
+		"ReduxFlags"                    "mobility"
+		"ReduxPerks"                    "mobility | blink"
+		"ReduxCost"                     "120"
+	}
+	
+	//=================================================================================================================
+	// DEPRECATED Ability: Antimage Spell Shield 
+	//=================================================================================================================
+	"antimage_spell_shield"
+	{
+		"ReduxFlags"                    "tank"
+	}
+
+	//=================================================================================================================
+	// Ability: Antimage Counterspell
+	//=================================================================================================================
+	"antimage_counterspell"
+	{
+		"ReduxFlags"                     "semi_passive | tank"
+	}
+
+	//=================================================================================================================
+	// Ability: Antimage Counterspell
+	//=================================================================================================================
+	"antimage_counterspell_ally"
+	{
+		"ReduxFlags"                    "support | illusion"
+		"ReduxPerks"                    "support | illusion"
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"600 700 800 900"
+		"AbilityCastPoint"				"0 0 0 0"
+		"AbilityManaCost"				"50"		
+		"AbilityValues"
+		{
+			"AbilityCooldown"
+			{
+				"value"						"3"
+			}
+
+			"duration"					"1.2"
+			"duration_illusion"			"4 5 6 7"
+			"outgoing_damage"			"-25"
+			"incoming_damage"			"100"
+			"castable_while_disabled"
+			{
+				"value"						"0"
+			}
+			"does_reflect"
+			{
+				"value"						"1"
+				"special_bonus_facet_antimage_magebanes_mirror"	"=1"
+			}
+			"reflected_spell_amp"
+			{
+				"value"											"40"
+				"special_bonus_facet_antimage_magebanes_mirror"	"+40"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		
+	}
+
+	//=================================================================================================================
+	// Ability: Antimage Mana Void
+	//=================================================================================================================
+	"antimage_mana_void"
+	{
+		
+	}
+	
+	//=================================================================================================================
+	// Anti-Mage: Blink Fragment (scepter ability)
+	//=================================================================================================================
+	"antimage_mana_overload"
+	{
+		"ReduxFlags"					"illusion | upgradeable | illusion"
+		"ReduxPerks"                    "blink | illusion"
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"0"
+		"AbilityCharges"				"2"
+		"AbilityChargeRestoreTime"		"20 18 16 14"
+		"AbilityManaCost"				"50"
+		"AbilityValues"
+		{
+			"duration"				"7 8 9 10"
+			"outgoing_damage"			"-25"
+			"incoming_damage"			"100"
+		}
+	}
+
+	"special_bonus_unique_antimage"
+	{
+		"TalentRequiredAbility"			"antimage_blink"
+	}
+	"special_bonus_unique_antimage_2"
+	{
+		"TalentRequiredAbility"			"antimage_mana_void"
+	}
+	"special_bonus_unique_antimage_3"
+	{
+		"TalentRequiredAbility"			"antimage_blink"
+	}
+	"special_bonus_unique_antimage_4"
+	{
+		"TalentRequiredAbility"			"antimage_counterspell"
+	}
+	"special_bonus_unique_antimage_5"
+	{
+		"TalentRequiredAbility"			"antimage_persectur"
+	}
+	"special_bonus_unique_antimage_6"
+	{
+		"TalentRequiredAbility"			"antimage_mana_void"
+	}
+	"special_bonus_unique_antimage_7"
+	{
+		"TalentRequiredAbility"			"antimage_mana_break"
+	}
+	"special_bonus_unique_antimage_8"
+	{
+		"TalentRequiredAbility"			"antimage_mana_void"
+	}
+	"special_bonus_unique_antimage_manavoid_aoe"
+	{
+		"TalentRequiredAbility"			"antimage_mana_void"
+	}
+}
