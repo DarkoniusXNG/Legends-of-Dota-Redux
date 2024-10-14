@@ -6,8 +6,10 @@
 #base "heroes\axe.txt"
 #base "heroes\bane.txt"
 #base "heroes\batrider.txt"
+#base "heroes\elder_titan.txt"
 #base "heroes\invoker.txt"
 #base "heroes\kunkka.txt"
+#base "heroes\life_stealer.txt"
 #base "heroes\naga_siren.txt"
 #base "heroes\necrophos.txt"
 #base "heroes\night_stalker.txt"
@@ -996,12 +998,6 @@
 			"duration_hero"			"2.0"
 			"duration"				"6.0"
 		}
-	}
-
-	"life_stealer_ghoul_frenzy"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | rage"
 	}
 
 	"big_thunder_lizard_wardrums_aura"
@@ -2060,11 +2056,6 @@
 		"ReduxPerks"                                                           "earth"
 		"ReduxCost"                                                            "40"
 	}
-	"elder_titan_earth_splitter"
-	{
-		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"                                                           "earth | skillshot | enemyMoving | physical"
-	}
 	"enchantress_impetus"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
@@ -2455,13 +2446,7 @@
 		// "ReduxPerks"                                                           "support | ice | drain"
 		// "ReduxCost"                                                            "10"
 	// }
-	"life_stealer_infest"
-	{
-		"ReduxFlags"                                                           "support | mobility | upgradeable"
-		"ReduxPerks"                                                           "support | mobility"
-		"ReduxCost"                                                            "20"
-		"ReduxBans"                                                            "nyx_assassin_burrow | nyx_assassin_burrow_redux"
-	}
+	
 	"witch_doctor_voodoo_restoration"
 	{
 		"ReduxFlags"                                                           "support"
@@ -2614,32 +2599,6 @@
 	{
 		"ReduxFlags"                                                           "support | disarm_break"
 		"ReduxPerks"                                                           "support"
-	}
-
-	"life_stealer_assimilate"
-	{
-		"ReduxFlags"                    "support | doNotRandom"
-		"ReduxPerks"                    "support"
-		"ReduxCost"                     "10"
-		"ReduxBans"                     "spell_lab_symbiotic"
-		"MaxLevel"						"4"
-		"AbilityCastRange"				"150 250 350 450"
-		"AbilityCooldown"				"50 40 30 20"
-		"AbilityValues"
-		{
-			"damage"
-			{
-				"value" "300 350 400 450"
-			}
-			"radius"
-			{
-				"value" "700 800 900 1000"
-			}
-			"order_lock_duration"
-			{
-				"value" "2"
-			}
-		}
 	}
 
 	"pugna_decrepify"
@@ -3336,13 +3295,6 @@
 		"TalentRequiredAbility"                                                   "do_not_give_talent"
 	}
 
-	"life_stealer_feast"
-	{
-		"ReduxFlags"                                                           "attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | physical"
-		"ReduxCost"                                                            "80"
-		"ReduxBans"                                                            "holdout_multishot | life_stealer_feast_melee"
-	}
 	"ursa_fury_swipes"
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"
@@ -3820,16 +3772,6 @@
 	{
 		"ReduxFlags"                                                           "physical | support | upgradeable"
 		"ReduxPerks"                                                           "physical | support"
-	}
-	"elder_titan_echo_stomp"
-	{
-		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"                                                           "physical | sleep | channeled"
-	}
-	"elder_titan_echo_stomp_spirit"
-	{
-		"ReduxPerks"                                                           "sleep | channeled"
-		"ReduxFlags"                                                           "doNotRandom"
 	}
 	"phantom_assassin_stifling_dagger"
 	{
@@ -4328,10 +4270,6 @@
 	{
 		"ReduxPerks"                                                           "aura | support"
 	}
-	"elder_titan_natural_order"
-	{
-		"ReduxPerks"                                                           "aura | earth"
-	}
 
 	"necronomicon_warrior_sight"
 	{
@@ -4620,12 +4558,7 @@
 	{
 		"ReduxPerks"                                                           "limited"
 	}
-
-	"life_stealer_rage"
-	{
-		"ReduxPerks"                                                           "rage"
-		"ReduxCost"                                                            "20"
-	}
+	
 	"ursa_overpower"
 	{
 		"ReduxPerks"                                                           "rage"
@@ -4767,11 +4700,6 @@
 		}
 	}
 
-	"life_stealer_consume"
-	{
-		"ReduxCost"                                                            "10"
-		"ReduxFlags"                                                           "doNotRandom"
-	}
 	"lycan_feral_impulse"
 	{
 		"ReduxCost"                                                            "10"
@@ -4794,10 +4722,6 @@
 	{
 		"ReduxFlags"                                                           "physical"
 		"ReduxPerks"                                                           "physical"
-	}
-	"elder_titan_return_spirit"
-	{
-		"ReduxFlags"                                                           "doNotRandom"
 	}
 	"puck_ethereal_jaunt"
 	{
@@ -5217,12 +5141,6 @@
 	{
 		"ReduxPerks"                                                           "support | teleport | light | mobility | channeled"
 		"ReduxFlags"                                                           "support | mobility | upgradeable | stun"
-	}
-
-	"life_stealer_open_wounds"
-	{
-		"ReduxPerks"                                                           "support"
-		"ReduxFlags"                                                           "support"
 	}
 
 	"shadow_demon_soul_catcher"
@@ -6696,30 +6614,6 @@
 		"TalentRequiredAbility"                                                   "earthshaker_aftershock"
 	}
 
-
-	// Elder Titan
-	"special_bonus_unique_elder_titan"
-	{
-		"TalentRequiredAbility"                                                   "elder_titan_ancestral_spirit"
-	}
-	"special_bonus_unique_elder_titan_2"
-	{
-		"TalentRequiredAbility"                                                   "elder_titan_echo_stomp_spirit"
-	}
-	"special_bonus_unique_elder_titan_3"
-	{
-		"TalentRequiredAbility"                                                   "elder_titan_earth_splitter"
-	}
-	"special_bonus_unique_elder_titan_4"
-	{
-		"TalentRequiredAbility"                                                   "elder_titan_echo_stomp_spirit"
-	}
-	"special_bonus_unique_elder_titan_5"
-	{
-		"TalentRequiredAbility"                                                   "elder_titan_natural_order"
-	}
-
-
 	// Ember Spirit
 	"special_bonus_unique_ember_spirit_1"
 	{
@@ -7218,46 +7112,6 @@
 	{
 		"TalentRequiredAbility"                                                   "lich_frost_shield"
 	}
-
-
-	"special_bonus_unique_lifestealer"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_rage"
-	}
-	"special_bonus_unique_lifestealer_2"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_rage"
-	}
-	"special_bonus_unique_lifestealer_3"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_feast"
-	}
-	"special_bonus_unique_lifestealer_4"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_rage"
-	}
-	"special_bonus_unique_lifestealer_5"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_open_wounds"
-	}
-	"special_bonus_unique_lifestealer_6"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_ghoul_frenzy"
-	}
-	"special_bonus_unique_lifestealer_7"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_ghoul_frenzy"
-	}
-	"special_bonus_unique_lifestealer_infest_damage"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_infest"
-	}
-	"special_bonus_unique_lifestealer_infest_target_bonus"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_infest"
-	}
-
-
 
 	"special_bonus_unique_lina_1"
 	{
