@@ -10,6 +10,7 @@
 #base "heroes\invoker.txt"
 #base "heroes\kunkka.txt"
 #base "heroes\life_stealer.txt"
+#base "heroes\luna.txt"
 #base "heroes\naga_siren.txt"
 #base "heroes\necrophos.txt"
 #base "heroes\night_stalker.txt"
@@ -384,18 +385,6 @@
 			{
 				"value" "6 6.5 7 7.5"
 			}
-		}
-	}
-
-	"luna_lunar_grace"
-	{
-		"AbilityCooldown"				"30 25 20 15"
-		"AbilityManaCost"				"40"
-		"AbilityValues"
-		{
-			"attack_speed"					"30 45 60 75"
-			"night_multiplier"				"2.0"
-			"duration"						"5 5.5 6 6.5"
 		}
 	}
 
@@ -2152,11 +2141,6 @@
 		"ReduxPerks"                                                           "self_damage"
 		"ReduxBans"                                                            "meepo_divided_we_stand"
 	}
-	"luna_eclipse"
-	{
-		"ReduxFlags"                                                           "upgradeable | doNotRandom"
-		"ReduxCost"                                                            "10"
-	}
 	"magnataur_empower"
 	{
 		"ReduxFlags"                                                           "support | aoe_attack | attack_modifier | physical"
@@ -2668,12 +2652,6 @@
 		"ReduxCost"                                                            "50"
 		"ReduxFlags"                                                           "mana"
 		"ReduxBanCategory"                                                     "ToggleSpells"
-	}
-	"luna_lunar_blessing"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | aura"
-		"ReduxCost"                                                            "10"
 	}
 	"troll_warlord_battle_trance"
 	{
@@ -3218,12 +3196,6 @@
 	{
 		"ReduxFlags"                                                           "aoe_attack | attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier"
-		"ReduxCost"                                                            "10"
-	}
-	"luna_moon_glaive"
-	{
-		"ReduxFlags"                                                           "aoe_attack | attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | physical"
 		"ReduxCost"                                                            "10"
 	}
 	"gyrocopter_flak_cannon"
@@ -5090,19 +5062,11 @@
 			"bounty"		"100"
 		}
 	}
-
-	"luna_lucent_beam"
-	{
-		"ReduxPerks"                                                           "light"
-		"ReduxFlags"                                                           "stun"
-	}
-
 	"tiny_tree_grab"
 	{
 		"ReduxPerks"                                                           "physical | nature"
 		"ReduxFlags"                                                           "physical"
 	}
-
 	"tusk_tag_team"
 	{
 		"ReduxPerks"                                                           "physical"
@@ -7255,43 +7219,6 @@
 	{
 		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
 	}
-
-
-
-	"special_bonus_unique_luna_1"
-	{
-		"TalentRequiredAbility"                                                   "luna_lucent_beam"
-	}
-	"special_bonus_unique_luna_2"
-	{
-		"TalentRequiredAbility"                                                   "luna_lucent_beam"
-	}
-	"special_bonus_unique_luna_3"
-	{
-		"TalentRequiredAbility"                                                   "luna_lunar_blessing"
-	}
-	"special_bonus_unique_luna_4"
-	{
-		"TalentRequiredAbility"                                                   "luna_lucent_beam"
-	}
-	"special_bonus_unique_luna_5"
-	{
-		"TalentRequiredAbility"                                                   "luna_eclipse"
-	}
-	"special_bonus_unique_luna_6"
-	{
-		"TalentRequiredAbility"                                                   "luna_eclipse"
-	}
-	"special_bonus_unique_luna_7"
-	{
-		"TalentRequiredAbility"                                                   "luna_moon_glaive"
-	}
-	"special_bonus_unique_luna_8"
-	{
-		"TalentRequiredAbility"                                                   "luna_lucent_beam"
-	}
-
-
 
 	"special_bonus_unique_lycan_1"
 	{
