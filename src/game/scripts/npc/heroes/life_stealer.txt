@@ -27,7 +27,7 @@
 		"ReduxPerks"					"attack_modifier | physical"
 		"ReduxCost"						"80"
 		"ReduxBans"						"holdout_multishot | life_stealer_feast_melee"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 	}
 	
 	//=================================================================================================================
