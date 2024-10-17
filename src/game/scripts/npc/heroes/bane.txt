@@ -1,0 +1,99 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Ability: Bane Enfeeble
+	//=================================================================================================================
+	"bane_enfeeble"
+	{
+		"ReduxPerks"                                "drain"
+	}
+
+	//=================================================================================================================
+	// Ability: Bane Brain Sap
+	//=================================================================================================================
+	"bane_brain_sap"
+	{
+		"ReduxPerks"                                "drain"
+	}
+
+	//=================================================================================================================
+	// Ability: Bane Fiend's Grip
+	//=================================================================================================================
+	"bane_fiends_grip"
+	{
+		"ReduxFlags"                                "upgradeable | stun"
+		"ReduxPerks"                                "drain | channeled"
+		"ReduxCost"                                 "10"
+	}
+
+	//=================================================================================================================
+	// Bane: Nightmare
+	//=================================================================================================================
+	"bane_nightmare"
+	{
+		"ReduxPerks"                                "sleep"
+	}
+
+	//=================================================================================================================
+	// Bane: Innate Equal Stats
+	//=================================================================================================================
+	"bane_ichor_of_nyctasha"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+	}
+
+	"special_bonus_unique_bane_1"
+	{
+		"TalentRequiredAbility"         "bane_enfeeble"
+	}
+
+	"special_bonus_unique_bane_2"
+	{
+		"TalentRequiredAbility"         "bane_brain_sap"
+	}
+
+	"special_bonus_unique_bane_3"
+	{
+		"TalentRequiredAbility"         "bane_fiends_grip"
+	}
+
+	"special_bonus_unique_bane_4"
+	{
+		"TalentRequiredAbility"         "bane_enfeeble"
+	}
+
+	"special_bonus_unique_bane_5"
+	{
+		"TalentRequiredAbility"         "bane_nightmare"
+	}
+
+	"special_bonus_unique_bane_6"
+	{
+		"TalentRequiredAbility"         "bane_enfeeble"
+	}
+
+	"special_bonus_unique_bane_7"
+	{
+		"TalentRequiredAbility"         "bane_brain_sap"
+	}
+
+	"special_bonus_unique_bane_8"
+	{
+		"TalentRequiredAbility"         "bane_brain_sap"
+	}
+
+	"special_bonus_unique_bane_9"
+	{
+		"TalentRequiredAbility"         "bane_fiends_grip"
+	}
+
+	"special_bonus_unique_bane_10"
+	{
+		"TalentRequiredAbility"         "bane_enfeeble"
+	}
+
+	"special_bonus_unique_bane_11"
+	{
+		"TalentRequiredAbility"         "bane_enfeeble"
+	}
+}

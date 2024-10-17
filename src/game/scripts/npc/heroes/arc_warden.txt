@@ -5,6 +5,9 @@
 	//=================================================================================================================
 	"arc_warden_scepter"
 	{
+		"ReduxFlags"                    "support"
+		"ReduxPerks"                    "support"
+
 		"MaxLevel"						"4"
 
 		"AbilityCooldown"				"60 50 40 30"

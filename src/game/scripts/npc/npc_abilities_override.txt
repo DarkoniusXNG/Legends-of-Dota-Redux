@@ -1,5 +1,16 @@
+#base "heroes\abaddon.txt"
+#base "heroes\alchemist.txt"
+#base "heroes\ancient_apparition.txt"
+#base "heroes\antimage.txt"
 #base "heroes\arc_warden.txt"
+#base "heroes\axe.txt"
+#base "heroes\bane.txt"
+#base "heroes\batrider.txt"
+#base "heroes\elder_titan.txt"
+#base "heroes\invoker.txt"
 #base "heroes\kunkka.txt"
+#base "heroes\life_stealer.txt"
+#base "heroes\luna.txt"
 #base "heroes\naga_siren.txt"
 #base "heroes\necrophos.txt"
 #base "heroes\night_stalker.txt"
@@ -231,12 +242,6 @@
 		}
 	}
 
-	"alchemist_goblins_greed"
-	{
-		"ReduxPerks"                                                           "scientific"
-		"ReduxCost"                                                            "30"
-	}
-
 	"drow_ranger_glacier"
 	{
 		"ReduxPerks"	"ice"
@@ -380,18 +385,6 @@
 			{
 				"value" "6 6.5 7 7.5"
 			}
-		}
-	}
-
-	"luna_lunar_grace"
-	{
-		"AbilityCooldown"				"30 25 20 15"
-		"AbilityManaCost"				"40"
-		"AbilityValues"
-		{
-			"attack_speed"					"30 45 60 75"
-			"night_multiplier"				"2.0"
-			"duration"						"5 5.5 6 6.5"
 		}
 	}
 
@@ -994,12 +987,6 @@
 			"duration_hero"			"2.0"
 			"duration"				"6.0"
 		}
-	}
-
-	"life_stealer_ghoul_frenzy"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | rage"
 	}
 
 	"big_thunder_lizard_wardrums_aura"
@@ -1938,35 +1925,7 @@
 		"ReduxFlags"                                                           "upgradeable"
 		"ReduxPerks"                                                           "scientific"
 	}
-	"abaddon_borrowed_time"
-	{
-		"ReduxFlags"                                                           "upgradeable | wtfAutoBan | semi_passive"
-		"ReduxCost"                                                            "80"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand | phoenix_supernova"
-	}
-	"ancient_apparition_ice_blast"
-	{
-		"ReduxFlags"                                                           "wtfAutoBan"
-		"ReduxPerks"                                                           "ice | skillshot"
-		"ReduxCost"                                                            "20"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
-	}
-	"axe_culling_blade"
-	{
-		"ReduxPerks"                                                           "rage"
-	}
-	"bane_fiends_grip"
-	{
-		"ReduxFlags"                                                           "upgradeable | stun"
-		"ReduxPerks"                                                           "drain | channeled"
-		"ReduxCost"                                                            "10"
-	}
-	"batrider_flaming_lasso"
-	{
-		"ReduxFlags"                                                           "upgradeable | stun"
-		"ReduxPerks"                                                           "fire | enemyMoving"
-		"ReduxCost"                                                            "10"
-	}
+
 	"beastmaster_primal_roar"
 	{
 		"ReduxFlags"                                                           "stun"
@@ -2086,11 +2045,6 @@
 		"ReduxPerks"                                                           "earth"
 		"ReduxCost"                                                            "40"
 	}
-	"elder_titan_earth_splitter"
-	{
-		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"                                                           "earth | skillshot | enemyMoving | physical"
-	}
 	"enchantress_impetus"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
@@ -2186,11 +2140,6 @@
 		"ReduxFlags"                                                           "upgradeable | summon"
 		"ReduxPerks"                                                           "self_damage"
 		"ReduxBans"                                                            "meepo_divided_we_stand"
-	}
-	"luna_eclipse"
-	{
-		"ReduxFlags"                                                           "upgradeable | doNotRandom"
-		"ReduxCost"                                                            "10"
 	}
 	"magnataur_empower"
 	{
@@ -2438,17 +2387,6 @@
 		"ReduxPerks"                                                           "light"
 	}
 
-	"abaddon_aphotic_shield"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
-		"ReduxCost"                                                            "10"
-	}
-	"abaddon_death_coil"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | self_damage"
-	}
 	"disruptor_glimpse"
 	{
 		"ReduxFlags"                                                           "support"
@@ -2492,13 +2430,7 @@
 		// "ReduxPerks"                                                           "support | ice | drain"
 		// "ReduxCost"                                                            "10"
 	// }
-	"life_stealer_infest"
-	{
-		"ReduxFlags"                                                           "support | mobility | upgradeable"
-		"ReduxPerks"                                                           "support | mobility"
-		"ReduxCost"                                                            "20"
-		"ReduxBans"                                                            "nyx_assassin_burrow | nyx_assassin_burrow_redux"
-	}
+
 	"witch_doctor_voodoo_restoration"
 	{
 		"ReduxFlags"                                                           "support"
@@ -2653,32 +2585,6 @@
 		"ReduxPerks"                                                           "support"
 	}
 
-	"life_stealer_assimilate"
-	{
-		"ReduxFlags"                    "support | doNotRandom"
-		"ReduxPerks"                    "support"
-		"ReduxCost"                     "10"
-		"ReduxBans"                     "spell_lab_symbiotic"
-		"MaxLevel"						"4"
-		"AbilityCastRange"				"150 250 350 450"
-		"AbilityCooldown"				"50 40 30 20"
-		"AbilityValues"
-		{
-			"damage"
-			{
-				"value" "300 350 400 450"
-			}
-			"radius"
-			{
-				"value" "700 800 900 1000"
-			}
-			"order_lock_duration"
-			{
-				"value" "2"
-			}
-		}
-	}
-
 	"pugna_decrepify"
 	{
 		"ReduxFlags"                                                           "support"
@@ -2716,11 +2622,6 @@
 		"ReduxPerks"                                                           "support | mobility"
 		"ReduxCost"                                                            "10"
 	}
-	"ancient_apparition_ice_vortex"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | ice"
-	}
 	"bounty_hunter_track"
 	{
 		"ReduxFlags"                                                           "support"
@@ -2751,12 +2652,6 @@
 		"ReduxCost"                                                            "50"
 		"ReduxFlags"                                                           "mana"
 		"ReduxBanCategory"                                                     "ToggleSpells"
-	}
-	"luna_lunar_blessing"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | aura"
-		"ReduxCost"                                                            "10"
 	}
 	"troll_warlord_battle_trance"
 	{
@@ -2991,17 +2886,6 @@
 		"ReduxCost"                                                            "120"
 		"ReduxBans"                                                            "nyx_assassin_burrow | nyx_assassin_burrow_redux"
 	}
-	"antimage_blink"
-	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility | blink"
-		"ReduxCost"                                                            "120"
-		"ReduxBans"                                                            "nyx_assassin_burrow | nyx_assassin_burrow_redux"
-	}
-	"antimage_counterspell"
-	{
-		"ReduxFlags"                                                           "semi_passive"
-	}
 	"storm_spirit_ball_lightning"
 	{
 		"ReduxFlags"                                                           "mobility"
@@ -3089,11 +2973,7 @@
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility | water"
 	}
-	"batrider_firefly"
-	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility | fire"
-	}
+
 	"medusa_stone_gaze"
 	{
 		"ReduxFlags"                                                           "mobility | stun"
@@ -3141,19 +3021,7 @@
 		"ReduxFlags"                                                           "mobility | upgradeable"
 		"ReduxPerks"                                                           "mobility | water | skillshot"
 	}
-	"axe_berserkers_call"
-	{
-		"ReduxFlags"                                                           "tank | upgradeable"
-		"ReduxPerks"                                                           "rage"
-		"ReduxCost"                                                            "20"
-	}
-	"alchemist_chemical_rage"
-	{
-		"ReduxFlags"                                                           "tank"
-		"ReduxPerks"                                                           "scientific | rage"
-		"ReduxCost"                                                            "80"
-		"ReduxBans"                                                            "meepo_divided_we_stand"
-	}
+
 	"centaur_return"
 	{
 		"ReduxFlags"                                                           "tank | physical"
@@ -3193,11 +3061,7 @@
 		"ReduxCost"                                                            "20"
 		"ReduxBans"                                                            "nyx_assassin_burrow | nyx_assassin_burrow_redux"
 	}
-	"axe_counter_helix"
-	{
-		"ReduxFlags"                                                           "tank"
-		"ReduxCost"                                                            "10"
-	}
+
 	"pudge_flesh_heap"
 	{
 		"ReduxFlags"                                                           "tank"
@@ -3334,12 +3198,6 @@
 		"ReduxPerks"                                                           "attack_modifier"
 		"ReduxCost"                                                            "10"
 	}
-	"luna_moon_glaive"
-	{
-		"ReduxFlags"                                                           "aoe_attack | attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | physical"
-		"ReduxCost"                                                            "10"
-	}
 	"gyrocopter_flak_cannon"
 	{
 		"ReduxFlags"                                                           "aoe_attack | attack_modifier | upgradeable"
@@ -3409,13 +3267,6 @@
 		"TalentRequiredAbility"                                                   "do_not_give_talent"
 	}
 
-	"life_stealer_feast"
-	{
-		"ReduxFlags"                                                           "attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | physical"
-		"ReduxCost"                                                            "80"
-		"ReduxBans"                                                            "holdout_multishot | life_stealer_feast_melee"
-	}
 	"ursa_fury_swipes"
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"
@@ -3445,28 +3296,12 @@
 	{
 		"ReduxPerks"                                                           "skillshot | ranger | channeled"
 	}
-	"antimage_mana_break"
-	{
-		"ReduxFlags"                                                           "attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | physical"
-		"ReduxCost"                                                            "10"
-	}
 	"clinkz_searing_arrows"
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"
 		"ReduxPerks"                                                           "attack_modifier | fire | autocast_basic | physical | ranger"
 	}
-	"abaddon_frostmourne"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | ice"
-		"ReduxCost"                                                            "10"
-	}
-	"ancient_apparition_chilling_touch"
-	{
-		"ReduxFlags"                                                           "attack_modifier | upgradeable"
-		"ReduxPerks"                                                           "attack_modifier | ice"
-	}
+
 	"slark_essence_shift"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
@@ -3656,21 +3491,10 @@
 		"ReduxFlags"                                                           "stun | physical"
 		"ReduxPerks"                                                           "poison | physical"
 	}
-
-	"ancient_apparition_cold_feet"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "ice"
-	}
 	"gyrocopter_homing_missile"
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "scientific | explosive"
-	}
-	"alchemist_unstable_concoction"
-	{
-		"ReduxFlags"                                                           "stun | physical"
-		"ReduxPerks"                                                           "scientific | physical | explosive"
 	}
 	"chaos_knight_chaos_bolt"
 	{
@@ -3837,11 +3661,6 @@
 		"ReduxPerks"                                                           "summon_non_ult | demon"
 		"ReduxBans"                                                            "tinker_rearm"
 	}
-	"invoker_forge_spirit"
-	{
-		"ReduxFlags"                                                           "physical | summon | doNotRandom"
-		"ReduxPerks"                                                           "physical | summon_non_ult | fire"
-	}
 	"pangolier_swashbuckle"
 	{
 		"ReduxFlags"                                                           "mobility | physical"
@@ -3926,16 +3745,6 @@
 		"ReduxFlags"                                                           "physical | support | upgradeable"
 		"ReduxPerks"                                                           "physical | support"
 	}
-	"elder_titan_echo_stomp"
-	{
-		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"                                                           "physical | sleep | channeled"
-	}
-	"elder_titan_echo_stomp_spirit"
-	{
-		"ReduxPerks"                                                           "sleep | channeled"
-		"ReduxFlags"                                                           "doNotRandom"
-	}
 	"phantom_assassin_stifling_dagger"
 	{
 		"ReduxFlags"                                                           "physical"
@@ -4017,11 +3826,6 @@
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
 
-	"batrider_sticky_napalm"
-	{
-		"ReduxPerks"                                                           "fire"
-		"ReduxCost"                                                            "80"
-	}
 	"lina_dragon_slave"
 	{
 		"ReduxPerks"                                                           "fire | skillshot"
@@ -4066,10 +3870,7 @@
 		"ReduxPerks"                                                           "demon | fire"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
-	"batrider_flamebreak"
-	{
-		"ReduxPerks"                                                           "fire | skillshot | enemyMoving | explosive"
-	}
+
 	"crystal_maiden_crystal_nova"
 	{
 		"ReduxPerks"                                                           "ice"
@@ -4112,11 +3913,6 @@
 	{
 		"ReduxFlags"                                                           "tank | upgradeable"
 		"ReduxBans"                                                            "tinker_rearm"
-	}
-	"alchemist_acid_spray"
-	{
-		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"                                                           "poison | scientific | physical"
 	}
 	"pudge_rot"
 	{
@@ -4367,10 +4163,7 @@
 	{
 		"ReduxPerks"                                                           "drain"
 	}
-	"bane_brain_sap"
-	{
-		"ReduxPerks"                                                           "drain"
-	}
+
 	"treant_leech_seed"
 	{
 		"ReduxPerks"                                                           "drain | nature | support"
@@ -4448,10 +4241,6 @@
 	"beastmaster_inner_beast"
 	{
 		"ReduxPerks"                                                           "aura | support"
-	}
-	"elder_titan_natural_order"
-	{
-		"ReduxPerks"                                                           "aura | earth"
 	}
 
 	"necronomicon_warrior_sight"
@@ -4742,15 +4531,6 @@
 		"ReduxPerks"                                                           "limited"
 	}
 
-	"axe_battle_hunger"
-	{
-		"ReduxPerks"                                                           "rage | physical"
-	}
-	"life_stealer_rage"
-	{
-		"ReduxPerks"                                                           "rage"
-		"ReduxCost"                                                            "20"
-	}
 	"ursa_overpower"
 	{
 		"ReduxPerks"                                                           "rage"
@@ -4822,10 +4602,7 @@
 			"extra_damage"						"300 350 400 450"
 		}
 	}
-	"bane_nightmare"
-	{
-		"ReduxPerks"                                                           "sleep"
-	}
+
 	"death_prophet_witchcraft"
 	{
 		"ReduxFlags"                                                           "cooldown"
@@ -4895,11 +4672,6 @@
 		}
 	}
 
-	"life_stealer_consume"
-	{
-		"ReduxCost"                                                            "10"
-		"ReduxFlags"                                                           "doNotRandom"
-	}
 	"lycan_feral_impulse"
 	{
 		"ReduxCost"                                                            "10"
@@ -4922,10 +4694,6 @@
 	{
 		"ReduxFlags"                                                           "physical"
 		"ReduxPerks"                                                           "physical"
-	}
-	"elder_titan_return_spirit"
-	{
-		"ReduxFlags"                                                           "doNotRandom"
 	}
 	"puck_ethereal_jaunt"
 	{
@@ -5205,20 +4973,6 @@
 		"ReduxFlags"                                                           "support"
 	}
 
-	"antimage_mana_overload"
-	{
-		"ReduxFlags"					"illusion | upgradeable"
-		"ReduxPerks"                    "blink | illusion"
-		"MaxLevel"						"4"
-		"AbilityChargeRestoreTime"		"20 18 16 14"
-		"AbilityValues"
-		{
-			"duration"				"7 8 9 10"
-			"outgoing_damage"			"-25"
-			"incoming_damage"			"100"
-		}
-	}
-
 	"huskar_inner_fire"
 	{
 		"ReduxPerks"                                                           "enemyMoving | fire | rage"
@@ -5308,19 +5062,11 @@
 			"bounty"		"100"
 		}
 	}
-
-	"luna_lucent_beam"
-	{
-		"ReduxPerks"                                                           "light"
-		"ReduxFlags"                                                           "stun"
-	}
-
 	"tiny_tree_grab"
 	{
 		"ReduxPerks"                                                           "physical | nature"
 		"ReduxFlags"                                                           "physical"
 	}
-
 	"tusk_tag_team"
 	{
 		"ReduxPerks"                                                           "physical"
@@ -5359,12 +5105,6 @@
 	{
 		"ReduxPerks"                                                           "support | teleport | light | mobility | channeled"
 		"ReduxFlags"                                                           "support | mobility | upgradeable | stun"
-	}
-
-	"life_stealer_open_wounds"
-	{
-		"ReduxPerks"                                                           "support"
-		"ReduxFlags"                                                           "support"
 	}
 
 	"shadow_demon_soul_catcher"
@@ -5675,28 +5415,6 @@
 			"max_distance"				"2000"
 			"range_reduction"		"40 50 60 70"
 			"debuff_duration"		"2 2.5 3 3.5"
-		}
-	}
-
-	"alchemist_berserk_potion"
-	{
-		"ReduxPerks"                                                           "support | rage"
-		"ReduxFlags"                                                           "support"
-		"MaxLevel"                      "4"
-		"AbilityCooldown"               "35 30 25 20"
-		"AbilityManaCost"               "100"
-		"AbilityValues"
-		{
-			"duration"		"15"
-			"attack_speed"		"50 55 60 65"
-			"hp_regen"		"40 45 50 55"
-			"projectile_speed"			"900"
-			"move_speed"			"30 35 40 45"
-			"chemical_rage_cooldown_reduction_pct"
-			{
-				"value"					"0"
-				"special_bonus_facet_alchemist_mixologist"				"=50"
-			}
 		}
 	}
 
@@ -6386,205 +6104,6 @@
 		}
 	}
 
-	// invoker AD
-	"invoker_cold_snap_ad"
-	{
-		"AbilityTextureName"            "invoker_cold_snap_ad_png"
-		"ReduxFlags"                    "stun"
-		"ReduxPerks"                    "ice"
-		"AbilityManaCost"				"90"
-		"AbilityValues"
-		{
-			"AbilityCooldown"
-			{
-				"value"					"18 17 16 15"
-				"special_bonus_unique_invoker_9"	"-5"
-			}
-			"duration"
-			{
-				"value"				"6.0"
-			}
-			"freeze_duration"		"0.4 0.44 0.48 0.52"
-			"freeze_cooldown"		"0.8 0.75 0.70 0.65"
-			"freeze_damage"			"16 30 43 56"
-			"damage_trigger"		"10.0"
-		}
-	}
-	"invoker_alacrity_ad"
-	{
-		"AbilityTextureName"            "invoker_alacrity_ad_png"
-		"ReduxPerks"                    "support"
-		"ReduxFlags"					"support"
-		"AbilityCooldown"				"15 14 13 12"
-		"AbilityManaCost"				"90"
-	}
-	"invoker_chaos_meteor_ad"
-	{
-		"AbilityTextureName"            "invoker_chaos_meteor_ad_png"
-		"ReduxPerks"                    "fire | skillshot"
-		"AbilityManaCost"				"100 120 140 160"
-		"AbilityValues"
-		{
-			"AbilityCooldown"
-			{
-				"value"					"55 50 45 40"
-				"special_bonus_shard"	"-15"
-			}
-			"land_time"					"1.3"
-			"area_of_effect"
-			{
-				"value"		"275"
-				"affected_by_aoe_increase"	"1"
-			}
-			"travel_distance"			"615 880 1145 1410"
-			"travel_speed"				"300"
-			"damage_interval"
-			{
-				"value"					"0.5"
-				"CalculateSpellDamageTooltip"	"0"
-				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
-			}
-			"vision_distance"			"500"
-			"end_vision_duration"		"3.0"
-			"main_damage"
-			{
-				"value"					"71 103 134 166"
-			}
-			"burn_duration"				"3.0"
-			"burn_dps"
-			{
-				"value"					"15 21 26.5 32.5"
-				"CalculateSpellDamageTooltip"	"1"
-				"special_bonus_unique_invoker_6"	"+40%"
-			}
-			"meteor_count"
-			{
-				"value"					"1"
-				"special_bonus_unique_invoker_additional_chaos_meteors"	"+2"
-			}
-		}
-	}
-
-	"invoker_emp_ad"
-	{
-		"AbilityTextureName"            "invoker_emp_ad_png"
-		"ReduxPerks"					"skillshot"
-		"AbilityCooldown"				"20 19 18 17"
-		"AbilityManaCost"				"125"
-
-	}
-	"invoker_forge_spirit_ad"
-	{
-		"AbilityTextureName"            "invoker_forge_spirit_ad_png"
-		"ReduxPerks"                    "summon_non_ult"
-		"ReduxFlags"					"summon"
-		"AbilityCooldown"				"27 24 21 18"
-
-	}
-	"invoker_ghost_walk_ad"
-	{
-		"AbilityTextureName"            "invoker_ghost_walk_ad_png"
-		"AbilityManaCost"				"80 100 120 140"
-		"AbilityValues"
-		{
-			"AbilityCooldown"
-			{
-				"value"					"45 40 35 30"
-			}
-			"duration"				"100.0"
-			"area_of_effect"
-			{
-				"value"			"400 450 500 550"
-					"affected_by_aoe_increase"	"1"
-			}
-			"enemy_slow"	"-20 -30 -40 -50"
-			"self_slow"		"-15 -5 5 15"
-			"aura_fade_time"		"2.0"
-		}
-		"ReduxPerks"                    "ice | mobility | invis"
-		"ReduxFlags"                    "invis | mobility"
-	}
-	"invoker_ice_wall_ad"
-	{
-		"AbilityTextureName"            "invoker_ice_wall_ad_png"
-		"ReduxPerks"                    "ice"
-		"AbilityManaCost"				"125"
-		"AbilityValues"
-		{
-			"duration"				"4.5 7.0 9.5 12.0"
-
-			"slow"					"-40 -74 -106 -140"
-			"slow_duration"			"2.0"
-			"damage_per_second"		"15 25 35 45"
-			"wall_place_distance"	"200"
-			"num_wall_elements"		"15"
-			"wall_element_spacing"
-			{
-				"value"		"80"
-				"affected_by_aoe_increase"	"1"
-			}
-			"wall_element_radius"
-			{
-				"value"		"105"
-				"affected_by_aoe_increase"	"1"
-			}
-			"vector_cast_range"
-			{
-				"value"				"0"
-			}
-		}
-	}
-	"invoker_sun_strike_ad"
-	{
-		"AbilityTextureName"            "invoker_sun_strike_ad_png"
-		"ReduxPerks"                    "fire | skillshot"
-		"ReduxFlags"					"upgradeable"
-		"AbilityCooldown"				"20 18 16 14"
-		"AbilityManaCost"				"100 120 140 160"
-	}
-	"invoker_tornado_ad"
-	{
-		"AbilityTextureName"            "invoker_tornado_ad_png"
-		"ReduxFlags"                    "stun"
-		"ReduxPerks"                    "skillshot"
-		"AbilityManaCost"				"80 100 120 140"
-		"AbilityValues"
-		{
-			"AbilityCooldown"
-			{
-				"value"					"30 26 22 18"
-				"special_bonus_unique_invoker_3" "-4"
-			}
-			"travel_distance"		"1200 1865 2530 3200"
-			"travel_speed"			"1000"
-			"area_of_effect"
-			{
-				"value"		"200"
-				"affected_by_aoe_increase"	"1"
-			}
-			"vision_distance"
-			{
-				"value"			"200"
-				"affected_by_aoe_increase"	"1"
-			}
-			"end_vision_duration"	"1.75"
-			"lift_duration"
-			{
-				"value"				"1.1 1.6 2.1 2.6"
-			}
-			"base_damage"			"70"
-			"quas_damage"			"0 0 0 0"
-			"wex_damage"			"90 165 240 315"
-		}
-	}
-	"invoker_deafening_blast_ad"
-	{
-		"AbilityTextureName"            "invoker_deafening_blast_ad_png"
-		"ReduxPerks"                    "enemyMoving | skillshot"
-		"AbilityCooldown"				"25 22 19 16"
-		"AbilityManaCost"				"100 120 140 160"
-	}
-
 		// "bellatrix_live_transfusion"
 		// {
 			// "ReduxPerks"	"self_damage | mobility"
@@ -6792,44 +6311,6 @@
 		"TalentRequiredAbility"                                                   "mars_arena_of_blood"
 	}
 
-
-	// Axe
-	"special_bonus_unique_axe"
-	{
-		"TalentRequiredAbility"                                                   "axe_battle_hunger"
-	}
-	"special_bonus_unique_axe_2"
-	{
-		"TalentRequiredAbility"                                                   "axe_berserkers_call"
-	}
-	"special_bonus_unique_axe_3"
-	{
-		"TalentRequiredAbility"                                                   "axe_culling_blade"
-	}
-	"special_bonus_unique_axe_4"
-	{
-		"TalentRequiredAbility"                                                   "axe_counter_helix"
-	}
-	"special_bonus_unique_axe_5"
-	{
-		"TalentRequiredAbility"                                                   "axe_culling_blade"
-	}
-	"special_bonus_unique_axe_6"
-	{
-		"TalentRequiredAbility"                                                   "axe_battle_hunger"
-	}
-	"special_bonus_unique_axe_7"
-	{
-		"TalentRequiredAbility"                                                   "axe_berserkers_call"
-	}
-	"special_bonus_unique_axe_8"
-	{
-		"TalentRequiredAbility"                                                   "axe_battle_hunger"
-	}
-	"special_bonus_unique_axe_culling_blade_speed_duration"
-	{
-		"TalentRequiredAbility"                                                   "axe_culling_blade"
-	}
 
 	// Beastmaster
 	"special_bonus_unique_beastmaster"
@@ -7097,30 +6578,6 @@
 		"TalentRequiredAbility"                                                   "earthshaker_aftershock"
 	}
 
-
-	// Elder Titan
-	"special_bonus_unique_elder_titan"
-	{
-		"TalentRequiredAbility"                                                   "elder_titan_ancestral_spirit"
-	}
-	"special_bonus_unique_elder_titan_2"
-	{
-		"TalentRequiredAbility"                                                   "elder_titan_echo_stomp_spirit"
-	}
-	"special_bonus_unique_elder_titan_3"
-	{
-		"TalentRequiredAbility"                                                   "elder_titan_earth_splitter"
-	}
-	"special_bonus_unique_elder_titan_4"
-	{
-		"TalentRequiredAbility"                                                   "elder_titan_echo_stomp_spirit"
-	}
-	"special_bonus_unique_elder_titan_5"
-	{
-		"TalentRequiredAbility"                                                   "elder_titan_natural_order"
-	}
-
-
 	// Ember Spirit
 	"special_bonus_unique_ember_spirit_1"
 	{
@@ -7368,67 +6825,6 @@
 		"TalentRequiredAbility"                                                   "huskar_inner_fire"
 	}
 
-
-
-	"special_bonus_unique_invoker_1"
-	{
-		"TalentRequiredAbility"                                                   "invoker_forge_spirit_ad"
-	}
-	"special_bonus_unique_invoker_2"
-	{
-		"TalentRequiredAbility"                                                   "invoker_deafening_blast_ad"
-	}
-	"special_bonus_unique_invoker_3"
-	{
-		"TalentRequiredAbility"                                                   "invoker_tornado_ad"
-	}
-	"special_bonus_unique_invoker_4"
-	{
-		"TalentRequiredAbility"                                                   "invoker_sunstrike_ad"
-	}
-	"special_bonus_unique_invoker_5"
-	{
-		"TalentRequiredAbility"                                                   "invoker_alacrity_ad"
-	}
-	"special_bonus_unique_invoker_6"
-	{
-		"TalentRequiredAbility"                                                   "invoker_chaos_meteor_ad"
-	}
-	"special_bonus_unique_invoker_7"
-	{
-		"TalentRequiredAbility"                                                   "invoker_cold_snap_ad"
-	}
-	"special_bonus_unique_invoker_8"
-	{
-		"TalentRequiredAbility"                                                   "invoker_tornado_ad"
-	}
-	"special_bonus_unique_invoker_9"
-	{
-		"TalentRequiredAbility"                                                   "invoker_cold_snap_ad"
-	}
-	"special_bonus_unique_invoker_10"
-	{
-		"TalentRequiredAbility"                                                   "invoker_emp_ad"
-	}
-	"special_bonus_unique_invoker_11"
-	{
-		"TalentRequiredAbility"                                                   "invoker_forge_spirit_ad"
-	}
-	"special_bonus_unique_invoker_12"
-	{
-		"TalentRequiredAbility"                                                   "invoker_ice_wall_ad"
-	}
-	"special_bonus_unique_invoker_ice_wall_dps"
-	{
-		"TalentRequiredAbility"                                                   "invoker_ice_wall_ad"
-	}
-	"special_bonus_unique_invoker_additional_chaos_meteors"
-	{
-		"TalentRequiredAbility"                                                   "invoker_chaos_meteor_ad"
-	}
-
-
-
 	"special_bonus_unique_jakiro"
 	{
 		"TalentRequiredAbility"                                                   "jakiro_ice_path"
@@ -7646,7 +7042,14 @@
 		"TalentRequiredAbility"                                                   "leshrac_pulse_nova"
 	}
 
-
+	"special_bonus_unique_leshrac_pulse_nova_lightning"
+	{
+		"TalentRequiredAbility"
+		{
+			"1"	"leshrac_pulse_nova"
+			"2"	"leshrac_lightning_storm"
+		}
+	}
 
 	"special_bonus_unique_lich_1"
 	{
@@ -7680,46 +7083,6 @@
 	{
 		"TalentRequiredAbility"                                                   "lich_frost_shield"
 	}
-
-
-	"special_bonus_unique_lifestealer"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_rage"
-	}
-	"special_bonus_unique_lifestealer_2"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_rage"
-	}
-	"special_bonus_unique_lifestealer_3"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_feast"
-	}
-	"special_bonus_unique_lifestealer_4"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_rage"
-	}
-	"special_bonus_unique_lifestealer_5"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_open_wounds"
-	}
-	"special_bonus_unique_lifestealer_6"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_ghoul_frenzy"
-	}
-	"special_bonus_unique_lifestealer_7"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_ghoul_frenzy"
-	}
-	"special_bonus_unique_lifestealer_infest_damage"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_infest"
-	}
-	"special_bonus_unique_lifestealer_infest_target_bonus"
-	{
-		"TalentRequiredAbility"                                                   "life_stealer_infest"
-	}
-
-
 
 	"special_bonus_unique_lina_1"
 	{
@@ -7863,43 +7226,6 @@
 	{
 		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
 	}
-
-
-
-	"special_bonus_unique_luna_1"
-	{
-		"TalentRequiredAbility"                                                   "luna_lucent_beam"
-	}
-	"special_bonus_unique_luna_2"
-	{
-		"TalentRequiredAbility"                                                   "luna_lucent_beam"
-	}
-	"special_bonus_unique_luna_3"
-	{
-		"TalentRequiredAbility"                                                   "luna_lunar_blessing"
-	}
-	"special_bonus_unique_luna_4"
-	{
-		"TalentRequiredAbility"                                                   "luna_lucent_beam"
-	}
-	"special_bonus_unique_luna_5"
-	{
-		"TalentRequiredAbility"                                                   "luna_eclipse"
-	}
-	"special_bonus_unique_luna_6"
-	{
-		"TalentRequiredAbility"                                                   "luna_eclipse"
-	}
-	"special_bonus_unique_luna_7"
-	{
-		"TalentRequiredAbility"                                                   "luna_moon_glaive"
-	}
-	"special_bonus_unique_luna_8"
-	{
-		"TalentRequiredAbility"                                                   "luna_lucent_beam"
-	}
-
-
 
 	"special_bonus_unique_lycan_1"
 	{
@@ -10800,236 +10126,6 @@
 	{
 		"TalentRequiredAbility"                                                   "bloodseeker_rupture"
 	}
-
-
-
-	"special_bonus_unique_batrider_1"
-	{
-		"TalentRequiredAbility"                                                   "batrider_firefly"
-	}
-	"special_bonus_unique_batrider_2"
-	{
-		"TalentRequiredAbility"                                                   "batrider_flamebreak"
-	}
-	"special_bonus_unique_batrider_3"
-	{
-		"TalentRequiredAbility"                                                   "batrider_flamebreak"
-	}
-	"special_bonus_unique_batrider_4"
-	{
-		"TalentRequiredAbility"                                                   "batrider_sticky_napalm"
-	}
-	"special_bonus_unique_batrider_5"
-	{
-		"TalentRequiredAbility"                                                   "batrider_flamebreak"
-	}
-	"special_bonus_unique_batrider_6"
-	{
-		"TalentRequiredAbility"                                                   "batrider_flaming_lasso"
-	}
-	"special_bonus_unique_batrider_7"
-	{
-		"TalentRequiredAbility"                                                   "batrider_sticky_napalm"
-	}
-	"special_bonus_unique_batrider_smoldering_resin_ticks"
-	{
-		"TalentRequiredAbility"                                                   "batrider_smoldering_resin"
-	}
-
-
-	"special_bonus_unique_bane_1"
-	{
-		"TalentRequiredAbility"                                                   "bane_enfeeble"
-	}
-	"special_bonus_unique_bane_2"
-	{
-		"TalentRequiredAbility"                                                   "bane_brain_sap"
-	}
-	"special_bonus_unique_bane_3"
-	{
-		"TalentRequiredAbility"                                                   "bane_fiends_grip"
-	}
-	"special_bonus_unique_bane_4"
-	{
-		"TalentRequiredAbility"                                                   "bane_enfeeble"
-	}
-	"special_bonus_unique_bane_5"
-	{
-		"TalentRequiredAbility"                                                   "bane_nightmare"
-	}
-	"special_bonus_unique_bane_6"
-	{
-		"TalentRequiredAbility"                                                   "bane_enfeeble"
-	}
-	"special_bonus_unique_bane_7"
-	{
-		"TalentRequiredAbility"                                                   "bane_brain_sap"
-	}
-	"special_bonus_unique_bane_8"
-	{
-		"TalentRequiredAbility"                                                   "bane_brain_sap"
-	}
-	"special_bonus_unique_bane_9"
-	{
-		"TalentRequiredAbility"                                                   "bane_fiends_grip"
-	}
-	"special_bonus_unique_bane_10"
-	{
-		"TalentRequiredAbility"                                                   "bane_enfeeble"
-	}
-	"special_bonus_unique_bane_11"
-	{
-		"TalentRequiredAbility"                                                   "bane_enfeeble"
-	}
-
-	"special_bonus_unique_antimage"
-	{
-		"TalentRequiredAbility"                                                   "antimage_blink"
-	}
-	"special_bonus_unique_antimage_2"
-	{
-		"TalentRequiredAbility"                                                   "antimage_mana_void"
-	}
-	"special_bonus_unique_antimage_3"
-	{
-		"TalentRequiredAbility"                                                   "antimage_blink"
-	}
-	"special_bonus_unique_antimage_4"
-	{
-		"TalentRequiredAbility"                                                   "antimage_counterspell"
-	}
-	"special_bonus_unique_antimage_5"
-	{
-		"TalentRequiredAbility"                                                   "antimage_persectur"
-	}
-	"special_bonus_unique_antimage_6"
-	{
-		"TalentRequiredAbility"                                                   "antimage_mana_void"
-	}
-	"special_bonus_unique_antimage_7"
-	{
-		"TalentRequiredAbility"                                                   "antimage_mana_break"
-	}
-	"special_bonus_unique_antimage_8"
-	{
-		"TalentRequiredAbility"                                                   "antimage_mana_void"
-	}
-	"special_bonus_unique_antimage_manavoid_aoe"
-	{
-		"TalentRequiredAbility"                                                   "antimage_mana_void"
-	}
-
-
-
-	"special_bonus_unique_ancient_apparition_1"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_cold_feet"
-	}
-	"special_bonus_unique_ancient_apparition_2"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_chilling_touch"
-	}
-	"special_bonus_unique_ancient_apparition_3"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_ice_vortex"
-	}
-	"special_bonus_unique_ancient_apparition_4"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_ice_vortex"
-	}
-	"special_bonus_unique_ancient_apparition_5"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_ice_blast"
-	}
-	"special_bonus_unique_ancient_apparition_6"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_cold_feet"
-	}
-	"special_bonus_unique_ancient_apparition_7"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_chilling_touch"
-	}
-	"special_bonus_unique_ancient_apparition_8"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_cold_feet"
-	}
-	"special_bonus_unique_ancient_apparition_ice_vortex_duration"
-	{
-		"TalentRequiredAbility"                                                   "ancient_apparition_ice_vortex"
-	}
-
-
-
-	"special_bonus_unique_alchemist"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_unstable_concoction"
-	}
-	"special_bonus_unique_alchemist_2"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_unstable_concoction"
-	}
-	"special_bonus_unique_alchemist_3"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_acid_spray"
-	}
-	"special_bonus_unique_alchemist_4"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_chemical_rage"
-	}
-	"special_bonus_unique_alchemist_5"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_acid_spray"
-	}
-	"special_bonus_unique_alchemist_6"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_chemical_rage"
-	}
-	"special_bonus_unique_alchemist_7"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_goblins_greed"
-	}
-	"special_bonus_unique_alchemist_8"
-	{
-		"TalentRequiredAbility"                                                   "alchemist_chemical_rage"
-	}
-
-
-
-	"special_bonus_unique_abaddon"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_aphotic_shield"
-	}
-	"special_bonus_unique_abaddon_2"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_death_coil"
-	}
-	"special_bonus_unique_abaddon_3"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_frostmourne"
-	}
-	"special_bonus_unique_abaddon_4"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_death_coil"
-	}
-	"special_bonus_unique_abaddon_5"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_frostmourne"
-	}
-	"special_bonus_unique_abaddon_6"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_frostmourne"
-	}
-	"special_bonus_unique_abaddon_7"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_aphotic_shield"
-	}
-	"special_bonus_unique_abaddon_immolation"
-	{
-		"TalentRequiredAbility"                                                   "abaddon_borrowed_time"
-	}
-
-
-
 
 	"special_bonus_unique_grimstroke_1"
 	{
