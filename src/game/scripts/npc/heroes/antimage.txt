@@ -41,7 +41,7 @@
 			"zero_tooltip"		"0"
 		}
 	}
-	
+
 	//=================================================================================================================
 	// Ability: Antimage Blink
 	//=================================================================================================================
@@ -49,11 +49,11 @@
 	{
 		"ReduxFlags"                    "mobility"
 		"ReduxPerks"                    "mobility | blink"
-		"ReduxCost"                     "120"
+		"ReduxCost"                     "80"
 	}
-	
+
 	//=================================================================================================================
-	// DEPRECATED Ability: Antimage Spell Shield 
+	// DEPRECATED Ability: Antimage Spell Shield
 	//=================================================================================================================
 	"antimage_spell_shield"
 	{
@@ -78,7 +78,7 @@
 		"MaxLevel"						"4"
 		"AbilityCastRange"				"600 700 800 900"
 		"AbilityCastPoint"				"0 0 0 0"
-		"AbilityManaCost"				"50"		
+		"AbilityManaCost"				"50"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -105,9 +105,6 @@
 				"special_bonus_facet_antimage_magebanes_mirror"	"+40"
 			}
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-		"AbilityCastGestureSlot"		"DEFAULT"
-		
 	}
 
 	//=================================================================================================================
@@ -115,9 +112,9 @@
 	//=================================================================================================================
 	"antimage_mana_void"
 	{
-		
+		"ReduxFlags"                    "stun"
 	}
-	
+
 	//=================================================================================================================
 	// Anti-Mage: Blink Fragment (scepter ability)
 	//=================================================================================================================
@@ -142,34 +139,42 @@
 	{
 		"TalentRequiredAbility"			"antimage_blink"
 	}
+
 	"special_bonus_unique_antimage_2"
 	{
 		"TalentRequiredAbility"			"antimage_mana_void"
 	}
+
 	"special_bonus_unique_antimage_3"
 	{
 		"TalentRequiredAbility"			"antimage_blink"
 	}
+
 	"special_bonus_unique_antimage_4"
 	{
 		"TalentRequiredAbility"			"antimage_counterspell"
 	}
+
 	"special_bonus_unique_antimage_5"
 	{
 		"TalentRequiredAbility"			"antimage_persectur"
 	}
+
 	"special_bonus_unique_antimage_6"
 	{
 		"TalentRequiredAbility"			"antimage_mana_void"
 	}
+
 	"special_bonus_unique_antimage_7"
 	{
 		"TalentRequiredAbility"			"antimage_mana_break"
 	}
+
 	"special_bonus_unique_antimage_8"
 	{
 		"TalentRequiredAbility"			"antimage_mana_void"
 	}
+
 	"special_bonus_unique_antimage_manavoid_aoe"
 	{
 		"TalentRequiredAbility"			"antimage_mana_void"

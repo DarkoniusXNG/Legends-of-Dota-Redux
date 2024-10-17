@@ -1,7 +1,7 @@
 // Abilities for alchemist
 "DOTAAbilities"
 {
- 	//=================================================================================================================
+	//=================================================================================================================
 	// Alchemist: Berserk Potion (Shard)
 	//=================================================================================================================
 	"alchemist_berserk_potion"
@@ -61,7 +61,7 @@
 	{
 		"ReduxPerks"                    "scientific"
 		"ReduxCost"                     "30"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 	}
 
 	//=================================================================================================================
@@ -73,7 +73,7 @@
 		"ReduxPerks"                    "scientific | rage"
 		"ReduxCost"                     "80"
 	}
-	
+
 	//=================================================================================================================
 	// Alchemist: Corrosive Weaponry
 	//=================================================================================================================
@@ -82,42 +82,42 @@
 		"ReduxFlags"                    "attack_modifier"
 		"ReduxPerks"                    "poison"
 	}
-	
+
 	"special_bonus_unique_alchemist"
 	{
 		"TalentRequiredAbility"         "alchemist_unstable_concoction"
 	}
-	
+
 	"special_bonus_unique_alchemist_2"
 	{
 		"TalentRequiredAbility"         "alchemist_unstable_concoction"
 	}
-	
+
 	"special_bonus_unique_alchemist_3"
 	{
 		"TalentRequiredAbility"         "alchemist_acid_spray"
 	}
-	
+
 	"special_bonus_unique_alchemist_4"
 	{
 		"TalentRequiredAbility"         "alchemist_chemical_rage"
 	}
-	
+
 	"special_bonus_unique_alchemist_5"
 	{
 		"TalentRequiredAbility"         "alchemist_acid_spray"
 	}
-	
+
 	"special_bonus_unique_alchemist_6"
 	{
 		"TalentRequiredAbility"        	"alchemist_chemical_rage"
 	}
-	
+
 	"special_bonus_unique_alchemist_7"
 	{
 		"TalentRequiredAbility"         "alchemist_goblins_greed"
 	}
-	
+
 	"special_bonus_unique_alchemist_8"
 	{
 		"TalentRequiredAbility"         "alchemist_chemical_rage"

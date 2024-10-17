@@ -2430,7 +2430,7 @@
 		// "ReduxPerks"                                                           "support | ice | drain"
 		// "ReduxCost"                                                            "10"
 	// }
-	
+
 	"witch_doctor_voodoo_restoration"
 	{
 		"ReduxFlags"                                                           "support"
@@ -2973,7 +2973,7 @@
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility | water"
 	}
-	
+
 	"medusa_stone_gaze"
 	{
 		"ReduxFlags"                                                           "mobility | stun"
@@ -4163,7 +4163,7 @@
 	{
 		"ReduxPerks"                                                           "drain"
 	}
-	
+
 	"treant_leech_seed"
 	{
 		"ReduxPerks"                                                           "drain | nature | support"
@@ -4530,7 +4530,7 @@
 	{
 		"ReduxPerks"                                                           "limited"
 	}
-	
+
 	"ursa_overpower"
 	{
 		"ReduxPerks"                                                           "rage"
@@ -4602,7 +4602,7 @@
 			"extra_damage"						"300 350 400 450"
 		}
 	}
-	
+
 	"death_prophet_witchcraft"
 	{
 		"ReduxFlags"                                                           "cooldown"
@@ -7042,7 +7042,14 @@
 		"TalentRequiredAbility"                                                   "leshrac_pulse_nova"
 	}
 
-
+	"special_bonus_unique_leshrac_pulse_nova_lightning"
+	{
+		"TalentRequiredAbility"
+		{
+			"1"	"leshrac_pulse_nova"
+			"2"	"leshrac_lightning_storm"
+		}
+	}
 
 	"special_bonus_unique_lich_1"
 	{

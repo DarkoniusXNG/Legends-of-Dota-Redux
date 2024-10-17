@@ -30,12 +30,10 @@
 	}
 
 	//=================================================================================================================
-	// Luna: Lunar Blessing
+	// Luna: Lunar Blessing (Innate)
 	//=================================================================================================================
 	"luna_lunar_blessing"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support | aura"
@@ -64,40 +62,49 @@
 	{
 		"ReduxPerks"		"light"
 		"ReduxFlags"		"upgradeable | doNotRandom"
-		"ReduxCost"			"10"
 	}
-
 
 	"special_bonus_unique_luna_1"
 	{
 		"TalentRequiredAbility"		"luna_lucent_beam"
 	}
+
 	"special_bonus_unique_luna_2"
 	{
 		"TalentRequiredAbility"		"luna_lucent_beam"
 	}
+
 	"special_bonus_unique_luna_3"
 	{
 		"TalentRequiredAbility"		"luna_lunar_blessing"
 	}
+
 	"special_bonus_unique_luna_4"
 	{
 		"TalentRequiredAbility"		"luna_lucent_beam"
 	}
+
 	"special_bonus_unique_luna_5"
 	{
 		"TalentRequiredAbility"		"luna_lucent_beam"
 	}
+
 	"special_bonus_unique_luna_6"
 	{
 		"TalentRequiredAbility"		"luna_eclipse"
 	}
+
 	"special_bonus_unique_luna_7"
 	{
 		"TalentRequiredAbility"		"luna_moon_glaive"
 	}
+
 	"special_bonus_unique_luna_8"
 	{
-		"TalentRequiredAbility"		"luna_lucent_beam"
+		"TalentRequiredAbility"
+		{
+			"1"	"luna_lucent_beam"
+			"2"	"luna_moon_glaive"
+		}
 	}
 }

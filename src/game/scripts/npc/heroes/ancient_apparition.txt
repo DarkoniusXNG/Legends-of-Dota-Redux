@@ -4,7 +4,7 @@
 	//=================================================================================================================
 	// Ancient Apparition: Cold Feet
 	//=================================================================================================================
- 	"ancient_apparition_cold_feet"
+	"ancient_apparition_cold_feet"
 	{
 		"ReduxFlags"                     "stun"
 		"ReduxPerks"                     "ice"
@@ -52,10 +52,10 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"MaxLevel"						"4"
 		"Innate"						"1"
-		
+
 		"AbilityValues"
 		{
-			"damage"	
+			"damage"
 			{
 				"value"						"10"
 				"special_bonus_unique_ancient_apparition_6"			"+50%"
@@ -75,29 +75,8 @@
 				"special_bonus_facet_ancient_apparition_bone_chill"		"0.5 0.75 1 1.25"
 			}
 		}
-	}	
-
-	//=================================================================================================================
-	// Ancient Apparition: Ice Blast Release
-	//=================================================================================================================
-	"ancient_apparition_ice_blast_release"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"						"1"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0 0 0"
- 		"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_4"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1.0 1.0 1.0"
 	}
-	
+
 	//=================================================================================================================
 	// Ancient Apparition: Ice Age
 	//=================================================================================================================
@@ -105,17 +84,7 @@
 	{
 		"ReduxFlags"                   	"support"
 		"ReduxPerks"                    "support | ice"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT "
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Ancient_Apparition.ColdFeetCast"
-		"MaxLevel"						"1"
-		"IsGrantedByShard"				"1"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityCastGestureSlot"		"DEFAULT"
-		"AbilityCastPoint"				"0.01 0.01 0.01 0.01"
+
 		"AbilityCastRange"				"800 1000 1200 1400"
 		"AbilityCooldown"				"30 28 26 24"
 		"AbilityDuration"				"4.0 4.0 4.0 4.0"
@@ -128,47 +97,47 @@
 			"radius"			"800 1000 1200 1400"
 		}
 	}
-	
+
 	"special_bonus_unique_ancient_apparition_1"
 	{
 		"TalentRequiredAbility"                                                   "ancient_apparition_cold_feet"
 	}
-	
+
 	"special_bonus_unique_ancient_apparition_2"
 	{
 		"TalentRequiredAbility"                                                   "ancient_apparition_chilling_touch"
 	}
-	
+
 	"special_bonus_unique_ancient_apparition_3"
 	{
 		"TalentRequiredAbility"                                                   "ancient_apparition_ice_vortex"
 	}
-	
+
 	"special_bonus_unique_ancient_apparition_4"
 	{
 		"TalentRequiredAbility"                                                   "ancient_apparition_ice_vortex"
 	}
-	
+
 	"special_bonus_unique_ancient_apparition_5"
 	{
 		"TalentRequiredAbility"                                                   "ancient_apparition_ice_blast"
 	}
-	
+
 	"special_bonus_unique_ancient_apparition_6"
 	{
 		"TalentRequiredAbility"                                                   "ancient_apparition_cold_feet"
 	}
-	
+
 	"special_bonus_unique_ancient_apparition_7"
 	{
 		"TalentRequiredAbility"                                                   "ancient_apparition_chilling_touch"
 	}
-	
+
 	"special_bonus_unique_ancient_apparition_8"
 	{
 		"TalentRequiredAbility"                                                   "ancient_apparition_cold_feet"
 	}
-	
+
 	"special_bonus_unique_ancient_apparition_ice_vortex_duration"
 	{
 		"TalentRequiredAbility"                                                   "ancient_apparition_ice_vortex"

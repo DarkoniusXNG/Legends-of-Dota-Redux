@@ -21,42 +21,20 @@
 	}
 
 	//=================================================================================================================
-	// Abaddon: Innate Death Dude
+	// Abaddon: The Quickening (Facet)
 	//=================================================================================================================
 	"abaddon_the_quickening"
 	{
 		"ReduxFlags"                    "cooldown"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"1"
-		"IsBreakable"					"1"
-		"AbilityValues"
-		{
-			"cooldown_reduction_creeps"		"0.2"
-			"cooldown_reduction_heroes"		"4.0"
-			"radius"	
-			{
-				"value"		"900"
-				"affected_by_aoe_increase"	"1"
-			}
-		}
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	}
 
 	//=================================================================================================================
-	// Ability:
+	// Abaddon: Withering Mist (Innate)
 	//=================================================================================================================
 	"abaddon_withering_mist"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-		"MaxLevel"						"1"
-		"Innate"						"1"
-		"IsBreakable"					"1"
-		"AbilityValues"
-		{
-			"hp_threshold_pct"		"40.0"
-			"heal_reduction_pct"	"35"
-			"duration"				"5.0"
-		}
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 	}
 
 	//=================================================================================================================
@@ -78,42 +56,41 @@
 		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand | phoenix_supernova"
 	}
 
-
 	"special_bonus_unique_abaddon"
 	{
 		"TalentRequiredAbility"                                                   "abaddon_aphotic_shield"
 	}
-	
+
 	"special_bonus_unique_abaddon_2"
 	{
 		"TalentRequiredAbility"                                                   "abaddon_death_coil"
 	}
-	
+
 	"special_bonus_unique_abaddon_3"
 	{
 		"TalentRequiredAbility"                                                   "abaddon_frostmourne"
 	}
-	
+
 	"special_bonus_unique_abaddon_4"
 	{
 		"TalentRequiredAbility"                                                   "abaddon_death_coil"
 	}
-	
+
 	"special_bonus_unique_abaddon_5"
 	{
 		"TalentRequiredAbility"                                                   "abaddon_frostmourne"
 	}
-	
+
 	"special_bonus_unique_abaddon_6"
 	{
 		"TalentRequiredAbility"                                                   "abaddon_frostmourne"
 	}
-	
+
 	"special_bonus_unique_abaddon_7"
 	{
 		"TalentRequiredAbility"                                                   "abaddon_aphotic_shield"
 	}
-	
+
 	"special_bonus_unique_abaddon_immolation"
 	{
 		"TalentRequiredAbility"                                                   "abaddon_borrowed_time"

@@ -8,12 +8,12 @@
 		"ReduxFlags"		"physical"
 		"ReduxPerks"		"physical | sleep | channeled"
 	}
+
 	//=================================================================================================================
 	// Elder Titan: Echo Stomp (Spirit Version)
 	//=================================================================================================================
 	"elder_titan_echo_stomp_spirit"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 		"ReduxPerks"		"sleep | channeled"
 		"ReduxFlags"		"doNotRandom"
 	}
@@ -56,8 +56,8 @@
 	//=================================================================================================================
 	"elder_titan_natural_order_spirit"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 		"ReduxPerks"		"aura | earth"
+		"ReduxFlags"		"doNotRandom"
 	}
 
 	//=================================================================================================================
@@ -65,70 +65,53 @@
 	//=================================================================================================================
 	"elder_titan_earth_splitter"
 	{
-		"ReduxFlags"			"physical"
+		"ReduxFlags"			"stun | physical"
 		"ReduxPerks"			"earth | skillshot | enemyMoving | physical"
 	}
 
 	//=================================================================================================================
-	// Dark Seer Innate Inertia
+	// Elder Titan: Momentum (Facet)
 	//=================================================================================================================
 	"elder_titan_momentum"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"1"
-		"AbilityValues"
-		{
-			"attack_speed_from_movespeed"			"25"
-			"attack_speed_penalty"					"85"
-		}
-	}	
 	//=================================================================================================================
-	// Constructor Innate
+	// Elder Titan: Tip The Scales (Innate)
 	//=================================================================================================================
 	"elder_titan_tip_the_scales"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"MaxLevel"						"1"
-		"Innate"						"1"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"damage_bonus"			"100"
-		}
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 	}
 
 	"special_bonus_unique_elder_titan"
 	{
 		"TalentRequiredAbility"		"elder_titan_ancestral_spirit"
 	}
+
 	"special_bonus_unique_elder_titan_2"
 	{
 		"TalentRequiredAbility"		"elder_titan_echo_stomp"
 	}
+
 	"special_bonus_unique_elder_titan_3"
 	{
 		"TalentRequiredAbility"		"elder_titan_earth_splitter"
 	}
+
 	"special_bonus_unique_elder_titan_4"
 	{
 		"TalentRequiredAbility"		"elder_titan_echo_stomp"
 	}
+
 	"special_bonus_unique_elder_titan_5"
 	{
 		"TalentRequiredAbility"		"elder_titan_natural_order"
 	}
+
 	"special_bonus_unique_elder_titan_bonus_spirit_speed"
 	{
 		"TalentRequiredAbility"		"elder_titan_ancestral_spirit"
 	}
-
 }
