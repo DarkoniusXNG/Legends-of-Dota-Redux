@@ -7098,7 +7098,7 @@
 	}
 	"special_bonus_unique_lina_4"
 	{
-		"TalentRequiredAbility"                                                   "lina_light_strike_array"
+		"TalentRequiredAbility"                                                   "lina_fiery_soul"
 	}
 	"special_bonus_unique_lina_5"
 	{
@@ -7383,11 +7383,19 @@
 	}
 	"special_bonus_unique_mirana_4"
 	{
-		"TalentRequiredAbility"                                                   "mirana_invis"
+		"TalentRequiredAbility"
+		{
+			"1" "mirana_invis"
+			"2" "mirana_solar_flare"
+		}
 	}
 	"special_bonus_unique_mirana_5"
 	{
-		"TalentRequiredAbility"                                                   "mirana_invis"
+		"TalentRequiredAbility"
+		{
+			"1" "mirana_invis"
+			"2" "mirana_solar_flare"
+		}
 	}
 	"special_bonus_unique_mirana_6"
 	{
@@ -7863,7 +7871,7 @@
 
 	"special_bonus_unique_puck"
 	{
-		"TalentRequiredAbility"                                                   "puck_illusory_orb"
+		"TalentRequiredAbility"                                                   "puck_dream_coil"
 	}
 	"special_bonus_unique_puck_2"
 	{
@@ -7873,10 +7881,6 @@
 	{
 		"TalentRequiredAbility"                                                   "puck_dream_coil"
 	}
-   // "special_bonus_unique_puck_4"   // Dream Coil stun duration; removed by valve
-   // {
-   //     "TalentRequiredAbility"                                                   "puck_dream_coil"
-   // }
 	"special_bonus_unique_puck_5"
 	{
 		"TalentRequiredAbility"                                                   "puck_dream_coil"
@@ -9050,7 +9054,7 @@
 	}
 	"special_bonus_unique_ursa_3"
 	{
-		"TalentRequiredAbility"                                                   "ursa_enrage"
+		"TalentRequiredAbility"                                                   "ursa_earthshock"
 	}
 	"special_bonus_unique_ursa_4"
 	{
@@ -9269,7 +9273,7 @@
 	}
 	"special_bonus_unique_warlock_3"
 	{
-		"TalentRequiredAbility"                                                   "warlock_shadow_word"
+		"TalentRequiredAbility"                                                   "warlock_upheaval"
 	}
 	"special_bonus_unique_warlock_4"
 	{
@@ -9766,7 +9770,7 @@
 	}
 	"special_bonus_unique_dazzle_4"
 	{
-		"TalentRequiredAbility"                                                   "dazzle_bad_juju"
+		"TalentRequiredAbility"                                                   "dazzle_innate_weave"
 	}
 	"special_bonus_unique_dazzle_5"
 	{

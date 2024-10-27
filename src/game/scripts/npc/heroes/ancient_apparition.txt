@@ -46,7 +46,6 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
@@ -84,6 +83,7 @@
 	{
 		"ReduxFlags"                   	"support"
 		"ReduxPerks"                    "support | ice"
+		"MaxLevel"						"4"
 
 		"AbilityCastRange"				"800 1000 1200 1400"
 		"AbilityCooldown"				"30 28 26 24"
