@@ -783,7 +783,7 @@
 "DOTA_Tooltip_Ability_angel_arena_razor_power_radius" "RADIUS:"
 "DOTA_Tooltip_ability_angel_arena_revenge" "Whiteboard's Revenge"
 "DOTA_Tooltip_ability_angel_arena_revenge_bonus_int" "BONUS INTELLECT:"
-"DOTA_Tooltip_ability_angel_arena_revenge_Description" "Punishes each attack, damaging the attacker based on the difference of Intellect between the attacker and the Hero. Non-hero units will be dealt as percentage of Hero's intellect<br><br><font color='#7D7D7D'>Imported from <font color='#f26868'>Angel Arena Reborn.</font></font><br>"
+"DOTA_Tooltip_ability_angel_arena_revenge_Description" "Every time this Hero is attacked, the attacker will be damaged based on the difference of Intelligence between the attacker and the Hero. Non-hero units will be dealt as percentage of Hero's intellect<br><br><font color='#7D7D7D'>Imported from <font color='#f26868'>Angel Arena Reborn.</font></font><br>"
 "DOTA_Tooltip_ability_angel_arena_revenge_Lore" "Powerful mages can punish their lesser enemies without even trying, however this trick does not against other magicians."
 "DOTA_Tooltip_ability_angel_arena_revenge_reduce_percent" "%DIFFERENCE AS DAMAGE:"
 "DOTA_Tooltip_ability_angel_arena_rifle_OP" "Toggle Rifle OP"

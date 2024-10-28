@@ -1931,7 +1931,6 @@ function Ingame:addStrongTowers()
                         tower:FindAbilityByName("imba_tower_counter"):SetLevel(1)
                     end
                 end
-                print("lul")
             end
         end
     end, nil)

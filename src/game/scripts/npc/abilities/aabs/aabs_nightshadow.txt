@@ -61,6 +61,11 @@
             "thunderstruck_bonus_attack_range" "250"
             "thunderstruck_magical_damage" "110 140 170 200"
         }
+
+		"precache"
+		{
+			"particle" "particles/econ/items/antimage/antimage_weapon_basher_ti5/antimage_manavoid_lightning_ti_5.vpcf"
+		}
 	}
 
 	"genos_survival_of_the_fittest"

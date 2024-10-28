@@ -13,7 +13,7 @@
         "precache"
         {
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
-            "particle"                                                     "particles/units/heroes/hero_leshrac/leshrac_lightning_sparks.vpcf"
+            "particle"                                                     "particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf"
         }
         "AbilityCastRange"                                                     "800"
         "AbilityCastPoint"                                                     "0.2"

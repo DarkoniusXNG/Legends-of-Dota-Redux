@@ -22,6 +22,7 @@
 
 		"precache" {
 			"particle" "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_msg.vpcf"
+			"particle" "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn.vpcf"
 		}
 
 		"OnSpellStart" {

@@ -12,6 +12,7 @@
         "AbilityValues"
         {
             "duration" "3 4.5 6 7.5"
+            "active_reflection_pct"			"100"
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "0"
@@ -28,6 +29,7 @@
         "AbilityValues"
         {
             "duration" "6 8 10 12"
+            "active_reflection_pct"			"200"
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "120"

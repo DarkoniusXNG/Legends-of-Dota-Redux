@@ -15,6 +15,10 @@
             "bonus_damage" "30 45 60 75"
             "bonus_armor" "10 15 20 25"
         }
+        "precache"
+        {
+            "model" "models/heroes/beastmaster/beastmaster_bird.vmdl"
+        }
         "OnSpellStart"
         {
             "RunScript"

@@ -100,7 +100,7 @@
                 {
                     "MODIFIER_STATE_ROOTED"                        "MODIFIER_STATE_VALUE_ENABLED"
                     "MODIFIER_STATE_INVISIBLE"                     "MODIFIER_STATE_VALUE_DISABLED"
-                    "MODIFIER_STATE_SOFT_DISARMED"                 "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_DISARMED"                      "MODIFIER_STATE_VALUE_ENABLED"
                 }
             }
         }

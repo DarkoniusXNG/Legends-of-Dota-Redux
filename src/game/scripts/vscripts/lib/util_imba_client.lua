@@ -29,26 +29,6 @@ function PrintAll(t)
 	end
 end
 
-function C_DOTA_BaseNPC:HasTalent(talentName)
-	if self:HasModifier("modifier_"..talentName) then
-		return true 
-	end
-	return false
-end
-
-function C_DOTA_BaseNPC:FindTalentValue(talentName, key)
-	if self:HasModifier("modifier_"..talentName) then  
-		local value_name = key or "value"
-		local specialVal = AbilityKV[talentName]["AbilitySpecial"]
-		for l,m in pairs(specialVal) do
-			if m[value_name] then
-				return m[value_name]
-			end
-		end
-	end    
-	return 0
-end
-
 function CreateEmptyTalents(hero)
 	for i=1,8 do
 		LinkLuaModifier("modifier_special_bonus_imba_"..hero.."_"..i, "hero/hero_"..hero, LUA_MODIFIER_MOTION_NONE)  

@@ -435,6 +435,21 @@ if CDOTA_BaseNPC then
 		ParticleManager:SetParticleControl(pidx, 3, color)
 	end
 
+	function CDOTA_BaseNPC:HasTalent(name)
+		local talent_ability = self:FindAbilityByName(name)
+		if not talent_ability then
+			return false
+		end
+		return talent_ability:GetLevel() > 0
+	end
+
+	function CDOTA_BaseNPC:FindTalentValue(talentName, key)
+		if self:HasTalent(talentName) then
+			local value_name = key or "value"
+			return self:FindAbilityByName(talentName):GetSpecialValueFor(value_name)
+		end
+		return 0
+	end
 end
 
 if C_DOTA_BaseNPC then
@@ -481,5 +496,21 @@ if C_DOTA_BaseNPC then
 		end
 
 		return false
+	end
+
+	function C_DOTA_BaseNPC:HasTalent(name)
+		local talent_ability = self:FindAbilityByName(name)
+		if not talent_ability then
+			return false
+		end
+		return talent_ability:GetLevel() > 0
+	end
+
+	function C_DOTA_BaseNPC:FindTalentValue(talentName, key)
+		if self:HasTalent(talentName) then
+			local value_name = key or "value"
+			return self:FindAbilityByName(talentName):GetSpecialValueFor(value_name)
+		end
+		return 0
 	end
 end

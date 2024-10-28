@@ -6486,7 +6486,8 @@ function Pregame:multiplyNeutrals()
                 attacker = EntIndexToHScript( keys.entindex_attacker )
             end
 
-            if attacker:IsNull() or not attacker or not attacker:IsRealHero() then return end
+           if not attacker or attacker:IsNull() then return end
+           if not attacker:IsRealHero() then return end
 
             -- Neutral Multiplier: Checks if hurt npc is neutral, dead, and if it doesnt have the clone token ability, and their is a valid attacker
             if IsValidEntity(attacker) then
@@ -8337,6 +8338,7 @@ ListenToGameEvent('game_rules_state_change', function(keys)
     local newState = GameRules:State_Get()
     if newState == DOTA_GAMERULES_STATE_PRE_GAME then
     elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+        GameRules:SetTimeOfDay(0.251) -- fix day/night cycle starting with night after 00:00
         -- if IsDedicatedServer() then
             -- if not util:isCoop() then
                 -- SU:SendPlayerBuild( buildBackups )
