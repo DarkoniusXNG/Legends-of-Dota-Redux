@@ -54,11 +54,10 @@
 		"precache"
 		{
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
-			"particle" "particles/units/heroes/hero_tusk/tusk_walruspunch_start.vpcf"
-			"particle" "particles/units/heroes/hero_hero/one_punch_mega_crit.vpcf"
-			"particle" "particles/units/heroes/hero_axe/axe_culling_blade_kill.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
+			"particle" "particles/units/heroes/hero_hero/one_punch_air.vpcf"
+			"particle" "particles/units/heroes/hero_hero/one_punch_land.vpcf"
 		}
 
 		"ReduxPerks"	""

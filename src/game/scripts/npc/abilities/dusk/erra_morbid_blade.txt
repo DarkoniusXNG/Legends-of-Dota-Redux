@@ -50,6 +50,7 @@
 		{
 			"soundfile" "soundevents/hero_erra.vsndevts"
 			"particle"  "particles/units/heroes/hero_erra/morbid_blade.vpcf"
+			"particle"  "particles/units/heroes/hero_erra/morbid_blade_below_threshold.vpcf"
 		}
 	}
 }

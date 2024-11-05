@@ -19,7 +19,7 @@
         }
 
 		"precache" {
-			"particle" "particles/units/heroes/hero_clinkz/clinkz_death_pact_buff.vpcf"
+			"particle" "particles/units/heroes/hero_clinkz/clinkz_death_pact.vpcf"
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
 		}
 

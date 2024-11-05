@@ -34,32 +34,49 @@ function master_magic_mod:DeclareFunctions()
 	return funcs
 end
 
-function master_magic_mod:OnAbilityFullyCast(params)
-	if IsServer() then
-		if params.unit == self:GetParent() then
-			if params.ability ~= self:GetAbility() and  params.ability:GetAbilityName() ~= "item_refresher" and params.ability:GetAbilityName() ~= "item_hand_of_midas" and bit.band(DOTA_ABILITY_BEHAVIOR_AUTOCAST , params.ability:GetBehavior() ) ~= DOTA_ABILITY_BEHAVIOR_AUTOCAST and bit.band(DOTA_ABILITY_BEHAVIOR_TOGGLE , params.ability:GetBehavior() ) ~= DOTA_ABILITY_BEHAVIOR_TOGGLE then
-			
-			local isUltimate = false
-			-- If its an ultimate, there needs to be two charges, if not, return
-			if params.ability:GetAbilityType() == 1 and self:GetStackCount() < 3 then
+if IsServer() then
+	function master_magic_mod:OnAbilityFullyCast(params)
+		local unit = params.unit
+		local ability = self:GetAbility()
+		local cast_ability = params.ability
+		if unit == self:GetParent() and cast_ability then
+			local cast_ability_name = cast_ability:GetAbilityName()
+			if cast_ability == ability or cast_ability_name == "item_refresher" or cast_ability_name == "item_hand_of_midas" then
 				return
-			elseif params.ability:GetAbilityType() == 1 and self:GetStackCount() >= 3 then
+			end
+			local behavior_int = cast_ability:GetBehaviorInt()
+			local behavior = cast_ability:GetBehavior()
+			if type(behavior) == 'userdata' then
+				behavior = tonumber(tostring(behavior))
+			end
+			if bit.band(DOTA_ABILITY_BEHAVIOR_AUTOCAST, behavior) == DOTA_ABILITY_BEHAVIOR_AUTOCAST or bit.band(DOTA_ABILITY_BEHAVIOR_AUTOCAST, behavior_int) == DOTA_ABILITY_BEHAVIOR_AUTOCAST then
+				return
+			end
+			if bit.band(DOTA_ABILITY_BEHAVIOR_TOGGLE, behavior) == DOTA_ABILITY_BEHAVIOR_TOGGLE or bit.band(DOTA_ABILITY_BEHAVIOR_TOGGLE, behavior_int) == DOTA_ABILITY_BEHAVIOR_TOGGLE then
+				return
+			end
+
+			local isUltimate = false
+			local cast_ability_type = cast_ability:GetAbilityType()
+			-- If its an ultimate, there needs to be two charges, if not, return
+			if cast_ability_type == ABILITY_TYPE_ULTIMATE and self:GetStackCount() < 3 then
+				return
+			elseif cast_ability_type == ABILITY_TYPE_ULTIMATE and self:GetStackCount() >= 3 then
 				isUltimate = true
 			end
 
-			params.ability:EndCooldown()
-			if self:GetParent():HasScepter() and RandomInt(1, 100) < self:GetAbility():GetSpecialValueFor("chance_scepter") then
+			cast_ability:EndCooldown()
+			if unit:HasScepter() and RandomInt(1, 100) < ability:GetSpecialValueFor("chance_scepter") then
 				EmitSoundOnLocationWithCaster( self:GetCaster():GetOrigin(), "Brewmaster_Storm.DispelMagic", self:GetCaster() )
 			else
 				self:DecrementStackCount()
 				-- If its an ultimate reduce 2 extra stack
-				if isUltimate == true then
+				if isUltimate then
 					self:DecrementStackCount()
 					self:DecrementStackCount()
 				end
 			end
-			end
-			if self:GetStackCount() == 0 then
+			if self:GetStackCount() <= 0 then
 				self:Destroy()
 			end
 		end

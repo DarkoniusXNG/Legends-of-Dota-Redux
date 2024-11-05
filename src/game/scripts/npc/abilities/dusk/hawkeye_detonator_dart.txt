@@ -56,10 +56,6 @@
 			"soundfile" "soundevents\hero_tek.vsndevts"
 			"soundfile" "soundevents\hero_hawkeye.vsndevts"
 		}
-		
-		"Modifiers"
-		{
-		}
 
 		"ReduxPerks"	"scientific | explosive"
 		"ReduxFlags"	""

@@ -174,29 +174,44 @@ function SpellEcho(keys)
 	if echo and caster:IsRealHero() and not no_echo[ echo:GetName() ] then
 		local cooldown = ability:GetTrueCooldown()
 		Timers:CreateTimer(delay + echo:GetChannelTime(), function()
-							if bit.band(echo:GetBehavior(), DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET and keys.target ~= nil then
-								caster:SetCursorCastTarget(keys.target)
-							elseif bit.band(echo:GetBehavior(), DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT then
-								caster:SetCursorPosition(cursor_pos)
-							else
-								caster:SetCursorTargetingNothing(true)
-							end
-							local echo_effect = ParticleManager:CreateParticle("particles/rubick_spell_echo.vpcf", PATTACH_ABSORIGIN , caster)
-							local fullManacost = echo:GetManaCost(echo:GetLevel() - 1) 
-							--print(halfManacost)
-							if caster:GetMana() >= fullManacost then 
-								ParticleManager:SetParticleControl(echo_effect, 0, caster:GetAbsOrigin())
-								ParticleManager:SetParticleControl(echo_effect, 1, Vector(1,0,0))
-								caster:StartGesture(ACT_DOTA_CAST_ABILITY_5)
-	              echo:OnSpellStart()
-								
-                ability:StartCooldown(cooldown)
+      local behavior_int = echo:GetBehaviorInt()
+      local behavior = echo:GetBehavior()
+      if type(behavior) == 'userdata' then
+        behavior = tonumber(tostring(behavior))
+      end
+      if not behavior then
+        behavior = DOTA_ABILITY_BEHAVIOR_NONE
+      end
+      if not behavior_int then
+        behavior_int = DOTA_ABILITY_BEHAVIOR_NONE
+      end
 
-	            	ParticleManager:ReleaseParticleIndex(echo_effect)
-								--print("not enough mana to echo")
-								caster:SpendMana(fullManacost, ability)
-							end
-							
-      end, DoUniqueString('ebf_rubick_spell_echo'))
+      local isNoTarget = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) > 0 or bit.band(behavior_int, DOTA_ABILITY_BEHAVIOR_NO_TARGET) > 0
+      local isUnitTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) > 0 or bit.band(behavior_int, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) > 0
+      local isPointTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) > 0 or bit.band(behavior_int, DOTA_ABILITY_BEHAVIOR_POINT) > 0
+
+      if isUnitTargetting and keys.target ~= nil then
+        caster:SetCursorCastTarget(keys.target)
+      elseif isPointTargetting then
+        caster:SetCursorPosition(cursor_pos)
+      elseif isNoTarget then
+        caster:SetCursorTargetingNothing(true)
+      end
+      local echo_effect = ParticleManager:CreateParticle("particles/rubick_spell_echo.vpcf", PATTACH_ABSORIGIN , caster)
+      local fullManacost = echo:GetManaCost(echo:GetLevel() - 1) 
+
+      if caster:GetMana() >= fullManacost then 
+        ParticleManager:SetParticleControl(echo_effect, 0, caster:GetAbsOrigin())
+        ParticleManager:SetParticleControl(echo_effect, 1, Vector(1,0,0))
+        caster:StartGesture(ACT_DOTA_CAST_ABILITY_5)
+        echo:OnSpellStart()
+        
+        ability:StartCooldown(cooldown)
+
+        ParticleManager:ReleaseParticleIndex(echo_effect)
+        --print("not enough mana to echo")
+        caster:SpendMana(fullManacost, ability)
+      end
+    end, DoUniqueString('ebf_rubick_spell_echo'))
 	end
 end

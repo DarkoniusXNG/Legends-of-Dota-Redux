@@ -40,11 +40,6 @@
 		{
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
 			"particle"			"particles/units/heroes/hero_paragon/tranquil_seal_rune.vpcf"
-			"particle"			"particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_silence.vpcf"
-		}
-		
-		"Modifiers"
-		{
 		}
 
 		"ReduxPerks"	"support"
