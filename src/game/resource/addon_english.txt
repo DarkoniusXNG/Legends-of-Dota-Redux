@@ -573,7 +573,7 @@
 "DOTA_Tooltip_ability_achlys_miserable_claws" "Miserable Claws"
 "DOTA_Tooltip_ability_achlys_miserable_claws_armor_per_stack" "ARMOR LOSS PER STACK:"
 "DOTA_Tooltip_ability_achlys_miserable_claws_cursed_duration" "MINIMUM SPEED FOR ROOT:"
-"DOTA_Tooltip_ability_achlys_miserable_claws_Description" "Achlys' sinks her claws into her foe, poisoning their minds and withering their resolve, lowering their movement speed and armor with every stack, rooting them when their movement speed reaches the minimum. The target remains rooted for 3 seconds or until they face Achlys.\n\nThis ability is a Unique Attack Modifier and does not stack with other UAMs.\n\n<font color='#7D7D7D'>Imported from 'Hero Concepts (The Next Generation)'</font>\n"
+"DOTA_Tooltip_ability_achlys_miserable_claws_Description" "Achlys' sinks her claws into her foe, poisoning their minds and withering their resolve, lowering their movement speed and armor with every stack, rooting them when their movement speed reaches the minimum. The target remains rooted for 3 seconds or until they face Achlys.\n\n<font color='#7D7D7D'>Imported from 'Hero Concepts (The Next Generation)'</font>\n"
 "DOTA_Tooltip_ability_achlys_miserable_claws_duration" "STACK DURATION:"
 "DOTA_Tooltip_ability_achlys_miserable_claws_Lore" "The claws of the Eternal Night are truly a terrifying sight to see."
 "DOTA_Tooltip_ability_achlys_miserable_claws_Note0" "Root cannot be reapplied while active."

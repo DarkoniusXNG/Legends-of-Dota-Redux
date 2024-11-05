@@ -7,21 +7,20 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                     "ability_datadriven"
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"					"abilities/nextgeneration/hero_achlys/achlys_miserable_claws.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"            "custom/achlys_miserable_claws"
+        "ReduxPerks"                    "attack_modifier | autocast_basic"
+        "ReduxFlags"                    "attack_modifier"
 
         // Time     
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "150"
-
-        // Damage.
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityDuration"               "8"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
@@ -31,10 +30,11 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
         {
-            "armor_per_stack" "-0.5 -1 -1.5 -2"
-            "slow_per_stack" "-6 -8 -10 -12"
-            "duration" "8"
-            "root_duration" "1"
+            "armor_per_stack"               "-0.5 -1 -1.5 -2"
+            "slow_per_stack"                "-6 -8 -10 -12"
+            "duration"                      "8"
+            "root_duration"                 "1"
+            "trigger_essence_aura"          "1"
         }
 
         // Precache
@@ -46,158 +46,6 @@
             "particle"  "particles/units/heroes/hero_bane/bane_projectile.vpcf"
             "particle"  "particles/achlys_miserable_claws_debuff.vpcf"
             "particle"  "particles/achlys_miserable_claws_root.vpcf"
-        }
-
-        // Datadriven
-        //-------------------------------------------------------------------------------------------------------------
-        "Modifiers"
-        {
-            // Modifier to handle OrbEffect-Behaviour
-            "modifier_achlys_miserable_claws_handler"
-            {
-                // Will always stay on the caster once the ability is upgraded
-                // Hidden
-                "Passive"           "1"
-                "IsHidden"          "1"
-                "IsBuff"            "0"
-                "IsDebuff"          "0"
-                "IsPurgable"        "0"
-
-                // OrbEffect-Behaviour
-                "Orb"
-                {
-                    "Priority"          "DOTA_ORB_PRIORITY_ABILITY"
-                    "ProjectileName"    "particles/units/heroes/hero_bane/bane_projectile.vpcf"
-                    "CastAttack"        "1"
-                }
-
-                // HealthCost is handled here
-                "OnOrbFire"
-                {
-                    "FireSound"
-                    {
-                        "EffectName"    "Hero_LifeStealer.PreAttack"
-                        "Target"        "CASTER"
-                    }
-                    "SpendMana"
-                    {
-                        "Mana" "%AbilityManaCost"
-                    }
-                }
-
-                // Apply the hidden dot modifier to the target here
-                // Call IncreaseStackCount to keep stack count on modifier_burning_spear_datadriven_debuff_counter updated
-                "OnOrbImpact"
-                {
-                    "FireSound"
-                    {
-                        "EffectName"    "Hero_Nightstalker.Attack"
-                        "Target"        "TARGET"
-                    }
-                    
-                    "ApplyModifier"
-                    {
-                        "ModifierName"  "modifier_achlys_miserable_claws_debuff"
-                        "Target"        "TARGET"
-                    }
-
-                    "RunScript"
-                    {
-                        "ScriptFile"    "abilities/nextgeneration/hero_achlys/achlys_miserable_claws"
-                        "Function"      "IncreaseStackCount"
-                        "modifier_counter_name"     "modifier_achlys_miserable_claws_debuff_counter"
-                    }
-                }
-            }
-
-            // Modifier to show stack count
-            // Only visual
-            "modifier_achlys_miserable_claws_debuff_counter"
-            {
-                "Passive"           "0"
-                "IsHidden"          "0"
-                "IsBuff"            "0"
-                "IsDebuff"          "1"
-                "IsPurgable"        "1"
-                
-                "OnAttacked"
-                {
-                    "RunScript"
-                    {
-                        "ScriptFile"    "abilities/nextgeneration/hero_achlys/achlys_miserable_claws"
-                        "Function"      "CheckRoot"
-                    }
-                }
-            }
-
-            // Modifier to handle the dot
-            "modifier_achlys_miserable_claws_debuff"
-            {
-                "Passive"           "0"
-                "IsHidden"          "1"
-                "IsBuff"            "0"
-                "IsDebuff"          "1"
-                "IsPurgable"        "1"
-                "Duration"          "%duration"
-                
-                "EffectName"        "particles/achlys_miserable_claws_debuff.vpcf"
-                "EffectAttachType"  "follow_origin"
-
-                // Allow multiple instances of this modifier on the target
-                // Modifiers stack additivly (dmg) with independent durations
-                "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
-
-                // Updating visual modifier's stack count
-                "OnDestroy"
-                {
-                    "RunScript"
-                    {
-                        "ScriptFile"    "abilities/nextgeneration/hero_achlys/achlys_miserable_claws"
-                        "Function"      "DecreaseStackCount"
-
-                        "modifier_counter_name"     "modifier_achlys_miserable_claws_debuff_counter"
-                    }
-                }
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%slow_per_stack"
-                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"        "%armor_per_stack"
-                }
-            }
-            "modifier_achlys_miserable_claws_root"
-            {
-                "Passive"           "0"
-                "IsHidden"          "0"
-                "IsBuff"            "0"
-                "IsDebuff"          "1"
-                "IsPurgable"        "1"
-                
-                "EffectName"    "particles/achlys_miserable_claws_root.vpcf"
-                "EffectAttachType"  "follow_origin"
-                
-                "OnCreated"
-                {
-                    "FireSound"
-                    {
-                        "EffectName"    "Hero_Bane.Nightmare"
-                        "Target"        "CASTER"
-                    }
-                }
-
-                "ThinkInterval" "0.03"
-                "OnIntervalThink"
-                {
-                    "RunScript"
-                    {
-                        "ScriptFile"    "abilities/nextgeneration/hero_achlys/achlys_miserable_claws"
-                        "Function"      "CheckAngle"
-                    }
-                }
-                "States"
-                {
-                    "MODIFIER_STATE_ROOTED" "MODIFIER_STATE_VALUE_ENABLED"
-                }
-            }
         }
     }
     //=================================================================================================================
