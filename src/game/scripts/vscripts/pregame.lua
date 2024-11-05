@@ -1871,7 +1871,7 @@ function Pregame:networkHeroes()
             if heroData.BotImplemented == 1 then
                 self.botHeroes[heroName] = {}
 
-                for i = 1, DOTA_MAX_ABILITIES do
+                for i = 1, DOTA_MAX_ABILITIES - 1 do
                     local abName = heroData['Ability' .. i]
                     if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
                         table.insert(self.botHeroes[heroName], abName)
@@ -1931,16 +1931,19 @@ function Pregame:networkHeroes()
                 self.heroRole[heroName] = 'melee'
             end
 
-            if heroToSkillMap[heroName] then
-                for k,v in pairs(heroToSkillMap[heroName]) do
-                    theData[k] = v
+            local sn = 1
+            for i = 1, DOTA_MAX_ABILITIES - 1 do
+                local abName = heroData['Ability' .. i]
+                if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
+                    theData['Ability' .. sn] = abName
+                    sn = sn + 1
                 end
-            else
-                local sn = 1
-                for i = 1, DOTA_MAX_ABILITIES do
-                    local abName = heroData['Ability' .. i]
-                    if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
-                        theData['Ability' .. sn] = abName
+            end
+
+            if heroToSkillMap[heroName] then
+                for _, v in pairs(heroToSkillMap[heroName]) do
+                    if v and v ~= '' then
+                        theData['Ability' .. sn] = v
                         sn = sn + 1
                     end
                 end
@@ -1948,7 +1951,7 @@ function Pregame:networkHeroes()
 
             local sb = 1
             local talentStartIndex = heroData.AbilityTalentStart or baseHero.AbilityTalentStart
-            for i = tonumber(talentStartIndex), DOTA_MAX_ABILITIES do
+            for i = tonumber(talentStartIndex), DOTA_MAX_ABILITIES - 1 do
                 local abName = heroData['Ability' .. i]
                 if abName and util:IsTalent(abName) then
                     theData['SpecialBonus'..tostring(math.ceil(sb / 2))] = theData['SpecialBonus'..tostring(math.ceil(sb / 2))] or {}
@@ -1963,7 +1966,7 @@ function Pregame:networkHeroes()
             allowedHeroes[heroName] = true
 
             -- Store the owners
-            for i = 1, DOTA_MAX_ABILITIES do
+            for i = 1, DOTA_MAX_ABILITIES - 1 do
                 local abName = theData['Ability'..i]
                 if abName and abName ~= '' and abName ~= 'special_bonus_attributes' and abName ~= 'generic_hidden' then
                     self.abilityHeroOwner[abName] = heroName
@@ -6483,7 +6486,8 @@ function Pregame:multiplyNeutrals()
                 attacker = EntIndexToHScript( keys.entindex_attacker )
             end
 
-            if attacker:IsNull() or not attacker or not attacker:IsRealHero() then return end
+           if not attacker or attacker:IsNull() then return end
+           if not attacker:IsRealHero() then return end
 
             -- Neutral Multiplier: Checks if hurt npc is neutral, dead, and if it doesnt have the clone token ability, and their is a valid attacker
             if IsValidEntity(attacker) then
@@ -6825,14 +6829,12 @@ function Pregame:generateBotBuilds(singleID)
             npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_vengefulspirit = true, -- Crashes
-
         }
     else
         brokenBots = {
             npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_vengefulspirit = true, -- Crashes
-
         }
     end
 
@@ -7562,6 +7564,15 @@ function Pregame:applyExtraAbility( spawnedUnit )
             if spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH then essenceshiftToGive = "slark_essence_shift_strength_lod"
             elseif spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_AGILITY then essenceshiftToGive = "slark_essence_shift_agility_lod"
             elseif spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_INTELLECT then essenceshiftToGive = "slark_essence_shift_intellect_lod"
+            elseif spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_ALL then
+                local randomNumber = RandomInt(1, 3)
+                if randomNumber == 1 then
+                    essenceshiftToGive = "slark_essence_shift_strength_lod"
+                elseif randomNumber == 2 then
+                    essenceshiftToGive = "slark_essence_shift_agility_lod"
+                else
+                    essenceshiftToGive = "slark_essence_shift_intellect_lod"
+                end
             end
         end
 
@@ -7652,15 +7663,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     -- Various Fixes
     Timers:CreateTimer(function()
         if IsValidEntity(spawnedUnit) then
-            -- Silencer Fix NEEDS TO BE RUN EVERY SPAWN (below), AND ON FIXEDHERO FUNCTION
-                --[[if spawnedUnit:HasAbility('silencer_glaives_of_wisdom_steal') then
-                    if not spawnedUnit:HasModifier('modifier_silencer_int_steal') then
-                        spawnedUnit:AddNewModifier(spawnedUnit, spawnedUnit:FindAbilityByName("silencer_glaives_of_wisdom_steal"), 'modifier_silencer_int_steal', {})
-                    end
-                else
-                    spawnedUnit:RemoveModifierByName('modifier_silencer_int_steal')
-                end]]--
-
             -- Apply Bot Difficulty
             if util:isPlayerBot(playerID) then
                 if spawnedUnit:GetTeam() == DOTA_TEAM_GOODGUYS then
@@ -7759,39 +7761,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                     --spawnedUnit:SwapAbilities("sniper_assassinate","sniper_assassinate_redux",false,true)
                     --spawnedUnit:RemoveAbility("sniper_assassinate")
             --end
-            -- Change juxtapose to juxtapose ranged, for ranged heros
-            if spawnedUnit:HasAbility("phantom_lancer_juxtapose_melee") and spawnedUnit:IsRangedAttacker() then
-                    spawnedUnit:AddAbility("phantom_lancer_juxtapose_ranged")
-                    spawnedUnit:SwapAbilities("phantom_lancer_juxtapose_melee","phantom_lancer_juxtapose_ranged",false,true)
-                    spawnedUnit:RemoveAbility("phantom_lancer_juxtapose_melee")
-            end
-            -- Change Feast to Feast ranged, for ranged heros
-            if spawnedUnit:HasAbility("life_stealer_feast_melee") and spawnedUnit:IsRangedAttacker() then
-                    spawnedUnit:AddAbility("life_stealer_feast_ranged")
-                    spawnedUnit:SwapAbilities("life_stealer_feast_melee","life_stealer_feast_ranged",false,true)
-                    spawnedUnit:RemoveAbility("life_stealer_feast_melee")
-            end
-
-            -- if spawnedUnit:HasAbility("monkey_king_jingu_mastery_lod_melee") and spawnedUnit:IsRangedAttacker() then
-            --         spawnedUnit:AddAbility("monkey_king_jingu_mastery_lod_ranged")
-            --         spawnedUnit:SwapAbilities("monkey_king_jingu_mastery_lod_melee","monkey_king_jingu_mastery_lod_ranged",false,true)
-            --         spawnedUnit:RemoveAbility("monkey_king_jingu_mastery_lod_melee")
-            -- end
-
-            -- Change Overpower to Overpower ranged, for ranged heros
-            if spawnedUnit:HasAbility("ursa_overpower_melee") and spawnedUnit:IsRangedAttacker() then
-                    spawnedUnit:AddAbility("ursa_overpower_ranged")
-                    spawnedUnit:SwapAbilities("ursa_overpower_melee","ursa_overpower_ranged",false,true)
-                    spawnedUnit:RemoveAbility("ursa_overpower_melee")
-            end
-
-            if spawnedUnit:HasAbility("phantom_assassin_coup_de_grace_melee") and spawnedUnit:IsRangedAttacker() then
-                    spawnedUnit:AddAbility("phantom_assassin_coup_de_grace_ranged")
-                    spawnedUnit:SwapAbilities("phantom_assassin_coup_de_grace_melee","phantom_assassin_coup_de_grace_ranged",false,true)
-                    spawnedUnit:RemoveAbility("phantom_assassin_coup_de_grace_melee")
-            end
-
-
 
             -- Custom Flesh Heap fixes
             --[[for abilitySlot=0,6 do
@@ -8042,7 +8011,6 @@ function Pregame:fixSpawningIssues()
                     necronomicon_warrior_last_will_lod = true,
                     roshan_bash = true,
                     arc_warden_tempest_double = true,    -- This is to stop tempest doubles from getting the ability and using cooldown reduction to cast again
-                    arc_warden_tempest_double_redux = true,
                     aabs_thunder_musket = true,
                     mirana_starfall_lod = true,    -- This is buggy with tempest doubles for some reason
                     warlock_rain_of_chaos = true,    -- This is buggy with tempest doubles for some reason
@@ -8370,6 +8338,7 @@ ListenToGameEvent('game_rules_state_change', function(keys)
     local newState = GameRules:State_Get()
     if newState == DOTA_GAMERULES_STATE_PRE_GAME then
     elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+        GameRules:SetTimeOfDay(0.251) -- fix day/night cycle starting with night after 00:00
         -- if IsDedicatedServer() then
             -- if not util:isCoop() then
                 -- SU:SendPlayerBuild( buildBackups )

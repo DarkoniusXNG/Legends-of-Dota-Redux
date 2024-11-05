@@ -6,13 +6,9 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
         "AbilityTextureName"                                                   "treant_eyes_in_the_forest"
         "MaxLevel"                                                             "1"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "1000"
-            }
+            "radius" "1000"
         }
         "Modifiers"
         {

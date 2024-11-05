@@ -931,7 +931,7 @@ function imba_warlock_rain_of_chaos:OnSpellStart()
 
 			-- -- Calculate bonus properties based on Warlock's stats
 			-- local bonus_hp = caster:GetStrength() * bonus_hp_per_str
-			-- local bonus_damage = caster:GetIntellect() * bonus_damage_per_int
+			-- local bonus_damage = caster:GetIntellect(false) * bonus_damage_per_int
 			-- local bonus_armor = caster:GetAgility() * bonus_armor_per_agi
 			-- local bonus_attack_speed = caster:GetAgility() * bonus_aspeed_per_agi
 			-- local bonus_move_speed = caster:GetMoveSpeedModifier(caster:GetBaseMoveSpeed(), false) - caster:GetBaseMoveSpeed()
@@ -1090,7 +1090,7 @@ function imba_warlock_rain_of_chaos:SummonGolem(target_point, bScepter, bDeath)
 
 		-- Calculate bonus properties based on Warlock's stats
 		local bonus_hp				= self:GetCaster():GetStrength() 	* self:GetSpecialValueFor("bonus_hp_per_str")
-		local bonus_damage			= self:GetCaster():GetIntellect()	* self:GetSpecialValueFor("bonus_damage_per_int")
+		local bonus_damage			= self:GetCaster():GetIntellect(false)	* self:GetSpecialValueFor("bonus_damage_per_int")
 		local bonus_armor			= self:GetCaster():GetAgility()		* self:GetSpecialValueFor("bonus_armor_per_agi")
 		local bonus_attack_speed	= self:GetCaster():GetAgility()		* self:GetSpecialValueFor("bonus_aspeed_per_agi")
 		local bonus_move_speed		= self:GetCaster():GetMoveSpeedModifier(self:GetCaster():GetBaseMoveSpeed(), false) - self:GetCaster():GetBaseMoveSpeed()

@@ -24,13 +24,9 @@
                 }
             }
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "reduce_per"                                           "2 3 4 5"
-            }
+            "reduce_per" "2 3 4 5"
         }
         "ReduxCost"                                                            "120"
         "ReduxBans"                                                            "zhanhun"

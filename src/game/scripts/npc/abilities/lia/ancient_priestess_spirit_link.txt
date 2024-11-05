@@ -22,38 +22,14 @@
             "particle"                                                     "particles/units/heroes/hero_lone_druid/lone_druid_spiritlink_cast.vpcf"
 			"particle"													   "particles/econ/taunts/snapfire/snapfire_taunt_bubble.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "1200"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "distribution_factor"                                  "0.5"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "distribution_tooltip"                                 "50"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "max_unit"                                             "6 8 10 12"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "heal_value"                                           "4 6 8 10"
-            }
-            "06"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "duration"                                             "10 15 20 25"
-            }
+            "radius" "1200"
+            "distribution_factor" "0.5"
+            "distribution_tooltip" "50"
+            "max_unit" "6 8 10 12"
+            "heal_value" "4 6 8 10"
+            "duration" "10 15 20 25"
         }
         "ReduxFlags"                                                           "support | tank"
         "ReduxPerks"                                                           "support"

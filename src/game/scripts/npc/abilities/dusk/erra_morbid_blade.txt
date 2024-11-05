@@ -13,6 +13,8 @@
 		"FightRecapLevel"			   "1"
 		"AbilityTextureName"			"custom/erra_morbid_blade"
 		"AoERadius"					 "%radius"
+		"ReduxPerks"					"physical"
+		"ReduxFlags"					"physical"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -37,36 +39,18 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			  "FIELD_INTEGER"
-				"pure_threshold"		"50"
-			}
-			
-			"02"
-			{
-				"var_type"			  "FIELD_INTEGER"
-				"radius"				"325 350 375 400"
-			}
-
-			"03"
-			{
-				"var_type"			  "FIELD_INTEGER"
-				"lifesteal"			 "6 9 12 15"
-			}
-		}
+		"AbilityValues"
+        {
+            "pure_threshold" "50"
+            "radius" "325 350 375 400"
+            "lifesteal" "6 9 12 15"
+        }
 
 		"precache"
 		{
 			"soundfile" "soundevents/hero_erra.vsndevts"
 			"particle"  "particles/units/heroes/hero_erra/morbid_blade.vpcf"
+			"particle"  "particles/units/heroes/hero_erra/morbid_blade_below_threshold.vpcf"
 		}
-
-		"Modifiers"
-		{
-		}
-
 	}
 }

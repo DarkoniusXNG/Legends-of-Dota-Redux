@@ -9,21 +9,13 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "HasScepterUpgrade"                                                    "0"
         "AbilityCooldown"                                                      "1.25"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-        				"bonus"						"2.5 5.0 6.5 8.0" //chance
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-        				"duration"						"0.75"
-            }
+            "bonus" "2.5 5.0 6.5 8.0" // chance
+            "duration" "0.75"
         }
         "ReduxFlags"                                                           "bash | attack_modifier"
-        "ReduxBans"                                                            ""
+        //"ReduxBans"                                                            ""
         //"ReduxPerks"                                                           ""
         "ReduxCost"                                                            "120"
     }

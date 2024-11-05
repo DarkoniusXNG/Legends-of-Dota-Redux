@@ -26,23 +26,11 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "camps_spawned"                 "1"
-            }
-            "02"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "spawn_radius"                  "350"
-            }
-            "03"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "channel_time"                  "1"
-            }
+            "camps_spawned" "1"
+            "spawn_radius" "350"
+            "channel_time" "1"
         }
     }
 
@@ -71,23 +59,11 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "camps_spawned"                 "1"
-            }
-            "02"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "spawn_radius"                  "350"
-            }
-            "03"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "channel_time"                  "2"
-            }
+            "camps_spawned" "1"
+            "spawn_radius" "350"
+            "channel_time" "2"
         }
     }
 
@@ -116,23 +92,11 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "camps_spawned"                 "1"
-            }
-            "02"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "spawn_radius"                  "350"
-            }
-            "03"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "channel_time"                  "3"
-            }
+            "camps_spawned" "1"
+            "spawn_radius" "350"
+            "channel_time" "3"
         }
     }
 
@@ -162,23 +126,11 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "camps_spawned"                 "1"
-            }
-            "02"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "spawn_radius"                  "350"
-            }
-            "03"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "channel_time"                  "3"
-            }
+            "camps_spawned" "1"
+            "spawn_radius" "350"
+            "channel_time" "3"
         }
     }
 
@@ -209,23 +161,11 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "camps_spawned"                 "1 2 3 4"
-            }
-            "02"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "spawn_radius"                  "350"
-            }
-            "03"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "channel_time"                  "1"
-            }
+            "camps_spawned" "1 2 3 4"
+            "spawn_radius" "350"
+            "channel_time" "1"
         }
     }
 
@@ -257,23 +197,11 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "camps_spawned"                 "1 2 3 4"
-            }
-            "02"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "spawn_radius"                  "350"
-            }
-            "03"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "channel_time"                  "1"
-            }
+            "camps_spawned" "1 2 3 4"
+            "spawn_radius" "350"
+            "channel_time" "1"
         }
     }
 
@@ -304,23 +232,11 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "camps_spawned"                 "1 2 3 4"
-            }
-            "02"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "spawn_radius"                  "350"
-            }
-            "03"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "channel_time"                  "1"
-            }
+            "camps_spawned" "1 2 3 4"
+            "spawn_radius" "350"
+            "channel_time" "1"
         }
     }
 
@@ -352,23 +268,11 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "camps_spawned"                 "1 2 3 4"
-            }
-            "02"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "spawn_radius"                  "350"
-            }
-            "03"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "channel_time"                  "1"
-            }
+            "camps_spawned" "1 2 3 4"
+            "spawn_radius" "350"
+            "channel_time" "1"
         }
     }
 }

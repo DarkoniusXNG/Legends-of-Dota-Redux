@@ -7,13 +7,9 @@
         "AbilityTextureName"                                                   "custom/basic_spell_amp_bonus"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "spell_amp_bonus"                                          "5 10 15 20"
-            }
+            "spell_amp_bonus" "5 10 15 20"
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "0"
@@ -26,13 +22,9 @@
         "AbilityTextureName"                                                   "custom/basic_spell_amp_bonus_op"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "spell_amp_bonus"                                         "30 60 90 120"
-            }
+            "spell_amp_bonus" "30 60 90 120"
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "120"

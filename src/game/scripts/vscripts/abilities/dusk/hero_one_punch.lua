@@ -13,7 +13,7 @@ function hero_one_punch:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local delay = self:GetSpecialValueFor("landing_delay")
 
-	caster:AddNewModifier(caster, self, "modifier_one_punch", {Duration=0.03})
+	caster:AddNewModifier(caster, self, "modifier_one_punch", {duration=0.03})
 
 	caster:PerformAttack(
 					target,
@@ -31,8 +31,6 @@ function hero_one_punch:OnSpellStart()
 
 	ScreenShake(target:GetCenter(), 1200, 170, 0.3, 1200, 0, true)
 
-	ParticleManager:CreateParticle("particles/units/heroes/hero_hero/hero_one_punch_mega_crit.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
-
 	Timers:CreateTimer(0.03,function()
 		if target:IsAlive() then
 			target:AddNewModifier(caster, self, "modifier_one_punch_air", {duration = delay+0.6})
@@ -40,6 +38,8 @@ function hero_one_punch:OnSpellStart()
 	end)
 
 end
+
+---------------------------------------------------------------------------------------------------
 
 modifier_one_punch = class({})
 
@@ -70,6 +70,8 @@ function modifier_one_punch:IsHidden()
 	return true
 end
 
+---------------------------------------------------------------------------------------------------
+
 modifier_one_punch_air = class({})
 
 function modifier_one_punch_air:OnCreated(kv)
@@ -92,19 +94,16 @@ function modifier_one_punch_air:OnCreated(kv)
 
 		local fx = CreateModifierThinker( caster, self, "modifier_truesight", {Duration=delay+1.25}, self:GetParent():GetAttachmentOrigin(DOTA_PROJECTILE_ATTACHMENT_HITLOCATION), caster:GetTeamNumber(), false )
 
-		self:GetParent():AddNewModifier(caster, nil, "modifier_invulnerable", {Duration=delay+0.4}) --[[Returns:void
-		No Description Set
-		]]
+		self:GetParent():AddNewModifier(caster, nil, "modifier_invulnerable", {Duration=delay+0.4})
 
-		ParticleManager:CreateParticle("particles/units/heroes/hero_hero/one_punch_air.vpcf", PATTACH_ABSORIGIN_FOLLOW, fx)
+		local particle1 = ParticleManager:CreateParticle("particles/units/heroes/hero_hero/one_punch_air.vpcf", PATTACH_ABSORIGIN_FOLLOW, fx)
+		local particle2
 
 		self:SetStackCount(1)
 
 		Timers:CreateTimer(delay,function()
-
-			local part = ParticleManager:CreateParticle("particles/units/heroes/hero_hero/one_punch_land.vpcf", PATTACH_ABSORIGIN_FOLLOW, fx)
-			ParticleManager:SetParticleControl(part, 2, Vector(radius,0,0))
-
+			particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_hero/one_punch_land.vpcf", PATTACH_ABSORIGIN_FOLLOW, fx)
+			ParticleManager:SetParticleControl(particle2, 2, Vector(radius,0,0))
 		end)
 
 		Timers:CreateTimer(delay+0.5,function()
@@ -119,18 +118,16 @@ function modifier_one_punch_air:OnCreated(kv)
 
 			for k,v in pairs(enemies) do
 				InflictDamage(v,caster,self:GetAbility(),damage,DAMAGE_TYPE_MAGICAL)
-				v:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", {Duration=stun}) --[[Returns:void
-				No Description Set
-				]]
+				v:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", {Duration=stun})
+				v:RemoveNoDraw()
 			end
+
+			ParticleManager:ReleaseParticleIndex(particle1)
+			ParticleManager:ReleaseParticleIndex(particle2)
 
 			self:Destroy()
 		end)
 	end
-end
-
-function modifier_one_punch_air:OnDestroy()
-	self:GetParent():RemoveNoDraw()	--attempt to call method 'RemoveNoDraw' (a nil value)
 end
 
 function modifier_one_punch_air:CheckState()
@@ -144,8 +141,8 @@ function modifier_one_punch_air:CheckState()
 	return state
 end
 
-function modifier_one_punch_air:GetAttributes()
-	return MODIFIER_ATTRIBUTE_PERMANENT
+function modifier_one_punch_air:IsPurgable()
+	return false
 end
 
 function modifier_one_punch_air:IsHidden()
@@ -167,13 +164,15 @@ end
 function FindEnemies(caster,point,radius,targets,flags)
   local targets = targets or DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_CREEP
   local flags = flags or DOTA_UNIT_TARGET_FLAG_NONE
-  return FindUnitsInRadius( caster:GetTeamNumber(),
-                            point,
-                            nil,
-                            radius,
-                            DOTA_UNIT_TARGET_TEAM_ENEMY,
-                            targets,
-                            flags,
-                            FIND_CLOSEST,
-                            false)
+  return FindUnitsInRadius( 
+    caster:GetTeamNumber(),
+    point,
+    nil,
+    radius,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    targets,
+    flags,
+    FIND_ANY_ORDER,
+    false
+  )
 end

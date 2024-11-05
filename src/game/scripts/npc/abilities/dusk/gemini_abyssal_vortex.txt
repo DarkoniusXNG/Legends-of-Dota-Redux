@@ -51,29 +51,13 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"chargetime"			"4.00"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"650"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"pull_speed"			"350 375 400"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"scepter_stundur"		"1.40"
-			}
-		}
+		"AbilityValues"
+        {
+            "chargetime" "4.00"
+            "radius" "650"
+            "pull_speed" "350 375 400"
+            "scepter_stundur" "1.40"
+        }
 
 		"OnSpellStart"
 		{

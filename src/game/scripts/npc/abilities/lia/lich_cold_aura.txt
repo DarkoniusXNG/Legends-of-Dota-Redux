@@ -14,28 +14,12 @@
         "AbilityCastPoint"                                                     "0"
         "AbilityCooldown"                                                      "0"
         "AbilityManaCost"                                                      "0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "slow"                                                 "-10 -15 -20"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "damage"                                               "2.0 3.5 5.0"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "armor_bonus"                                          "5 10 15"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "700"
-            }
+            "slow" "-10 -15 -20"
+            "damage" "2.0 3.5 5.0"
+            "armor_bonus" "5 10 15"
+            "radius" "700"
         }
         "precache"
         {

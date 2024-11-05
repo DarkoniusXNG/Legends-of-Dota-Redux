@@ -1,0 +1,95 @@
+// Abilities for batrider
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Batrider: Sticky Napalm
+	//=================================================================================================================
+	"batrider_sticky_napalm"
+	{
+		"ReduxPerks"                    "fire"
+		"ReduxCost"                     "80"
+	}
+
+	//=================================================================================================================
+	// Batrider: Slow Burn (Innate)
+	//=================================================================================================================
+	"batrider_smoldering_resin"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+	}
+
+	//=================================================================================================================
+	// Batrider: Stoked (Facet)
+	//=================================================================================================================
+	"batrider_stoked"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	}
+
+	//=================================================================================================================
+	// Batrider: Flamebreak
+	//=================================================================================================================
+	"batrider_flamebreak"
+	{
+		"ReduxPerks"                    "fire | skillshot | enemyMoving | explosive"
+	}
+
+	//=================================================================================================================
+	// Batrider: Firefly
+	//=================================================================================================================
+	"batrider_firefly"
+	{
+		"ReduxFlags"                "mobility"
+		"ReduxPerks"                "mobility | fire"
+	}
+
+	//=================================================================================================================
+	// Batrider: Flaming Lasso
+	//=================================================================================================================
+	"batrider_flaming_lasso"
+	{
+		"ReduxFlags"                    "upgradeable | stun"
+		"ReduxPerks"                    "fire | enemyMoving"
+		"ReduxCost"                     "10"
+	}
+
+	"special_bonus_unique_batrider_1"
+	{
+		"TalentRequiredAbility"			"batrider_firefly"
+	}
+
+	"special_bonus_unique_batrider_2"
+	{
+		"TalentRequiredAbility"			"batrider_flamebreak"
+	}
+
+	"special_bonus_unique_batrider_3"
+	{
+		"TalentRequiredAbility"			"batrider_flamebreak"
+	}
+
+	"special_bonus_unique_batrider_4"
+	{
+		"TalentRequiredAbility"			"batrider_sticky_napalm"
+	}
+
+	"special_bonus_unique_batrider_5"
+	{
+		"TalentRequiredAbility"			"batrider_flamebreak"
+	}
+
+	"special_bonus_unique_batrider_6"
+	{
+		"TalentRequiredAbility"			"batrider_flaming_lasso"
+	}
+
+	"special_bonus_unique_batrider_7"
+	{
+		"TalentRequiredAbility"			"batrider_sticky_napalm"
+	}
+
+	"special_bonus_unique_batrider_smoldering_resin_ticks"
+	{
+		"TalentRequiredAbility"			"batrider_smoldering_resin"
+	}
+}

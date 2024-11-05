@@ -91,7 +91,7 @@ function jetOrder(filterTable)
 					jet:StartCooldown(jet:GetCooldown(-1))
 				end
 				jet:OnSpellStart()
-				caster:SpendMana(jet:GetManaCost(-1), caster)
+				caster:SpendMana(jet:GetManaCost(-1), jet)
 				
 			end
 		end
@@ -113,7 +113,7 @@ function jetOrder(filterTable)
 					jet:StartCooldown(jet:GetCooldown(-1))
 				end
 				jet:OnSpellStart()
-				caster:SpendMana(jet:GetManaCost(-1), caster)
+				caster:SpendMana(jet:GetManaCost(-1), jet)
 			end
 		end
 	end

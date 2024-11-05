@@ -9,33 +9,13 @@
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "700"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage_per_second"                                    "30 50 70"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "slow"                                                 "-15 -25 -35"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "area_of_effect"                                       "700"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage_per_tick"                                      "15 25 35"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "tick_rate"                                            "0.5"
-            }
+            "damage_per_second" "30 50 70"
+            "slow" "-15 -25 -35"
+            "area_of_effect" "700"
+            "damage_per_tick" "15 25 35"
+            "tick_rate" "0.5"
         }
         "Modifiers"
         {

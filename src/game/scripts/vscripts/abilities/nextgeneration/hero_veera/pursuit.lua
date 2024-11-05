@@ -94,7 +94,7 @@ function PursuitDamage( keys )
         end
     end
     
-    amount = amount * (1 + (.08 * lens_count) + (.01 * caster:GetIntellect()/16) )
+    amount = amount * (1 + (.08 * lens_count) + (.01 * caster:GetIntellect(false)/16) )
 
     amount = math.floor(amount)
 

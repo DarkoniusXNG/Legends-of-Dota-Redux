@@ -6,13 +6,9 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
         "AbilityTextureName"                                                   "custom/aether_range_lod_OP"
         "MaxLevel"                                                             "1"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "cast_range_bonus"                                     "20000"
-            }
+            "cast_range_bonus" "20000"
         }
         "OnOwnerSpawned"
         {

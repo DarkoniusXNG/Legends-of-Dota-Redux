@@ -3,22 +3,19 @@
     "necronomicon_warrior_mana_burn_lod"
     {
         "BaseClass"                                                            "necronomicon_warrior_mana_burn"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
         "MaxLevel"                                                             "4"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "burn_amount"                                          "25 50 75 100"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "burn_damage_conversion"                               "60"
-            }
+			"burn_amount"
+			{
+				"value" "35 40 45 50"
+			}
+			"burn_damage_conversion"
+			{
+				"value" "50"
+			}
         }
         "ReduxFlags"                                                           "attack_modifier"
         "ReduxPerks"                                                           "neutral | attack_modifier"

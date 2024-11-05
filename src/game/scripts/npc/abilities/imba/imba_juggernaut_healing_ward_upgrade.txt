@@ -9,33 +9,13 @@
         "AbilityCastPoint"                                                     "0.0"
         "AbilityCooldown"                                                      "0"
         "AbilityManaCost"                                                      "0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "health"                                               "12 12 15 18"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "heal_radius"                                          "750"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius_bonus_totem"                                   "250"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "heal_bonus_totem"                                     "2"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "health_bonus_totem"                                   "9"
-            }
+            "health" "12 12 15 18"
+            "heal_radius" "750"
+            "radius_bonus_totem" "250"
+            "heal_bonus_totem" "2"
+            "health_bonus_totem" "9"
         }
         "OnSpellStart"
         {

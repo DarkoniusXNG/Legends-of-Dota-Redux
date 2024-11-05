@@ -7,23 +7,11 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityTextureName"                                                   "custom/brawler_agi"
         "AbilityCastRange"                                                     "%radius"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "brawler_agility_bonus"                         "40 60 80"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "400"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "think_interval"                                       "0.1"
-            }
+            "brawler_agility_bonus" "40 60 80"
+            "radius" "400"
+            "think_interval" "0.1"
         }
         "precache"
         {

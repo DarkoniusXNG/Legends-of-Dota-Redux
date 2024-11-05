@@ -6,19 +6,89 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "MaxLevel"                                                             "20"
         "AbilityTextureName"                                                   "custom/dragon_knight_dragon_blood_OP"
-        "AbilitySpecial"
+        "AbilityValues"
 		{
-			"01"
+			// GREEN DRAGON
+			"is_green_dragon"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_health_regen"			"4 7 10 13 16 19 21 24 27 30 33 36 39 42 45 48 51 54 57 60"
-				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight"
+				"value"							"1"
+				"special_bonus_facet_dragon_knight_corrosive_dragon"		"+0"
 			}
-			"02"
+			"corrosive_breath_damage"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_armor"					"4 7 10 13 16 19 21 24 27 30 33 36 39 42 45 48 51 54 57 60"
-				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight"
+				"value"							"10 20 30 40"
+				"RequiresFacet"				""
+			}
+			"corrosive_breath_duration"
+			{
+				"value"							"3"
+				"RequiresFacet"				""
+			}
+			"corrosive_breath_armor_reduction"
+			{
+				"value"							"2 4 6 8"
+				"RequiresFacet"				""
+			}
+
+			// RED DRAGON
+			"is_red_dragon"
+			{
+				"value"							"1"
+				"special_bonus_facet_dragon_knight_fire_dragon"		"+0"
+			}
+			"cleave_starting_width"
+			{
+				"value"			"150"
+				// intentionally omitted affected_by_aoe_increase here because it warps the cleave box too much
+				"RequiresFacet"				""
+				"affected_by_aoe_increase"	"1"
+			}
+			"cleave_ending_width"
+			{
+				"value"							"260"
+				"affected_by_aoe_increase"		"1"
+				"RequiresFacet"				""
+				"affected_by_aoe_increase"	"1"
+			}
+			"cleave_distance"
+			{
+				"value"							"800"
+				"affected_by_aoe_increase"		"1"
+				"RequiresFacet"				""
+				"affected_by_aoe_increase"	"1"
+			}
+			"cleave_damage"
+			{
+				"value"							"30 45 60 75"
+				"RequiresFacet"				""
+			}
+
+
+			// BLUE DRAGON
+			"is_blue_dragon"
+			{
+				"value"							"1"
+				"special_bonus_facet_dragon_knight_frost_dragon"		"+0"
+			}
+			"frost_bonus_movement_speed"	
+			{
+				"value"				"-20 -30 -40 -50"
+				"RequiresFacet"	""
+			}
+			"frost_bonus_attack_speed"		
+			{
+				"value"				"-20 -30 -40 -50"
+				"RequiresFacet"	""
+			}
+			"frost_duration"
+			{
+				"value"				"3.0 3.0 3.0 3.0"
+				"RequiresFacet"	""
+			}
+			"frost_healing_reduction"		
+			{
+				"value"				"20 30 40 50"
+				"RequiresFacet"	""
 			}
 		}
         "ReduxCost"                                                            "120"

@@ -8,18 +8,10 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "HasScepterUpgrade"                                                    "0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-        				"bonus"						"25.0 50.0 75.0 100.0"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-        				"max"						"3000.0"
-            }
+            "bonus" "25.0 50.0 75.0 100.0"
+            "max" "3000.0"
         }
         "ReduxFlags"                                                           ""
         "ReduxBans"                                                            ""

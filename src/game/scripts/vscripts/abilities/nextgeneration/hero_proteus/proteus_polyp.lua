@@ -90,7 +90,13 @@ function PolypBonusDamage(keys)
 
 	if owner.bonusDamage and target:IsAlive() then
 		target:EmitSound("Hero_Shared.WaterFootsteps")
-		ApplyDamage({ victim = target, attacker = owner, damage = owner.bonusDamage, damage_type = DAMAGE_TYPE_PHYSICAL })
+		ApplyDamage({
+			victim = target,
+			attacker = owner,
+			damage = owner.bonusDamage,
+			damage_type = DAMAGE_TYPE_PHYSICAL,
+			ability = ability,
+		})
 		SendOverheadEventMessage( owner:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, owner.bonusDamage, nil )
 	end
 end

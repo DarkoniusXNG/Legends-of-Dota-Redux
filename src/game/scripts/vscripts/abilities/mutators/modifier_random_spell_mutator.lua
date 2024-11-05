@@ -90,16 +90,32 @@ function modifier_random_spell_mutator.OnIntervalThink(self)
                 unit:SetTeam(DOTA_TEAM_NEUTRALS )
             end
 
-            if (bit.band(ability:GetBehavior(),DOTA_ABILITY_BEHAVIOR_UNIT_TARGET))==DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
+            local behavior_int = ability:GetBehaviorInt()
+            local behavior = ability:GetBehavior()
+            if type(behavior) == 'userdata' then
+                behavior = tonumber(tostring(behavior))
+            end
+            if not behavior then
+                behavior = DOTA_ABILITY_BEHAVIOR_NONE
+            end
+            if not behavior_int then
+                behavior_int = DOTA_ABILITY_BEHAVIOR_NONE
+            end
+
+            local isNoTarget = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) > 0 or bit.band(behavior_int, DOTA_ABILITY_BEHAVIOR_NO_TARGET) > 0
+            local isUnitTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) > 0 or bit.band(behavior_int, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) > 0
+            local isPointTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) > 0 or bit.band(behavior_int, DOTA_ABILITY_BEHAVIOR_POINT) > 0
+
+            if isUnitTargetting then
                 unit:SetCursorCastTarget(hero)
                 ability:OnSpellStart()
                 --unit:CastAbilityOnTarget( hero, ability, -1 )
-            elseif (bit.band(ability:GetBehavior(),DOTA_ABILITY_BEHAVIOR_POINT))==DOTA_ABILITY_BEHAVIOR_POINT then
+            elseif isPointTargetting then
                 unit:SetCursorCastTarget(hero)
                 unit:SetCursorPosition(hero:GetAbsOrigin())
                 ability:OnSpellStart()
                 --unit:CastAbilityOnPosition( hero:GetAbsOrigin(), ability, -1 )
-            elseif (bit.band(ability:GetBehavior(),DOTA_ABILITY_BEHAVIOR_NO_TARGET))==DOTA_ABILITY_BEHAVIOR_NO_TARGET then
+            elseif isNoTarget then
                 ability:OnSpellStart()
                 --unit:CastAbilityNoTarget(ability,-1)
             end

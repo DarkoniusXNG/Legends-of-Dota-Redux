@@ -17,19 +17,10 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"              "0.0"
         
-        "AbilitySpecial" 
+        "AbilityValues"
         {
-            "01" 
-            {
-                "var_type" "FIELD_INTEGER"
-                "str" "1 2 3 5"
-            }
-            
-            "02" // This is for the tooltips
-            {
-                "var_type" "FIELD_FLOAT"
-                "gold_cost_toolip" "100 300 400 700"
-            }
+            "str" "1 2 3 5"
+            "gold_cost_toolip" "100 300 400 700"
         }
 
         "OnSpellStart"

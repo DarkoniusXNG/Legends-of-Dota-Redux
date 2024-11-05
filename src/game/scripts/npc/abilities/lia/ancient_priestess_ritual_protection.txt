@@ -17,23 +17,11 @@
 			"particle"													   "particles/units/heroes/hero_dazzle/dazzle_lucky_charm.vpcf"
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage_absorb"                                        "300 600 900"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "1200"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "duration"                                             "15"
-            }
+            "damage_absorb" "300 600 900"
+            "radius" "1200"
+            "duration" "15"
         }
         "ReduxFlags"                                                           "support"
         "ReduxPerks"                                                           "support | light"

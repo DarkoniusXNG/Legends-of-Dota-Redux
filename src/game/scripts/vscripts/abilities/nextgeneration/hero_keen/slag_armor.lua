@@ -85,7 +85,7 @@ function SlagArmorDamage(keys)
             lens_count = lens_count + 1
         end
     end
-    amount = amount * (1 + (.05 * lens_count) + ( .01 * caster:GetIntellect() / 16 ))
+    amount = amount * (1 + (.05 * lens_count) + ( .01 * caster:GetIntellect(false) / 16 ))
     amount = math.floor(amount)
 
     PopupNumbers(target, "damage", Vector(255, 133, 51), 2.0, amount, nil, POPUP_SYMBOL_POST_EYE)]]

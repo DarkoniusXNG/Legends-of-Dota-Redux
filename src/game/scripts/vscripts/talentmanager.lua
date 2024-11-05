@@ -20,13 +20,12 @@ function StoreTalents()
     -- Get and order default talents
     local allHeroes = GameRules.KVs.herolist
     local baseHero = GetUnitKeyValuesByName("npc_dota_hero_base")
-    local abilitiesOverride = GameRules.KVs["npc_abilities_override"]
     for hero, _ in pairs(allHeroes) do
         local params = GetUnitKeyValuesByName(hero)
         -- Find first talent
         if params then
             local talentIndex = params.AbilityTalentStart or baseHero.AbilityTalentStart
-            for i = 1, DOTA_MAX_ABILITIES do
+            for i = 1, DOTA_MAX_ABILITIES - 1 do
                 if params["Ability"..i] and util:IsTalent(params["Ability"..i]) then
                     talentIndex = i
                     break
@@ -37,8 +36,8 @@ function StoreTalents()
                     local n = talentIndex + i -1
                     local t = math.ceil(i/2) -- talent row (bottom is 1, top is 4)
                     if params["Ability"..n] then
-                        local talent_kvs = abilitiesOverride[params["Ability"..n]] -- 'params["Ability"..n]' is the talent name
-						-- Add to the talent list only if TalentRequiredAbility kv exists and if not in the talent list already
+                        local talent_kvs = GetAbilityKeyValuesByName(params["Ability"..n]) -- 'params["Ability"..n]' is the talent name
+                        -- Add to the talent list only if TalentRequiredAbility kv exists and if not in the talent list already
                         if talent_kvs and talent_kvs.TalentRequiredAbility and not TalentList[t][params["Ability"..n]] then
                             TalentList[t][params["Ability"..n]] = talent_kvs.TalentRequiredAbility -- name of the ability that is improved by the talent
                             TalentList["count"..t] = TalentList["count"..t] + 1 -- increases the counter
@@ -267,7 +266,6 @@ function GetViableTalents(build)
                     end
                 end
             end
-            
         end
     end
     return ViableTalents

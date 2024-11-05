@@ -32,28 +32,12 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_min"				"100 200 300"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_max"				"200 400 600"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"700"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed"						"500"  // 1.2 second to reach radius
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_min" "100 200 300"
+            "damage_max" "200 400 600"
+            "radius" "700"
+            "speed" "500"
+        }
 	}
 }

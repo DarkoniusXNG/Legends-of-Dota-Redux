@@ -261,25 +261,19 @@ function hawkeye_ricochet_propagate(event)
   local target = event.target
   local radius = event.radius
   local damage = event.damage
-  local enemy_found = FindUnitsInRadius( caster:GetTeamNumber(),
-                              target:GetCenter(),
-                              nil,
-                                radius,
-                                DOTA_UNIT_TARGET_TEAM_ENEMY,
-                                DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_CREEP,
-                                DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
-                                FIND_CLOSEST,
-                                false)
+  local enemy_found = FindUnitsInRadius(
+    caster:GetTeamNumber(),
+    target:GetCenter(),
+    nil,
+    radius,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_CREEP,
+    DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+    FIND_ANY_ORDER,
+    false
+  )
                                 
   for k,v in pairs(enemy_found) do
-    --[[local damage_table = {
-    victim = v,
-    attacker = caster,
-    damage = damage,
-    damage_type = DAMAGE_TYPE_PHYSICAL,
-    ability = event.ability
-    } ]]
-    --ApplyDamage(damage_table)
     caster:PerformAttack(v,true,true,true,false,true, false, true)
   end
   

@@ -17,38 +17,14 @@
         "AbilityManaCost"                                                      "150"
         "AbilityChannelTime"                                                   "10 14 18 22"
         "ReduxPerks"                                                           "earth"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "600"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "spot_radius"                                          "200"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage"                                               "65 80 95 110"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "stun_duration"                                        "1.0"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "think_interval"                                       "0.1"
-            }
-            "06"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "tooltip_channel"                                      "10 14 18 22"
-            }
+            "radius" "600"
+            "spot_radius" "200"
+            "damage" "65 80 95 110"
+            "stun_duration" "1.0"
+            "think_interval" "0.1"
+            "tooltip_channel" "10 14 18 22"
         }
         "precache"
         {

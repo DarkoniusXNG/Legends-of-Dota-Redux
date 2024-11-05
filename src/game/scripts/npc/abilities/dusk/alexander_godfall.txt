@@ -13,6 +13,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityChannelTime"			"0.5"
 		"AbilityTextureName"			"custom/alexander_godfall"
+		"ReduxPerks"					"channeled | light"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -35,24 +36,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"duration"						"30"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage"						"150 225 300"
-			}
-		//	"03"
-		//	{
-		//		"var_type"						"FIELD_INTEGER"
-		//		"scepter_mult"					"75"
-		//	}
-		}
+		"AbilityValues"
+        {
+            "duration" "30"
+            "damage" "150 225 300"
+        }
 		
 		"precache"
 		{
@@ -64,11 +52,5 @@
 			"soundfile" "soundevents/hero_alexander.vsndevts"
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
 		}
-		
-		"Modifiers"
-		{
-		}
-
-
 	}
 }

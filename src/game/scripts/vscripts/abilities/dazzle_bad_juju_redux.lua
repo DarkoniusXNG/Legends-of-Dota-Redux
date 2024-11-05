@@ -50,18 +50,21 @@ if IsServer() then
 		local caster = event.unit
 
 		if parent:PassivesDisabled() then return end
-		
+
+		-- Check if caster has this modifier
+		if caster ~= parent then return end
+
 		if not cast_ability or cast_ability:IsNull() then
-			return 
+			return
 		end
 		if not cast_ability.GetAbilityKeyValues then
 			return
 		end
-		
+
 		local ability_data = cast_ability:GetAbilityKeyValues()
 		local ability_mana_cost = cast_ability:GetManaCost(-1)
 		local ability_cooldown = cast_ability:GetCooldown(-1)
-		
+
 		-- Ignore items
 		if cast_ability:IsItem() then
 			return
@@ -86,10 +89,10 @@ if IsServer() then
 		if ability_cooldown == 0 then
 			return
 		end
-		
+
 		local radius = bad_juju:GetSpecialValueFor('radius')
 		local debuff_duration = bad_juju:GetSpecialValueFor("duration")
-		
+
 		-- Find the targets
 		local enemies = FindUnitsInRadius(
 			parent:GetTeam(),

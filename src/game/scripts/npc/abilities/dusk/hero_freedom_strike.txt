@@ -36,34 +36,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"charge"					"400"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"300"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow"						"-25 -35 -45 -55"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration"					"4"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"100 150 200 250"
-			}
-		}
+		"AbilityValues"
+        {
+            "charge" "400"
+            "radius" "300"
+            "slow" "-25 -35 -45 -55"
+            "duration" "4"
+            "damage" "100 150 200 250"
+        }
 		
 		"precache"
 		{

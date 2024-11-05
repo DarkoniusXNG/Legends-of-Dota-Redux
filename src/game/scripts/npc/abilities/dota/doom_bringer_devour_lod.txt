@@ -18,12 +18,10 @@
 			"particle" "particles/units/heroes/hero_doom_bringer/doom_bringer_devour.vpcf"
 		}
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"devour_gold" "50 100 150 200"
-			}
-		}
+		"AbilityValues"
+        {
+            "devour_gold" "50 100 150 200"
+        }
 
 		"OnAbilityPhaseStart" {
 			"RunScript" {

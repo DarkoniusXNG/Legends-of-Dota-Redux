@@ -1711,10 +1711,14 @@ function modifier_imba_summoned_wolf_wicked_crunch:OnAttackLanded (keys)
 						SendOverheadEventMessage(nil, OVERHEAD_ALERT_DAMAGE, target, damage, nil)
 					end
 					-- Deal bonus damage
-					local damageTable = {victim = target,
-										attacker = owner,
-										damage = damage,
-										damage_type = DAMAGE_TYPE_PHYSICAL}
+					local damageTable = {
+						victim = target,
+						attacker = owner,
+						damage = damage,
+						damage_type = DAMAGE_TYPE_PHYSICAL,
+						ability = self.ability,
+						damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+					}
 
 					ApplyDamage(damageTable)
 

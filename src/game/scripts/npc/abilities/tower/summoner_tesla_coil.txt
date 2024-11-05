@@ -12,23 +12,11 @@
         "AbilityCooldown"                                                      "0"
         "AbilityManaCost"                                                      "0"
         "AbilityModifierSupportValue"                                          "0.0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "slow"                                                 "-30 -45 -60"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage"                                               "40 60 80"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "interval"                                             "0.35"
-            }
+            "slow" "-30 -45 -60"
+            "damage" "40 60 80"
+            "interval" "0.35"
         }
         "precache"
         {

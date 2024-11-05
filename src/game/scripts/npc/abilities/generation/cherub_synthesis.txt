@@ -4,27 +4,13 @@
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName" "custom/cherub_synthesis"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"base_conversion_rate" "10 20 30 40"
-			}
-
-			"02" {
-				"var_type" "FIELD_FLOAT"
-				"health_to_mana" "80 100 120 140"
-			}
-
-			"03" {
-				"var_type" "FIELD_FLOAT"
-				"mana_to_health" "125 150 175 200"
-			}
-
-			"04" {
-				"var_type" "FIELD_FLOAT"
-				"think_interval" "0.1"
-			}
-		}
+		"AbilityValues"
+        {
+            "base_conversion_rate" "10 20 30 40"
+            "health_to_mana" "80 100 120 140"
+            "mana_to_health" "125 150 175 200"
+            "think_interval" "0.1"
+        }
 
 		"precache" {
 			"particle" "particles/econ/generic/generic_aoe_persistent_sphere_1/generic_aoe_persistent_sphere_1_f.vpcf"

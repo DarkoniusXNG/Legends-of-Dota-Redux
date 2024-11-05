@@ -13,33 +13,13 @@
         "AbilityCooldown"                                                       "9"
         "AbilityManaCost"                                                       "100 110 120 130"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "projectile_speed"                                              "10000"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "crater_radius"                                              "450"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "crater_damage"                                              "120 180 240 300"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "crater_duration"                                              "3.5 4 4.5 5"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "marker_speed"                                              "2000"
-            }
+            "projectile_speed" "10000"
+            "crater_radius" "450"
+            "crater_damage" "120 180 240 300"
+            "crater_duration" "3.5 4 4.5 5"
+            "marker_speed" "2000"
         }    
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "0"
@@ -52,13 +32,9 @@
         "TalentRequiredAbility" "crater"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "value"                                                "600"
-            }
+            "value" "600"
         }
     }
 

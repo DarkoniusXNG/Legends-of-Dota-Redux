@@ -18,13 +18,9 @@
             "particle"                                                     "particles/alchemist_aghnaim_magic_aghs.vpcf"
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "duration"                                             "30 60 90 120"
-            }
+            "duration" "30 60 90 120"
         }
         "ReduxFlags"                                                           "upgradeable | support | dota_custom"
         "ReduxPerks"                                                           "support"

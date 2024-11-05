@@ -10,23 +10,11 @@
         "AbilityCastRange"                                                     "800 1000 1200"
         "AbilityCooldown"                                                      "10 9 8"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "stun_radius"                                          "800 1000 1200"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "stun_duration"                                        "1.0 1.25 1.5"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "min_creeps"                                           "4"
-            }
+            "stun_radius" "800 1000 1200"
+            "stun_duration" "1.0 1.25 1.5"
+            "min_creeps" "4"
         }
         "Modifiers"
         {

@@ -31,32 +31,13 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			  "FIELD_INTEGER"
-				"hp_to_bonus_damage"	"4 6 8 10"
-			}
-			
-			"02"
-			{
-				"var_type"			  "FIELD_INTEGER"
-				"creep_hp_to_bonus_damage" "2"
-			}
-
-			"03"
-			{
-				"var_type"			  "FIELD_INTEGER"
-				"duration"			  "15"
-			}
-
-			"04"
-			{
-				"var_type"			  "FIELD_INTEGER"
-				"radius"				"875"
-			}
-		}
+		"AbilityValues"
+        {
+            "hp_to_bonus_damage" "4 6 8 10"
+            "creep_hp_to_bonus_damage" "2"
+            "duration" "15"
+            "radius" "875"
+        }
 
 		"precache"
 		{

@@ -18,6 +18,8 @@
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AoERadius"						"400"
 		"AbilityTextureName"			"custom/ptomely_astralise"
+		"ReduxPerks"					"support"
+		"ReduxFlags"					"stun | support"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -38,44 +40,16 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"70 140 210 270"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"500"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"pulse_damage"				"50 75 100 125"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"interval"					"0.5"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"2.5"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"pulse_duration"			"4.0"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"ally_heal"					"50"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "70 140 210 270"
+            "radius" "500"
+            "pulse_damage" "50 75 100 125"
+            "interval" "0.5"
+            "duration" "2.5"
+            "pulse_duration" "4.0"
+            "ally_heal" "50"
+        }
 		
 		"precache"
 		{
@@ -85,6 +59,5 @@
 			"particle" "particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet_frozen.vpcf"
 			"soundfile" "soundevents/hero_ptomely.vsndevts"
 		}
-
 	}
 }

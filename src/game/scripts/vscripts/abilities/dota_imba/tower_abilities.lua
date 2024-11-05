@@ -692,7 +692,10 @@ function modifier_imba_tower_thorns_aura_buff:OnAttackLanded( keys )
 			ParticleManager:ReleaseParticleIndex(return_pfx)
 
 			-- Get the hero's main attribute value
-			local main_attribute_value = self.parent:GetPrimaryStatValue()
+			local main_attribute_value = 0
+			if self.parent.GetPrimaryStatValue ~= nil then
+				main_attribute_value = self.parent:GetPrimaryStatValue()
+			end
 
 			-- Calculate damage based on percentage of main stat
 			local return_damage_pct_final = self.return_damage_pct + self.return_damage_per_stack * protective_instinct_stacks
@@ -704,11 +707,14 @@ function modifier_imba_tower_thorns_aura_buff:OnAttackLanded( keys )
 			end
 
 			-- Apply damage
-			local damageTable = {victim = attacker,
+			local damageTable = {
+				victim = attacker,
 				attacker = self.parent,
 				damage = return_damage,
 				damage_type = DAMAGE_TYPE_PHYSICAL,
-				ability = self.ability}
+				ability = self.ability,
+				damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+			}
 
 			ApplyDamage(damageTable)
 		end

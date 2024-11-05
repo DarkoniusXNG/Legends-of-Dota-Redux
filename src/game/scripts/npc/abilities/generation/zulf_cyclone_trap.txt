@@ -13,43 +13,15 @@
         "AOERadius"                                                            "100"
         "AbilityCooldown"                                                      "16 13 10 7"
         "AbilityManaCost"                                                      "55 60 65 70"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "cast_range"                                           "750 1000 1250 1500"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "100"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "cyclone_delay"                                        "2.5"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "cyclone_duration"                                     "1.5"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "armor_reduction"                                      "-3 -4 -5 -6"
-            }
-            "06"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "armor_duration"                                       "8"
-            }
-            "07"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "duration"                                             "80"
-            }
+            "cast_range" "750 1000 1250 1500"
+            "radius" "100"
+            "cyclone_delay" "2.5"
+            "cyclone_duration" "1.5"
+            "armor_reduction" "-3 -4 -5 -6"
+            "armor_duration" "8"
+            "duration" "80"
         }
         "precache"
         {

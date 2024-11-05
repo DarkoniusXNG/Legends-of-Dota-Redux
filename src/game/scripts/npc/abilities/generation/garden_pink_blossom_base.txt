@@ -11,28 +11,12 @@
         "MaxLevel"                                                             "4"
         "AnimationPlaybackRate"                                                "0.2"
         "AOERadius"                                                            "1000"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "1000"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "targets"                                              "3"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "heal_amount"                                          "15 30 45 60"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "flower_health"                                        "250 400 550 700"
-            }
+            "radius" "1000"
+            "targets" "3"
+            "heal_amount" "15 30 45 60"
+            "flower_health" "250 400 550 700"
         }
         "precache"
         {

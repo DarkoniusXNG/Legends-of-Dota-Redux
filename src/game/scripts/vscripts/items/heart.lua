@@ -30,7 +30,7 @@ function item_heart_consumable:OnSpellStart()
 	if caster == target and not caster:HasModifier("modifier_item_heart_lod_consumed") then
 		caster:AddNewModifier(caster, self, "modifier_item_heart_lod_consumed", table_to_send)
 		caster:EmitSound("DOTA_Item.Cheese.Activate")
-		self:SpendCharge() -- Removes the item without errors or crashes, and the modifier loses the ability reference
+		self:SpendCharge(0.1) -- Removes the item without errors or crashes, and the modifier loses the ability reference
 	end
 end
 

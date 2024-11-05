@@ -13,23 +13,11 @@
         {
             "particle"                                                     "particles/units/heroes/hero_invoker/invoker_retro_invisibility_aura.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "radius"                                               "500"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "fade_time"                                            "4 3 2 1"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "pip_current"                                          "1"
-            }
+            "radius" "500"
+            "fade_time" "4 3 2 1"
+            "pip_current" "1"
         }
         "Modifiers"
         {

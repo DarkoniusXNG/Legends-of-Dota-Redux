@@ -116,7 +116,7 @@ function modifier_gale_force_disarm:OnIntervalThink()
 			damage = damage,
 			damage_type = DAMAGE_TYPE_PHYSICAL,
 			ability = ability,
-			damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
+			damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
 		}
 										
 		ApplyDamage(damageTable)

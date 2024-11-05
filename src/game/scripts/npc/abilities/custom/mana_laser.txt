@@ -8,28 +8,12 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityCooldown"                "11"
         "HasScepterUpgrade"              "1"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "search_radius"          "900"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "gold_cost"             "2500"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "laser_damage"          "140 180 220 260"
-            }
-            "04"
-            {
-                "var_type" "FIELD_INTEGER"
-                "max_bounces"           "4"
-            }
+            "search_radius" "900"
+            "gold_cost" "2500"
+            "laser_damage" "140 180 220 260"
+            "max_bounces" "4"
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "80"

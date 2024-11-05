@@ -36,9 +36,9 @@ function spell_lab_ggs:OnChannelThink(fInterval)
 end
 
 function spell_lab_ggs:Explosion(vPos)
-  local hCaster = self:GetCaster()
-	local iInt = hCaster:GetIntellect()
- local aoe = self:GetSpecialValueFor("radius")
+    local hCaster = self:GetCaster()
+    local iInt = hCaster:GetIntellect(false)
+    local aoe = self:GetSpecialValueFor("radius")
    local damage = {
      attacker = self:GetCaster(),
      damage = self.fDamageMult*iInt,

@@ -2,36 +2,24 @@
 {
 	"windrunner_gale_force_op"
 	{
-
         "BaseClass"                                                            "windrunner_gale_force"
-
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT |  DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT |  DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"		
 
 		"MaxLevel"						"4"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.2"
-		"AbilityCastRange"				"1500"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
 		"AbilityCooldown"				"20 18 16 14"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"150"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"			"10"
+			"duration"			"4 6 8 10"
 			"wind_strength"		"400"
-			"radius"			"10000 15000 20000 25000"
+			"radius"			
+			{
+				"value"		"3000 6000 9000 12000"
+				"affected_by_aoe_increase"	"1"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 

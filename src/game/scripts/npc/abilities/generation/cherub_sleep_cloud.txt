@@ -11,28 +11,12 @@
         "AbilityCooldown"                                                      "40 35 30 25"
         "AbilityManaCost"                                                      "160 120 80 40"
         "AbilityProcsMagicStick"                                               "1"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "550 650 750 850"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "sleep_timer"                                          "3.0"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "duration"                                             "10"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage_to_wake"                                       "125 150 175 200"
-            }
+            "radius" "550 650 750 850"
+            "sleep_timer" "3.0"
+            "duration" "10"
+            "damage_to_wake" "125 150 175 200"
         }
         "precache"
         {

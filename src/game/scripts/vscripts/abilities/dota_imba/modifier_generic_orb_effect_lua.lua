@@ -111,10 +111,10 @@ function modifier_generic_orb_effect_lua:OnOrder( params )
 
 		-- if casting other ability that cancel channel while casting this ability, turn off
 		local pass = false
-		local behavior = params.ability:GetBehavior()
-		if self:FlagExist( behavior, DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL ) or 
-			self:FlagExist( behavior, DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT ) or
-			self:FlagExist( behavior, DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL )
+		
+		if self:BehaviorExist( params.ability, DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL ) or 
+			self:BehaviorExist( params.ability, DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT ) or
+			self:BehaviorExist( params.ability, DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL )
 		then
 			local pass = true -- do nothing
 		end
@@ -149,14 +149,17 @@ end
 
 --------------------------------------------------------------------------------
 -- Helper: Flags
-function modifier_generic_orb_effect_lua:FlagExist(a,b)--Bitwise Exist
-	local p,c,d=1,0,b
-	while a>0 and b>0 do
-		local ra,rb=a%2,b%2
-		if ra+rb>1 then c=c+p end
-		a,b,p=(a-ra)/2,(b-rb)/2,p*2
+function modifier_generic_orb_effect_lua:FlagExist(number, flag)--Bitwise Exist
+	return bit.band(flag, number) == flag
+end
+
+function modifier_generic_orb_effect_lua:BehaviorExist(ability, flag)
+	local behavior_int = ability:GetBehaviorInt()
+	local behavior = ability:GetBehavior()
+	if type(behavior) == 'userdata' then
+		behavior = tonumber(tostring(behavior))
 	end
-	return c==d
+	return self:FlagExist(behavior_int, flag) or self:FlagExist(behavior, flag)
 end
 --------------------------------------------------------------------------------
 -- Graphics & Animations

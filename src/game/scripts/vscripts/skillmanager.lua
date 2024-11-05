@@ -20,14 +20,12 @@ local multiplierSkills = GameRules.KVs["npc_abilities_custom"]
 -- Table of player's active skills to make swapping super fast
 local activeSkills = {}
 
-local meleeMap = {
-    -- Remap troll ulty
-    -- troll_warlord_berserkers_rage = 'troll_warlord_berserkers_rage_melee'
-}
+local meleeMap = {}
 
 local meleeList = {}
 local heroIDToName = {}
 local skillOwningHero = {}
+local heroToSkillMap = GameRules.KVs.abilitylist.heroToSkillMap
 
 local herolist = GameRules.KVs.herolist
 
@@ -43,7 +41,7 @@ for heroName, value in pairs(herolist) do
             heroIDToName[heroData.HeroID] = heroName
 
             -- Loop over all possible slots
-            for i = 1, DOTA_MAX_ABILITIES do
+            for i = 1, DOTA_MAX_ABILITIES - 1 do
                 -- Grab the ability
                 local ab = heroData['Ability'..i]
 
@@ -53,13 +51,20 @@ for heroName, value in pairs(herolist) do
                     skillOwningHero[ab] = heroData.HeroID
                 end
             end
+
+            -- Check abilities.kv for hero owners of abilities
+            if heroToSkillMap[heroName] then
+                for _, v in pairs(heroToSkillMap[heroName]) do
+                    if v and v ~= '' then
+                        skillOwningHero[v] = heroData.HeroID
+                    end
+                end
+            end
         end
     end
 end
 
 local manualActivate = {
-    keeper_of_the_light_blinding_light_lod = true,
-    keeper_of_the_light_recall_lod = true,
     keeper_of_the_light_blinding_light_imba = true,
     keeper_of_the_light_recall_imba = true,
     imba_queenofpain_delightful_torment = true,
@@ -71,14 +76,6 @@ local towerClasses = {
     npc_dota_building = true,
     npc_dota_fort = true,
     npc_dota_tower = true
-}
-
--- Auto set this to max level
-local autoSkill = {
-    --nyx_assassin_unburrow = true,
-    alchemist_transmuted_scepter = true,
-    --silencer_glaives_of_wisdom_steal = true,
-    earth_spirit_stone_caller = true,
 }
 
 
@@ -191,7 +188,7 @@ function SkillManager:GetHeroSkills(heroClass)
 
     -- Build list of abilities
     local heroData = GetUnitKeyValuesByName(heroClass)
-    for i = 1, DOTA_MAX_ABILITIES do
+    for i = 1, DOTA_MAX_ABILITIES - 1 do
         local ab = heroData["Ability"..i]
         if ab and ab ~= '' and ab ~= 'special_bonus_attributes' then --and ab ~= 'generic_hidden' then
             table.insert(skills, ab)
@@ -346,7 +343,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
         if hero and playerID and not util:isPlayerBot(playerID) then
             for i = 0, DOTA_MAX_ABILITIES - 1 do
                 local ab = hero:GetAbilityByIndex(i)
-                if ab and not DONOTREMOVE[ab:GetAbilityName()] then
+                if ab and not DONOTREMOVE[ab:GetAbilityName()] and not util:IsVanillaInnate(ab) then
                     hero:RemoveAbility(ab:GetName())
                 end
             end
@@ -424,7 +421,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
                 if hero and playerID and not util:isPlayerBot(playerID) then
                     for i = 0, DOTA_MAX_ABILITIES - 1 do
                         local ab = hero:GetAbilityByIndex(i)
-                        if ab and not DONOTREMOVE[ab:GetAbilityName()] then
+                        if ab and not DONOTREMOVE[ab:GetAbilityName()] and not util:IsVanillaInnate(ab) then
                             hero:RemoveAbility(ab:GetName())
                         end
                     end
@@ -647,11 +644,6 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
                 local newAb = hero:AddAbility(multV)
                 if newAb then
                     newAb:SetHidden(false)
-
-                    -- Check for auto skilling
-                    if autoSkill[v] then
-                        newAb:SetLevel(newAb:GetMaxLevel())
-                    end
                 end
 
                 -- Insert
@@ -769,14 +761,6 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
 
             -- Store that we have it
             currentSkillList[hero][abNum] = realAbility
-
-            -- Check for auto skilling
-            if autoSkill[k] then
-                local newAb = hero:FindAbilityByName(realAbility)
-                if newAb then
-                    newAb:SetLevel(newAb:GetMaxLevel())
-                end
-            end
         end
     end
     -- Handle cooldowns

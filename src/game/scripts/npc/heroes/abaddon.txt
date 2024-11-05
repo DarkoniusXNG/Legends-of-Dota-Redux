@@ -1,0 +1,98 @@
+// Abilities for abaddon
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Abaddon: Death Coil (mist coil)
+	//=================================================================================================================
+	"abaddon_death_coil"
+	{
+		"ReduxFlags"                   	"support"
+		"ReduxPerks"                    "support | self_damage"
+	}
+
+	//=================================================================================================================
+	// Abaddon: Aphotic Shield
+	//=================================================================================================================
+	"abaddon_aphotic_shield"
+	{
+		"ReduxFlags"                   	"support | tank"
+		"ReduxPerks"                    "support"
+		"ReduxCost"                     "10"
+	}
+
+	//=================================================================================================================
+	// Abaddon: The Quickening (Facet)
+	//=================================================================================================================
+	"abaddon_the_quickening"
+	{
+		"ReduxFlags"                    "cooldown"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+	//=================================================================================================================
+	// Abaddon: Withering Mist (Innate)
+	//=================================================================================================================
+	"abaddon_withering_mist"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+	}
+
+	//=================================================================================================================
+	// Abaddon: Frostmourne (Curse of Avernus)
+	//=================================================================================================================
+	"abaddon_frostmourne"
+	{
+		"ReduxFlags"                    "attack_modifier"
+		"ReduxPerks"                    "attack_modifier | ice"
+	}
+
+	//=================================================================================================================
+	// Abaddon: Borrowed Time
+	//=================================================================================================================
+	"abaddon_borrowed_time"
+	{
+		"ReduxFlags"                    "upgradeable | wtfAutoBan | semi_passive | tank"
+		"ReduxCost"                     "80"
+		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand | phoenix_supernova"
+	}
+
+	"special_bonus_unique_abaddon"
+	{
+		"TalentRequiredAbility"                                                   "abaddon_aphotic_shield"
+	}
+
+	"special_bonus_unique_abaddon_2"
+	{
+		"TalentRequiredAbility"                                                   "abaddon_death_coil"
+	}
+
+	"special_bonus_unique_abaddon_3"
+	{
+		"TalentRequiredAbility"                                                   "abaddon_frostmourne"
+	}
+
+	"special_bonus_unique_abaddon_4"
+	{
+		"TalentRequiredAbility"                                                   "abaddon_death_coil"
+	}
+
+	"special_bonus_unique_abaddon_5"
+	{
+		"TalentRequiredAbility"                                                   "abaddon_frostmourne"
+	}
+
+	"special_bonus_unique_abaddon_6"
+	{
+		"TalentRequiredAbility"                                                   "abaddon_frostmourne"
+	}
+
+	"special_bonus_unique_abaddon_7"
+	{
+		"TalentRequiredAbility"                                                   "abaddon_aphotic_shield"
+	}
+
+	"special_bonus_unique_abaddon_immolation"
+	{
+		"TalentRequiredAbility"                                                   "abaddon_borrowed_time"
+	}
+}

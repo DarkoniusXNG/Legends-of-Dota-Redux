@@ -11,8 +11,7 @@ function Transmute( event )
 
 	local hp_to_gold_percent = event.health_to_gold / 100
 	local target_health = target:GetHealth()	
-	local cd_time = ability:GetCooldownTimeRemaining() 
-	print(cd_time)
+	local cd_time = ability:GetCooldownTimeRemaining()
 
 	if not target_health or not cd_time then return end
 	if hp_to_gold_percent > 1 then hp_to_gold_percent = 0.5 end

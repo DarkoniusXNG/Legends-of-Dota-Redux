@@ -1,0 +1,141 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Ring Master: Spotlight
+	//=================================================================================================================
+	"ringmaster_spotlight"
+	{
+		"MaxLevel"						"4"
+
+		"AbilityCastRange"				"1500 1600 1700 1800"
+
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"		"550 600 650 700"
+				"affected_by_aoe_increase"	"1"
+			}
+			"illusion_percent_damage"		"50"
+			"pulse_interval"				"0.1"
+			"duration"						"8"
+			"miss_chance"					"30 40 50 60"
+			"initial_speed"					"3000"
+			"sweep_speed"					"0.785"
+			"sweep_radius"					"450"
+			"linger_duration"				"0.3"
+		}
+
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | light"
+	}
+
+	//=================================================================================================================
+	// Ring Master: Tame The Beasts
+	//=================================================================================================================
+	"ringmaster_tame_the_beasts"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "channeled | skillshot | enemyMoving"
+	}
+
+	//=================================================================================================================
+	// Ring Master: The Box
+	//=================================================================================================================
+	"ringmaster_the_box"
+	{
+		"ReduxFlags"                                                           "support | tank"
+		"ReduxPerks"                                                           "support"
+		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
+	}
+
+	//=================================================================================================================
+	// Ring Master: The Wheel
+	//=================================================================================================================
+	"ringmaster_wheel"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "skillshot | enemyMoving"
+	}
+
+	//=================================================================================================================
+	// Ring Master: Impalement Arts
+	//=================================================================================================================
+	"ringmaster_impalement"
+	{
+		"ReduxPerks"                                                           "dagger | skillshot | poison"
+	}
+
+	//=================================================================================================================
+	// Ring Master: Dark Carnival Souvenirs
+	//=================================================================================================================
+	"ringmaster_dark_carnival_souvenirs"
+	{
+		"ReduxFlags"                                                           "support | doNotRandom"
+		"ReduxPerks"                                                           "support"
+	}
+
+	//=================================================================================================================
+	// Ability: Ring Master special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_ringmaster_whip_radius"
+	{
+		"TalentRequiredAbility"                                                   "ringmaster_tame_the_beasts"
+	}
+
+	//=================================================================================================================
+	// Ability: Ring Master special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_ringmaster_box_cast_range"
+	{
+		"TalentRequiredAbility"                                                   "ringmaster_the_box"
+	}
+
+	//=================================================================================================================
+	// Ability: Ring Master special Bonus
+	//=================================================================================================================
+ 	"special_bonus_unique_ringmaster_the_box_strong_dispel_and_flying"
+	{
+		"TalentRequiredAbility"                                                   "ringmaster_the_box"
+	}
+
+ 	//=================================================================================================================
+	// Ability: Ring Master special Bonus
+	//=================================================================================================================
+ 	"special_bonus_unique_ringmaster_whip_damage"
+	{
+		"TalentRequiredAbility"                                                   "ringmaster_tame_the_beasts"
+	}
+
+	//=================================================================================================================
+	// Ability: Ring Master special Bonus
+	//=================================================================================================================
+ 	"special_bonus_unique_ringmaster_wheel_radius"
+	{
+		"TalentRequiredAbility"                                                   "ringmaster_wheel"
+	}
+
+	//=================================================================================================================
+	// Ability: Ring Master special Bonus
+	//=================================================================================================================
+ 	"special_bonus_unique_ringmaster_whip_debuff_immunity"
+	{
+		"TalentRequiredAbility"                                                   "ringmaster_tame_the_beasts"
+	}
+
+	//=================================================================================================================
+	// Ability: Ring Master special Bonus
+	//=================================================================================================================
+  	"special_bonus_unique_ringmaster_dagger_penetrates"
+	{
+		"TalentRequiredAbility"                                                   "ringmaster_impalement"
+	}
+
+	//=================================================================================================================
+	// Ability: Ring Master special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_ringmaster_dagger_bleed_and_slow_duration"
+	{
+		"TalentRequiredAbility"                                                   "ringmaster_impalement"
+	}
+}

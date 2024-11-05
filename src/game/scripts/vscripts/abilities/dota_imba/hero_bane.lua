@@ -131,7 +131,7 @@ function modifier_imba_enfeeble_debuff:OnCreated()
 		-- #4 TALENT: Enfeeble reduces stats
 		self.strength_bonus	= -( self.parent:GetStrength() * (caster:FindTalentValue("special_bonus_imba_bane_4") * 0.01 ))
 		self.agility_bonus	= -( self.parent:GetAgility() * (caster:FindTalentValue("special_bonus_imba_bane_4") * 0.01 ))
-		self.intellect_bonus= -( self.parent:GetIntellect() * (caster:FindTalentValue("special_bonus_imba_bane_4") * 0.01))
+		self.intellect_bonus= -( self.parent:GetIntellect(false) * (caster:FindTalentValue("special_bonus_imba_bane_4") * 0.01))
 	end
 end
 
@@ -174,7 +174,7 @@ function modifier_imba_enfeeble_debuff:OnRefresh()
 		local caster = self:GetCaster()
 		self.strength_bonus	= -( self.parent:GetStrength() * (caster:FindTalentValue("special_bonus_imba_bane_4") * 0.01 ))
 		self.agility_bonus	= -( self.parent:GetAgility() * (caster:FindTalentValue("special_bonus_imba_bane_4") * 0.01 ))
-		self.intellect_bonus= -( self.parent:GetIntellect() * (caster:FindTalentValue("special_bonus_imba_bane_4") * 0.01))
+		self.intellect_bonus= -( self.parent:GetIntellect(false) * (caster:FindTalentValue("special_bonus_imba_bane_4") * 0.01))
 	end
 end
 
@@ -443,7 +443,7 @@ function modifier_imba_brain_sap_mana:OnCreated()
 	if IsServer() then
 		local parent = self:GetParent()
 		if parent:IsHero() then
-			self.int_loss = -(parent:GetIntellect())
+			self.int_loss = -(parent:GetIntellect(false))
 		end
 
 		self.previous_mana = parent:GetMana()

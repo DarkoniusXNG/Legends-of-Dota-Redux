@@ -448,42 +448,6 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
 
             -- Check for witchcraft
             if not noWitchcraft[keys.abilityname] and not hero:PassivesDisabled() then
-                local mabWitch = hero:FindAbilityByName('death_prophet_witchcraft')
-
-                if mabWitch then
-                    -- Grab the level of the ability
-                    local lvl = mabWitch:GetLevel()
-
-                    if lvl > 0 then
-                        local ab = hero:FindAbilityByName(keys.abilityname)
-
-                        if ab then
-                            local reduction = lvl * -1
-
-                            -- CDR fix
-                            reduction = reduction * hero:GetCooldownReduction()
-
-                            local timeRemaining = ab:GetCooldownTimeRemaining()
-                            local newCooldown = timeRemaining + reduction
-                            if newCooldown < 1 then
-                                newCooldown = 1
-                            end
-
-                            if newCooldown < timeRemaining then
-                                ab:EndCooldown()
-                                if newCooldown > 0 then
-                                    ab:StartCooldown(newCooldown)
-                                end
-                            end
-
-                            -- Mana refund
-                            local manaRefund = 5 + 5 * lvl
-                            local currentMana = hero:GetMana()
-                            hero:SetMana(currentMana + manaRefund)
-                        end
-                    end
-                end
-
                 local mabWitchOP = hero:FindAbilityByName('death_prophet_witchcraft_op')
                 if mabWitchOP then
                     -- Grab the level of the ability
@@ -536,8 +500,7 @@ ListenToGameEvent('entity_hurt', function(keys)
         -- Ensure their health has dropped low enough
         if ent:GetHealth() <= minHP then
             -- Do they even have the ability in question?
-            local ab = ent:FindAbilityByName('abaddon_borrowed_time')    
-            local ab2 = ent:FindAbilityByName('abaddon_borrowed_time_redux')
+            local ab = ent:FindAbilityByName('abaddon_borrowed_time')
             if ab and ab:IsCooldownReady() and not ent:PassivesDisabled() then
                     -- Grab the level
                     local lvl = ab:GetLevel()
@@ -557,29 +520,7 @@ ListenToGameEvent('entity_hurt', function(keys)
 							-- Apply the cooldown 
 							local cd = ab:GetTrueCooldown()
                             ab:StartCooldown(cd)
-                    end    
-            elseif ab2 and ab2:IsCooldownReady() and not ent:PassivesDisabled() then  
-                    -- Grab the level
-                    local lvl = ab2:GetLevel()
-
-                    -- Is the skill even skilled?
-                    if lvl > 0 then
-                        -- Fix their health
-                        ent:SetHealth(2*minHP - ent:GetHealth())
-
-                        -- Add the modifier
-                        print(ab2:GetSpecialValueFor('duration'))
-                        ent:AddNewModifier(ent, ab2, 'modifier_abaddon_borrowed_time', {
-                            duration = ab2:GetSpecialValueFor('duration'),
-                            duration_scepter = ab2:GetSpecialValueFor('duration_scepter'),
-                            redirect = ab2:GetSpecialValueFor('redirect'),
-                            redirect_range_tooltip_scepter = ab2:GetSpecialValueFor('redirect_range_tooltip_scepter')
-                        })
-                            -- Apply the cooldown
-                            local cd = ab2:GetCooldown(lvl-1)
-                            ab2:StartCooldown(cd)
                     end
-                
             end
         end
     end

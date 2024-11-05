@@ -886,8 +886,21 @@ function imba_elder_titan_earth_splitter:OnSpellStart()
 			if caster:HasScepter() then
 				enemy:AddNewModifier(caster, self, "modifier_imba_earth_splitter_scepter", {duration = slow_duration})
 			end
-			ApplyDamage({victim = enemy, attacker = caster, damage = enemy:GetMaxHealth() * crack_damage * 0.01, damage_type = DAMAGE_TYPE_PHYSICAL, ability = self})
-			ApplyDamage({victim = enemy, attacker = caster, damage = enemy:GetMaxHealth() * crack_damage * 0.01, damage_type = DAMAGE_TYPE_MAGICAL, ability = self})
+			ApplyDamage({
+				victim = enemy,
+				attacker = caster,
+				damage = enemy:GetMaxHealth() * crack_damage * 0.01,
+				damage_type = DAMAGE_TYPE_PHYSICAL,
+				ability = self,
+				damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
+			})
+			ApplyDamage({
+				victim = enemy,
+				attacker = caster,
+				damage = enemy:GetMaxHealth() * crack_damage * 0.01,
+				damage_type = DAMAGE_TYPE_MAGICAL,
+				ability = self
+			})
 			local closest_point = FindNearestPointFromLine(caster_position, caster_fw, enemy:GetAbsOrigin())
 			FindClearSpaceForUnit(enemy, closest_point, false)
 		end

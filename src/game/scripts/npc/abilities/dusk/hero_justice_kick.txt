@@ -38,29 +38,13 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"90 120 150 180"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"distance"					"475"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow"						"-100"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration"					"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "90 120 150 180"
+            "distance" "475"
+            "slow" "-100"
+            "duration" "1"
+        }
 		
 		"precache"
 		{

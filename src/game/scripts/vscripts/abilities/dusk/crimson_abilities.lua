@@ -123,7 +123,7 @@ function blood_sorcery(keys)
   local caster = keys.caster
   local hperc = 100-caster:GetHealthPercent()
   local str = caster:GetStrength()
-  local int = caster:GetIntellect()
+  local int = caster:GetIntellect(false)
 
   caster:SetModifierStackCount("crimson_blood_sorcery_armor_mod",keys.ability,hperc)
   caster:SetModifierStackCount("crimson_blood_sorcery_mod",keys.ability,int)
@@ -288,6 +288,7 @@ end
 
 function AncientPact(keys)
   local caster = keys.caster
+  local ability = keys.ability
   local hp = caster:GetHealthDeficit()
   local mp = caster:GetMana()
   local max = 375
@@ -297,8 +298,8 @@ function AncientPact(keys)
   if amt > max then amt = max end
   if hp > max then hp = max end
 
-  caster:SpendMana(amt*mult,caster)
-  caster:Heal(amt,caster)
+  caster:SpendMana(amt*mult, ability)
+  caster:Heal(amt, caster)
 
   local p = ParticleManager:CreateParticle("particles/units/heroes/hero_crimson/crimson_ancient_pact.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster) --[[Returns:int
   Creates a new particle effect

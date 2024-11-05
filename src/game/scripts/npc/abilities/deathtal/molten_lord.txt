@@ -81,39 +81,15 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"1300"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"delay"						"0.2"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"base_damage"				"90 160 230 300"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"mini_stun"					"1.8"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"ablaze_multiplier"				"2.0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"ablaze_duration"			"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "1300"
+            "delay" "0.2"
+            "base_damage" "90 160 230 300"
+            "mini_stun" "1.8"
+            "ablaze_multiplier" "2.0"
+            "ablaze_duration" "12"
+        }
 
 		"OnSpellStart"
 		{
@@ -194,19 +170,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"5"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ablaze_duration"	"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "5"
+            "ablaze_duration" "12"
+        }
 
 		"OnUpgrade"
 		{
@@ -319,84 +287,24 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_radius"		"550"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1600"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor_multiplier"		"6 8 10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius_tree"			"500"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"width"					"250"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"break_distance"		"600"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"3 4 5"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"root_duration"			"2 2.5 3"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_attack_speed"		"-30 -40 -50"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_movement_speed"	"-30 -40 -50"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor_drain_bonus"		"1 2 3"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor_drain_loss"		"-1 -2 -3"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"10"
-			}
-			"14"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"stack_duration"		"45"
-			}
-			"15"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ablaze_duration"		"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "tooltip_radius" "550"
+            "speed" "1600"
+            "armor_multiplier" "6 8 10"
+            "radius_tree" "500"
+            "width" "250"
+            "break_distance" "600"
+            "slow_duration" "3 4 5"
+            "root_duration" "2 2.5 3"
+            "slow_attack_speed" "-30 -40 -50"
+            "slow_movement_speed" "-30 -40 -50"
+            "armor_drain_bonus" "1 2 3"
+            "armor_drain_loss" "-1 -2 -3"
+            "duration" "10"
+            "stack_duration" "45"
+            "ablaze_duration" "8"
+        }
 
 		"OnSpellStart"
 		{

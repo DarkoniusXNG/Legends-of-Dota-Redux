@@ -6,17 +6,11 @@
 		"MaxLevel" "3"
 		"AOERadius" "900"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"range" "900"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"damage" "45 55 65"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "900"
+            "damage" "45 55 65"
+        }
 
 		"OnSpellStart" {
 			"RunScript" {

@@ -32,29 +32,13 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"percent"						"30 45 60 75" // percentage total
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_damage"					"10 15 20 25" // percent
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"base_attack_time"				"1.0"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"duration"						"8.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "percent" "30 45 60 75"
+            "bonus_damage" "10 15 20 25"
+            "base_attack_time" "1.0"
+            "duration" "8.0"
+        }
 		
 		"precache"
 		{

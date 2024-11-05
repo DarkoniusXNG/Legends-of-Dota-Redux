@@ -1,0 +1,98 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Ability: Axe Berserker's Call
+	//=================================================================================================================
+	"axe_berserkers_call"
+	{
+		"ReduxFlags"                    "tank | upgradeable"
+		"ReduxPerks"                    "rage"
+		"ReduxCost"                     "20"
+	}
+
+	//=================================================================================================================
+	// Ability: Axe Battle Hunger
+	//=================================================================================================================
+	"axe_battle_hunger"
+	{
+		"ReduxPerks"                        "rage | physical"
+	}
+
+	//=================================================================================================================
+	// Ability: Axe Counter Helix
+	//=================================================================================================================
+	"axe_counter_helix"
+	{
+		"ReduxFlags"                        "tank | upgradeable"
+		"ReduxCost"                         "10"
+	}
+
+	//=================================================================================================================
+	// Ability: Axe Culling Blade
+	//=================================================================================================================
+	"axe_culling_blade"
+	{
+		"ReduxPerks"                        "rage"
+	}
+
+	//=================================================================================================================
+	// Axe: One Man Army (Facet)
+	//=================================================================================================================
+	"axe_one_man_army"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+	//=================================================================================================================
+	// Axe: Coat of Blood (Innate)
+	//=================================================================================================================
+	"axe_coat_of_blood"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+	}
+
+	"special_bonus_unique_axe"
+	{
+		"TalentRequiredAbility"         "axe_battle_hunger"
+	}
+
+	"special_bonus_unique_axe_2"
+	{
+		"TalentRequiredAbility"         "axe_berserkers_call"
+	}
+
+	"special_bonus_unique_axe_3"
+	{
+		"TalentRequiredAbility"         "axe_culling_blade"
+	}
+
+	"special_bonus_unique_axe_4"
+	{
+		"TalentRequiredAbility"         "axe_counter_helix"
+	}
+
+	"special_bonus_unique_axe_5"
+	{
+		"TalentRequiredAbility"         "axe_culling_blade"
+	}
+
+	"special_bonus_unique_axe_6"
+	{
+		"TalentRequiredAbility"         "axe_battle_hunger"
+	}
+
+	"special_bonus_unique_axe_7"
+	{
+		"TalentRequiredAbility"         "axe_berserkers_call"
+	}
+
+	"special_bonus_unique_axe_8"
+	{
+		"TalentRequiredAbility"         "axe_battle_hunger"
+	}
+
+	"special_bonus_unique_axe_culling_blade_speed_duration"
+	{
+		"TalentRequiredAbility"         "axe_culling_blade"
+	}
+}

@@ -11,23 +11,11 @@
         "MaxLevel"                                                             "4"
         "AnimationPlaybackRate"                                                "0.2"
         "AOERadius"                                                            "400 500 600 700"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "400 500 600 700"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "resistance"                                           "20 30 40 50"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "flower_health"                                        "250 400 550 700"
-            }
+            "radius" "400 500 600 700"
+            "resistance" "20 30 40 50"
+            "flower_health" "250 400 550 700"
         }
         "precache"
         {

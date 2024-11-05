@@ -35,44 +35,16 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"7.0 7.5 8.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"800"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"move_slow"					"100"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_slow"				"100"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_slow"					"100"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aura_move_slow"			"40 50 60"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aura_attack_slow"			"40 50 60"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "7.0 7.5 8.0"
+            "radius" "800"
+            "move_slow" "100"
+            "attack_slow" "100"
+            "cast_slow" "100"
+            "aura_move_slow" "40 50 60"
+            "aura_attack_slow" "40 50 60"
+        }
 		
 		"precache"
 		{

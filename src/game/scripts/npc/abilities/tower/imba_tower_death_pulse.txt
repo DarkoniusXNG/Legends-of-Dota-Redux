@@ -16,23 +16,11 @@
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "area_of_effect"                                       "900"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "healdamage"                                           "100 200 300"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "projectile_speed"                                     "400"
-            }
+            "area_of_effect" "900"
+            "healdamage" "100 200 300"
+            "projectile_speed" "400"
         }
 
         "OnProjectileHitUnit"

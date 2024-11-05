@@ -23,7 +23,13 @@ function FadeStrike_OnOrbImpact(kv)
 
     local amount = math.floor(bonus)
     caster:PopupNumbers(target, "damage", Vector(153, 0, 204), 2.0, amount, nil, POPUP_SYMBOL_POST_EYE)
-    ApplyDamage({victim=target,attacker=caster,damage=bonus,damage_type=ability:GetAbilityDamageType(),damage_flags=DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR+DOTA_DAMAGE_FLAG_BYPASSES_BLOCK+DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS})
+    ApplyDamage({
+        victim=target,
+        attacker=caster,
+        damage=bonus,
+        damage_type=ability:GetAbilityDamageType(),
+        damage_flags=DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR+DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK+DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS
+    })
     caster:AddNewModifier(caster, ability, "modifier_invisible", {Duration = ability:GetLevelSpecialValueFor("duration_buff", ability:GetLevel() - 1)})
  
 --------APPLY MORTAL COIL TO TARGET
@@ -105,7 +111,13 @@ function BloodWard_OnThink(kv)
  
     --Deal Damage
     local damage = ability:GetSpecialValueFor("dps")/10.0
-    ApplyDamage({victim=target,attacker=caster,damage=damage,damage_type=ability:GetAbilityDamageType(),damage_flags=DOTA_DAMAGE_FLAG_BYPASSES_BLOCK+DOTA_DAMAGE_FLAG_HPLOSS})
+    ApplyDamage({
+        victim=target,
+        attacker=caster,
+        damage=damage,
+        damage_type=ability:GetAbilityDamageType(),
+        damage_flags=DOTA_DAMAGE_FLAG_BYPASSES_ALL_BLOCK+DOTA_DAMAGE_FLAG_HPLOSS
+    })
 end
  
 function BloodWard_OnAttackLanded(kv)
@@ -131,7 +143,13 @@ function BloodWard_OnAttackLanded(kv)
      
         --Deal damage
         damage = damage*ability:GetSpecialValueFor("reflect")/100.0
-        ApplyDamage({victim=target,attacker=caster,damage=damage,damage_type=ability:GetAbilityDamageType(),damage_flags=DOTA_DAMAGE_FLAG_BYPASSES_BLOCK+DOTA_DAMAGE_FLAG_REFLECTION})
+        ApplyDamage({
+            victim=target,
+            attacker=caster,
+            damage=damage,
+            damage_type=ability:GetAbilityDamageType(),
+            damage_flags=DOTA_DAMAGE_FLAG_BYPASSES_ALL_BLOCK+DOTA_DAMAGE_FLAG_REFLECTION
+        })
      
         --Lose life if self is not target
         if kv.target ~= ability.bloodward then

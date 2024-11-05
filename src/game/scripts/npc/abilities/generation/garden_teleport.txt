@@ -14,12 +14,10 @@
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_furion.vsndevts"
 		}
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"range" "1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "1500"
+        }
 
 		"OnAbilityPhaseStart" {
 			"ApplyModifier" {

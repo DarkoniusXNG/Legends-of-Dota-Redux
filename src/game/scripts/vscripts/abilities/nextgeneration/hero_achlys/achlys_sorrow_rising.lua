@@ -26,7 +26,7 @@ function HandleStacks(keys)
 		ParticleManager:SetParticleControl(ability.FXMP2, 1, Vector(20*manaPerc,0,0) )
 	end
 
-	if math.floor(hpPerc+0.5) == 0 then 
+	if math.floor(hpPerc+0.5) == 0 then
 		caster:RemoveModifierByName(health)
 	else
 		if not caster:HasModifier(health) then

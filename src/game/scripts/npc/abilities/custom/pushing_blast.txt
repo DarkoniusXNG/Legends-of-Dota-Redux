@@ -10,29 +10,12 @@
         "AbilityCooldown"                                                       "13 12 11 10"
         "AbilityCastPoint"                                                      "0.05"
         
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                          "2 3 4 5"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage"                                          "130 190 270 340"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                                   "450"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "ms_slow"                                                   "40 50 60 70"
-            }
-           
+            "duration" "2 3 4 5"
+            "damage" "130 190 270 340"
+            "radius" "450"
+            "ms_slow" "40 50 60 70"
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "0"
@@ -45,13 +28,9 @@
         "TalentRequiredAbility" "pushing_blast"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "value"                                                "250"
-            }
+            "value" "250"
         }
     }
 }

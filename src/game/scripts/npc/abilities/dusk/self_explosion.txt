@@ -120,34 +120,14 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"											 "FIELD_FLOAT"
-				"duration"											 "1.0"
-			}
-			"02"
-			{
-				"var_type"											 "FIELD_INTEGER"
-				"damage"											   "200 300 400 500"
-			}
-			"03"
-			{
-				"var_type"											 "FIELD_INTEGER"
-				"radius"											   "650"
-			}
-			"04"
-			{
-				"var_type"											 "FIELD_INTEGER"
-				"distance"											 "150"
-			}
-			"05"
-			{
-				"var_type"											 "FIELD_INTEGER"
-				"height"											   "400"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "1.0"
+            "damage" "200 300 400 500"
+            "radius" "650"
+            "distance" "150"
+            "height" "400"
+        }
 		"ReduxBans"															"spell_lab_symbiotic"
 		"ReduxPerks"														   "scientific | trap | explosive"
 	}

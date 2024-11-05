@@ -34,29 +34,13 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"dmg_per_agi_pt"				"0.15 0.30 0.45 0.60" // percentage total
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_agi"						"6 8 10 12"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"chance"						"100"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"threshold"						"40 45 50 55"
-			}
-		}
+		"AbilityValues"
+        {
+            "dmg_per_agi_pt" "0.15 0.30 0.45 0.60"
+            "bonus_agi" "6 8 10 12"
+            "chance" "100"
+            "threshold" "40 45 50 55"
+        }
 		
 		"precache"
 		{

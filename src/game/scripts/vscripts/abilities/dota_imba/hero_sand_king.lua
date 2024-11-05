@@ -1356,7 +1356,7 @@ function modifier_imba_sandking_sand_storm_720_thinker:OnIntervalThink()
 				victim 			= enemy,
 				damage 			= self.sand_storm_damage * self.damage_tick_rate,
 				damage_type		= DAMAGE_TYPE_PHYSICAL,
-				damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
+				damage_flags 	= DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
 				attacker 		= self.caster,
 				ability 		= self.ability
 			}

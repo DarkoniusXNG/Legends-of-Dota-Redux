@@ -14,33 +14,13 @@
         "AbilityCooldown"                                                      "20"
         "AbilityManaCost"                                                      "100"
         "AbilityModifierSupportValue"                                          "0.15"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "3.0 4.0 5.0 6.0"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "freeze_duration"                                      "0.4"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "freeze_cooldown"                                      "0.77 0.71 0.66 0.60"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "freeze_damage"                                        "7 21 35 49"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "damage_trigger"                                       "10.0"
-            }
+            "duration" "3.0 4.0 5.0 6.0"
+            "freeze_duration" "0.4"
+            "freeze_cooldown" "0.77 0.71 0.66 0.60"
+            "freeze_damage" "7 21 35 49"
+            "damage_trigger" "10.0"
         }
         "ReduxFlags"                                                           "stun"
         "ReduxPerks"                                                           "ice"

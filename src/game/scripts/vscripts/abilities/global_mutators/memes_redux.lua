@@ -30,7 +30,7 @@ function modifier_memes_redux:OnAbilityFullyCast(event)
     caster:EmitSound("Memes.PowerUp")
   elseif ability:GetName() == "earthshaker_enchant_totem" then
     caster:EmitSound("Memes.PowerUp")
-  elseif ability:GetName() == "lone_druid_spirit_bear_return_lod" or ability:GetName() == "lone_druid_spirit_bear_return_lod_OP" then
+  elseif ability:GetName() == "lone_druid_spirit_bear_return_lod" then
   	
   	if not self.FlahshTracker then
   		self.FlahshTracker = 1

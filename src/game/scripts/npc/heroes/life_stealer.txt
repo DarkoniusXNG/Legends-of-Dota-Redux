@@ -1,0 +1,186 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Lifestealer: Rage
+	//=================================================================================================================
+	"life_stealer_rage"
+	{
+		"ReduxPerks"			"rage"
+		"ReduxCost"				"20"
+	}
+
+	//=================================================================================================================
+	// Lifestealer: Unfettered Fury
+	//=================================================================================================================
+	"life_stealer_unfettered"
+	{
+		"ReduxPerks"			"rage"
+		"ReduxCost"				"20"
+	}
+
+	//=================================================================================================================
+	// Lifestealer: Feast
+	//=================================================================================================================
+	"life_stealer_feast"
+	{
+		"ReduxFlags"					"attack_modifier | physical"
+		"ReduxPerks"					"attack_modifier | physical"
+		"ReduxCost"						"80"
+		"ReduxBans"						"holdout_multishot | life_stealer_feast_melee"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+	}
+
+	//=================================================================================================================
+	// Lifestealer: Open Wounds
+	//=================================================================================================================
+	"life_stealer_open_wounds"
+	{
+		"ReduxPerks"		"support"
+		"ReduxFlags"		"support"
+	}
+
+	//=================================================================================================================
+	// Lifestealer: Ghoul Frenzy
+	//=================================================================================================================
+	"life_stealer_ghoul_frenzy"
+	{
+		"ReduxFlags"		"attack_modifier"
+		"ReduxPerks"		"attack_modifier | rage"
+	}
+
+	//=================================================================================================================
+	// Lifestealer: Infest
+	//=================================================================================================================
+	"life_stealer_infest"
+	{
+		"ReduxFlags"		"support | mobility | upgradeable"
+		"ReduxPerks"		"support | mobility"
+		"ReduxCost"			"20"
+		"ReduxBans"			"nyx_assassin_burrow | nyx_assassin_burrow_redux"
+	}
+
+	//=================================================================================================================
+	// Naix: Assimilate ( scepter ability )
+	//=================================================================================================================
+	"life_stealer_assimilate"
+	{
+		"ReduxFlags"                    "support | doNotRandom"
+		"ReduxPerks"                    "support"
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"150 250 350 450"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"50"
+		"AbilityManaCost"				"50"
+		"AbilityValues"
+		{
+			"damage"
+			{
+				"value" "300 400 500 600"
+				"RequiresScepter" "1"
+			}
+			"radius"
+			{
+				"value" "700 700 700"
+				"RequiresScepter" "1"
+			}
+			"order_lock_duration"
+			{
+				"value" "2"
+				"RequiresScepter" "1"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Lifestealer: Assimilate Eject
+	//=================================================================================================================
+	"life_stealer_assimilate_eject"
+	{
+		"ReduxFlags"                    "support | doNotRandom"
+
+		"AbilityValues"
+		{
+			"damage_tooltip"
+			{
+				"value" "300 400 500 600"
+			}
+			"radius_tooltip"
+			{
+				"value" "700 700 700"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Lifestealer: Consume
+	//=================================================================================================================
+	"life_stealer_consume"
+	{
+		"ReduxFlags"		"doNotRandom"
+	}
+
+	//=================================================================================================================
+	// Lifestealer: Control
+	//=================================================================================================================
+	"life_stealer_control"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	}
+
+	//=================================================================================================================
+	// Life Stealer: Corpse Eater (Facet)
+	//=================================================================================================================
+	"life_stealer_corpse_eater"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+	"special_bonus_unique_lifestealer"
+	{
+		"TalentRequiredAbility"
+		{
+			"1"	"life_stealer_rage"
+			"2"	"life_stealer_unfettered"
+		}
+	}
+
+	"special_bonus_unique_lifestealer_2"
+	{
+		"TalentRequiredAbility"			"life_stealer_ghoul_frenzy"
+	}
+
+	"special_bonus_unique_lifestealer_3"
+	{
+		"TalentRequiredAbility"			"life_stealer_feast"
+	}
+
+	"special_bonus_unique_lifestealer_4"
+	{
+		"TalentRequiredAbility"			"life_stealer_open_wounds"
+	}
+
+	"special_bonus_unique_lifestealer_5"
+	{
+		"TalentRequiredAbility"			"life_stealer_ghoul_frenzy"
+	}
+
+	"special_bonus_unique_lifestealer_6"
+	{
+		"TalentRequiredAbility"			"life_stealer_open_wounds"
+	}
+
+	"special_bonus_unique_lifestealer_7"
+	{
+		"TalentRequiredAbility"			"life_stealer_ghoul_frenzy"
+	}
+
+	"special_bonus_unique_lifestealer_infest_damage"
+	{
+		"TalentRequiredAbility"			"life_stealer_infest"
+	}
+
+	"special_bonus_unique_lifestealer_infest_target_bonus"
+	{
+		"TalentRequiredAbility"			 "life_stealer_infest"
+	}
+}

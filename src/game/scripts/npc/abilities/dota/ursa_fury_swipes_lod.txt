@@ -7,28 +7,12 @@
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"                                                   "custom/ursa_fury_swipes_lod"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "bonus_reset_time"                                     "20"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "bonus_reset_time_roshan"                              "6"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage_per_stack"                                     "15 20 25 30"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "damage_per_stack_ranged"                              "7.5 10 12.5 15"
-            }
+            "bonus_reset_time" "20"
+            "bonus_reset_time_roshan" "6"
+            "damage_per_stack" "15 20 25 30"
+            "damage_per_stack_ranged" "7.5 10 12.5 15"
         }
         "precache"
         {

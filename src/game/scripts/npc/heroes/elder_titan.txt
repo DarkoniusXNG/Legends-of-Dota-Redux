@@ -1,0 +1,117 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Elder Titan: Echo Stomp
+	//=================================================================================================================
+	"elder_titan_echo_stomp"
+	{
+		"ReduxFlags"		"physical"
+		"ReduxPerks"		"physical | sleep | channeled"
+	}
+
+	//=================================================================================================================
+	// Elder Titan: Echo Stomp (Spirit Version)
+	//=================================================================================================================
+	"elder_titan_echo_stomp_spirit"
+	{
+		"ReduxPerks"		"sleep | channeled"
+		"ReduxFlags"		"doNotRandom"
+	}
+
+	//=================================================================================================================
+	// Elder Titan: Ancestral Spirit
+	//=================================================================================================================
+	"elder_titan_ancestral_spirit"
+	{
+		"ReduxFlags"        "mobility"
+		"ReduxPerks"        "mobility"
+	}
+
+	//=================================================================================================================
+	// Elder Titan: Return Spirit
+	//=================================================================================================================
+	"elder_titan_return_spirit"
+	{
+		"ReduxFlags"		"doNotRandom"
+	}
+
+	//=================================================================================================================
+	// Elder Titan: Return Spirit
+	//=================================================================================================================
+	"elder_titan_move_spirit"
+	{
+		"ReduxFlags"		"doNotRandom"
+	}
+
+	//=================================================================================================================
+	// Elder Titan: Natural Order
+	//=================================================================================================================
+	"elder_titan_natural_order"
+	{
+		"ReduxPerks"		"aura | earth"
+	}
+
+	//=================================================================================================================
+	// Elder Titan: Natural Order Spirit
+	//=================================================================================================================
+	"elder_titan_natural_order_spirit"
+	{
+		"ReduxPerks"		"aura | earth"
+		"ReduxFlags"		"doNotRandom"
+	}
+
+	//=================================================================================================================
+	// Elder Titan: Earth Splitter
+	//=================================================================================================================
+	"elder_titan_earth_splitter"
+	{
+		"ReduxFlags"			"stun | physical"
+		"ReduxPerks"			"earth | skillshot | enemyMoving | physical"
+	}
+
+	//=================================================================================================================
+	// Elder Titan: Momentum (Facet)
+	//=================================================================================================================
+	"elder_titan_momentum"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+	//=================================================================================================================
+	// Elder Titan: Tip The Scales (Innate)
+	//=================================================================================================================
+	"elder_titan_tip_the_scales"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+	}
+
+	"special_bonus_unique_elder_titan"
+	{
+		"TalentRequiredAbility"		"elder_titan_ancestral_spirit"
+	}
+
+	"special_bonus_unique_elder_titan_2"
+	{
+		"TalentRequiredAbility"		"elder_titan_echo_stomp"
+	}
+
+	"special_bonus_unique_elder_titan_3"
+	{
+		"TalentRequiredAbility"		"elder_titan_earth_splitter"
+	}
+
+	"special_bonus_unique_elder_titan_4"
+	{
+		"TalentRequiredAbility"		"elder_titan_echo_stomp"
+	}
+
+	"special_bonus_unique_elder_titan_5"
+	{
+		"TalentRequiredAbility"		"elder_titan_natural_order"
+	}
+
+	"special_bonus_unique_elder_titan_bonus_spirit_speed"
+	{
+		"TalentRequiredAbility"		"elder_titan_ancestral_spirit"
+	}
+}

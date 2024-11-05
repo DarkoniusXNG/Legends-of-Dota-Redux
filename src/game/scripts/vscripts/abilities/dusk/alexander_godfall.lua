@@ -108,6 +108,6 @@ function InflictDamage(target,attacker,ability,damage,damage_type,flags)
 	    damage = damage,
 	    damage_type = damage_type,
 	    damage_flags = flags,
-	    ability = self
+	    ability = ability
   	})
 end

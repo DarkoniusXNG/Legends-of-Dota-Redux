@@ -459,7 +459,7 @@ function setTabsSearchHandler() {
 function OnHeroDataChanged(table_name, key, data) {
 	heroData[key] = data;
 
-	for (var i = 1; i <= 16; ++i) {
+	for (var i = 1; i <= 35; ++i) {
 		if (data["Ability" + i] != null) {
 			abilityHeroOwner[data["Ability" + i]] = key;
 		}

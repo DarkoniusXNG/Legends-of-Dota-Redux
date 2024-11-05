@@ -24,38 +24,14 @@
             "particle"                                                     "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf"
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage"                                               "5 10 15"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "aoe_range"                                            "750 900 1050"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "damage_delay"                                         "0.25"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "chain_fade"                                           "0.35"
-            }
-            "07"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_scepter"                                        "10"
-            }
-            "08"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "fade_scepter"                                         "0.05"
-            }
+            "damage" "5 10 15"
+            "aoe_range" "750 900 1050"
+            "damage_delay" "0.25"
+            "chain_fade" "0.35"
+            "bonus_scepter" "10"
+            "fade_scepter" "0.05"
         }
         "ReduxPerks"                                                           "fire"
     }

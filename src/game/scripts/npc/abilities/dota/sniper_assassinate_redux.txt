@@ -16,42 +16,16 @@
 		"AbilityManaCost" "175 275 375"
 		"AbilityModifierSupportValue" "0.0"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"projectile_speed" "2500 2500 2500"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"tooltip_range" "2000 2500 3000"
-			}
-
-			"03" {
-				"var_type" "FIELD_FLOAT"
-				"charge_time" "2.0"
-			}
-
-			"04" {
-				"var_type" "FIELD_FLOAT"
-				"debuff_duration" "4.0"
-			}
-
-			"05" {
-				"var_type" "FIELD_INTEGER"
-				"damage" "355 505 655"
-			}
-
-			"06" {
-				"var_type" "FIELD_INTEGER"
-				"scepter_radius" "400"
-			}
-
-			"07" {
-				"var_type" "FIELD_INTEGER"
-				"scepter_crit_bonus" "280"
-			}
-		}
+		"AbilityValues"
+        {
+            "projectile_speed" "2500 2500 2500"
+            "tooltip_range" "2000 2500 3000"
+            "charge_time" "2.0"
+            "debuff_duration" "4.0"
+            "damage" "355 505 655"
+            "scepter_radius" "400"
+            "scepter_crit_bonus" "280"
+        }
 
 		"precache" {
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"

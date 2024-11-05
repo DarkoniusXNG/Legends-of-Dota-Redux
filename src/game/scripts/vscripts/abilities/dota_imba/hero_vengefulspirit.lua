@@ -1025,7 +1025,7 @@ function imba_vengefulspirit_nether_swap:OnOwnerDied()
 
 			-- copy original ability
 			local ability = caster:GetAbilityByIndex(abilitySlot)
-			if ability ~= nil then
+			if ability ~= nil and not DONOTREMOVE[ability:GetAbilityName()] then
 				local abilityLevel = ability:GetLevel()
 				local abilityName = ability:GetAbilityName()
 				local ability_copy = super_illusion:AddAbility( abilityName )

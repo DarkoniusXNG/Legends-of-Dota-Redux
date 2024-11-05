@@ -19,17 +19,11 @@
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
 		}
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_FLOAT"
-				"duration" "2"
-			}
-
-			"02" {
-				"var_type" "FIELD_FLOAT"
-				"lifetime" "4 5 6"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "2"
+            "lifetime" "4 5 6"
+        }
 
 		"Modifiers" {
 			"modifier_dark_ranger_black_arrow_ultimate" {

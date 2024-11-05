@@ -16,6 +16,8 @@
         "AbilityCastRange"                      "900"
         "AbilityCooldown"                       "6"
         "ScriptFile"                            "abilities/healing_aura.lua"
+        "ReduxPerks"                            "support | light"
+        "ReduxFlags"                            "support"
         "ReduxCost"                                                            "120"
 
         // Precache
@@ -28,37 +30,13 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "search_radius"             "900"
-            }
-
-            "02"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "bounce_delay"              "0.5"
-            }
-
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "bounce_radius"             "600"
-            }
-
-            "04"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "heal_amount"               "150 250 350"
-            }
-
-            "05"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "hp_threshold"              "85"
-            }
+            "search_radius" "900"
+            "bounce_delay" "0.5"
+            "bounce_radius" "600"
+            "heal_amount" "150 250 350"
+            "hp_threshold" "85"
         }
     }
 
@@ -75,6 +53,8 @@
         "AbilityCastRange"                      "900"
         "AbilityCooldown"                       "30 20 10"
         "ScriptFile"                            "abilities/healing_aura.lua"
+        "ReduxPerks"                            "support | light"
+        "ReduxFlags"                            "support"
         "ReduxCost"                                                            "40"
 
         // Precache
@@ -87,37 +67,13 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "search_radius"             "900"
-            }
-
-            "02"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "bounce_delay"              "0.5"
-            }
-
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "bounce_radius"             "600"
-            }
-
-            "04"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "heal_amount"               "150 250 350"
-            }
-
-            "05"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "hp_threshold"              "85"
-            }
+            "search_radius" "900"
+            "bounce_delay" "0.5"
+            "bounce_radius" "600"
+            "heal_amount" "150 250 350"
+            "hp_threshold" "85"
         }
     }
 }

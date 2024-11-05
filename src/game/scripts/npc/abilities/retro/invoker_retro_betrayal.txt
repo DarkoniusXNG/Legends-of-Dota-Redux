@@ -20,18 +20,10 @@
         {
             "particle"                                                     "particles/units/heroes/hero_invoker/invoker_retro_betrayal_explosion.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "3 6 9"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "pip_current"                                          "1"
-            }
+            "duration" "3 6 9"
+            "pip_current" "1"
         }
         "OnSpellStart"
         {

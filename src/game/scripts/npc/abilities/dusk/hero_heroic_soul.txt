@@ -27,34 +27,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_damage"			"15 30 45 60"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed"		"40"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"3 4 5 6"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_reduction"		"60"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_reduction_duration" "0.5 1.0 1.5 2.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_damage" "15 30 45 60"
+            "bonus_movespeed" "40"
+            "duration" "3 4 5 6"
+            "damage_reduction" "60"
+            "damage_reduction_duration" "0.5 1.0 1.5 2.0"
+        }
 
 		"precache"
 		{

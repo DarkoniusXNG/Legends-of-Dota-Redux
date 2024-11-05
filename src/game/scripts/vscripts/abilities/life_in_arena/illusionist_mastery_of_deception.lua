@@ -20,9 +20,7 @@ function illusions( event )
 	if not caster.count_ill then
 		caster.count_ill = 0
 	end
-	
-	
-	
+
 	local duration = ability:GetSpecialValueFor("time")
 	local outgoingDamage = ability:GetSpecialValueFor("outgoing_damage")
 	local incomingDamage = ability:GetSpecialValueFor("incoming_damage")

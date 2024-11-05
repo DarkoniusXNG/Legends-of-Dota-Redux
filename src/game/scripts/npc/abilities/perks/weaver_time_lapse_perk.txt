@@ -16,14 +16,13 @@
 		"AbilityCooldown"				"120" // we changed this
 		"AbilityManaCost"				"0" // we changed this
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cooldown_scepter"		"120" // we changed this
-				"RequiresScepter"		"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "cooldown_scepter"
+            {
+                "value" "120" // we changed this
+                "RequiresScepter" "1"
+            }
+        }
 	}
 }
