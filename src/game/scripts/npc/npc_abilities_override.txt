@@ -2923,7 +2923,7 @@
 	{
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility | scientific | self_damage | explosive"
-		"ReduxBans"                                                            "imba_dazzle_shallow_grave_passive | arc_warden_tempest_double | spell_lab_symbiotic"
+		"ReduxBans"                                                            "arc_warden_tempest_double | spell_lab_symbiotic"
 	}
 	"phoenix_icarus_dive"
 	{
@@ -3133,8 +3133,8 @@
 	}
 	"doom_bringer_infernal_blade"
 	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "demon | attack_modifier | fire | autocast_basic"
+		"ReduxFlags"                                                           "attack_modifier | bash"
+		"ReduxPerks"                                                           "demon | attack_modifier | fire | autocast_basic | bash"
 		"ReduxCost"                                                            "20"
 	}
 	"phantom_assassin_coup_de_grace"
@@ -5360,7 +5360,7 @@
 	"phantom_assassin_fan_of_knives"
 	{
 		"ReduxPerks"                    "dagger | physical"
-		"ReduxFlags"					"disarm_break"
+		"ReduxFlags"					"physical | disarm_break"
 		"MaxLevel"                      "4"
 		"AbilityCooldown"               "15 14 13 12"
 		"AbilityManaCost"               "50"

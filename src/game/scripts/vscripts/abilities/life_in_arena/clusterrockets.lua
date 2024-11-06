@@ -13,9 +13,13 @@ function FireClusterRocket( event )
     local ability = event.ability
     local point = ability.point
     local radius =  ability:GetLevelSpecialValueFor( "radius" , ability:GetLevel() - 1  )
-    local projectile_count =  ability:GetLevelSpecialValueFor( "projectile_count" , ability:GetLevel() - 1  )
     local projectile_speed =  ability:GetLevelSpecialValueFor( "projectile_speed" , ability:GetLevel() - 1  )
     local particleName = "particles/units/heroes/hero_gyrocopter/gyro_rocket_barrage.vpcf"
+
+    if ability.projectile_count <= 0 then
+        caster:RemoveModifierByName("modifier_cluster_rockets")
+        return
+    end
 
     -- Get engineering level and increase the radius
     local engineering_level = 0
@@ -46,8 +50,13 @@ function FireClusterRocket( event )
     }
     ProjectileManager:CreateTrackingProjectile( projTable )
 
-    Timers:CreateTimer(2,function() UTIL_Remove(dummy) end)
+    ability.projectile_count = ability.projectile_count - 1
 
+    Timers:CreateTimer(2,function() 
+        if dummy and not dummy:IsNull() then
+            UTIL_Remove(dummy)
+        end
+    end)
 end
 
 -- Keep track of the targeted point to make the rockets
@@ -55,6 +64,7 @@ function StartClusterRockets( event )
     local caster = event.caster
     local ability = event.ability
     ability.point = event.target_points[1]
+    ability.projectile_count = ability:GetLevelSpecialValueFor( "projectile_count" , ability:GetLevel() - 1  )
 end
 
 -- Damage and stun

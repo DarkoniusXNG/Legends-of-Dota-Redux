@@ -1,0 +1,65 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Hero_Warp_Beast.ManaEater = {
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/chen/attack.vsnd",
+		]
+		volume = "0.699707"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "150.000000"
+	}
+	
+	Hero_Warp_Beast.WarpIn = {
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/underlord/dark_rift_aftershock.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	
+	}
+
+	Hero_Warp_Beast.WarpOut = 
+	{
+		type = "dota_update_default"
+		volume = 1.000000
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		mixgroup = "Weapons"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/void_spirit/dissimilate_appear.vsnd",
+		]
+	}
+
+	Hero_Warp_Beast.Warp.Portal = {
+		type = "dota_src1_3d"
+		volume = 0.500000
+		pitch = 0.900000
+		pitch_rand_min = 0.000000
+		pitch_rand_max = 0.100000
+		mixgroup = "NoDuck"
+		soundlevel = 84.000000
+		distance_max = 3000.000000
+		volume_fade_in = 0.000000
+		limiter_on = 0.000000
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/void_spirit/dissimilate_portal01.vsnd",
+			"sounds/weapons/hero/void_spirit/dissimilate_portal02.vsnd",
+		]
+	}
+}

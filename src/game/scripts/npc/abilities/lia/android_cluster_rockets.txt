@@ -17,12 +17,12 @@
         "AbilityCooldown"                                                      "16.0"
         "AbilityManaCost"                                                      "95 105 115 125"
         "AOERadius"                                                            "%radius"
-        "AbilityChannelTime"                                                   "1.01"
+
         "precache"
         {
-            "particle"                                                      "particles/units/heroes/hero_gyrocopter/gyro_rocket_barrage.vpcf"
-            "particle"                                                      "particles/units/heroes/hero_tinker/tinker_rearm.vpcf"
-            "soundfile"                                                     "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
+            "particle"                                                     "particles/units/heroes/hero_gyrocopter/gyro_rocket_barrage.vpcf"
+            "particle"                                                     "particles/units/heroes/hero_tinker/tinker_rearm.vpcf"
+            "particle"                                                     "particles/units/heroes/hero_tinker/tinker_missle_explosion.vpcf"
         }
         "AbilityValues"
         {
@@ -57,18 +57,7 @@
                 "Target"                                               "POINT"
             }
         }
-        "OnChannelFinish"
-        {
-            "RemoveModifier"
-            {
-                "ModifierName"                                         "modifier_cluster_rockets"
-                "Target"
-                {
-                    "Center"                                       "CASTER"
-                    "Flags"                                        "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-                }
-            }
-        }
+
         "OnProjectileHitUnit"
         {
             "FireSound"
