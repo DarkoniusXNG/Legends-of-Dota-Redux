@@ -70,6 +70,6 @@
       "vision_duration"                                   "1.5"
     }
 
-    "ReduxPerks"                                          "scientific | explosive"
+    "ReduxPerks"                                          "scientific | explosive | skillshot"
   }
 }

@@ -63,7 +63,7 @@ if IsServer() then
 		local blocked_damage = 0
 
 		for _,unit in pairs(self.tTargets) do
-			if unit ~= parent then 
+			if unit and not unit:IsNull() and unit ~= parent and unit:IsAlive() then 
 				if unit:GetHealthPercent() > 25 then
 					unit.spiritLink_damage = true
 					--print("Link Damage by",parent:GetUnitName(),"to",unit:GetUnitName(),attacker:GetUnitName(),attack_damage,linked_damage)

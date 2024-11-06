@@ -65,5 +65,8 @@
         "RequiresScepter"                                 "1"
       }
     }
+
+    "ReduxFlags"                                          "upgradeable"
+    "ReduxPerks"                                          "skillshot"
   }
 }
