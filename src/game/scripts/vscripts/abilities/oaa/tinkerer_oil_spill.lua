@@ -158,7 +158,6 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
   local attack_speed_slow = 15
   local burn_dps = 30
   local burn_interval = 0.25
-  local damage_amp = 0
   local extra_duration = 3
 
   local ability = self:GetAbility()
@@ -179,7 +178,6 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
   self.attack_speed_slow = attack_speed_slow
   self.burn_dps = burn_dps
   self.burn_interval = burn_interval
-  self.damage_amp = damage_amp
   self.bonus_duration = extra_duration
   self.already_burning = false
 end
@@ -191,7 +189,6 @@ function modifier_tinkerer_oil_spill_debuff:OnRefresh()
   local attack_speed_slow = 15
   local burn_dps = 30
   local burn_interval = 0.25
-  local damage_amp = 0
   local extra_duration = 3
 
   local ability = self:GetAbility()
@@ -207,7 +204,6 @@ function modifier_tinkerer_oil_spill_debuff:OnRefresh()
   self.attack_speed_slow = attack_speed_slow
   self.burn_dps = burn_dps
   self.burn_interval = burn_interval
-  self.damage_amp = damage_amp
   self.bonus_duration = extra_duration
 end
 
@@ -216,7 +212,6 @@ function modifier_tinkerer_oil_spill_debuff:DeclareFunctions()
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
     MODIFIER_PROPERTY_TOOLTIP
   }
 end
@@ -237,10 +232,6 @@ end
 
 function modifier_tinkerer_oil_spill_debuff:GetModifierAttackSpeedPercentage()
   return 0 - math.abs(self.attack_speed_slow)
-end
-
-function modifier_tinkerer_oil_spill_debuff:GetModifierIncomingDamage_Percentage()
-  return self.damage_amp
 end
 
 if IsServer() then

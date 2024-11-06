@@ -26,7 +26,6 @@
 
     "precache"
     {
-      //"soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
       "particle"                                          "particles/units/heroes/hero_techies/techies_stasis_trap.vpcf"
       "particle"                                          "particles/units/heroes/hero_techies/techies_stasis_spring.vpcf"
       "particle"                                          "particles/units/heroes/hero_techies/techies_stasis_trap_plant.vpcf"

@@ -13,7 +13,6 @@
 
     "precache"
     {
-      //"soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
       "particle"                                          "particles/units/heroes/hero_dazzle/dazzle_shallow_grave_glyph_flare.vpcf"
       "particle"                                          "particles/items2_fx/soul_ring_blood.vpcf"
       "particle"                                          "particles/items_fx/backdoor_protection_tube.vpcf"

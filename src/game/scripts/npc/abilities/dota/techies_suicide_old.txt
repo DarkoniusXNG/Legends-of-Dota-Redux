@@ -22,7 +22,6 @@
 
     "precache"
     {
-      //"soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"    
       //"particle"                                          "particles/units/heroes/hero_techies/techies_suicide_base.vpcf"
       "particle"                                          "particles/units/heroes/hero_techies/techies_blast_off_trail.vpcf"
       "particle"                                          "particles/units/heroes/hero_techies/techies_blast_off.vpcf"
@@ -36,7 +35,7 @@
       "small_radius"                                      "200" // full damage radius;
       "big_radius"                                        "500" // half damage radius;
 
-      "building_dmg_reduction"                            "40"
+      "building_dmg_reduction"                            "50"
       "vision_radius"                                     "400"
       "vision_duration"                                   "2.0"
 

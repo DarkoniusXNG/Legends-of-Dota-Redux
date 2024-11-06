@@ -138,15 +138,14 @@ function sohei_quivering_palm:QuiveringPalmEffect(victim)
   local victim_str = victim:GetStrength()
   local diff_multiplier = self:GetSpecialValueFor("str_diff_multiplier")
   local base_damage = self:GetSpecialValueFor("base_damage")
-  local attack_damage = caster:GetAverageTrueAttackDamage(nil)
   local bonus_damage = math.max((caster_str - victim_str) * diff_multiplier, 0)
 
   local damage_table = {
     attacker = caster,
     victim = victim,
-    damage = base_damage + attack_damage + bonus_damage,
+    damage = base_damage + bonus_damage,
     damage_type = self:GetAbilityDamageType(),
-    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
     ability = self,
   }
   ApplyDamage(damage_table)
@@ -324,7 +323,7 @@ if IsServer() then
     local casterTeam = caster:GetTeamNumber()
 
     -- Check if enemy and if spell-immune 
-    local isParentDispelled = parentTeam ~= casterTeam and parent:IsMagicImmune())
+    local isParentDispelled = parentTeam ~= casterTeam and parent:IsMagicImmune()
 
     if isParentDispelled then
       self:Destroy()

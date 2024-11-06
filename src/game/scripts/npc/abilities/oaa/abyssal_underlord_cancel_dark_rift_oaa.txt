@@ -14,6 +14,8 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityTextureName"                                  "abyssal_underlord_cancel_dark_rift"
+	
+    "MaxLevel"                                            "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------

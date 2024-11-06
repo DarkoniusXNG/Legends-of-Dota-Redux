@@ -287,11 +287,6 @@ if IsServer() then
 			return
 		end
 
-		-- Check if attacked entity exists
-		--if not dead or dead:IsNull() then
-			--return
-		--end
-
 		-- Check for existence of GetUnitName method to determine if target is a unit or an item
 		-- items don't have that method -> nil; if the target is an item, don't continue
 		if dead.GetUnitName == nil then

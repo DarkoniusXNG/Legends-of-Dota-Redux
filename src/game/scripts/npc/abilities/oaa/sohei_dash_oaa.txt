@@ -23,7 +23,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
-    "AbilityCastRange"                                    "0"
+    "AbilityCastRange"                                    "0" // when hovering over an ability it will show max Dash Range
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -54,7 +54,7 @@
         "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
       }
-      "dash_range"                                        "625" // max Dash range
+      "dash_range"                                        "625" // max Dash range, can be increased with cast range bonuses
       "damage"                                            "75 100 125 150"
       "move_speed_slow_pct"                               "20 30 40 50"
       "attack_speed_slow"                                 "40 60 80 100"

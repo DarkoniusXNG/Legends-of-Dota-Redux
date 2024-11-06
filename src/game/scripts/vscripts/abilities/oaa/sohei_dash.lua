@@ -10,7 +10,7 @@ if IsClient() then
     local caster = self:GetCaster()
     local range = self:GetSpecialValueFor("dash_range")
 
-    return range
+    return range + caster:GetCastRangeBonus()
   end
 end
 
@@ -91,12 +91,10 @@ function modifier_sohei_dash_movement:GetPriority()
 end
 
 function modifier_sohei_dash_movement:CheckState()
-  local state = {
-    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true
-  }
-
-  return state
+	return {
+		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+		[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true
+	}
 end
 
 if IsServer() then

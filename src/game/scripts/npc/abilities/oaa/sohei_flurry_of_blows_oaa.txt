@@ -39,7 +39,6 @@
     "precache"
     {
       "particle"                                          "particles/hero/sohei/flurry_of_blows_ground.vpcf"
-      //"soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
     }
 
     // Special
@@ -52,7 +51,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "max_attacks"                                       "6 9 12"
-      "max_duration"                                      "2.5 3.5 4.5 5.5 6" // min is: (max_attacks + 1) * attack_interval
+      "max_duration"                                      "2.5 3.5 4.5" // min is: (max_attacks + 1) * attack_interval
       "attack_interval"                                   "0.3"
       "bonus_damage"
       {

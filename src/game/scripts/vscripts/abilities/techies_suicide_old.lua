@@ -36,7 +36,7 @@ end
 function techies_custom_suicide:GetCustomCastErrorLocation(location)
 	local caster = self:GetCaster()
 	if caster:IsAttackImmune() then
-		return "Ability Not Castable While Ethereal"
+		return "Ability Can't Be Cast While Ethereal"
 	end
 end
 
@@ -102,7 +102,7 @@ function techies_custom_suicide:PrimaryEffect(point)
 	local damage_table = {}
 	damage_table.attacker = caster
 	damage_table.damage_type = DAMAGE_TYPE_PHYSICAL -- Composite dmg doesn't exist anymore, so we reduce the physical dmg with magic resistance
-	damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_BYPASSES_BLOCK, DOTA_DAMAGE_FLAG_REFLECTION)
+	damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK, DOTA_DAMAGE_FLAG_REFLECTION)
 	damage_table.ability = self
 
 	local enemies_big_radius = FindUnitsInRadius(team, point, nil, big_radius, target_team, target_type, target_flags, FIND_ANY_ORDER, false)
@@ -131,7 +131,7 @@ function techies_custom_suicide:PrimaryEffect(point)
 			if TableContains(enemies_small_radius, enemy) then
 				dmg = small_radius_dmg
 			end
-			local enemy_magic_resist = enemy:GetMagicalArmorValue()
+			local enemy_magic_resist = enemy:Script_GetMagicalArmorValue(false, self)
 			local composite_dmg = dmg * (1 - enemy_magic_resist)
 			damage_table.damage = composite_dmg
 			if enemy:IsBuilding() or enemy:IsBarracks() or enemy:IsTower() or enemy:IsFort() then
@@ -161,10 +161,10 @@ function techies_custom_suicide:PrimaryEffect(point)
 	if has_shard and caster:IsAlive() then
 		-- self damage instead of suicide
 		damage_table.victim = caster
-		local magic_resist = caster:GetMagicalArmorValue()
+		local magic_resist = caster:Script_GetMagicalArmorValue(false, self)
 		local self_dmg = big_radius_dmg * (1 - magic_resist)
 		damage_table.damage = self_dmg
-		damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_BYPASSES_BLOCK, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+		damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
 		ApplyDamage(damage_table)
 	end
 end

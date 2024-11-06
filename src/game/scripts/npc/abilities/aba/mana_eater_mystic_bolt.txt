@@ -28,38 +28,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      //"soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
       "particle"                                          "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf"
     }
     
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bolt_speed"                                        "500"
+      "bolt_vision"                                       "250"
+      "vision_duration"                                   "3.5"
+      "base_damage"                                       "25 50 75 100"
+      "damage_per_mana"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bolt_speed"                                      "500"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bolt_vision"                                     "250"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "vision_duration"                                 "3.5"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "base_damage"                                     "50 75 100 125"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_per_mana"                                 "1.0"
+        "value"                                           "0.5"
         "CalculateSpellDamageTooltip"                     "0"
       }
     }

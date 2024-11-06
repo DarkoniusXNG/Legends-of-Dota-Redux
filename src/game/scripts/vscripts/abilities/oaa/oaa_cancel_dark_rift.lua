@@ -35,22 +35,20 @@ function abyssal_underlord_cancel_dark_rift_oaa:OnSpellStart()
   for _, unit in pairs(units) do
     -- Teleport only units that are stunned by Dark Rift
     if unit and not unit:IsNull() and unit.HasModifier and unit:HasModifier("modifier_underlord_dark_rift_oaa_stun") then
-      if not unit:IsOAABoss() then
-        should_teleport_caster = true
-        if destination then
-          -- Teleport the unit
-          unit:SetAbsOrigin(destination)
-          FindClearSpaceForUnit(unit, destination, true)
+      should_teleport_caster = true
+      if destination then
+        -- Teleport the unit
+        unit:SetAbsOrigin(destination)
+        FindClearSpaceForUnit(unit, destination, true)
 
-          -- Disjoint disjointable/dodgeable projectiles
-          ProjectileManager:ProjectileDodge(unit)
+        -- Disjoint disjointable/dodgeable projectiles
+        ProjectileManager:ProjectileDodge(unit)
 
-          -- Teleportation particle
-          --local part = ParticleManager:CreateParticle("particles/units/heroes/heroes_underlord/abbysal_underlord_darkrift_ambient_end.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-          --ParticleManager:SetParticleControl(part, 2, unit:GetAbsOrigin())
-          --ParticleManager:SetParticleControl(part, 5, unit:GetAbsOrigin())
-          --ParticleManager:ReleaseParticleIndex(part)
-        end
+        -- Teleportation particle
+        --local part = ParticleManager:CreateParticle("particles/units/heroes/heroes_underlord/abbysal_underlord_darkrift_ambient_end.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+        --ParticleManager:SetParticleControl(part, 2, unit:GetAbsOrigin())
+        --ParticleManager:SetParticleControl(part, 5, unit:GetAbsOrigin())
+        --ParticleManager:ReleaseParticleIndex(part)
       end
     end
   end

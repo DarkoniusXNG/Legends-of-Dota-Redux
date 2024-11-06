@@ -214,7 +214,6 @@
 #base "abilities\dota\techies_land_mines_old.txt"
 #base "abilities\dota\techies_stasis_trap_old.txt"
 #base "abilities\dota\techies_suicide_old.txt"
-#base "abilities\dota\tinker_rearm_lod.txt"
 #base "abilities\dota\tiny_grow_lod.txt"
 #base "abilities\dota\tiny_grow_lod_redux.txt"
 #base "abilities\dota\undying_decay_agi.txt"

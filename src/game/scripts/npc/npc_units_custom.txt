@@ -2683,7 +2683,6 @@
 
 		"precache"
 		{
-			"soundfile"       "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
 			"particle"        "particles/units/heroes/hero_techies/techies_land_mine.vpcf"
 			"particle"        "particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
 			"model"           "models/items/pugna/ward/weta_call_of_the_nether_lotus_ward/weta_call_of_the_nether_lotus_ward.vmdl"
@@ -4740,7 +4739,6 @@
 		"precache"
 		{
 			"particle_folder"		"particles/units/heroes/hero_sven"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
 		}
 
 		// Abilities

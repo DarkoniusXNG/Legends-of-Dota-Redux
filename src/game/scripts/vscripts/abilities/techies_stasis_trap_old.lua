@@ -63,6 +63,7 @@ function modifier_techies_custom_stasis_trap:OnCreated()
 	end
 
 	self.activated = false
+	self.visible = true
 
 	local activation_delay = ability:GetSpecialValueFor("activation_delay")
 	local think_interval = ability:GetSpecialValueFor("think_interval")
@@ -179,6 +180,7 @@ function modifier_techies_custom_stasis_trap:OnIntervalThink()
 		-- Change Interval think
 		self:StartIntervalThink(think_interval)
 		self.activated = true
+		self.visible = false
 	end
 end
 
@@ -207,6 +209,7 @@ function modifier_techies_custom_stasis_trap:CheckState()
 		[MODIFIER_STATE_MAGIC_IMMUNE] = true,
 		[MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
 		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+		[MODIFIER_STATE_INVISIBLE] = not self.visible,
 		[MODIFIER_STATE_ROOTED] = true,
 	}
 end

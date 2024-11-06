@@ -45,7 +45,7 @@
     "AbilityValues"
     {
         "max_duration"                                    "30"
-        "base_damage"                                     "50 75 100 125"
+        "base_damage"                                     "75 150 225 300"
         "str_diff_multiplier"                             "10 15 20 25"
         "knockback_distance"                              "150"
         "knockback_speed"                                 "600"

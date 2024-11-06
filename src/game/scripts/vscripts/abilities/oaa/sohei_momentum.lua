@@ -297,7 +297,7 @@ if IsServer() then
     -- Check if an ally and if affected by nullifier
     local isParentNullified = parentTeam == casterTeam and parent:HasModifier("modifier_item_nullifier_mute")
     -- Check if enemy and if spell-immune 
-    local isParentDispelled = parentTeam ~= casterTeam and parent:IsMagicImmune())
+    local isParentDispelled = parentTeam ~= casterTeam and parent:IsMagicImmune()
 
     if isParentNullified or isParentDispelled then
       self:Destroy()

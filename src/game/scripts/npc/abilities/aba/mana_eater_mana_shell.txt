@@ -11,13 +11,9 @@
 
     "MaxLevel"                                            "4"
     
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      { 
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_percentage"                                 "35 40 45 50"
-      }
+      "mana_percentage"                                   "20 30 40 50"
     }
   }
 }

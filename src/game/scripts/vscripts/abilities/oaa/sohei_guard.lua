@@ -6,7 +6,7 @@ function sohei_guard:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget() or caster
 
-	-- Hard Dispel
+	-- Strong Dispel
 	target:Purge( false, true, false, true, true )
 
 	-- Start an animation
@@ -17,7 +17,7 @@ function sohei_guard:OnSpellStart()
 
 	--Apply Linken's + Lotus Orb + Attack reflect modifier for 2 seconds
 	local duration = self:GetSpecialValueFor("guard_duration")
-	target:AddNewModifier(caster, self, "modifier_sohei_guard_reflect", { duration = duration })
+	target:AddNewModifier(caster, self, "modifier_sohei_guard_reflect", {duration = duration})
 	-- Built-in modifier (Lotus Orb Echo Shell)
 	target:AddNewModifier(caster, self, "modifier_item_lotus_orb_active", {duration = duration})
 
@@ -34,7 +34,7 @@ function sohei_guard:OnProjectileHit_ExtraData( target, location, extra_data )
 		attacker = self:GetCaster(),
 		damage = extra_data.damage,
 		damage_type = DAMAGE_TYPE_PHYSICAL,
-		damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+		damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
 		ability = self
 	} )
 end
@@ -108,7 +108,6 @@ if IsServer() then
 					vSpawnOrigin = parent:GetAbsOrigin(),
 					bDodgeable = true,
 					iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-
 					ExtraData = {
 						damage = event.damage
 					}

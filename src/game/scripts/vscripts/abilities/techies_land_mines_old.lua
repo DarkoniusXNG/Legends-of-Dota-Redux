@@ -148,7 +148,7 @@ function modifier_techies_custom_land_mine:OnIntervalThink()
 			local damage_table = {}
 			damage_table.attacker = caster
 			damage_table.damage_type = DAMAGE_TYPE_PHYSICAL -- Composite dmg doesn't exist anymore, so we reduce the physical dmg with magic resistance
-			damage_table.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
+			damage_table.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK
 			damage_table.ability = ability
 
 			Timers:CreateTimer(delay, function()
@@ -173,7 +173,7 @@ function modifier_techies_custom_land_mine:OnIntervalThink()
 							if TableContains(enemies_partial_radius, enemy) then
 								mine_dmg = small_radius_dmg
 							end
-							local enemy_magic_resist = enemy:GetMagicalArmorValue()
+							local enemy_magic_resist = enemy:Script_GetMagicalArmorValue(false, ability)
 							local composite_dmg = mine_dmg * (1 - enemy_magic_resist)
 							damage_table.damage = composite_dmg
 							if enemy:IsBuilding() or enemy:IsBarracks() or enemy:IsTower() or enemy:IsFort() then
