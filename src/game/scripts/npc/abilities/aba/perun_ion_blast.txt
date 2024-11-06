@@ -39,15 +39,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "projectile_speed"                                "3000"
-      "start_radius"                                    "175"
-      "end_radius"                                      "175"
-      "distance"                                        "2600 3600 4600"
-      "damage"                                          "350 450 550"
-      "mana_burn"                                       "250 350 450"
-      "vision_radius"                                   "400"
-      "vision_duration"                                 "3.0"
-      "trees_radius"                                    "175"
+      "projectile_speed"                                  "3000"
+      "start_radius"                                      "175"
+      "end_radius"                                        "175"
+      "distance"                                          "2600 3600 4600"
+      "damage"                                            "350 450 550"
+      "mana_burn"                                         "250 350 450"
+      "vision_radius"                                     "400"
+      "vision_duration"                                   "3.0"
+      "trees_radius"                                      "175"
     }
+
+    "ReduxPerks"                                          "light"
   }
 }

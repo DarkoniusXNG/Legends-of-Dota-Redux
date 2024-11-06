@@ -50,5 +50,9 @@
         "RequiresShard"                                   "1"
       }
     }
+
+    "ReduxFlags"                                          "dota_custom | physical"
+    "ReduxPerks"                                          "physical | scientific | self_damage | explosive"
+    "ReduxBans"                                           "arc_warden_tempest_double | spell_lab_symbiotic"
   }
 }

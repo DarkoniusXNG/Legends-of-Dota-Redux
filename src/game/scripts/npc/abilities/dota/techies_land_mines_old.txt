@@ -40,7 +40,8 @@
       "building_dmg_reduction"                            "50" // old (100%); Proximity Mines (30%)
     }
 
-    "ReduxPerks"                                          "scientific | trap | explosive"
-    "ReduxBans"                                           "arc_warden_tempest_double | arc_warden_tempest_double_redux"
+    "ReduxFlags"                                          "dota_custom | invis | physical"
+    "ReduxPerks"                                          "scientific | trap | explosive | physical"
+    "ReduxBans"                                           "arc_warden_tempest_double"
   }
 }

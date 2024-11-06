@@ -17,6 +17,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "4"
+	
+    "ReduxFlags"                                          "attack_modifier | crit | stun"
+    "ReduxPerks"                                          "attack_modifier"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------

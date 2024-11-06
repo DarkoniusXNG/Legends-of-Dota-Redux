@@ -7,10 +7,7 @@ LinkLuaModifier("modifier_sohei_dash_slow", "abilities/oaa/sohei_dash.lua", LUA_
 
 if IsClient() then
   function sohei_dash:GetCastRange(location, target)
-    local caster = self:GetCaster()
-    local range = self:GetSpecialValueFor("dash_range")
-
-    return range + caster:GetCastRangeBonus()
+    return self:GetSpecialValueFor("dash_range") -- does not need caster:GetCastRangeBonus(), it will be applied automatically
   end
 end
 

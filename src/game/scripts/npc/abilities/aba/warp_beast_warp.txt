@@ -9,6 +9,8 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "3"
+	
+    "ReduxFlags"                                          "mana"
 
     "precache"
     {

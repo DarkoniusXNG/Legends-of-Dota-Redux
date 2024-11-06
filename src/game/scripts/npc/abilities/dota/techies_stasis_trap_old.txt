@@ -46,5 +46,9 @@
       "detonation_delay"                                  "1.5"
       "stun_duration"                                     "1.25 1.5 1.75 2.0" // old: 2/3/4/5
     }
+
+    "ReduxFlags"                                          "dota_custom | stun | invis"
+    "ReduxPerks"                                          "scientific | trap"
+    "ReduxBans"                                           "arc_warden_tempest_double"
   }
 }
