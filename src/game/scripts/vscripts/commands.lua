@@ -193,6 +193,7 @@ function Commands:OnPlayerChat(keys)
         local abilities = ""
         for i = 0, DOTA_MAX_ABILITIES - 1 do
             local abil = hero:GetAbilityByIndex(i)
+            print(i)
             if abil then
                 abilities = abilities..abil:GetName().." "
                 print(abil:GetName(), abil:IsHidden(), abil:IsActivated())

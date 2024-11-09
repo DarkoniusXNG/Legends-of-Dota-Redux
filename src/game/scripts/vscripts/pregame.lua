@@ -1854,6 +1854,9 @@ function Pregame:networkHeroes()
     -- Stores which abilities belong to which heroes
     self.abilityHeroOwner = {}
 
+    -- Store innates
+    self.vanillaInnates = {}
+
     local allowedHeroes = {}
     self.heroPrimaryAttr = {}
     self.heroRole = {}
@@ -1970,9 +1973,11 @@ function Pregame:networkHeroes()
                 local abName = theData['Ability'..i]
                 if abName and abName ~= '' and abName ~= 'special_bonus_attributes' and abName ~= 'generic_hidden' then
                     self.abilityHeroOwner[abName] = heroName
+                    if util:IsVanillaInnate(abName) then
+                        self.vanillaInnates[heroName] = abName
+                    end
                 end
             end
-
         end
     end
 
@@ -7651,6 +7656,45 @@ function Pregame:fixSpawnedHero( spawnedUnit )
 	if mainHero and mainHero:IsRealHero() then
 		self:applyPrimaryAttribute(playerID, mainHero)
 	end
+
+	-- Add vanilla Innate
+	if not util:isPlayerBot(playerID) and IsValidEntity(spawnedUnit) then
+		local vanillaInnateName = self.vanillaInnates[spawnedUnit:GetUnitName()]
+		local disabledInnates = {
+			kez_switch_weapons = true,
+			bounty_hunter_cutpurse = true,
+		}
+		-- Add vanilla innate if it's not disabled and if the hero does not have it already
+		if not disabledInnates[vanillaInnateName] and not spawnedUnit:HasAbility(vanillaInnateName) then
+			local vanillaInnate = spawnedUnit:AddAbility(vanillaInnateName)
+			if vanillaInnate then
+				print('Pregame:fixSpawnedHero: Innate '..vanillaInnateName..' sucessfully added to '..spawnedUnit:GetUnitName())
+			end
+		end
+	end
+
+    local baseHero = GetUnitKeyValuesByName("npc_dota_hero_base")
+    local currentHero = GetUnitKeyValuesByName(spawnedUnit:GetUnitName())
+    local talentStartIndex = currentHero.AbilityTalentStart or baseHero.AbilityTalentStart
+    local emptyCount = 0
+    for i = 0, talentStartIndex - 2 do -- Ability10 has index 9 so ability with index 8 should be generic_hidden
+        local ab = spawnedUnit:GetAbilityByIndex(i)
+        if not ab then
+            emptyCount = emptyCount + 1
+        end
+    end
+    if emptyCount > 0 then
+        for j = 1, emptyCount do
+            spawnedUnit:AddAbility("generic_hidden")
+        end
+    end
+
+    local talent_or_empty = spawnedUnit:GetAbilityByIndex(talentStartIndex-1)
+    if talent_or_empty and not util:IsTalent(talent_or_empty) then
+        GameRules:SendCustomMessage("TOO MANY ABILITIES, THERE WILL BE ISSUES WITH TALENTS!", 0, 0)
+        print("TOO MANY ABILITIES, THERE WILL BE ISSUES WITH TALENTS!")
+    end
+
 	-- Add talents
 	if not util:isPlayerBot(playerID) and IsValidEntity(spawnedUnit) then
 		if spawnedUnit.hasTalent then
@@ -7691,7 +7735,17 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                     end
                 end
             end
-            -- Disabled due to innates being convereted into normal 4 level abilities
+
+            -- Innates
+            for i = 1, DOTA_MAX_ABILITIES - 1 do
+                local ab = spawnedUnit:GetAbilityByIndex(i)
+                if ab then
+                    if util:IsVanillaInnate(ab) and ab:GetLevel() < 1 then
+                        ab:UpgradeAbility(false)
+                    end
+                end
+            end
+
             -- Stalker Innate Auto-Level
             --if spawnedUnit:HasAbility('night_stalker_innate_redux') then
             --    local stalkerInnate = spawnedUnit:FindAbilityByName('night_stalker_innate_redux')
@@ -7943,7 +7997,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     end
 end
 
--- Apply fixes, add perks
+-- Apply fixes to creeps, illusions etc.
 function Pregame:fixSpawningIssues()
     self.givenBonuses = self.givenBonuses or {}
     self.handled = self.handled or {}
@@ -8050,7 +8104,7 @@ function Pregame:fixSpawningIssues()
                             -- else
                                 -- realHero = heroesWithSameName[1]
                             -- end
-                            
+
                             local candidates = {}
                             local illusion_mod = spawnedUnit:FindModifierByName("modifier_illusion")
                             if illusion_mod then
@@ -8061,7 +8115,7 @@ function Pregame:fixSpawningIssues()
                                     end
                                 end
                             end
-                            
+
                             local ally_heroes = FindUnitsInRadius(
                                 spawnedUnit:GetTeamNumber(),
                                 spawnedUnit:GetAbsOrigin(),
@@ -8115,7 +8169,7 @@ function Pregame:fixSpawningIssues()
                                                 same_inventory = false
                                                 break
                                             end
-                                        elseif hero_item then 
+                                        elseif hero_item then
                                             if hero_item:GetAbilityName() ~= illusion_item:GetAbilityName() then
                                                 same_inventory = false
                                                 break
@@ -8318,8 +8372,8 @@ function Pregame:fixSpawningIssues()
             if spawnedUnit:GetTeam() == DOTA_TEAM_NEUTRALS then
                 if OptionManager:GetOption('stacking') == 1 and spawnedUnit:GetUnitName() ~= "npc_dota_roshan" then
                     if IsValidEntity(spawnedUnit) then
-                            -- Have to delete creeps after time or game will crash because of too many creeps
-                            spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_kill", {duration = 150})
+                        -- Have to delete creeps after time or game will crash because of too many creeps
+                        spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_kill", {duration = 150})
                     end
                 end
 

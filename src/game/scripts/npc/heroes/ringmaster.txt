@@ -80,6 +80,9 @@
 	//=================================================================================================================
 	"special_bonus_unique_ringmaster_whip_radius"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"TalentRequiredAbility"                                                   "ringmaster_tame_the_beasts"
 	}
 
@@ -88,46 +91,64 @@
 	//=================================================================================================================
 	"special_bonus_unique_ringmaster_box_cast_range"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"TalentRequiredAbility"                                                   "ringmaster_the_box"
 	}
 
 	//=================================================================================================================
 	// Ability: Ring Master special Bonus
 	//=================================================================================================================
- 	"special_bonus_unique_ringmaster_the_box_strong_dispel_and_flying"
+	"special_bonus_unique_ringmaster_the_box_strong_dispel_and_flying"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"TalentRequiredAbility"                                                   "ringmaster_the_box"
 	}
 
- 	//=================================================================================================================
+	//=================================================================================================================
 	// Ability: Ring Master special Bonus
 	//=================================================================================================================
- 	"special_bonus_unique_ringmaster_whip_damage"
+	"special_bonus_unique_ringmaster_whip_damage"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"TalentRequiredAbility"                                                   "ringmaster_tame_the_beasts"
 	}
 
 	//=================================================================================================================
 	// Ability: Ring Master special Bonus
 	//=================================================================================================================
- 	"special_bonus_unique_ringmaster_wheel_radius"
+	"special_bonus_unique_ringmaster_wheel_radius"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"TalentRequiredAbility"                                                   "ringmaster_wheel"
 	}
 
 	//=================================================================================================================
 	// Ability: Ring Master special Bonus
 	//=================================================================================================================
- 	"special_bonus_unique_ringmaster_whip_debuff_immunity"
+	"special_bonus_unique_ringmaster_whip_debuff_immunity"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"TalentRequiredAbility"                                                   "ringmaster_tame_the_beasts"
 	}
 
 	//=================================================================================================================
 	// Ability: Ring Master special Bonus
 	//=================================================================================================================
-  	"special_bonus_unique_ringmaster_dagger_penetrates"
+	"special_bonus_unique_ringmaster_dagger_penetrates"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"TalentRequiredAbility"                                                   "ringmaster_impalement"
 	}
 
@@ -136,6 +157,9 @@
 	//=================================================================================================================
 	"special_bonus_unique_ringmaster_dagger_bleed_and_slow_duration"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"TalentRequiredAbility"                                                   "ringmaster_impalement"
 	}
 }

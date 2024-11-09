@@ -1,0 +1,255 @@
+"DOTAAbilities"
+{
+	"lone_druid_spirit_bear_fetch"
+	{
+		"ReduxFlags"					"stun | support"
+		"ReduxPerks"                    "support | neutral" // not enemyMoving because the caster and the target are not moving
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"					"4"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"200 250 300 350"
+		"AbilityManaCost"				"75"
+		"AbilityValues"
+		{
+			"duration"				"2.5 2.75 3.0 3.25"
+			"drag_distance"			"200"
+			"break_distance"		"425 625 825 925"
+			"damage"				"300 325 350 375"
+			"self_slow"				"0"
+			"AbilityCooldown"		"30 25 20 15"
+			"tick_rate"			"0.5"
+		}
+	}
+
+	"lone_druid_true_form_battle_cry"
+	{
+		"ReduxFlags"														   "doNotRandom"
+		"ReduxPerks"                                                           "rage"
+
+		"AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"45.0 40.0 35.0"
+		"AbilityValues"
+		{
+			"bonus_damage"
+			{
+				"value" "70 100 130"
+			}
+			"bonus_armor"
+			{
+				"value" "10 15 20"
+			}
+			"cry_duration"
+			{
+				"value" "5 6 7"
+			}
+			"range"
+			{
+				"value" "1000 1500 2000"
+			}
+		}
+	}
+
+	"lone_druid_spirit_bear_entangle"
+	{
+		"ReduxFlags"                    "attack_modifier | bash"
+		"ReduxPerks"                    "attack_modifier | bash"
+		"ReduxCost"                     "40"
+
+		"MaxLevel"                      "4"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+	"lone_druid_entangling_claws"
+	{
+		"ReduxFlags"                    "stun"
+		"ReduxPerks"                    "nature"
+
+		"MaxLevel"                      "4"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+	}
+
+	"lone_druid_spirit_bear_demolish"
+	{
+		"ReduxFlags"                    "attack_modifier | tank | doNotRandom"
+		"ReduxPerks"                    "attack_modifier"
+
+		"MaxLevel"                      "4"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"spell_resistance"
+			{
+				"value" "33 38 43 48"
+			}
+			"bonus_building_damage"
+			{
+				"value" "10 20 30 40"
+			}
+			"true_form_bonus_building_damage"
+			{
+				"value" "15 30 45 60"
+			}
+		}
+	}
+
+	"lone_druid_spirit_bear_return"
+	{
+		"MaxLevel"                                                             "1"
+		"ReduxFlags"                                                           "noHero | doNotRandom"
+		"ReduxPerks"                                                           "channeled"
+	}
+
+	"lone_druid_spirit_bear"
+	{
+		"ReduxFlags"                                                           "summon"
+		"ReduxPerks"                                                           "self_damage | summon_non_ult"
+		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	"lone_druid_savage_roar"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "rage | enemyMoving"
+	}
+
+	"lone_druid_rabid"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | rage"
+	}
+
+	"lone_druid_spirit_link"
+	{
+		"ReduxFlags"                                                           "tank | upgradeable"
+	}
+
+	"lone_druid_true_form"
+	{
+		"ReduxFlags"                                                           "tank"
+		"ReduxPerks"                                                           "nature"
+	}
+
+	"special_bonus_unique_lone_druid_1"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
+	}
+	"special_bonus_unique_lone_druid_2"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
+	}
+	"special_bonus_unique_lone_druid_3"
+	{
+	   "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+	   "TalentRequiredAbility"                                                    "lone_druid_spirit_bear_demolish"
+	}
+	"special_bonus_unique_lone_druid_4"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"TalentRequiredAbility"                                                   "lone_druid_savage_roar"
+	}
+	"special_bonus_unique_lone_druid_5"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
+	}
+	"special_bonus_unique_lone_druid_6"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"TalentRequiredAbility"                                                   "lone_druid_spirit_link"
+	}
+	"special_bonus_unique_lone_druid_7"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"TalentRequiredAbility"
+		{
+			"1" "lone_druid_true_form"
+			"2" "lone_druid_spirit_bear"
+		}
+	}
+	"special_bonus_unique_lone_druid_8"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"TalentRequiredAbility"                                                   "lone_druid_true_form"
+	}
+	"special_bonus_unique_lone_druid_9"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"TalentRequiredAbility"
+		{
+			"1" "lone_druid_spirit_bear"
+			"2" "lone_druid_spirit_bear_entangle"
+		}
+	}
+	"special_bonus_unique_lone_druid_10"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
+	}
+	"special_bonus_unique_lone_druid_11"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
+	}
+	"special_bonus_unique_lone_druid_12"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"TalentRequiredAbility"
+		{
+			"1" "lone_druid_spirit_bear"
+			"2" "lone_druid_spirit_bear_entangle"
+		}
+	}
+	"special_bonus_unique_lone_druid_entangle_dps"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"TalentRequiredAbility"
+		{
+			"1" "lone_druid_spirit_bear"
+			"2" "lone_druid_spirit_bear_entangle"
+		}
+	}
+	"special_bonus_unique_lone_druid_spirit_link_attack_speed"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"TalentRequiredAbility"                                                   "lone_druid_spirit_link"
+	}
+	"special_bonus_unique_lone_druid_savage_roar_aoe"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"TalentRequiredAbility"                                                   "lone_druid_savage_roar"
+	}
+}

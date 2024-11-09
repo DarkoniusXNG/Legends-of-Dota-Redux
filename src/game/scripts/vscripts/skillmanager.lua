@@ -162,7 +162,7 @@ function SkillManager:precacheSkill(skillName, callback)
             PRECACHER.ability_counter = PRECACHER.ability_counter or 0
 
             if not PRECACHER:HasAbility(skillName) then
-                if PRECACHER.ability_counter < 26 then
+                if PRECACHER.ability_counter < DOTA_MAX_ABILITIES - #DONOTREMOVE then
                     PRECACHER:AddAbility(skillName)
                     PRECACHER.ability_counter = PRECACHER.ability_counter + 1
                 else
@@ -343,7 +343,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
         if hero and playerID and not util:isPlayerBot(playerID) then
             for i = 0, DOTA_MAX_ABILITIES - 1 do
                 local ab = hero:GetAbilityByIndex(i)
-                if ab and not DONOTREMOVE[ab:GetAbilityName()] and not util:IsVanillaInnate(ab) then
+                if ab and not DONOTREMOVE[ab:GetAbilityName()] then
                     hero:RemoveAbility(ab:GetName())
                 end
             end
@@ -421,7 +421,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
                 if hero and playerID and not util:isPlayerBot(playerID) then
                     for i = 0, DOTA_MAX_ABILITIES - 1 do
                         local ab = hero:GetAbilityByIndex(i)
-                        if ab and not DONOTREMOVE[ab:GetAbilityName()] and not util:IsVanillaInnate(ab) then
+                        if ab and not DONOTREMOVE[ab:GetAbilityName()] then
                             hero:RemoveAbility(ab:GetName())
                         end
                     end

@@ -95,6 +95,9 @@
 	//=================================================================================================================
 	"special_bonus_unique_arc_warden"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"TalentRequiredAbility"                                                   "arc_warden_spark_wraith"
 	}
 
@@ -103,6 +106,9 @@
 	//=================================================================================================================
 	"special_bonus_unique_arc_warden_3"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"TalentRequiredAbility"                                                   "arc_warden_magnetic_field"
 	}
 
@@ -111,6 +117,9 @@
 	//=================================================================================================================
 	"special_bonus_unique_arc_warden_4"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"TalentRequiredAbility"                                                   "arc_warden_flux"
 	}
 
@@ -119,6 +128,9 @@
 	//=================================================================================================================
 	"special_bonus_unique_arc_warden_5"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"TalentRequiredAbility"                                                   "arc_warden_flux"
 	}
 
@@ -135,6 +147,9 @@
 	//=================================================================================================================
 	"special_bonus_unique_arc_warden_8"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"TalentRequiredAbility"                                                   "arc_warden_tempest_double"
 	}
 
@@ -143,6 +158,9 @@
 	//=================================================================================================================
 	"special_bonus_unique_arc_warden_9"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"TalentRequiredAbility"                                                   "arc_warden_magnetic_field"
 	}
 
@@ -151,6 +169,9 @@
 	//=================================================================================================================
 	"special_bonus_unique_arc_warden_flux_silences"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"TalentRequiredAbility"                                                   "arc_warden_flux"
 	}
 }

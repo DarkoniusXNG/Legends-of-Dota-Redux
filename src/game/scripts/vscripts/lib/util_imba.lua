@@ -1829,7 +1829,7 @@ function ApplyAllRandomOmgAbilities( hero )
 	-- Remove default abilities
 	for i = 0, DOTA_MAX_ABILITIES - 1 do
 		local old_ability = hero:GetAbilityByIndex(i)
-		if old_ability and not DONOTREMOVE[old_ability:GetAbilityName()] and not util:IsVanillaInnate(old_ability) then
+		if old_ability and not DONOTREMOVE[old_ability:GetAbilityName()] then
 			hero:RemoveAbility(old_ability:GetAbilityName())
 		end
 	end
