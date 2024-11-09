@@ -10,7 +10,7 @@
 
     "MaxLevel"                                            "3"
 	
-    "ReduxFlags"                                          "mana"
+    "ReduxFlags"                                          "mana | semi_passive"
 
     "precache"
     {
