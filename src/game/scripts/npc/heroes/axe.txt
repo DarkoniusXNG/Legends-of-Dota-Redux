@@ -55,6 +55,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"         "axe_battle_hunger"
 	}
@@ -63,6 +64,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"         "axe_berserkers_call"
 	}
@@ -71,6 +73,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"         "axe_culling_blade"
 	}
@@ -79,6 +82,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"         "axe_counter_helix"
 	}
@@ -87,6 +91,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"         "axe_culling_blade"
 	}
@@ -95,6 +100,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"         "axe_battle_hunger"
 	}
@@ -103,22 +109,25 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"         "axe_berserkers_call"
 	}
 
-	// "special_bonus_unique_axe_8"
-	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"special_bonus_unique_axe_8"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
-		// "TalentRequiredAbility"         "axe_battle_hunger"
-	// }
+		"TalentRequiredAbility"         "axe_battle_hunger"
+	}
 
 	"special_bonus_unique_axe_culling_blade_speed_duration"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"         "axe_culling_blade"
 	}

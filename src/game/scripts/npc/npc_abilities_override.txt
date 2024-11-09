@@ -6468,20 +6468,23 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "bristleback_viscous_nasal_goo"
 	}
-	// "special_bonus_unique_bristleback_2"
-	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"special_bonus_unique_bristleback_2"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
-		// "TalentRequiredAbility"                                                   "bristleback_quill_spray"
-	// }
+		"TalentRequiredAbility"                                                   "bristleback_quill_spray"
+	}
 	"special_bonus_unique_bristleback_3"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "bristleback_warpath"
 	}
@@ -6489,6 +6492,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "bristleback_viscous_nasal_goo"
 	}
@@ -6496,6 +6500,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "bristleback_viscous_nasal_goo"
 	}
@@ -6503,6 +6508,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "bristleback_bristleback"
 	}
@@ -6512,6 +6518,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "centaur_return"
 	}
@@ -6519,6 +6526,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "centaur_hoof_stomp"
 	}
@@ -6526,6 +6534,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "centaur_return"
 	}
@@ -6533,6 +6542,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "centaur_double_edge"
 	}
@@ -6540,6 +6550,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "centaur_stampede"
 	}
@@ -6547,6 +6558,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "centaur_stampede"
 	}
@@ -6554,6 +6566,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "centaur_stampede"
 	}
@@ -6563,6 +6576,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "chaos_knight_reality_rift"
 	}
@@ -6570,6 +6584,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "chaos_knight_reality_rift"
 	}
@@ -6577,6 +6592,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "chaos_knight_chaos_bolt"
 	}
@@ -6584,6 +6600,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "chaos_knight_phantasm"
 	}
@@ -6591,6 +6608,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "chaos_knight_chaos_strike"
 	}
@@ -6598,6 +6616,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "chaos_knight_chaos_strike"
 	}
@@ -6605,6 +6624,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "chaos_knight_phantasm"
 	}
@@ -6612,6 +6632,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "chaos_knight_chaos_bolt"
 	}
@@ -6621,6 +6642,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "dragon_knight_dragon_blood"
 	}
@@ -6628,6 +6650,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "dragon_knight_dragon_tail"
 	}
@@ -6635,6 +6658,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "dragon_knight_breathe_fire"
 	}
@@ -6642,6 +6666,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "dragon_knight_dragon_blood"
 	}
@@ -6649,6 +6674,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "dragon_knight_elder_dragon_form"
 	}
@@ -6656,6 +6682,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "dragon_knight_elder_dragon_form"
 	}
@@ -6663,6 +6690,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "dragon_knight_elder_dragon_form"
 	}
@@ -6670,6 +6698,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "dragon_knight_dragon_tail"
 	}
@@ -6677,6 +6706,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "dragon_knight_breathe_fire"
 	}
@@ -8638,24 +8668,19 @@
 		"TalentRequiredAbility"                                                   "slark_shadow_dance"
 	}
 
-	"special_bonus_unique_sniper_1"
+	"special_bonus_unique_sniper_2"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "sniper_shrapnel"
 	}
-	// "special_bonus_unique_sniper_2"
-	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// "TalentRequiredAbility"                                                   "sniper_shrapnel"
-	// }
 	"special_bonus_unique_sniper_3"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "sniper_headshot"
 	}
@@ -8663,37 +8688,35 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "sniper_take_aim"
 	}
-	// "special_bonus_unique_sniper_5"
-	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// "TalentRequiredAbility"                                                   "sniper_shrapnel"
-	// }
-	"special_bonus_unique_sniper_6"
+	"special_bonus_unique_sniper_5"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "sniper_take_aim"
+		"TalentRequiredAbility"                                                   "sniper_shrapnel"
 	}
-	// "special_bonus_unique_sniper_headshot_damage"
-	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// "TalentRequiredAbility"                                                   "sniper_headshot"
-	// }
-	// "special_bonus_unique_sniper_shrapnel_damage"
-	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"special_bonus_unique_sniper_headshot_damage"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
-		// "TalentRequiredAbility"                                                   "sniper_shrapnel"
-	// }
+		"TalentRequiredAbility"                                                   "sniper_headshot"
+	}
+	"special_bonus_unique_sniper_shrapnel_damage"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sniper_shrapnel"
+	}
 
 	"special_bonus_unique_spirit_breaker_1"
 	{
@@ -9817,6 +9840,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "doom_bringer_infernal_blade"
 	}
@@ -9824,6 +9848,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "doom_bringer_devour"
 	}
@@ -9831,6 +9856,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "doom_bringer_devour"
 	}
@@ -9838,6 +9864,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "doom_bringer_scorched_earth"
 	}
@@ -9845,6 +9872,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "doom_bringer_doom"
 	}
@@ -9852,6 +9880,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "doom_bringer_scorched_earth"
 	}
@@ -9859,6 +9888,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "doom_bringer_doom"
 	}
@@ -9866,6 +9896,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "doom_bringer_scorched_earth"
 	}
@@ -9873,6 +9904,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "doom_bringer_scorched_earth"
 	}
@@ -9880,6 +9912,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "doom_bringer_doom"
 	}
@@ -9887,6 +9920,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "doom_bringer_doom"
 	}
@@ -10513,6 +10547,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility" "dawnbreaker_solar_guardian"
 	}
@@ -10520,6 +10555,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility" "dawnbreaker_fire_wreath"
 	}
@@ -10527,6 +10563,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility" "dawnbreaker_celestial_hammer"
 	}
@@ -10534,6 +10571,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility" "dawnbreaker_celestial_hammer"
 	}
@@ -10541,6 +10579,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility" "dawnbreaker_celestial_hammer"
 	}
@@ -10548,6 +10587,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility" "dawnbreaker_fire_wreath"
 	}
@@ -10555,6 +10595,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility" "dawnbreaker_fire_wreath"
 	}
@@ -10562,6 +10603,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility" "dawnbreaker_luminosity"
 	}
@@ -10569,6 +10611,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility" "dawnbreaker_solar_guardian"
 	}
@@ -10576,6 +10619,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility" "dawnbreaker_celestial_hammer"
 	}
@@ -10583,6 +10627,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility" "dawnbreaker_fire_wreath"
 	}

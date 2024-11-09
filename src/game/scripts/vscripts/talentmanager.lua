@@ -213,30 +213,32 @@ function AddTalents(hero, build)
             end
         end
     end
-    for k,v in ipairs(hero.heroTalentList) do
-        local a = hero:AddAbility(v)
-        if a then
-            print('TalentManager AddTalents: Talent '..v..' successfully added to '..hero:GetUnitName())
+    for k, v in ipairs(hero.heroTalentList) do
+		local a = hero:AddAbility(v)
+		if a then
+			if IsInToolsMode() then
+				print('TalentManager AddTalents: Talent '..v..' successfully added to '..hero:GetUnitName())
+			end
 		else
-            -- Add some gold if selected talent is invalid, Thanks Valve
-            if k == 1 then
-                hero:AddAbility("ad_special_bonus_gold_lvl10_l")
-            elseif k == 2 then
-                hero:AddAbility("ad_special_bonus_gold_lvl10_r")
-            elseif k == 3 then
-                hero:AddAbility("ad_special_bonus_gold_lvl15_l")
-            elseif k == 4 then
-                hero:AddAbility("ad_special_bonus_gold_lvl15_r")
-            elseif k == 5 then
-                hero:AddAbility("ad_special_bonus_gold_lvl20_l")
-            elseif k == 6 then
-                hero:AddAbility("ad_special_bonus_gold_lvl20_r")
-            elseif k == 7 then
-                hero:AddAbility("ad_special_bonus_gold_lvl25_l")
-            elseif k == 8 then
-                hero:AddAbility("ad_special_bonus_gold_lvl25_r")
-            end
-        end
+			-- Add some gold if selected talent is invalid, Thanks Valve
+			if k == 1 then
+				hero:AddAbility("ad_special_bonus_gold_lvl10_l")
+			elseif k == 2 then
+				hero:AddAbility("ad_special_bonus_gold_lvl10_r")
+			elseif k == 3 then
+				hero:AddAbility("ad_special_bonus_gold_lvl15_l")
+			elseif k == 4 then
+				hero:AddAbility("ad_special_bonus_gold_lvl15_r")
+			elseif k == 5 then
+				hero:AddAbility("ad_special_bonus_gold_lvl20_l")
+			elseif k == 6 then
+				hero:AddAbility("ad_special_bonus_gold_lvl20_r")
+			elseif k == 7 then
+				hero:AddAbility("ad_special_bonus_gold_lvl25_l")
+			elseif k == 8 then
+				hero:AddAbility("ad_special_bonus_gold_lvl25_r")
+			end
+		end
     end
 end
 

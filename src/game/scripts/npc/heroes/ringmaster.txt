@@ -82,6 +82,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "ringmaster_tame_the_beasts"
 	}
@@ -93,6 +94,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "ringmaster_the_box"
 	}
@@ -104,6 +106,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "ringmaster_the_box"
 	}
@@ -115,6 +118,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "ringmaster_tame_the_beasts"
 	}
@@ -126,6 +130,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "ringmaster_wheel"
 	}
@@ -137,6 +142,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "ringmaster_tame_the_beasts"
 	}
@@ -148,6 +154,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "ringmaster_impalement"
 	}
@@ -159,6 +166,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "ringmaster_impalement"
 	}

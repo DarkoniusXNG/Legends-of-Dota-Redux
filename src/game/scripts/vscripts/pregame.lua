@@ -7689,11 +7689,15 @@ function Pregame:fixSpawnedHero( spawnedUnit )
         end
     end
 
-    local talent_or_empty = spawnedUnit:GetAbilityByIndex(talentStartIndex-1)
-    if talent_or_empty and not util:IsTalent(talent_or_empty) then
-        GameRules:SendCustomMessage("TOO MANY ABILITIES, THERE WILL BE ISSUES WITH TALENTS!", 0, 0)
-        print("TOO MANY ABILITIES, THERE WILL BE ISSUES WITH TALENTS!")
-    end
+    -- For debugging
+	-- local talent_or_empty = spawnedUnit:GetAbilityByIndex(talentStartIndex-1)
+    -- if talent_or_empty then
+        -- if not util:IsTalent(talent_or_empty) then
+            -- GameRules:SendCustomMessage(spawnedUnit:GetUnitName().." HAS TOO MANY ABILITIES, THERE MIGHT BE ISSUES!", 0, 0)
+            -- print(spawnedUnit:GetUnitName().." HAS TOO MANY ABILITIES, THERE MIGHT BE ISSUES!")
+            -- print(talent_or_empty:GetName())
+        -- end
+    -- end
 
 	-- Add talents
 	if not util:isPlayerBot(playerID) and IsValidEntity(spawnedUnit) then

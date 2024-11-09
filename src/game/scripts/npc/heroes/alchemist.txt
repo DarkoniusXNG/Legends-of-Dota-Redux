@@ -89,6 +89,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"         "alchemist_unstable_concoction"
 	}
@@ -97,6 +98,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"         "alchemist_unstable_concoction"
 	}
@@ -105,22 +107,25 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"         "alchemist_acid_spray"
 	}
 
-	// "special_bonus_unique_alchemist_4"
-	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"special_bonus_unique_alchemist_4"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
-		// "TalentRequiredAbility"         "alchemist_chemical_rage"
-	// }
+		"TalentRequiredAbility"         "alchemist_chemical_rage"
+	}
 
 	"special_bonus_unique_alchemist_5"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"         "alchemist_acid_spray"
 	}
@@ -129,6 +134,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"        	"alchemist_chemical_rage"
 	}
@@ -137,15 +143,17 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"         "alchemist_goblins_greed"
 	}
 
-	// "special_bonus_unique_alchemist_8"
-	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"special_bonus_unique_alchemist_8"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
-		// "TalentRequiredAbility"         "alchemist_chemical_rage"
-	// }
+		"TalentRequiredAbility"         "alchemist_chemical_rage"
+	}
 }

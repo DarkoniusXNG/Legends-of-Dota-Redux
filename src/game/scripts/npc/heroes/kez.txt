@@ -94,6 +94,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "kez_falcon_rush"
 	}
@@ -105,6 +106,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "kez_raptor_dance"
 	}
@@ -116,6 +118,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "kez_kazurai_katana"
 	}
@@ -127,6 +130,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "kez_falcon_rush"
 	}
@@ -138,6 +142,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "kez_shodo_sai"
 	}
@@ -149,6 +154,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "kez_echo_slash"
 	}
@@ -160,6 +166,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "kez_grappling_claw"
 	}
@@ -171,6 +178,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "kez_shodo_sai"
 	}
@@ -182,6 +190,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "kez_ravens_veil"
 	}
@@ -193,6 +202,7 @@
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"
 		{
