@@ -12,6 +12,7 @@
   		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
   		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
   		"AbilityTextureName"			"custom/bulwark_strike"
+
   		"ReduxPerks"                    "attack_modifier | fire | autocast_basic"
   		"ReduxFlags"                    "attack_modifier"
 

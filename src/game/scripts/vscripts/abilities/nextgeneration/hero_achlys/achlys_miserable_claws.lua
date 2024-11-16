@@ -62,7 +62,6 @@ function modifier_achlys_miserable_claws:DeclareFunctions()
 		MODIFIER_EVENT_ON_ATTACK,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 		MODIFIER_EVENT_ON_ATTACK_FAIL,
-		--MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND,
 		MODIFIER_PROPERTY_PROJECTILE_NAME,
 	}
 end
@@ -73,13 +72,6 @@ function modifier_achlys_miserable_claws:GetModifierProjectileName()
 		return "particles/units/heroes/hero_bane/bane_projectile.vpcf"
 	end
 end
-
--- function modifier_achlys_miserable_claws:GetAttackSound()
-	-- if not IsServer() then return end
-	-- if self.orb_attack then
-		-- return "Hero_LifeStealer.PreAttack"
-	-- end
--- end
 
 if IsServer() then
 	function modifier_achlys_miserable_claws:OnAttackStart(event)
@@ -117,7 +109,7 @@ if IsServer() then
 
 		if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) then
 			if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
-				-- Changing attack sound and attack projectile goes here
+				-- Attack sound goes here
 				parent:EmitSound("Hero_LifeStealer.PreAttack")
 				-- Attack projectile change goes here
 				self.orb_attack = true
@@ -242,13 +234,11 @@ if IsServer() then
 	end
 end
 
-
 function IncreaseStackCount(caster, target, ability)
 	local modifier_name = "modifier_achlys_miserable_claws_debuff_counter"
 	local dur = ability:GetSpecialValueFor("duration")
 
-	local modifier = target:FindModifierByName(modifier_name)
-	local count = target:GetModifierStackCount(modifier_name, caster)
+	local modifier = target:FindModifierByNameAndCaster(modifier_name, caster)
 
 	-- if the unit does not already have the counter modifier we apply it with a stackcount of 1
 	-- else we increase the stack and refresh the counters duration
@@ -320,8 +310,7 @@ function modifier_achlys_miserable_claws_debuff:OnDestroy()
 		local caster = self:GetCaster()
 		local target = self:GetParent()
 		local modifier_name = "modifier_achlys_miserable_claws_debuff_counter"
-		local count = target:GetModifierStackCount(modifier_name, caster)
-		local modifier = target:FindModifierByName(modifier_name)
+		local modifier = target:FindModifierByNameAndCaster(modifier_name, caster)
 		if modifier then
 			modifier:DecrementStackCount()
 			if modifier:GetStackCount() <= 0 then

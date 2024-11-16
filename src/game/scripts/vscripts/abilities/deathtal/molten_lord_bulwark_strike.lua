@@ -60,7 +60,6 @@ function modifier_bulwark_strike_lod:DeclareFunctions()
 		MODIFIER_EVENT_ON_ATTACK,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 		MODIFIER_EVENT_ON_ATTACK_FAIL,
-		--MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND,
 		MODIFIER_PROPERTY_PROJECTILE_NAME,
 	}
 end
@@ -71,13 +70,6 @@ function modifier_bulwark_strike_lod:GetModifierProjectileName()
 		return "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
 	end
 end
-
--- function modifier_bulwark_strike_lod:GetAttackSound()
-	-- if not IsServer() then return end
-	-- if self.orb_attack then
-		-- return "Hero_Clinkz.DeathPact.Cast"
-	-- end
--- end
 
 if IsServer() then
 	function modifier_bulwark_strike_lod:OnAttackStart(event)
@@ -115,7 +107,7 @@ if IsServer() then
 
 		if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (not target:IsMagicImmune()) then
 			if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
-				-- Changing attack sound and attack projectile goes here
+				-- Attack sound goes here
 				parent:EmitSound("Hero_Clinkz.DeathPact.Cast")
 				-- Attack projectile change goes here
 				self.orb_attack = true
@@ -204,7 +196,7 @@ if IsServer() then
 		end
 
 		if self.procRecords[event.record] and not target:IsMagicImmune() then
-			self:BulwarkStrikeEffect(event)
+			self:SpellEffect(event)
 		end
 	end
 
@@ -216,7 +208,7 @@ if IsServer() then
 		end
 	end
 
-	function modifier_bulwark_strike_lod:BulwarkStrikeEffect(event)
+	function modifier_bulwark_strike_lod:SpellEffect(event)
 		if event then
 			local attacker = event.attacker or self:GetParent()
 			local target = event.target
@@ -226,6 +218,9 @@ if IsServer() then
 			if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsMagicImmune() or target:IsInvulnerable() then
 				return
 			end
+
+			-- Sound when attack lands
+			--target:EmitSound("")
 
 			local radius = ability:GetLevelSpecialValueFor("radius", ability:GetLevel() - 1)
 			local armor_multiplier = ability:GetLevelSpecialValueFor("armor_multiplier", ability:GetLevel() - 1)
