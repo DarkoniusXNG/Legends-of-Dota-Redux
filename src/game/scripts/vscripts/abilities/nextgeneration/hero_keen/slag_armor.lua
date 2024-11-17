@@ -105,6 +105,11 @@ if IsServer() then
 
 		self.orb_attack = false
 
+		-- Don't affect buildings and wards
+		if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() then
+			return
+		end
+
 		if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) then
 			if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
 				-- Attack projectile change goes here
@@ -141,6 +146,11 @@ if IsServer() then
 		-- Check for existence of GetUnitName method to determine if target is a unit or an item
 		-- items don't have that method -> nil; if the target is an item, don't continue
 		if target.GetUnitName == nil then
+			return
+		end
+
+		-- Don't affect buildings and wards
+		if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() then
 			return
 		end
 

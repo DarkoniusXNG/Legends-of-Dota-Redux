@@ -104,8 +104,13 @@ if IsServer() then
 		end
 
 		self.orb_attack = false
+		
+		-- Don't affect buildings and wards
+		if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() then
+			return
+		end
 
-		if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (not target:IsMagicImmune()) then
+		if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) then
 			if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
 				-- Attack projectile change goes here
 				self.orb_attack = true
@@ -143,8 +148,13 @@ if IsServer() then
 		if target.GetUnitName == nil then
 			return
 		end
+		
+		-- Don't affect buildings, wards and spell immune units
+		if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsMagicImmune() then
+			return
+		end
 
-		if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (not target:IsMagicImmune()) then
+		if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) then
 			if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
 				--The Attack while Autocast is ON or or manually casted (current active ability)
 
@@ -196,7 +206,7 @@ if IsServer() then
 			return
 		end
 
-		if self.procRecords[event.record] and not target:IsMagicImmune() then
+		if self.procRecords[event.record] then
 			self:SpellEffect(event)
 		end
 	end

@@ -24,7 +24,6 @@
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts"
 			"particle"					"particles/econ/items/alchemist/alchemist_smooth_criminal/alchemist_smooth_criminal_unstable_concoction_explosion.vpcf"
 			"particle"					"particles/status_fx/status_effect_burn.vpcf"
-			"particle"					"particles/molten_lord/ablaze_debuff.vpcf"
 			"particle"					"particles/status_fx/status_effect_doom.vpcf"
 			"particle"					"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_shadowraze.vpcf"
 		}
@@ -67,7 +66,6 @@
 		{
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts"
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
-			"particle"					"particles/molten_lord/ablaze_debuff.vpcf"
 			"particle"					"particles/status_fx/status_effect_doom.vpcf"
 			"particle"					"particles/molten_lord/skipping_flames.vpcf"
 			"particle"					"particles/molten_lord/skipping_flames_impact.vpcf"
@@ -159,7 +157,6 @@
 			"particle"					"particles/units/heroes/hero_ursa/ursa_enrage_hero_effect.vpcf"
 			"particle"					"particles/units/heroes/hero_phoenix/phoenix_ambient.vpcf"
 			"particle"					"particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf"
-			"particle"					"particles/molten_lord/ablaze_debuff.vpcf"
 			"particle"					"particles/status_fx/status_effect_doom.vpcf"
 		}
 
@@ -276,7 +273,6 @@
 			"particle"					"particles/molten_lord/molten_charge_armor_drain.vpcf"
 			"particle"					"particles/molten_lord/molten_charge_armor_drain_debuff.vpcf"
 			"particle"					"particles/molten_lord/molten_charge_armor_drain_buff.vpcf"
-			"particle"					"particles/molten_lord/ablaze_debuff.vpcf"
 		}
 
 		// Stats
