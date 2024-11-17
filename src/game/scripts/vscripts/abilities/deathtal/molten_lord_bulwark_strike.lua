@@ -104,7 +104,7 @@ if IsServer() then
 		end
 
 		self.orb_attack = false
-		
+
 		-- Don't affect buildings and wards
 		if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() then
 			return
@@ -148,7 +148,7 @@ if IsServer() then
 		if target.GetUnitName == nil then
 			return
 		end
-		
+
 		-- Don't affect buildings, wards and spell immune units
 		if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsMagicImmune() then
 			return
@@ -261,7 +261,7 @@ if IsServer() then
 				for _, enemy in pairs(enemies) do
 					enemy:AddNewModifier(attacker, ability, "ablaze_modifier", {duration = ablaze_duration})
 				end
-				
+
 				local particle2 = ParticleManager:CreateParticle("particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_shadowraze.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 				ParticleManager:ReleaseParticleIndex(particle2)
 			else

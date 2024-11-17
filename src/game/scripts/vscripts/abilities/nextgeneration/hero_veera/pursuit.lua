@@ -370,7 +370,7 @@ function RollInitiate(caster, ability)
 		time_elapsed = time_elapsed + 0.03
 		local yaw = casterAngles.x - ((time_elapsed * 3) * flip)
 		GridNav:DestroyTreesAroundPoint(caster:GetAbsOrigin(), 150, false)
-		caster:SetAngles(yaw, casterAngles.y, casterAngles.z ) 
+		caster:SetAngles(yaw, casterAngles.y, casterAngles.z )
 		if flip > 0 then flip = flip - 12 else flip = 0 end
 
 		if time_elapsed < 0.3 then
@@ -385,7 +385,7 @@ function RollInitiate(caster, ability)
 		if caster:GetAbsOrigin().z - ground_position.z <= 0 then
 			caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin() , caster))
 		end
-		if time_elapsed > end_time and caster:GetAbsOrigin().z - ground_position.z <= 0 then 
+		if time_elapsed > end_time and caster:GetAbsOrigin().z - ground_position.z <= 0 then
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 			caster:SetAngles(0, casterAngles.y, casterAngles.z )
 			caster:SetPhysicsAcceleration(Vector(0,0,0))
@@ -395,7 +395,7 @@ function RollInitiate(caster, ability)
 			caster:SetNavCollisionType(PHYSICS_NAV_SLIDE)
 			caster:SetAutoUnstuck(true)
 			caster:FollowNavMesh(true)
-			caster:SetPhysicsFriction(.05)	
+			caster:SetPhysicsFriction(.05)
 			return nil
 		end
 
