@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_achlys_miserable_claws", "abilities/nextgeneration/hero_achlys/achlys_miserable_claws.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_achlys_miserable_claws_lod", "abilities/nextgeneration/hero_achlys/achlys_miserable_claws.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_achlys_miserable_claws_debuff", "abilities/nextgeneration/hero_achlys/achlys_miserable_claws.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_achlys_miserable_claws_debuff_counter", "abilities/nextgeneration/hero_achlys/achlys_miserable_claws.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_achlys_miserable_claws_root", "abilities/nextgeneration/hero_achlys/achlys_miserable_claws.lua", LUA_MODIFIER_MOTION_NONE)
@@ -6,7 +6,7 @@ LinkLuaModifier("modifier_achlys_miserable_claws_root", "abilities/nextgeneratio
 achlys_miserable_claws = achlys_miserable_claws or class({})
 
 function achlys_miserable_claws:GetIntrinsicModifierName()
-	return "modifier_achlys_miserable_claws"
+	return "modifier_achlys_miserable_claws_lod"
 end
 
 function achlys_miserable_claws:GetCastRange(location, target)
@@ -27,25 +27,25 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_achlys_miserable_claws = modifier_achlys_miserable_claws or class({})
+modifier_achlys_miserable_claws_lod = modifier_achlys_miserable_claws_lod or class({})
 
-function modifier_achlys_miserable_claws:IsHidden()
+function modifier_achlys_miserable_claws_lod:IsHidden()
 	return true
 end
 
-function modifier_achlys_miserable_claws:IsDebuff()
+function modifier_achlys_miserable_claws_lod:IsDebuff()
 	return false
 end
 
-function modifier_achlys_miserable_claws:IsPurgable()
+function modifier_achlys_miserable_claws_lod:IsPurgable()
 	return false
 end
 
-function modifier_achlys_miserable_claws:RemoveOnDeath()
+function modifier_achlys_miserable_claws_lod:RemoveOnDeath()
 	return false
 end
 
-function modifier_achlys_miserable_claws:OnCreated()
+function modifier_achlys_miserable_claws_lod:OnCreated()
 	if not IsServer() then
 		return
 	end
@@ -54,9 +54,9 @@ function modifier_achlys_miserable_claws:OnCreated()
 	self.trigger_essence_aura = ability:GetSpecialValueFor("trigger_essence_aura") ~= 0
 end
 
-modifier_achlys_miserable_claws.OnRefresh = modifier_achlys_miserable_claws.OnCreated
+modifier_achlys_miserable_claws_lod.OnRefresh = modifier_achlys_miserable_claws_lod.OnCreated
 
-function modifier_achlys_miserable_claws:DeclareFunctions()
+function modifier_achlys_miserable_claws_lod:DeclareFunctions()
 	return {
 		MODIFIER_EVENT_ON_ATTACK_START,
 		MODIFIER_EVENT_ON_ATTACK,
@@ -66,7 +66,7 @@ function modifier_achlys_miserable_claws:DeclareFunctions()
 	}
 end
 
-function modifier_achlys_miserable_claws:GetModifierProjectileName()
+function modifier_achlys_miserable_claws_lod:GetModifierProjectileName()
 	if not IsServer() then return end
 	if self.orb_attack then
 		return "particles/units/heroes/hero_bane/bane_projectile.vpcf"
@@ -74,7 +74,7 @@ function modifier_achlys_miserable_claws:GetModifierProjectileName()
 end
 
 if IsServer() then
-	function modifier_achlys_miserable_claws:OnAttackStart(event)
+	function modifier_achlys_miserable_claws_lod:OnAttackStart(event)
 		local parent = self:GetParent()
 		local ability = self:GetAbility()
 		local attacker = event.attacker
@@ -109,15 +109,13 @@ if IsServer() then
 
 		if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) then
 			if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
-				-- Attack sound goes here
-				parent:EmitSound("Hero_LifeStealer.PreAttack")
 				-- Attack projectile change goes here
 				self.orb_attack = true
 			end
 		end
 	end
 
-	function modifier_achlys_miserable_claws:OnAttack(event)
+	function modifier_achlys_miserable_claws_lod:OnAttack(event)
 		local parent = self:GetParent()
 		local ability = self:GetAbility()
 		local attacker = event.attacker
@@ -164,11 +162,14 @@ if IsServer() then
 					-- Using attack modifier abilities doesn't actually fire any cast events so we need to use resources here
 					ability:UseResources(true, false, false, true)
 				end
+
+				-- Attack sound goes here
+				parent:EmitSound("Hero_LifeStealer.PreAttack")
 			end
 		end
 	end
 
-	function modifier_achlys_miserable_claws:OnAttackLanded(event)
+	function modifier_achlys_miserable_claws_lod:OnAttackLanded(event)
 		local parent = self:GetParent()
 		local attacker = event.attacker
 		local target = event.target
@@ -202,7 +203,7 @@ if IsServer() then
 		end
 	end
 
-	function modifier_achlys_miserable_claws:OnAttackFail(event)
+	function modifier_achlys_miserable_claws_lod:OnAttackFail(event)
 		local parent = self:GetParent()
 
 		if event.attacker == parent and self.procRecords[event.record] then
@@ -210,7 +211,7 @@ if IsServer() then
 		end
 	end
 
-	function modifier_achlys_miserable_claws:SpellEffect(event)
+	function modifier_achlys_miserable_claws_lod:SpellEffect(event)
 		if event then
 			local attacker = event.attacker or self:GetParent()
 			local target = event.target
@@ -340,10 +341,26 @@ function modifier_achlys_miserable_claws_debuff_counter:RemoveOnDeath()
 	return true
 end
 
+function modifier_achlys_miserable_claws_debuff_counter:OnCreated()
+	local ability = self:GetAbility()
+	self.slow = ability:GetSpecialValueFor("slow_per_stack")
+	self.armor = ability:GetSpecialValueFor("armor_per_stack")
+end
+
 function modifier_achlys_miserable_claws_debuff_counter:DeclareFunctions()
 	return {
+		MODIFIER_PROPERTY_TOOLTIP,
+		MODIFIER_PROPERTY_TOOLTIP2,
 		MODIFIER_EVENT_ON_ATTACKED,
 	}
+end
+
+function modifier_achlys_miserable_claws_debuff_counter:OnTooltip()
+	return self:GetStackCount() * math.abs(self.armor)
+end
+
+function modifier_achlys_miserable_claws_debuff_counter:OnTooltip2()
+	return self:GetStackCount() * math.abs(self.slow)
 end
 
 if IsServer() then

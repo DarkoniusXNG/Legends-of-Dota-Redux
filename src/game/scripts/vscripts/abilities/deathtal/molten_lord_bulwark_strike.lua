@@ -107,8 +107,6 @@ if IsServer() then
 
 		if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (not target:IsMagicImmune()) then
 			if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
-				-- Attack sound goes here
-				parent:EmitSound("Hero_Clinkz.DeathPact.Cast")
 				-- Attack projectile change goes here
 				self.orb_attack = true
 			end
@@ -162,6 +160,9 @@ if IsServer() then
 					-- Using attack modifier abilities doesn't actually fire any cast events so we need to use resources here
 					ability:UseResources(true, false, false, true)
 				end
+
+				-- Attack sound goes here
+				parent:EmitSound("Hero_Clinkz.DeathPact.Cast")
 			end
 		end
 	end
@@ -251,16 +252,16 @@ if IsServer() then
 					enemy:AddNewModifier(attacker, ability, "ablaze_modifier", {duration = ablaze_duration})
 				end
 				
-				self.particle2 = ParticleManager:CreateParticle("particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_shadowraze.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
-				ParticleManager:ReleaseParticleIndex(self.particle2)
+				local particle2 = ParticleManager:CreateParticle("particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_shadowraze.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+				ParticleManager:ReleaseParticleIndex(particle2)
 			else
 				-- Apply Ablaze ONLY to the attacked target
 				target:AddNewModifier(attacker, ability, "ablaze_modifier", {duration = ablaze_duration})
 
 				-- Particle
-				self.particle = ParticleManager:CreateParticle("particles/econ/items/alchemist/alchemist_smooth_criminal/alchemist_smooth_criminal_unstable_concoction_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
-				ParticleManager:SetParticleControlEnt(self.particle, 1, attacker, PATTACH_POINT_FOLLOW, "attach_origin", attacker:GetAbsOrigin(), true)
-				ParticleManager:ReleaseParticleIndex(self.particle)
+				local particle = ParticleManager:CreateParticle("particles/econ/items/alchemist/alchemist_smooth_criminal/alchemist_smooth_criminal_unstable_concoction_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+				ParticleManager:SetParticleControlEnt(particle, 1, attacker, PATTACH_POINT_FOLLOW, "attach_origin", attacker:GetAbsOrigin(), true)
+				ParticleManager:ReleaseParticleIndex(particle)
 			end
 
 			local damageTable = {

@@ -107,8 +107,6 @@ if IsServer() then
 
 		if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) then
 			if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
-				-- Attack sound goes here
-				--parent:EmitSound("")
 				-- Attack projectile change goes here
 				self.orb_attack = true
 			end
@@ -162,6 +160,9 @@ if IsServer() then
 					-- Using attack modifier abilities doesn't actually fire any cast events so we need to use resources here
 					ability:UseResources(true, false, false, true)
 				end
+
+				-- Attack sound goes here
+				--parent:EmitSound("")
 			end
 		end
 	end
