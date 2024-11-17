@@ -231,7 +231,7 @@
     {
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/siege_mode"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_ATTACK"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityCooldown"               "0"
         "AbilityManaCost"               "0"
         "AbilityCastPoint"              "0"
