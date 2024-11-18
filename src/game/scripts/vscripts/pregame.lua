@@ -7604,7 +7604,7 @@ function Pregame:applyExtraAbility( spawnedUnit )
     -- end, DoUniqueString('addExtra'), RandomInt(1,3) )
 end
 
--- This function gets run when heros are recreated with there proper abilities, below is a function that runs at every npc spawn
+-- This function gets run when heros are recreated with their proper abilities, below is a function that runs at every npc spawn
 function Pregame:fixSpawnedHero( spawnedUnit )
     self.givenBonuses = self.givenBonuses or {}
     self.handled = self.handled or {}
@@ -7673,6 +7673,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
 		end
 	end
 
+    -- Count empty slots and fill them with generic_hidden
     local baseHero = GetUnitKeyValuesByName("npc_dota_hero_base")
     local currentHero = GetUnitKeyValuesByName(spawnedUnit:GetUnitName())
     local talentStartIndex = currentHero.AbilityTalentStart or baseHero.AbilityTalentStart
@@ -7740,16 +7741,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                 end
             end
 
-            -- Innates
-            for i = 1, DOTA_MAX_ABILITIES - 1 do
-                local ab = spawnedUnit:GetAbilityByIndex(i)
-                if ab then
-                    if util:IsVanillaInnate(ab) and ab:GetLevel() < 1 then
-                        ab:UpgradeAbility(false)
-                    end
-                end
-            end
-
             -- Stalker Innate Auto-Level
             --if spawnedUnit:HasAbility('night_stalker_innate_redux') then
             --    local stalkerInnate = spawnedUnit:FindAbilityByName('night_stalker_innate_redux')
@@ -7774,39 +7765,32 @@ function Pregame:fixSpawnedHero( spawnedUnit )
             if spawnedUnit:HasAbility('tiny_toss') then
                 Timers:CreateTimer(function()
                     local toss = spawnedUnit:FindAbilityByName('tiny_toss')
-                    local tossTalent = spawnedUnit:FindAbilityByName('special_bonus_unique_tiny_5')
+                    local tossTalent = spawnedUnit:FindAbilityByName('special_bonus_unique_tiny_2')
                     if tossTalent and tossTalent:GetLevel() > 0 then
                         if not spawnedUnit:HasModifier("modifier_tiny_toss_charge_counter") then
                             spawnedUnit:AddNewModifier(spawnedUnit, toss, "modifier_tiny_toss_charge_counter", {})
                         end
                     else
-                        spawnedUnit:RemoveModifierByName("modifier_tiny_toss_charge_counter")
+                        if spawnedUnit:HasModifier("modifier_tiny_toss_charge_counter") then
+                            spawnedUnit:RemoveModifierByName("modifier_tiny_toss_charge_counter")
+                        end
                     end
                 end, DoUniqueString('tossFix'), 1)
-            end
-
-            -- 'No Charges' fix for Gyro Homing Missle
-            if spawnedUnit:HasAbility('gyrocopter_homing_missile') then
-                Timers:CreateTimer(function()
-                    -- If Hero has homing missle ability, it doesnt have the talent or doesnt have a level in it, and it has the modifier, remove modifier
-                    if spawnedUnit:FindModifierByName("modifier_gyrocopter_homing_missile_charge_counter") then
-                        spawnedUnit:RemoveModifierByName("modifier_gyrocopter_homing_missile_charge_counter")
-                    end
-                end, DoUniqueString('gyroFix'), 1)
             end
 
             -- 'No Charges' fix for Shadow demon disrupition
             if spawnedUnit:HasAbility('shadow_demon_disruption') then
                 Timers:CreateTimer(function()
                     -- If the hero has the charges perk, and they have a level in it, check if they have modifier, if not, add it
-                    local chargesModifier = spawnedUnit:FindAbilityByName("special_bonus_unique_shadow_demon_7")
-                    if chargesModifier and chargesModifier:GetLevel() > 0 then
-                        if not spawnedUnit:FindModifierByName("modifier_shadow_demon_disruption_charge_counter") then
-                            spawnedUnit:AddNewModifier(spawnedUnit,nil,"modifier_shadow_demon_disruption_charge_counter",{})
+                    local disruption = spawnedUnit:FindAbilityByName('shadow_demon_disruption')
+                    local chargesTalent = spawnedUnit:FindAbilityByName("special_bonus_unique_shadow_demon_7")
+                    if chargesTalent and chargesTalent:GetLevel() > 0 then
+                        if not spawnedUnit:HasModifier("modifier_shadow_demon_disruption_charge_counter") then
+                            spawnedUnit:AddNewModifier(spawnedUnit, disruption, "modifier_shadow_demon_disruption_charge_counter",{})
                         end
                     else
                         -- If Hero has homing missle ability, it doesnt have the talent or doesnt have a level in it, and it has the modifier, remove modifier
-                        if spawnedUnit:FindModifierByName("modifier_shadow_demon_disruption_charge_counter") then
+                        if spawnedUnit:HasModifier("modifier_shadow_demon_disruption_charge_counter") then
                             spawnedUnit:RemoveModifierByName("modifier_shadow_demon_disruption_charge_counter")
                         end
                     end
@@ -7867,7 +7851,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
             return
         end
         local nameTest = spawnedUnit:GetName()
-        if IsValidEntity(spawnedUnit) and not self.perksDisabled and not spawnedUnit.hasPerk and not disabledPerks[nameTest] then
+        if IsValidEntity(spawnedUnit) and not this.perksDisabled and not spawnedUnit.hasPerk and not disabledPerks[nameTest] then
            local perkName = spawnedUnit:GetName() .. "_perk"
            local perkModifier = "modifier_" .. perkName
            spawnedUnit:AddNewModifier(spawnedUnit, nil, perkModifier, {})
@@ -7956,7 +7940,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     -- Give out the free extra abilities
     if OptionManager:GetOption('extraAbility') > 0 then
         Timers:CreateTimer(function (  )
-            self:applyExtraAbility(spawnedUnit)
+            this:applyExtraAbility(spawnedUnit)
         end, DoUniqueString('giveExtraAbility'), 0.1)
     end
 
@@ -7998,6 +7982,11 @@ function Pregame:fixSpawnedHero( spawnedUnit )
         else
             PlayerResource:SetGold(playerID, 625, true)
         end
+    end
+
+    -- Respawn the hero before the game actually starts - fixes innates
+    if GameRules:State_Get() < DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+        spawnedUnit:RespawnHero(false, false)
     end
 end
 
