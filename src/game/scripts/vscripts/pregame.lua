@@ -7661,7 +7661,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
 	if not util:isPlayerBot(playerID) and IsValidEntity(spawnedUnit) then
 		local vanillaInnateName = self.vanillaInnates[spawnedUnit:GetUnitName()]
 		local disabledInnates = {
-			kez_switch_weapons = true,
 			bounty_hunter_cutpurse = true,
 		}
 		-- Add vanilla innate if it's not disabled and if the hero does not have it already
