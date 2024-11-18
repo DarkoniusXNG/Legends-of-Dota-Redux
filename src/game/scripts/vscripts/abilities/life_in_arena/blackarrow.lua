@@ -317,12 +317,12 @@ if IsServer() then
 		local spawn
 		if parent:IsHero() then
 			local illu_table = {
-				outgoing_damage = outgoing_damage,
+				outgoing_damage = outgoing_damage - 100,
 				incoming_damage = incoming_damage,
 				bounty_base = 0,
 				bounty_growth = 0,
-				outgoing_damage_structure = outgoing_damage,
-				outgoing_damage_roshan = outgoing_damage,
+				outgoing_damage_structure = outgoing_damage - 100,
+				outgoing_damage_roshan = outgoing_damage - 100,
 				duration = duration,
 			}
 			local illusions = CreateIllusions(caster, parent, illu_table, 1, padding, false, false)
