@@ -19,12 +19,18 @@ end
 function ablaze_modifier:OnCreated()
 	self.interval = 0.5
 	if IsServer() then
+		local parent = self:GetParent()
+		parent:EmitSound("Hero_AbyssalUnderlord.Firestorm.Cast")
+
 		self:StartIntervalThink(self.interval)
 	end
 end
 
 function ablaze_modifier:OnRefresh()
 	if IsServer() then
+		local parent = self:GetParent()
+		parent:EmitSound("Hero_AbyssalUnderlord.Firestorm.Cast")
+
 		self:OnIntervalThink()
 	end
 end
@@ -36,8 +42,6 @@ function ablaze_modifier:OnIntervalThink()
 
 	local armor = caster:GetPhysicalArmorValue(false)
 	local armor_damage = armor * 0.5
-
-	parent:EmitSound("Hero_AbyssalUnderlord.Firestorm.Cast")
 
 	local damageTable = {
 		victim = parent,
@@ -54,13 +58,13 @@ function ablaze_modifier:GetTexture()
 	return "custom/ablaze"
 end
 
-function ablaze_modifier:GetEffectName()
-	return "particles/molten_lord/ablaze_debuff.vpcf"
-end
+-- function ablaze_modifier:GetEffectName()
+	-- return ""
+-- end
 
-function ablaze_modifier:GetEffectAttachType()
-	return PATTACH_ABSORIGIN_FOLLOW
-end
+-- function ablaze_modifier:GetEffectAttachType()
+	-- return PATTACH_ABSORIGIN_FOLLOW
+-- end
 
 function ablaze_modifier:GetStatusEffectName()
 	return "particles/status_fx/status_effect_doom.vpcf"

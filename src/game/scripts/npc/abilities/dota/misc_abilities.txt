@@ -616,8 +616,6 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                            "bounty_hunter_jinada"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"		
-		"AbilitySound"					"Hero_BountyHunter.Jinada"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
@@ -628,7 +626,7 @@
         "AbilityTextureName"            "custom/bounty_hunter_jinada_op"
         "ReduxCost"                                                            "120"
 		"AbilityCastRange"				"150"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"	
+		"AbilityCastPoint"				"0.0"	
 		
         "precache"
         {
@@ -638,13 +636,13 @@
 		{
 			"bonus_damage"
 			{
-				"value"			"60 100 140 180"
+				"value"			"70 110 150 190"
 				"special_bonus_unique_bounty_hunter_4"	"+30"
 			}
 			"gold_steal"
 			{
 				"value"			"40 80 120 160"
-				"special_bonus_unique_bounty_hunter"		"+120"
+				"special_bonus_unique_bounty_hunter"		"+50"
 			}
 			"AbilityCooldown"				
 			{
