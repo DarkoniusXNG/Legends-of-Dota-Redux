@@ -7061,6 +7061,14 @@
 	{
 		"TalentRequiredAbility"                                                   "jakiro_dual_breath"
 	}
+	"special_bonus_unique_jakiro_dualbreath_cooldown"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "jakiro_dual_breath"
+	}
 
 
 
@@ -7415,7 +7423,7 @@
 
 
 
-	
+
 
 	"special_bonus_unique_lycan_1"
 	{
@@ -10160,6 +10168,14 @@
 	"special_bonus_unique_clockwerk_flare_damage"
 	{
 		"TalentRequiredAbility"                                                   "rattletrap_rocket_flare"
+	}
+	"special_bonus_unique_clockwerk_hookshot_damage"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rattletrap_hookshot"
 	}
 
 
