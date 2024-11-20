@@ -9319,10 +9319,6 @@
 	{
 		"TalentRequiredAbility"                                                   "vengefulspirit_wave_of_terror"
 	}
-	"special_bonus_unique_vengeful_spirit_7"
-	{
-		"TalentRequiredAbility"                                                   "vengefulspirit_command_aura"
-	}
 	"special_bonus_unique_vengeful_spirit_8"
 	{
 		"TalentRequiredAbility"                                                   "vengefulspirit_command_aura"
