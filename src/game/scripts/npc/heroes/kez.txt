@@ -3,10 +3,11 @@
 	//=================================================================================================================
 	// Kez: Switch Weapons
 	//=================================================================================================================
-	// "kez_switch_weapons"
-	// {
-
-	// }
+	"kez_switch_weapons"
+	{
+		"ReduxFlags"                                                           "attack_modifier | upgradeable | semi_passive | doNotRandom"
+		"ReduxPerks"                                                           "attack_modifier"
+	}
 
 	//=================================================================================================================
 	// Kez: Echo Slash
@@ -72,8 +73,8 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 
-		"ReduxFlags"                                                           "attack_modifier | bash | crit"
-		"ReduxPerks"                                                           "attack_modifier | bash"
+		"ReduxFlags"                                                           "attack_modifier | bash | crit | doNotRandom"
+		"ReduxPerks"                                                           "attack_modifier | bash | dagger"
 	}
 
 	//=================================================================================================================
@@ -102,14 +103,14 @@
 	//=================================================================================================================
 	// Ability: Special Bonus
 	//=================================================================================================================
-	"special_bonus_unique_kez_raptor_dance_radius"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
+	// "special_bonus_unique_kez_raptor_dance_radius"
+	// {
+		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		// "BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "kez_raptor_dance"
-	}
+		// "TalentRequiredAbility"                                                   "kez_raptor_dance"
+	// }
 
 	//=================================================================================================================
 	// Ability: Special Bonus
@@ -162,43 +163,23 @@
 	//=================================================================================================================
 	// Ability: Special Bonus
 	//=================================================================================================================
-	"special_bonus_unique_kez_grapple_cast_range"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
+	// "special_bonus_unique_kez_ultimate_cooldown"
+	// {
+		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		// "BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "kez_grappling_claw"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_kez_parry_bonus"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "kez_shodo_sai"
-	}
+		// "TalentRequiredAbility"
+		// {
+			// "1" "kez_raptor_dance"
+			// "2" "kez_ravens_veil"
+		// }
+	// }
 
 	//=================================================================================================================
 	// Ability: Special Bonus
 	//=================================================================================================================
-	"special_bonus_unique_kez_ravens_veil_duration"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "kez_ravens_veil"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_kez_ultimate_cooldown"
+	"special_bonus_unique_kez_ravens_veil_mark_parry_bonus"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -206,8 +187,8 @@
 
 		"TalentRequiredAbility"
 		{
-			"1" "kez_raptor_dance"
-			"2" "kez_ravens_veil"
+			"1" "kez_ravens_veil"
+			"2" "kez_shodo_sai"
 		}
 	}
 }
