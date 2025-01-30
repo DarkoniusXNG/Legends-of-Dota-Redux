@@ -7777,7 +7777,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                 end, DoUniqueString('tossFix'), 1)
             end
 
-            -- 'No Charges' fix for Shadow demon disrupition
+            -- 'No Charges' fix for Shadow demon Disruption
             if spawnedUnit:HasAbility('shadow_demon_disruption') then
                 Timers:CreateTimer(function()
                     -- If the hero has the charges perk, and they have a level in it, check if they have modifier, if not, add it
@@ -7984,7 +7984,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     end
 
     -- Respawn the hero before the game actually starts - fixes innates
-    if GameRules:State_Get() < DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+    if GameRules:State_Get() < DOTA_GAMERULES_STATE_GAME_IN_PROGRESS and OptionManager:GetOption('randomOnDeath') ~= 1 then
         spawnedUnit:RespawnHero(false, false)
     end
 end

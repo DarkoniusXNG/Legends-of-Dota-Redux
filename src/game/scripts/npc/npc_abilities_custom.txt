@@ -519,8 +519,6 @@
 #base "abilities\unpickable\phase_datadriven.txt"
 #base "abilities\unpickable\treant_eyes_in_the_forest_notification.txt"
 #base "abilities\overthrow.txt"
-#base "abilities\talents\status_resistance.txt"
-#base "abilities\talents\willpower.txt"
 #base "abilities\aba\mana_eater_mana_shell.txt"
 #base "abilities\aba\mana_eater_mystic_bolt.txt"
 #base "abilities\aba\oracle_will_to_live.txt"

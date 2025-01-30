@@ -11,35 +11,13 @@
 	}
 
 	//=================================================================================================================
-	// Innate Ability: Puritan
+	// Anti Mage: Persecutor (Innate)
 	//=================================================================================================================
 	"antimage_persectur"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"MaxLevel"						"4"
-		"Innate"						"1"
-		"DependentOnAbility"			"antimage_mana_void"
-		"IsBreakable"					"1"
-
-		"AbilityValues"
-		{
-			"move_slow_min"
-			{
-				"value"								"12.5 15.0 17.5 20"
-				"special_bonus_unique_antimage_5"	"+5"
-			}
-			"move_slow_max"
-			{
-				"value"								"25 30 35 40"
-				"special_bonus_unique_antimage_5"	"+15"
-			}
-			"mana_threshold"						"50"
-			"slow_duration"		"0.75"
-			"zero_tooltip"		"0"
-		}
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"ReduxFlags"                    "attack_modifier | mana"
+		"ReduxPerks"                    "attack_modifier"
 	}
 
 	//=================================================================================================================

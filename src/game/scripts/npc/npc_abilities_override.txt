@@ -6928,10 +6928,6 @@
 	{
 		"TalentRequiredAbility"                                                   "jakiro_dual_breath"
 	}
-	"special_bonus_unique_jakiro_3"
-	{
-		"TalentRequiredAbility"                                                   "jakiro_macropyre"
-	}
 	"special_bonus_unique_jakiro_4"
 	{
 		"TalentRequiredAbility"

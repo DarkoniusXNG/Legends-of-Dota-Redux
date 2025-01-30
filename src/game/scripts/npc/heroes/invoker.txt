@@ -1,11 +1,12 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Invoker: Innate XP on Deny
+	// Invoker: Mastermind (Innate)
 	//=================================================================================================================
 	"invoker_mastermind"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"ReduxFlags"                    "doNotRandom"
 	}
 
 	"invoker_cold_snap_ad"
