@@ -1,0 +1,105 @@
+"DOTAAbilities"
+{
+	"dawnbreaker_celestial_hammer"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "light | skillshot | fire | mobility"
+	}
+
+	"dawnbreaker_fire_wreath"
+	{
+		"ReduxFlags"                                                           "aoe_attack | stun"
+		"ReduxPerks"                                                           "light | skillshot"
+	}
+
+	"dawnbreaker_luminosity"
+	{
+		"ReduxFlags"                                                           "attack_modifier | crit | support"
+		"ReduxPerks"                                                           "attack_modifier | light | support"
+	}
+
+	"dawnbreaker_solar_guardian"
+	{
+		"ReduxFlags"                                                           "support | mobility | upgradeable | stun"
+		"ReduxPerks"                                                           "support | mobility | teleport | light | channeled"
+	}
+
+	"dawnbreaker_break_of_dawn"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"ReduxFlags"                                                           "doNotRandom | support"
+		"ReduxPerks"                                                           "light | support"
+	}
+
+	"special_bonus_unique_dawnbreaker_solar_guardian_radius"
+	{
+		"AbilityType"                                                          "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
+		"TalentRequiredAbility"                                                "dawnbreaker_solar_guardian"
+	}
+
+	"special_bonus_unique_dawnbreaker_celestial_hammer_cast_range"
+	{
+		"AbilityType"                                                          "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
+		"TalentRequiredAbility"                                                "dawnbreaker_celestial_hammer"
+	}
+
+	"special_bonus_unique_dawnbreaker_luminosity_crit"
+	{
+		"AbilityType"                                                          "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
+		"TalentRequiredAbility"                                                "dawnbreaker_luminosity"
+	}
+
+	"special_bonus_unique_dawnbreaker_solar_guardian_cooldown"
+	{
+		"AbilityType"                                                          "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
+		"TalentRequiredAbility"                                                "dawnbreaker_solar_guardian"
+	}
+
+	"special_bonus_unique_dawnbreaker_celestial_hammer_slow"
+	{
+		"AbilityType"                                                          "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
+		"TalentRequiredAbility"                                                "dawnbreaker_celestial_hammer"
+	}
+
+	"special_bonus_unique_dawnbreaker_fire_wreath_cooldown"
+	{
+		"AbilityType"                                                          "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
+		"TalentRequiredAbility"                                                "dawnbreaker_fire_wreath"
+	}
+
+	"special_bonus_unique_dawnbreaker_fire_wreath_swipe"
+	{
+		"AbilityType"                                                          "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
+		"TalentRequiredAbility"                                                "dawnbreaker_fire_wreath"
+	}
+
+	"special_bonus_unique_dawnbreaker_luminosity_attack_count"
+	{
+		"AbilityType"                                                          "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
+		"TalentRequiredAbility"                                                "dawnbreaker_luminosity"
+	}
+}

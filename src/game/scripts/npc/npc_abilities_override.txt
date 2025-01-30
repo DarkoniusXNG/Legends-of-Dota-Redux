@@ -6,6 +6,7 @@
 #base "heroes\axe.txt"
 #base "heroes\bane.txt"
 #base "heroes\batrider.txt"
+#base "heroes\dawnbreaker.txt"
 #base "heroes\elder_titan.txt"
 #base "heroes\invoker.txt"
 #base "heroes\kez.txt"
@@ -5022,12 +5023,6 @@
 		"ReduxPerks"                                                           "physical"
 	}
 
-	"dawnbreaker_celestial_hammer"
-	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "light | skillshot | fire | mobility"
-	}
-
 	"riki_poison_dart"
 	{
 		"ReduxFlags"                    "stun"
@@ -5051,12 +5046,6 @@
 		}
 	}
 
-	"dawnbreaker_solar_guardian"
-	{
-		"ReduxFlags"                                                           "support | mobility | upgradeable | stun"
-		"ReduxPerks"                                                           "support | mobility | teleport | light | channeled"
-	}
-
 	"shadow_demon_soul_catcher"
 	{
 		"ReduxPerks"                                                           "demon | drain"
@@ -5066,18 +5055,6 @@
 	{
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support | demon | self_damage"
-	}
-
-	"dawnbreaker_fire_wreath"
-	{
-		"ReduxFlags"                                                           "aoe_attack | stun"
-		"ReduxPerks"                                                           "light | skillshot"
-	}
-
-	"dawnbreaker_luminosity"
-	{
-		"ReduxFlags"                                                           "attack_modifier | crit | support"
-		"ReduxPerks"                                                           "attack_modifier | light | support"
 	}
 
 	"grimstroke_spirit_walk"
@@ -10434,99 +10411,6 @@
 	{
 		"TalentRequiredAbility" 				"hoodwink_scurry"
 	}
-
-
-
-	"special_bonus_unique_dawnbreaker_solar_guardian_radius"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" "dawnbreaker_solar_guardian"
-	}
-	"special_bonus_unique_dawnbreaker_fire_wreath_magic_immunity"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" "dawnbreaker_fire_wreath"
-	}
-	"special_bonus_unique_dawnbreaker_converge_slow"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" "dawnbreaker_celestial_hammer"
-	}
-	"special_bonus_unique_dawnbreaker_celestial_hammer_damage"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" "dawnbreaker_celestial_hammer"
-	}
-	"special_bonus_unique_dawnbreaker_celestial_hammer_cast_range"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" "dawnbreaker_celestial_hammer"
-	}
-	"special_bonus_unique_dawnbreaker_fire_wreath_ministun"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" "dawnbreaker_fire_wreath"
-	}
-	"special_bonus_unique_dawnbreaker_fire_wreath_charges"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" "dawnbreaker_fire_wreath"
-	}
-	"special_bonus_unique_dawnbreaker_luminosity_crit"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" "dawnbreaker_luminosity"
-	}
-	"special_bonus_unique_dawnbreaker_solar_guardian_cooldown"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" "dawnbreaker_solar_guardian"
-	}
-	"special_bonus_unique_dawnbreaker_celestial_hammer_slow"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" "dawnbreaker_celestial_hammer"
-	}
-	"special_bonus_unique_dawnbreaker_fire_wreath_cooldown"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" "dawnbreaker_fire_wreath"
-	}
-
-
 
 	"special_bonus_unique_marci_grapple_stun_duration"
 	{
