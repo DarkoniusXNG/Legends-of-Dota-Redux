@@ -30,12 +30,12 @@ end
 function modifier_npc_dota_hero_pangolier_perk:OnCreated(keys)
     if IsServer() then
         local caster = self:GetCaster()
-        local pango = caster:FindAbilityByName("pangolier_heartpiercer")
+        local pango = caster:FindAbilityByName("pangolier_heartpiercer_old")
 
         if pango then
             pango:UpgradeAbility(false)
         else
-            pango = caster:AddAbility("pangolier_heartpiercer")
+            pango = caster:AddAbility("pangolier_heartpiercer_old")
             --pango:SetStolen(true)
             pango:SetActivated(true)
             pango:SetLevel(1)

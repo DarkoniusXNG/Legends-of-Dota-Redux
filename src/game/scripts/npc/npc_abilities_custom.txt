@@ -200,6 +200,7 @@
 #base "abilities\dota\pudge_flesh_heap_tenacity.txt"
 #base "abilities\dota\pudge_flesh_heap_willpower.txt"
 #base "abilities\dota\pudge_meat_hook_perk.txt"
+#base "abilities\dota\pangolier_heartpiercer_old.txt"
 #base "abilities\dota\pangolier_lucky_shot_redux.txt"
 #base "abilities\dota\riki_backstab_lod.txt"
 #base "abilities\dota\riki_permanent_invisibility_lod.txt"
