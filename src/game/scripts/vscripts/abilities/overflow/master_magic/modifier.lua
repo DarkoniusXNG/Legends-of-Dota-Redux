@@ -66,7 +66,7 @@ if IsServer() then
 			end
 
 			cast_ability:EndCooldown()
-			if unit:HasScepter() and RandomInt(1, 100) < ability:GetSpecialValueFor("chance_scepter") then
+			if unit:HasScepter() and RandomInt(1, 100) <= ability:GetSpecialValueFor("chance_scepter") then
 				EmitSoundOnLocationWithCaster( self:GetCaster():GetOrigin(), "Brewmaster_Storm.DispelMagic", self:GetCaster() )
 			else
 				self:DecrementStackCount()

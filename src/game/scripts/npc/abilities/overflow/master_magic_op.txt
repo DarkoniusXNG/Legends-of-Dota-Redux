@@ -22,7 +22,8 @@
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_brewmaster.vsndevts"
             "particle"                                                     "particles/master_magic.vpcf"
         }
+
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
+        "ReduxFlags"                                                           "cooldown"
     }
 }

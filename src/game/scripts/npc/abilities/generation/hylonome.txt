@@ -27,22 +27,25 @@
 
         // General
         //--------------------------------------------------------------------------------------------------------
-        "AbilityName"               "hylonome_eldritch_pull"
+        "BaseClass"                     "ability_datadriven"
+        "AbilityTextureName"            "custom/hylonome_ethereal_rip"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+
+        "ReduxFlags"                    "stun"
+        "ReduxPerks"                    "demon | enemyMoving"
+
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
-        "AbilityTextureName"                        "custom/hylonome_ethereal_rip"
         "AbilityCooldown"               "12"
         "AbilityCastPoint"              "0.3"
         "AbilityManaCost"               "100 110 120 130"
         "AbilityCastRange"              "%cast_range"
-        "BaseClass"                 "ability_datadriven"
         "AbilityProcsMagicStick"        "1"
 
-        "AbilityDamage"             "70 140 210 280"
+        "AbilityDamage"                 "70 140 210 280"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -80,7 +83,7 @@
                 "Passive"           "0"
                 "IsHidden"          "1"
                 "IsDebuff"          "0"
-            
+
                 "OnCreated"
                 {
                     "FireSound"
@@ -166,24 +169,26 @@
 
         // General
         //--------------------------------------------------------------------------------------------------------
-        "AbilityName"               "hylonome_eldritch_pull"
+        "BaseClass"                     "ability_datadriven"
+        "AbilityTextureName"            "custom/hylonome_ethereal_rip_op"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+
+        "ReduxFlags"                    "stun"
+        "ReduxPerks"                    "demon | enemyMoving"
+        "ReduxCost"                     "120"
+
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
-        "AbilityTextureName"                        "custom/hylonome_ethereal_rip_op"
         "AbilityCooldown"               "12"
         "AbilityCastPoint"              "0.3"
         "AbilityManaCost"               "100 110 120 130"
         "AbilityCastRange"              "%cast_range"
-        "BaseClass"                 "ability_datadriven"
         "AbilityProcsMagicStick"        "1"
 
-        "AbilityDamage"             "180 270 360 450"
-        "ReduxFlags"                                                           ""
-        "ReduxCost"                                                            "120"
+        "AbilityDamage"                 "180 270 360 450"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -193,7 +198,7 @@
             "distance" "-300 -600 -900 -1200"
             "move_slow" "-70"
             "duration" "5"
-            "damage" "200 250 300 350"
+            "damage" "180 270 360 450"
         }
         "precache"
         {
@@ -221,7 +226,7 @@
                 "Passive"           "0"
                 "IsHidden"          "1"
                 "IsDebuff"          "0"
-            
+
                 "OnCreated"
                 {
                     "FireSound"
@@ -297,8 +302,8 @@
         }
     }
     //=================================================================================================================
-    // Hylonome: Laceration
-    //================================================================================================================= 
+    // Hylonome: Battle Rhythm
+    //=================================================================================================================
     "hylonome_battle_rhythm"
     {
         "BaseClass"                     "ability_datadriven"
@@ -323,7 +328,7 @@
             {
                 "Passive"           "1"
                 "IsHidden"          "1"
-            
+
                 "OnAttackLanded"
                 // "%attack_damage" is set to the damage value before mitigation
                 {
@@ -340,11 +345,11 @@
                 "IsHidden"          "0"
                 "IsBuff"            "1"
                 "Duration"          "%duration"
-        
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_EVASION_CONSTANT"            "%bonus_evasion"
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed" 
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
                 }
 
                 "OnDestroy"
@@ -361,7 +366,7 @@
 
     //=================================================================================================================
     // Hylonome: Laceration (old)
-    //================================================================================================================= 
+    //=================================================================================================================
     "hylonome_laceration"
     {
 
@@ -373,7 +378,6 @@
 
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityName"                   "hylonome_laceration"
         "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityUnitDamageType"             "DAMAGE_TYPE_PHYSICAL"
         "AbilityTextureName"                            "hylonome_laceration"
@@ -395,7 +399,7 @@
                 "Target"            "CASTER"
             }
         }
-        
+
         // Modifiers
         //-------------------------------------------------------------------------------------------------------------
         "Modifiers"
@@ -493,30 +497,26 @@
 
     //=================================================================================================================
     // Hylonome: Anemic Aura
-    //================================================================================================================= 
+    //=================================================================================================================
     "hylonome_anemic_aura"
     {
-
-        // Overview
-        //-------------------------------------------------------------------------------------------------------------
-        // Ability is mostly working as intended.
-        // The only issue at the moment is that the bleed damage can re-proc the debuff creating an endless loop.
-        //-------------------------------------------------------------------------------------------------------------
-        
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityName"                   "hylonome_anemic_aura"
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/nextgeneration/hero_hylonome/hylonome_anemic_aura.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
         "AbilityTextureName"            "custom/hylonome_anemic_aura"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
-        "AOERadius"                 "%radius"
-        "BaseClass"                     "ability_datadriven"    
+        "IsBreakable"                   "1"
+		
+        "ReduxPerks"                    "aura"
 
         "precache"
         {
             "particle"  "particles/items3_fx/star_emblem_shield_glow.vpcf"
+			"particle"  "particles/status_fx/status_effect_rupture.vpcf"
+			"particle"  "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff_arcs.vpcf"
         }
 
         // Special
@@ -529,111 +529,6 @@
             "bleed_damage" "7"
             "duration" "6"
         }
-
-        //Ability
-        //-------------------------------------------------------------------------------------------------------------
-
-        "OnSpellStart"
-        {
-            "ApplyModifier"
-            {
-                "Target"            "CASTER"
-                "ModifierName"          "modifier_hylonome_anemic_aura"
-            }
-        }
-
-        // Modifiers
-        //-------------------------------------------------------------------------------------------------------------
-        "Modifiers"
-        {
-            "modifier_hylonome_anemic_aura"
-            {
-                "Aura"              "modifier_hylonome_anemic_aura_debuff"
-                "Aura_Radius"           "%radius"
-                "Aura_Teams"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
-                "Aura_Types"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-                "Aura_Flags"            "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-                "Passive"               "1"
-                "AllowIllusionDuplicate"        "0"
-                "IsHidden"          "0"
-            }
-            "modifier_hylonome_anemic_aura_debuff"
-            {
-                "IsHidden"          "0"
-                "IsDebuff"              "1"
-                "IsPurgable"            "0"
-                "StatusEffectName"          "particles/status_fx/status_effect_rupture.vpcf"
-                "StatusEffectPriority"      "1"
-                "EffectName"            "particles/items3_fx/star_emblem_shield_glow.vpcf"
-                "EffectAttachType"          "attach_origin"
-                "OnTakeDamage"
-                {
-                    "RunScript"
-                    {
-                        "Target"            "UNIT"
-                        "ScriptFile"        "abilities/nextgeneration/hero_hylonome/hylonome_anemic_aura.lua"
-                        "Function"          "takeDamage"
-                    }
-                    "Random"
-                    {
-                        "Chance"                "%chance"
-                        "OnSuccess"
-                        {
-                            "RunScript"
-                            {
-                                "ScriptFile"    "abilities/nextgeneration/hero_hylonome/hylonome_anemic_aura.lua"
-                                "Function"      "ApplyBleed"
-                            }
-                        }
-                    }
-                }
-                "OnHealthGained"
-                {
-                    "RunScript"
-                    {
-                        "Target"            "UNIT"
-                        "ScriptFile"        "abilities/nextgeneration/hero_hylonome/hylonome_anemic_aura.lua"
-                        "Function"          "anemicAura"
-                    }
-                }
-                "OnDestroy"
-                {
-                    "RunScript"
-                    {
-                        "Target"            "UNIT"
-                        "ScriptFile"        "abilities/nextgeneration/hero_hylonome/hylonome_anemic_aura.lua"
-                        "Function"          "removeAnemic"
-                    }
-                }
-            }
-            "modifier_hylonome_anemic_aura_thinker"
-            {
-                "IsHidden"          "0"
-                "IsDebuff"              "1"
-                "IsPurgable"            "1"
-                "Duration"              "%duration"
-                "ThinkInterval"         "1"
-                "OnIntervalThink"
-                {
-                    "FireEffect"
-                    {
-                        "EffectName"            "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff_arcs.vpcf"
-                        "EffectAttachType"          "follow_origin"
-                        "Target"
-                        {
-                            "Center"        "TARGET"
-                            "Flags"         "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-                        }
-                    }
-                    "RunScript"
-                    {
-                        "Target"            "TARGET"
-                        "ScriptFile"        "abilities/nextgeneration/hero_hylonome/hylonome_anemic_aura.lua"
-                        "Function"          "bleedDamage"
-                    }
-                }
-            }
-        }
     }
     //=================================================================================================================
     // Hylonome: Libation
@@ -641,9 +536,7 @@
     "hylonome_libation"
     {
         "BaseClass"                     "ability_datadriven"
-        // "AbilityTextureName"            "custom/hylonome_libation"
-		"AbilityTextureName"			"custom/hylonome_libation_bloodrage"
-		"AbilityTextureName"			"shadow_demon_disseminate"
+        "AbilityTextureName"            "custom/hylonome_libation_bloodrage"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
@@ -656,6 +549,9 @@
         "AbilityCastAnimation"          "ACT_DOTA_ATTACK_EVENT"
         "AbilityProcsMagicStick"        "1"
         "HasScepterUpgrade"             "1"
+
+        "ReduxFlags"                    "upgradeable"
+        "ReduxPerks"                    "drain | demon"
 
         "precache"
         {
@@ -758,7 +654,7 @@
                         }
                     }
                 }
-        
+
                 "OnAttackLanded"
                 // "%attack_damage" is set to the damage value before mitigation
                 {
@@ -783,7 +679,7 @@
 
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_slow" 
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_slow"
                 }
                 "OnCreated"
                 {
@@ -858,7 +754,7 @@
             "test" "2"
             "radius" "1200"
         }
-        
+
         "precache"
         {
             "particle"      "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf"
@@ -881,7 +777,7 @@
                 "dummy_aura"        "modifier_hylonome_ult"
             }
         }
-            
+
         // Modifiers
         //-------------------------------------------------------------------------------------------------------------
         "Modifiers"
@@ -905,7 +801,7 @@
                         "EffectName"    "particles/units/heroes/hero_hylonome/hylonome_chronosphere.vpcf"
                         "EffectAttachType"  "attach_origin"
                         "Target"        "TARGET"
-    
+
                         "ControlPoints"
                         {
                             "01"    "%radius %radius 0"
@@ -916,7 +812,7 @@
                 "States"
                 {
                     "MODIFIER_STATE_INVULNERABLE"       "MODIFIER_STATE_VALUE_ENABLED"
-                    "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"              
+                    "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
                     "MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
                     "MODIFIER_STATE_UNSELECTABLE"       "MODIFIER_STATE_VALUE_ENABLED"
                 }

@@ -17,19 +17,22 @@
 		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
 		"AbilityTextureName"			"custom/hero_freedom_strike"
 
+		"ReduxFlags"                    "mobility"
+		"ReduxPerks"                    "mobility | skillshot"
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"475"
 		"AbilityCastPoint"				"0.01"
-		
-		// Time		
+
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"7 6 5 4"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"60 65 70 75"
-		
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityModifierSupportValue"	"0.0"	// All about the damage
@@ -44,15 +47,12 @@
             "duration" "4"
             "damage" "100 150 200 250"
         }
-		
+
 		"precache"
 		{
 			"particle" "particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap.vpcf"
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_brewmaster.vsndevts"
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
 		}
-
-		"ReduxPerks"	""
-		"ReduxFlags"	""
 	}
 }

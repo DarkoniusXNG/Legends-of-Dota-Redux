@@ -18,7 +18,7 @@
 
     "MaxLevel"                                            "4"
 	
-    "ReduxFlags"                                          "attack_modifier | crit | stun"
+    "ReduxFlags"                                          "attack_modifier | crit | stun | doNotRandom"
     "ReduxPerks"                                          "attack_modifier | enemyMoving"
 
     // Time

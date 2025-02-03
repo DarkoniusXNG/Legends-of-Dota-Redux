@@ -11,6 +11,10 @@
         "AnimationPlaybackRate"                                                "0.2"
         "MaxLevel"                                                             "4"
         "AOERadius"                                                            "900"
+
+        "ReduxFlags"                                                           "summon"
+        "ReduxPerks"                                                           "trap | channeled | nature | summon_non_ult | self_damage"
+
         "AbilityValues"
         {
             "range" "900"
@@ -98,6 +102,5 @@
                 }
             }
         }
-        "ReduxPerks"                                                           "channeled | plant"
     }
 }

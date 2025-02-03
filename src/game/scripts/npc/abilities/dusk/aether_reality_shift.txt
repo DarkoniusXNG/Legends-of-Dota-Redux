@@ -13,19 +13,23 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"custom/aether_reality_shift"
 
+		"ReduxFlags"                    "stun | support"
+		"ReduxPerks"                    "enemyMoving | light | support"
+		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"400"
 		"AbilityCastPoint"				"0.0"
-		
-		// Time		
+
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"100 80 60"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"150 200 250"
-		
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityModifierSupportValue"	"0.0"	// All about the damage
@@ -40,7 +44,7 @@
             "damage" "400 550 700"
             "predamage" "400 550 700"
         }
-		
+
 		"precache"
 		{
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"

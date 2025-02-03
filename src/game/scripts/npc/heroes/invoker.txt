@@ -111,12 +111,15 @@
 	"invoker_emp_ad"
 	{
 		"AbilityTextureName"            "invoker_emp_ad_png"
-		"ReduxPerks"					"skillshot"
 		"HasShardUpgrade"				"1"
 		"AbilityCastRange"				"950"
 		"AbilityCastPoint"				"0.05"
 		"AbilityCooldown"				"27 24 21 18"
 		"AbilityManaCost"				"125"
+
+		"ReduxFlags"					"mana"
+		"ReduxPerks"					"drain | skillshot"
+
 		"AbilityValues"
 		{
 			"delay"

@@ -26,26 +26,28 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"  
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "FightRecapLevel"               "1"
         "AbilityProcsMagicStick"        "1"
-    
+
+        "ReduxFlags"                    "support"
+        "ReduxPerks"                    "support | demon"
+
         // Casting
         "AbilityCastPoint"              "0.5"
         "AbilityCastRange"              "550 650 750 850"
         "AnimationPlaybackRate"         "1.2"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
-    
+
         //Time
         "AbilityCooldown"               "20 18 16 14"
         "AbilityDuration"               "1.5"
         "AbilityDamage"                 "120 180 240 300"
-    
+
         //Cost
         "AbilityManaCost"               "120 130 140 150"
-    
-    
+
         "AbilityValues"
         {
             "range" "550 650 750 850"
@@ -69,7 +71,7 @@
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
         }
-    
+
         "OnSpellStart"
         {
             "FireSound"
@@ -130,7 +132,7 @@
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
                 "Duration"          "%delay"
-    
+
                 "OnCreated"
                 {
                     "AttachEffect"
@@ -154,7 +156,7 @@
                 "IsDebuff"          "0"
                 "OverrideAnimation"     "ACT_DOTA_FLAIL"
                 "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT"
-    
+
                 "States"
                 {
                     "MODIFIER_STATE_STUNNED"            "MODIFIER_STATE_VALUE_ENABLED"
@@ -167,7 +169,7 @@
                 "IsHidden"          "1"
                 "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
                 "Duration"          "0.1"
-    
+
                 "OnCreated"
                 {
                     "FireEffect"
@@ -185,16 +187,16 @@
                 "IsDebuff"          "0"
                 "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT"
                 "Duration"              "%delay"
-    
+
                 "EffectName" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_ground_eztzhok_arc.vpcf"
                 "EffectAttachType"  "follow_origin"
-    
+
                 "States"
                 {
                     "MODIFIER_STATE_STUNNED"            "MODIFIER_STATE_VALUE_ENABLED"
                     "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
                 }
-            
+
                 "OnCreated"
                 {
                     "FireEffect"
@@ -257,7 +259,7 @@
                 "Passive"           "0"
                 "IsHidden"          "1"
                 "Duration"          "1.175"
-            
+
                 "OnDestroy"
                 {
                     "FireEffect"
@@ -287,16 +289,18 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "FightRecapLevel"               "1"
-    
+
+        "ReduxPerks"                    "self_damage | skillshot | enemyMoving"
+
         // Casting
         "AbilityCastPoint"              "0.1"
         "AbilityCastRange"              "750"
         "AnimationPlaybackRate"         "0.7"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
-    
+
         //Time
         "AbilityCooldown"               "14 13 12 11"
         "AbilityDuration"               "1.0"
@@ -305,7 +309,6 @@
         //Cost
         "AbilityManaCost"               "80 90 100 110"
         "AbilityProcsMagicStick"        "1"
-        "ReduxPerks"                    "self_damage | skillshot | enemyMoving"
 
         "Precache"
         {
@@ -330,9 +333,9 @@
             "health_cost" "75 100 125 150"
             "animation" "750"
         }
-    
+
         "OnSpellStart"
-        {   
+        {
             "FireEffect"
             {
                 "EffectName"        "particles/bellatrix_bloodrake_cut.vpcf"
@@ -358,12 +361,12 @@
                 "bloodeffect3"  "particles/bellatrix/bellatrix_bloodrake3.vpcf"
                 "bloodeffect4"  "particles/bellatrix/bellatrix_bloodrake4.vpcf"
                 "TARGET"        "POINT"
-            }   
+            }
         }
         "OnProjectileHitUnit"
         {
             "DeleteOnHit"   "0"
-    
+
             "Damage"
             {
                 "Target"        "TARGET"
@@ -384,7 +387,7 @@
                 "Passive"           "0"
                 "IsHidden"          "1"
                 "IsDebuff"          "0"
-                
+
                 "States"
                 {
                     "MODIFIER_STATE_INVULNERABLE"                   "MODIFIER_STATE_VALUE_ENABLED"
@@ -446,13 +449,16 @@
         "LevelsBetweenUpgrades"         "5"
         "AbilityProcsMagicStick"        "1"
         "HasScepterUpgrade"             "1"
-    
+
+        "ReduxFlags"                    "mobility | upgradeable"
+        "ReduxPerks"                    "self_damage | mobility"
+
         // Casting
         "AbilityCastRange"              "1000 1500 2000"
         "AbilityCastPoint"              "0.3"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
         "AnimationPlaybackRate"         "0.6"
-    
+
         //Time
         "AbilityCooldown"               "30"
         "AbilityDuration"               "8"
@@ -460,14 +466,14 @@
         "AbilityDamage"                 "120 160 200"
         //Cost
         "AbilityManaCost"               "150 175 200"
-    
+
         "Precache"
         {
             "particle"                  "particles/bellatrix/bellatrix_live_transfusion.vpcf"
             "particle"                  "particles/bellatrix/blood_trail.vpcf"
             "soundfile"                 "soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
         }
-    
+
         "AbilityValues"
         {
             "effect_radius" "200"
@@ -526,9 +532,9 @@
             {
                 "Passive"   "0"
                 "IsHidden"  "0"
-    
+
                 "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT"
-    
+
                 "States"
                 {
                     "MODIFIER_STATE_DISARMED"       "MODIFIER_STATE_VALUE_ENABLED"
@@ -595,16 +601,15 @@
                     }
                 }
             }
-    
-    
+
             "modifier_live_transfusion_buff"
             {
                 "IsHidden"              "0"
                 "Duration"              "1"
-                
+
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%buff_ms" 
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%buff_ms"
                 }
             }
             "modifier_bellatrix_thinker_debuff_aura"
@@ -651,7 +656,7 @@
                 "IsPurgable"            "0"
                 "IsDebuff"              "0"
             }
-        }       
+        }
     }
     //=================================================================================================================
     // Bellatrix - Unholy Ecstasy
@@ -668,26 +673,28 @@
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "FightRecapLevel"               "1"
         "AbilityProcsMagicStick"        "1"
-    
+
+        "ReduxFlags"                    "tank | support | mana"
+        "ReduxPerks"                    "self_damage | support | demon"
+
         // Casting
         "AbilityCastPoint"              "0.1"
         "AnimationPlaybackRate"         "1.4"
         "AbilityCastRange"              "600"
         "AbilityDamage"                 "40"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
-    
-            
+
         //Time
         "AbilityCooldown"               "15 14 13 12"
         "AbilityDuration"               "4"
-    
+
         "Precache"
         {
             "particle"          "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture_nuke.vpcf"
             "particle"          "particles/bellatrix/bellatrix_unholy_ecstasy.vpcf"
             "particle"          "particles/bellatrix/bellatrix_unholy_bonus.vpcf"
             "particle"          "particles/bellatrix_unholy_ecstasy_orb.vpcf"
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"   
+            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
         }
 
         "AbilityValues"
@@ -726,7 +733,7 @@
                     "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduction"
                 }
                 "ThinkInterval"  "0.5"
-    
+
                 "OnIntervalThink"
                 {
                     "AttachEffect"
@@ -741,7 +748,7 @@
                         "Function"      "UnholyEcstasyDamage"
                     }
                 }
-    
+
                 "OnTakeDamage"
                 // "%attack_damage" is set to the damage value after mitigation
                 {
@@ -790,7 +797,7 @@
                         "Function"      "BonusMana"
                     }
                 }
-                
+
                 "OnAttackLanded"
                 // "%attack_damage" is set to the damage value before mitigation
                 {

@@ -16,15 +16,18 @@
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityProcsMagicStick"        "1"
         "HasScepterUpgrade"             "1"
-    
+
+        "ReduxFlags"                    "support | upgradeable"
+        "ReduxPerks"                    "support"
+
         "AbilityGoldCost"               "75 100 125"
         "AbilityManaCost"               "50"
         "AbilityCooldown"               "5.0"
-    
+
         "AbilityCastRange"              "1200"
         "AbilityCastPoint"              "0.3"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
-    
+
         "AbilityValues"
         {
             "gold_cost" "75 100 125"
@@ -34,14 +37,14 @@
             "movespeed_bonus" "12 20 28"
             "movespeed_slow" "-12 -20 -28"
         }
-    
+
         "precache"
         {
             "particle"  "particles/zeros_gerrymander_debuff.vpcf"
             "particle"  "particles/zeros_impose_tax.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_zeros.vsndevts"
         }
-    
+
         "OnSpellStart"
         {
             "ApplyModifier"
@@ -79,7 +82,7 @@
                 "ScriptFile"    "abilities/nextgeneration/hero_zeros/gerrymandering.lua"
                 "Function"      "GerrymanderInitiate"
             }
-        }       
+        }
         "Modifiers"
         {
             "modifier_gerrymander_buff"
@@ -89,15 +92,15 @@
                 "IsDebuff"          "0"
                 "IsPurgable"        "1"
                 "IsBuff"            "1"
-    
+
                 "EffectName"        "particles/zeros_impose_tax.vpcf"
                 "EffectAttachType"  "follow_origin"
 
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed_bonus" 
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed_bonus"
                 }
-        
+
                 "OnTakeDamage"
                 // "%attack_damage" is set to the damage value after mitigation
                 {
@@ -115,7 +118,7 @@
                 "IsHidden"          "0"
                 "IsDebuff"          "1"
                 "IsPurgable"        "1"
-    
+
                 "EffectName"        "particles/zeros_impose_tax.vpcf"
                 "EffectAttachType"  "follow_origin"
 
@@ -123,7 +126,7 @@
                 {
                     "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed_slow"
                 }
-            
+
                 "OnDealDamage"
                 // "%attack_damage" is set to the damage value after mitigation
                 {
@@ -135,7 +138,7 @@
                     }
                 }
             }
-        }   
+        }
     }
     //=================================================================================================================
     // Zeros - Impose Tax
@@ -149,14 +152,14 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-    
+
         "AbilityCastRange"              "750"
         "AbilityCastPoint"              "0.3"
-    
+
         "AbilityCooldown"               "7"
         "AbilityManaCost"               "50"
         "AbilityProcsMagicStick"        "1"
-    
+
         "AbilityValues"
         {
             "gold_loss_pct" "20"
@@ -208,7 +211,7 @@
         "BaseClass"                     "ability_datadriven"
         "MaxLevel"                      "1"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    
+
         "OnCreated"
         {
             "SpawnUnit"
@@ -238,7 +241,7 @@
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
                 "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT"
-    
+
                 "States"
                 {
                     "MODIFIER_STATE_UNSELECTABLE"       "MODIFIER_STATE_VALUE_ENABLED"
@@ -249,7 +252,7 @@
                     "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
                     "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"           "MODIFIER_STATE_VALUE_ENABLED"
                 }
-            
+
                 "Aura"              "modifier_tax_counter"
                 "Aura_Radius"       "80000"
                 "Aura_Teams"        "DOTA_UNIT_TARGET_TEAM_BOTH"
@@ -310,15 +313,18 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    
+		
+        "ReduxFlags"                    "summon"
+        "ReduxPerks"                    "summon_non_ult"
+
         "AbilityCooldown"               "20"
         "AbilityManaCost"               "75"
-    
+
         "AbilityCastRange"              "600"
         "AbilityCastPoint"              "0.3"
         "AnimationPlaybackRate"         "1.2"
         "AbilityProcsMagicStick"        "1"
-    
+
         "AbilityValues"
         {
             "duration" "20"
@@ -391,7 +397,7 @@
                 "Passive"           "0"
                 "IsHidden"          "1"
                 "IsDebuff"          "0"
-        
+
                 "States"
                 {
                     "MODIFIER_STATE_NO_UNIT_COLLISION"      "MODIFIER_STATE_VALUE_ENABLED"
@@ -402,13 +408,13 @@
                 "Passive"           "0"
                 "IsHidden"          "1"
                 "IsDebuff"          "0"
-            
+
                 "Aura"              "modifier_statue_effect_hero"
                 "Aura_Radius"       "80000"
                 "Aura_Teams"        "DOTA_UNIT_TARGET_TEAM_BOTH"
                 "Aura_Types"        "DOTA_UNIT_TARGET_HERO"
                 "Aura_Flags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-    
+
                 "OnAttacked"
                 // "%attack_damage" is set to the damage value after mitigation
                 {
@@ -446,23 +452,23 @@
                 "Passive"           "0"
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
-            
+
                 "EffectName"        "particles/econ/items/effigies/status_fx_effigies/gold_effigy_ambient_radiant_lvl2.vpcf"
                 "EffectAttachType"  "follow_origin"
-            
+
                 "Aura"              "modifier_statue_effect_creep"
                 "Aura_Radius"       "%radius"
                 "Aura_Teams"        "DOTA_UNIT_TARGET_TEAM_BOTH"
                 "Aura_Types"        "DOTA_UNIT_TARGET_BASIC"
                 "Aura_Flags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
                 "Aura_ApplyToCaster"    "0"
-    
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%bonus_gold"
                 }
             }
-    
+
             "modifier_statue_effect_hero"
             {
                 "Passive"           "0"
@@ -477,25 +483,25 @@
                         "Function"      "BonusGold"
                     }
                 }
-            
+
             }
             "modifier_statue_effect_creep"
             {
                 "Passive"           "0"
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
-    
+
                 "EffectName" "particles/econ/courier/courier_golden_doomling/courier_golden_doomling_bloom_ambient.vpcf"
                 "EffectAttachType"  "follow_origin"
             }
-            
+
             "modifier_statue_debuff_stack"
             {
                 "Passive"           "0"
                 "IsHidden"          "0"
                 "IsDebuff"          "1"
                 "IsPurgable"        "1"
-            
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%damage_reduction"
@@ -511,11 +517,14 @@
     {
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/zeros_blade_of_malice"
-        "MaxLevel"                      "4" 
+        "MaxLevel"                      "4"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    
+
+        "ReduxFlags"                    "crit | bash"
+        "ReduxPerks"                    "bash"
+
         "AbilityValues"
         {
             "proc_chance" "35"
@@ -537,7 +546,7 @@
             {
                 "Passive"           "1"
                 "IsHidden"          "1"
-            
+
                 "OnAttacked"
                 // "%attack_damage" is set to the damage value after mitigation
                 {
@@ -576,10 +585,10 @@
                 "Passive"           "0"
                 "IsHidden"          "0"
                 "IsDebuff"          "1"
-        
+
                 "EffectName"        "particles/zeros_blade_of_malice.vpcf"
                 "EffectAttachType"  "follow_overhead"
-        
+
                 "OnCreated"
                 {
                     "ApplyModifier"
@@ -611,21 +620,21 @@
                 "Passive"           "0"
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
-        
+
                 "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
-        
+
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed" 
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
                 }
             }
             "modifier_malice_orb"
             {
                 "Passive"           "0"
                 "IsHidden"          "1"
-            
+
                 "OverrideAnimation"     "ACT_DOTA_ATTACK_EVENT"
-            
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_damage"
@@ -637,7 +646,7 @@
                         "EffectName"    "Hero_SkeletonKing.CriticalStrike"
                         "Target"        "CASTER"
                     }
-    
+
                     "FireEffect"
                     {
                         "EffectName"        "particles/units/heroes/hero_skeletonking/skeleton_king_weapon_blur_critical.vpcf"
@@ -686,11 +695,11 @@
                 "IsHidden"          "0"
                 "IsDebuff"          "1"
                 "IsStunDebuff"       "1"
-            
+
                 "EffectName"        "particles/generic_gameplay/generic_stunned.vpcf"
                 "EffectAttachType"  "follow_overhead"
                 "OverrideAnimation"     "ACT_DOTA_DISABLED"
-            
+
                 "States"
                 {
                     "MODIFIER_STATE_STUNNED"        "MODIFIER_STATE_VALUE_ENABLED"
@@ -704,18 +713,18 @@
     "zeros_fanaticism"
     {
         "BaseClass"                     "ability_datadriven"
-        
+
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityTextureName"            "custom/skeleton_king_vampiric_aura"
         "MaxLevel"                      "3"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    
+
         "AbilityCastPoint"              "0.3"
-    
+
         "AbilityCooldown"               "70 60 50"
         "AbilityManaCost"               "120 140 160"
         "AbilityProcsMagicStick"        "1"
-    
+
         "AbilityValues"
         {
             "bonus_damage_pct" "60 80 100"
@@ -754,7 +763,7 @@
                 "Passive"           "0"
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
-    
+
                 "ThinkInterval"  "0.1"
                 "OnIntervalThink"
                 {
@@ -778,7 +787,7 @@
                 "Passive"           "0"
                 "IsHidden"          "0"
                 "IsBuff"            "1"
-            
+
                 "OnCreated"
                 {
                     "AttachEffect"
@@ -804,7 +813,7 @@
                             "CASTER"                "attach_attack1"
                         }
                     }
-                    
+
                     "AttachEffect"
                     {
                         "Target"                    "CASTER"
@@ -819,7 +828,7 @@
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"   "%bonus_damage_pct"
-                    "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"  "%damage_reduction_pct" 
+                    "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"  "%damage_reduction_pct"
                     "MODIFIER_PROPERTY_BONUS_DAY_VISION"            "%day_vision_penalty"
                     "MODIFIER_PROPERTY_BONUS_NIGHT_VISION"          "%night_vision_penalty"
                 }

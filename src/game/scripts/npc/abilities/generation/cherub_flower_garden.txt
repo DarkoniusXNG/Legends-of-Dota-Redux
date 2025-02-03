@@ -13,6 +13,10 @@
         "AbilityProcsMagicStick"                                               "1"
         "AnimationPlaybackRate"                                                "0.2"
         "HasScepterUpgrade"                                                    "1"
+
+        "ReduxFlags"                                                           "upgradeable | support"
+        "ReduxPerks"                                                           "support | channeled | nature"
+
         "AbilityValues"
         {
             "red_flower_damage" "70 85 100"
@@ -407,7 +411,5 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "upgradeable | support"
-        "ReduxPerks"                                                           "support | channeled | plant"
     }
 }

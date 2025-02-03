@@ -1,6 +1,7 @@
 "DOTAAbilities" {
 	"armoured_centipede" {
 		"BaseClass" "ability_datadriven"
+		"AbilityTextureName" "custom/armoured_centipede"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType" "DAMAGE_TYPE_PHYSICAL"
@@ -8,8 +9,8 @@
 		"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"SpellImmunityType" "SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel" "2"
-		"MaxLevel" "3"
-		"AbilityTextureName" "custom/armoured_centipede"
+
+		"ReduxFlags"   "summon"
 
 		"precache" {
 			"Model" "models/items/venomancer/centipede_ward/centipede_ward.vmdl"
@@ -23,7 +24,7 @@
 
 		"AbilityValues"
         {
-            "damage" "75 100 125"
+            "damage" "75 125 175"
             "duration" "40"
         }
 

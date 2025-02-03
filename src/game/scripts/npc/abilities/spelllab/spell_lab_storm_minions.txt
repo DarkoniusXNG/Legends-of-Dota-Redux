@@ -4,14 +4,19 @@
     {
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/spell_lab/storm/storm_minions.lua"
+        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityTextureName"                                                   "custom/spell_lab_storm_minions"
         "AbilityCooldown"                                                      "25"
         "AbilityManaCost"                                                      "75"
         "AbilityCastRange"                                                     "750"
         "AbilityCastPoint"                                                     "0.21"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
-        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
-        "HasScepterUpgrade"                                                    "0"
+        "AbilityCastAnimation"                                                 "ACT_DOTA_CAST_ABILITY_1"
+
+        "ReduxFlags"                                                           "summon"
+        "ReduxPerks"                                                           "summon_non_ult"
+        "ReduxBans"                                                            "blink_support"
+        "ReduxCost"                                                            "20"
+
         "AbilityValues"
         {
             "health" "100"
@@ -26,12 +31,8 @@
             "particle"                                                     "particles/spell_lab/passive_effect_storm_minion_summon.vpcf"
             "particle"                                                     "particles/spell_lab/storm_minion_summon.vpcf"
             "particle"                                                     "particles/spell_lab/storm_missile.vpcf"
+            "model"                                                        "models/items/invoker/forge_spirit/nightlord_crypt_sentinel/nightlord_crypt_sentinel.vmdl"
         }
-        "ReduxFlags"                                                           ""
-        "ReduxBans"                                                            "blink_support"
-        "ReduxPerks"                                                           "summon"
-        "ReduxCost"                                                            "20"
-		     "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
     }
 	"spell_lab_storm_minion_passive"
     {

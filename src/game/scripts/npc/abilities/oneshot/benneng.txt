@@ -4,6 +4,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"custom/benneng"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"	"support"
+		"ReduxPerks"	"support | ranger"
+
 		"precache"
 		{
 			"particle"	"particles/units/heroes/hero_sniper/sniper_crosshair.vpcf"

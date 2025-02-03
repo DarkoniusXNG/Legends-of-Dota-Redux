@@ -34,7 +34,7 @@
 		"AbilityCastRange"				"400"
 		"AbilityCooldown"				"2.5"
 		"AbilityManaCost"				"18 21 24 27"
-		
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -217,7 +217,7 @@
 
 				"EffectName"			"particles/units/heroes/hero_phoenix/phoenix_ambient.vpcf"
 				"EffectAttachType"		"follow_origin"
-				
+
 				"StatusEffectName"		"particles/units/heroes/hero_ursa/ursa_enrage_hero_effect.vpcf"
 				"StatusEffectPriority"	"10"
 
@@ -256,7 +256,9 @@
 		"MaxLevel"						"3"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityTextureName"			"custom/molten_charge"
-		"ReduxPerks"                    "fire"
+
+		"ReduxFlags"					"mobility | stun"
+		"ReduxPerks"					"drain | explosive | fire | mobility"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -374,8 +376,8 @@
 							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 							"Flags"     "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 						}
-					
-						"Action"    
+
+						"Action"
 						{
 							"RunScript"
 							{
@@ -497,7 +499,7 @@
 
 				"States"
 				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"	
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Properties"
 				{

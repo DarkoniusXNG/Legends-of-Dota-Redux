@@ -1,6 +1,6 @@
 "DOTAAbilities" {
 	//=====================================================================================================
-	// LICH: Cold Aura
+	// LICH: Deep Freeze
 	//=====================================================================================================
 	"lich_deep_freeze"
 	{
@@ -10,16 +10,19 @@
 		"ScriptFile"			"abilities/dusk/lich_deep_freeze"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"custom/lich_cold_aura_dusk"
+
+		"ReduxFlags"                    "attack_modifier | bash"
+		"ReduxPerks"                    "attack_modifier | bash | ice"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
 		"AbilityCastPoint"				"0"
-		
-		// Time		
+
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"7 6 5 4"
 
@@ -34,12 +37,5 @@
             "damage" "90 120 150 180"
             "stun" "0.7 0.8 0.9 1.0"
         }
-
-		"precache"
-		{
-		}
-
-		"ReduxPerks"	"ice"
-		"ReduxFlags"	"bash"
 	}
 }

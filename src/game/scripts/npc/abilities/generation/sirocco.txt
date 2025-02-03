@@ -8,7 +8,7 @@
     //
     //
     //                                  Sirocco, the Dust Devil
-    // 
+    //
     //
     //
     //
@@ -23,6 +23,9 @@
         "BaseClass"                     "ability_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityTextureName"            "custom/shifting_sands"
+
+        "ReduxFlags"                    "stun"
+        "ReduxPerks"                    "earth"
 
         "precache"
         {
@@ -41,7 +44,7 @@
 
         "AoERadius"                     "425 450 475 500"
         "AbilityProcsMagicStick"        "1"
-        
+
         "AbilityValues"
         {
             "duration" "8"
@@ -76,7 +79,7 @@
                 "Aura_Teams"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
                 "Aura_Types"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
                 "Duration"              "%duration"
-        
+
                 "OnCreated"
                 {
                     "FireEffect"
@@ -129,7 +132,7 @@
                         }
                         "ModifierName"  "modifier_shifting_sand_stun"
                     }
-                    
+
                     "Damage"
                     {
                         "Target"
@@ -148,7 +151,7 @@
             {
                 "IsDebuff"      "1"
                 "Duration"          "0.2"
-                
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%slow_pct"
@@ -193,12 +196,14 @@
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
         "AbilityTextureName"            "custom/mirage"
 
+        "ReduxFlags"                    "illusion | invis"
+        "ReduxPerks"                    "illusion | invis"
+
         "AbilityCastRange"              "600"
         "AbilityCastPoint"              "0.3"
 
         "AbilityCooldown"               "10.0 8.0 6.0 4.0"
         "AbilityProcsMagicStick"        "1"
-        "ReduxFlags"                                                           "invis"
 
         "precache"
         {
@@ -333,6 +338,8 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityTextureName"            "custom/dehydration_aura"
 
+        "ReduxPerks"                    "aura"
+
         "precache"
         {
             "particle"  "particles/sirocco_dessication_aura.vpcf"
@@ -401,19 +408,23 @@
     "sirocco_desert_curse"
     {
         "BaseClass"                     "ability_datadriven"
+        "AbilityTextureName"            "custom/desert_curse"
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
-        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
 
-        "AbilityTextureName"            "custom/desert_curse"
+        "ReduxFlags"                    "mana"
+        "ReduxPerks"                    "earth"
 
         "AbilityCastRange"              "900"
-        "AbilityCastPoint"              "0.12 0.12 0.12 0.12"
+        "AbilityCastPoint"              "0.12"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
 
         "AbilityCooldown"               "80.0 60.0 40.0"
+        "AbilityManaCost"               "100 150 200"
         "AbilityProcsMagicStick"        "1"
         "HasScepterUpgrade"             "1"
 
@@ -426,10 +437,6 @@
             "particle"      "particles/econ/items/necrolyte/necronub_ambient/necrolyte_ambient_trail_ka_sand.vpcf"
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_sirocco.vsndevts"
         }
-
-        "AbilityManaCost"               "100 150 200"
-        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                      "3"
 
         "AbilityValues"
         {
@@ -598,7 +605,7 @@
                 "IsPurgable"                "0"
                 "EffectName"                "particles/econ/items/necrolyte/necronub_ambient/necrolyte_ambient_trail_ka_sand.vpcf"
                 "EffectAttachType"          "follow_origin"
-                
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"  "%attack_lost"

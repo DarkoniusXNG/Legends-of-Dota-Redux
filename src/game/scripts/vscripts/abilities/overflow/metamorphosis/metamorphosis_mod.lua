@@ -69,7 +69,7 @@ function metamorphosis_mod:OnAttackLanded( params )
 	if IsServer() then
 		if params.attacker == self:GetParent() then
 			EmitSoundOnLocationWithCaster( self:GetParent():GetAbsOrigin(), "Roshan.Attack", self:GetParent() )
-			if RandomInt(1, 100) < self:GetAbility():GetSpecialValueFor("stun_chance") then
+			if RandomInt(1, 100) <= self:GetAbility():GetSpecialValueFor("stun_chance") then
 				EmitSoundOnLocationWithCaster( self:GetParent():GetAbsOrigin(), "Roshan.Bash", self:GetParent() )
 				params.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "generic_lua_stun", { duration = self:GetAbility():GetSpecialValueFor("stun_duration") } )
 			end

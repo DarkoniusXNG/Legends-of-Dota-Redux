@@ -12,6 +12,11 @@
         "AnimationPlaybackRate"                                                "0.2"
         "AOERadius"                                                            "400"
         "AbilityManaCost"                                                      "100 150 200 250"
+
+        "ReduxFlags"                                                           "summon"
+        "ReduxPerks"                                                           "trap | channeled | nature | summon_non_ult | self_damage"
+        "ReduxCost"                                                            "120"
+
         "AbilityValues"
         {
             "range" "1200"
@@ -99,8 +104,5 @@
                 }
             }
         }
-        "ReduxPerks"                                                           "plant"
-        "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
     }
 }

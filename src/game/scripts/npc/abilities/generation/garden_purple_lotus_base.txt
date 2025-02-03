@@ -11,6 +11,10 @@
         "MaxLevel"                                                             "4"
         "AnimationPlaybackRate"                                                "0.2"
         "AOERadius"                                                            "400 500 600 700"
+
+        "ReduxFlags"                                                           "support"
+        "ReduxPerks"                                                           "support | channeled | nature | self_damage"
+
         "AbilityValues"
         {
             "radius" "400 500 600 700"
@@ -115,7 +119,5 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "support"
-        "ReduxPerks"                                                           "support | channeled | plant"
     }
 }

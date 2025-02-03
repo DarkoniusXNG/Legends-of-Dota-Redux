@@ -1627,8 +1627,8 @@
 	"npc_custom_unit_hawk"
 	{
 		"BaseClass" "npc_dota_creature"
-		//"Model" "models/items/courier/faceless_rex/faceless_rex_flying.vmdl"
-		"Model" "models/heroes/beastmaster/beastmaster_bird.vmdl"
+		"Model" "models/items/courier/faceless_rex/faceless_rex_flying.vmdl"
+		//"Model" "models/heroes/beastmaster/beastmaster_bird.vmdl"
 
 		"ModelScale" "1.2"
 		"Level" "10"

@@ -7,16 +7,19 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"bloodseeker_thirst"
+
+		"ReduxFlags"                    "mana"
+		"ReduxPerks"                    "demon"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
 		"AbilityCastPoint"				"0"
-		
-		// Time		
+
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"32 24 16 8"
 
@@ -29,7 +32,6 @@
 		"AbilityValues"
         {
             "mult" "0.75 0.70 0.65 0.60"
-            "regen" "2 4 6 8"
         }
 
 		"precache"
@@ -49,11 +51,8 @@
 			"FireSound"
 			{
 				"EffectName"	"Hero_SkywrathMage.AncientSeal.Target"
-				"Target" 		"CASTER"	
+				"Target" 		"CASTER"
 			}
 		}
-
-		"ReduxPerks"	"demon | self_damage"
-		"ReduxFlags"	""
 	}
 }

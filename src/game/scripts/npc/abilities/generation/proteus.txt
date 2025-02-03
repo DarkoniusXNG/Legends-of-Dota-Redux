@@ -26,19 +26,22 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "AbilityTextureName"            "custom/proteus_razorwind"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "FightRecapLevel"               "1"
         "CastFilterRejectCaster"        "1"
         "AbilityProcsMagicStick"        "1"
-        
+
+        "ReduxFlags"                    "support"
+        "ReduxPerks"                    "enemyMoving | nature | support"
+
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "700 800 900 1000"
         "AbilityCastPoint"              "0.15"
 
-        // Time     
+        // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "8 7 6 5"
 
@@ -85,7 +88,7 @@
                     {
                         "Target"        "TARGET"
                         "ScriptFile"    "abilities/nextgeneration/hero_proteus/proteus_razorwind"
-                        "HorizontalControlFunction" "RazorWindMotion"  
+                        "HorizontalControlFunction" "RazorWindMotion"
                     }
                 }
                 "ThinkInterval"  "0.1"
@@ -116,21 +119,21 @@
         "FightRecapLevel"               "1"
         "AbilityProcsMagicStick"        "1"
 
+        "ReduxFlags"                    "support | summon"
+        "ReduxPerks"                    "support | summon_non_ult"
+
         "precache"
         {
-            "model"         "models/heroes/weaver/weaver_bug.vmdl"
+            "model"         "models/props_wildlife/wildlife_caterpillar001.vmdl"
             "particle"      "particles/units/heroes/hero_tidehunter/tidehunter_gush_slow.vpcf"
-            "particle"      "particles/proteus_polyp_damage_buff.vpcf"
-            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_tidehunter.vsndevts"
-            "soundfile"     "soundevents/game_sounds.vsndevts"
         }
-        
+
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "800"
         "AbilityCastPoint"              "0.15"
 
-        // Time     
+        // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "13 11 9 7"
 
@@ -176,9 +179,9 @@
                 }
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE" "1" 
+                    "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE" "1"
                     "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
-                    "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL" "1" 
+                    "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL" "1"
                 }
                 "OnDestroy"
                 {
@@ -222,7 +225,7 @@
         }
     }
     //=================================================================================================================
-    // Proteus - Jet 
+    // Proteus - Jet
     //=================================================================================================================
     "proteus_jet"
     {
@@ -233,15 +236,16 @@
         "AbilityTextureName"            "custom/proteus_jet"
         "FightRecapLevel"               "1"
         "HasScepterUpgrade"             "1"
-        "ReduxPerks"                                                           "water | mobility"
-        "ReduxFlags"                                                           "upgradeable | mobility"
-        
+
+        "ReduxFlags"                    "upgradeable | mobility"
+        "ReduxPerks"                    "water | mobility"
+
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "500"
         "AbilityCastPoint"              "0"
 
-        // Time     
+        // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "6.5 6.0 5.5 5.0"
 
@@ -291,7 +295,7 @@
                     {
                         "Target"        "CASTER"
                         "ScriptFile"    "abilities/nextgeneration/hero_proteus/proteus_jet"
-                        "HorizontalControlFunction" "JetMotion"  
+                        "HorizontalControlFunction" "JetMotion"
                     }
                     "FireEffect"
                     {
@@ -350,14 +354,17 @@
         "AbilityTextureName"            "custom/proteus_rarefaction"
         "FightRecapLevel"               "1"
         "AbilityProcsMagicStick"        "1"
-        "ReduxFlags"														    "cooldown"
-        
+        "HasScepterUpgrade"             "1"
+
+        "ReduxFlags"                    "cooldown | support | upgradeable"
+        "ReduxPerks"                    "support | water"
+
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "1200 1500 1800"
         "AbilityCastPoint"              "0"
 
-        // Time     
+        // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "25 20 15"
 
@@ -366,7 +373,7 @@
             "particle"  "particles/proteus_rarefaction_buff.vpcf"
             "particle"  "particles/proteus_rarefaction_aura.vpcf"
         }
-        
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
@@ -395,8 +402,8 @@
                     "Teams"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
                     "Types"     "DOTA_UNIT_TARGET_HERO"
                 }
-            
-                "Action"    
+
+                "Action"
                 {
                     "ApplyModifier"
                     {
