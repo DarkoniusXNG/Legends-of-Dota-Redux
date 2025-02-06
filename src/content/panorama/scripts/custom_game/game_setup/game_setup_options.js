@@ -1279,7 +1279,7 @@ var advancedOptions = {
                 min: 6,
                 max: 100,
                 step: 1,
-                default: 25
+                default: 30
             },
             {
                 name: 'lodOptionGameSpeedStartingGold',

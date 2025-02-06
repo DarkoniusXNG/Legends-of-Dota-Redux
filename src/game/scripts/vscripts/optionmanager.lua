@@ -114,7 +114,7 @@ if not OptionManager.initialSettings then
 	OptionManager:SetOption('allowIngameHeroBuilder', false)
 
 	-- Max level
-	OptionManager:SetOption('maxHeroLevel', 25)
+	OptionManager:SetOption('maxHeroLevel', 30)
 
 	-- Force unique skills?
 	OptionManager:SetOption('forceUniqueSkills', 0)

@@ -4124,7 +4124,7 @@ function Pregame:processOptions()
             treeAbility:SetLevel(1)
         end
 
-        if OptionManager:GetOption('maxHeroLevel') ~= 25 then
+        if OptionManager:GetOption('maxHeroLevel') ~= 30 then
             local newTable = {}
 
             for i,v in ipairs(constants.XP_PER_LEVEL_TABLE) do

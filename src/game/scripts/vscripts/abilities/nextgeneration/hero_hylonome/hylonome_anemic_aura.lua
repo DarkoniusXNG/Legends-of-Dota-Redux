@@ -215,9 +215,7 @@ function modifier_hylonome_anemic_aura_thinker:OnIntervalThink()
   local attacker = caster
   if not caster or caster:IsNull() then
     attacker = parent
-  end
-
-  if caster:IsIllusion() then
+  elseif caster:IsIllusion() then
     attacker = parent
   end
 
