@@ -8,28 +8,12 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityCastRange"                                                     "1200"
         "AbilityCooldown"                                                      "0.0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "chance_dmg"                                           "25 30 35 40"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "1200"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "damage_per_int"                                       ".5 .75 1 2"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius_dop_dmg"                                       "300"
-            }
+            "chance_dmg" "25 30 35 40"
+            "radius" "1200"
+            "damage_per_int" ".5 .75 1 2"
+            "radius_dop_dmg" "300"
         }
         "precache"
         {

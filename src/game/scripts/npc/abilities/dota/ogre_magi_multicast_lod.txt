@@ -8,28 +8,12 @@
         "AbilityTextureName"                                                   "custom/ogre_magi_multicast_lod"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityCooldown"                                                      "30 15 10"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "multicast_2_times"                                    "70 70 70"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "multicast_3_times"                                    "0 30 30"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "multicast_4_times"                                    "0 0 15"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "delay"                                                "0.2"
-            }
+            "multicast_2_times" "70 70 70"
+            "multicast_3_times" "0 30 30"
+            "multicast_4_times" "0 0 15"
+            "delay" "0.2"
         }
         "ReduxCost"                                                            "40"
         "ReduxBans"                                                            "ogre_magi_multicast | meepo_divided_we_stand | android_pocket_factory | monkey_king_wukongs_command"

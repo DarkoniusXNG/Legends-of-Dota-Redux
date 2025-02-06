@@ -33,34 +33,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"60 90 120 150"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"300"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"move_slow"					"-100"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_slow"				"-50"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"1.25"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "60 90 120 150"
+            "radius" "300"
+            "move_slow" "-100"
+            "attack_slow" "-50"
+            "duration" "1.25"
+        }
 		
 		"precache"
 		{

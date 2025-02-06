@@ -7,13 +7,9 @@
         "AbilityTextureName"                                                   "tiny_grow"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                                      "FIELD_INTEGER"
-                "flying_movespeed_slow_pct"                                     "75 60 45 30"
-            }
+            "flying_movespeed_slow_pct" "75 60 45 30"
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "0"
@@ -26,13 +22,9 @@
         "AbilityTextureName"                                                   "tiny_grow"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "flying_movespeed_slow_pct"                                          "0"
-            }
+            "flying_movespeed_slow_pct" "0"
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "120"

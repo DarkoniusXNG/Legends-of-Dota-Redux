@@ -2,34 +2,92 @@
 {
     "shredder_reactive_armor_op"
     {
-        "BaseClass"                                                            "shredder_reactive_armor"
-        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "SpellDispellableType"                                                 "SPELL_DISPELLABLE_NO"
+        "BaseClass"                     "shredder_reactive_armor"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"HasScepterUpgrade"				"1"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"4"
         "AbilityTextureName"                                                   "custom/shredder_reactive_armor_op"
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "bonus_armor"                                          "1 1.2 1.4 1.6"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "bonus_hp_regen"                                       "1 1.2 1.4 1.6"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "stack_limit"                                          "999999"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "stack_duration"                                       "15 30 45 60"
-				"LinkedSpecialBonus"								   "special_bonus_unique_timbersaw_2"
-            }
-        }
+        "AbilityValues"
+		{
+			"bonus_armor"						"0.6 1.2 1.8 2.4"
+			"bonus_hp_regen"					
+			{
+				"value"																	"0.6 1.2 1.8 2.4"
+				"special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"			"+0.6"
+
+			}
+			
+			"stack_limit"						
+			{
+				"value"			"60"
+				"special_bonus_unique_timbersaw_2"			"+30"
+			}
+			"stack_duration"					
+			{
+				"value"				"30"		
+			}
+			"stacks_per_hero_attack"
+			{
+				"value"				"3"
+				"special_bonus_unique_timbersaw_2"		"+3"
+			}	
+
+			"AbilityManaCost"				
+			{
+				"value"						"0"
+				"special_bonus_scepter"				"+200"
+			}
+			"AbilityCooldown"				
+			{
+				"value"  		"45"
+				"RequiresScepter"				"1"
+			}
+			"initial_shield"
+			{
+				"value"  		"200"
+				"RequiresScepter"				"1"
+			}
+			"shield_per_sec"
+			{
+				"value"  		"150"
+				"RequiresScepter"				"1"
+			}
+			"shield_per_sec_per_enemy"
+			{
+				"value"  		"150"
+				"RequiresScepter"				"1"
+			}
+			"max_shield"
+			{
+				"value"		"2400"
+				"RequiresScepter"				"1"
+
+			}
+			"duration"
+			{
+				"value"	"8"
+				"RequiresScepter"				"1"
+			}
+			"radius"
+			{
+				"value"	"1500"
+				"RequiresScepter"				"1"
+				"affected_by_aoe_increase"	"1"
+			}
+			"explosion_radius"
+			{
+				"value"	"1500"
+				"RequiresScepter"				"1"
+				"affected_by_aoe_increase"	"1"
+			}
+			"base_explosion"
+			{
+				"value"	"300"
+				"RequiresScepter"				"1"
+			}
+		}
         "ReduxCost"                                                            "120"
         "ReduxBans"                                                            "shredder_reactive_armor"
         "ReduxFlags"                                                           ""

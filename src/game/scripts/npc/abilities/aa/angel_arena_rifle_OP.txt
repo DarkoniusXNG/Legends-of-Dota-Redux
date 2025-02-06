@@ -7,58 +7,18 @@
         "AbilityTextureName"                                                   "custom/angel_arena_rifle_op"
         "AbilityCastPoint"                                                     "0.1"
         "MaxLevel"                                                             "7"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "10"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "rifle_bonus_attack"                                   "25 30 35 40 45 50 55"
-            }
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "gun_base_attack_time"                                 "0.01"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "gun_range"                                            "-50"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "gun_range_tooltip"                                    "-50"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "gun_bonus_attack"                                     "-85 -84 -83 -82 -81 -80 -78"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "gun_bonus_movespeed"                                  "-20"
-            }
-            "06"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "rifle_base_attack_time"                               "1.5"
-            }
-            "07"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "rifle_range"                                          "50 100 150 200 250 300 350"
-            }
-            "08"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "rifle_range_tooltip"                                  "50 100 150 200 250 300 350"
-            }
-            "09"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "rifle_bonus_movespeed"                                "25 28 31 34 37 40 43"
-            }
+            "rifle_bonus_attack" "25 30 35 40 45 50 55"
+            "gun_base_attack_time" "0.01"
+            "gun_range" "-50"
+            "gun_range_tooltip" "-50"
+            "gun_bonus_attack" "-85 -84 -83 -82 -81 -80 -78"
+            "gun_bonus_movespeed" "-20"
+            "rifle_base_attack_time" "1.5"
+            "rifle_range" "50 100 150 200 250 300 350"
+            "rifle_range_tooltip" "50 100 150 200 250 300 350"
+            "rifle_bonus_movespeed" "25 28 31 34 37 40 43"
         }
         "OnUpgrade"
         {

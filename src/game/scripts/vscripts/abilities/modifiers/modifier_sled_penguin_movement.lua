@@ -225,7 +225,7 @@ function modifier_sled_penguin_movement:UpdateHorizontalMotion( me, dt )
 			local flTurnAmount = 0.0
 			local curAngles = self:GetCaster():GetAngles()
 			
-			local flAngleDiff = UTIL_AngleDiff( self.flDesiredYaw, curAngles.y )
+			local flAngleDiff = AngleDiff( self.flDesiredYaw, curAngles.y )
 			
 			local flTurnRate = self:GetAbility():GetSpecialValueFor("turnrate")
 			flTurnAmount = flTurnRate * dt

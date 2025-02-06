@@ -34,20 +34,11 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			  "FIELD_INTEGER"
-				"dot_amount"			"50 75 100"
-			}
-			
-			"02"
-			{
-				"var_type"			  "FIELD_FLOAT"
-				"dot_duration"		  "12.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "dot_amount" "50 75 100"
+            "dot_duration" "12.0"
+        }
 
 		"precache"
 		{

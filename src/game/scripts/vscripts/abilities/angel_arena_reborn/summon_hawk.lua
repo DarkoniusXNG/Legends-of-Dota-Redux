@@ -17,8 +17,6 @@ function SpawnHawk( event )
      		cr:SetControllableByPlayer(caster:GetPlayerID(), true)
   		end)
 		
-		print("Script spawner: " .. cr:GetUnitName())
-		
 		cr:AddAbility("angel_arena_hawk_passive")
         local ab = cr:FindAbilityByName("angel_arena_hawk_passive")
         if ab then

@@ -19,7 +19,7 @@
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "1500"
-        "AbilityCastPoint"              "0.1 0.1 0.1 0.1"
+        "AbilityCastPoint"              "0.1"
         
         // Time     
         //-------------------------------------------------------------------------------------------------------------
@@ -27,38 +27,30 @@
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "700"
+        "AbilityManaCost"               "800"
             
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "radius"                "700"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "duration"              "14"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "damage"                "14000"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "damage_interval"       "0.1"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "scepter_radius"        "2100"
+			"radius"
+			{
+				"value"	"700"
+				"affected_by_aoe_increase"	"1"
+			}
+			"duration"				"2.0"
+			"damage"				
+			{
+				"value"			"3200"
+				"special_bonus_unique_skywrath_5" "+400"
+			}
+			"damage_interval"		"0.1"
+			"scepter_radius"		
+			{
+				"value"		"2100"
 				"RequiresScepter"	"1"
-            }
+				"affected_by_aoe_increase"	"1"
+			}
         }
     }
 }

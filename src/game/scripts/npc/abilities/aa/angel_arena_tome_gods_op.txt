@@ -12,28 +12,12 @@
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO"
         "AbilityTextureName"                                                   "custom/tome_un_3_op"
         "AbilityCastPoint"                                                     "0.0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "str"                                                  "2 3 5"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "agi"                                                  "2 3 5"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "int"                                                  "2 3 5"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "gold_cost_toolip"                                     "300 400 500"
-            }
+            "str" "2 3 5"
+            "agi" "2 3 5"
+            "int" "2 3 5"
+            "gold_cost_toolip" "300 400 500"
         }
         "OnSpellStart"
         {

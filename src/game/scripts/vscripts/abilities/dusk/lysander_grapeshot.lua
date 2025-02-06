@@ -158,9 +158,7 @@ function modifier_grapeshot_scepter:IsHidden()
 end
 
 function InflictDamage(target,attacker,ability,damage,damage_type,flags)
-
 	local flags = flags or 0
-
 	ApplyDamage({
 	    victim = target,
 	    attacker = attacker,

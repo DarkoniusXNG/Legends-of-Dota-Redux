@@ -13,18 +13,10 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
         "HasScepterUpgrade"                                                    "0"
         "AoERadius"               "250"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "radius"						"300"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "cast_range_tooltip"                        "1500 3000 4500 6000"
-            }
+            "radius" "300"
+            "cast_range_tooltip" "1500 3000 4500 6000"
         }
         "precache"
         {

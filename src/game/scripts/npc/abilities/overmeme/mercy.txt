@@ -3,7 +3,7 @@
     //=================================================================================================================
     // Mercy: Caduceus Staff (healing)
     //=================================================================================================================
-    "mercy_caduceus_healing"    
+    "mercy_caduceus_healing"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
@@ -13,9 +13,10 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
         "FightRecapLevel"               "1"
-        "AbilityTextureName"            "custom/mercy_caduceus_healing" 
-        "ReduxFlags"                                                           "support"
-        "ReduxPerks"                                                           "support"
+        "AbilityTextureName"            "custom/mercy_caduceus_healing"
+
+        "ReduxFlags"                    "support"
+        "ReduxPerks"                    "support | light | skillshot"
 
         // Precache
         //-------------------------------------------------------------------------------------------------------------
@@ -26,54 +27,30 @@
             "particle"                  "particles/units/heroes/mercy/caduceus_healing_impact.vpcf"
             "particle"                  "particles/units/heroes/mercy/caduceus_healing_regen.vpcf"
         }
-        
+
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "1500"
-        "AbilityCastPoint"              "0.1"   
+        "AbilityCastPoint"              "0.1"
 
-        // Time     
+        // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "5.0"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "25 45 65 85"    
+        "AbilityManaCost"               "25 45 65 85"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "instant_heal"          "30 60 90 120"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "heal_per_sec"          "1.5 2.0 2.5 3.0"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "heal_duration"         "5"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "projectile_radius"     "125"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "projectile_speed"      "2000"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "projectile_range"      "1500"
-            }
+            "instant_heal" "30 60 90 120"
+            "heal_per_sec" "1.5 2.0 2.5 3.0"
+            "heal_duration" "5"
+            "projectile_radius" "125"
+            "projectile_speed" "2000"
+            "projectile_range" "1500"
         }
 
         "OnSpellStart"
@@ -111,13 +88,13 @@
                 "Attributes"            "MODIFIER_ATTRIBUTE_MULTIPLE"
 
                 "Duration"              "%heal_duration"
-        
+
                 "EffectName"            "particles/units/heroes/mercy/caduceus_healing_regen.vpcf"
                 "EffectAttachType"      "attach_hitloc"
-        
+
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"     "%heal_per_sec" 
+                    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"     "%heal_per_sec"
                 }
             }
         }
@@ -126,7 +103,7 @@
     //=================================================================================================================
     // Mercy: Caduceus Staff (power)
     //=================================================================================================================
-    "mercy_caduceus_power"  
+    "mercy_caduceus_power"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
@@ -136,9 +113,10 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
         "FightRecapLevel"               "1"
-        "AbilityTextureName"            "custom/mercy_caduceus_power"   
-        "ReduxFlags"                                                           "support"
-        "ReduxPerks"                                                           "support"
+        "AbilityTextureName"            "custom/mercy_caduceus_power"
+
+        "ReduxFlags"                    "support"
+        "ReduxPerks"                    "support | light | skillshot"
 
         // Precache
         //-------------------------------------------------------------------------------------------------------------
@@ -149,54 +127,30 @@
             "particle"                  "particles/units/heroes/mercy/caduceus_power_impact.vpcf"
             "particle"                  "particles/units/heroes/mercy/caduceus_power_buff.vpcf"
         }
-        
+
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "1500"
-        "AbilityCastPoint"              "0.1"   
+        "AbilityCastPoint"              "0.1"
 
-        // Time     
+        // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "1.0"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "10"    
+        "AbilityManaCost"               "10"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_damage"          "15 20 25 30"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_spell_damage"    "8 12 16 20"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "power_duration"        "5"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "projectile_radius"     "125"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "projectile_speed"      "1500"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "projectile_range"      "1500"
-            }
+            "bonus_damage" "15 20 25 30"
+            "bonus_spell_damage" "8 12 16 20"
+            "power_duration" "5"
+            "projectile_radius" "125"
+            "projectile_speed" "1500"
+            "projectile_range" "1500"
         }
 
         "OnSpellStart"
@@ -226,7 +180,7 @@
     //=================================================================================================================
     // Mercy: Guardian Angel
     //=================================================================================================================
-    "mercy_guardian_angel"  
+    "mercy_guardian_angel"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
@@ -238,8 +192,9 @@
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
         "MaxLevel"                      "4"
         "CastFilterRejectCaster"        "1"
-        "ReduxFlags"                                                           "support | mobility"
-        "ReduxPerks"                                                           "support"
+
+        "ReduxFlags"                    "support | mobility"
+        "ReduxPerks"                    "support | mobility"
 
         // Precache
         //-------------------------------------------------------------------------------------------------------------
@@ -248,34 +203,26 @@
             "soundfile"                 "soundevents/overmemed_soundevents.vsndevts"
             "particle"                  "particles/units/heroes/hero_faceless_void/faceless_void_chrono_speed.vpcf"
         }
-        
+
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "900 1200 1500 1800"
-        "AbilityCastPoint"              "0.1"   
+        "AbilityCastPoint"              "0.1"
 
-        // Time     
+        // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "10"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "25"    
+        "AbilityManaCost"               "25"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "swoop_duration"        "0.6"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "cast_range"        "1000 2000 3000 4000"
-            }
+            "swoop_duration" "0.6"
+            "cast_range" "1000 2000 3000 4000"
         }
 
         "OnSpellStart"
@@ -322,30 +269,22 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"            "custom/mercy_angelic_descent"
         "MaxLevel"                      "4"
-        "ReduxFlags"                                                           "support | doNotRandom"
-        "ReduxPerks"                                                           "support"
+
+        "ReduxFlags"                    "support | doNotRandom | tank"
+        "ReduxPerks"                    "support"
 
         "precache"
         {
             "soundfile"         "soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
             "particle"          "particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff_rune.vpcf"
-            "particle"          "particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_silence.vpcf"
         }
-                
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "base_regen"                "15"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "regen_per_level"           "1 2 3 4"
-            }
+            "base_regen" "15"
+            "regen_per_level" "1 2 3 4"
         }
 
         "Modifiers"
@@ -372,7 +311,7 @@
 
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"   "%base_regen" 
+                    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"   "%base_regen"
                 }
             }
 
@@ -385,7 +324,7 @@
 
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"   "%regen_per_level" 
+                    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"   "%regen_per_level"
 
                 }
                 "States"
@@ -412,7 +351,7 @@
     //=================================================================================================================
     // Mercy: Heroes Never Die
     //=================================================================================================================
-    "mercy_heroes_never_die"    
+    "mercy_heroes_never_die"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
@@ -423,9 +362,10 @@
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
         "FightRecapLevel"               "2"
-        "AbilityTextureName"            "custom/mercy_heroes_never_die" 
-        "ReduxFlags"                                                           "support"
-        "ReduxPerks"                                                           "support"
+        "AbilityTextureName"            "custom/mercy_heroes_never_die"
+
+        "ReduxFlags"                    "support"
+        "ReduxPerks"                    "support | light"
 
         // Precache
         //-------------------------------------------------------------------------------------------------------------
@@ -438,54 +378,30 @@
             "particle"                  "particles/status_fx/status_effect_omnislash.vpcf"
             "particle"                  "particles/units/heroes/mercy/heroes_never_die.vpcf"
         }
-        
+
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "800"
         "AbilityCastPoint"              "0.1"
 
-        // Time     
+        // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "90 75 60"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "150 200 250"   
+        "AbilityManaCost"               "150 200 250"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "effect_radius"         "800"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "initial_heal"          "50"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "heal_over_time"        "10 15 20"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "damage_reduction"      "-50 -60 -70"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "duration"              "3"
-            }
-            "06"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "damage_reduction_tooltip"  "50 60 70"
-            }
+            "effect_radius" "800"
+            "initial_heal" "50"
+            "heal_over_time" "10 15 20"
+            "damage_reduction" "-50 -60 -70"
+            "duration" "3"
+            "damage_reduction_tooltip" "50 60 70"
         }
 
         "OnSpellStart"
@@ -545,7 +461,7 @@
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"     "%heal_over_time"
-                    "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"  "%damage_reduction" 
+                    "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"  "%damage_reduction"
                 }
             }
         }

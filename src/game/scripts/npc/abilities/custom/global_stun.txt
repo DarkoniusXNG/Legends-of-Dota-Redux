@@ -12,23 +12,11 @@
         "AbilityCooldown"                                                      "80.0 60.0 40.0"
         "AbilityDamage"                                                        "100 150 200"
         "AbilityManaCost"                                                      "100"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "99999"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "non_hero_stun_duration"                               "5.0"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "hero_stun_duration"                                   "2.0 3.0 4.0"
-            }
+            "radius" "99999"
+            "non_hero_stun_duration" "5.0"
+            "hero_stun_duration" "2.0 3.0 4.0"
         }
         "ReduxFlags"                                                           "stun"
         "ReduxPerks"                                                           "earth"

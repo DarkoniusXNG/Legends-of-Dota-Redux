@@ -105,7 +105,11 @@ function Physics:RemoveCollider(name)
 end
 
 function Physics:Think()
-  if GameRules:State_Get() and GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
+  local gamestate = GameRules:State_Get()
+  if not gamestate or not DOTA_GAMERULES_STATE_POST_GAME then
+	return
+  end
+  if gamestate >= DOTA_GAMERULES_STATE_POST_GAME then
     return
   end
 

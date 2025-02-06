@@ -453,7 +453,7 @@ function modifier_imba_silencer_glaives_of_wisdom:OnAttackLanded(keys)
 			-- elfansoer: fix inconsistency on attack modifiers
 			-- if target:IsAlive() and self.glaive_attack then
 			if target:IsAlive() and self.records[ keys.record ] then
-				local glaive_pure_damage = attacker:GetIntellect() * self.intellect_damage_pct / 100
+				local glaive_pure_damage = attacker:GetIntellect(false) * self.intellect_damage_pct / 100
 
 				if attacker:HasScepter() and (target:IsSilenced() or target:HasModifier("modifier_imba_silencer_global_silence")) then
 					glaive_pure_damage = glaive_pure_damage * (1 + (self.scepter_damage_multiplier * 0.01))
@@ -682,14 +682,14 @@ function modifier_imba_silencer_glaives_int_damage:OnCreated( kv )
 		self.caster = self:GetCaster()
 		self.int_reduction_pct = kv.int_reduction
 		self.total_int_reduced = 0
-		self.target_intelligence = self:GetParent():GetIntellect()
+		self.target_intelligence = self:GetParent():GetIntellect(false)
 	end
 end
 
 function modifier_imba_silencer_glaives_int_damage:OnStackCountChanged(old_stack_count)
 	if IsServer() then
 		local target = self:GetParent()
-		if target:IsRealHero() and target:GetIntellect() > 1 then
+		if target:IsRealHero() and target:GetIntellect(false) > 1 then
 			local int_to_steal = math.max(1, math.floor(self.target_intelligence * self.int_reduction_pct / 100))
 			local int_taken
 			if ( (self.target_intelligence - int_to_steal) >= 1 ) then
@@ -734,10 +734,10 @@ function modifier_imba_silencer_glaives_talent_effect:GetTexture()
 function modifier_imba_silencer_glaives_talent_effect:OnStackCountChanged( oldStacks )
 	if IsServer() then
 		local parent = self:GetParent()
-		if parent:GetIntellect() <= 1 then
+		if parent:GetIntellect(false) <= 1 then
 			local ability = self:GetAbility()
 			local caster = ability:GetCaster()
-			local damage = caster:GetIntellect() + self:GetStackCount()
+			local damage = caster:GetIntellect(false) + self:GetStackCount()
 			local damageTable = {
 				victim = parent,
 				attacker = caster,

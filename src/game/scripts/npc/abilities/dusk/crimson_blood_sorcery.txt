@@ -7,16 +7,19 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"bloodseeker_thirst"
+
+		"ReduxFlags"                    "mana"
+		"ReduxPerks"                    "demon"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
 		"AbilityCastPoint"				"0"
-		
-		// Time		
+
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"32 24 16 8"
 
@@ -26,25 +29,15 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mult"					"0.75 0.70 0.65 0.60"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"regen"					"2 4 6 8"
-			}
-		}
+		"AbilityValues"
+        {
+            "mult" "0.75 0.70 0.65 0.60"
+        }
 
 		"precache"
 		{
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
-			"particle"			"particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff_rune.vpcf"
-			"particle"			"particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_silence.vpcf"
+			"particle"			"particles/units/heroes/hero_crimson/crimson_ancient_pact.vpcf"
 		}
 
 		"OnSpellStart"
@@ -57,12 +50,9 @@
 			}
 			"FireSound"
 			{
-				"EffectName"	"Hero_Clinkz.DeathPact"
-				"Target" 		"CASTER"	
+				"EffectName"	"Hero_SkywrathMage.AncientSeal.Target"
+				"Target" 		"CASTER"
 			}
 		}
-
-		"ReduxPerks"	"demon | self_damage"
-		"ReduxFlags"	""
 	}
 }

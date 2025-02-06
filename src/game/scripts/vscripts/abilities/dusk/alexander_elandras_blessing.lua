@@ -48,11 +48,17 @@ function modifier_elandras_blessing:OnAttacked(params)
 		local damage = 0
 		local str = self:GetParent():GetStrength()
 		local agi = self:GetParent():GetAgility()
-		local int = self:GetParent():GetIntellect()
+		local int = self:GetParent():GetIntellect(false)
 
-		if stat == 0 then damage = str * perc end
-		if stat == 1 then damage = agi * perc end
-		if stat == 2 then damage = int * perc end
+		if stat == DOTA_ATTRIBUTE_STRENGTH then
+			damage = str * perc
+		elseif stat == DOTA_ATTRIBUTE_AGILITY then
+			damage = agi * perc
+		elseif stat == DOTA_ATTRIBUTE_INTELLECT then
+			damage = int * perc
+		elseif stat == DOTA_ATTRIBUTE_ALL then
+			damage = (str + agi + int) * perc / 3
+		end
 
 		DealDamage(attacker,self:GetParent(),damage,DAMAGE_TYPE_MAGICAL)
 
@@ -75,11 +81,17 @@ function modifier_elandras_blessing:OnAbilityFullyCast(params)
 		local damage = 0
 		local str = self:GetParent():GetStrength()
 		local agi = self:GetParent():GetAgility()
-		local int = self:GetParent():GetIntellect()
+		local int = self:GetParent():GetIntellect(false)
 
-		if stat == 0 then damage = str * perc end
-		if stat == 1 then damage = agi * perc end
-		if stat == 2 then damage = int * perc end
+		if stat == DOTA_ATTRIBUTE_STRENGTH then
+			damage = str * perc
+		elseif stat == DOTA_ATTRIBUTE_AGILITY then
+			damage = agi * perc
+		elseif stat == DOTA_ATTRIBUTE_INTELLECT then
+			damage = int * perc
+		elseif stat == DOTA_ATTRIBUTE_ALL then
+			damage = (str + agi + int) * perc / 3
+		end
 
 		DealDamage(attacker,self:GetParent(),damage,DAMAGE_TYPE_MAGICAL)
 

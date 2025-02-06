@@ -76,7 +76,7 @@ function challenge:setup(pregame)
     				[1] = 'pudge_meat_hook',
     				[2] = 'pudge_rot',
     				[3] = 'pudge_flesh_heap',
-    				[4] = 'skeleton_king_vampiric_aura',
+    				[4] = 'skeleton_king_vampiric_spirit',
     				[5] = 'skeleton_king_reincarnation',
     				[6] = 'pudge_dismember',
     			}

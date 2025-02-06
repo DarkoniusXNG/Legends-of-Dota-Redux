@@ -8,7 +8,7 @@
     //
     //
     //                                  Sirocco, the Dust Devil
-    // 
+    //
     //
     //
     //
@@ -23,6 +23,9 @@
         "BaseClass"                     "ability_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityTextureName"            "custom/shifting_sands"
+
+        "ReduxFlags"                    "stun"
+        "ReduxPerks"                    "earth"
 
         "precache"
         {
@@ -41,45 +44,16 @@
 
         "AoERadius"                     "425 450 475 500"
         "AbilityProcsMagicStick"        "1"
-        
-        "AbilitySpecial"
+
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "duration"              "8"
-            }
-            
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "eruption_duration"     "2"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "ministun_duration"     "0.7"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "damage"                "60 80 100 120"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "radius"                "450 500 550 600"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "slow_pct"              "-20 -25 -30 -35"
-            }
-            "07"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "duration_2"              "6.5"
-            }
+            "duration" "8"
+            "eruption_duration" "2"
+            "ministun_duration" "0.7"
+            "damage" "60 80 100 120"
+            "radius" "450 500 550 600"
+            "slow_pct" "-20 -25 -30 -35"
+            "duration_2" "6.5"
         }
 
         "OnSpellStart"
@@ -105,7 +79,7 @@
                 "Aura_Teams"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
                 "Aura_Types"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
                 "Duration"              "%duration"
-        
+
                 "OnCreated"
                 {
                     "FireEffect"
@@ -158,7 +132,7 @@
                         }
                         "ModifierName"  "modifier_shifting_sand_stun"
                     }
-                    
+
                     "Damage"
                     {
                         "Target"
@@ -177,7 +151,7 @@
             {
                 "IsDebuff"      "1"
                 "Duration"          "0.2"
-                
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%slow_pct"
@@ -222,12 +196,14 @@
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
         "AbilityTextureName"            "custom/mirage"
 
+        "ReduxFlags"                    "illusion | invis"
+        "ReduxPerks"                    "illusion | invis"
+
         "AbilityCastRange"              "600"
         "AbilityCastPoint"              "0.3"
 
         "AbilityCooldown"               "10.0 8.0 6.0 4.0"
         "AbilityProcsMagicStick"        "1"
-        "ReduxFlags"                                                           "invis"
 
         "precache"
         {
@@ -241,33 +217,13 @@
 
         "AbilityManaCost"               "90 95 100 105"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "duration"                  "10"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "illusion_taken"            "100"
-            }
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "illusion_dealt"            "-25"
-            }
-            "04"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "illusion_taken_tt"         "200"
-            }
-            "05"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "illusion_dealt_tt"         "75"
-            }
+            "duration" "10"
+            "illusion_taken" "100"
+            "illusion_dealt" "-25"
+            "illusion_taken_tt" "200"
+            "illusion_dealt_tt" "75"
         }
 
         "OnSpellStart"
@@ -382,24 +338,18 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityTextureName"            "custom/dehydration_aura"
 
+        "ReduxPerks"                    "aura"
+
         "precache"
         {
             "particle"  "particles/sirocco_dessication_aura.vpcf"
         }
 
         "AbilityCastRange"              "1200"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "aoe"               "1200"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "resistance_loss"   "-4 -5 -6 -7"
-            }  
+            "aoe" "1200"
+            "resistance_loss" "-4 -5 -6 -7"
         }
         "Modifiers"
         {
@@ -458,19 +408,23 @@
     "sirocco_desert_curse"
     {
         "BaseClass"                     "ability_datadriven"
+        "AbilityTextureName"            "custom/desert_curse"
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
-        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
 
-        "AbilityTextureName"            "custom/desert_curse"
+        "ReduxFlags"                    "mana"
+        "ReduxPerks"                    "earth"
 
         "AbilityCastRange"              "900"
-        "AbilityCastPoint"              "0.12 0.12 0.12 0.12"
+        "AbilityCastPoint"              "0.12"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
 
         "AbilityCooldown"               "80.0 60.0 40.0"
+        "AbilityManaCost"               "100 150 200"
         "AbilityProcsMagicStick"        "1"
         "HasScepterUpgrade"             "1"
 
@@ -484,52 +438,16 @@
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_sirocco.vsndevts"
         }
 
-        "AbilityManaCost"               "100 150 200"
-        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                      "3"
-
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "projectle_speed"           "1200"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "mana_damage_lost"          "50 75 100"
-            }
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "attack_lost"           "-40 -60 -80"
-            }
-            "04"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "damage_multiplier"     "16 24 32" 
-            }
-            "05"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "blast_radius"              "600"
-            }
-            "06"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "duration"                  "8"
-            }
-            "07"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "scepter_duration"          "12"
-            }
-			"08"
-			{
-                "var_type"                  "FIELD_INTEGER"
-                "ms_lost"          "-10 -15 -20"
-            }
+            "projectle_speed" "1200"
+            "mana_damage_lost" "50 75 100"
+            "attack_lost" "-40 -60 -80"
+            "damage_multiplier" "16 24 32"
+            "blast_radius" "600"
+            "duration" "8"
+            "scepter_duration" "12"
+            "ms_lost" "-10 -15 -20"
         }
 
         "OnSpellStart"
@@ -687,7 +605,7 @@
                 "IsPurgable"                "0"
                 "EffectName"                "particles/econ/items/necrolyte/necronub_ambient/necrolyte_ambient_trail_ka_sand.vpcf"
                 "EffectAttachType"          "follow_origin"
-                
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"  "%attack_lost"

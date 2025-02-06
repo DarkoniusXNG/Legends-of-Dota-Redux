@@ -9,28 +9,12 @@
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "1200"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_armor"                                          "4 8 12"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_health"                                         "400 800 1200"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_armor_aura"                                     "3 5 7"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "aura_radius"                                          "1200"
-            }
+            "bonus_armor" "4 8 12"
+            "bonus_health" "400 800 1200"
+            "bonus_armor_aura" "3 5 7"
+            "aura_radius" "1200"
         }
         "OnUpgrade"
         {
@@ -83,28 +67,12 @@
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "1200"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_armor"                                          "8 16 24"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_health"                                         "800 1600 2400"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_armor_aura"                                     "6 10 14"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "aura_radius"                                          "1200"
-            }
+            "bonus_armor" "8 16 24"
+            "bonus_health" "800 1600 2400"
+            "bonus_armor_aura" "6 10 14"
+            "aura_radius" "1200"
         }
         "OnUpgrade"
         {

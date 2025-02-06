@@ -34,38 +34,14 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                              "FIELD_INTEGER"
-                "width"                                 "375"
-            }
-            "02"
-            {
-                "var_type"                              "FIELD_INTEGER"
-                "length"                                "600 800 1200 1600"
-            }
-            "03"
-            {
-                "var_type"                              "FIELD_INTEGER"
-                "speed"                                 "2000"
-            }
-            "04"
-            {
-                "var_type"                              "FIELD_INTEGER"
-                "base_damage"                           "80 130 180 230"
-            }
-            "05"
-            {
-                "var_type"                              "FIELD_INTEGER"
-                "stacking_damage"                       "50"
-            }
-            "06"
-            {
-                "var_type"                              "FIELD_FLOAT"
-                "debuff_duration"                       "0.5 1.0 1.5 2.0"
-            }
+            "width" "375"
+            "length" "600 800 1200 1600"
+            "speed" "2000"
+            "base_damage" "80 130 180 230"
+            "stacking_damage" "50"
+            "debuff_duration" "0.5 1.0 1.5 2.0"
         }
 
         "OnAbilityPhaseStart"
@@ -136,38 +112,14 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                              "FIELD_INTEGER"
-                "width"                                 "375"
-            }
-            "02"
-            {
-                "var_type"                              "FIELD_INTEGER"
-                "length"                                "1600"
-            }
-            "03"
-            {
-                "var_type"                              "FIELD_INTEGER"
-                "speed"                                 "2000"
-            }
-            "04"
-            {
-                "var_type"                              "FIELD_INTEGER"
-                "base_damage"                           "500"
-            }
-            "05"
-            {
-                "var_type"                              "FIELD_INTEGER"
-                "stacking_damage"                       "250"
-            }
-            "06"
-            {
-                "var_type"                              "FIELD_FLOAT"
-                "debuff_duration"                       "2.5"
-            }
+            "width" "375"
+            "length" "1600"
+            "speed" "2000"
+            "base_damage" "500"
+            "stacking_damage" "250"
+            "debuff_duration" "2.5"
         }
 
         "OnAbilityPhaseStart"
@@ -224,28 +176,12 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                      "FIELD_FLOAT"
-                "duration"                      "3.5"
-            }
-            "02"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "hp_regen"                      "6 7 8 9"
-            }
-            "03"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "damage_reduction"              "-25 -30 -35 -40"
-            }
-            "04"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "radius"                        "1500"
-            }
+            "duration" "3.5"
+            "hp_regen" "6 7 8 9"
+            "damage_reduction" "-25 -30 -35 -40"
+            "radius" "1500"
         }
 
         "Modifiers"
@@ -335,28 +271,12 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                      "FIELD_FLOAT"
-                "duration"                      "3.5"
-            }
-            "02"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "hp_regen"                      "6 7 8 9"
-            }
-            "03"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "damage_reduction"              "-25 -30 -35 -40"
-            }
-            "04"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "radius"                        "25000"
-            }
+            "duration" "3.5"
+            "hp_regen" "6 7 8 9"
+            "damage_reduction" "-25 -30 -35 -40"
+            "radius" "25000"
         }
 
         "Modifiers"
@@ -458,26 +378,18 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
+            "as_bonus"
             {
-                "var_type"                  "FIELD_INTEGER"
-                "as_bonus"                  "20 40 60 80"
-                "LinkedSpecialBonus"        "special_bonus_imba_clinkz_5"
+                "value" "20 40 60 80"
+                "LinkedSpecialBonus" "special_bonus_imba_clinkz_5"
             }
-
-            "02"
+            "duration" "10 20 30 40"
+            "bonus_attack_range"
             {
-                "var_type"                  "FIELD_INTEGER"
-                "duration"                  "10 20 30 40"
-            }
-
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "bonus_attack_range"        "100 150 200 250"
-                "LinkedSpecialBonus"        "special_bonus_imba_clinkz_1"
+                "value" "100 150 200 250"
+                "LinkedSpecialBonus" "special_bonus_imba_clinkz_1"
             }
         }
     }
@@ -517,26 +429,18 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
+            "as_bonus"
             {
-                "var_type"                  "FIELD_INTEGER"
-                "as_bonus"                  "20 40 60 80"
-                "LinkedSpecialBonus"        "special_bonus_imba_clinkz_5"
+                "value" "20 40 60 80"
+                "LinkedSpecialBonus" "special_bonus_imba_clinkz_5"
             }
-
-            "02"
+            "duration" "120"
+            "bonus_attack_range"
             {
-                "var_type"                  "FIELD_INTEGER"
-                "duration"                  "120"
-            }
-
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "bonus_attack_range"        "100 200 300 400"
-                "LinkedSpecialBonus"        "special_bonus_imba_clinkz_1"
+                "value" "100 200 300 400"
+                "LinkedSpecialBonus" "special_bonus_imba_clinkz_1"
             }
         }
     }
@@ -553,24 +457,11 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "bonus_movespeed_percent"   "5 10 15 20"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "bonus_spellpower_percent"  "5 10 15 20"
-            }
-
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "max_stacks"                "5 10 15 20"
-            }
+            "bonus_movespeed_percent" "5 10 15 20"
+            "bonus_spellpower_percent" "5 10 15 20"
+            "max_stacks" "5 10 15 20"
         }
     }
     "imba_crystal_maiden_arcane_dynamo_op"
@@ -586,24 +477,11 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "bonus_movespeed_percent"   "40 60 80 100"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "bonus_spellpower_percent"  "40 60 80 100"
-            }
-
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "max_stacks"                "40 60 80 100"
-            }
+            "bonus_movespeed_percent" "40 60 80 100"
+            "bonus_spellpower_percent" "40 60 80 100"
+            "max_stacks" "40 60 80 100"
         }
     }
 
@@ -619,19 +497,10 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "day_vision"                    "200 500 800 1100"
-            }
-
-            "02"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "night_vision"                  "500 800 1100 1400"
-            }
+            "day_vision" "200 500 800 1100"
+            "night_vision" "500 800 1100 1400"
         }
     }
 }

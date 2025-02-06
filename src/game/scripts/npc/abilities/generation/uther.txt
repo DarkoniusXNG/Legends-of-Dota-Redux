@@ -34,33 +34,13 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
         }
     
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "Cooldown_Factor"   "3.5 3.0 2.5 2.0"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "Cooldown_Factor_Building"   "3.0"
-            }
-            "03"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "Range_Bonus"       "400"
-            }
-            "04"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "Heal_Factor"       "0.7 0.9 1.1 1.40"
-            }
-            "05"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "Tower_Heal_Factor"     "0.7"
-            }
+            "Cooldown_Factor" "3.5 3.0 2.5 2.0"
+            "Cooldown_Factor_Building" "3.0"
+            "Range_Bonus" "400"
+            "Heal_Factor" "0.7 0.9 1.1 1.40"
+            "Tower_Heal_Factor" "0.7"
         }
     }
 
@@ -80,24 +60,12 @@
       "AbilityCastPoint"        "0.6"
       "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
     
-      "AbilitySpecial"
-      {
-        "01"
+      "AbilityValues"
         {
-          "var_type"      "FIELD_INTEGER"
-          "duration"      "15"
+            "duration" "15"
+            "radius" "1200"
+            "check_radius" "2500"
         }
-        "02"
-        {
-          "var_type"      "FIELD_INTEGER"
-          "radius"    "1200"
-        }
-        "03"
-        {
-          "var_type"      "FIELD_INTEGER"
-          "check_radius"    "2500"
-        }
-      }
       "precache"
       {
         "particle"    "particles/units/heroes/hero_disruptor/disruptor_kineticfield.vpcf"
@@ -210,48 +178,16 @@
         "ReduxBans"                                                            "spell_lab_symbiotic"
         "ReduxPerks"                                                           "light"
     
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "Hammer_Size"       "250"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "scepter_Hammer_Size"       "450"
-            }
-            "03"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "stun_duration"     "1.4 1.7 2.0 2.3"
-            }
-            "04"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "Movement_Speed_Bonus"  "15 20 25 30"
-            }
-            "05"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "Automatic_Return"  "3"
-            }
-            "06"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "ministun_duration" "0.3"
-            }
-            "07"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "hammer_speed"      "1600"
-            }
-            "08"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "scepter_damage"    "120 200 280 360"
-            }
+            "Hammer_Size" "250"
+            "scepter_Hammer_Size" "450"
+            "stun_duration" "1.4 1.7 2.0 2.3"
+            "Movement_Speed_Bonus" "15 20 25 30"
+            "Automatic_Return" "3"
+            "ministun_duration" "0.3"
+            "hammer_speed" "1600"
+            "scepter_damage" "120 200 280 360"
         }
         "precache"
         {
@@ -539,23 +475,11 @@
         "AbilityTextureName"            "custom/uther_omniscience"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "value"             "25"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "max_stacks"        "2 3 4"
-            }
-            "03"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "duration"          "10"
-            }
+            "value" "25"
+            "max_stacks" "2 3 4"
+            "duration" "10"
         }
         "OnUpgrade"
         {
@@ -633,28 +557,12 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
         }
     
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "bolt_speed"            "900"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "damage"            "140 220 300 380"
-            }
-            "03"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "attacks_needed"    "2"
-            }
-            "04"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "explosion_radius"  "350"
-            }
+            "bolt_speed" "900"
+            "damage" "140 220 300 380"
+            "attacks_needed" "2"
+            "explosion_radius" "350"
         }
     
         "OnSpellStart"
@@ -737,28 +645,12 @@
         // Cost
         //-------------------------------------------------------------------------------------------------------------
         "AbilityManaCost"               "100 75 50"   
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "blast_final_radius"            "25000"
-            }
-            "02"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "blast_speed_per_second"        "5000"
-            }
-            "03"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "blast_vision_radius"           "1800"
-            }
-            "04"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "blast_vision_duration"         "4"
-            }
+            "blast_final_radius" "25000"
+            "blast_speed_per_second" "5000"
+            "blast_vision_radius" "1800"
+            "blast_vision_duration" "4"
         }
 
         "precache"

@@ -5,13 +5,29 @@
         "BaseClass"                                                            "alchemist_goblins_greed"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/alchemist_goblins_greed_op"
+		"MaxLevel"						"4"
         "AbilityValues"
 		{
 			"duration"				"90"
-			"bonus_gold"			"3 4 5 6"
-			"bonus_bonus_gold"		"3"
-			"bonus_gold_cap"		"99999"
-			"bounty_multiplier"		"10.0"
+			"bonus_gold"			"2 3 4 5"
+			"bonus_bonus_gold"		"2 3 4 5"
+			"bounty_multiplier"		"2 3 4 5"
+			"damage"
+			{
+				"value"		"0"
+				"special_bonus_unique_alchemist_7"	"+2"
+			}
+
+			"bonus_gold_cap"
+			{
+				"value"				"69420"
+				
+			}
+			"starting_gold_bonus"
+			{
+				"value"				"1000"
+				"special_bonus_facet_alchemist_seed_money"	"250"
+			}
 		}
         "ReduxCost"                                                            "120"
         "ReduxBans"                                                            "alchemist_goblins_greed"

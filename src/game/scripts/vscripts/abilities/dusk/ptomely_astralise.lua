@@ -89,8 +89,8 @@ function modifier_astralise:OnIntervalThink()
 			local heal = 0
 
 			if target:IsHero() then
-				damage = self:GetParent():GetIntellect() * pct
-				heal = self:GetParent():GetIntellect() * heal_pct
+				damage = self:GetParent():GetIntellect(false) * pct
+				heal = self:GetParent():GetIntellect(false) * heal_pct
 			end
 
 			local enemies = FindEnemies(self:GetAbility():GetCaster(), loc, radius)

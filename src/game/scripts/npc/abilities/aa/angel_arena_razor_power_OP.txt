@@ -9,18 +9,10 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"                                                   "custom/angel_arena_razor_power_OP"
         "MaxLevel"                                                             "4"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "400 450 500 550"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage_percent"                                       "70 80 90 100"
-            }
+            "radius" "400 450 500 550"
+            "damage_percent" "70 80 90 100"
         }
         "Modifiers"
         {

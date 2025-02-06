@@ -11,27 +11,13 @@
 		"AbilityManaCost" "120"
 		"AbilityCastRange" "300"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"radius" "300"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"mana_percentage" "25"
-			}
-
-			"03" {
-				"var_type" "FIELD_INTEGER"
-				"coil_radius" "240"
-			}
-
-			"04" {
-				"var_type" "FIELD_FLOAT"
-				"duration" "5"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "300"
+            "mana_percentage" "25"
+            "coil_radius" "240"
+            "duration" "5"
+        }
 
 		"precache" {
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"

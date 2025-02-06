@@ -13,21 +13,13 @@
     			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
           "particle"    "particles/generic_gameplay/generic_manaburn.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-        				"bonus"						"3 6 9 12" //mana burn
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-        				"damage_pct"						"50.0"
-            }
+            "bonus" "3 6 9 12" // mana burn
+            "damage_pct" "50.0"
         }
         "ReduxFlags"                                                           "attack_modifier"
-        "ReduxBans"                                                            ""
+        //"ReduxBans"                                                            ""
         //"ReduxPerks"                                                           ""
         "ReduxCost"                                                            "120"
     }

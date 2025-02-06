@@ -7,8 +7,8 @@
     //
     //
     //
-    //                                  Sunagakure, the Puppeteer   
-    // 
+    //                                  Sunagakure, the Puppeteer
+    //
     //
     //
     //
@@ -22,63 +22,33 @@
     {
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/suna_blight_and_wither"
-        "MaxLevel"                      "4"
-    
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    
+
         "AbilityCastRange"              "675 750 825 900"
         "AbilityCastPoint"              "0.3"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
         "AnimationPlaybackRate"         "1.2"
         "AbilityProcsMagicStick"        "1"
-    
+
         "AOERadius"                     "400"
-    
+
         "AbilityCooldown"               "20 18 16 14"
         "AbilityManaCost"               "80 90 100 110"
         "AbilityDamage"                 "10 14 18 22"
-    
-        "AbilitySpecial"
+
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "radius"        "400"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "movement_slow"     "-2.0 -3.0 -4.0 -5.0"
-            }
-            "03"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "movement_slow_display"     "2 3 4 5"
-            }
-            "04"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "armor_reduction"       "-0.4 -0.5 -0.6 -0.7"
-            }
-            "05"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "duration"          "8"
-            }
-            "06"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "creep_damage"      "5 7 9 11"
-            }
-            "07"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "creep_duration"    "18"
-            }
+            "radius" "400"
+            "movement_slow" "-2.0 -3.0 -4.0 -5.0"
+            "movement_slow_display" "2 3 4 5"
+            "armor_reduction" "-0.4 -0.5 -0.6 -0.7"
+            "duration" "8"
+            "creep_damage" "5 7 9 11"
+            "creep_duration" "18"
         }
         "precache"
         {
@@ -114,8 +84,8 @@
                     "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
                     "Types"     "DOTA_UNIT_TARGET_HERO"
                 }
-            
-                "Action"    
+
+                "Action"
                 {
                     "FireSound"
                     {
@@ -139,8 +109,8 @@
                     "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
                     "Types"     "DOTA_UNIT_TARGET_BASIC"
                 }
-            
-                "Action"    
+
+                "Action"
                 {
                     "ApplyModifier"
                     {
@@ -159,7 +129,7 @@
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
                 "Duration"          "3.0"
-            
+
                 "OnCreated"
                 {
                     "FireSound"
@@ -174,10 +144,10 @@
                 "Passive"           "0"
                 "IsHidden"          "0"
                 "IsDebuff"          "1"
-    
+
                 "StatusEffectName"  "particles/status_fx/status_effect_slardar_amp_damage.vpcf"
                 "StatusEffectPriority"  "10"
-    
+
                 "OnAttack"
                 {
                     "FireEffect"
@@ -187,7 +157,7 @@
                         "Target"            "ATTACKER"
                     }
                     "Damage"
-                    {   
+                    {
                         "Target"        "ATTACKER"
                         "Type"          "DAMAGE_TYPE_MAGICAL"
                         "Damage"        "%AbilityDamage"
@@ -232,10 +202,10 @@
                 "Passive"           "0"
                 "IsHidden"          "0"
                 "IsDebuff"          "1"
-    
+
                 "StatusEffectName"  "particles/status_fx/status_effect_slardar_amp_damage.vpcf"
                 "StatusEffectPriority"  "10"
-        
+
                 "OnAttack"
                 {
                     "FireEffect"
@@ -290,10 +260,10 @@
                 "Passive"           "0"
                 "IsHidden"          "1"
                 "IsDebuff"          "1"
-            
+
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_slow" 
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_slow"
                     "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"    "%armor_reduction"
                 }
             }
@@ -306,28 +276,22 @@
     {
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/suna_dead_mans_chest"
-        "MaxLevel"                      "3"
-    
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityProcsMagicStick"        "1"
-    
+
         "AbilityCastRange"              "525"
         "AbilityCastPoint"              "0.0"
-    
+
         "AbilityCooldown"               "130 115 100"
         "AbilityManaCost"               "160 190 220"
         "HasScepterUpgrade"             "1"
-    
-        "AbilitySpecial"
+
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"      "FIELD_FLOAT"
-                "duration"      "5 7 9"
-            }
+            "duration" "5 7 9"
         }
         "precache"
         {
@@ -357,10 +321,10 @@
                 "Passive"           "0"
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
-        
+
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_MIN_HEALTH" "1" 
+                    "MODIFIER_PROPERTY_MIN_HEALTH" "1"
                 }
                 "OnTakeDamage"
                 // "%attack_damage" is set to the damage value after mitigation
@@ -379,7 +343,7 @@
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
                 "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT"
-            
+
                 "OnRespawn"
                 {
                     "RemoveModifier"
@@ -406,26 +370,20 @@
     {
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/suna_kyonshi"
-        "MaxLevel"                      "3"
-    
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityProcsMagicStick"        "1"
-    
+
         "AbilityCooldown"               "2.0"
         "AbilityManaCost"               "120 140 160"
-    
-        "AbilitySpecial"
+
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "duration"      "6.5 7.75 9.0"
-            }
+            "duration" "6.5 7.75 9.0"
         }
-    
+
         "OnSpellStart"
         {
             "RunScript"
@@ -441,8 +399,8 @@
                 "Passive"           "0"
                 "IsHidden"          "0"
                 "IsPurgable"        "0"
-        
-                "StatusEffectName"      "particles/status_fx/status_effect_ghost.vpcf"     
+
+                "StatusEffectName"      "particles/status_fx/status_effect_ghost.vpcf"
                 "StatusEffectPriority"  "10"
             }
             "modifier_kyonshi_aghs"
@@ -451,7 +409,7 @@
                 "IsHidden"          "0"
                 "IsBuff"            "1"
                 "IsPurgable"        "1"
-            
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "522"
@@ -467,14 +425,12 @@
     {
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/suna_vicissitude"
-        "MaxLevel"                      "4"
-    
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_ALERT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    
+
         "AbilityCastRange"              "700"
         "AbilityCastPoint"              "0.0"
         "AbilityChannelTime"            "4.0 5.0 6.0 7.0"
@@ -482,24 +438,12 @@
         "AbilityCooldown"               "2.0"
         "AnimationPlaybackRate"         "0.3"
         "AbilityProcsMagicStick"        "1"
-    
-        "AbilitySpecial"
+
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "duration"          "4.0 5.0 6.0 7.0"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "movement_slow"     "-55 -50 -45 -40"
-            }
-            "03"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "dummy_duration"    "3.9 4.9 5.9 6.9"
-            }
+            "duration" "4.0 5.0 6.0 7.0"
+            "movement_slow" "-55 -50 -45 -40"
+            "dummy_duration" "3.9 4.9 5.9 6.9"
         }
         "OnSpellStart"
         {
@@ -526,7 +470,7 @@
             "RemoveModifier"
             {
                 "ModifierName"  "modifier_vicissitude"
-                "Target"        
+                "Target"
                 {
                     "Center"    "TARGET"
                     "Flags"     "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
@@ -547,10 +491,10 @@
                 "IsHidden"          "0"
                 "IsDebuff"          "1"
                 "IsPurgeable"       "1"
-    
+
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_slow" 
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_slow"
                 }
                 "States"
                 {
@@ -566,7 +510,7 @@
                     "DelayedAction"
                     {
                         "Delay"     "0.05"
-                        "Action"    
+                        "Action"
                         {
                             "RunScript"
                             {
@@ -610,7 +554,7 @@
                         "EffectName"        "particles/suna_puppeteer.vpcf"
                         "EffectAttachType"  "attach_hitloc"
                         "Target"            "TARGET"
-                        
+
                         "ControlPointEntities"
                         {
                             "CASTER"    "attach_attack1"
@@ -622,7 +566,7 @@
                         "EffectName"        "particles/suna_puppeteer.vpcf"
                         "EffectAttachType"  "attach_hitloc"
                         "Target"            "TARGET"
-                        
+
                         "ControlPointEntities"
                         {
                             "CASTER"    "attach_attack2"
@@ -645,7 +589,7 @@
                 "Passive"           "0"
                 "IsHidden"          "1"
                 "IsDebuff"          "0"
-            
+
                 "States"
                 {
                     "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
@@ -662,11 +606,11 @@
                 "IsHidden"          "0"
                 "IsBuff"            "1"
                 "IsPurgable"        "1"
-            
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "522"
-					"MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PURE " "50" 
+					"MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PURE " "50"
                 }
                 "States"
                 {
@@ -683,60 +627,31 @@
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/suna_skeleton_puppets"
         "MaxLevel"                      "4"
-    
+
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
-    
+
+        "ReduxFlags"                    "summon"
+        "ReduxPerks"                    "summon_non_ult"
+
         "AbilityCastRange"              "600"
         "AbilityCastPoint"              "0.6"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_3"
         "AnimationPlaybackRate"         "0.6"
         "AbilityProcsMagicStick"        "1"
-    
+
         "AbilityCooldown"               "6"
         "AbilityManaCost"               "40"
-    
-        "AbilitySpecial"
+
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "skeleton_count"        "2 3 4 5"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "skeleton_movespeed"    "340 360 380 400"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "duration"              "30"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "attackspeed_bonus"     "100"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "regen_bonus"           "50"
-            }
-            "06" //Must be 300 less than skeleton_movespeed
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_movement_speed"  "40 60 80 100"
-            }
-            "07"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "max_distance"          "1800"
-            }
-            "07"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "buff_duration"         "8.0"
-            }
+            "skeleton_count" "2 3 4 5"
+            "skeleton_movespeed" "340 360 380 400"
+            "duration" "30"
+            "attackspeed_bonus" "100"
+            "regen_bonus" "50"
+            "bonus_movement_speed" "40 60 80 100"
+            "max_distance" "1800"
+            "buff_duration" "8.0"
         }
         "precache"
         {
@@ -794,7 +709,7 @@
             {
                 "Passive"           "1"
                 "IsHidden"          "1"
-            
+
                 "OnDeath"
                 {
                     "ActOnTargets"
@@ -806,8 +721,8 @@
                             "Teams"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
                             "Types"     "DOTA_UNIT_TARGET_BASIC"
                         }
-                    
-                        "Action"    
+
+                        "Action"
                         {
                             "RemoveModifier"
                             {
@@ -822,10 +737,10 @@
             {
                 "Passive"           "0"
                 "IsHidden"          "1"
-        
+
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movement_speed" 
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movement_speed"
                 }
                 "OnAttack"
                 {
@@ -852,7 +767,7 @@
                         "EffectName"        "particles/suna_puppeteer.vpcf"
                         "EffectAttachType"  "attach_hitloc"
                         "Target"            "TARGET"
-                        
+
                         "ControlPointEntities"
                         {
                             "CASTER"    "attach_attack1"
@@ -884,8 +799,8 @@
                             "Teams"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
                             "Types"     "DOTA_UNIT_TARGET_BASIC"
                         }
-                    
-                        "Action"    
+
+                        "Action"
                         {
                             "RunScript"
                             {
@@ -903,17 +818,17 @@
                 "IsPurgeable"       "0"
                 "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
                 "Duration"          "%buff_duration"
-            
-                "StatusEffectName"      "particles/status_fx/status_effect_overpower.vpcf"     
+
+                "StatusEffectName"      "particles/status_fx/status_effect_overpower.vpcf"
                 "StatusEffectPriority"  "10"
-            
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"      "%attackspeed_bonus"
                     "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"           "%regen_bonus"
                 }
             }
-        }           
+        }
     }
     //=================================================================================================================
     // Suna - Vicissitude
@@ -922,39 +837,29 @@
     {
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/suna_vicissitude"
-        "MaxLevel"                      "4"
-    
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    
+
         "AbilityCastRange"              "700"
         "AbilityCastPoint"              "0.3"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
-    
+
         "AbilityCooldown"               "19.0 17.0 15.0 13.0"
         "AbilityManaCost"               "0"
-    
-        "AbilitySpecial"
+
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "duration"          "8.0"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_FLOAT"
-                "vicissitude_duration"  "4.0 5.0 6.0 7.0"
-            }
+            "duration" "8.0"
+            "vicissitude_duration" "4.0 5.0 6.0 7.0"
         }
         "precache"
         {
             "particle"  "particles/units/heroes/hero_meepo/meepo_burrow.vpcf"
             "particle"  "particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_exit.vpcf"
             "particle"  "particles/status_fx/status_effect_faceless_timewalk.vpcf_c"
-			"particle"	"particles/econ/items/natures_prophet/natures_prophet_weapon_sufferwood/furion_teleport_end_team_sufferwood_ground_soft.vpcf" 
+			"particle"	"particles/econ/items/natures_prophet/natures_prophet_weapon_sufferwood/furion_teleport_end_team_sufferwood_ground_soft.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
         }
         "OnUpgrade"
@@ -1021,10 +926,10 @@
                 "Passive"           "0"
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
-            
+
                 "EffectName"        "particles/units/heroes/hero_meepo/meepo_burrow.vpcf"
                 "EffectAttachType"  "follow_origin"
-    
+
                 "OnOrder"
                 // Triggers on Move/Casting/Hold/Stop
                 {
@@ -1040,7 +945,7 @@
                 "Passive"           "0"
                 "IsHidden"          "1"
                 "IsDebuff"          "0"
-            
+
                 "States"
                 {
                     "MODIFIER_STATE_DISARMED"       "MODIFIER_STATE_VALUE_ENABLED"
@@ -1051,7 +956,7 @@
                 "Passive"           "0"
                 "IsHidden"          "0"
                 "IsBuff"            "1"
-        
+
                 "States"
                 {
                     "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
@@ -1100,10 +1005,10 @@
                 "Passive"           "0"
                 "IsHidden"          "1"
                 "IsDebuff"          "0"
-            
-                "EffectName"        "particles/econ/items/natures_prophet/natures_prophet_weapon_sufferwood/furion_teleport_end_team_sufferwood_ground_soft.vpcf"      
+
+                "EffectName"        "particles/econ/items/natures_prophet/natures_prophet_weapon_sufferwood/furion_teleport_end_team_sufferwood_ground_soft.vpcf"
                 "EffectAttachType"  "follow_origin"
-    
+
                 "States"
                 {
                     "MODIFIER_STATE_NO_HEALTH_BAR"      "MODIFIER_STATE_VALUE_ENABLED"
@@ -1113,7 +1018,7 @@
                     "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
                     "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"               "MODIFIER_STATE_VALUE_ENABLED"
                 }
-    
+
                 "ThinkInterval"  "0.03"
                 "OnIntervalThink"
                 {

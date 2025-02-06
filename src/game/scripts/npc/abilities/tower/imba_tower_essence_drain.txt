@@ -8,38 +8,14 @@
         "MaxLevel"                                                             "3"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "drain_per_hit"                                        "1 2 3"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "drain_duration"                                       "8"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "armor_per_stack"                                      "0.25"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "as_per_stack"                                         "3"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "dmg_per_stack"                                        "3"
-            }
-            "06"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "max_stacks"                                           "100"
-            }
+            "drain_per_hit" "1 2 3"
+            "drain_duration" "8"
+            "armor_per_stack" "0.25"
+            "as_per_stack" "3"
+            "dmg_per_stack" "3"
+            "max_stacks" "100"
         }
         "Modifiers"
         {

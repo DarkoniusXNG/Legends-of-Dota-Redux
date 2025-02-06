@@ -12,6 +12,7 @@
   		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
   		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
   		"AbilityTextureName"			"custom/bulwark_strike"
+
   		"ReduxPerks"                    "attack_modifier | fire | autocast_basic"
   		"ReduxFlags"                    "attack_modifier"
 
@@ -23,7 +24,6 @@
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts"
 			"particle"					"particles/econ/items/alchemist/alchemist_smooth_criminal/alchemist_smooth_criminal_unstable_concoction_explosion.vpcf"
 			"particle"					"particles/status_fx/status_effect_burn.vpcf"
-			"particle"					"particles/molten_lord/ablaze_debuff.vpcf"
 			"particle"					"particles/status_fx/status_effect_doom.vpcf"
 			"particle"					"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_shadowraze.vpcf"
 		}
@@ -34,7 +34,7 @@
 		"AbilityCastRange"				"400"
 		"AbilityCooldown"				"2.5"
 		"AbilityManaCost"				"18 21 24 27"
-		
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -66,7 +66,6 @@
 		{
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts"
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
-			"particle"					"particles/molten_lord/ablaze_debuff.vpcf"
 			"particle"					"particles/status_fx/status_effect_doom.vpcf"
 			"particle"					"particles/molten_lord/skipping_flames.vpcf"
 			"particle"					"particles/molten_lord/skipping_flames_impact.vpcf"
@@ -81,39 +80,15 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"1300"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"delay"						"0.2"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"base_damage"				"90 160 230 300"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"mini_stun"					"1.8"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"ablaze_multiplier"				"2.0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"ablaze_duration"			"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "1300"
+            "delay" "0.2"
+            "base_damage" "90 160 230 300"
+            "mini_stun" "1.8"
+            "ablaze_multiplier" "2.0"
+            "ablaze_duration" "12"
+        }
 
 		"OnSpellStart"
 		{
@@ -182,7 +157,6 @@
 			"particle"					"particles/units/heroes/hero_ursa/ursa_enrage_hero_effect.vpcf"
 			"particle"					"particles/units/heroes/hero_phoenix/phoenix_ambient.vpcf"
 			"particle"					"particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf"
-			"particle"					"particles/molten_lord/ablaze_debuff.vpcf"
 			"particle"					"particles/status_fx/status_effect_doom.vpcf"
 		}
 
@@ -194,19 +168,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"5"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ablaze_duration"	"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "5"
+            "ablaze_duration" "12"
+        }
 
 		"OnUpgrade"
 		{
@@ -251,7 +217,7 @@
 
 				"EffectName"			"particles/units/heroes/hero_phoenix/phoenix_ambient.vpcf"
 				"EffectAttachType"		"follow_origin"
-				
+
 				"StatusEffectName"		"particles/units/heroes/hero_ursa/ursa_enrage_hero_effect.vpcf"
 				"StatusEffectPriority"	"10"
 
@@ -290,7 +256,9 @@
 		"MaxLevel"						"3"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityTextureName"			"custom/molten_charge"
-		"ReduxPerks"                    "fire"
+
+		"ReduxFlags"					"mobility | stun"
+		"ReduxPerks"					"drain | explosive | fire | mobility"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -307,7 +275,6 @@
 			"particle"					"particles/molten_lord/molten_charge_armor_drain.vpcf"
 			"particle"					"particles/molten_lord/molten_charge_armor_drain_debuff.vpcf"
 			"particle"					"particles/molten_lord/molten_charge_armor_drain_buff.vpcf"
-			"particle"					"particles/molten_lord/ablaze_debuff.vpcf"
 		}
 
 		// Stats
@@ -319,84 +286,24 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_radius"		"550"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1600"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor_multiplier"		"6 8 10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius_tree"			"500"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"width"					"250"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"break_distance"		"600"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"3 4 5"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"root_duration"			"2 2.5 3"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_attack_speed"		"-30 -40 -50"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_movement_speed"	"-30 -40 -50"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor_drain_bonus"		"1 2 3"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor_drain_loss"		"-1 -2 -3"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"10"
-			}
-			"14"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"stack_duration"		"45"
-			}
-			"15"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ablaze_duration"		"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "tooltip_radius" "550"
+            "speed" "1600"
+            "armor_multiplier" "6 8 10"
+            "radius_tree" "500"
+            "width" "250"
+            "break_distance" "600"
+            "slow_duration" "3 4 5"
+            "root_duration" "2 2.5 3"
+            "slow_attack_speed" "-30 -40 -50"
+            "slow_movement_speed" "-30 -40 -50"
+            "armor_drain_bonus" "1 2 3"
+            "armor_drain_loss" "-1 -2 -3"
+            "duration" "10"
+            "stack_duration" "45"
+            "ablaze_duration" "8"
+        }
 
 		"OnSpellStart"
 		{
@@ -469,8 +376,8 @@
 							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 							"Flags"     "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 						}
-					
-						"Action"    
+
+						"Action"
 						{
 							"RunScript"
 							{
@@ -592,7 +499,7 @@
 
 				"States"
 				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"	
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Properties"
 				{

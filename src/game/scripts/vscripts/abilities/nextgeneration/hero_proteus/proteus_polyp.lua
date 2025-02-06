@@ -2,8 +2,7 @@ function Polyp(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	
-	
+
 	local polypMax = ability:GetSpecialValueFor("max_polyp_health")
 	local polypDuration = ability:GetSpecialValueFor("duration")
 	local polypBase = ability:GetSpecialValueFor("base_polyp_health")
@@ -58,7 +57,7 @@ function PolypDamageBlock(keys)
 	victim:SetHealth(victim:GetHealth() + damageBlock)
 	polyp:SetHealth(polyp:GetHealth() - damage)
 	if polyp:GetHealth() <= 0 then
-		polyp:GetMoveParent():RemoveModifierByName("modifier_proteus_polyp_protection")
+		victim:RemoveModifierByName("modifier_proteus_polyp_protection")
 		polyp:RemoveSelf()
 	end
 end
@@ -90,7 +89,13 @@ function PolypBonusDamage(keys)
 
 	if owner.bonusDamage and target:IsAlive() then
 		target:EmitSound("Hero_Shared.WaterFootsteps")
-		ApplyDamage({ victim = target, attacker = owner, damage = owner.bonusDamage, damage_type = DAMAGE_TYPE_PHYSICAL })
+		ApplyDamage({
+			victim = target,
+			attacker = owner,
+			damage = owner.bonusDamage,
+			damage_type = DAMAGE_TYPE_PHYSICAL,
+			ability = ability,
+		})
 		SendOverheadEventMessage( owner:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, owner.bonusDamage, nil )
 	end
 end

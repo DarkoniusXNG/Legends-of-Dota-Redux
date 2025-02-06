@@ -25,24 +25,12 @@
             "ReduxCost"                     "120"
             // Special
             //-------------------------------------------------------------------------------------------------------------
-            "AbilitySpecial"
-            {
-                "01"
-                {
-                    "var_type"                  "FIELD_INTEGER"
-                    "int_per_tree"              "5 7 9 11"
-                }
-                "02"
-                {
-                    "var_type"                  "FIELD_INTEGER"
-                    "cooldown_tooltip"          "60 50 40 30"
-                }
-                "03"
-                {
-                    "var_type"                  "FIELD_INTEGER"
-                    "tree_radius"               "10"
-                }
-            }
+            "AbilityValues"
+        {
+            "int_per_tree" "5 7 9 11"
+            "cooldown_tooltip" "60 50 40 30"
+            "tree_radius" "10"
+        }
             "OnSpellStart"
             {
                 "DestroyTrees"
@@ -100,24 +88,12 @@
             "ReduxCost"                     "0"
             // Special
             //-------------------------------------------------------------------------------------------------------------
-            "AbilitySpecial"
-            {
-                "01"
-                {
-                    "var_type"                  "FIELD_INTEGER"
-                    "int_per_tree"              "1"
-                }
-                "02"
-                {
-                    "var_type"                  "FIELD_INTEGER"
-                    "cooldown_tooltip"          "60 50 40 30"
-                }
-                "03"
-                {
-                    "var_type"                  "FIELD_INTEGER"
-                    "tree_radius"               "10"
-                }
-            }
+            "AbilityValues"
+        {
+            "int_per_tree" "1"
+            "cooldown_tooltip" "60 50 40 30"
+            "tree_radius" "10"
+        }
             "OnSpellStart"
             {
                 "DestroyTrees"
@@ -176,23 +152,11 @@
         "ReduxCost"                     "120"
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "damage"                    "44 66 88"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "duration"                  "20"
-            }
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "radius"                    "700"
-            }
+            "damage" "44 66 88"
+            "duration" "20"
+            "radius" "700"
         }
         "OnSpellStart"
         {
@@ -288,23 +252,11 @@
         "ReduxCost"                     "0"
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "str_per_tree"              "1"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "cooldown_tooltip"          "60 50 40 30"
-            }
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "tree_radius"               "10"
-            }
+            "str_per_tree" "1"
+            "cooldown_tooltip" "60 50 40 30"
+            "tree_radius" "10"
         }
         "OnSpellStart"
         {
@@ -364,23 +316,11 @@
         "ReduxCost"                     "120"
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "str_per_tree"              "5 7 9 11"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "cooldown_tooltip"          "60 50 40 30"
-            }
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "tree_radius"               "10"
-            }
+            "str_per_tree" "5 7 9 11"
+            "cooldown_tooltip" "60 50 40 30"
+            "tree_radius" "10"
         }
         "OnSpellStart"
         {
@@ -440,23 +380,11 @@
         "ReduxCost"                     "0"
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "agi_per_tree"              "1"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "cooldown_tooltip"          "60 50 40 30"
-            }
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "tree_radius"               "10"
-            }
+            "agi_per_tree" "1"
+            "cooldown_tooltip" "60 50 40 30"
+            "tree_radius" "10"
         }
         "OnSpellStart"
         {
@@ -516,23 +444,11 @@
         "ReduxCost"                     "120"
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "agi_per_tree"              "5 7 9 11"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "cooldown_tooltip"          "60 50 40 30"
-            }
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "tree_radius"               "10"
-            }
+            "agi_per_tree" "5 7 9 11"
+            "cooldown_tooltip" "60 50 40 30"
+            "tree_radius" "10"
         }
         "OnSpellStart"
         {

@@ -11,29 +11,16 @@
         "AbilityCooldown"                                                       "13 12 11 10"
         "AbilityCastPoint"                                                      "0.05"
         
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
+            "projectile_speed" "1000 1200 1400 1600"
+            "punch_damage" "50 100 150 200"
+            "radius" "200"
+            "knockback_distance"
             {
-                "var_type"                                             "FIELD_INTEGER"
-                "projectile_speed"                                          "1000 1200 1400 1600"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "punch_damage"                                          "50 100 150 200"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                                   "200"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "knockback_distance"                                   "350"
-                "LinkedSpecialBonus"    "special_bonus_unique_ranged_punch_0"
-                "LinkedSpecialBonusOperation"   "SPECIAL_BONUS_MULTIPLY"
+                "value" "350"
+                "LinkedSpecialBonus" "special_bonus_unique_ranged_punch_0"
+                "LinkedSpecialBonusOperation" "SPECIAL_BONUS_MULTIPLY"
             }
         }
         "ReduxFlags"                                                           "dota_custom"
@@ -47,13 +34,9 @@
         "TalentRequiredAbility" "ranged_punch"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "value"                                                "2"
-            }
+            "value" "2"
         }
     }
 }

@@ -16,28 +16,12 @@
         "AbilityCastPoint"                                                     "0"
         "AbilityCooldown"                                                      "50 40 30"
         "AbilityManaCost"                                                      "150"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "reduce_spell_damage_pct"                              "-40 -55 -70"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "reduce_movement_speed"                                "-30 -45 -60"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "8"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "500"
-            }
+            "reduce_spell_damage_pct" "-40 -55 -70"
+            "reduce_movement_speed" "-30 -45 -60"
+            "duration" "8"
+            "radius" "500"
         }
         "precache"
         {
@@ -80,9 +64,9 @@
                 "EffectAttachType"                                     "follow_origin"
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE""%reduce_spell_damage_pct"
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%reduce_movement_speed"
-                    "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL""1"
+                    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE"   "%reduce_spell_damage_pct"
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"            "%reduce_movement_speed"
+                    "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL"           "1"
                 }
                 "States"
                 {

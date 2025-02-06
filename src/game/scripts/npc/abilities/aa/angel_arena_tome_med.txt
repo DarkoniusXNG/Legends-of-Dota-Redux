@@ -17,25 +17,11 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"              "0.0"
         
-        "AbilitySpecial" 
+        "AbilityValues"
         {
-            "01" // Health and Mana are not hooked into anything, values are hardcoded in 'modifier_medical_tractate'
-            {
-                "var_type" "FIELD_INTEGER"
-                "health" "40"
-            }   
-
-            "02" 
-            {
-                "var_type" "FIELD_INTEGER"
-                "mana" "20"
-            }
-            
-            "03" // This is for the tooltips
-            {
-                "var_type" "FIELD_FLOAT"
-                "gold_cost_toolip" "500 400 300 200"
-            }
+            "health" "40"
+            "mana" "20"
+            "gold_cost_toolip" "500 400 300 200"
         }
 
         "OnSpellStart"

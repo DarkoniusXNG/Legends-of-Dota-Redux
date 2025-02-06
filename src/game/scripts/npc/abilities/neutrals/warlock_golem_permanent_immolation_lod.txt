@@ -8,18 +8,17 @@
         "AbilityTextureName"                                                   "custom/warlock_golem_permanent_immolation_lod"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage"                                               "20 30 40 50"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "300 300 300 300"
-            }
+			"damage"
+			{
+				"value" "20 30 40 50"
+			}
+			"radius"
+			{
+				"value"		"300"
+				"affected_by_aoe_increase"	"1"
+			}
         }
         "ReduxFlags"                                                           "aoe_attack | underpowered"
         "ReduxPerks"                                                           "neutral | fire | aura"

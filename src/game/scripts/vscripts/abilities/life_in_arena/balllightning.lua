@@ -21,7 +21,7 @@ function LocustSwarmStart( event )
 
 	-- Initialize the table to keep track of all locusts
 	caster.swarm = {}
-	print("Spawning "..locusts.." locusts")
+
 	for i=1,locusts do
 		Timers:CreateTimer(i * delay_between_locusts, function()
 			local unit = ability:ApplyDataDrivenThinker(caster,caster:GetAbsOrigin() , "modifier_locust", nil)
@@ -29,7 +29,7 @@ function LocustSwarmStart( event )
 
 			-- The modifier takes care of the logic and particles of each unit
 			--ability:ApplyDataDrivenModifier(caster, unit, "modifier_locust", {})
-			
+
 			-- Add the spawned unit to the table
 			table.insert(caster.swarm, unit)
 
@@ -40,7 +40,7 @@ function LocustSwarmStart( event )
 end
 
 -- Movement logic for each locust
--- Units have 4 states: 
+-- Units have 4 states:
 	-- acquiring: transition after completing one target-return cycle.
 	-- target_acquired: tracking an enemy or point to collide
 	-- returning: After colliding with an enemy, move back to the casters location
@@ -106,14 +106,14 @@ function LocustSwarmPhysics( event )
 		-- Print the path on Debug mode
 		if Debug then DebugDrawCircle(current_position, pathColor, 0, 2, true, draw_duration) end
 
-		local enemies = nil
+		local enemies
 
 		-- Use this if skipping frames is needed (--if frameCount == 0 then..)
 		frameCount = (frameCount + 1) % 3
 
 		-- Movement and Collision detection are state independent
 
-		-- MOVEMENT	
+		-- MOVEMENT
 		-- Get the direction
 		local diff = point - unit:GetAbsOrigin()
         diff.z = 0
@@ -121,7 +121,7 @@ function LocustSwarmPhysics( event )
 
 		-- Calculate the angle difference
 		local angle_difference = RotationDelta(VectorToAngles(unit:GetPhysicsVelocity():Normalized()), VectorToAngles(direction)).y
-		
+
 		-- Set the new velocity
 		if math.abs(angle_difference) < 5 then
 			-- CLAMP
@@ -130,7 +130,7 @@ function LocustSwarmPhysics( event )
 		elseif angle_difference > 0 then
 			local newVel = RotatePosition(Vector(0,0,0), QAngle(0,10,0), unit:GetPhysicsVelocity())
 			unit:SetPhysicsVelocity(newVel)
-		else		
+		else
 			local newVel = RotatePosition(Vector(0,0,0), QAngle(0,-10,0), unit:GetPhysicsVelocity())
 			unit:SetPhysicsVelocity(newVel)
 		end
@@ -141,9 +141,9 @@ function LocustSwarmPhysics( event )
 
 		-- MAX DISTANCE CHECK
 		local distance_to_caster = (source - current_position):Length()
-		if distance > max_distance then 
+		if distance > max_distance then
 			unit:SetAbsOrigin(source)
-			unit.state = "acquiring" 
+			unit.state = "acquiring"
 		end
 
 		-- STATE DEPENDENT LOGIC
@@ -159,17 +159,26 @@ function LocustSwarmPhysics( event )
 		if unit.state == "acquiring" then
 
 			-- If the unit doesn't have a target locked, find enemies near the caster
-			enemies = FindUnitsInRadius(caster:GetTeamNumber(), source, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, 
-										  abilityTargetType, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			enemies = FindUnitsInRadius(
+				caster:GetTeamNumber(),
+				source,
+				nil,
+				radius,
+				DOTA_UNIT_TARGET_TEAM_ENEMY,
+				abilityTargetType,
+				DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+				FIND_ANY_ORDER,
+				false
+			)
 
 			-- Check the possible enemies, assigning a new one
-			local target_enemy = nil
+			local target_enemy
 			for _,enemy in pairs(enemies) do
 
 				-- If the enemy this time is different than the last unit.current_target, select it
 				-- Also check how many units are locked on this target, if its already max_locusts_on_target, ignore it
-				if not enemy.locusts_locked then 
-					enemy.locusts_locked = 0 
+				if not enemy.locusts_locked then
+					enemy.locusts_locked = 0
 				end
 
 				if enemy ~= unit.current_target and enemy.locusts_locked < max_locusts_on_target and not target_enemy then
@@ -177,14 +186,14 @@ function LocustSwarmPhysics( event )
 					enemy.locusts_locked = enemy.locusts_locked + 1
 				end
 			end
-			
+
 			-- Keep track of it, set the state to target_acquired
 			if target_enemy then
 				unit.state = "target_acquired"
 				unit.current_target = target_enemy
-				point = unit.current_target:GetAbsOrigin()
+				point = target_enemy:GetAbsOrigin()
 				--print("Acquiring -> Enemy Target acquired: "..unit.current_target:GetUnitName())
-			
+
 			-- If no enemies, set the unit to collide with a random point.
 			else
 				unit.state = "target_acquired"
@@ -194,7 +203,7 @@ function LocustSwarmPhysics( event )
 				if Debug then DebugDrawCircle(point, idleColor, 100, 25, true, draw_duration) end
 			end
 
-		-- If the state was to follow a target enemy, it means the unit can perform an attack. 		
+		-- If the state was to follow a target enemy, it means the unit can perform an attack.
 		elseif unit.state == "target_acquired" then
 
 			-- Update the point of the target's current position
@@ -209,22 +218,22 @@ function LocustSwarmPhysics( event )
 				--print("Gave up on the target, acquiring a new target.")
 
 				-- Decrease the locusts_locked counter
-				unit.current_target.locusts_locked = unit.current_target.locusts_locked - 1				
+				unit.current_target.locusts_locked = unit.current_target.locusts_locked - 1
 			end
 
-			-- Do physical damage here, and increase heal counter. 
+			-- Do physical damage here, and increase heal counter.
 			-- Also set to come back to the caster if the locust_heal_threshold has been dealt
 			if collision then
 
 				-- If the target was an enemy and not a point, the unit collided with it
 				if unit.current_target ~= nil then
-					
+
 					-- Damage, units will still try to collide with attack immune targets but the damage wont be applied
 					if not unit.current_target:IsAttackImmune() then
 						local damage_table = {}
 
 						damage_table.victim = unit.current_target
-						damage_table.attacker = caster					
+						damage_table.attacker = caster
 						damage_table.damage_type = abilityDamageType
 						damage_table.damage = locust_damage
 						damage_table.ability = ability
@@ -246,7 +255,7 @@ function LocustSwarmPhysics( event )
 
 						-- Fire Sound on the target unit
 						unit.current_target:EmitSound("Hero_Weaver.SwarmAttach")
-						
+
 						-- Decrease the locusts_locked counter
 						unit.current_target.locusts_locked = unit.current_target.locusts_locked - 1
 					end
@@ -271,18 +280,18 @@ function LocustSwarmPhysics( event )
 		-- If it was a collision on a return (meaning it reached the caster), change to acquiring so it finds a new target
 		-- Also heal the caster on each return of a locust
 		elseif unit.state == "returning" then
-			
+
 			-- Update the point to the caster's current position
 			point = source
 			if Debug then DebugDrawCircle(point, returnColor, 100, 25, true, draw_duration) end
 
-			if collision then 
+			if collision then
 				unit.state = "acquiring"
 
 
 				-- Reset the damage done
 				unit.damage_done = 0
-			end	
+			end
 
 		-- if set the state to end, the point is also the caster position, but the units will be removed on collision
 		elseif unit.state == "end" then
@@ -290,16 +299,25 @@ function LocustSwarmPhysics( event )
 			if Debug then DebugDrawCircle(point, endColor, 100, 25, true, 2) end
 
 			-- Last collision ends the unit
-			if collision then 
+			if collision then
 				unit:SetPhysicsVelocity(Vector(0,0,0))
 	        	unit:OnPhysicsFrame(nil)
 	        	unit:RemoveSelf()
 
 	        	-- Double check to reset all locusts_locked counters when the ability ends
-				enemies = FindUnitsInRadius(caster:GetTeamNumber(), source, nil, max_distance, DOTA_UNIT_TARGET_TEAM_ENEMY, 
-										  abilityTargetType, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-				
-				for _,v in pairs(enemies) do
+				enemies = FindUnitsInRadius(
+					caster:GetTeamNumber(),
+					source,
+					nil,
+					max_distance,
+					DOTA_UNIT_TARGET_TEAM_ENEMY,
+					abilityTargetType,
+					DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+					FIND_ANY_ORDER,
+					false
+				)
+
+				for _, v in pairs(enemies) do
 					v.locusts_locked = 0
 				end
 	        end
@@ -311,8 +329,8 @@ end
 function LocustSwarmEnd( event )
 	local caster = event.caster
 	local targets = caster.swarm
-	print("LocustSwarmEnd")
-	for _,unit in pairs(targets) do		
+
+	for _,unit in pairs(targets) do
 	   	if unit and IsValidEntity(unit) then
     	  	unit.state = "end"
     	end
@@ -325,10 +343,8 @@ function LocustSwarmDeath( event )
 	local targets = caster.swarm
 	local particleName = "particles/units/heroes/hero_weaver/weaver_base_attack_explosion.vpcf"
 
-	print("LocustSwarmDeath")
 	if IsServer() then
-	
-		for _,unit in pairs(targets) do		
+		for _,unit in pairs(targets) do
 			if unit and IsValidEntity(unit) then
 				unit:SetPhysicsVelocity(Vector(0,0,0))
 				unit:OnPhysicsFrame(nil)
@@ -346,7 +362,7 @@ function LocustSwarmDeath( event )
 	end
 end
 
-function LocustDeath(event) 
+function LocustDeath(event)
 	local unit = event.target
 	unit:SetPhysicsVelocity(Vector(0,0,0))
 	unit:OnPhysicsFrame(nil)

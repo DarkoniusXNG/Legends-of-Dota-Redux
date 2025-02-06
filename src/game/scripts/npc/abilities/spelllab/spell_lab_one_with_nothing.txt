@@ -12,9 +12,7 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
         "HasScepterUpgrade"                                                    "0"
-        "AbilitySpecial"
-        {
-        }
+
         "precache"
         {
             "soundfile"                                                    "soundevents/game_sounds_creeps.vsndevts"

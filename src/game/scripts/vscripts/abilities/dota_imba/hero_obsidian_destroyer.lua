@@ -342,10 +342,10 @@ function modifier_imba_arcane_orb_thinker:ApplyArcaneOrbAttack(target)
 		ApplyIntelligenceSteal(self.caster, self.ability, target, int_steal_count, self.int_steal_duration)
 		
 		-- #1 Talent: Arcane Orb now explodes the difference between the target's and caster's INT in 300 AOE
-		if self.caster:HasTalent("special_bonus_imba_obsidian_destroyer_1") and self.caster:GetIntellect() > target:GetIntellect() then
+		if self.caster:HasTalent("special_bonus_imba_obsidian_destroyer_1") and self.caster:GetIntellect(false) > target:GetIntellect(false) then
 		
 		Timers:CreateTimer(FrameTime(), function()
-			local damage = self.caster:GetIntellect() - target:GetIntellect()
+			local damage = self.caster:GetIntellect(false) - target:GetIntellect(false)
 				
 			-- Add main particle                            
 			self.particle_explosion_fx = ParticleManager:CreateParticle(self.particle_explosion, PATTACH_ABSORIGIN_FOLLOW, target)
@@ -1139,7 +1139,7 @@ function modifier_imba_astral_imprisonment_buff:OnIntervalThink()
 		local enemies = FindUnitsInRadius(self.caster:GetTeamNumber(),
 			self.target:GetAbsOrigin(),
 			nil,
-			self.caster:FindTalentValue("special_bonus_imba_obsidian_destroyer_4") + self.caster:GetIntellect(),
+			self.caster:FindTalentValue("special_bonus_imba_obsidian_destroyer_4") + self.caster:GetIntellect(false),
 			DOTA_UNIT_TARGET_TEAM_ENEMY,
 			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 			DOTA_UNIT_TARGET_FLAG_NONE,
@@ -1304,7 +1304,7 @@ function modifier_imba_essence_aura:OnCreated()
 											  false)
 			for _,caster in pairs(casters) do
 				if caster:GetUnitName() == self.caster:GetUnitName() then
-					local int = caster:GetIntellect()                    
+					local int = caster:GetIntellect(false)                    
 					self:SetStackCount(int)
 					break
 				end
@@ -1321,7 +1321,7 @@ end
 function modifier_imba_essence_aura:OnIntervalThink()
 	if IsServer() then
 		-- Get the caster's int count and set the stacks accordingly
-		local int = self.caster:GetIntellect()
+		local int = self.caster:GetIntellect(false)
 		self:SetStackCount(int)
 	end
 end
@@ -1447,7 +1447,7 @@ function modifier_imba_essence_aura_buff:ProcEssenceAura()
 				
 				-- #5 Talent: Essence Aura now heals when proccing
 				if self.caster:HasTalent("special_bonus_imba_obsidian_destroyer_5") then
-					local heal_amount = self.caster:GetIntellect()
+					local heal_amount = self.caster:GetIntellect(false)
 					self.parent:Heal(heal_amount, self.caster)
 				end
 				-- #8 Talent: Essence Aura can go beyond maximum mana temporarily (caster only)
@@ -1793,7 +1793,7 @@ function imba_obsidian_destroyer_sanity_eclipse:OnSpellStart()
 	EmitSoundOnLocationWithCaster(target_point, sound_target, caster)
 
 	-- Get current intelligence
-	local caster_int = caster:GetIntellect()
+	local caster_int = caster:GetIntellect(false)
 
 	-- Add area particle
 	local particle_area_fx = ParticleManager:CreateParticle(particle_area, PATTACH_WORLDORIGIN, caster)
@@ -1829,7 +1829,7 @@ function imba_obsidian_destroyer_sanity_eclipse:OnSpellStart()
 				local mana_burn = max_mana * (max_mana_burn_pct * 0.01)
 				-- #6 Talent: Heroes with INT less than 50% of Obsidian Destroyer's INT receives doubled the mana burn and 50% more damage from Sanity Eclipse
 				if caster:HasTalent("special_bonus_imba_obsidian_destroyer_6") then
-					if enemy:IsHero() and enemy:GetIntellect() < caster_int*caster:FindTalentValue("special_bonus_imba_obsidian_destroyer_6")*0.01 then
+					if enemy:IsHero() and enemy:GetIntellect(false) < caster_int*caster:FindTalentValue("special_bonus_imba_obsidian_destroyer_6")*0.01 then
 						mana_burn = max_mana * (caster:FindTalentValue("special_bonus_imba_obsidian_destroyer_6","mana_burn") * 0.01) 
 					end
 				end
@@ -1843,7 +1843,7 @@ function imba_obsidian_destroyer_sanity_eclipse:OnSpellStart()
 				-- Calculate difference in intelligence for heroes, otherwise there are regarded as 0 int
 				local enemy_int
 				if enemy:IsHero() then
-					enemy_int = enemy:GetIntellect()
+					enemy_int = enemy:GetIntellect(false)
 				else
 					enemy_int = 0
 				end

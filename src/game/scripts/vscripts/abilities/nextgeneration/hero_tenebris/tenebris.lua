@@ -1,74 +1,6 @@
 if tenebris == nil then tenebris = class ({}) end
 LinkLuaModifier("tenebris_mortal_coil_modifier_buff", "abilities/nextgeneration/hero_tenebris/tenebris.lua", LUA_MODIFIER_MOTION_NONE)
- 
-function FadeStrike_OnOrbImpact(kv)
-    local caster = kv.caster
-    local target = kv.target
- 
-    --Target must be vulnerable
-    if target:IsInvulnerable() then
-        return
-    end
- 
-    --Damage must be greater than zero
-    local damage = kv.damage
-    if damage == nil or damage <= 0 then
-        return
-    end
- 
-    --Apply bonus damage
-    local ability   = kv.ability
-    local bonus = caster:GetAttackSpeed(false) * 100
-    bonus = bonus * ability:GetLevelSpecialValueFor("bonus_damage", ability:GetLevel() - 1) / 100
 
-    local amount = math.floor(bonus)
-    caster:PopupNumbers(target, "damage", Vector(153, 0, 204), 2.0, amount, nil, POPUP_SYMBOL_POST_EYE)
-    ApplyDamage({victim=target,attacker=caster,damage=bonus,damage_type=ability:GetAbilityDamageType(),damage_flags=DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR+DOTA_DAMAGE_FLAG_BYPASSES_BLOCK+DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS})
-    caster:AddNewModifier(caster, ability, "modifier_invisible", {Duration = ability:GetLevelSpecialValueFor("duration_buff", ability:GetLevel() - 1)})
- 
---------APPLY MORTAL COIL TO TARGET
- 
-    kv.damage   = damage+bonus
-    kv.unit     = target
-    MortalCoil_OnTakeDamage(kv)
- 
---------BEGIN EFFIGY
- 
-    --End if caster does not have Effigy
-    if not caster:HasModifier("tenebris_effigy_modifier_buff") then
-        return
-    end
- 
-    --Find enemy heroes
-    target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
-    target_type = DOTA_UNIT_TARGET_HERO
-    target_flags    = DOTA_UNIT_TARGET_FLAG_NONE
-    local enemies   = FindUnitsInRadius(caster:GetTeamNumber(),Vector(0,0,0),target,100000,target_team,target_type,target_flags,0,false)
- 
-    --End if no valid targets to check
-    if #enemies == 0 then
-        return
-    end
- 
-    --Stun enemies with Effigy
-    local inactive = false
-    for _,enemy in pairs(enemies) do
-        if enemy ~= target then
-            inactive = false
-            local modifiers = enemy:FindAllModifiers()
-            for k, v in pairs(modifiers) do
-                if v:GetName() == "tenebris_effigy_modifier_debuff" then
-                    inactive = true
-                end
-            end
-            if inactive then
-                kv.unit = enemy
-                MortalCoil_OnTakeDamage(kv)
-            end
-        end
-    end
-end
- 
 function BloodWard_OnCreated(kv)
     local caster    = kv.caster
     local target    = kv.target
@@ -105,7 +37,13 @@ function BloodWard_OnThink(kv)
  
     --Deal Damage
     local damage = ability:GetSpecialValueFor("dps")/10.0
-    ApplyDamage({victim=target,attacker=caster,damage=damage,damage_type=ability:GetAbilityDamageType(),damage_flags=DOTA_DAMAGE_FLAG_BYPASSES_BLOCK+DOTA_DAMAGE_FLAG_HPLOSS})
+    ApplyDamage({
+        victim=target,
+        attacker=caster,
+        damage=damage,
+        damage_type=ability:GetAbilityDamageType(),
+        damage_flags=DOTA_DAMAGE_FLAG_BYPASSES_ALL_BLOCK+DOTA_DAMAGE_FLAG_HPLOSS
+    })
 end
  
 function BloodWard_OnAttackLanded(kv)
@@ -131,7 +69,13 @@ function BloodWard_OnAttackLanded(kv)
      
         --Deal damage
         damage = damage*ability:GetSpecialValueFor("reflect")/100.0
-        ApplyDamage({victim=target,attacker=caster,damage=damage,damage_type=ability:GetAbilityDamageType(),damage_flags=DOTA_DAMAGE_FLAG_BYPASSES_BLOCK+DOTA_DAMAGE_FLAG_REFLECTION})
+        ApplyDamage({
+            victim=target,
+            attacker=caster,
+            damage=damage,
+            damage_type=ability:GetAbilityDamageType(),
+            damage_flags=DOTA_DAMAGE_FLAG_BYPASSES_ALL_BLOCK+DOTA_DAMAGE_FLAG_REFLECTION
+        })
      
         --Lose life if self is not target
         if kv.target ~= ability.bloodward then

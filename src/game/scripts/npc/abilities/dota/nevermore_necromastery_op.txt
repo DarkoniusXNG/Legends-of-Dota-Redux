@@ -2,81 +2,47 @@
 {
     "nevermore_necromastery_op"
     {
-        "BaseClass"                                                            "nevermore_necromastery"
+        "BaseClass"                     "nevermore_necromastery"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-        "AbilityTextureName"                                                   "custom/nevermore_necromastery_op"
+        "AbilityTextureName"            "custom/nevermore_necromastery_op"
+		"DependentOnAbility"			""
+		"Innate"						"0"
 		
-		"AbilityCastRange"				"625"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"3"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0 0 0 0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-		
-        "AbilitySpecial"
-        {
-            "01"
+        "AbilityValues"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"necromastery_damage_per_soul"	"1 2 3 4"
-				"CalculateSpellDamageTooltip"	"0"
-				"LinkedSpecialBonus"			"special_bonus_unique_nevermore_1"
-				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"necromastery_max_souls"	"33 28 34 40"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"necromastery_soul_release"		"0.6"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"necromastery_max_souls_scepter" "60"
-				"RequiresScepter"			"1"
-			}	
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"attack_range_bonus" "0"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"shard_souls_per_kill" "4"
-				"RequiresShard"			"1"
-			}
-			"07"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"shard_crit_pct"		 "220"
-				"RequiresShard"			"1"
-			}	
-			"08"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"shard_fear_duration"		 "1.5"
-				"RequiresShard"			"1"
-			}				
-        }
+					"necromastery_damage_per_soul"	
+					{
+						"value"					"1 2 3 4"
+						"CalculateSpellDamageTooltip"	"0"
+						"special_bonus_unique_nevermore_1"			"+2"
+					}
+					"necromastery_max_souls"		
+					{
+						"value"						"20 25 30 35"
+						"special_bonus_scepter"		"+5"
+					}
+					"souls_per_kill"				"1"
+					"necromastery_soul_release"		"0.0"
+					"attack_range_bonus" "0"
+					"shard_souls_per_kill" 
+					{
+						"value"				"5"
+						"RequiresShard"			"1"
+					}
+					"shard_crit_pct"		 
+					{
+						"value"				"250"
+						"RequiresShard"			"1"
+					}	
+					"shard_fear_duration"		 
+					{
+						"value"				"1.5"
+						"RequiresShard"			"1"
+					}
+					"soul_release_tooltip"			"0.0"
+				
+			}			
+        
         "ReduxCost"                                                            "120"
         "ReduxBans"                                                            "nevermore_necromastery"
         "ReduxFlags"                                                           ""

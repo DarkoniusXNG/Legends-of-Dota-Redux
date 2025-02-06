@@ -1854,6 +1854,9 @@ function Pregame:networkHeroes()
     -- Stores which abilities belong to which heroes
     self.abilityHeroOwner = {}
 
+    -- Store innates
+    self.vanillaInnates = {}
+
     local allowedHeroes = {}
     self.heroPrimaryAttr = {}
     self.heroRole = {}
@@ -1871,7 +1874,7 @@ function Pregame:networkHeroes()
             if heroData.BotImplemented == 1 then
                 self.botHeroes[heroName] = {}
 
-                for i = 1, DOTA_MAX_ABILITIES do
+                for i = 1, DOTA_MAX_ABILITIES - 1 do
                     local abName = heroData['Ability' .. i]
                     if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
                         table.insert(self.botHeroes[heroName], abName)
@@ -1931,16 +1934,19 @@ function Pregame:networkHeroes()
                 self.heroRole[heroName] = 'melee'
             end
 
-            if heroToSkillMap[heroName] then
-                for k,v in pairs(heroToSkillMap[heroName]) do
-                    theData[k] = v
+            local sn = 1
+            for i = 1, DOTA_MAX_ABILITIES - 1 do
+                local abName = heroData['Ability' .. i]
+                if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
+                    theData['Ability' .. sn] = abName
+                    sn = sn + 1
                 end
-            else
-                local sn = 1
-                for i = 1, DOTA_MAX_ABILITIES do
-                    local abName = heroData['Ability' .. i]
-                    if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
-                        theData['Ability' .. sn] = abName
+            end
+
+            if heroToSkillMap[heroName] then
+                for _, v in pairs(heroToSkillMap[heroName]) do
+                    if v and v ~= '' then
+                        theData['Ability' .. sn] = v
                         sn = sn + 1
                     end
                 end
@@ -1948,7 +1954,7 @@ function Pregame:networkHeroes()
 
             local sb = 1
             local talentStartIndex = heroData.AbilityTalentStart or baseHero.AbilityTalentStart
-            for i = tonumber(talentStartIndex), DOTA_MAX_ABILITIES do
+            for i = tonumber(talentStartIndex), DOTA_MAX_ABILITIES - 1 do
                 local abName = heroData['Ability' .. i]
                 if abName and util:IsTalent(abName) then
                     theData['SpecialBonus'..tostring(math.ceil(sb / 2))] = theData['SpecialBonus'..tostring(math.ceil(sb / 2))] or {}
@@ -1963,13 +1969,15 @@ function Pregame:networkHeroes()
             allowedHeroes[heroName] = true
 
             -- Store the owners
-            for i = 1, DOTA_MAX_ABILITIES do
+            for i = 1, DOTA_MAX_ABILITIES - 1 do
                 local abName = theData['Ability'..i]
                 if abName and abName ~= '' and abName ~= 'special_bonus_attributes' and abName ~= 'generic_hidden' then
                     self.abilityHeroOwner[abName] = heroName
+                    if util:IsVanillaInnate(abName) then
+                        self.vanillaInnates[heroName] = abName
+                    end
                 end
             end
-
         end
     end
 
@@ -4116,7 +4124,7 @@ function Pregame:processOptions()
             treeAbility:SetLevel(1)
         end
 
-        if OptionManager:GetOption('maxHeroLevel') ~= 25 then
+        if OptionManager:GetOption('maxHeroLevel') ~= 30 then
             local newTable = {}
 
             for i,v in ipairs(constants.XP_PER_LEVEL_TABLE) do
@@ -6483,7 +6491,8 @@ function Pregame:multiplyNeutrals()
                 attacker = EntIndexToHScript( keys.entindex_attacker )
             end
 
-            if attacker:IsNull() or not attacker or not attacker:IsRealHero() then return end
+           if not attacker or attacker:IsNull() then return end
+           if not attacker:IsRealHero() then return end
 
             -- Neutral Multiplier: Checks if hurt npc is neutral, dead, and if it doesnt have the clone token ability, and their is a valid attacker
             if IsValidEntity(attacker) then
@@ -6825,14 +6834,12 @@ function Pregame:generateBotBuilds(singleID)
             npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_vengefulspirit = true, -- Crashes
-
         }
     else
         brokenBots = {
             npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_vengefulspirit = true, -- Crashes
-
         }
     end
 
@@ -7562,6 +7569,15 @@ function Pregame:applyExtraAbility( spawnedUnit )
             if spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH then essenceshiftToGive = "slark_essence_shift_strength_lod"
             elseif spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_AGILITY then essenceshiftToGive = "slark_essence_shift_agility_lod"
             elseif spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_INTELLECT then essenceshiftToGive = "slark_essence_shift_intellect_lod"
+            elseif spawnedUnit:GetPrimaryAttribute() == DOTA_ATTRIBUTE_ALL then
+                local randomNumber = RandomInt(1, 3)
+                if randomNumber == 1 then
+                    essenceshiftToGive = "slark_essence_shift_strength_lod"
+                elseif randomNumber == 2 then
+                    essenceshiftToGive = "slark_essence_shift_agility_lod"
+                else
+                    essenceshiftToGive = "slark_essence_shift_intellect_lod"
+                end
             end
         end
 
@@ -7588,7 +7604,7 @@ function Pregame:applyExtraAbility( spawnedUnit )
     -- end, DoUniqueString('addExtra'), RandomInt(1,3) )
 end
 
--- This function gets run when heros are recreated with there proper abilities, below is a function that runs at every npc spawn
+-- This function gets run when heros are recreated with their proper abilities, below is a function that runs at every npc spawn
 function Pregame:fixSpawnedHero( spawnedUnit )
     self.givenBonuses = self.givenBonuses or {}
     self.handled = self.handled or {}
@@ -7640,6 +7656,49 @@ function Pregame:fixSpawnedHero( spawnedUnit )
 	if mainHero and mainHero:IsRealHero() then
 		self:applyPrimaryAttribute(playerID, mainHero)
 	end
+
+	-- Add vanilla Innate
+	if not util:isPlayerBot(playerID) and IsValidEntity(spawnedUnit) then
+		local vanillaInnateName = self.vanillaInnates[spawnedUnit:GetUnitName()]
+		local disabledInnates = {
+			bounty_hunter_cutpurse = true,
+		}
+		-- Add vanilla innate if it's not disabled and if the hero does not have it already
+		if not disabledInnates[vanillaInnateName] and not spawnedUnit:HasAbility(vanillaInnateName) then
+			local vanillaInnate = spawnedUnit:AddAbility(vanillaInnateName)
+			if vanillaInnate then
+				print('Pregame:fixSpawnedHero: Innate '..vanillaInnateName..' sucessfully added to '..spawnedUnit:GetUnitName())
+			end
+		end
+	end
+
+    -- Count empty slots and fill them with generic_hidden
+    local baseHero = GetUnitKeyValuesByName("npc_dota_hero_base")
+    local currentHero = GetUnitKeyValuesByName(spawnedUnit:GetUnitName())
+    local talentStartIndex = currentHero.AbilityTalentStart or baseHero.AbilityTalentStart
+    local emptyCount = 0
+    for i = 0, talentStartIndex - 2 do -- Ability10 has index 9 so ability with index 8 should be generic_hidden
+        local ab = spawnedUnit:GetAbilityByIndex(i)
+        if not ab then
+            emptyCount = emptyCount + 1
+        end
+    end
+    if emptyCount > 0 then
+        for j = 1, emptyCount do
+            spawnedUnit:AddAbility("generic_hidden")
+        end
+    end
+
+    -- For debugging
+	-- local talent_or_empty = spawnedUnit:GetAbilityByIndex(talentStartIndex-1)
+    -- if talent_or_empty then
+        -- if not util:IsTalent(talent_or_empty) then
+            -- GameRules:SendCustomMessage(spawnedUnit:GetUnitName().." HAS TOO MANY ABILITIES, THERE MIGHT BE ISSUES!", 0, 0)
+            -- print(spawnedUnit:GetUnitName().." HAS TOO MANY ABILITIES, THERE MIGHT BE ISSUES!")
+            -- print(talent_or_empty:GetName())
+        -- end
+    -- end
+
 	-- Add talents
 	if not util:isPlayerBot(playerID) and IsValidEntity(spawnedUnit) then
 		if spawnedUnit.hasTalent then
@@ -7652,15 +7711,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     -- Various Fixes
     Timers:CreateTimer(function()
         if IsValidEntity(spawnedUnit) then
-            -- Silencer Fix NEEDS TO BE RUN EVERY SPAWN (below), AND ON FIXEDHERO FUNCTION
-                --[[if spawnedUnit:HasAbility('silencer_glaives_of_wisdom_steal') then
-                    if not spawnedUnit:HasModifier('modifier_silencer_int_steal') then
-                        spawnedUnit:AddNewModifier(spawnedUnit, spawnedUnit:FindAbilityByName("silencer_glaives_of_wisdom_steal"), 'modifier_silencer_int_steal', {})
-                    end
-                else
-                    spawnedUnit:RemoveModifierByName('modifier_silencer_int_steal')
-                end]]--
-
             -- Apply Bot Difficulty
             if util:isPlayerBot(playerID) then
                 if spawnedUnit:GetTeam() == DOTA_TEAM_GOODGUYS then
@@ -7689,7 +7739,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                     end
                 end
             end
-            -- Disabled due to innates being convereted into normal 4 level abilities
+
             -- Stalker Innate Auto-Level
             --if spawnedUnit:HasAbility('night_stalker_innate_redux') then
             --    local stalkerInnate = spawnedUnit:FindAbilityByName('night_stalker_innate_redux')
@@ -7714,39 +7764,32 @@ function Pregame:fixSpawnedHero( spawnedUnit )
             if spawnedUnit:HasAbility('tiny_toss') then
                 Timers:CreateTimer(function()
                     local toss = spawnedUnit:FindAbilityByName('tiny_toss')
-                    local tossTalent = spawnedUnit:FindAbilityByName('special_bonus_unique_tiny_5')
+                    local tossTalent = spawnedUnit:FindAbilityByName('special_bonus_unique_tiny_2')
                     if tossTalent and tossTalent:GetLevel() > 0 then
                         if not spawnedUnit:HasModifier("modifier_tiny_toss_charge_counter") then
                             spawnedUnit:AddNewModifier(spawnedUnit, toss, "modifier_tiny_toss_charge_counter", {})
                         end
                     else
-                        spawnedUnit:RemoveModifierByName("modifier_tiny_toss_charge_counter")
+                        if spawnedUnit:HasModifier("modifier_tiny_toss_charge_counter") then
+                            spawnedUnit:RemoveModifierByName("modifier_tiny_toss_charge_counter")
+                        end
                     end
                 end, DoUniqueString('tossFix'), 1)
             end
 
-            -- 'No Charges' fix for Gyro Homing Missle
-            if spawnedUnit:HasAbility('gyrocopter_homing_missile') then
-                Timers:CreateTimer(function()
-                    -- If Hero has homing missle ability, it doesnt have the talent or doesnt have a level in it, and it has the modifier, remove modifier
-                    if spawnedUnit:FindModifierByName("modifier_gyrocopter_homing_missile_charge_counter") then
-                        spawnedUnit:RemoveModifierByName("modifier_gyrocopter_homing_missile_charge_counter")
-                    end
-                end, DoUniqueString('gyroFix'), 1)
-            end
-
-            -- 'No Charges' fix for Shadow demon disrupition
+            -- 'No Charges' fix for Shadow demon Disruption
             if spawnedUnit:HasAbility('shadow_demon_disruption') then
                 Timers:CreateTimer(function()
                     -- If the hero has the charges perk, and they have a level in it, check if they have modifier, if not, add it
-                    local chargesModifier = spawnedUnit:FindAbilityByName("special_bonus_unique_shadow_demon_7")
-                    if chargesModifier and chargesModifier:GetLevel() > 0 then
-                        if not spawnedUnit:FindModifierByName("modifier_shadow_demon_disruption_charge_counter") then
-                            spawnedUnit:AddNewModifier(spawnedUnit,nil,"modifier_shadow_demon_disruption_charge_counter",{})
+                    local disruption = spawnedUnit:FindAbilityByName('shadow_demon_disruption')
+                    local chargesTalent = spawnedUnit:FindAbilityByName("special_bonus_unique_shadow_demon_7")
+                    if chargesTalent and chargesTalent:GetLevel() > 0 then
+                        if not spawnedUnit:HasModifier("modifier_shadow_demon_disruption_charge_counter") then
+                            spawnedUnit:AddNewModifier(spawnedUnit, disruption, "modifier_shadow_demon_disruption_charge_counter",{})
                         end
                     else
                         -- If Hero has homing missle ability, it doesnt have the talent or doesnt have a level in it, and it has the modifier, remove modifier
-                        if spawnedUnit:FindModifierByName("modifier_shadow_demon_disruption_charge_counter") then
+                        if spawnedUnit:HasModifier("modifier_shadow_demon_disruption_charge_counter") then
                             spawnedUnit:RemoveModifierByName("modifier_shadow_demon_disruption_charge_counter")
                         end
                     end
@@ -7759,39 +7802,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                     --spawnedUnit:SwapAbilities("sniper_assassinate","sniper_assassinate_redux",false,true)
                     --spawnedUnit:RemoveAbility("sniper_assassinate")
             --end
-            -- Change juxtapose to juxtapose ranged, for ranged heros
-            if spawnedUnit:HasAbility("phantom_lancer_juxtapose_melee") and spawnedUnit:IsRangedAttacker() then
-                    spawnedUnit:AddAbility("phantom_lancer_juxtapose_ranged")
-                    spawnedUnit:SwapAbilities("phantom_lancer_juxtapose_melee","phantom_lancer_juxtapose_ranged",false,true)
-                    spawnedUnit:RemoveAbility("phantom_lancer_juxtapose_melee")
-            end
-            -- Change Feast to Feast ranged, for ranged heros
-            if spawnedUnit:HasAbility("life_stealer_feast_melee") and spawnedUnit:IsRangedAttacker() then
-                    spawnedUnit:AddAbility("life_stealer_feast_ranged")
-                    spawnedUnit:SwapAbilities("life_stealer_feast_melee","life_stealer_feast_ranged",false,true)
-                    spawnedUnit:RemoveAbility("life_stealer_feast_melee")
-            end
-
-            -- if spawnedUnit:HasAbility("monkey_king_jingu_mastery_lod_melee") and spawnedUnit:IsRangedAttacker() then
-            --         spawnedUnit:AddAbility("monkey_king_jingu_mastery_lod_ranged")
-            --         spawnedUnit:SwapAbilities("monkey_king_jingu_mastery_lod_melee","monkey_king_jingu_mastery_lod_ranged",false,true)
-            --         spawnedUnit:RemoveAbility("monkey_king_jingu_mastery_lod_melee")
-            -- end
-
-            -- Change Overpower to Overpower ranged, for ranged heros
-            if spawnedUnit:HasAbility("ursa_overpower_melee") and spawnedUnit:IsRangedAttacker() then
-                    spawnedUnit:AddAbility("ursa_overpower_ranged")
-                    spawnedUnit:SwapAbilities("ursa_overpower_melee","ursa_overpower_ranged",false,true)
-                    spawnedUnit:RemoveAbility("ursa_overpower_melee")
-            end
-
-            if spawnedUnit:HasAbility("phantom_assassin_coup_de_grace_melee") and spawnedUnit:IsRangedAttacker() then
-                    spawnedUnit:AddAbility("phantom_assassin_coup_de_grace_ranged")
-                    spawnedUnit:SwapAbilities("phantom_assassin_coup_de_grace_melee","phantom_assassin_coup_de_grace_ranged",false,true)
-                    spawnedUnit:RemoveAbility("phantom_assassin_coup_de_grace_melee")
-            end
-
-
 
             -- Custom Flesh Heap fixes
             --[[for abilitySlot=0,6 do
@@ -7840,7 +7850,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
             return
         end
         local nameTest = spawnedUnit:GetName()
-        if IsValidEntity(spawnedUnit) and not self.perksDisabled and not spawnedUnit.hasPerk and not disabledPerks[nameTest] then
+        if IsValidEntity(spawnedUnit) and not this.perksDisabled and not spawnedUnit.hasPerk and not disabledPerks[nameTest] then
            local perkName = spawnedUnit:GetName() .. "_perk"
            local perkModifier = "modifier_" .. perkName
            spawnedUnit:AddNewModifier(spawnedUnit, nil, perkModifier, {})
@@ -7929,7 +7939,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     -- Give out the free extra abilities
     if OptionManager:GetOption('extraAbility') > 0 then
         Timers:CreateTimer(function (  )
-            self:applyExtraAbility(spawnedUnit)
+            this:applyExtraAbility(spawnedUnit)
         end, DoUniqueString('giveExtraAbility'), 0.1)
     end
 
@@ -7972,9 +7982,14 @@ function Pregame:fixSpawnedHero( spawnedUnit )
             PlayerResource:SetGold(playerID, 625, true)
         end
     end
+
+    -- Respawn the hero before the game actually starts - fixes innates
+    if GameRules:State_Get() < DOTA_GAMERULES_STATE_GAME_IN_PROGRESS and OptionManager:GetOption('randomOnDeath') ~= 1 then
+        spawnedUnit:RespawnHero(false, false)
+    end
 end
 
--- Apply fixes, add perks
+-- Apply fixes to creeps, illusions etc.
 function Pregame:fixSpawningIssues()
     self.givenBonuses = self.givenBonuses or {}
     self.handled = self.handled or {}
@@ -8042,7 +8057,6 @@ function Pregame:fixSpawningIssues()
                     necronomicon_warrior_last_will_lod = true,
                     roshan_bash = true,
                     arc_warden_tempest_double = true,    -- This is to stop tempest doubles from getting the ability and using cooldown reduction to cast again
-                    arc_warden_tempest_double_redux = true,
                     aabs_thunder_musket = true,
                     mirana_starfall_lod = true,    -- This is buggy with tempest doubles for some reason
                     warlock_rain_of_chaos = true,    -- This is buggy with tempest doubles for some reason
@@ -8082,7 +8096,7 @@ function Pregame:fixSpawningIssues()
                             -- else
                                 -- realHero = heroesWithSameName[1]
                             -- end
-                            
+
                             local candidates = {}
                             local illusion_mod = spawnedUnit:FindModifierByName("modifier_illusion")
                             if illusion_mod then
@@ -8093,7 +8107,7 @@ function Pregame:fixSpawningIssues()
                                     end
                                 end
                             end
-                            
+
                             local ally_heroes = FindUnitsInRadius(
                                 spawnedUnit:GetTeamNumber(),
                                 spawnedUnit:GetAbsOrigin(),
@@ -8147,7 +8161,7 @@ function Pregame:fixSpawningIssues()
                                                 same_inventory = false
                                                 break
                                             end
-                                        elseif hero_item then 
+                                        elseif hero_item then
                                             if hero_item:GetAbilityName() ~= illusion_item:GetAbilityName() then
                                                 same_inventory = false
                                                 break
@@ -8350,8 +8364,8 @@ function Pregame:fixSpawningIssues()
             if spawnedUnit:GetTeam() == DOTA_TEAM_NEUTRALS then
                 if OptionManager:GetOption('stacking') == 1 and spawnedUnit:GetUnitName() ~= "npc_dota_roshan" then
                     if IsValidEntity(spawnedUnit) then
-                            -- Have to delete creeps after time or game will crash because of too many creeps
-                            spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_kill", {duration = 150})
+                        -- Have to delete creeps after time or game will crash because of too many creeps
+                        spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_kill", {duration = 150})
                     end
                 end
 
@@ -8370,6 +8384,7 @@ ListenToGameEvent('game_rules_state_change', function(keys)
     local newState = GameRules:State_Get()
     if newState == DOTA_GAMERULES_STATE_PRE_GAME then
     elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+        GameRules:SetTimeOfDay(0.251) -- fix day/night cycle starting with night after 00:00
         -- if IsDedicatedServer() then
             -- if not util:isCoop() then
                 -- SU:SendPlayerBuild( buildBackups )

@@ -794,12 +794,14 @@ function modifier_imba_return_passive:OnTakeDamage(keys)
 			local final_damage = damage + caster:GetStrength() * (str_pct_as_damage/100)
 
 			-- Apply damage on attacker
-			local damageTable = {victim = attacker,
+			local damageTable = {
+				victim = attacker,
 				attacker = parent,
 				damage = final_damage,
 				damage_type = DAMAGE_TYPE_PHYSICAL,
-				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_REFLECTION,
-				ability = ability}
+				damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_REFLECTION,
+				ability = ability,
+			}
 
 			ApplyDamage(damageTable)
 

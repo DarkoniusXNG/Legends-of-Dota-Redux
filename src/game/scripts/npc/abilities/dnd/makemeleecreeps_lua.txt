@@ -9,13 +9,9 @@
         "AbilityCastPoint"                                                     "0.0"
         "AbilityCooldown"                                                      "45 36 36 24"
         "AbilityManaCost"                                                      "0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "maxmeleecreeps"                                       "2 3 4 5"
-            }
+            "maxmeleecreeps" "2 3 4 5"
         }
         "ReduxFlags"                                                           "summon | doNotRandom"
         "ReduxPerks"                                                           "summon_non_ult"

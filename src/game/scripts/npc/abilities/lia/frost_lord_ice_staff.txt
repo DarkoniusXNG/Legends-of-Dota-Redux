@@ -19,37 +19,15 @@
 		"AbilityCooldown" "140"
 		"AbilityManaCost" "325 375 425"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"damage" "175 325 475"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"movement_slow" "-50"
-			}
-
-			"03" {
-				"var_type" "FIELD_FLOAT"
-				"slow_duration" "4"
-			}
-
-			"04" {
-				"var_type" "FIELD_FLOAT"
-				"duration" "4 5 6"
-			}
-
-			"05" {
-				"var_type" "FIELD_INTEGER"
-				"radius" "500"
-			}
-
-			"06" {
-				"var_type" "FIELD_INTEGER"
-				"damage_radius" "190"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "175 325 475"
+            "movement_slow" "-50"
+            "slow_duration" "4"
+            "duration" "4 5 6"
+            "radius" "500"
+            "damage_radius" "190"
+        }
 
 		"OnSpellStart" {
 			"CreateThinker" {

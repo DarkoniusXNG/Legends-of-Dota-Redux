@@ -13,7 +13,7 @@ if IsServer() then
     end
     caster:EmitSound("DOTA_Item.Hand_Of_Midas")
     caster:HeroLevelUp(true)
-    self:SpendCharge()
+    self:SpendCharge(0.1)
   end
 end
 

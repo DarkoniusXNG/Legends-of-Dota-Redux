@@ -37,15 +37,17 @@ function aether_reality_shift:OnSpellStart()
 	end)
 
 	Timers:CreateTimer(0.17,function()
-		local found = FindUnitsInRadius( caster:GetTeamNumber(),
-	                              caster:GetAbsOrigin(),
-	                              nil,
-	                                radius,
-	                                DOTA_UNIT_TARGET_TEAM_BOTH,
-	                                DOTA_UNIT_TARGET_BASIC+DOTA_UNIT_TARGET_HERO,
-	                                DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-	                                FIND_ANY_ORDER,
-	                                false)
+		local found = FindUnitsInRadius(
+			caster:GetTeamNumber(),
+			caster:GetAbsOrigin(),
+			nil,
+			radius,
+			DOTA_UNIT_TARGET_TEAM_BOTH,
+			DOTA_UNIT_TARGET_BASIC+DOTA_UNIT_TARGET_HERO,
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+			FIND_ANY_ORDER,
+			false
+		)
 
 		-- if #found == 1 then
 		-- 	caster.teleport_to_monolith = true
@@ -114,8 +116,7 @@ function modifier_reality_shift_show:GetAttributes()
 end
 
 function modifier_reality_shift_show:OnDestroy()
-
-	--if IsServer() then
+	if IsServer() then
 
 		local caster = self:GetAbility():GetCaster()
 		local target = self:GetParent()
@@ -133,7 +134,7 @@ function modifier_reality_shift_show:OnDestroy()
 
 		ScreenShake(caster:GetAbsOrigin(), 1200, 170, delay, 1200, 0, true)
 
-		if target:GetTeam() ~= caster:GetTeam() then
+		if target:GetTeamNumber() ~= caster:GetTeamNumber() then
 			DealDamage(target,caster,dmg,DAMAGE_TYPE_MAGICAL)
 		end
 
@@ -151,15 +152,17 @@ function modifier_reality_shift_show:OnDestroy()
 			Set the control point data for a control on a particle effect
 			]]
 
-			local enemy_found = FindUnitsInRadius( caster:GetTeamNumber(),
-			                              caster:GetAbsOrigin(),
-			                              nil,
-			                                radius,
-			                                DOTA_UNIT_TARGET_TEAM_ENEMY,
-			                                DOTA_UNIT_TARGET_BASIC+DOTA_UNIT_TARGET_HERO,
-			                                DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-			                                FIND_ANY_ORDER,
-			                                false)
+			local enemy_found = FindUnitsInRadius(
+				caster:GetTeamNumber(),
+				caster:GetAbsOrigin(),
+				nil,
+				radius,
+				DOTA_UNIT_TARGET_TEAM_ENEMY,
+				DOTA_UNIT_TARGET_BASIC+DOTA_UNIT_TARGET_HERO,
+				DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+				FIND_ANY_ORDER,
+				false
+			)
 
 			for k,v in pairs(enemy_found) do
 				v:AddNewModifier(caster, nil, "modifier_stunned", {Duration=stun}) --[[Returns:void
@@ -174,8 +177,7 @@ function modifier_reality_shift_show:OnDestroy()
 			ParticleManager:DestroyParticle(p,false)
 			target:RemoveNoDraw()
 		end)
-
-	--end
+	end
 end
 
 function modifier_reality_shift_show:IsHidden()

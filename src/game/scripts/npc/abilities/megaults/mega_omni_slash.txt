@@ -10,7 +10,8 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"  
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
         "FightRecapLevel"               "2"
         "MaxLevel"                      "1"
         "RequiredLevel"                 "24"
@@ -20,12 +21,11 @@
         
         // Casting
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "700"
-        "AbilityCastPoint"              "0.3 0.3 0.3"
+        "AbilityCastPoint"              "0.3"
         
         // Time     
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "130"
+        "AbilityCooldown"               "120"
     
         // Cost
         //-------------------------------------------------------------------------------------------------------------
@@ -37,36 +37,29 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-		{
-			"01"
+        "AbilityValues"
+        {
+			"attack_rate_multiplier"	"3"
+			"bonus_damage"				"0"
+			"bonus_attack_speed"				"100"
+			"duration"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"attack_rate_multiplier"	"4.0"
+				"value"					"7"
+				"special_bonus_unique_juggernaut_omnislash_duration"			"+1"
 			}
-			"02"
+			"omni_slash_radius"			
 			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"-100"
-				"CalculateSpellDamageTooltip"	"0"
+				"affected_by_aoe_increase"	"1"
+				"value"		"20000"
 			}
-			"03"
+			"AbilityCastRange"				
 			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_speed"				"100"
-				"CalculateSpellDamageTooltip"	"0"
+				"value"					"700"
 			}
-			"04"
+			"dispel"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"25"
-				"LinkedSpecialBonus"		"special_bonus_unique_juggernaut_2"
+				"value"		"0"
 			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"omni_slash_radius"			"20000"
-			}
-		}
+        }
     }
 }

@@ -441,10 +441,17 @@ function modifier_imba_juggernaut_blade_fury_deflect_on_kill_credit:OnTakeDamage
 		local attacker = keys.attacker
 		
 		-- Calculates damage
-		parent_health = self.parent:GetHealth()
-		if keys.damage > parent_health and target == self.parent then
+		local parent_health = self.parent:GetHealth()
+		if damage > parent_health and target == self.parent then
 			-- Deals damage, crediting to the caster
-			ApplyDamage({attacker = self.caster, victim = self.parent, ability = self:GetAbility(), damage = target_health + 10, damage_type = DAMAGE_TYPE_PURE, damage_flag = DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_BYPASSES_BLOCK})
+			ApplyDamage({
+				attacker = self.caster,
+				victim = self.parent,
+				ability = self:GetAbility(),
+				damage = parent_health + 10,
+				damage_type = DAMAGE_TYPE_PURE,
+				damage_flags = DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_BYPASSES_ALL_BLOCK
+			})
 		end
 	end
 end

@@ -1,0 +1,170 @@
+// Abilities for Lycan
+"DOTAAbilities"
+{
+	"lycan_summon_wolves"
+	{
+		"ReduxFlags"                                                           "summon"
+		"ReduxPerks"                                                           "summon_non_ult"
+	}
+
+	"lycan_howl"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "rage"
+	}
+
+	"lycan_feral_impulse"
+	{
+		"ReduxCost"                                                            "10"
+		"ReduxPerks"                                                           "aura | rage" // aura is only for player and player's summons
+	}
+
+	"lycan_shapeshift"
+	{
+		"ReduxFlags"                                                           "mobility | crit | attack_modifier"
+		"ReduxPerks"                                                           "mobility | attack_modifier | rage"
+	}
+
+	"lycan_wolf_bite"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"ReduxFlags"                    "mobility | crit | attack_modifier | support | upgradeable | doNotRandom"
+		"ReduxPerks"                    "mobility | attack_modifier | support | rage"
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"110 100 90 80"
+		"AbilityValues"
+		{
+			"lifesteal_percent"		"40 50 60 70"
+			"creep_penalty"			"0.4"
+			"lifesteal_range"
+			{
+				"value"		"1200"
+				"affected_by_aoe_increase"	"1"
+			}
+			"attack_range"		"150"
+		}
+	}
+
+	"lycan_summon_wolves_critical_strike"
+	{
+		"ReduxFlags"                                                           "attack_modifier" // not a crit despite the name
+		"ReduxPerks"                                                           "attack_modifier"
+
+		"MaxLevel"                                                             "4"
+		"AbilityValues"
+		{
+			"maim_chance"				"20 30 40 50"
+			"maim_duration"				"4.0 5.0 6.0 7.0"
+			"maim_movement_speed"
+			{
+				"value"			"15 20 25 30"
+				"special_bonus_unique_lycan_3"	"+10"
+			}
+			"maim_attack_speed"			"60 75 90 105"
+			"maim_damage"				"8 16 24 32"
+		}
+	}
+
+	"lycan_summon_wolves_invisibility"
+	{
+		"ReduxFlags"                                                           "invis | doNotRandom"
+		"ReduxPerks"                                                           "invis"
+
+		"MaxLevel"                                                             "4"
+
+		"AbilityValues"
+		{
+			"fade_time"
+			{
+				"value" "0.0"
+			}
+			"fade_delay"
+			{
+				"value" "4 3 2 1"
+			}
+		}
+	}
+
+	"lycan_summon_wolves_bash"
+	{
+		"ReduxFlags"                                                           "attack_modifier | physical | bash"
+		"ReduxPerks"                                                           "attack_modifier | physical | bash"
+
+		"MaxLevel"                                                             "4"
+
+		"AbilityValues"
+		{
+			"bash_chance"			"20"
+			"bash_damage"			"50 70 90 110"
+			"bash_duration"			".5"
+		}
+	}
+
+	"lycan_summon_wolves_hamstring"
+	{
+		"ReduxFlags"                                                           "attack_modifier | physical"
+		"ReduxPerks"                                                           "attack_modifier | physical | autocast_basic | stun"
+
+		"MaxLevel"                                                             "4"
+
+		"AbilityValues"
+		{
+			"root_duration"				"0.5 0.75 1.0 1.25"
+			"damage_boost"				"30 50 70 90"
+			"damage_boost_stacks"		"4"
+			"damage_boost_duration"		"12"
+		}
+	}
+
+	"lycan_summon_wolves_hightail"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility"
+
+		"MaxLevel"                                                             "4"
+
+		"AbilityCooldown"				"50 40 30 20"
+
+		"AbilityValues"
+		{
+			"duration"				"8"
+			"evasion"				"100"
+			"min_movespeed"			"550"
+			"bonus_attack_speed"	"20 30 40 50"
+		}
+	}
+
+	"special_bonus_unique_lycan_1"
+	{
+		"TalentRequiredAbility"                                                   "lycan_shapeshift"
+	}
+	"special_bonus_unique_lycan_2"
+	{
+		"TalentRequiredAbility"                                                   "lycan_summon_wolves"
+	}
+	"special_bonus_unique_lycan_3"
+	{
+		"TalentRequiredAbility"
+		{
+			"1"	"lycan_summon_wolves"
+			"2"	"lycan_summon_wolves_critical_strike"
+		}
+	}
+	"special_bonus_unique_lycan_4"
+	{
+		"TalentRequiredAbility"                                                   "lycan_feral_impulse"
+	}
+	"special_bonus_unique_lycan_5"
+	{
+		"TalentRequiredAbility"                                                   "lycan_howl"
+	}
+
+	"special_bonus_unique_lycan_7"
+	{
+		"TalentRequiredAbility"                                                   "lycan_summon_wolves"
+	}
+	"special_bonus_unique_lycan_8"
+	{
+		"TalentRequiredAbility"                                                   "lycan_shapeshift"
+	}
+}

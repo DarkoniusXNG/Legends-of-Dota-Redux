@@ -3,12 +3,12 @@ function CreateIllusionLine( keys )
 	local ability = keys.ability
 	local player = caster:GetPlayerID()
 	local point = keys.target_points[1]
-	
+
 	local duration = ability:GetLevelSpecialValueFor("duration", ability:GetLevel() - 1 )
 	local delay = ability:GetLevelSpecialValueFor("illusion_delay", ability:GetLevel() - 1 )
 	local incomingDamage = ability:GetLevelSpecialValueFor("incoming_damage", ability:GetLevel() - 1 )
 	local outgoingDamage = ability:GetLevelSpecialValueFor("outgoing_damage", ability:GetLevel() - 1 )
-	
+
 	local origin = caster:GetAbsOrigin()
 	local forwardVec = caster:GetForwardVector()
 	local distance = (point - origin):Length2D()
@@ -54,21 +54,20 @@ function CreateIllusionLine( keys )
 
 	end
 
-
 	caster:AddNoDraw()
 	caster:AddNewModifier(caster, ability, "modifier_disabled_invulnerable", {duration = delay})
 	caster:AddNewModifier(caster, ability, "modifier_disarmed", {duration = delay})
 
-	FindClearSpaceForUnit(caster, casterVec, false) 
+	FindClearSpaceForUnit(caster, casterVec, false)
 
 	local illusion = {}
 	local illu_table = {
-		outgoing_damage = 100 - outgoingDamage,
-		incoming_damage = incomingDamage - 100,
+		outgoing_damage = outgoingDamage - 100,
+		incoming_damage = incomingDamage,
 		bounty_base = 0,
 		bounty_growth = 0,
-		outgoing_damage_structure = 100 - outgoingDamage,
-		outgoing_damage_roshan = 100 - outgoingDamage,
+		outgoing_damage_structure = outgoingDamage - 100,
+		outgoing_damage_roshan = outgoingDamage - 100,
 		duration = duration,
 	}
 
@@ -92,7 +91,7 @@ function CreateIllusionLine( keys )
 					end
 				end
 
-				FindClearSpaceForUnit(illusion[j], vec[j], false) 
+				FindClearSpaceForUnit(illusion[j], vec[j], false)
 				illusion[j]:SetForwardVector(forwardVec)
 				ability:ApplyDataDrivenModifier(caster, illusion[j], "modifier_fire_spawn", {})
 				illusion[j]:EmitSound("Hero_Jakiro.LiquidFire")
@@ -108,7 +107,7 @@ function CheckDeath( keys )
 	local ability = keys.ability
 
 	if target:GetHealth() < 2 then
-		
+
 		local projTable = {
             EffectName = "particles/scawmar_illusion_line_fireball.vpcf",
             Ability = ability,

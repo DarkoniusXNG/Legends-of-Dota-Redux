@@ -24,28 +24,12 @@
             "particle"                                                     "particles/units/heroes/hero_invoker/invoker_chaos_meteor.vpcf"
         }
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "lines"                     "25"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "damage"                    "200"
-            }
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "cast_range"                "3000"                  
-            }
-            "04"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "duration"                "15"                  
-            }
+            "lines" "25"
+            "damage" "200"
+            "cast_range" "3000"
+            "duration" "15"
         }
 
         "OnSpellStart"
@@ -69,72 +53,74 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
         "FightRecapLevel"               "2"
 
         "HasScepterUpgrade"         "1"
 
         // Casting
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "3000"
         "AbilityCastPoint"              "0"
 
         // Time     
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "60 60 60"
+        "AbilityCooldown"               "60"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "220 330 440"       
+        "AbilityManaCost"               "300 400 500"       
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-		{
-			"01"
+        "AbilityValues"
+        {
+			"damage"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"200"
-				"LinkedSpecialBonus"	"special_bonus_unique_jakiro_7"
+				"value"								"150 200 250"
+				"special_bonus_unique_jakiro_7"		"+20"
 			}
-			"02"
+			"path_width"				
 			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range"				"3500"					
+				"value"	"500"
+				"special_bonus_scepter"			"+70"
+				"affected_by_aoe_increase"	"1"
 			}
-			
-			"03"
+			"duration"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"path_radius"				"400"
+				"value"							"10.0"
+				"special_bonus_scepter"			"+5.0"
 			}
-			"04"
+			"AbilityCastRange"				
 			{
-				"var_type"					"FIELD_INTEGER"
-				"duration"					"10"
-			}	
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"burn_interval"				"0.5 0.5 0.5"
+				"value"						"3500"
 			}
-			"06"
+			"burn_interval"				"0.5"
+			"linger_duration"			"2"
+			"pure_damage_type"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"linger_duration"			"2"
+				"value"					"0"
+				"special_bonus_scepter"		"+1"
 			}
-			"07"
+			"pierces_magic_immunity"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"scepter_bonus_range"			"1000"
-				"RequiresScepter"		"1"
+				"value"					"0"
+				"special_bonus_scepter"		"+1"
 			}
-			"08"
+			"ice_edge_path_radius"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"scepter_bonus_duration"			"15"
-				"RequiresScepter"		"1"
+				"value"							"0"
+				"special_bonus_scepter"			"+50"
 			}
-			
-		}	
+			"ice_edge_linger_duration"
+			{
+				"value"							"0"
+				"special_bonus_scepter"			"+0.4"
+			}
+			"ice_edge_movement_slow"
+			{
+				"value"							"0"
+				"special_bonus_scepter"			"60"
+			}
+        }	
     }
 }

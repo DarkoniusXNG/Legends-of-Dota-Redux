@@ -16,71 +16,37 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityTextureName"			"custom/mifune_genso"
 
+		"ReduxPerks"					"illusion"
+		"ReduxFlags"					"illusion"
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"300"
+		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.0"
-		
-		// Time		
+
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"10"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"90 95 100 105"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// All about the damage
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"illusion_damage"				"-75" // percentage total
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"illusion_incoming"				"400" // percentage total
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"illusion_duration"				"5 6 7 8"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"illusion_tooltip"				"25" // percentage total
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"illusion_bonus_movespeed"		"25"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"illusions"						"1 2 3 4"
-			}
-		}
-		
+		"AbilityValues"
+        {
+            "illusion_damage"           "25"
+            "illusion_incoming"         "300"
+            "illusion_duration"         "5 6 7 8"
+            "illusion_bonus_movespeed"  "25"
+            "illusions"                 "1 2 3 4"
+        }
+
 		"precache"
 		{
 			"particle" "particles/units/heroes/hero_terrorblade/terrorblade_reflection_cast.vpcf"
-			"particle" "particles/status_fx/status_effect_terrorblade_reflection.vpcf"
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_terrorblade.vsndevts"
 		}
-		
-		"Modifiers"
-		{
-		}
-
-		"ReduxPerks"	""
-		"ReduxFlags"	""
 	}
 }

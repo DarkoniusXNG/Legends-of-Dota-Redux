@@ -11,22 +11,12 @@
 		"AbilityCastPoint" "0.0"
 		"AbilityDamage" "40 70 100"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"small_radius" "150"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"big_radius" "250"
-			}
-
-			"03" {
-				"var_type" "FIELD_FLOAT"
-				"big_radius_dmg" "0.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "small_radius" "150"
+            "big_radius" "250"
+            "big_radius_dmg" "0.5"
+        }
 
 		"OnOwnerDied" {
 			"FireEffect" {

@@ -9,23 +9,11 @@
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "1200"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "hp_regen"                                             "8 14 20"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "hp_regen_aura"                                        "0.5 1.0 1.5"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "aura_radius"                                          "1200"
-            }
+            "hp_regen" "8 14 20"
+            "hp_regen_aura" "0.5 1.0 1.5"
+            "aura_radius" "1200"
         }
         "Modifiers"
         {

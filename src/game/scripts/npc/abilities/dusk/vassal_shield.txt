@@ -24,24 +24,12 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					  "FIELD_INTEGER"
-				"damage_reduction"                                "-14 -18 -22" // percentage total
-			}
-			"02"
-			{
-				"var_type"					  "FIELD_INTEGER"
-				"radius"                                          "700"
-			}
-			"03"
-			{
-				"var_type"					  "FIELD_INTEGER"
-				"block"                                           "8 12 16" // percentage total
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_reduction" "-14 -18 -22"
+            "radius" "700"
+            "block" "8 12 16"
+        }
 		
 		"precache"
 		{

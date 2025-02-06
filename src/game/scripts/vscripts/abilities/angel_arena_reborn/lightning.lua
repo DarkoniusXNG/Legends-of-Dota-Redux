@@ -38,20 +38,22 @@ function lightning_repeat( params )
         return
     end
 
-    local lightning = ParticleManager:CreateParticle("particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf", PATTACH_WORLDORIGIN, params.initial_target)
+    local lightning = ParticleManager:CreateParticle("particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf", PATTACH_CUSTOMORIGIN, params.initial_target)
     local loc = params.initial_target:GetAbsOrigin()
     ParticleManager:SetParticleControl(lightning, 0, loc + Vector(0, 0, 1000))
-    ParticleManager:SetParticleControl(lightning, 1, loc)
-    ParticleManager:SetParticleControl(lightning, 2, loc)
+    ParticleManager:SetParticleControlEnt(lightning, 1, params.initial_target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0,0,0), true)
     ParticleManager:ReleaseParticleIndex(lightning)
-    EmitSoundOn("Hero_Leshrac.Lightning_Storm", params.initial_target)
+
+    params.initial_target:EmitSound("Hero_Leshrac.Lightning_Storm")
 
     local damageTable = {
         attacker = params.caster,
         victim = params.initial_target,
         damage = params.damage,
         damage_type = DAMAGE_TYPE_MAGICAL,
-        ability = params.ability}
+        ability = params.ability
+    }
+
     ApplyDamage(damageTable)
 
     -- if unit is still alive, apply slow with glow particle

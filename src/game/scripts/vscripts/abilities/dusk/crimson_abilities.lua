@@ -1,11 +1,8 @@
 function crimson_disintegrate(event)
   local caster = event.caster
   local target = event.target
-
-  
-  
   local selfdamage = event.selfdamage
-  
+
   local damage = event.damage
   if caster:HasScepter() then damage = event.damage_scepter end
 
@@ -18,7 +15,7 @@ function crimson_disintegrate(event)
   event.ability:ApplyDataDrivenModifier(caster, target, "crimson_disintegrate_reduction_mod", {}) --[[Returns:void
   No Description Set
   ]]
-  
+
   local dmgTable = {
     attacker = caster,
     victim = target,
@@ -75,12 +72,12 @@ function crimson_drain(event)
   local target = event.target
   local particle = event.particle
   local speed = event.speed
-  
-  local info = 
+
+  local info =
   {
   Target = caster,
   Source = target,
-  Ability = event.ability,  
+  Ability = event.ability,
   EffectName = particle,
   vSpawnOrigin = target:GetAbsOrigin(),
   fDistance = 2000,
@@ -98,9 +95,9 @@ function crimson_drain(event)
   iVisionRadius = 0,
   iVisionTeamNumber = caster:GetTeamNumber()
   }
-  
+
   local projectile = ProjectileManager:CreateTrackingProjectile(info)
-  
+
 end
 
 function crimson_red_rituals_dmg(event)
@@ -110,20 +107,20 @@ function crimson_red_rituals_dmg(event)
   local threshold = event.threshold
   local stack = target:GetModifierStackCount("crimson_red_rituals_stun_check",event.ability)
   local stunduration = (stack/threshold)*0.75
-  
+
   target:SetModifierStackCount("crimson_red_rituals_stun_check",event.ability,stack+damage)
-  
+
   print("STACKS ARE "..stack)
-  
+
   if stack >= threshold then print("PROC!!!") print("STUN DURATION IS "..stunduration) target:AddNewModifier(caster,nil,"modifier_stunned",{Duration=stunduration}) target:SetModifierStackCount("crimson_red_rituals_stun_check",event.ability,0) return end
-  
+
 end
 
 function blood_sorcery(keys)
   local caster = keys.caster
   local hperc = 100-caster:GetHealthPercent()
   local str = caster:GetStrength()
-  local int = caster:GetIntellect()
+  local int = caster:GetIntellect(false)
 
   caster:SetModifierStackCount("crimson_blood_sorcery_armor_mod",keys.ability,hperc)
   caster:SetModifierStackCount("crimson_blood_sorcery_mod",keys.ability,int)
@@ -282,25 +279,23 @@ function MoveSacrifice(keys)
   if target:GetRangeToUnit(caster) < 20 then
     target:RemoveSelf()
   end
-    
+
   target:SetPhysicsVelocity(direction * speed)
 end
 
 function AncientPact(keys)
   local caster = keys.caster
+  local ability = keys.ability
   local hp = caster:GetHealthDeficit()
   local mp = caster:GetMana()
-  local max = 375
-  local amt = mp
   local mult = keys.x
-  if mp > hp then amt = hp end
-  if amt > max then amt = max end
-  if hp > max then hp = max end
+  local amt = mp
 
-  caster:SpendMana(amt*mult,caster)
-  caster:Heal(amt,caster)
+  if amt > hp then amt = hp end
 
-  local p = ParticleManager:CreateParticle("particles/units/heroes/hero_crimson/crimson_ancient_pact.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster) --[[Returns:int
-  Creates a new particle effect
-  ]]
+  caster:SpendMana(amt*mult, ability)
+  caster:Heal(amt, ability)
+
+  local p = ParticleManager:CreateParticle("particles/units/heroes/hero_crimson/crimson_ancient_pact.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:ReleaseParticleIndex(p)
 end

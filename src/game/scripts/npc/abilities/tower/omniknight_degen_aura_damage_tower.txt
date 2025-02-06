@@ -10,28 +10,12 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"                                                   "custom/omniknight_degen_aura_damage_tower"
         "AbilityCastRange"                                                     "1000"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "1000"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "stack_rate"                                           "1.0"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "sticky_time"                                          "3"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "stack_reduction_pct"                                  "3 5 7"
-            }
+            "radius" "1000"
+            "stack_rate" "1.0"
+            "sticky_time" "3"
+            "stack_reduction_pct" "3 5 7"
         }
         "precache"
         {

@@ -16,33 +16,13 @@
         "AbilityCastPoint"                                                     "0.0 0.0 0.0 0.0"
         "AbilityManaCost"                                                      "110 120 130 140"
         "MaxLevel"                                                             "4"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "4.0"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "damage"                                               "80 100 120 140"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "600"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "tick_time"                                            "1.0 1.0 1.0 1.0"
-            }
-            "05"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "damage_percent"                                       "3.0 4.5 6.0 7.5"
-            }
+            "duration" "4.0"
+            "damage" "80 100 120 140"
+            "radius" "600"
+            "tick_time" "1.0 1.0 1.0 1.0"
+            "damage_percent" "3.0 4.5 6.0 7.5"
         }
         "OnSpellStart"
         {

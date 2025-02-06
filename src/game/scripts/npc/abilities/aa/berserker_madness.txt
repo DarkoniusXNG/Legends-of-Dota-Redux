@@ -17,18 +17,10 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
         }
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "bonus_all_stats"                                      "25 45 65"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "20"
-            }
+            "bonus_all_stats" "25 45 65"
+            "duration" "20"
         }
         "OnSpellStart"
         {

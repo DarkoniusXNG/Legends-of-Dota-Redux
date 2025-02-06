@@ -76,41 +76,15 @@
 			}
 		}
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_FLOAT"
-				"duration" "9.0"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"strike_damage" "25"
-			}
-
-			"03" {
-				"var_type" "FIELD_INTEGER"
-				"tick_damage" "0 15 30 45"
-			}
-
-			"04" {
-				"var_type" "FIELD_FLOAT"
-				"tick_interval" "3.0 3.0 3.0 3.0"
-			}
-
-			"05" {
-				"var_type" "FIELD_INTEGER"
-				"movement_slow" "-10"
-			}
-
-			"06" {
-				"var_type" "FIELD_INTEGER"
-				"radius" "125 125 125 125"
-			}
-
-			"07" {
-				"var_type" "FIELD_INTEGER"
-				"speed" "1200 1200 1200 1200"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "9.0"
+            "strike_damage" "25"
+            "tick_damage" "0 15 30 45"
+            "tick_interval" "3.0 3.0 3.0 3.0"
+            "movement_slow" "-10"
+            "radius" "125 125 125 125"
+            "speed" "1200 1200 1200 1200"
+        }
 	}
 }

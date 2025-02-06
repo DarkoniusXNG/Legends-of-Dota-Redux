@@ -6,17 +6,11 @@
 		"MaxLevel" "3"
 		"AOERadius" "400 600 800"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"radius" "400 600 800"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"resistance" "25 35 50"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "400 600 800"
+            "resistance" "25 35 50"
+        }
 
 		"OnSpellStart" {
 			"RunScript" {

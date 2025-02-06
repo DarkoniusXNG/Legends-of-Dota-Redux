@@ -13,18 +13,10 @@
             "particle"                                                     "particles/spell_lab/soul_remnant.vpcf"
             "particle"                                                     "particles/spell_lab/souls_gain.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-        				"per_soul"						"0.12"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-        				"max"						"100 150 200 250"
-            }
+            "per_soul" "0.12"
+            "max" "100 150 200 250"
         }
         "ReduxFlags"                                                           ""
         "ReduxBans"                                                            ""

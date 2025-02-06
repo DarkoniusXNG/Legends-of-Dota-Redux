@@ -8,18 +8,10 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityCooldown"                                                      "25"
         "AbilityManaCost"                                                      "0"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "current_health_as_damage"                             "5 6 7"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "duration"                                             "15"
-            }
+            "current_health_as_damage" "5 6 7"
+            "duration" "15"
         }
         "Precache"
         {
@@ -35,6 +27,12 @@
             }
             "ApplyModifier"
             {
+                "ModifierName"                                         "modifier_ursa_enrage_old"
+                "Target"                                               "CASTER"
+                "Duration"                                             "%duration"
+            }
+            "ApplyModifier"
+            {
                 "ModifierName"                                         "modifier_ursa_enrage_old_hidden"
                 "Target"                                               "CASTER"
                 "Duration"                                             "%duration"
@@ -46,7 +44,7 @@
             {
                 "Passive"                                              "0"
                 "IsHidden"                                             "0"
-                "IsPurgable"                                           "1"
+                "IsPurgable"                                           "0"
                 "IsBuff"                                               "1"
                 "IsDebuff"                                             "0"
                 "IsStunDebuff"                                         "0"
@@ -73,7 +71,7 @@
             {
                 "Passive"                                              "0"
                 "IsHidden"                                             "1"
-                "IsPurgable"                                           "1"
+                "IsPurgable"                                           "0"
                 "IsBuff"                                               "1"
                 "IsDebuff"                                             "0"
                 "IsStunDebuff"                                         "0"

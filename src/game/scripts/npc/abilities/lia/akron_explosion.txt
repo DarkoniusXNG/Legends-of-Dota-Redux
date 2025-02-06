@@ -17,28 +17,12 @@
             "particle"                                                     "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "radius"                                               "400"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "hp_prc_dmg"                                           "14 16 18 20"
-            }
-            "03"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "burn_damage"                                          "20 40 60 80"
-            }
-            "04"
-            {
-                "var_type"                                             "FIELD_FLOAT"
-                "duration"                                             "5"
-            }
+            "radius" "400"
+            "hp_prc_dmg" "14 16 18 20"
+            "burn_damage" "20 40 60 80"
+            "duration" "5"
         }
         "OnSpellStart"
         {

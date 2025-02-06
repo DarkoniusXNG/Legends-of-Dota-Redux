@@ -20,7 +20,7 @@ function item_health_potion:OnSpellStart()
 		local nFXIndex = ParticleManager:CreateParticle( "particles/items3_fx/fish_bones_active.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
 		ParticleManager:ReleaseParticleIndex( nFXIndex )
 
-		self:SpendCharge()
+		self:SpendCharge(0.1)
 	end
 end
 

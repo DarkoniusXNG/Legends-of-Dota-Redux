@@ -12,18 +12,10 @@
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts"
             "particle"                                                     "particles/essence_amp_crit.vpcf"
         }
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "crit_chance"                                          "35"
-            }
-            "02"
-            {
-                "var_type"                                             "FIELD_INTEGER"
-                "crit_amp"                                             "175 225 275"
-            }
+            "crit_chance" "35"
+            "crit_amp" "175 225 275"
         }
         "ReduxFlags"                                                           "crit"
         "ReduxCost"                                                            "40"

@@ -5,21 +5,11 @@
 		"AbilityTextureName" "custom/lod_creep_power"
 		"ScriptFile" "abilities/lod_creep_power.lua"
 
-		"AbilitySpecial" {
-			"01" {
-				"var_type" "FIELD_INTEGER"
-				"coef" "5"
-			}
-
-			"02" {
-				"var_type" "FIELD_INTEGER"
-				"damage_per_level" "2"
-			}
-
-			"03" {
-				"var_type" "FIELD_FLOAT"
-				"resist_per_level" "0.1"
-			}
-		}
+		"AbilityValues"
+        {
+            "coef" "5"
+            "damage_per_level" "2"
+            "resist_per_level" "0.1"
+        }
 	}
 }
