@@ -4,11 +4,11 @@ local hero_names = {
 	"alchemist", -- ok
 	"ancient_apparition", -- ok, too strong?
 	"antimage", -- ok, D tier
-	"arc_warden", -- terrible, S tier
+	"arc_warden", -- ok, S tier
 	"axe", -- ok
 	"bane", -- ok
 	"batrider", -- ok, kinda bad
-	"beastmaster", -- terrible
+	"beastmaster", -- ok
 	"bloodseeker", -- terrible
 	"bounty_hunter", -- ok
 	"brewmaster", -- terrible, A tier
