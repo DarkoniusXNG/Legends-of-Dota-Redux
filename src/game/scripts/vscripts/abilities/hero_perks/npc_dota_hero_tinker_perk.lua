@@ -23,9 +23,7 @@ end
 function modifier_npc_dota_hero_tinker_perk:GetTexture()
 	return "custom/npc_dota_hero_tinker_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_tinker_perk:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
@@ -33,8 +31,8 @@ function modifier_npc_dota_hero_tinker_perk:DeclareFunctions()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_tinker_perk:GetModifierTotalDamageOutgoing_Percentage(keys)
-    local ability = keys.inflictor
-	if not ability then
+	local ability = keys.inflictor
+	if not ability or ability:IsNull() then
 		return 0
 	end
 	if ability:HasAbilityFlag("scientific") then

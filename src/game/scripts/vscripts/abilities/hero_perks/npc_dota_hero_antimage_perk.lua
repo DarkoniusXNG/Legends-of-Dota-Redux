@@ -6,7 +6,7 @@
 --------------------------------------------------------------------------------------------------------
 LinkLuaModifier( "modifier_npc_dota_hero_antimage_silence", "abilities/hero_perks/npc_dota_hero_antimage_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_antimage_perk ~= "" then modifier_npc_dota_hero_antimage_perk = class({}) end
+modifier_npc_dota_hero_antimage_perk = modifier_npc_dota_hero_antimage_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_antimage_perk:IsPassive()
 	return true
@@ -37,27 +37,31 @@ function modifier_npc_dota_hero_antimage_perk:DeclareFunctions()
 	}
 end
 
-function modifier_npc_dota_hero_antimage_perk:OnAbilityExecuted(params)
-	if IsServer() then
-		if params.unit ~= self:GetParent() then return end
-		if params.ability:HasAbilityFlag("blink") then
-			local silence = params.ability -- For modifier icon
+if IsServer() then
+	function modifier_npc_dota_hero_antimage_perk:OnAbilityExecuted(params)
+		local parent = self:GetParent()
+		if params.unit ~= parent then return end
+		local ability = params.ability -- For modifier icon
+		if not ability or ability:IsNull() then return end
+		if ability:HasAbilityFlag("blink") then
+			local radius = self.radius
+			local duration = self.duration
 			Timers:CreateTimer(function()
-				if not silence or silence:IsNull() then return end
-				local pos = self:GetParent():GetAbsOrigin()
-				local targets = FindUnitsInRadius(self:GetParent():GetTeamNumber(), pos, nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_DAMAGE_FLAG_NONE, FIND_ANY_ORDER, false)
-				for _,target in pairs(targets) do
-					target:AddNewModifier(self:GetParent(), silence, "modifier_npc_dota_hero_antimage_silence", {duration = self.duration})
+				if not ability or ability:IsNull() then return end
+				if not parent or parent:IsNull() then return end
+				local pos = parent:GetAbsOrigin()
+				local targets = FindUnitsInRadius(parent:GetTeamNumber(), pos, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_DAMAGE_FLAG_NONE, FIND_ANY_ORDER, false)
+				for _, target in pairs(targets) do
+					if target and not target:IsNull() then
+						target:AddNewModifier(parent, ability, "modifier_npc_dota_hero_antimage_silence", {duration = duration})
+					end
 				end
 			end)
 		end
 	end
 end
 
---------------------------------------------------------------------------------------------------------
---		Phase Modifier: 	modifier_npc_dota_hero_antimage_silence		
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_antimage_silence ~= "" then modifier_npc_dota_hero_antimage_silence = class({}) end
+modifier_npc_dota_hero_antimage_silence = modifier_npc_dota_hero_antimage_silence or class({})
 --------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_antimage_silence:CheckState()
