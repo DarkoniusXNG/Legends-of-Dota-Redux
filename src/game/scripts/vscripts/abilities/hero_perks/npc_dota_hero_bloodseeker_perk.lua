@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Bloodseeker
---		Perk: When Bloodseeker casts Rupture, 100% of the mana cost will be refunded and cooldown reduced by 20%.
---
+--		Perk: Bloodseeker gains +1% Spell Amp, +1% Lifesteal Amp and +1% Mana Regen Amp for each level put in a Blood ability.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_bloodseeker_perk ~= "" then modifier_npc_dota_hero_bloodseeker_perk = class({}) end
+modifier_npc_dota_hero_bloodseeker_perk = modifier_npc_dota_hero_bloodseeker_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_bloodseeker_perk:IsPassive()
 	return true
@@ -27,33 +25,44 @@ function modifier_npc_dota_hero_bloodseeker_perk:GetTexture()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_bloodseeker_perk:OnCreated()
-  if IsServer() then
-    local cooldownReductionPercent = 20
-    self.cooldownReduction = 1 - (cooldownReductionPercent / 100)
-  end
+	self.bonusPerLevel = 1
+	if IsServer() then
+		self:StartIntervalThink(0.1)
+	end
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_bloodseeker_perk:OnIntervalThink()
+	if IsServer() then
+		local caster = self:GetParent()
+		local stacks = 0
+		for i = 0, caster:GetAbilityCount() - 1 do
+			local skill = caster:GetAbilityByIndex(i)
+			if skill and skill:HasAbilityFlag("blood") then
+				stacks = stacks + skill:GetLevel() * self.bonusPerLevel
+			end
+		end
+		self:SetStackCount(stacks)
+	end
+end
 
 function modifier_npc_dota_hero_bloodseeker_perk:DeclareFunctions()
-  local funcs = {
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
+  return {
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+	MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+	MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
   }
-  return funcs
 end
 
-function modifier_npc_dota_hero_bloodseeker_perk:OnAbilityFullyCast(keys)
-  if IsServer() then
-    local parent = self:GetParent()
-    local unit = keys.unit
-    local ability = keys.ability
-
-    if parent == unit and ability:GetName() == "bloodseeker_rupture" then
-      local cooldown = ability:GetCooldownTimeRemaining() * self.cooldownReduction
-      ability:RefundManaCost()
-      ability:EndCooldown()
-      ability:StartCooldown(cooldown)
-    end
-  end
+function modifier_npc_dota_hero_bloodseeker_perk:GetModifierSpellAmplify_Percentage()
+	return self:GetStackCount()
 end
+
+function modifier_npc_dota_hero_bloodseeker_perk:GetModifierLifestealRegenAmplify_Percentage()
+	return self:GetStackCount()
+end
+
+function modifier_npc_dota_hero_bloodseeker_perk:GetModifierMPRegenAmplify_Percentage()
+	return self:GetStackCount()
+end
+
+

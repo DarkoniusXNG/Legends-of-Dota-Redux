@@ -9,7 +9,7 @@ local hero_names = {
 	"bane", -- ok
 	"batrider", -- ok, kinda bad
 	"beastmaster", -- ok
-	"bloodseeker", -- terrible
+	"bloodseeker", -- ok
 	"bounty_hunter", -- ok
 	"brewmaster", -- terrible, A tier
 	"bristleback", -- kinda bad
