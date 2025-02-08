@@ -4356,7 +4356,7 @@
 	}
 	"monkey_king_primal_spring"
 	{
-		"ReduxFlags"                                                           "mobility"
+		"ReduxFlags"                                                           "mobility | doNotRandom"
 		"ReduxPerks"                                                           "channeled  | mobility"
 	}
 	"riki_tricks_of_the_trade"

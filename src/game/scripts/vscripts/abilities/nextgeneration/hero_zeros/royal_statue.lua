@@ -43,7 +43,7 @@ function BonusGold (keys )
 		local particle = ParticleManager:CreateParticleForPlayer( particleName, PATTACH_ABSORIGIN, target, player )
 		ParticleManager:SetParticleControl( particle, 0, caster:GetAbsOrigin() )
 		ParticleManager:SetParticleControl( particle, 1, caster:GetAbsOrigin() )
-
+		ParticleManager:ReleaseParticleIndex(particle)
 
 		local value = bonus_gold
 		local symbol = 0 -- "+" presymbol
@@ -55,6 +55,7 @@ function BonusGold (keys )
 		ParticleManager:SetParticleControl( particle, 1, Vector( symbol, value, symbol) )
 	    ParticleManager:SetParticleControl( particle, 2, Vector( lifetime, digits, 0) )
 	    ParticleManager:SetParticleControl( particle, 3, color )
+		ParticleManager:ReleaseParticleIndex(particle)
 	end
 end
 
