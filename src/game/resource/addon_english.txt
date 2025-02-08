@@ -1827,7 +1827,7 @@
 "DOTA_Tooltip_ability_hylonome_libation_lore" "Simply drawing blood gives the weilder a glimpse of this accursed sword's power."
 "DOTA_Tooltip_ability_hylonome_libation_movement_slow" "%MOVEMENT SLOW:"
 "DOTA_Tooltip_ability_hylonome_libation_radius_scepter" "SCEPTER LATCH RADIUS:"
-"DOTA_Tooltip_ability_hylonome_ulitmate_description" "Dark tendrils burst forth from Hylonome's chest that lash out at nearby enemies. Each tendril's attack deals Pure damage based on a percentage of Hylonome's base damage."
+"DOTA_Tooltip_ability_hylonome_ultimate_description" "Dark tendrils burst forth from Hylonome's chest that lash out at nearby enemies. Each tendril's attack deals Pure damage based on a percentage of Hylonome's base damage."
 "DOTA_Tooltip_ability_hylonome_ultimate" "Libation"
 "DOTA_Tooltip_ability_hylonome_ultimate_lore" "Simply drawing blood gives the weilder a glimpse of this accursed sword's power."
 "DOTA_Tooltip_ability_illusionist_agility_paws" "Sleight of Paws"

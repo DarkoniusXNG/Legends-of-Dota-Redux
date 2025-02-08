@@ -510,7 +510,7 @@
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "IsBreakable"                   "1"
 		
-        "ReduxPerks"                    "aura"
+        "ReduxPerks"                    "aura | blood"
 
         "precache"
         {
@@ -551,7 +551,7 @@
         "HasScepterUpgrade"             "1"
 
         "ReduxFlags"                    "upgradeable"
-        "ReduxPerks"                    "drain | demon"
+        "ReduxPerks"                    "drain | demon | blood"
 
         "precache"
         {

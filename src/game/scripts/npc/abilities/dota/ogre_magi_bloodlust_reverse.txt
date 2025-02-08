@@ -28,5 +28,6 @@
         }
         "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           ""
+        "ReduxPerks"                                                           "blood"
     }
 }

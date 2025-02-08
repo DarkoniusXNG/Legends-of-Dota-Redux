@@ -33,6 +33,7 @@
             }
         }
         "ReduxFlags"                                                           "dota_custom"
+        "ReduxPerks"                                                           "blood"
         "ReduxCost"                                                            "80"
     }
 }

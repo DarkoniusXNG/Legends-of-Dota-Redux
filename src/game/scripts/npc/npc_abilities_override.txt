@@ -6,8 +6,11 @@
 #base "heroes\axe.txt"
 #base "heroes\bane.txt"
 #base "heroes\batrider.txt"
+#base "heroes\bloodseeker.txt"
 #base "heroes\dawnbreaker.txt"
+#base "heroes\dragon_knight.txt"
 #base "heroes\elder_titan.txt"
+#base "heroes\huskar.txt"
 #base "heroes\invoker.txt"
 #base "heroes\kez.txt"
 #base "heroes\kunkka.txt"
@@ -1921,11 +1924,6 @@
 		}
 	}
 
-	"bloodseeker_rupture"
-	{
-		"ReduxCost"                                                            "10"
-		"ReduxBans"                                                            "batrider_sticky_napalm"
-	}
 	"brewmaster_primal_split"
 	{
 		"ReduxFlags"                                                           "summon"
@@ -2044,13 +2042,7 @@
 		"ReduxFlags"                                                           "tank"
 		"ReduxCost"                                                            "40"
 	}
-	"huskar_life_break"
-	{
-		"ReduxFlags"                                                           "upgradeable | mobility"
-		"ReduxPerks"                                                           "self_damage | mobility | rage"
-		"ReduxCost"                                                            "120"
-		"ReduxBans"                                                            "spell_lab_symbiotic"
-	}
+
 	"jakiro_macropyre"
 	{
 		"ReduxFlags"                                                           "upgradeable"
@@ -2388,11 +2380,7 @@
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support | nature"
 	}
-	"huskar_inner_vitality"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
-	}
+
 	"juggernaut_healing_ward"
 	{
 		"ReduxFlags"                                                           "support | summon"
@@ -2414,7 +2402,7 @@
 	"ogre_magi_bloodlust"
 	{
 		"ReduxFlags"                                                           "mobility | support"
-		"ReduxPerks"                                                           "mobility | support | rage"
+		"ReduxPerks"                                                           "mobility | support | rage | blood"
 	}
 	"omniknight_repel"
 	{
@@ -2641,12 +2629,7 @@
 		"ReduxPerks"                                                           "mobility | rage"
 		"ReduxCost"                                                            "20"
 	}
-	"bloodseeker_thirst"
-	{
-		"ReduxFlags"                                                           "mobility | semi_passive"
-		"ReduxPerks"                                                           "mobility"
-		"ReduxCost"                                                            "20"
-	}
+
 	"void_spirit_dissimilate"
 	{
 		"ReduxFlags"                                                           "mobility"
@@ -3003,11 +2986,7 @@
 		"ReduxPerks"                                                           "scientific"
 		"ReduxCost"                                                            "40"
 	}
-	"huskar_berserkers_blood"
-	{
-		"ReduxFlags"                                                           "tank"
-		"ReduxCost"                                                            "30"
-	}
+
 	"phantom_assassin_blur"
 	{
 		"ReduxFlags"                                                           "upgradeable"
@@ -3050,12 +3029,7 @@
 	{
 		"ReduxPerks"                                                           "earth"
 	}
-	"dragon_knight_dragon_blood"
-	{
-		"ReduxFlags"                                                           "aoe_attack | attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | physical"
-		"ReduxCost"                                                            "10"
-	}
+
 	"tidehunter_kraken_shell"
 	{
 		"ReduxFlags"                                                           "tank"
@@ -3164,22 +3138,11 @@
 		"ReduxFlags"                                                           "aoe_attack | attack_modifier | upgradeable"
 		"ReduxPerks"                                                           "attack_modifier | scientific"
 	}
-	"dragon_knight_elder_dragon_form"
-	{
-		"ReduxFlags"                                                           "attack_modifier | physical | upgradeable"
-		"ReduxPerks"                                                           "attack_modifier | physical"
-		"ReduxCost"                                                            "10"
-	}
+
 	"monkey_king_jingu_mastery"
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"
 		"ReduxPerks"                                                           "attack_modifier | physical"
-	}
-	"bloodseeker_bloodrage"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | rage"
-		"ReduxCost"                                                            "20"
 	}
 
 	// Remove cooldown reduction talents
@@ -3241,13 +3204,7 @@
 		"ReduxPerks"                                                           "attack_modifier | earth"
 		"ReduxCost"                                                            "10"
 	}
-	"huskar_burning_spear"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | fire | self_damage | autocast_basic"
-		"ReduxCost"                                                            "10"
-		"ReduxBans"                                                            "batrider_sticky_napalm | spell_lab_symbiotic"
-	}
+
 	"drow_ranger_frost_arrows"
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"
@@ -3440,11 +3397,7 @@
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "demon"
 	}
-	"dragon_knight_dragon_tail"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxCost"                                                            "10"
-	}
+
 	"dazzle_poison_touch"
 	{
 		"ReduxFlags"                                                           "physical"
@@ -3705,11 +3658,7 @@
 		"ReduxPerks"                                                           "dagger | physical"
 		"ReduxCost"                                                            "20"
 	}
-	"bloodseeker_blood_bath"
-	{
-		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "skillshot | silence"
-	}
+
 	"death_prophet_silence"
 	{
 		"ReduxFlags"                                                           "silence"
@@ -3789,10 +3738,7 @@
 		"ReduxPerks"                                                           "fire"
 		"ReduxCost"                                                            "80"
 	}
-	"dragon_knight_breathe_fire"
-	{
-		"ReduxPerks"                                                           "fire | skillshot"
-	}
+
 	"nyx_assassin_mana_burn"
 	{
 		"ReduxFlags"                                                           "mana"
@@ -4189,7 +4135,7 @@
 	}
 	"item_blood_grenade"
 	{
-		"ReduxPerks"                                                           "support"
+		"ReduxPerks"                                                           "support | blood"
 	}
 	"item_dust"
 	{
@@ -4198,7 +4144,7 @@
 
 	"centaur_double_edge"
 	{
-		"ReduxPerks"                                                           "self_damage"
+		"ReduxPerks"                                                           "self_damage | blood"
 	}
 	"beastmaster_inner_beast"
 	{
@@ -4250,6 +4196,10 @@
 	"item_assault"
 	{
 		"ReduxPerks"                                                           "aura"
+	}
+	"item_bloodstone"
+	{
+		"ReduxPerks"                                                           "blood"
 	}
 	"item_shivas_guard"
 	{
@@ -4456,7 +4406,7 @@
 	}
 	"item_bloodthorn"
 	{
-		"ReduxPerks"                                                           "silence"
+		"ReduxPerks"                                                           "silence | blood"
 	}
 	"item_wind_waker"
 	{
@@ -4797,28 +4747,6 @@
 		"ReduxPerks"                                                           "light"
 	}
 
-	"dragon_knight_fireball"
-	{
-		"ReduxPerks"                    "fire"
-
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"20 19 18 17"
-		"AbilityValues"
-		{
-			"radius"			"350 375 400 425"
-			"damage"
-			{
-				"value"			"75"
-				"CalculateSpellDamageTooltip" "1"
-			}
-			"duration"			"8.0"
-			"burn_interval"			"0.5"
-			"linger_duration"			"2"
-			"dragon_form_cast_range"	"1400"
-			"melee_cast_range"			"600"
-		}
-	}
-
 	"shredder_flamethrower"
 	{
 		"ReduxPerks"                    "fire"
@@ -4919,12 +4847,6 @@
 		"ReduxPerks"                                                           "support"
 	}
 
-	"huskar_inner_fire"
-	{
-		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "silence | enemyMoving | fire | rage | self_damage"
-	}
-
 	"lich_sinister_gaze"
 	{
 		"ReduxFlags"                                                           "stun | upgradeable"
@@ -4945,7 +4867,7 @@
 
 	"mars_arena_of_blood"
 	{
-		"ReduxPerks"                                                           "enemyMoving"
+		"ReduxPerks"                                                           "enemyMoving | blood"
 	}
 
 	"meepo_petrify"
@@ -5665,32 +5587,6 @@
 		}
 	}
 
-	"bloodseeker_blood_mist"
-	{
-		"ReduxFlags"	"upgradeable"
-		"ReduxPerks"	"self_damage"
-
-		"MaxLevel"                      "4"
-		"AbilityCooldown"               "3.0 2.0 1.0 0.0"
-		"AbilityManaCost"               "0"
-		"AbilityValues"
-		{
-			"hp_cost_per_second"
-			{
-				"value"				"7"
-				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
-			}
-			"radius"
-			{
-				"value"		"450"
-				"affected_by_aoe_increase"	"1"
-			}
-			"movement_slow"			"30 35 40 45"
-			"barrier_decay_pct"			"0.5 0.45 0.4 0.35"
-			"voracity_bonus_pct"		"50 60 70 80"
-		}
-	}
-
 	"clinkz_burning_army"
 	{
 		"ReduxFlags"				"upgradeable | doNotRandom | summon"
@@ -5710,6 +5606,7 @@
 	"medusa_cold_blooded"
 	{
 		"ReduxFlags"				    "doNotRandom"
+		"ReduxPerks"                                                           "blood"
 
 		"MaxLevel"						"4"
 		"AbilityCooldown"				"12 8 4 2"
@@ -6380,81 +6277,6 @@
 		"TalentRequiredAbility"                                                   "chaos_knight_chaos_bolt"
 	}
 
-	// Dragon Knight
-	"special_bonus_unique_dragon_knight"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_dragon_blood"
-	}
-	"special_bonus_unique_dragon_knight_2"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_dragon_tail"
-	}
-	"special_bonus_unique_dragon_knight_3"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_breathe_fire"
-	}
-	"special_bonus_unique_dragon_knight_4"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_dragon_blood"
-	}
-	"special_bonus_unique_dragon_knight_5"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_elder_dragon_form"
-	}
-	"special_bonus_unique_dragon_knight_6"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_elder_dragon_form"
-	}
-	"special_bonus_unique_dragon_knight_7"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_elder_dragon_form"
-	}
-	"special_bonus_unique_dragon_knight_8"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_dragon_tail"
-	}
-	"special_bonus_unique_dragon_knight_9"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_breathe_fire"
-	}
-
-
 	// Earth Spirit
 	"special_bonus_unique_earth_spirit"
 	{
@@ -6727,40 +6549,6 @@
 	"special_bonus_unique_gyrocopter_flak_cannon_bonus_damage"
 	{
 		"TalentRequiredAbility"                                                   "gyrocopter_flak_cannon"
-	}
-
-	// Huskar
-	"special_bonus_unique_huskar"
-	{
-		"TalentRequiredAbility"                                                   "huskar_life_break"
-	}
-	"special_bonus_unique_huskar_2"
-	{
-		"TalentRequiredAbility"                                                   "huskar_burning_spear"
-	}
-	"special_bonus_unique_huskar_3"
-	{
-		"TalentRequiredAbility" 												  "huskar_inner_fire"
-	}
-	"special_bonus_unique_huskar_4"
-	{
-		"TalentRequiredAbility"                                                   "huskar_life_break"
-	}
-	"special_bonus_unique_huskar_5"
-	{
-		"TalentRequiredAbility"                                                   "huskar_burning_spear"
-	}
-	"special_bonus_unique_huskar_6"
-	{
-		"TalentRequiredAbility"                                                   "huskar_berserkers_blood"
-	}
-	"special_bonus_unique_huskar_7"
-	{
-		"TalentRequiredAbility"                                                   "huskar_life_break"
-	}
-	"special_bonus_unique_huskar_8"
-	{
-		"TalentRequiredAbility"                                                   "huskar_inner_fire"
 	}
 
 	// Jakiro
@@ -10054,41 +9842,6 @@
 		"TalentRequiredAbility"                                                   "bounty_hunter_jinada"
 	}
 
-
-
-	"special_bonus_unique_bloodseeker"
-	{
-		"TalentRequiredAbility"                                                   "bloodseeker_blood_bath"
-	}
-	"special_bonus_unique_bloodseeker_2"
-	{
-		"TalentRequiredAbility"                                          		"bloodseeker_blood_bath"
-	}
-	"special_bonus_unique_bloodseeker_3"
-	{
-		"TalentRequiredAbility"                                                   "bloodseeker_rupture"
-	}
-	"special_bonus_unique_bloodseeker_4"
-	{
-		"TalentRequiredAbility"                                                   "bloodseeker_thirst"
-	}
-	"special_bonus_unique_bloodseeker_5"
-	{
-		"TalentRequiredAbility"                                                   "bloodseeker_bloodrage"
-	}
-	"special_bonus_unique_bloodseeker_6"
-	{
-		"TalentRequiredAbility"                                                   "bloodseeker_bloodrage"
-	}
-	"special_bonus_unique_bloodseeker_7"
-	{
-		"TalentRequiredAbility"                                                   "bloodseeker_rupture"
-	}
-	"special_bonus_unique_bloodseeker_rupture_charges"
-	{
-		"TalentRequiredAbility"                                                   "bloodseeker_rupture"
-	}
-
 	"special_bonus_unique_grimstroke_1"
 	{
 		"TalentRequiredAbility" 					"grimstroke_spirit_walk"
@@ -10590,6 +10343,7 @@
 		"ItemCost"                      "750"
 		"ItemPurchasable"               "1"
 		"ItemSellable"                  "1"
+		"ReduxPerks"                                                           "blood | self_damage"
 	}
 	"item_specialists_array"
 	{

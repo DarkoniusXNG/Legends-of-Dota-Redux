@@ -94,5 +94,6 @@
         "ReduxCost"                                                            "120"
         "ReduxBans"                                                            "dragon_knight_dragon_blood"
         "ReduxFlags"                                                           ""
+        "ReduxPerks"                                                           "blood"
     }
 }

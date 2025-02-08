@@ -711,6 +711,7 @@
         "AbilitySound"                  "Hero_Mars.ArenaOfBlood.Start"
         "AbilityTextureName"            "custom/mars_arena_of_blood_op"
         "ReduxCost"                                                            "120"
+        "ReduxPerks"                                                           "blood"
 
         "precache"
         {
