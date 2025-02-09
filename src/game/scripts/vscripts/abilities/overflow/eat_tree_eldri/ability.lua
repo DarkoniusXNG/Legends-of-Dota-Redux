@@ -7,10 +7,6 @@ function eat_tree_eldri:GetCastAnimation()
 	return ACT_DOTA_CAST_ABILITY_1
 end
 
-function eat_tree_eldri:GetAbilityType()
-	return DOTA_ABILITY_TYPE_ULTIMATE
-end
-
 function eat_tree_eldri:OnSpellStart()
 	local treeMod = self:GetCaster():FindModifierByName("eat_tree_eldri_mod")
 	if treeMod then
@@ -32,9 +28,4 @@ function eat_tree_eldri:OnSpellStart()
 	EmitSoundOnLocationWithCaster( self:GetCaster():GetOrigin(), "Hero_Omniknight.GuardianAngel", self:GetCaster() )
 	self:GetCaster():AddNewModifier( self:GetCaster(), self, "eat_tree_eldri_mod", { duration = self:GetSpecialValueFor("duration") , stack = 1 } )
 	self:GetCaster():CalculateStatBonus(true)
-end
-
-function eat_tree_eldri:GetBehavior()
-	local behav = DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
-	return behav
 end
