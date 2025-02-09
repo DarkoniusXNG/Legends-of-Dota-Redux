@@ -23,9 +23,6 @@ end
 function modifier_npc_dota_hero_drow_ranger_perk:GetTexture()
 	return "custom/npc_dota_hero_drow_ranger_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_drow_ranger_perk:DeclareFunctions()
 	return {
@@ -35,7 +32,6 @@ end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_drow_ranger_perk:OnCreated()
 	self.bonusPerLevel = 3
-	self.bonusAmount = 1
 	if IsServer() then
 		self:StartIntervalThink(0.1)
 	end
@@ -56,5 +52,5 @@ function modifier_npc_dota_hero_drow_ranger_perk:OnIntervalThink()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_drow_ranger_perk:GetModifierBonusStats_Agility()
-	return self.bonusAmount * self:GetStackCount()
+	return self:GetStackCount()
 end

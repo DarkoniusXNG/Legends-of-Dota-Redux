@@ -20,6 +20,10 @@ function modifier_npc_dota_hero_abyssal_underlord_perk:RemoveOnDeath()
 	return false
 end
 
+function modifier_npc_dota_hero_abyssal_underlord_perk:GetTexture()
+	return "custom/npc_dota_hero_abyssal_underlord_perk"
+end
+
 function modifier_npc_dota_hero_abyssal_underlord_perk:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
