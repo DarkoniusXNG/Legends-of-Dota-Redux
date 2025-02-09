@@ -3894,7 +3894,7 @@
 	"tinker_rearm"
 	{
 		"ReduxFlags"                                                           "cooldown"
-		"ReduxPerks"                                                           "scientific | channeled | refresh"
+		"ReduxPerks"                                                           "scientific | channeled"
 		"ReduxCost"                                                            "500"
 		"ReduxBans"                                                            "dazzle_shallow_grave | lich_absolute_zero | arc_warden_tempest_double"
 	}
@@ -3919,8 +3919,8 @@
 	}
 	"puck_illusory_orb"
 	{
-		"ReduxPerks"                                                           "light | skillshot"
-		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxFlags"                                                           "doNotRandom | mobility"
+		"ReduxPerks"                                                           "light | mobility | skillshot"
 	}
 	"skywrath_mage_arcane_bolt"
 	{

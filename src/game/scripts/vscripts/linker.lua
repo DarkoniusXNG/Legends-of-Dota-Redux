@@ -78,7 +78,7 @@ local hero_names = {
 	"phantom_lancer", -- kinda bad, D tier
 	"phoenix", -- ok, D tier
 	--"primal_beast", -- S tier
-	"puck", -- kinda bad
+	"puck", -- ok
 	"pudge", -- ok
 	"pugna", -- ok, S tier
 	"queenofpain", -- kinda bad, A tier
