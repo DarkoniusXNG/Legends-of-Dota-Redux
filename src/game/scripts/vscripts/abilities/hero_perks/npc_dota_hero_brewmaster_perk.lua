@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Brewmaster
---		Perk: Brewmaster gains +100% regen from Salve, Bottle and Clarity.
---
+--		Perk: Brewmaster gains a free level of Drunken Brawler, whether he has it or not.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_brewmaster_perk ~= "" then modifier_npc_dota_hero_brewmaster_perk = class({}) end
+modifier_npc_dota_hero_brewmaster_perk = modifier_npc_dota_hero_brewmaster_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_brewmaster_perk:IsPassive()
 	return true
@@ -21,37 +19,24 @@ end
 function modifier_npc_dota_hero_brewmaster_perk:RemoveOnDeath()
 	return false
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 
-function modifier_npc_dota_hero_brewmaster_perk:DeclareFunctions()
-	return { 
-	MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, 
-	MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, 
-	 }
-end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_brewmaster_perk:GetModifierConstantHealthRegen()
-	local healthRegen = 0
-
-	local bottleRegen = self:GetCaster():FindModifierByName("modifier_bottle_regeneration")
-	local salveRegen = self:GetCaster():FindModifierByName("modifier_flask_healing")
-
-	if bottleRegen then healthRegen = healthRegen + 36 end
-	if salveRegen then healthRegen = healthRegen + 50 end
-
-	return healthRegen
+function modifier_npc_dota_hero_brewmaster_perk:GetTexture()
+	return "custom/npc_dota_hero_brewmaster_perk"
 end
 
-function modifier_npc_dota_hero_brewmaster_perk:GetModifierConstantManaRegen()
-	local manaRegen = 0
+function modifier_npc_dota_hero_brewmaster_perk:OnCreated()
+	if IsServer() then
+		local caster = self:GetParent()
+		local bonus_ability = caster:FindAbilityByName("brewmaster_drunken_brawler")
 
-	local bottleRegen = self:GetCaster():FindModifierByName("modifier_bottle_regeneration")
-	local clarityRegen = self:GetCaster():FindModifierByName("modifier_clarity_potion")
-
-	if bottleRegen then manaRegen = manaRegen + 24 end
-	if clarityRegen then manaRegen = manaRegen + 3.8 end
-
-	return manaRegen
+		if bonus_ability then
+			bonus_ability:UpgradeAbility(false)
+		else
+			bonus_ability = caster:AddAbility("brewmaster_drunken_brawler")
+			--bonus_ability:SetStolen(true)
+			bonus_ability:SetActivated(true)
+			bonus_ability:SetLevel(1)
+		end
+	end
 end
+

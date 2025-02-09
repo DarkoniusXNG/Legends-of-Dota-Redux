@@ -1,17 +1,17 @@
 local hero_names = {
 	"abaddon", -- ok, very bad, D tier
-	"abyssal_underlord", -- terrible
+	"abyssal_underlord", -- ok
 	"alchemist", -- ok
-	"ancient_apparition", -- ok, too strong?
+	"ancient_apparition", -- ok
 	"antimage", -- ok, D tier
 	"arc_warden", -- ok, S tier
 	"axe", -- ok
 	"bane", -- ok
-	"batrider", -- ok, kinda bad
+	"batrider", -- ok
 	"beastmaster", -- ok
 	"bloodseeker", -- ok
 	"bounty_hunter", -- ok
-	"brewmaster", -- terrible, A tier
+	"brewmaster", -- ok, A tier
 	"bristleback", -- kinda bad
 	"broodmother", -- kinda bad
 	"centaur", -- ok, S tier

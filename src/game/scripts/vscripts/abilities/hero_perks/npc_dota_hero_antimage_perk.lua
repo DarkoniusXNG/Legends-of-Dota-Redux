@@ -1,10 +1,6 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Antimage
 --		Perk: After Anti-Mage blinks he will silence enemies within 250 radius for 2 seconds.
---
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_antimage_silence", "abilities/hero_perks/npc_dota_hero_antimage_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_antimage_perk = modifier_npc_dota_hero_antimage_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -23,9 +19,11 @@ end
 function modifier_npc_dota_hero_antimage_perk:RemoveOnDeath()
 	return false
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_antimage_perk:GetTexture()
+	return "custom/npc_dota_hero_antimage_perk"
+end
+
 function modifier_npc_dota_hero_antimage_perk:OnCreated()
 	self.radius = 250
 	self.duration = 2.5
@@ -61,8 +59,10 @@ if IsServer() then
 	end
 end
 
-modifier_npc_dota_hero_antimage_silence = modifier_npc_dota_hero_antimage_silence or class({})
 --------------------------------------------------------------------------------------------------------
+LinkLuaModifier( "modifier_npc_dota_hero_antimage_silence", "abilities/hero_perks/npc_dota_hero_antimage_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
+
+modifier_npc_dota_hero_antimage_silence = modifier_npc_dota_hero_antimage_silence or class({})
 
 function modifier_npc_dota_hero_antimage_silence:CheckState()
 	return {

@@ -23,9 +23,7 @@ end
 function modifier_npc_dota_hero_bounty_hunter_perk:GetTexture()
 	return "custom/npc_dota_hero_bounty_hunter_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_bounty_hunter_perk:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE

@@ -7,6 +7,7 @@
 #base "heroes\bane.txt"
 #base "heroes\batrider.txt"
 #base "heroes\bloodseeker.txt"
+#base "heroes\brewmaster.txt"
 #base "heroes\dawnbreaker.txt"
 #base "heroes\dragon_knight.txt"
 #base "heroes\elder_titan.txt"
@@ -42,21 +43,6 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"				"30 25 20 15 10"
-	}
-
-	"brewmaster_primal_companion"
-	{
-		"ReduxFlags"                                                           "summon | doNotRandom"
-		"ReduxPerks"                                                           "summon_non_ult | earth | fire | lightning"
-
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"20 19 18 17"
-		"AbilityManaCost"				"50"
-		"AbilityValues"
-		{
-			"cooldown_on_death"				"70 55 40 25"
-			"cooldown_on_take_damage"		"3"
-		}
 	}
 
 	"keeper_of_the_light_radiant_bind"
@@ -815,102 +801,6 @@
 		}
 	}
 
-	"brewmaster_earth_hurl_boulder"
-	{
-		"MaxLevel"                                                             "3"
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "earth"
-		"ReduxCost"                                                            "80"
-	}
-
-	"brewmaster_earth_spell_immunity"
-	{
-		"MaxLevel"                                                             "1"
-		"ReduxFlags"                                                           "tank | doNotRandom"
-		"ReduxPerks"                                                           "earth"
-		"ReduxCost"                                                            "500"
-	}
-
-	"brewmaster_earth_pulverize"
-	{
-		"MaxLevel"                                                             "3"
-		"ReduxFlags"                                                           "attack_modifier | doNotRandom"
-		"ReduxPerks"                                                           "attack_modifier | earth"
-	}
-
-	"brewmaster_storm_dispel_magic"
-	{
-		"ReduxFlags"                                                           "doNotRandom"
-		"ReduxPerks"                                                           "lightning"
-		"ReduxCost"                                                            "80"
-
-		"MaxLevel"                                                             "3"
-		"AbilityValues"
-		{
-			"damage"
-			{
-				"value" "1000 1250 1500"
-			}
-			"radius"
-			{
-				"value" "600 800 1000"
-			}
-		}
-	}
-
-	"brewmaster_storm_cyclone"
-	{
-		"ReduxFlags"                                                           "stun | doNotRandom"
-		"ReduxPerks"                                                           "nature"
-		"ReduxCost"                                                            "120"
-
-		"MaxLevel"                                                             "3"
-		"AbilityManaCost"					"150"
-		"AbilityValues"
-		{
-			"duration_hero"
-			{
-				"value" "3 4 5"
-			}
-			"duration_unit"
-			{
-				"value" "16"
-			}
-		}
-	}
-
-	"brewmaster_storm_wind_walk"
-	{
-		"MaxLevel"                                                             "3"
-		"ReduxFlags"                                                           "mobility | invis | doNotRandom"
-		"ReduxPerks"                                                           "mobility | invis"
-	}
-
-	"brewmaster_void_astral_pulse"
-	{
-		"MaxLevel"                                                             "3"
-		"ReduxFlags"                                                           "disarm_break"
-	}
-
-	"brewmaster_void_astral_pull"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | enemyMoving"
-		"MaxLevel"                                                             "3"
-	}
-
-	"brewmaster_fire_phase"
-	{
-		"ReduxPerks"                                                           "fire"
-		"ReduxCost"                                                            "40"
-
-		"MaxLevel"                                                             "3"
-		"AbilityValues"
-		{
-			"status_resistance"				"30 40 50"
-		}
-	}
-
 	"mudgolem_cloak_aura"
 	{
 		"ReduxFlags"    "tank | support"
@@ -934,14 +824,6 @@
 				"affected_by_aoe_increase"	"1"
 			}
 		}
-	}
-
-	"brewmaster_fire_permanent_immolation"
-	{
-		"MaxLevel"                                                             "3"
-		"ReduxPerks"                                                           "fire | aura"
-		"ReduxCost"                                                            "80"
-		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
 
 	"broodmother_poison_sting"
@@ -1924,11 +1806,6 @@
 		}
 	}
 
-	"brewmaster_primal_split"
-	{
-		"ReduxFlags"                                                           "summon"
-		"ReduxPerks"                                                           "earth | fire | lightning"
-	}
 	"centaur_stampede"
 	{
 		"ReduxFlags"                                                           "mobility"
@@ -3061,12 +2938,7 @@
 		"ReduxCost"                                                            "30"
 		"ReduxBans"                                                            "lone_druid_true_form"
 	}
-	"brewmaster_drunken_brawler"
-	{
-		"ReduxFlags"                                                           "crit | attack_modifier | semi_passive"
-		"ReduxPerks"                                                           "attack_modifier"
-		"ReduxCost"                                                            "20"
-	}
+
 	"doom_bringer_infernal_blade"
 	{
 		"ReduxFlags"                                                           "attack_modifier | bash"
@@ -3920,10 +3792,7 @@
 		"ReduxFlags"                                                           "physical | aoe_attack"
 		"ReduxPerks"                                                           "water | physical"
 	}
-	"brewmaster_thunder_clap"
-	{
-		"ReduxPerks"                                                           "lightning | earth"
-	}
+
 	"earthshaker_echo_slam"
 	{
 		"ReduxPerks"                                                           "earth"
@@ -6067,40 +5936,6 @@
 	"special_bonus_unique_beastmaster_wild_axe_cooldown"
 	{
 		"TalentRequiredAbility"                                                   "beastmaster_wild_axes"
-	}
-
-	// Brewmaster
-	"special_bonus_unique_brewmaster"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_primal_split"
-	}
-	"special_bonus_unique_brewmaster_2"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_primal_split"
-	}
-	"special_bonus_unique_brewmaster_3"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_thunder_clap"
-	}
-	"special_bonus_unique_brewmaster_4"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_cinder_brew"
-	}
-	"special_bonus_unique_brewmaster_5"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_cinder_brew"
-	}
-	"special_bonus_unique_brewmaster_6"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_primal_split"
-	}
-	"special_bonus_unique_brewmaster_7"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_thunder_clap"
-	}
-	"special_bonus_unique_brewmaster_8"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_drunken_brawler"
 	}
 
 	// Bristleback

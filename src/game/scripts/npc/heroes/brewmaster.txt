@@ -1,0 +1,173 @@
+// Abilities for brewmaster
+"DOTAAbilities"
+{
+	"brewmaster_thunder_clap"
+	{
+		"ReduxPerks"                                                           "lightning | earth"
+	}
+
+	"brewmaster_drunken_haze"
+	{
+		"ReduxPerks"                                                           "poison"
+	}
+
+	"brewmaster_cinder_brew"
+	{
+		"ReduxPerks"                                                           "fire | skillshot"
+	}
+
+	"brewmaster_drunken_brawler"
+	{
+		"ReduxFlags"                                                           "crit | attack_modifier | semi_passive | tank"
+		"ReduxPerks"                                                           "attack_modifier"
+		"ReduxCost"                                                            "20"
+	}
+
+	"brewmaster_primal_split"
+	{
+		"ReduxFlags"                                                           "summon"
+		"ReduxPerks"                                                           "earth | fire | lightning"
+	}
+
+	"brewmaster_belligerent"
+	{
+		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxPerks"                                                           "rage"
+	}
+
+	"brewmaster_primal_companion"
+	{
+		"ReduxFlags"                                                           "summon | doNotRandom"
+		"ReduxPerks"                                                           "summon_non_ult | earth | fire | lightning"
+
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"20 19 18 17"
+		"AbilityManaCost"				"50"
+		"AbilityValues"
+		{
+			"cooldown_on_death"				"70 55 40 25"
+			"cooldown_on_take_damage"		"3"
+		}
+	}
+
+	"brewmaster_earth_hurl_boulder"
+	{
+		"MaxLevel"                                                             "3"
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "earth"
+		"ReduxCost"                                                            "80"
+	}
+
+	"brewmaster_earth_spell_immunity"
+	{
+		"MaxLevel"                                                             "1"
+		"ReduxFlags"                                                           "tank | doNotRandom"
+		"ReduxPerks"                                                           "earth"
+		"ReduxCost"                                                            "500"
+	}
+
+	"brewmaster_earth_pulverize"
+	{
+		"MaxLevel"                                                             "3"
+		"ReduxFlags"                                                           "attack_modifier | doNotRandom"
+		"ReduxPerks"                                                           "attack_modifier | earth"
+	}
+
+	"brewmaster_storm_dispel_magic"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "lightning"
+		"ReduxCost"                                                            "80"
+
+		"MaxLevel"                                                             "3"
+		"AbilityValues"
+		{
+			"damage"
+			{
+				"value" "1000 1250 1500"
+			}
+			"radius"
+			{
+				"value" "600 800 1000"
+			}
+		}
+	}
+
+	"brewmaster_storm_cyclone"
+	{
+		"MaxLevel"                                                             "3"
+		"ReduxFlags"                                                           "stun | doNotRandom"
+		"ReduxPerks"                                                           "nature"
+		"ReduxCost"                                                            "120"
+	}
+
+	"brewmaster_storm_wind_walk"
+	{
+		"MaxLevel"                                                             "3"
+		"ReduxFlags"                                                           "mobility | invis | doNotRandom"
+		"ReduxPerks"                                                           "mobility | invis"
+	}
+
+	"brewmaster_void_astral_pulse"
+	{
+		"MaxLevel"                                                             "3"
+		"ReduxFlags"                                                           "disarm_break"
+	}
+
+	"brewmaster_void_astral_pull"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | enemyMoving"
+		"MaxLevel"                                                             "3"
+	}
+
+	"brewmaster_fire_phase"
+	{
+		"ReduxPerks"                                                           "fire"
+		"ReduxCost"                                                            "40"
+
+		"MaxLevel"                                                             "3"
+		"AbilityValues"
+		{
+			"status_resistance"				"30 40 50"
+		}
+	}
+
+	"brewmaster_fire_permanent_immolation"
+	{
+		"MaxLevel"                                                             "3"
+		"ReduxPerks"                                                           "fire | aura"
+		"ReduxCost"                                                            "80"
+		"ReduxBans"                                                            "batrider_sticky_napalm"
+	}
+
+	"special_bonus_unique_brewmaster"
+	{
+		"TalentRequiredAbility"                                                "brewmaster_primal_split"
+	}
+	"special_bonus_unique_brewmaster_2"
+	{
+		"TalentRequiredAbility"                                                "brewmaster_primal_split"
+	}
+	"special_bonus_unique_brewmaster_4"
+	{
+		"TalentRequiredAbility"                                                "brewmaster_cinder_brew"
+	}
+	"special_bonus_unique_brewmaster_5"
+	{
+		"TalentRequiredAbility"                                                "brewmaster_cinder_brew"
+	}
+	"special_bonus_unique_brewmaster_6"
+	{
+		"TalentRequiredAbility"                                                "brewmaster_primal_split"
+	}
+	"special_bonus_unique_brewmaster_7"
+	{
+		"TalentRequiredAbility"                                                "brewmaster_thunder_clap"
+	}
+	"special_bonus_unique_brewmaster_8"
+	{
+		"TalentRequiredAbility"                                                "brewmaster_drunken_brawler"
+	}
+}

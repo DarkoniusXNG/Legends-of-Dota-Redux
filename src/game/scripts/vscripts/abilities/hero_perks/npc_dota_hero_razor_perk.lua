@@ -30,11 +30,11 @@ if IsServer() then
 	function modifier_npc_dota_hero_razor_perk:OnCreated()
 		self.reduction = 25
 	    local caster = self:GetCaster()
-	    local unstableCurrent = caster:FindAbilityByName("razor_unstable_current")
+	    local unstableCurrent = caster:FindAbilityByName("razor_storm_surge")
 	    if unstableCurrent then
 	        unstableCurrent:UpgradeAbility(false)
 	    else
-	        unstableCurrent = caster:AddAbility("razor_unstable_current")
+	        unstableCurrent = caster:AddAbility("razor_storm_surge")
 	        --unstableCurrent:SetStolen(true)
 	        unstableCurrent:SetActivated(true)
 	        unstableCurrent:SetLevel(1)
