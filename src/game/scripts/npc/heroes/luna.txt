@@ -45,6 +45,8 @@
 	//=================================================================================================================
 	"luna_lunar_grace"
 	{
+		"ReduxPerks"		"light"
+
 		"AbilityCooldown"				"30 25 20 15"
 		"AbilityManaCost"				"40"
 		"AbilityValues"
