@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Luna
---		Perk: Luna gains 1 free level of Moon Glaives, whether she has it or not.
+--		Perk: Luna gains 1 free level of Moon Glaives, whether she has it or not. Ultimate abilities have their cooldowns reduced by 25% during the night.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_luna_perk = modifier_npc_dota_hero_luna_perk or class({})
 --------------------------------------------------------------------------------------------------------
