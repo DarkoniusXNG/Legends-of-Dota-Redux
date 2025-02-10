@@ -10,7 +10,7 @@ require('abilities/hero_perks/npc_dota_hero_viper_perk')
 require('abilities/hero_perks/npc_dota_hero_silencer_perk')
 require('abilities/hero_perks/npc_dota_hero_venomancer_perk')
 require('abilities/hero_perks/npc_dota_hero_obsidian_destroyer_perk')
-require('abilities/hero_perks/npc_dota_hero_death_prophet_perk')
+require('abilities/hero_perks/npc_dota_hero_doom_bringer_perk')
 require('abilities/hero_perks/npc_dota_hero_abaddon_perk')
 
 --[[function heroPerksProjectileFilter(filterTable)
@@ -81,7 +81,7 @@ function heroPerksModifierFilter(filterTable)
   -- Perk for Ancient Apparition
   perkAncientApparition(filterTable)
   -- Perk for Death Prophet
-  perkDeathProphet(filterTable)
+  perkDoom(filterTable)
    -- Perk for Outworld Devourer
   perkOD(filterTable)
   -- Perk for Venomancer

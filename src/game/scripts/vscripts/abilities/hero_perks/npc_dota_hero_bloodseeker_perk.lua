@@ -46,11 +46,11 @@ function modifier_npc_dota_hero_bloodseeker_perk:OnIntervalThink()
 end
 
 function modifier_npc_dota_hero_bloodseeker_perk:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-	MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-	MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
-  }
+	return {
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
+	}
 end
 
 function modifier_npc_dota_hero_bloodseeker_perk:GetModifierSpellAmplify_Percentage()

@@ -20,12 +20,12 @@ local hero_names = {
 	"clinkz", -- ok, D tier
 	"crystal_maiden", -- kinda bad, D tier
 	"dark_seer", -- kinda bad
-	"dark_willow", -- kinda bad
+	"dark_willow", -- ok
 	"dawnbreaker", -- kinda bad, missing icon, A tier
 	"dazzle", -- kinda bad
 	"death_prophet", -- ok, S tier
 	"disruptor", -- terrible
-	"doom_bringer", -- terrible and outdated
+	"doom_bringer", -- ok
 	"dragon_knight", -- ok, kinda bad, A tier
 	"drow_ranger", -- ok, A tier
 	"earth_spirit", -- ok, missing icon, S tier
@@ -50,7 +50,7 @@ local hero_names = {
 	"leshrac", -- ok, S tier
 	"lich", -- terrible and badly coded
 	"life_stealer", -- terrible and outdated, D tier
-	"lina", -- terrible, S tier
+	"lina", -- ok, S tier
 	"lion", -- kinda bad
 	"lone_druid", -- poorly coded, D tier
 	"luna", -- ok

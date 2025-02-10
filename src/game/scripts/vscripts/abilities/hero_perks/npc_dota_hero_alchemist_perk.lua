@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --    Hero: Alchemist
---    Perk: Greevils Greed free level + 50% refund for consuming an item
+--    Perk: 50% refund for consuming an item
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_alchemist_perk = modifier_npc_dota_hero_alchemist_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -22,13 +22,6 @@ end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_alchemist_perk:GetTexture()
   return "custom/npc_dota_hero_alchemist_perk"
-end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
-
-function modifier_npc_dota_hero_alchemist_perk:OnCreated()
-    
 end
 
 function modifier_npc_dota_hero_alchemist_perk:DeclareFunctions()
@@ -58,10 +51,10 @@ if IsServer() then
 			item_tango_single = true,
 			item_bottle = false, -- can be used infinitely in fountain
 			item_tome_of_knowledge = true,
-			item_famango = 100,
-			item_great_famango = 300, -- 3 x item_famango
-			item_greater_famango = 600, -- 2 x item_great_famango
-			item_royale_with_cheese = 2800, -- 3 x item_greater_famango + 1 x item_cheese
+			item_famango = 150,
+			item_great_famango = 450, -- 3 x item_famango
+			item_greater_famango = 900, -- 2 x item_great_famango
+			item_royale_with_cheese = 3700, -- 3 x item_greater_famango + 1 x item_cheese
 			item_cheese = true,
 			item_refresher_shard = true,
 			item_royal_jelly = false, -- item cost is pretty high and infinite charges
