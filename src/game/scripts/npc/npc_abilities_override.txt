@@ -2691,7 +2691,7 @@
 	"faceless_void_time_walk"
 	{
 		"ReduxFlags"                                                           "mobility | upgradeable"
-		"ReduxPerks"                                                           "mobility"
+		"ReduxPerks"                                                           "blink | mobility"
 		"ReduxCost"                                                            "40"
 	}
 	"morphling_waveform"
