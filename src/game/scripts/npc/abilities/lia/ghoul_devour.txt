@@ -13,9 +13,10 @@
         {
             "particle"                                                     "particles/units/heroes/hero_life_stealer/life_stealer_infested_unit.vpcf"
         }
-        "MaxLevel"                                                             "4"
-        "RequiredLevel"                                                        "1"
-        "LevelsBetweenUpgrades"                                                "2"
+        
+        "ReduxFlags"                                                           "tank"
+        "ReduxPerks"                                                           "undead"
+
         "AbilityCastRange"                                                     "175"
         "AbilityCastPoint"                                                     "0.0"
         "AbilityCooldown"                                                      "40.0 32.0 24.0 16.0"
@@ -81,6 +82,5 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "tank"
     }
 }

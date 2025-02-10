@@ -43,6 +43,6 @@
     }
 
     "ReduxFlags"                                          "tank | support"
-    "ReduxPerks"                                          "support"
+    "ReduxPerks"                                          "support | undead"
   }
 }

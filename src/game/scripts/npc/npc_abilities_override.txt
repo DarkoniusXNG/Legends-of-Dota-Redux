@@ -9,6 +9,7 @@
 #base "heroes\bloodseeker.txt"
 #base "heroes\brewmaster.txt"
 #base "heroes\dawnbreaker.txt"
+#base "heroes\death_prophet.txt"
 #base "heroes\dragon_knight.txt"
 #base "heroes\elder_titan.txt"
 #base "heroes\huskar.txt"
@@ -28,6 +29,79 @@
 
 "DOTAAbilities"
 {
+	"visage_lurker"
+	{
+		"ReduxFlags"                                                           "cooldown"
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"visage_soul_assumption"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"vengefulspirit_retribution"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"pudge_innate_graft_flesh"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"lich_death_charge"
+	{
+		"ReduxFlags"                                                           "mana"
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"grimstroke_ink_creature"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"undying_ceaseless_dirge"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"undying_flesh_golem"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"clinkz_bone_and_arrow"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"clinkz_death_pact"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"muerta_supernatural"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"muerta_pierce_the_veil"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"muerta_ofrenda"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"skeleton_king_spectral_blade"
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | undead"
+	}
+
 	"shredder_twisted_chakram"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
@@ -301,7 +375,7 @@
 	"muerta_parting_shot"
 	{
 		"ReduxFlags"                                                           "stun | support | doNotRandom"
-		"ReduxPerks"                                                           "support | enemyMoving"
+		"ReduxPerks"                                                           "support | enemyMoving | undead"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 		"MaxLevel"						"4"
@@ -1119,7 +1193,7 @@
 	"fel_beast_haunt"
 	{
 		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "silence | neutral"
+		"ReduxPerks"                                                           "silence | neutral | undead"
 
 		"MaxLevel"				"4"
 		"AbilityCastRange"		"600 700 800 900"
@@ -1135,7 +1209,7 @@
 	"hill_troll_rally"
 	{
 		"ReduxFlags"		"support"
-		"ReduxPerks"		"support | aura | neutral"
+		"ReduxPerks"		"support | aura | neutral | undead"
 
 		"MaxLevel"				"4"
 		"AbilityValues"
@@ -1322,7 +1396,7 @@
 	"dark_troll_warlord_raise_dead"
 	{
 		"ReduxFlags"                                                           "summon"
-		"ReduxPerks"                                                           "neutral | summon_non_ult"
+		"ReduxPerks"                                                           "neutral | summon_non_ult | undead"
 		"ReduxBans"                                                            "tinker_rearm"
 
 		"MaxLevel"                                                             "4"
@@ -1566,7 +1640,7 @@
 	"ghost_frost_attack"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "neutral | attack_modifier | ice"
+		"ReduxPerks"                                                           "neutral | attack_modifier | ice | undead"
 
 		"MaxLevel"                                                             "4"
 		"AbilityValues"
@@ -2034,7 +2108,7 @@
 	"pugna_life_drain"
 	{
 		"ReduxFlags"                                                           "upgradeable | support"
-		"ReduxPerks"                                                           "support | drain | self_damage | channeled"
+		"ReduxPerks"                                                           "support | drain | self_damage | channeled | undead"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
 	"queenofpain_sonic_wave"
@@ -2071,7 +2145,7 @@
 	"nevermore_necromastery"
 	{
 		"ReduxFlags"                                                           "upgradeable"
-		"ReduxPerks"														   "demon"
+		"ReduxPerks"                                                           "demon | undead"
 		"ReduxCost"                                                            "10"
 	}
 	"nevermore_requiem"
@@ -2157,7 +2231,7 @@
 	"undying_decay"
 	{
 		"ReduxFlags"                                                           "upgradeable"
-		"ReduxPerks"                                                           "drain | skillshot"
+		"ReduxPerks"                                                           "drain | skillshot | undead"
 	}
 	"ursa_enrage"
 	{
@@ -2214,6 +2288,7 @@
 	"skeleton_king_reincarnation"
 	{
 		"ReduxFlags"                                                           "wtfAutoBan"
+		"ReduxPerks"                                                           "undead"
 		"ReduxCost"                                                            "120"
 		"ReduxBans"                                                            "imba_dazzle_shallow_grave_passive | tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
@@ -2249,7 +2324,7 @@
 	"dazzle_shallow_grave"
 	{
 		"ReduxFlags"                                                           "support | wtfAutoBan"
-		"ReduxPerks"                                                           "support"
+		"ReduxPerks"                                                           "support | undead"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 	"enchantress_natures_attendants"
@@ -2296,7 +2371,7 @@
 	"oracle_false_promise"
 	{
 		"ReduxFlags"                                                           "support | upgradeable"
-		"ReduxPerks"                                                           "support"
+		"ReduxPerks"                                                           "support | undead"
 		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
 	}
 	"rubick_null_field"
@@ -2313,12 +2388,12 @@
 	"skeleton_king_vampiric_spirit"
 	{
 		"ReduxFlags"                                                           "attack_modifier | upgradeable"
-		"ReduxPerks"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | undead"
 	}
 	"skeleton_king_bone_guard"
 	{
 		"ReduxFlags"                                                           "summon"
-		"ReduxPerks"                                                           "summon_non_ult"
+		"ReduxPerks"                                                           "summon_non_ult | undead"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 	"templar_assassin_psionic_trap"
@@ -2335,7 +2410,7 @@
 	"undying_soul_rip"
 	{
 		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | drain"
+		"ReduxPerks"                                                           "support | drain | undead"
 	}
 	"warlock_shadow_word"
 	{
@@ -2388,7 +2463,7 @@
 	"pugna_nether_ward"
 	{
 		"ReduxFlags"                                                           "mana | summon"
-		"ReduxPerks"                                                           "lightning | summon_non_ult"
+		"ReduxPerks"                                                           "lightning | summon_non_ult | undead"
 	}
 	"mirana_invis"
 	{
@@ -2424,7 +2499,7 @@
 	"pugna_decrepify"
 	{
 		"ReduxFlags"                                                           "support | disarm_break"
-		"ReduxPerks"                                                           "support"
+		"ReduxPerks"                                                           "support | undead"
 		"ReduxCost"                                                            "10"
 	}
 	"warlock_upheaval"
@@ -2586,7 +2661,7 @@
 	"clinkz_wind_walk"
 	{
 		"ReduxFlags"                                                           "mobility | invis"
-		"ReduxPerks"                                                           "mobility | invis"
+		"ReduxPerks"                                                           "mobility | invis | undead"
 		"ReduxCost"                                                            "40"
 	}
 
@@ -2770,7 +2845,7 @@
 	"phantom_lancer_phantom_edge"
 	{
 		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | undead"
 	}
 	"magnataur_skewer"
 	{
@@ -3158,7 +3233,7 @@
 	"phantom_lancer_juxtapose"
 	{
 		"ReduxFlags"                                                           "attack_modifier | upgradeable"
-		"ReduxPerks"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | undead"
 		"ReduxCost"                                                            "120" // Made single player because its causes lag, needs more investigation
 	}
 	"sniper_headshot"
@@ -3191,7 +3266,7 @@
 	{
 		"MaxLevel"                                                             "4"
 		"ReduxFlags"                                                           "attack_modifier | doNotRandom"
-		"ReduxPerks"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | undead"
 	}
 
 	"monkey_king_boundless_strike"
@@ -3510,15 +3585,11 @@
 	"undying_tombstone"
 	{
 		"ReduxFlags"                                                           "summon"
-		"ReduxPerks"                                                           "summon_non_ult"
+		"ReduxPerks"                                                           "summon_non_ult | undead"
 		"ReduxCost"                                                            "10"
 		"ReduxBans"                                                            "tinker_rearm"
 	}
-	"death_prophet_exorcism"
-	{
-		"ReduxFlags"                                                           "physical | upgradeable"
-		"ReduxPerks"                                                           "physical"
-	}
+
 	"dazzle_shadow_wave"
 	{
 		"ReduxFlags"                                                           "physical | support | upgradeable"
@@ -3531,15 +3602,10 @@
 		"ReduxCost"                                                            "20"
 	}
 
-	"death_prophet_silence"
-	{
-		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "silence | skillshot"
-	}
 	"muerta_the_calling"
 	{
 		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "silence"
+		"ReduxPerks"                                                           "silence | undead"
 	}
 	"silencer_last_word"
 	{
@@ -3581,7 +3647,7 @@
 	"phantom_lancer_spirit_lance"
 	{
 		"ReduxFlags"                                                           "illusion"
-		"ReduxPerks"                                                           "illusion"
+		"ReduxPerks"                                                           "illusion | undead"
 	}
 	"terrorblade_reflection"
 	{
@@ -3685,17 +3751,18 @@
 
 	"visage_grave_chill"
 	{
-		"ReduxPerks"                                                           "ice | drain"
+		"ReduxPerks"                                                           "ice | drain | undead"
 	}
 	"visage_gravekeepers_cloak"
 	{
 		"ReduxFlags"                                                           "tank"
+		"ReduxPerks"                                                           "undead"
 		"ReduxBans"                                                            "tinker_rearm"
 	}
 	"pudge_rot"
 	{
 		"ReduxFlags"                                                           "upgradeable"
-		"ReduxPerks"                                                           "poison | self_damage"
+		"ReduxPerks"                                                           "poison | self_damage | undead"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
 	"venomancer_plague_ward"
@@ -3936,10 +4003,6 @@
 	{
 		"ReduxPerks"                                                           "drain | channeled | demon | mana"
 	}
-	"death_prophet_spirit_siphon"
-	{
-		"ReduxPerks"                                                           "drain"
-	}
 
 	"treant_leech_seed"
 	{
@@ -4054,7 +4117,7 @@
 	"vengefulspirit_command_aura"
 	{
 		"ReduxFlags"                                                           "support | upgradeable"
-		"ReduxPerks"                                                           "aura | support"
+		"ReduxPerks"                                                           "aura | support | undead"
 		"ReduxCost"                                                            "20"
 	}
 
@@ -4194,10 +4257,7 @@
 	{
 		"ReduxPerks"                                                           "skillshot"
 	}
-	"death_prophet_carrion_swarm"
-	{
-		"ReduxPerks"                                                           "skillshot"
-	}
+
 	"magnataur_shockwave"
 	{
 		"ReduxPerks"                                                           "skillshot | enemyMoving | lightning"
@@ -4237,7 +4297,7 @@
 	}
 	"pugna_nether_blast"
 	{
-		"ReduxPerks"                                                           "skillshot"
+		"ReduxPerks"                                                           "skillshot | undead"
 	}
 	"chaos_knight_reality_rift"
 	{
@@ -4358,11 +4418,6 @@
 		}
 	}
 
-	"death_prophet_witchcraft"
-	{
-		"ReduxFlags"                                                           "cooldown | mobility"
-		"ReduxPerks"                                                           "mobility"
-	}
 	"terrorblade_metamorphosis"
 	{
 		"ReduxCost"                                                            "30"
@@ -4719,7 +4774,7 @@
 	"lich_sinister_gaze"
 	{
 		"ReduxFlags"                                                           "stun | upgradeable"
-		"ReduxPerks"                                                           "enemyMoving | channeled"
+		"ReduxPerks"                                                           "enemyMoving | channeled | undead"
 	}
 
 	"mars_spear"
@@ -4736,7 +4791,7 @@
 
 	"mars_arena_of_blood"
 	{
-		"ReduxPerks"                                                           "enemyMoving | blood"
+		"ReduxPerks"                                                           "enemyMoving | blood | undead"
 	}
 
 	"meepo_petrify"
@@ -5459,7 +5514,7 @@
 	"clinkz_burning_army"
 	{
 		"ReduxFlags"				"upgradeable | doNotRandom | summon"
-		"ReduxPerks"				"fire | summon_non_ult"
+		"ReduxPerks"				"fire | summon_non_ult | undead"
 
 		"MaxLevel"						"4"
 		"AbilityCooldown"				"80 65 50 35"
@@ -5524,7 +5579,7 @@
 	"visage_silent_as_the_grave"
 	{
 		"ReduxFlags"	"mobility | invis | upgradeable"
-		"ReduxPerks"	"mobility | invis"
+		"ReduxPerks"	"mobility | invis | undead"
 
 		"MaxLevel"						"4"
 		"AbilityCooldown"				"45 35 25 15"
@@ -9289,45 +9344,6 @@
 	{
 		"TalentRequiredAbility"                                                   "disruptor_glimpse"
 	}
-
-
-
-
-	"special_bonus_unique_death_prophet"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_exorcism"
-	}
-	"special_bonus_unique_death_prophet_2"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_carrion_swarm"
-	}
-	"special_bonus_unique_death_prophet_3"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_spirit_siphon"
-	}
-	"special_bonus_unique_death_prophet_4"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_spirit_siphon"
-	}
-	"special_bonus_unique_death_prophet_5"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_spirit_siphon"
-	}
-	"special_bonus_unique_death_prophet_crypt_swarm_slow"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_carrion_swarm"
-	}
-	"special_bonus_unique_death_prophet_silence_slow"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_silence"
-	}
-	"special_bonus_unique_death_prophet_silence_aoe"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_silence"
-	}
-
-
-
 
 	"special_bonus_unique_dazzle_1"
 	{

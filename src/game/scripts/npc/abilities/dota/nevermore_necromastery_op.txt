@@ -45,6 +45,7 @@
         
         "ReduxCost"                                                            "120"
         "ReduxBans"                                                            "nevermore_necromastery"
-        "ReduxFlags"                                                           ""
+        "ReduxFlags"                                                           "upgradeable"
+        "ReduxPerks"                                                           "demon | undead"
     }
 }

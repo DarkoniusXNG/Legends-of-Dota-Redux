@@ -28,6 +28,6 @@
             }
         }
         "ReduxFlags"                                                           "summon"
-        "ReduxPerks"                                                           "summon_non_ult"
+        "ReduxPerks"                                                           "summon_non_ult | undead"
     }
 }

@@ -16,7 +16,7 @@
             "zombie_lifetime" "150"
         }
         "ReduxFlags"                                                           "summon"
-        "ReduxPerks"                                                           "summon_non_ult"
+        "ReduxPerks"                                                           "summon_non_ult | undead"
         "ReduxCost"                                                            "20"
     }
 }

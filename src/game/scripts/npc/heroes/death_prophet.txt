@@ -1,0 +1,69 @@
+// Abilities for death prophet
+"DOTAAbilities"
+{
+	"death_prophet_carrion_swarm"
+	{
+		"ReduxPerks"                                                           "skillshot | undead"
+	}
+
+	"death_prophet_silence"
+	{
+		"ReduxFlags"                                                           "silence"
+		"ReduxPerks"                                                           "silence | skillshot | undead"
+	}
+
+	"death_prophet_spirit_siphon"
+	{
+		"ReduxPerks"                                                           "drain | undead"
+	}
+
+	"death_prophet_exorcism"
+	{
+		"ReduxFlags"                                                           "physical | upgradeable"
+		"ReduxPerks"                                                           "physical | undead"
+	}
+
+	"death_prophet_witchcraft"
+	{
+		"ReduxFlags"                                                           "cooldown | mobility"
+		"ReduxPerks"                                                           "mobility | undead"
+	}
+
+	"death_prophet_mourning_ritual"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"special_bonus_unique_death_prophet"
+	{
+		"TalentRequiredAbility"                                                "death_prophet_exorcism"
+	}
+	"special_bonus_unique_death_prophet_2"
+	{
+		"TalentRequiredAbility"                                                "death_prophet_carrion_swarm"
+	}
+	"special_bonus_unique_death_prophet_3"
+	{
+		"TalentRequiredAbility"                                                "death_prophet_spirit_siphon"
+	}
+	"special_bonus_unique_death_prophet_4"
+	{
+		"TalentRequiredAbility"                                                "death_prophet_spirit_siphon"
+	}
+	"special_bonus_unique_death_prophet_5"
+	{
+		"TalentRequiredAbility"                                                "death_prophet_spirit_siphon"
+	}
+	"special_bonus_unique_death_prophet_crypt_swarm_slow"
+	{
+		"TalentRequiredAbility"                                                "death_prophet_carrion_swarm"
+	}
+	"special_bonus_unique_death_prophet_silence_slow"
+	{
+		"TalentRequiredAbility"                                                "death_prophet_silence"
+	}
+	"special_bonus_unique_death_prophet_silence_aoe"
+	{
+		"TalentRequiredAbility"                                                "death_prophet_silence"
+	}
+}

@@ -25,7 +25,7 @@
 		}
 
 		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
+		"ReduxPerks"                                                           "support | undead"
 	}
 
 	//=================================================================================================================
@@ -34,7 +34,7 @@
 	"necrolyte_death_pulse"
 	{
 		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
+		"ReduxPerks"                                                           "support | undead"
 	}
 
 	//=================================================================================================================
@@ -43,7 +43,7 @@
 	"necrolyte_heartstopper_aura"
 	{
 		"ReduxFlags"                                                           "upgradeable"
-		"ReduxPerks"                                                           "aura"
+		"ReduxPerks"                                                           "aura | undead"
 	}
 
 	//=================================================================================================================
@@ -52,15 +52,17 @@
 	"necrolyte_sadist"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxPerks"                                                           "undead"
 	}
 
 	//=================================================================================================================
 	// Ability: Ghost Shroud
 	//=================================================================================================================
-	// "necrolyte_ghost_shroud"
-	// {
-
-	// }
+	"necrolyte_ghost_shroud"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
 
 	//=================================================================================================================
 	// Ability: Necrolyte's Reaper's Scythe
@@ -68,6 +70,7 @@
 	"necrolyte_reapers_scythe"
 	{
 		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "undead"
 		"ReduxCost"                                                            "10"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}

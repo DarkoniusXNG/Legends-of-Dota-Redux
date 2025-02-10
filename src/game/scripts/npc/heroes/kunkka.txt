@@ -108,7 +108,7 @@
 	"kunkka_ghostship"
 	{
 		"ReduxFlags"                                                           "stun | upgradeable"
-		"ReduxPerks"                                                           "skillshot | water"
+		"ReduxPerks"                                                           "skillshot | water | undead"
 	}
 
 	//=================================================================================================================
