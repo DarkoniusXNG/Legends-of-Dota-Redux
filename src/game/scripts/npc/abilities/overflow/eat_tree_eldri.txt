@@ -3,16 +3,18 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_lua"
-		"ScriptFile"					"abilities/overflow/eat_tree_eldri/ability.lua"
-		"AbilityTextureName"			"custom/eat_tree_eldri"
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                    "abilities/overflow/eat_tree_eldri/ability.lua"
+		"AbilityTextureName"            "custom/eat_tree_eldri"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_TREE"
 		"AbilityCastPoint"              "0.3"
 		"AbilityCooldown"               "3"
 		"AbilityManaCost"               "0"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityCastRange"              "250"
-		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_CUSTOM"
-		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_TREE"
+
 		"ReduxPerks"                                                           "nature"
 
 		// Special

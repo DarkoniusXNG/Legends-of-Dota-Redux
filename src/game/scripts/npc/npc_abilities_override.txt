@@ -2551,7 +2551,7 @@
 	"faceless_void_time_walk"
 	{
 		"ReduxFlags"                                                           "mobility | upgradeable"
-		"ReduxPerks"                                                           "mobility"
+		"ReduxPerks"                                                           "blink | mobility"
 		"ReduxCost"                                                            "40"
 	}
 	"morphling_waveform"
@@ -4175,7 +4175,7 @@
 	}
 	"monkey_king_primal_spring"
 	{
-		"ReduxFlags"                                                           "mobility"
+		"ReduxFlags"                                                           "mobility | doNotRandom"
 		"ReduxPerks"                                                           "channeled  | mobility"
 	}
 	"riki_tricks_of_the_trade"

@@ -13,13 +13,13 @@ function mifune_genso:OnSpellStart()
 
 	while n > 0 do
 		Timers:CreateTimer(0.10*n, function()
-			GenIllusion(c, t, this)
+			this:GenIllusion(c, t, this)
 		end)
 		n = n - 1
 	end
 end
 
-function GenIllusion(caster, target, ability)
+function mifune_genso:GenIllusion(caster, target, ability)
 	local origin = target:GetAbsOrigin() + RandomVector(128)
 	local padding = caster:GetHullRadius()
 	local duration = ability:GetLevelSpecialValueFor( "illusion_duration", ability:GetLevel() - 1 )
