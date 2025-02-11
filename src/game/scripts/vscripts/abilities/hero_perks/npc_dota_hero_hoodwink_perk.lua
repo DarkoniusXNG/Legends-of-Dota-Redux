@@ -23,12 +23,10 @@ end
 -- function modifier_npc_dota_hero_hoodwink_perk:GetTexture()
 	-- return "custom/npc_dota_hero_hoodwink_perk"
 -- end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_hoodwink_perk:OnCreated(keys)
-    self.tree_radius = 400
-    self.damage_amp_per_tree = 2
+	self.tree_radius = 400
+	self.damage_amp_per_tree = 2
 	if IsServer() then
 		self:StartIntervalThink(0.1)
 	end

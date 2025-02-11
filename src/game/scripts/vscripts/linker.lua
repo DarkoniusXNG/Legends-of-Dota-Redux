@@ -38,7 +38,7 @@ local hero_names = {
 	"furion", -- ok, S tier
 	"grimstroke", -- ok, A tier
 	"gyrocopter", -- ok, A tier
-	"hoodwink", -- missing icon
+	"hoodwink", -- ok, missing icon
 	"huskar", -- badly coded idea not bad, D tier
 	"invoker", -- kinda bad, S tier
 	"jakiro", -- ok, bot
@@ -46,10 +46,10 @@ local hero_names = {
 	"keeper_of_the_light", -- ok, A tier
 	--"kez", -- D tier
 	"kunkka", -- ok, S tier, bot
-	"legion_commander", -- terrible and badly coded and outdated
+	"legion_commander", -- ok
 	"leshrac", -- ok, S tier
 	"lich", -- terrible and badly coded and outdated, bot
-	"life_stealer", -- terrible and outdated, D tier
+	"life_stealer", -- , S tier
 	"lina", -- ok, S tier, bot
 	"lion", -- kinda bad, bot
 	"lone_druid", -- poorly coded, D tier
