@@ -2880,8 +2880,7 @@
 	}
 	"juggernaut_blade_fury"
 	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility"
+		"ReduxPerks"                                                           "rage"
 		"ReduxCost"                                                            "20"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
