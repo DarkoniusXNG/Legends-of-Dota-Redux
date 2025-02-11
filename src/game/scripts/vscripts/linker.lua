@@ -49,7 +49,7 @@ local hero_names = {
 	"legion_commander", -- ok
 	"leshrac", -- ok, S tier
 	"lich", -- terrible and badly coded and outdated, bot
-	"life_stealer", -- , S tier
+	"life_stealer", -- ok, S tier
 	"lina", -- ok, S tier, bot
 	"lion", -- kinda bad, bot
 	"lone_druid", -- poorly coded, D tier
