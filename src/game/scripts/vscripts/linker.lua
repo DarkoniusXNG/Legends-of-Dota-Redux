@@ -5,31 +5,31 @@ local hero_names = {
 	"ancient_apparition", -- ok
 	"antimage", -- ok, D tier
 	"arc_warden", -- ok, S tier
-	"axe", -- ok
-	"bane", -- ok
+	"axe", -- ok, bot
+	"bane", -- ok, bot
 	"batrider", -- ok
 	"beastmaster", -- ok
 	"bloodseeker", -- ok
-	"bounty_hunter", -- ok
+	"bounty_hunter", -- ok, bot
 	"brewmaster", -- ok, A tier
-	"bristleback", -- kinda bad
+	"bristleback", -- kinda bad, bot
 	"broodmother", -- kinda bad
 	"centaur", -- ok, S tier
-	"chaos_knight", -- ok
+	"chaos_knight", -- ok, bot
 	"chen", -- badly coded idea not bad, S tier
 	"clinkz", -- ok, D tier
-	"crystal_maiden", -- kinda bad, D tier
+	"crystal_maiden", -- terrible, D tier, bot
 	"dark_seer", -- kinda bad
 	"dark_willow", -- ok
 	"dawnbreaker", -- kinda bad, missing icon, A tier
-	"dazzle", -- kinda bad
-	"death_prophet", -- ok, S tier
+	"dazzle", -- kinda bad, bot
+	"death_prophet", -- ok, S tier, bot
 	"disruptor", -- terrible
 	"doom_bringer", -- ok
-	"dragon_knight", -- ok, kinda bad, A tier
-	"drow_ranger", -- ok, A tier
+	"dragon_knight", -- ok, kinda bad and outdated, A tier, bot
+	"drow_ranger", -- ok, A tier, bot
 	"earth_spirit", -- ok, missing icon, S tier
-	"earthshaker", -- ok, A tier
+	"earthshaker", -- ok, A tier, bot
 	"elder_titan", -- kinda bad
 	"ember_spirit", -- kinda bad
 	"enchantress", -- badly coded idea not bad
@@ -41,19 +41,19 @@ local hero_names = {
 	"hoodwink", -- missing icon
 	"huskar", -- badly coded idea not bad, D tier
 	"invoker", -- kinda bad, S tier
-	"jakiro", -- ok
-	"juggernaut", -- ok, A tier
+	"jakiro", -- ok, bot
+	"juggernaut", -- ok, A tier, bot
 	"keeper_of_the_light", -- ok, A tier
 	--"kez", -- D tier
-	"kunkka", -- terrible, S tier
+	"kunkka", -- terrible, S tier, bot
 	"legion_commander", -- terrible and badly coded and outdated
 	"leshrac", -- ok, S tier
-	"lich", -- terrible and badly coded
+	"lich", -- terrible and badly coded and outdated, bot
 	"life_stealer", -- terrible and outdated, D tier
-	"lina", -- ok, S tier
-	"lion", -- kinda bad
+	"lina", -- ok, S tier, bot
+	"lion", -- kinda bad, bot
 	"lone_druid", -- poorly coded, D tier
-	"luna", -- ok
+	"luna", -- ok, bot
 	"lycan", -- kinda bad
 	"magnataur", -- ok
 	--"marci",
@@ -65,65 +65,65 @@ local hero_names = {
 	"morphling", -- ok, A tier
 	--"muerta", -- S tier
 	"naga_siren", -- ok, A tier
-	"necrolyte", -- ok, D tier
-	"nevermore", -- ok, S tier
+	"necrolyte", -- ok, D tier, bot
+	"nevermore", -- ok, S tier, bot
 	"night_stalker", -- ok, A tier
 	"nyx_assassin", -- kinda bad, D tier
 	"obsidian_destroyer", -- ok, kinda bad, A tier
 	"ogre_magi", -- ok, S tier
-	"omniknight", -- ok
-	"oracle", -- kinda bad, A tier
+	"omniknight", -- ok, bot
+	"oracle", -- kinda bad, A tier, bot
 	"pangolier", -- ok, D tier
-	"phantom_assassin", -- ok, kinda bad
+	"phantom_assassin", -- ok, kinda bad, bot
 	"phantom_lancer", -- kinda bad, D tier
 	"phoenix", -- ok, D tier
 	--"primal_beast", -- S tier
 	"puck", -- ok
-	"pudge", -- ok
+	"pudge", -- ok, bot
 	"pugna", -- ok, S tier
 	"queenofpain", -- kinda bad, A tier
 	"rattletrap", -- ok, missing icon, A tier
 	"razor", -- ok
 	"riki", -- ok, D tier
 	"rubick", -- ok
-	"sand_king", -- outdated, D tier
+	"sand_king", -- outdated, D tier, bot
 	"shadow_demon", -- ok, A tier
 	"shadow_shaman", -- too strong?
 	"shredder", -- ok, A tier
 	"silencer", -- ok
-	"skeleton_king", -- ok
-	"skywrath_mage", -- terrible
+	"skeleton_king", -- ok, bot
+	"skywrath_mage", -- terrible, bot
 	"slardar", -- ok, A tier
 	"slark", -- ok, D tier
 	"snapfire", -- ok, A tier
-	"sniper", -- ok, A tier
+	"sniper", -- ok, A tier, bot
 	"spectre", -- ok, D tier
 	"spirit_breaker", -- ok, kinda bad
 	"storm_spirit", -- ok, kinda bad
-	"sven", -- ok
+	"sven", -- ok, bot
 	"techies", -- ok, S tier
 	"templar_assassin", -- ok, D tier
 	"terrorblade", -- ok, S tier
 	"tidehunter", -- ok, A tier
 	"tinker", -- ok, D tier
-	"tiny", -- badly coded idea not bad
+	"tiny", -- badly coded idea not bad, bot
 	"treant", -- ok
 	"troll_warlord", -- ok
-	"tusk", -- terrible, S tier
+	"tusk", -- ok, S tier
 	"undying", -- badly coded idea not bad
 	"ursa", -- ok, kinda bad
-	"vengefulspirit", -- ok
+	"vengefulspirit", -- ok, bot
 	"venomancer" , -- ok, D tier
-	"viper", -- ok
+	"viper", -- ok, bot
 	"visage", -- kinda bad
 	"void_spirit", -- ok, kinda bad, D tier
-	"warlock", -- too strong idea not bad, A tier
+	"warlock", -- too strong idea not bad, A tier, bot
 	"weaver", -- ok, D tier
-	"windrunner", -- ok, kinda bad
+	"windrunner", -- kinda bad and outdated, bot
 	"winter_wyvern", -- ok, D tier
 	"wisp", -- ok, D tier
-	"witch_doctor", -- ok
-	"zuus", -- ok, D tier
+	"witch_doctor", -- ok, bot
+	"zuus", -- ok, D tier, bot
 }
 for _, name in pairs (hero_names) do
 	LinkLuaModifier("modifier_npc_dota_hero_"..name.."_perk", "abilities/hero_perks/npc_dota_hero_"..name.."_perk.lua", LUA_MODIFIER_MOTION_NONE)

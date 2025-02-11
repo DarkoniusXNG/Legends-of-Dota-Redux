@@ -29,14 +29,16 @@ function modifier_npc_dota_hero_tinker_perk:DeclareFunctions()
         MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
     }
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_tinker_perk:GetModifierTotalDamageOutgoing_Percentage(keys)
-	local ability = keys.inflictor
-	if not ability or ability:IsNull() then
+
+if IsServer() then
+	function modifier_npc_dota_hero_tinker_perk:GetModifierTotalDamageOutgoing_Percentage(keys)
+		local ability = keys.inflictor
+		if not ability or ability:IsNull() then
+			return 0
+		end
+		if ability:HasAbilityFlag("scientific") then
+			return 25
+		end
 		return 0
 	end
-	if ability:HasAbilityFlag("scientific") then
-		return 25
-	end
-	return 0
 end

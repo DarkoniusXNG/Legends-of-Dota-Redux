@@ -31,24 +31,27 @@ function modifier_npc_dota_hero_puck_perk:DeclareFunctions()
 	}
 end
 
-function modifier_npc_dota_hero_puck_perk:GetModifierTotalDamageOutgoing_Percentage(keys)
-	local ability = keys.inflictor
-	if not ability or ability:IsNull() then
+if IsServer() then
+	function modifier_npc_dota_hero_puck_perk:GetModifierTotalDamageOutgoing_Percentage(keys)
+		local ability = keys.inflictor
+		if not ability or ability:IsNull() then
+			return 0
+		end
+		if ability:HasAbilityFlag("mobility") then
+			return 25
+		end
 		return 0
 	end
-	if ability:HasAbilityFlag("mobility") then
-		return 25
-	end
-	return 0
-end
 
-function modifier_npc_dota_hero_puck_perk:GetModifierPercentageCooldown(keys)
-	local ability = keys.ability
-	if ability then
-		if not ability:HasAbilityFlag("mobility") then
-			return 10
+	function modifier_npc_dota_hero_puck_perk:GetModifierPercentageCooldown(keys)
+		local ability = keys.ability
+		if ability then
+			if not ability:HasAbilityFlag("mobility") then
+				return 10
+			end
+		else
+			return 0
 		end
-	else
 		return 0
 	end
 end

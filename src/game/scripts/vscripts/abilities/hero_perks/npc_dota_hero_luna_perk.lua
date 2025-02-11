@@ -56,13 +56,16 @@ function modifier_npc_dota_hero_luna_perk:DeclareFunctions()
   }
 end
 
-function modifier_npc_dota_hero_luna_perk:GetModifierPercentageCooldown(keys)
-	local ability = keys.ability
-	if ability and math.abs(self:GetStackCount()) == 1 then
-		if ability:GetAbilityType() == ABILITY_TYPE_ULTIMATE then
-			return 25
+if IsServer() then
+	function modifier_npc_dota_hero_luna_perk:GetModifierPercentageCooldown(keys)
+		local ability = keys.ability
+		if ability and math.abs(self:GetStackCount()) == 1 then
+			if ability:GetAbilityType() == ABILITY_TYPE_ULTIMATE then
+				return 25
+			end
+		else
+			return 0
 		end
-	else
 		return 0
 	end
 end

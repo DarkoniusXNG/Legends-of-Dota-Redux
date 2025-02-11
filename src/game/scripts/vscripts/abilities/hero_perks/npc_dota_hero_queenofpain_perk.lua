@@ -30,20 +30,22 @@ function modifier_npc_dota_hero_queenofpain_perk:DeclareFunctions()
         MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
     }
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_queenofpain_perk:GetModifierTotalDamageOutgoing_Percentage(keys)
-    if keys.target and keys.target:IsHero() and keys.target:HasUnitFlag("male") then
-        return 10
-    else 
-        return 0
+
+if IsServer() then
+    function modifier_npc_dota_hero_queenofpain_perk:GetModifierTotalDamageOutgoing_Percentage(keys)
+        if keys.target and keys.target:IsHero() and keys.target:HasUnitFlag("male") then
+            return 10
+        else 
+            return 0
+        end
     end
-end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_queenofpain_perk:GetModifierIncomingDamage_Percentage(keys)
-    if keys.attacker and keys.attacker:IsHero() and keys.attacker:HasUnitFlag("female") then
-        return 10
-    else 
-        return 0
+
+    function modifier_npc_dota_hero_queenofpain_perk:GetModifierIncomingDamage_Percentage(keys)
+        if keys.attacker and keys.attacker:IsHero() and keys.attacker:HasUnitFlag("female") then
+            return 10
+        else 
+            return 0
+        end
     end
 end
 --------------------------------------------------------------------------------------------------------

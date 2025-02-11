@@ -26,19 +26,21 @@ end
 
 function modifier_npc_dota_hero_doom_bringer_perk:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
+        MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
     }
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_doom_bringer_perk:GetModifierTotalDamageOutgoing_Percentage(keys)
-	local ability = keys.inflictor
-	if not ability or ability:IsNull() then
+
+if IsServer() then
+	function modifier_npc_dota_hero_doom_bringer_perk:GetModifierTotalDamageOutgoing_Percentage(keys)
+		local ability = keys.inflictor
+		if not ability or ability:IsNull() then
+			return 0
+		end
+		if ability:HasAbilityFlag("demon") then
+			return 15
+		end
 		return 0
 	end
-	if ability:HasAbilityFlag("demon") then
-		return 15
-	end
-	return 0
 end
 
 --------------------------------------------------------------------------------------------------------
