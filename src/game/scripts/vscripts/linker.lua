@@ -45,7 +45,7 @@ local hero_names = {
 	"juggernaut", -- ok, A tier, bot
 	"keeper_of_the_light", -- ok, A tier
 	--"kez", -- D tier
-	"kunkka", -- terrible, S tier, bot
+	"kunkka", -- ok, S tier, bot
 	"legion_commander", -- terrible and badly coded and outdated
 	"leshrac", -- ok, S tier
 	"lich", -- terrible and badly coded and outdated, bot
