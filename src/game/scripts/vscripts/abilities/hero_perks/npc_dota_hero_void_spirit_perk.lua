@@ -20,23 +20,20 @@ end
 function modifier_npc_dota_hero_void_spirit_perk:GetTexture()
 	return "custom/npc_dota_hero_void_spirit_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_void_spirit_perk:OnCreated()
 	if IsServer() then
 		local caster = self:GetCaster()
-		local ab = caster:FindAbilityByName("black_drake_magic_amplification_aura")
-		if ab then
-			--ab:SetLevel(1)
-			ab:UpgradeAbility(false)
+		local bonus_ability = caster:FindAbilityByName("black_drake_magic_amplification_aura")
+
+		if bonus_ability then
+			bonus_ability:UpgradeAbility(false)
 		else
-			ab = caster:AddAbility("black_drake_magic_amplification_aura")
-            --ab:SetStolen(true)
-			ab:SetActivated(true)
-			ab:SetLevel(1)
-			ab:SetHidden(false)
+			bonus_ability = caster:AddAbility("black_drake_magic_amplification_aura")
+			--bonus_ability:SetStolen(true)
+			bonus_ability:SetActivated(true)
+			bonus_ability:SetLevel(1)
+			bonus_ability:SetHidden(false)
 		end
 	end
 end

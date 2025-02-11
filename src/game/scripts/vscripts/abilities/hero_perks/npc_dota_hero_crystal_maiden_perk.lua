@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Crystal Maiden
---		Perk: Crystal Maiden gains 1 level of arcane aura for every ice spells she has
---
+--		Perk: Arcane Aura free ability + 1% Spell Amp for each level put in a Ice ability.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_crystal_maiden_perk ~= "" then modifier_npc_dota_hero_crystal_maiden_perk = class({}) end
+modifier_npc_dota_hero_crystal_maiden_perk = modifier_npc_dota_hero_crystal_maiden_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_crystal_maiden_perk:IsPassive()
 	return true
@@ -25,24 +23,45 @@ end
 function modifier_npc_dota_hero_crystal_maiden_perk:GetTexture()
 	return "custom/npc_dota_hero_crystal_maiden_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_crystal_maiden_perk:OnCreated()
-	if IsClient() then return end
-	local caster = self:GetParent()
+	self.bonusPerLevel = 1
+	if IsServer() then
+        local caster = self:GetCaster()
+        local bonus_ability = caster:FindAbilityByName("crystal_maiden_brilliance_aura")
 
-	local aura = caster:FindAbilityByName("crystal_maiden_brilliance_aura")
-	
-	for i = 0, caster:GetAbilityCount() - 1 do
-		local ability = caster:GetAbilityByIndex(i)
-		if ability and ability:HasAbilityFlag("ice") then
-			if not aura then
-				aura = caster:AddAbility("crystal_maiden_brilliance_aura")
-				--aura:SetStolen(true)
+        if bonus_ability then
+            bonus_ability:UpgradeAbility(false)
+        else 
+            bonus_ability = caster:AddAbility("crystal_maiden_brilliance_aura")
+            --bonus_ability:SetStolen(true)
+            bonus_ability:SetActivated(true)
+            bonus_ability:SetLevel(1)
+        end
+		self:StartIntervalThink(0.1)
+    end
+end
+
+function modifier_npc_dota_hero_crystal_maiden_perk:OnIntervalThink()
+	if IsServer() then
+		local caster = self:GetParent()
+		local stacks = 0
+		for i = 0, caster:GetAbilityCount() - 1 do
+			local skill = caster:GetAbilityByIndex(i)
+			if skill and skill:HasAbilityFlag("ice") then
+				stacks = stacks + skill:GetLevel() * self.bonusPerLevel
 			end
-			aura:UpgradeAbility(false)
 		end
+		self:SetStackCount(stacks)
 	end
+end
+
+function modifier_npc_dota_hero_crystal_maiden_perk:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+	}
+end
+
+function modifier_npc_dota_hero_crystal_maiden_perk:GetModifierSpellAmplify_Percentage()
+	return self:GetStackCount()
 end

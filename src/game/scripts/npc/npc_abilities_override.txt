@@ -2371,7 +2371,7 @@
 	"oracle_false_promise"
 	{
 		"ReduxFlags"                                                           "support | upgradeable"
-		"ReduxPerks"                                                           "support | undead"
+		"ReduxPerks"                                                           "support"
 		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
 	}
 	"rubick_null_field"
@@ -2463,7 +2463,7 @@
 	"pugna_nether_ward"
 	{
 		"ReduxFlags"                                                           "mana | summon"
-		"ReduxPerks"                                                           "lightning | summon_non_ult | undead"
+		"ReduxPerks"                                                           "lightning | summon_non_ult"
 	}
 	"mirana_invis"
 	{
@@ -4296,7 +4296,7 @@
 	}
 	"pugna_nether_blast"
 	{
-		"ReduxPerks"                                                           "skillshot | undead"
+		"ReduxPerks"                                                           "skillshot"
 	}
 	"chaos_knight_reality_rift"
 	{

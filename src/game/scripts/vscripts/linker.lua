@@ -18,7 +18,7 @@ local hero_names = {
 	"chaos_knight", -- ok, bot
 	"chen", -- badly coded idea not bad, S tier
 	"clinkz", -- ok, D tier
-	"crystal_maiden", -- terrible, D tier, bot
+	"crystal_maiden", -- ok, D tier, bot
 	"dark_seer", -- kinda bad
 	"dark_willow", -- ok
 	"dawnbreaker", -- kinda bad, missing icon, A tier
@@ -57,7 +57,7 @@ local hero_names = {
 	"lycan", -- kinda bad
 	"magnataur", -- ok
 	--"marci",
-	"mars", -- ok, S tier
+	"mars", -- ok, missing icon, S tier
 	"medusa", -- A tier
 	"meepo", -- kinda bad?
 	"mirana", -- ok

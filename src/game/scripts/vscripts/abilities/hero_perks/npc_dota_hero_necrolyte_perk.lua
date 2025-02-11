@@ -23,22 +23,19 @@ end
 function modifier_npc_dota_hero_necrolyte_perk:GetTexture()
 	return "custom/npc_dota_hero_necrolyte_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_necrolyte_perk:OnCreated()
     if IsServer() then
         local caster = self:GetCaster()
-        local necro = caster:FindAbilityByName("necrolyte_heartstopper_aura")
+        local bonus_ability = caster:FindAbilityByName("necrolyte_heartstopper_aura")
 
-        if necro then
-            necro:UpgradeAbility(false)
+        if bonus_ability then
+            bonus_ability:UpgradeAbility(false)
         else 
-            necro = caster:AddAbility("necrolyte_heartstopper_aura")
-            --necro:SetStolen(true)
-            necro:SetActivated(true)
-            necro:SetLevel(1)
+            bonus_ability = caster:AddAbility("necrolyte_heartstopper_aura")
+            --bonus_ability:SetStolen(true)
+            bonus_ability:SetActivated(true)
+            bonus_ability:SetLevel(1)
         end
     end
 end

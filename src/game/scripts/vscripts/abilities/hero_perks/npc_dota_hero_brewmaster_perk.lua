@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Brewmaster
---		Perk: Brewmaster gains a free level of Drunken Brawler, whether he has it or not.
+--		Perk: Drunken Brawler free ability
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_brewmaster_perk = modifier_npc_dota_hero_brewmaster_perk or class({})
 --------------------------------------------------------------------------------------------------------
