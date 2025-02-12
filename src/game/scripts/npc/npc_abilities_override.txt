@@ -3154,11 +3154,12 @@
 	"drow_ranger_frost_arrows"
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | ice | autocast_basic | ranger"
+		"ReduxPerks"                                                           "attack_modifier | ice | autocast_basic | ranger | physical"
 	}
 	"drow_ranger_multishot"
 	{
-		"ReduxPerks"                                                           "skillshot | ranger | channeled"
+		"ReduxFlags"                                                           "physical"
+		"ReduxPerks"                                                           "skillshot | ranger | channeled | physical"
 	}
 	"clinkz_searing_arrows"
 	{
@@ -3521,7 +3522,7 @@
 	}
 	"pangolier_swashbuckle"
 	{
-		"ReduxFlags"                                                           "mobility | physical"
+		"ReduxFlags"                                                           "mobility | physical | aoe_attack"
 		"ReduxPerks"                                                           "mobility | physical | skillshot"
 		"ReduxBans"                                                            "ursa_fury_swipes | ursa_fury_swipes_lod | obsidian_destroyer_arcane_orb"
 	}
@@ -3541,7 +3542,7 @@
 
 	"pangolier_gyroshell"
 	{
-		"ReduxFlags"                                                           "mobility | stun | physical"
+		"ReduxFlags"                                                           "mobility | stun | physical | aoe_attack"
 		"ReduxPerks"                                                           "mobility | enemyMoving | physical"
 	}
 
@@ -4532,7 +4533,8 @@
 	{
 		// Made single player ability because its laggy
 		"ReduxCost"                                                            "120"
-		"ReduxFlags"                                                           "doNotRandom | upgradeable"
+		"ReduxFlags"                                                           "aoe_attack | doNotRandom | upgradeable | physical"
+		"ReduxPerks"                                                           "physical"
 		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 	"grimstroke_soul_chain"
@@ -4784,8 +4786,8 @@
 
 	"mars_gods_rebuke"
 	{
-		"ReduxPerks"                                                           "aoe_attack | crit"
-		"ReduxPerks"                                                           "enemyMoving"
+		"ReduxPerks"                                                           "aoe_attack | crit | physical"
+		"ReduxPerks"                                                           "enemyMoving | physical"
 	}
 
 	"mars_arena_of_blood"

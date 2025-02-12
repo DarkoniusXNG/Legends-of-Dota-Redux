@@ -4,7 +4,7 @@
 	"huskar_life_break"
 	{
 		"ReduxFlags"                                                           "upgradeable | mobility"
-		"ReduxPerks"                                                           "self_damage | mobility | rage | blood"
+		"ReduxPerks"                                                           "self_damage | mobility | blood"
 		"ReduxCost"                                                            "120"
 		"ReduxBans"                                                            "spell_lab_symbiotic"
 	}

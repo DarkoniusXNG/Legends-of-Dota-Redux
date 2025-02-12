@@ -5,7 +5,6 @@ require('abilities/hero_perks/npc_dota_hero_troll_warlord_perk')
 require('abilities/hero_perks/npc_dota_hero_spirit_breaker_perk')
 require('abilities/hero_perks/npc_dota_hero_dragon_knight_perk')
 require('abilities/hero_perks/npc_dota_hero_ancient_apparition_perk')
-require('abilities/hero_perks/npc_dota_hero_slardar_perk')
 require('abilities/hero_perks/npc_dota_hero_viper_perk')
 require('abilities/hero_perks/npc_dota_hero_silencer_perk')
 require('abilities/hero_perks/npc_dota_hero_venomancer_perk')
@@ -111,7 +110,6 @@ function heroPerksDamageFilter(filterTable)
 
   local perks = {
     modifier_npc_dota_hero_bane_perk = true,
-    modifier_npc_dota_hero_slardar_perk = true,
   }
   local perkName = "modifier_" .. caster:GetName() .. "_perk"
   local targetPerk = caster:HasModifier(perkName)
@@ -119,8 +117,6 @@ function heroPerksDamageFilter(filterTable)
   if not perks[perkName] then return filterTable end
   -- Perk for Bane
   PerkBane(filterTable)
-  -- Perk for Slardar
-  perkSlardar(filterTable)
 
   return filterTable
 end

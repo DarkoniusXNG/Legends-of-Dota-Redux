@@ -26,7 +26,7 @@ end
 
 function modifier_npc_dota_hero_tinker_perk:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
+        MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
     }
 end
 
