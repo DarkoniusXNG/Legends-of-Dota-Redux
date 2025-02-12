@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Windranger
---		Perk: If Windranger has no passives, all her active spells will refund 25% mana and have 25% reduced cooldowns.
+--		Perk: Windranger gains +1% Spell Amp, +1% Cooldown Reduction and +1% Mana Cost Reduction for each level put in a Ranger ability.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_windrunner_perk = modifier_npc_dota_hero_windrunner_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -23,46 +23,44 @@ end
 function modifier_npc_dota_hero_windrunner_perk:GetTexture()
 	return "custom/npc_dota_hero_windrunner_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_windrunner_perk:OnCreated()
+	self.bonusPerLevel = 1
 	if IsServer() then
-		self.noPassives = true
-		local caster = self:GetCaster()
-
-		for i = 0, caster:GetAbilityCount() - 1 do
-			local ability = caster:GetAbilityByIndex(i)
-			if ability and ability:IsPassive() and not ability:IsHidden() and not util:IsTalent(ability) and SkillManager:isPassive(ability:GetName()) then
-				self.noPassives = false
-			end
-		end
-		if self.noPassives then
-			local cooldownReductionPercent = 25
-			local manaReductionPercent = 25
-
-			self.cooldownReduction = 1 - (cooldownReductionPercent / 100)
-			self.manaReduction = manaReductionPercent / 100
-		end
+		self:StartIntervalThink(0.1)
 	end
 end
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_windrunner_perk:OnIntervalThink()
+	if IsServer() then
+		local caster = self:GetParent()
+		local stacks = 0
+		for i = 0, caster:GetAbilityCount() - 1 do
+			local skill = caster:GetAbilityByIndex(i)
+			if skill and skill:HasAbilityFlag("ranger") then
+				stacks = stacks + skill:GetLevel() * self.bonusPerLevel
+			end
+		end
+		self:SetStackCount(stacks)
+	end
+end
+
 function modifier_npc_dota_hero_windrunner_perk:DeclareFunctions()
 	return {
-	  MODIFIER_EVENT_ON_ABILITY_FULLY_CAST
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
 	}
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_windrunner_perk:OnAbilityFullyCast(keys)
-  if IsServer() and self.noPassives then
-    local hero = self:GetCaster()
-    local target = keys.target
-    local ability = keys.ability
-    if hero == keys.unit and ability then
-      hero:GiveMana(ability:GetManaCost(ability:GetLevel() - 1) * self.manaReduction)
-      local cooldown = ability:GetCooldownTimeRemaining() * self.cooldownReduction
-      ability:EndCooldown()
-      ability:StartCooldown(cooldown)
-    end
-  end
+
+function modifier_npc_dota_hero_windrunner_perk:GetModifierSpellAmplify_Percentage()
+	return self:GetStackCount()
+end
+
+function modifier_npc_dota_hero_windrunner_perk:GetModifierPercentageCooldown()
+	return self:GetStackCount()
+end
+
+function modifier_npc_dota_hero_windrunner_perk:GetModifierPercentageManacostStacking()
+	return self:GetStackCount()
 end

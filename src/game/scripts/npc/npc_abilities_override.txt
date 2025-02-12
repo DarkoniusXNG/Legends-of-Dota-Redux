@@ -11,7 +11,9 @@
 #base "heroes\dawnbreaker.txt"
 #base "heroes\death_prophet.txt"
 #base "heroes\dragon_knight.txt"
+#base "heroes\drow_ranger.txt"
 #base "heroes\elder_titan.txt"
+#base "heroes\hoodwink.txt"
 #base "heroes\huskar.txt"
 #base "heroes\invoker.txt"
 #base "heroes\kez.txt"
@@ -26,6 +28,7 @@
 #base "heroes\ringmaster.txt"
 #base "heroes\spectre.txt"
 #base "heroes\underlord.txt"
+#base "heroes\windranger.txt"
 
 "DOTAAbilities"
 {
@@ -93,6 +96,8 @@
 
 	"muerta_ofrenda"
 	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
+
 		"ReduxPerks"                                                           "undead"
 	}
 
@@ -107,7 +112,7 @@
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "scientific | skillshot"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 	}
 
 	"chen_summon_convert"
@@ -306,36 +311,6 @@
 			"attack_speed_bonus"				"30 40 50 60"
 			"arc_lightning_damage_pct"		"50 60 70 80"
 			"arc_lightning_damage_illusion_pct"		"20 25 30 35"
-		}
-	}
-
-	"drow_ranger_glacier"
-	{
-		"ReduxPerks"	"ice"
-
-		"MaxLevel"						"4"
-		"AbilityCastRange"				"400"
-		"AbilityCastPoint"				"0.1"
-		"AbilityCooldown"				"20 18 16 14"
-		"AbilityManaCost"				"50"
-		"AbilityValues"
-		{
-			"shard_width"				"180"
-			"shard_count"				"5"
-			"shard_speed"				"1200.0"
-			"shard_duration"			"8 9 10 11"
-			"shard_angle_step"			"40.0"
-			"shard_distance"			"125"
-			"turn_rate_slow"			"0"
-			"end_height"				"128"
-			"hilltop_offset"			"150 175 200 225"
-			"ramp_radius"				"150 175 200 225"
-			"attack_range_bonus"		"200 225 250 275"
-			"multishot_arrow_bonus"		"1 2 3 4"
-			"knockback_duration"		"0.1"
-			"knockback_distance"		"175"
-			"knockback_height"			"50"
-			"z_speed_override"			"800"
 		}
 	}
 
@@ -1951,13 +1926,6 @@
 		"ReduxCost"                                                            "10"
 	}
 
-	"drow_ranger_marksmanship"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | ranger"
-		"ReduxCost"                                                            "120"
-		"ReduxBans"                                                            "brawler_agi"
-	}
 	"earth_spirit_geomagnetic_grip"
 	{
 		"ReduxFlags"                                                           "silence"
@@ -2268,12 +2236,7 @@
 		"ReduxFlags"                                                           "upgradeable | mobility | support"
 		"ReduxPerks"                                                           "mobility | support"
 	}
-	"windrunner_focusfire"
-	{
-		"ReduxFlags"                                                           "attack_modifier | aoe_attack"
-		"ReduxCost"                                                            "40"
-		"ReduxPerks"														   "ranger"
-	}
+
 	"winter_wyvern_arctic_burn"
 	{
 		"ReduxFlags"                                                           "upgradeable | attack_modifier"
@@ -2807,12 +2770,7 @@
 		"ReduxPerks"                                                           "mobility"
 		"ReduxCost"                                                            "30"
 	}
-	"windrunner_windrun"
-	{
-		"ReduxFlags"                                                           "mobility | invis | upgradeable"
-		"ReduxPerks"                                                           "mobility | invis | ranger"
-		"ReduxCost"                                                            "10"
-	}
+
 	"juggernaut_blade_fury"
 	{
 		"ReduxPerks"                                                           "rage"
@@ -2833,7 +2791,7 @@
 	"mirana_leap"
 	{
 		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | ranger"
 	}
 	"nyx_assassin_spiked_carapace"
 	{
@@ -3151,16 +3109,6 @@
 		"ReduxCost"                                                            "10"
 	}
 
-	"drow_ranger_frost_arrows"
-	{
-		"ReduxFlags"                                                           "attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | ice | autocast_basic | ranger | physical"
-	}
-	"drow_ranger_multishot"
-	{
-		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"                                                           "skillshot | ranger | channeled | physical"
-	}
 	"clinkz_searing_arrows"
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"
@@ -3334,11 +3282,7 @@
 	{
 		"ReduxFlags"                                                           "stun"
 	}
-	"windrunner_shackleshot"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "skillshot | ranger"
-	}
+
 	"enigma_malefice"
 	{
 		"ReduxFlags"                                                           "stun"
@@ -3622,11 +3566,7 @@
 		"ReduxFlags"                                                           "silence | mobility"
 		"ReduxPerks"                                                           "silence | mobility"
 	}
-	"drow_ranger_wave_of_silence"
-	{
-		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "enemyMoving | silence | ranger | skillshot"
-	}
+
 	"chaos_knight_phantasm"
 	{
 		"ReduxFlags"                                                           "illusion | upgradeable"
@@ -4249,10 +4189,6 @@
 		"ReduxBans"                                                            "dazzle_bad_juju_redux"
 	}
 
-	"windrunner_powershot"
-	{
-		"ReduxPerks"                                                           "channeled | skillshot | ranger"
-	}
 	"beastmaster_wild_axes"
 	{
 		"ReduxPerks"                                                           "skillshot"
@@ -4624,26 +4560,6 @@
 		"ReduxCost"                                                            "400"
 	}
 
-	"hoodwink_acorn_shot"
-	{
-		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"														   "physical | nature"
-	}
-	"hoodwink_bushwhack"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "enemyMoving | skillshot | ranger"
-	}
-	"hoodwink_scurry"
-	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility"
-	}
-	"hoodwink_sharpshooter"
-	{
-		"ReduxFlags"                                                           "disarm_break"
-		"ReduxPerks"                                                           "channeled | skillshot | ranger"
-	}
 	"lich_frost_shield"
 	{
 		"ReduxFlags"                                                           "tank | support"
@@ -4913,64 +4829,6 @@
 	"grimstroke_dark_artistry"
 	{
 		"ReduxPerks"                                                           "skillshot"
-	}
-
-	"hoodwink_decoy"
-	{
-		"ReduxFlags"					"invis | upgradeable | mobility | doNotRandom"
-		"ReduxPerks"					"invis | mobility"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"30.0 26.0 22.0 18.0"
-		"AbilityManaCost"				"60"
-		"AbilityValues"
-		{
-			"duration"					"6.0"
-			"decoy_detonate_radius"
-			{
-				"value"		"250 275 300 325"
-				"affected_by_aoe_increase"	"1"
-			}
-			"decoy_stun_duration"				"1.6 1.8 2.0 2.2"
-			"images_do_damage_percent"	"100"
-			"images_take_damage_percent"	"100"
-			"projectile_speed"	"1200"
-			"movement_speed"				"15"
-			"sharpshooter_damage_pct"			"60 70 80 90"
-		}
-	}
-
-	"hoodwink_hunters_boomerang"
-	{
-		"ReduxPerks"                                                           "ranger | skillshot"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"MaxLevel"						"4"
-		"AbilityCastRange"				"1100"
-		"AbilityCooldown"				"18 17 16 15"
-		"AbilityManaCost"				"125"
-		"AbilityValues"
-		{
-			"speed"					"900"
-			"radius"
-			{
-				"value"		"150"
-				"affected_by_aoe_increase"	"1"
-			}
-			"damage"				"200 225 250 275"
-			"mark_duration"			"7.0"
-			"slow_pct"				"20 25 30 35"
-			"spell_amp"				"20 25 30 35"
-			"status_resistance"		"0"
-			"spread"
-			{
-				"value"		"400"
-				"affected_by_aoe_increase"	"1"
-			}
-			"min_throw_duration"			"0.5"
-			"max_throw_duration"			"1.2"
-		}
 	}
 
 	"skywrath_mage_shield_of_the_scion"
@@ -5471,26 +5329,6 @@
 		}
 	}
 
-	"windrunner_gale_force"
-	{
-		"ReduxPerks"            "enemyMoving | ranger | nature"
-
-		"MaxLevel"                      "4"
-		"AbilityCastRange"              "1500 2000 2500 3000"
-		"AbilityCooldown"               "30 25 20 15"
-		"AbilityManaCost"               "150"
-		"AbilityValues"
-		{
-			"duration"          "3.5 4 4.5 5"
-			"wind_strength"     "240"
-			"radius"
-			{
-				"value"		"1000 1100 1200 1300"
-				"affected_by_aoe_increase"	"1"
-			}
-		}
-	}
-
 	"witch_doctor_voodoo_switcheroo"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
@@ -5661,12 +5499,6 @@
 	"clinkz_strafe"
 	{
 		"ReduxPerks"                                                           "fire | ranger"
-	}
-
-	"drow_ranger_silence"
-	{
-		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "ranger | silence"
 	}
 
 	"techies_sticky_bomb"
@@ -8921,61 +8753,6 @@
 		"TalentRequiredAbility"                                                   "weaver_shukuchi"
 	}
 
-
-
-
-	"special_bonus_unique_windranger"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_windrun"
-	}
-	"special_bonus_unique_windranger_2"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_focusfire"
-	}
-	"special_bonus_unique_windranger_3"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_powershot"
-	}
-	"special_bonus_unique_windranger_4"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_windrun"
-	}
-	"special_bonus_unique_windranger_5"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_shackleshot"
-	}
-	"special_bonus_unique_windranger_6"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_shackleshot"
-	}
-	"special_bonus_unique_windranger_7"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_windrun"
-	}
-	"special_bonus_unique_windranger_8"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_focusfire"
-	}
-	"special_bonus_unique_windranger_9"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_shackleshot"
-	}
-	"special_bonus_unique_windranger_10"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_windrun"
-	}
-	"special_bonus_unique_windranger_windrun_undispellable"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_windrun"
-	}
-	"special_bonus_unique_windranger_powershot_slow"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_powershot"
-	}
-
-
-
-
 	"special_bonus_unique_winter_wyvern_1"
 	{
 		"TalentRequiredAbility"                                                   "winter_wyvern_arctic_burn"
@@ -9174,48 +8951,6 @@
 	"special_bonus_unique_zeus_static_field_dmg"
 	{
 		"TalentRequiredAbility"                                                   "zuus_static_field"
-	}
-
-
-	"special_bonus_unique_drow_ranger_1"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_multishot"
-	}
-	"special_bonus_unique_drow_ranger_2"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_frost_arrows"
-	}
-	"special_bonus_unique_drow_ranger_3"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_marksmanship"
-	}
-	"special_bonus_unique_drow_ranger_4"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_wave_of_silence"
-	}
-	"special_bonus_unique_drow_ranger_5"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_wave_of_silence"
-	}
-	"special_bonus_unique_drow_ranger_6"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_multishot"
-	}
-	"special_bonus_unique_drow_ranger_7"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_wave_of_silence"
-	}
-	"special_bonus_unique_drow_ranger_8"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_multishot"
-	}
-	"special_bonus_unique_drow_ranger_gust_selfmovespeed"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_wave_of_silence"
-	}
-	"special_bonus_unique_drow_ranger_gust_invis"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_wave_of_silence"
 	}
 
 	"special_bonus_unique_doom_1"
@@ -9813,48 +9548,6 @@
 	"special_bonus_unique_snapfire_mortimer_kisses_impact_damage"
 	{
 		"TalentRequiredAbility" 		"snapfire_mortimer_kisses"
-	}
-
-
-	"special_bonus_unique_hoodwink_acorn_shot_charges"
-	{
-		"TalentRequiredAbility" 				"hoodwink_acorn_shot"
-	}
-	"special_bonus_unique_hoodwink_camouflage"
-	{
-		"TalentRequiredAbility" 				"hoodwink_scurry"
-	}
-	"special_bonus_unique_hoodwink_sharpshooter_speed"
-	{
-		"TalentRequiredAbility" 				"hoodwink_sharpshooter"
-	}
-	"special_bonus_unique_hoodwink_sharpshooter_pure_damage"
-	{
-		"TalentRequiredAbility" 				"hoodwink_sharpshooter"
-	}
-	"special_bonus_unique_hoodwink_bushwhack_cooldown"
-	{
-		"TalentRequiredAbility" 				"hoodwink_bushwhack"
-	}
-	"special_bonus_unique_hoodwink_bushwhack_damage"
-	{
-		"TalentRequiredAbility" 				"hoodwink_bushwhack"
-	}
-	"special_bonus_unique_hoodwink_scurry_duration"
-	{
-		"TalentRequiredAbility" 				"hoodwink_scurry"
-	}
-	"special_bonus_unique_hoodwink_acorn_shot_bounces"
-	{
-		"TalentRequiredAbility" 				"hoodwink_acorn_shot"
-	}
-	"special_bonus_unique_hoodwink_bushwhack_radius"
-	{
-		"TalentRequiredAbility" 				"hoodwink_bushwhack"
-	}
-	"special_bonus_unique_hoodwink_scurry_evasion"
-	{
-		"TalentRequiredAbility" 				"hoodwink_scurry"
 	}
 
 	"special_bonus_unique_marci_grapple_stun_duration"

@@ -119,7 +119,7 @@ local hero_names = {
 	"void_spirit", -- ok, kinda bad, D tier
 	"warlock", -- too strong idea not bad, A tier, bot
 	"weaver", -- ok, D tier
-	"windrunner", -- kinda bad and outdated, bot
+	"windrunner", -- ok, bot
 	"winter_wyvern", -- ok, D tier
 	"wisp", -- ok, D tier
 	"witch_doctor", -- ok, bot

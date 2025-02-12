@@ -1,0 +1,105 @@
+// Abilities for windranger
+"DOTAAbilities"
+{
+	"windrunner_shackleshot"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "skillshot | ranger"
+	}
+
+	"windrunner_powershot"
+	{
+		"ReduxPerks"                                                           "channeled | skillshot | ranger"
+	}
+
+	"windrunner_windrun"
+	{
+		"ReduxFlags"                                                           "mobility | invis | upgradeable"
+		"ReduxPerks"                                                           "mobility | invis | ranger"
+		"ReduxCost"                                                            "10"
+	}
+
+	"windrunner_focusfire"
+	{
+		"ReduxFlags"                                                           "attack_modifier | aoe_attack"
+		"ReduxCost"                                                            "40"
+		"ReduxPerks"                                                           "ranger"
+	}
+
+	"windrunner_gale_force"
+	{
+		"ReduxPerks"            "enemyMoving | ranger | nature"
+
+		"MaxLevel"                      "4"
+		"AbilityCastRange"              "1500 2000 2500 3000"
+		"AbilityCooldown"               "30 25 20 15"
+		"AbilityManaCost"               "150"
+		"AbilityValues"
+		{
+			"duration"          "3.5 4 4.5 5"
+			"wind_strength"     "240"
+			"radius"
+			{
+				"value"		"1000 1100 1200 1300"
+				"affected_by_aoe_increase"	"1"
+			}
+		}
+	}
+
+	"windrunner_easy_breezy"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | ranger"
+	}
+
+	"special_bonus_unique_windranger"
+	{
+		"TalentRequiredAbility"                                                "windrunner_windrun"
+	}
+	"special_bonus_unique_windranger_2"
+	{
+		"TalentRequiredAbility"                                                "windrunner_focusfire"
+	}
+	"special_bonus_unique_windranger_3"
+	{
+		"TalentRequiredAbility"                                                "windrunner_powershot"
+	}
+	"special_bonus_unique_windranger_4"
+	{
+		"TalentRequiredAbility"                                                "windrunner_windrun"
+	}
+	"special_bonus_unique_windranger_5"
+	{
+		"TalentRequiredAbility"                                                "windrunner_shackleshot"
+	}
+	"special_bonus_unique_windranger_6"
+	{
+		"TalentRequiredAbility"                                                "windrunner_shackleshot"
+	}
+	"special_bonus_unique_windranger_7"
+	{
+		"TalentRequiredAbility"                                                "windrunner_windrun"
+	}
+	"special_bonus_unique_windranger_8"
+	{
+		"TalentRequiredAbility"                                                "windrunner_focusfire"
+	}
+	"special_bonus_unique_windranger_9"
+	{
+		"TalentRequiredAbility"                                                "windrunner_shackleshot"
+	}
+	"special_bonus_unique_windranger_10"
+	{
+		"TalentRequiredAbility"                                                "windrunner_windrun"
+	}
+	"special_bonus_unique_windranger_windrun_undispellable"
+	{
+		"TalentRequiredAbility"                                                "windrunner_windrun"
+	}
+	"special_bonus_unique_windranger_powershot_slow"
+	{
+		"TalentRequiredAbility"                                                "windrunner_powershot"
+	}
+}

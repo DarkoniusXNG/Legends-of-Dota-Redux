@@ -47,8 +47,6 @@
 	{
 		"ReduxPerks"		"light"
 
-		"AbilityCooldown"				"30 25 20 15"
-		"AbilityManaCost"				"40"
 		"AbilityValues"
 		{
 			"attack_speed"					"30 45 60 75"

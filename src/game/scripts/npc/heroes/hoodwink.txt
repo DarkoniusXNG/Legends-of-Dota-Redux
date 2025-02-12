@@ -1,0 +1,122 @@
+// Abilities for hoodwink
+"DOTAAbilities"
+{
+	"hoodwink_acorn_shot"
+	{
+		"ReduxFlags"                                                           "physical"
+		"ReduxPerks"                                                           "physical | nature"
+	}
+	"hoodwink_bushwhack"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "enemyMoving | skillshot | ranger"
+	}
+	"hoodwink_scurry"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | ranger"
+	}
+	"hoodwink_sharpshooter"
+	{
+		"ReduxFlags"                                                           "disarm_break"
+		"ReduxPerks"                                                           "channeled | skillshot | ranger"
+	}
+
+	"hoodwink_decoy"
+	{
+		"ReduxFlags"                                                           "invis | upgradeable | mobility | doNotRandom"
+		"ReduxPerks"                                                           "invis | mobility"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"30.0 26.0 22.0 18.0"
+		"AbilityManaCost"				"60"
+		"AbilityValues"
+		{
+			"duration"					"6.0"
+			"decoy_detonate_radius"
+			{
+				"value"		"250 275 300 325"
+				"affected_by_aoe_increase"	"1"
+			}
+			"decoy_stun_duration"				"1.6 1.8 2.0 2.2"
+			"images_do_damage_percent"	"100"
+			"images_take_damage_percent"	"100"
+			"projectile_speed"	"1200"
+			"movement_speed"				"15"
+			"sharpshooter_damage_pct"			"60 70 80 90"
+		}
+	}
+
+	"hoodwink_hunters_boomerang"
+	{
+		"ReduxPerks"                                                           "ranger | skillshot"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"1100"
+		"AbilityCooldown"				"18 17 16 15"
+		"AbilityManaCost"				"125"
+		"AbilityValues"
+		{
+			"speed"					"900"
+			"radius"
+			{
+				"value"		"150"
+				"affected_by_aoe_increase"	"1"
+			}
+			"damage"				"200 225 250 275"
+			"mark_duration"			"7.0"
+			"slow_pct"				"20 25 30 35"
+			"spell_amp"				"20 25 30 35"
+			"status_resistance"		"0"
+			"spread"
+			{
+				"value"		"400"
+				"affected_by_aoe_increase"	"1"
+			}
+			"min_throw_duration"			"0.5"
+			"max_throw_duration"			"1.2"
+		}
+	}
+
+	"hoodwink_mistwoods_wayfarer"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxPerks"                                                           "ranger"
+	}
+
+	"special_bonus_unique_hoodwink_acorn_shot_charges"
+	{
+		"TalentRequiredAbility" 				"hoodwink_acorn_shot"
+	}
+	"special_bonus_unique_hoodwink_sharpshooter_pure_damage"
+	{
+		"TalentRequiredAbility" 				"hoodwink_sharpshooter"
+	}
+	"special_bonus_unique_hoodwink_bushwhack_cooldown"
+	{
+		"TalentRequiredAbility" 				"hoodwink_bushwhack"
+	}
+	"special_bonus_unique_hoodwink_bushwhack_damage"
+	{
+		"TalentRequiredAbility" 				"hoodwink_bushwhack"
+	}
+	"special_bonus_unique_hoodwink_scurry_duration"
+	{
+		"TalentRequiredAbility" 				"hoodwink_scurry"
+	}
+	"special_bonus_unique_hoodwink_acorn_shot_bounces"
+	{
+		"TalentRequiredAbility" 				"hoodwink_acorn_shot"
+	}
+	"special_bonus_unique_hoodwink_sharpshooter_damage"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 				"hoodwink_sharpshooter"
+	}
+}
