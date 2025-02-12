@@ -2287,7 +2287,7 @@
 	}
 	"skeleton_king_reincarnation"
 	{
-		"ReduxFlags"                                                           "wtfAutoBan"
+		"ReduxFlags"                                                           "wtfAutoBan | semi_passive"
 		"ReduxPerks"                                                           "undead"
 		"ReduxCost"                                                            "120"
 		"ReduxBans"                                                            "imba_dazzle_shallow_grave_passive | tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"

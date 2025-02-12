@@ -56,6 +56,7 @@ if IsServer() then
     local parent = self:GetParent()
     local attacker = event.attacker
     local damaged_unit = event.unit
+    local damage = event.damage
 
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
@@ -93,7 +94,7 @@ if IsServer() then
     end
 
     -- Check damage if 0 or negative
-    if event.damage <= 0 then
+    if damage <= 0 then
       return
     end
 
