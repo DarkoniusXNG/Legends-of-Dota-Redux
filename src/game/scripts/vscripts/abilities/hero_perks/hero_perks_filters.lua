@@ -59,16 +59,16 @@ function heroPerksModifierFilter(filterTable)
   local caster = EntIndexToHScript( caster_index )
 
   local perks = {
-    modifier_npc_dota_hero_dragon_knight_perk = true,
+    modifier_npc_dota_hero_abaddon_perk = true,
     modifier_npc_dota_hero_ancient_apparition_perk = true,
-    modifier_npc_dota_hero_death_prophet_perk = true,
+    modifier_npc_dota_hero_doom_bringer_perk = true,
+    modifier_npc_dota_hero_dragon_knight_perk = true,
     modifier_npc_dota_hero_obsidian_destroyer_perk = true,
-    modifier_npc_dota_hero_venomancer_perk = true,
     modifier_npc_dota_hero_silencer_perk = true,
-    modifier_npc_dota_hero_viper_perk = true,
     modifier_npc_dota_hero_spirit_breaker_perk = true,
     modifier_npc_dota_hero_troll_warlord_perk = true,
-    modifier_npc_dota_hero_abaddon_perk = true,
+    modifier_npc_dota_hero_venomancer_perk = true,
+    modifier_npc_dota_hero_viper_perk = true,
   }
   local perkName = "modifier_" .. caster:GetName() .. "_perk"
   local targetPerk = caster:HasModifier(perkName)
@@ -79,7 +79,7 @@ function heroPerksModifierFilter(filterTable)
   PerkDragonKnight(filterTable)
   -- Perk for Ancient Apparition
   perkAncientApparition(filterTable)
-  -- Perk for Death Prophet
+  -- Perk for Doom
   perkDoom(filterTable)
    -- Perk for Outworld Devourer
   perkOD(filterTable)
@@ -93,7 +93,6 @@ function heroPerksModifierFilter(filterTable)
   perkSpaceCow(filterTable)
   -- Perk for Troll Warlord
   perkTrollWarlord(filterTable)
-
 
   -- Returning the filterTable
   return filterTable

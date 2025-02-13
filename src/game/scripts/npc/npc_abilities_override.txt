@@ -6943,7 +6943,7 @@
 	}
 	"special_bonus_unique_nevermore_4"
 	{
-		"TalentRequiredAbility"                                                   "nevermore_requiem"
+		"TalentRequiredAbility"                                                   "nevermore_frenzy"
 	}
 	"special_bonus_unique_nevermore_5"
 	{
@@ -6979,6 +6979,10 @@
 			"2" "nevermore_shadowraze2"
 			"3" "nevermore_shadowraze3"
 		}
+	}
+	"special_bonus_unique_nevermore_frenzy_castspeed"
+	{
+		"TalentRequiredAbility"                                                   "nevermore_frenzy"
 	}
 
 	"special_bonus_unique_nyx"
