@@ -48,7 +48,11 @@
     {
       "base_damage"                                       "90 105 120 135"
       "rocket_speed"                                      "1200"
-      "rocket_width"                                      "100"
+      "rocket_width"
+      {
+        "value"                                           "100"
+        "affected_by_aoe_increase"                        "1"
+      }
       "rocket_range"                                      "3000"
       "rocket_vision"
       {

@@ -61,12 +61,20 @@
       "leap_speed"                                        "500"
       "leap_duration"                                     "0.5"
       "leap_height"                                       "250"
-      "radius"                                            "275"
+      "radius"
+      {
+        "value"                                           "275"
+        "affected_by_aoe_increase"                        "1"
+      }
 
       "bonus_move_speed_on_kill"                          "20 30 40"
       "bonus_attack_speed_on_kill"                        "40 50 60"
       "buff_duration"                                     "10"
-      "buff_radius"                                       "1200"
+      "buff_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
     }
 
     "ReduxFlags"                                          "mobility | upgradeable"

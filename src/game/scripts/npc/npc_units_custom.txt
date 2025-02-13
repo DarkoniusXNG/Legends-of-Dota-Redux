@@ -94,7 +94,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"100"
 		"AttackDamageMax"			"100"
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.5"
 		"AttackAnimationPoint"		"0.1"
 		"AttackAcquisitionRange"	"1000"
@@ -242,7 +241,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"			// Type of attack - melee, ranged, etc.
 		"AttackDamageMin"			"0"			// Damage range min.
 		"AttackDamageMax"			"0"			// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
@@ -1019,7 +1017,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"16"
 		"AttackDamageMax"			"24"
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.5"
 		"AttackAnimationPoint"		"0.4"
 		"AttackAcquisitionRange"	"800"
@@ -1095,7 +1092,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"24"
 		"AttackDamageMax"			"32"
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.5"
 		"AttackAnimationPoint"		"0.4"
 		"AttackAcquisitionRange"	"800"
@@ -1171,7 +1167,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"32"
 		"AttackDamageMax"			"40"
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.5"
 		"AttackAnimationPoint"		"0.4"
 		"AttackAcquisitionRange"	"800"
@@ -1247,7 +1242,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"40"
 		"AttackDamageMax"			"48"
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.5"
 		"AttackAnimationPoint"		"0.4"
 		"AttackAcquisitionRange"	"800"
@@ -1718,7 +1712,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"75"			// Damage range min.
 		"AttackDamageMax"			"75"		// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.2"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
@@ -1794,7 +1787,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"125"			// Damage range min.
 		"AttackDamageMax"			"125"		// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.2"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
@@ -1871,7 +1863,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"175"			// Damage range min.
 		"AttackDamageMax"			"175"		// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.2"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
@@ -1921,7 +1912,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		//"Model"						"models/creeps/neutral_creeps/n_creep_golem_a/neutral_creep_golem_a.mdl"	// Model.
+		"Model"						"models/development/invisiblebox.vmdl"	// Model.
 		"BaseClass"					"npc_dota_creep_neutral"
 		"SoundSet"					"n_creep_Melee"
 		"Level"						"5"
@@ -2001,7 +1992,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"120"			// Damage range min.
 		"AttackDamageMax"			"140"		// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				".95"		// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
@@ -2091,7 +2081,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"120"			// Damage range min.
 		"AttackDamageMax"			"140"		// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				".95"		// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
@@ -2181,7 +2170,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"120"			// Damage range min.
 		"AttackDamageMax"			"140"		// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				".95"		// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
@@ -2271,7 +2259,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"120"			// Damage range min.
 		"AttackDamageMax"			"140"		// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				".95"		// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
@@ -2361,7 +2348,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"120"			// Damage range min.
 		"AttackDamageMax"			"140"		// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				".95"		// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
@@ -2451,7 +2437,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"120"			// Damage range min.
 		"AttackDamageMax"			"140"		// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				".95"		// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
@@ -2520,7 +2505,6 @@
 		"AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"            "0"            // Damage range min.
 		"AttackDamageMax"            "0"        // Damage range max.
-		"AttackDamageType"            "DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"                "1.5"        // Speed of attack.
 		"AttackAnimationPoint"        "0.3"        // Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"    "900"        // Range within a target can be acquired.
@@ -2594,7 +2578,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"			// Type of attack - melee, ranged, etc.
 		"AttackDamageMin"			"0"			// Damage range min.
 		"AttackDamageMax"			"0"			// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
@@ -2705,7 +2688,6 @@
 		"AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"            "0"            // Damage range min.
 		"AttackDamageMax"            "0"        // Damage range max.
-		"AttackDamageType"            "DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"                "1.5"        // Speed of attack.
 		"AttackAnimationPoint"        "0.3"        // Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"    "600"        // Range within a target can be acquired.
@@ -2831,7 +2813,6 @@
 		"AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"            "0"            // Damage range min.
 		"AttackDamageMax"            "0"        // Damage range max.
-		"AttackDamageType"            "DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"                "1.5"        // Speed of attack.
 		"AttackAnimationPoint"        "0.3"        // Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"    "900"        // Range within a target can be acquired.
@@ -2958,7 +2939,6 @@
 		"AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"            "30"            // Damage range min.
 		"AttackDamageMax"            "50"        // Damage range max.
-		"AttackDamageType"            "DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"                "1.0"        // Speed of attack.
 		"AttackAnimationPoint"        "0.3"        // Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"    "900"        // Range within a target can be acquired.
@@ -3028,7 +3008,6 @@
 		"AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"            "30"            // Damage range min.
 		"AttackDamageMax"            "50"        // Damage range max.
-		"AttackDamageType"            "DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"                "1.25"        // Speed of attack.
 		"AttackAnimationPoint"        "0.3"        // Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"    "1500"        // Range within a target can be acquired.
@@ -3098,7 +3077,6 @@
 		"AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"            "15"            // Damage range min.
 		"AttackDamageMax"            "25"        // Damage range max.
-		"AttackDamageType"            "DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"                "1.5"        // Speed of attack.
 		"AttackAnimationPoint"        "0.3"        // Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"    "1200"        // Range within a target can be acquired.
@@ -3305,7 +3283,6 @@
 	  "AttackCapabilities" "DOTA_UNIT_CAP_NO_ATTACK" // Type of attack - melee, ranged, etc.
 	  "AttackDamageMin" "0" // Damage range min.
 	  "AttackDamageMax" "0" // Damage range max.
-	  "AttackDamageType" "DAMAGE_TYPE_ArmorPhysical"
 	  "AttackRate" "1" // Speed of attack.
 	  "AttackAnimationPoint" "0.5" // Normalized time in animation cycle to attack.
 	  "AttackAcquisitionRange" "800" // Range within a target can be acquired.
@@ -3448,7 +3425,6 @@
 		"AttackCapabilities" "DOTA_UNIT_CAP_NO_ATTACK" // Type of attack - melee, ranged, etc.
 		"AttackDamageMin" "0" // Damage range min.
 		"AttackDamageMax" "0" // Damage range max.
-		"AttackDamageType" "DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate" "1" // Speed of attack.
 		"AttackAnimationPoint" "0.5" // Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange" "800" // Range within a target can be acquired.
@@ -3523,7 +3499,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageMin"			"0"			// Damage range min.
 		"AttackDamageMax"			"0"			// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0"			// Speed of attack.
 		"AttackAnimationPoint"		"0"			// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"0"			// Range within a target can be acquired.
@@ -3593,7 +3568,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageMin"			"0"			// Damage range min.
 		"AttackDamageMax"			"0"			// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0"			// Speed of attack.
 		"AttackAnimationPoint"		"0"			// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"0"			// Range within a target can be acquired.
@@ -3663,7 +3637,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageMin"			"0"			// Damage range min.
 		"AttackDamageMax"			"0"			// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0"			// Speed of attack.
 		"AttackAnimationPoint"		"0"			// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"0"			// Range within a target can be acquired.
@@ -3730,7 +3703,6 @@
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"		"15.0"
 		"AttackDamageMax"		"15.0"
-		"AttackDamageType"		"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"			"0.8"
 		"AttackAnimationPoint"		"0.33"
 		"AttackAcquisitionRange"	"5000"
@@ -3808,7 +3780,6 @@
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"		"40.0"
 		"AttackDamageMax"		"40.0"
-		"AttackDamageType"		"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"			"0.8"
 		"AttackAnimationPoint"		"0.33"
 		"AttackAcquisitionRange"	"5000"
@@ -3887,7 +3858,6 @@
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"		"65.0"
 		"AttackDamageMax"		"65.0"
-		"AttackDamageType"		"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"			"0.8"
 		"AttackAnimationPoint"		"0.33"
 		"AttackAcquisitionRange"	"5000"
@@ -4035,7 +4005,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"35"
 		"AttackDamageMax"			"35"
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.2"
 		"AttackAnimationPoint"		"0.3"
 		"AttackAcquisitionRange"	"600"
@@ -4111,7 +4080,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageMin"			"90"
 		"AttackDamageMax"			"90"
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.2"
 		"AttackAnimationPoint"		"0.3"
 		"AttackAcquisitionRange"	"750"
@@ -4979,7 +4947,6 @@
 		"AttackCapabilities" "DOTA_UNIT_CAP_NO_ATTACK" // Type of attack - melee, ranged, etc.
 		"AttackDamageMin" "0" // Damage range min.
 		"AttackDamageMax" "0" // Damage range max.
-		"AttackDamageType" "DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate" "1" // Speed of attack.
 		"AttackAnimationPoint" "0.5" // Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange" "800" // Range within a target can be acquired.
@@ -5057,7 +5024,6 @@
 		"AttackCapabilities" "DOTA_UNIT_CAP_NO_ATTACK" // Type of attack - melee, ranged, etc.
 		"AttackDamageMin" "0" // Damage range min.
 		"AttackDamageMax" "0" // Damage range max.
-		"AttackDamageType" "DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate" "1" // Speed of attack.
 		"AttackAnimationPoint" "0.5" // Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange" "800" // Range within a target can be acquired.
@@ -5208,7 +5174,6 @@
 		"AttackCapabilities" "DOTA_UNIT_CAP_NO_ATTACK" // Type of attack - melee, ranged, etc.
 		"AttackDamageMin" "0" // Damage range min.
 		"AttackDamageMax" "0" // Damage range max.
-		"AttackDamageType" "DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate" "1" // Speed of attack.
 		"AttackAnimationPoint" "0.5" // Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange" "800" // Range within a target can be acquired.
@@ -5284,7 +5249,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"45"			// Damage range min.
 		"AttackDamageMax"			"45"		// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"		// Speed of attack.
 		"AttackAnimationPoint"		"0.56"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
@@ -5533,6 +5497,108 @@
 		"TeamName"					"DOTA_TEAM_NEUTRALS"
 	}
 
+	"custom_creature_zombie"
+    {
+        "BaseClass"                 "npc_dota_creature"
+        "Model"                     "models/heroes/undying/undying_minion.vmdl"
+        "SoundSet"                  "Undying_Zombie"
+        "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
+        "ModelScale"                "1.2"
+        "Level"                     "0"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		"Ability1"					"Brainthirsty"
+        "ArmorPhysical"             "0"
+        "MagicalResistance"         "25"
+        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageMin"           "10"   
+        "AttackDamageMax"           "12"
+        "AttackRate"                "1.8"
+        "AttackAnimationPoint"      "0.40"
+		"AttackAcquisitionRange"    "20000"
+        "AttackRange"               "135" 
+	
+	    "BountyXP"                  "16"        // Experience earn.
+        "BountyGoldMin"             "13"        // Gold earned min.
+        "BountyGoldMax"             "17"        // Gold earned max.
+        "RingRadius"                "70"
+        "HealthBarOffset"           "160"
+        "BoundsHullName"            "DOTA_HULL_SIZE_SMALL" 
+	
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"             "220"
+        "MovementTurnRate"          "0.6"
+        "StatusHealth"              "1"
+        "StatusHealthRegen"         "0"
+        "StatusMana"                "0"
+        "StatusManaRegen"           "0"
+        
+        "VisionDaytimeRange"        "1800"
+        "VisionNighttimeRange"      "1200"
+        
+        "LimitPathingSearchDepth"   ".3"
+        
+        "Creature"
+        {
+            "HPGain"                                "35"
+            "DamageGain"                            "3"
+			"ArmorGain"								"1"
+			"MoveSpeedGain"							"3"
+            "DisableClumpingBehavior"   			"1"
+        }
+    }
+	
+	"custom_creature_zombie_large"
+    {
+        "BaseClass"                 "npc_dota_creature"
+        "Model"                     "models/heroes/undying/undying_minion.vmdl"
+        "SoundSet"                  "Undying_Zombie"
+        "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
+        "ModelScale"                "2.3"
+        "Level"                     "5"
+	
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"                  "granite_golem_hp_aura"
+		"Ability2"                  "big_thunder_lizard_wardrums_aura"
+		"Ability3"                  "Brainthirsty"
+        "ArmorPhysical"             "15"
+        "MagicalResistance"         "25"
+        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageMin"           "35"   
+        "AttackDamageMax"           "40"
+        "AttackRate"                "1.9"  
+        "AttackAnimationPoint"      "0.40"
+		"AttackAcquisitionRange"    "20000"
+        "AttackRange"               "200" 
+	
+	    "BountyXP"                  "50"        // Experience earn.
+        "BountyGoldMin"             "40"        // Gold earned min.
+        "BountyGoldMax"             "46"        // Gold earned max.
+        "RingRadius"                "120"
+        "HealthBarOffset"           "160"
+        "BoundsHullName"            "DOTA_HULL_SIZE_SMALL" 
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"             "160"
+        "MovementTurnRate"          "0.6"
+        "StatusHealth"              "1"
+        "StatusHealthRegen"         "8"
+        "StatusMana"                "0"
+        "StatusManaRegen"           "0"
+        
+        "VisionDaytimeRange"        "1800"
+        "VisionNighttimeRange"      "1200"
+        
+        "LimitPathingSearchDepth"   ".3"
+		
+		"Creature"
+        {
+            "HPGain"                                "180"
+            "DamageGain"                            "9"
+			"ArmorGain"								"1"
+			"MoveSpeedGain"							"3"
+            "DisableClumpingBehavior"   			"1"
+        }
+    }
+	
 	//=================================================================================
 	// Creature: Basic Zombie
 	//=================================================================================
@@ -6207,8 +6273,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"45"
 		"AttackDamageMax"			"45"
-		"DamageGain"                "15"
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"
 		"AttackAnimationPoint"		"0.3"
 		"AttackAcquisitionRange"	"900"
@@ -6282,7 +6346,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"60"
 		"AttackDamageMax"			"60"
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"
 		"AttackAnimationPoint"		"0.3"
 		"AttackAcquisitionRange"	"900"
@@ -6356,7 +6419,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"75"
 		"AttackDamageMax"			"75"
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"
 		"AttackAnimationPoint"		"0.3"
 		"AttackAcquisitionRange"	"900"
@@ -6429,7 +6491,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"90"
 		"AttackDamageMax"			"90"
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"
 		"AttackAnimationPoint"		"0.3"
 		"AttackAcquisitionRange"	"900"
@@ -6506,7 +6567,6 @@
 			"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"			// Type of attack - melee, ranged, etc.
 			"AttackDamageMin"			"0"			// Damage range min.
 			"AttackDamageMax"			"0"			// Damage range max.
-			"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 			"AttackRate"				"1"			// Speed of attack.
 			"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
 			"AttackAcquisitionRange"	"0"		// Range within a target can be acquired.

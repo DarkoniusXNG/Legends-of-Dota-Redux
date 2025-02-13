@@ -32,8 +32,16 @@
       "small_radius_damage"                               "700 900 1200 1600" // full damage
       "big_radius_damage"                                 "350 450 600 800" // partial damage - not in tooltip
 
-      "small_radius"                                      "200" // full damage radius;
-      "big_radius"                                        "500" // half damage radius;
+      "small_radius" // full damage radius;
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "big_radius" // half damage radius;
+      {
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
+      }
 
       "building_dmg_reduction"                            "50"
       "vision_radius"                                     "400"

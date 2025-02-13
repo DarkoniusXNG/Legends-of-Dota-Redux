@@ -1,4 +1,4 @@
-summon_zombie_modifier = class ({})
+summon_zombie_modifier = summon_zombie_modifier or class ({})
 
 --------------------------------------------------------------------------------
 
@@ -6,63 +6,74 @@ function summon_zombie_modifier:IsHidden()
     return true
 end
 
-function summon_zombie_modifier:OnCreated()	
-    local ability = self:GetAbility()
-    local caster = self:GetCaster()
+function summon_zombie_modifier:IsDebuff()
+    return false
+end
 
-    self.spawn_delay = 4
-    self.max_spawned = -1
-    self.num_to_spawn = 1
-    self.caster = self:GetCaster()
+function summon_zombie_modifier:IsPurgable()
+    return false
+end
 
-    self.caster.numSpawned = 0
-    self.level = 0
+function summon_zombie_modifier:RemoveOnDeath()
+    return false
+end
 
-    self:StartIntervalThink(self.spawn_delay)
+function summon_zombie_modifier:OnCreated()
+	self.spawn_delay = 4
+	self.num_to_spawn = 1
+
+	if IsServer() then
+		self:StartIntervalThink(self.spawn_delay)
+	end
 end
 
 --------------------------------------------------------------------------------
 
 function summon_zombie_modifier:OnIntervalThink()
-    if IsServer() then
-        local caster = self:GetCaster()
-        local ability = self:GetAbility()
-        local center = caster:GetAbsOrigin()
+	local caster = self:GetParent()
 
-        if not caster:IsAlive() then
-            self:Destroy()
-            return
-        end
+	if not caster or caster:IsNull() then
+		return
+	end
 
-        self.level = self:GetCaster():GetLevel()
+	if not caster:IsAlive() then
+		return
+	end
 
-        for i=1,self.num_to_spawn do
-			if self:GetCaster():IsIllusion() == false then
-				self:AttemptToSpawnZombie()
-				--EmitSoundOn( "Hero_Undying.Tombstone", self:GetCaster() )
-			end
-        end
-    end
+	if caster:IsIllusion() then
+		self:Destroy()
+		return
+	end
+
+	for i = 1, self.num_to_spawn do
+		self:AttemptToSpawnZombie()
+	end
 end
 
 --------------------------------------------------------------------------------
 
 function summon_zombie_modifier:AttemptToSpawnZombie()
-    self.caster.numSpawned = self.caster.numSpawned + 1
-	local caster = self:GetCaster()
+	local caster = self:GetParent()
+	local ability = self:GetAbility()
+	local center = caster:GetAbsOrigin()
+	local level = caster:GetLevel()
+	local playerid = caster:GetPlayerID()
 
-    if self.caster.numSpawned > self.max_spawned then
-    if util:isPlayerBot(caster:GetPlayerID()) and math.random(1,15) == 1 then
-            local zombie = CreateUnitByName("custom_creature_zombie_large", self:GetCaster():GetAbsOrigin(), true, nil, nil, self:GetCaster():GetTeamNumber())
-            zombie:AddNewModifier(zombie, nil, "modifier_phased", {duration = 1})
-            zombie.spawner = self.caster
-            zombie:CreatureLevelUp(self.level)
-        else
-            local zombie = CreateUnitByName("custom_creature_zombie", self:GetCaster():GetAbsOrigin(), true, nil, nil, self:GetCaster():GetTeamNumber())
-            zombie:AddNewModifier(zombie, nil, "modifier_phased", {duration = 1})
-            zombie.spawner = self.caster
-            zombie:CreatureLevelUp(self.level)
-        end
+	if util:isPlayerBot(playerid) then
+		return
+	end
 
-    end
+	if RandomInt(1, 15) == 1 then
+		local zombie = CreateUnitByName("custom_creature_zombie_large", center, true, caster, caster, caster:GetTeamNumber())
+		zombie:SetOwner(caster:GetOwner())
+		zombie:AddNewModifier(zombie, ability, "modifier_phased", {duration = 1})
+		zombie:CreatureLevelUp(level)
+		zombie:SetControllableByPlayer(playerid, true)
+	else
+		local zombie = CreateUnitByName("custom_creature_zombie", center, true, caster, caster, caster:GetTeamNumber())
+		zombie:SetOwner(caster:GetOwner())
+		zombie:AddNewModifier(zombie, ability, "modifier_phased", {duration = 1})
+		zombie:CreatureLevelUp(level)
+		zombie:SetControllableByPlayer(playerid, true)
+	end
 end
