@@ -21,7 +21,7 @@ function summon_zombie:OnSpellStart()
 	local level = caster:GetLevel()
 	
 	if not target:IsInvulnerable() and not target:TriggerSpellAbsorb( self ) and not target:IsMagicImmune() then
-		local zombie = CreateUnitByName("custom_creature_zombie_large", vLocation, true, caster, caster, caster:GetTeamNumber())
+		local zombie = CreateUnitByName("custom_creature_zombie_large", target:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
 		zombie:SetOwner(caster:GetOwner())
 		zombie:SetControllableByPlayer(caster:GetPlayerID(), true)
 		zombie:CreatureLevelUp(level)

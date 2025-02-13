@@ -2,65 +2,39 @@
 {
     "summoner_tesla_coil"
     {
-        "BaseClass"                                                            "ability_datadriven"
+        "BaseClass"                                                            "ability_lua"
+        "ScriptFile"                                                           "abilities/dusk/summoner_tesla_coil.lua"
+        "AbilityTextureName"                                                   "custom/summoner_tesla"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                                   "custom/summoner_tesla"
-        "MaxLevel"                                                             "3"
-        "AbilityCastRange"                                                     "600"
+        "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"                                                 "SPELL_DISPELLABLE_YES"
+        "IsBreakable"                                                          "1"
+
         "AbilityCastPoint"                                                     "0"
         "AbilityCooldown"                                                      "0"
         "AbilityManaCost"                                                      "0"
-        "AbilityModifierSupportValue"                                          "0.0"
+
         "AbilityValues"
         {
-            "slow" "-30 -45 -60"
-            "damage" "40 60 80"
-            "interval" "0.35"
+            "slow"                                                             "-30 -45 -60"
+            "damage"                                                           "40 60 80"
+            "interval"                                                         "0.35"
+            "radius"
+            {
+              "value"                                                          "600"
+              "affected_by_aoe_increase"                                       "1"
+            }
+            "slow_duration"                                                    "0.8"
         }
         "precache"
         {
-            "particle"                                                     "particles/units/heroes/hero_summoner/cloaked.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
+            "particle"                                                         "particles/units/heroes/hero_summoner/tesla_coil_bolt.vpcf"
         }
-        "Modifiers"
-        {
-            "modifier_tesla_coil"
-            {
-                "ThinkInterval"                                        "%interval"
-                "OnIntervalThink"
-                {
-                    "RunScript"
-                    {
-                        "ScriptFile"                           "abilities/dusk/summoner_abilities.lua"
-                        "Function"                             "ChainLightning"
-                        "damage"                               "%damage"
-                    }
-                }
-                "Passive"                                              "1"
-                "IsPurgable"                                           "0"
-                "IsBuff"                                               "0"
-                "IsDebuff"                                             "0"
-                "IsStunDebuff"                                         "0"
-                "IsHidden"                                             "1"
-            }
-            "modifier_tesla_coil_slow"
-            {
-                "Duration"                                             "0.8"
-                "IsPurgable"                                           "1"
-                "IsBuff"                                               "0"
-                "IsDebuff"                                             "1"
-                "IsStunDebuff"                                         "0"
-                "IsHidden"                                             "1"
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%slow"
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow"
-                }
-            }
-        }
-        "ReduxPerks"                                                           "lightning"
+
+        "ReduxPerks"                                                           "lightning | scientific"
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
     }
 }
