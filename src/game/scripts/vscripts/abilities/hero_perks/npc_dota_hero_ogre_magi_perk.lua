@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --      Hero: Ogre Magi
---      Perk: When Ogre Magi casts a spell, he also bloodlusts himself for 20 seconds. And Bonus INT if no Dumb Luck.
+--      Perk: When Ogre Magi casts a spell, he also bloodlusts himself for 20 seconds.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_ogre_magi_perk = modifier_npc_dota_hero_ogre_magi_perk or class({})
 --------------------------------------------------------------------------------------------------------

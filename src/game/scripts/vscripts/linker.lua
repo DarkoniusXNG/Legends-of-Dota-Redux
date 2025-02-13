@@ -86,7 +86,7 @@ local hero_names = {
 	"razor", -- ok
 	"riki", -- ok, D tier
 	"rubick", -- ok
-	"sand_king", -- outdated, D tier, bot
+	"sand_king", -- ok, D tier, bot
 	"shadow_demon", -- ok, A tier
 	"shadow_shaman", -- too strong?
 	"shredder", -- ok, A tier
@@ -95,7 +95,7 @@ local hero_names = {
 	"skywrath_mage", -- terrible, bot
 	"slardar", -- ok, A tier
 	"slark", -- ok, D tier
-	"snapfire", -- ok, A tier
+	"snapfire", -- ok, missing icon, A tier
 	"sniper", -- ok, A tier, bot
 	"spectre", -- ok, D tier
 	"spirit_breaker", -- ok, kinda bad

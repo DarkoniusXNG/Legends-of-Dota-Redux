@@ -17,25 +17,22 @@ function modifier_npc_dota_hero_snapfire_perk:RemoveOnDeath()
 	return false
 end
 
-function modifier_npc_dota_hero_snapfire_perk:GetTexture()
-	return "custom/npc_dota_hero_snapfire_perk"
-end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+-- function modifier_npc_dota_hero_snapfire_perk:GetTexture()
+	-- return "custom/npc_dota_hero_snapfire_perk"
+-- end
 
 function modifier_npc_dota_hero_snapfire_perk:OnCreated()
 	if IsServer() then
 		local caster = self:GetCaster()
-		local lucky_shot = caster:FindAbilityByName("pangolier_lucky_shot")
+		local bonus_ability = caster:FindAbilityByName("pangolier_lucky_shot")
 
-		if lucky_shot then
-			lucky_shot:UpgradeAbility(false)
+		if bonus_ability then
+			bonus_ability:UpgradeAbility(false)
 		else
-			lucky_shot = caster:AddAbility("pangolier_lucky_shot")
-			--lucky_shot:SetStolen(true)
-			lucky_shot:SetActivated(true)
-			lucky_shot:SetLevel(1)
+			bonus_ability = caster:AddAbility("pangolier_lucky_shot")
+			--bonus_ability:SetStolen(true)
+			bonus_ability:SetActivated(true)
+			bonus_ability:SetLevel(1)
 		end
 	end
 end

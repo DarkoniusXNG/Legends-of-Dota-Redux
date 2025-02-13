@@ -37,20 +37,19 @@ function modifier_npc_dota_hero_slark_perk:GetModifierIncomingDamage_Percentage(
 		return -1000
 	end
 end
---------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_slark_perk:OnCreated()
 	if IsServer() then
 		local caster = self:GetParent()
-		local dark_pact = caster:FindAbilityByName("slark_dark_pact")
+		local bonus_ability = caster:FindAbilityByName("slark_dark_pact")
 
-		if dark_pact then
-			dark_pact:UpgradeAbility(false)
+		if bonus_ability then
+			bonus_ability:UpgradeAbility(false)
 		else
-			dark_pact = caster:AddAbility("slark_dark_pact")
-			dark_pact:SetStolen(true)
-			dark_pact:SetActivated(true)
-			dark_pact:SetLevel(1)
+			bonus_ability = caster:AddAbility("slark_dark_pact")
+			bonus_ability:SetStolen(true)
+			bonus_ability:SetActivated(true)
+			bonus_ability:SetLevel(1)
 		end
 		self:StartIntervalThink(10)
 	end

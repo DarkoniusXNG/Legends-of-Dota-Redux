@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --      Hero: Medusa
---      Perk: Medusa gains mana every time her attacks land. Mana gained is equal to 10% of the attack damage she dealt. And Bonus STR if no Mana Shield.
+--      Perk: Medusa gains mana every time her attacks land. Mana gained is equal to 10% of the attack damage she dealt.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_medusa_perk = modifier_npc_dota_hero_medusa_perk or class({})
 --------------------------------------------------------------------------------------------------------
