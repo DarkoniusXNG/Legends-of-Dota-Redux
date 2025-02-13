@@ -4691,7 +4691,7 @@
 	"lich_sinister_gaze"
 	{
 		"ReduxFlags"                                                           "stun | upgradeable"
-		"ReduxPerks"                                                           "enemyMoving | channeled | undead"
+		"ReduxPerks"                                                           "enemyMoving | channeled | undead | drain"
 	}
 
 	"mars_spear"
@@ -5664,7 +5664,7 @@
 	"lich_dark_sorcery"
 	{
 		"ReduxFlags"					"mana"
-		"ReduxPerks"                    "drain | self_damage"
+		"ReduxPerks"                    "drain | self_damage | undead"
 
 		"MaxLevel"						"4"
 		"AbilityCooldown"				"25 20 15 10"

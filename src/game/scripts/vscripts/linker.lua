@@ -48,7 +48,7 @@ local hero_names = {
 	"kunkka", -- ok, S tier, bot
 	"legion_commander", -- ok
 	"leshrac", -- ok, S tier
-	"lich", -- terrible and badly coded and outdated, bot
+	"lich", -- ok, bot
 	"life_stealer", -- ok, S tier
 	"lina", -- ok, S tier, bot
 	"lion", -- kinda bad, bot
