@@ -10,10 +10,7 @@
         "AbilityCastRange"                                                     "700"
         "AbilityCooldown"                                                      "15 14 13"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "precache"
-        {
-            "soundfile"                                                    "sounds/weapons/hero/razor/plasma_field.vsnd"
-        }
+
         "AbilityValues"
         {
             "plasma_radius" "700"
@@ -26,7 +23,7 @@
             {
                 "Passive"                                              "1"
                 "IsHidden"                                             "1"
-                "ThinkInterval"                                        "0.5"
+                "ThinkInterval"                                        "1"
                 "OnIntervalThink"
                 {
                     "RunScript"
@@ -37,7 +34,7 @@
                 }
             }
         }
+
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
     }
 }

@@ -2,10 +2,10 @@
 {
     "ebf_clinkz_trickshot_passive_ranged"
     {
-        "BaseClass"                                                            "ability_datadriven"
+        "BaseClass"                                                            "ability_lua"
+        "ScriptFile"                                                           "abilities/epic_boss_fight/ebf_clinkz_trickshot.lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "FightRecapLevel"                                                      "1"
         "AbilityTextureName"                                                   "custom/ebf_clinkz_trickshot_passive"
         "HasScepterUpgrade"                                                    "1"
         "AbilityValues"
@@ -13,55 +13,7 @@
             "double_interval" "2.0 1.4 0.8"
             "targets_scepter" "3"
         }
-        "precache"
-        {
-            "particle"                                                     "particles/units/heroes/hero_clinkz/clinkz_strafe_fire.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
-        }
-        "OnOwnerSpawned"
-        {
-            "ApplyModifier"
-            {
-                "ModifierName"                                         "modifier_strafe_passive"
-                "Target"                                               "CASTER"
-            }
-        }
-        "OnUpgrade"
-        {
-            "RemoveModifier"
-            {
-                "ModifierName"                                         "modifier_strafe_passive"
-                "Target"                                               "CASTER"
-            }
-            "ApplyModifier"
-            {
-                "ModifierName"                                         "modifier_strafe_passive"
-                "Target"                                               "CASTER"
-            }
-        }
-        "Modifiers"
-        {
-            "modifier_strafe_passive"
-            {
-                "OnCreated"
-                {
-                    "RunScript"
-                    {
-                        "ScriptFile"                           "abilities/epic_boss_fight/ebf_clinkz_trickshot"
-                        "Function"                             "StrafeAttack"
-                    }
-                }
-                "ThinkInterval"                                        "%double_interval"
-                "OnIntervalThink"
-                {
-                    "RunScript"
-                    {
-                        "ScriptFile"                           "abilities/epic_boss_fight/ebf_clinkz_trickshot"
-                        "Function"                             "StrafeAttack"
-                    }
-                }
-            }
-        }
+
         "ReduxFlags"                                                           "aoe_attack | upgradeable | doNotRandom"
         "ReduxPerks"                                                           "ranger"
     }

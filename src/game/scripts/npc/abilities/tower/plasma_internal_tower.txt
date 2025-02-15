@@ -21,14 +21,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"		
-
-		"precache" {
-			"soundfile" "sounds/weapons/hero/razor/plasma_field.vsnd"
-			"soundfile" "sounds/weapons/hero/razor/plasma_field_impact01.vsnd"
-			"soundfile" "sounds/weapons/hero/razor/plasma_field_impact02.vsnd"
-			"soundfile" "sounds/weapons/hero/razor/plasma_field_impact03.vsnd"
-		}
+		"AbilityManaCost"				"0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -37,7 +30,7 @@
             "damage_min" "100 200 300"
             "damage_max" "200 400 600"
             "radius" "700"
-            "speed" "500"
+            "total_ability_time"		"2.2"
         }
 	}
 }
