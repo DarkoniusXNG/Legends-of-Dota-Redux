@@ -220,7 +220,11 @@ function LocustSwarmPhysics( event )
 				--print("Gave up on the target, acquiring a new target.")
 
 				-- Decrease the locusts_locked counter
-				unit.current_target.locusts_locked = unit.current_target.locusts_locked - 1
+				if unit.current_target then
+					if unit.current_target.locust_locked then
+						unit.current_target.locusts_locked = unit.current_target.locusts_locked - 1
+					end
+				end
 			end
 
 			-- Do physical damage here, and increase heal counter.

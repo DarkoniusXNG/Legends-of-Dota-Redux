@@ -49,7 +49,7 @@
 			}
 
 			"RunScript" {
-				"ScriptFile" "heroes/Android/PocketFactory.lua"
+				"ScriptFile" "abilities/life_in_arena/pocketfactory.lua"
 				"Function" "CauseDamageDecor"
 				"attack_damage" "%AbilityDamage"
 
@@ -81,7 +81,7 @@
 			}
 
 			"RunScript" {
-				"ScriptFile" "heroes/Android/PocketFactory.lua"
+				"ScriptFile" "abilities/life_in_arena/pocketfactory.lua"
 				"Function" "CauseDamageDecor"
 				"attack_damage" "%AbilityDamage"
 

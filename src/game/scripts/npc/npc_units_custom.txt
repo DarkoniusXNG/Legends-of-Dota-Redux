@@ -7,8 +7,9 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"Model"						"models/heroes/keeper_of_the_light/kotl_wisp.vmdl"
-		"BaseClass"					"npc_dota_ignis_fatuus"
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/courier/echo_wisp/echo_wisp_flying.vmdl"
+		//"Model"						"models/heroes/keeper_of_the_light/kotl_wisp.vmdl" // doesnt work
 		"SoundSet"					"0"
 		"Level"						"1"
 		"ModelScale"				"1.0"

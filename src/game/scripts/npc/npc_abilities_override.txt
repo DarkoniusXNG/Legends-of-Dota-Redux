@@ -339,6 +339,7 @@
 	{
 		"ReduxFlags"                                                           "tank | doNotRandom"
 		"ReduxPerks"                                                           "neutral"
+		"ReduxCost"                                                            "120"
 
 		"MaxLevel"		"4"
 		"AbilityCooldown"				"60 50 40 30"
