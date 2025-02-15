@@ -24,17 +24,19 @@ function LocustSwarmStart( event )
 
 	for i=1,locusts do
 		Timers:CreateTimer(i * delay_between_locusts, function()
-			local unit = ability:ApplyDataDrivenThinker(caster,caster:GetAbsOrigin() , "modifier_locust", nil)
+			--local unit = ability:ApplyDataDrivenThinker(caster,caster:GetAbsOrigin() , "modifier_locust", nil)
+			local unit = CreateUnitByName(unit_name, caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
 			--unit:SetControllableByPlayer(playerID, true)
 
 			-- The modifier takes care of the logic and particles of each unit
-			--ability:ApplyDataDrivenModifier(caster, unit, "modifier_locust", {})
+			ability:ApplyDataDrivenModifier(caster, unit, "modifier_locust", {})
 
 			-- Add the spawned unit to the table
 			table.insert(caster.swarm, unit)
 
 			-- Double check to kill the units, remove this later
-			Timers:CreateTimer(duration+10, function() if unit and IsValidEntity(unit) then unit:RemoveSelf() end end)
+			--Timers:CreateTimer(duration+10, function() if unit and IsValidEntity(unit) then unit:RemoveSelf() end end)
+			unit:AddNewModifier(caster, ability, "modifier_kill", {duration = duration + 10})
 		end)
 	end
 end
@@ -218,7 +220,11 @@ function LocustSwarmPhysics( event )
 				--print("Gave up on the target, acquiring a new target.")
 
 				-- Decrease the locusts_locked counter
-				unit.current_target.locusts_locked = unit.current_target.locusts_locked - 1
+				if unit.current_target then
+					if unit.current_target.locust_locked then
+						unit.current_target.locusts_locked = unit.current_target.locusts_locked - 1
+					end
+				end
 			end
 
 			-- Do physical damage here, and increase heal counter.

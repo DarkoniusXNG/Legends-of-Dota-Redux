@@ -54,7 +54,7 @@
 	"abaddon_borrowed_time"
 	{
 		"ReduxFlags"                    "upgradeable | wtfAutoBan | semi_passive | tank"
-		"ReduxCost"                     "80"
+		"ReduxCost"                     "120"
 		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand | phoenix_supernova"
 	}
 

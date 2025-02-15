@@ -2,40 +2,32 @@
 {
     "summon_zombie"
     {
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "summon_zombie"
+        "AbilityTextureName"            "custom/summon_zombie"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-        "FightRecapLevel"               "1"
-        "BaseClass"                     "ability_lua"
-        "AbilityTextureName"            "custom/summon_zombie"
-        "AbilitySound"                  "Hero_Undying.Tombstone"
-        "ScriptFile"                    "summon_zombie"
+
         "MaxLevel"                      "1"
         "ReduxCost"                                                            "150"
         "ReduxPerks"                                                           "undead"
         "AbilityCastRange"              "800"
-        "AbilityCastPoint"              "0.45 0.45 0.45 0.45"
+        "AbilityCastPoint"              "0.45"
         "AbilityCooldown"               "30"
         "AbilityManaCost"               "30"
-        "AbilityValues"
-        {
-            "summon_distance" "1075"
-        }
     }
 
     "Brainthirsty"
     {
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "FightRecapLevel"               "1"
         "BaseClass"                     "ability_lua"
-        "AbilityTextureName"            "custom/Brainthirsty"
-        "AbilitySound"                  "Hero_Undying.Tombstone"
         "ScriptFile"                    "Brainthirsty"
+        "AbilityTextureName"            "custom/Brainthirsty"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "MaxLevel"                      "1"
-        "AbilityModifierSupportBonus"   "5"
         "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
-        
+
         "AbilityValues"
         {
             "brainthirsty_movement_speed_buff_amount" "4"
@@ -87,10 +79,10 @@
     {
         "BaseClass"                     "tinker_heat_seeking_missile"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"        
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
         "AbilityTextureName"            "custom/tinker_heat_seeking_missile_redux"
 
         "MaxLevel"                                                             "4"
@@ -102,14 +94,14 @@
         "AbilityCooldown"               "18 17 16 15"
         "AbilityManaCost"               "100"
         "AbilityValues"
-		{ 
+		{
 				"damage"			"120 240 360 480"
-				"radius"			
+				"radius"
 				{
 					"value"	"5000"
 					"affected_by_aoe_increase"	"1"
 				}
-				"targets"			
+				"targets"
 				{
 					"value"	"4 8 12 16"
 				}
@@ -125,7 +117,7 @@
         "BaseClass"                            "abyssal_underlord_atrophy_aura"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"  
+        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
         "MaxLevel"                      "15"
         "HasScepterUpgrade"             "1"
         "LevelsBetweenUpgrades"     "2"
@@ -150,29 +142,29 @@
 			}
 			"cleave_damage_pct"
 			{
-				"value"				"35"			
+				"value"				"35"
 			}
 			"cleave_starting_width"
 			{
 				"value"					"150"
-				"special_bonus_facet_abyssal_underlord_demons_reach"	"+150"				
+				"special_bonus_facet_abyssal_underlord_demons_reach"	"+150"
 				"affected_by_aoe_increase"	"1"
 			}
 			"cleave_angle"
 			{
 				"value"					"120"
-				"special_bonus_facet_abyssal_underlord_demons_reach"	"+75"				
+				"special_bonus_facet_abyssal_underlord_demons_reach"	"+75"
 			}
 			"cleave_distance_base"
 			{
 				"value"					"300"
-				"special_bonus_facet_abyssal_underlord_demons_reach"	"+100"				
+				"special_bonus_facet_abyssal_underlord_demons_reach"	"+100"
 					"affected_by_aoe_increase"	"1"
 			}
 			"cleave_distance_per_stack"
 			{
 				"value"					"10"
-				"special_bonus_facet_abyssal_underlord_demons_reach"	"+5"				
+				"special_bonus_facet_abyssal_underlord_demons_reach"	"+5"
 			}
 		}
         "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_3"
@@ -198,18 +190,18 @@
         "AbilityManaCost"               "75 80 85 90"
         "AbilityValues"
 		{
-				"AbilityCooldown"				
-				{	
+				"AbilityCooldown"
+				{
 					"value"				"18 15 12 9"
 					"special_bonus_unique_pangolier_4"	"-2.5"
 				}
 				"dash_range"			"1500"
-				"range"					
+				"range"
 				{
 					"value"			"1000"
 					"special_bonus_unique_pangolier"	"+250"
 				}
-				"damage"				
+				"damage"
 				{
 					"value"		"10 15 20 25"
 					"CalculateSpellDamageTooltip"	"0"
@@ -224,16 +216,16 @@
 				"start_radius"
 				{
 					"value"		"225"
-					"affected_by_aoe_increase"	"1"		
+					"affected_by_aoe_increase"	"1"
 				}
 				"end_radius"
 				{
 					"value"			"225"
-					"affected_by_aoe_increase"	"1"		
+					"affected_by_aoe_increase"	"1"
 				}
-				"strikes"				
+				"strikes"
 				{
-					"value"			"3"				
+					"value"			"3"
 				}
 				"procs_onhit_effects"			"1"
 		}
@@ -265,23 +257,23 @@
         "AbilityModifierSupportBonus"       "50"
         "AbilityValues"
 		{
-				"radius"				
+				"radius"
 				{
 					"value"		"10000"
 					"affected_by_aoe_increase"	"1"
 				"special_bonus_unique_faceless_void_2" "+10000"
 				}
-				"duration"				
+				"duration"
 				{
 					"value"			"4 5 6"
 				}
-				"vision_radius"			
+				"vision_radius"
 				{
 					"value"	"10000"
 					"affected_by_aoe_increase"	"1"
 				}
 				"bonus_attack_speed"
-				{					
+				{
 					"value" "100"
 				"special_bonus_unique_faceless_void" "+100"
 				}
@@ -290,10 +282,10 @@
 
     "shadow_shaman_mass_serpent_ward_redux"
     {
-        "BaseClass"                    "shadow_shaman_mass_serpent_ward"                                                      
+        "BaseClass"                    "shadow_shaman_mass_serpent_ward"
         "AbilityType"                   "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"  
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "FightRecapLevel"               "2"
         "HasScepterUpgrade"         "1"
@@ -359,7 +351,7 @@
 
     "mirana_invis_redux"
     {
-        "BaseClass"                    "mirana_invis"                                                        
+        "BaseClass"                    "mirana_invis"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
@@ -375,15 +367,15 @@
         "AbilityManaCost"               "75"
         "AbilityValues"
 		{
-				"AbilityCooldown"				
+				"AbilityCooldown"
 				{
 					"value"			"100 80 60"
-					"special_bonus_unique_mirana_4"			"-20"				
+					"special_bonus_unique_mirana_4"			"-20"
 				}
 				"fade_delay"			"1.0 0.75 0.5"
 				"duration"				"30"
 				"bonus_movement_speed"		"15 20 25"
-				"evasion"		
+				"evasion"
 				{
 					"value"			"25"
 					"special_bonus_unique_mirana_5"		"+20"
@@ -393,7 +385,7 @@
 
     "legion_commander_duel_redux"
     {
-        "BaseClass"                     "legion_commander_duel"                                                      
+        "BaseClass"                     "legion_commander_duel"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
@@ -410,21 +402,21 @@
         "ReduxFlags"                                                           "upgradeable | silence"
         "ReduxPerks"                                                           "silence"
         "ReduxCost"                                                            "120"
-        "AbilityCastPoint"              "0.3 0.3 0.3 0.3"
+        "AbilityCastPoint"              "0.3"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
-        "AbilityManaCost"               "75 75 75"
+        "AbilityManaCost"               "75"
         "AbilityValues"
 		{
-			"duration"				
+			"duration"
 			{
-				"value"				"5 6 7"		
+				"value"				"5 6 7"
 				"special_bonus_scepter"		"+3"
 			}
-			"AbilityCastRange"		
+			"AbilityCastRange"
 			{
 				"value"			"400"
-			}		
-			"reward_damage"			
+			}
+			"reward_damage"
 			{
 				"value"			"30 50 70"
 				"special_bonus_shard"	"+20"
@@ -432,18 +424,18 @@
 			"assist_reward_damage"
 			{
 				"value"			"15"
-				"special_bonus_facet_legion_commander_spoils_of_war"	"15"				
+				"special_bonus_facet_legion_commander_spoils_of_war"	"15"
 			}
 			"debuff_immunity"
 			{
 				"value"				"0"
 				"special_bonus_scepter"		"+1"
 			}
-			"damage_reduction_pct"			
+			"damage_reduction_pct"
 			{
 				"value"				"0"
 			}
-			"AbilityCooldown"	
+			"AbilityCooldown"
 			{
 				"value"					"30"
 			}
@@ -480,15 +472,15 @@
         "AbilityCastRange"              "700 800 900"
         "AbilityCastPoint"              "0.15"
         "AbilityManaCost"               "50"
-        
+
         "AbilityModifierSupportValue"   "0.75"
         "AbilityValues"
 		{
 			"chain_duration"		"10.0 15.0 20.0"
-			"chain_latch_radius"	
+			"chain_latch_radius"
 			{
 				"value"	"600"
-				"affected_by_aoe_increase"	"1"		
+				"affected_by_aoe_increase"	"1"
 			}
 			"chain_break_distance"	"700"
 			"leash_limit_multiplier"	"5.0"
@@ -506,7 +498,7 @@
     {
         "BaseClass"                    "templar_assassin_psi_blades"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"  
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
 
         "AbilityTextureName"            "custom/templar_assassin_psi_blades_op"
@@ -518,36 +510,40 @@
         }
         "AbilityValues"
 		{
-				"bonus_attack_range"		
+				"bonus_attack_range"
 				{
-					"value"		"130 160 190 220 250"
-					"special_bonus_unique_templar_assassin_8"	"+120"
+					"value"		"130 160 190 220"
+					"special_bonus_unique_templar_assassin_8"	"+100"
 				}
-				"attack_spill_range"		
+				"attack_spill_range"
 				{
-					"value"							"600 800 1000 1200 1400"
-					"special_bonus_unique_templar_assassin_8"	"+120"
+					"value"							"600 800 1000 1200"
+					"special_bonus_unique_templar_assassin_8"	"+100"
 				}
-				"spill_slow_duration"
-				{
-					"value"											"3.0"
-					"special_bonus_facet_templar_assassin_voidblades"	"+3.0"
-				}
-				"attack_spill_width"		
+				"attack_spill_width"
 				{
 					"value"		"90"
 					"affected_by_aoe_increase"	"1"
 				}
+				"attack_spill_pct"			"100"
+				"meld_strike_spills"
+				{
+					"value"											"0.0"
+					"special_bonus_facet_templar_assassin_voidblades"	"+1.0"
+				}
+				"spill_slow_duration"
+				{
+					"value"											"3.0"
+					//"special_bonus_facet_templar_assassin_voidblades"	"+3.0"
+				}
 				"spill_movement_slow_pct"
 				{
-					"value"		"40"
-					"special_bonus_facet_templar_assassin_voidblades"	"+30"
+					"value"											"30"
+					//"special_bonus_facet_templar_assassin_voidblades"	"+30"
 				}
-				"attack_spill_pct"			"100"
-				"attack_spill_penalty"			"0"
 		}
         "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_3"
-    }   
+    }
 
     "bristleback_warpath_op"
     {
@@ -561,23 +557,44 @@
         "ReduxCost"                                                            "120"
 
         "AbilityDuration"               "30"
-                
+
         "AbilityValues"
 		{
 			"damage_per_stack"
 			{
-				"value"					"5 15 20 25"
-				"special_bonus_facet_bristleback_berserk"	"+0"
-				"special_bonus_unique_bristleback_3"	"+20"
+				"value"					"15 20 25"
+				"special_bonus_facet_bristleback_berserk"	"=5"
+				"special_bonus_unique_bristleback_3"	"+18"
 			}
 			"aspd_per_stack"
 			{
-				"value"					"5 10 15 20"
-				"special_bonus_facet_bristleback_berserk"	"+5 +10 +15 +20"				
+				"value"					"5 10 15"
+				"special_bonus_facet_bristleback_berserk"	"=10 =15 =20"
 			}
-			"move_speed_per_stack"		"2 3 4 5"
-			"stack_duration"				"30"
-			"max_stacks"					"10 15 20 25"
+			"move_speed_per_stack"		"3 4 5"
+			"stack_duration"				"20.0"
+			"max_stacks"					"10 15 20"
+
+			"active_bonus_attack_percent"
+			{
+				"value"									"0"
+				"special_bonus_facet_bristleback_seeing_red"				"50"
+			}
+			"active_bonus_movement_percent"
+			{
+				"value"									"0"
+				"special_bonus_facet_bristleback_seeing_red"				"50"
+			}
+			"active_duration"
+			{
+				"value"				"0"
+				"special_bonus_facet_bristleback_seeing_red"				"4 5 6"
+			}
+			"active_view_angle_restriction"
+			{
+				"value"				"0"
+				"special_bonus_facet_bristleback_seeing_red"				"90"
+			}
 		}
     }
 
@@ -621,7 +638,7 @@
         "BaseClass"                            "bounty_hunter_jinada"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -629,8 +646,8 @@
         "AbilityTextureName"            "custom/bounty_hunter_jinada_op"
         "ReduxCost"                                                            "120"
 		"AbilityCastRange"				"150"
-		"AbilityCastPoint"				"0.0"	
-		
+		"AbilityCastPoint"				"0.0"
+
         "precache"
         {
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
@@ -647,19 +664,19 @@
 				"value"			"40 80 120 160"
 				"special_bonus_unique_bounty_hunter"		"+50"
 			}
-			"AbilityCooldown"				
+			"AbilityCooldown"
 			{
 				"value"			"9 7 5 3"
 				"special_bonus_unique_bounty_hunter_jinada_no_cooldown"			"-100%"
 			}
-			
+
 		}
         "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
     }
 
     "grimstroke_soul_chain_op"
     {
-        "BaseClass"                     "grimstroke_soul_chain" 
+        "BaseClass"                     "grimstroke_soul_chain"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -707,7 +724,7 @@
         "BaseClass"                            "mars_arena_of_blood"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -724,22 +741,26 @@
         "AbilityCastRange"              "1000"
         "AbilityCastPoint"              "0.1"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
-        "AbilityCooldown"               "60"
         "AbilityManaCost"               "150 200 250"
-        
+
         "AbilityValues"
 		{
-			"duration"			"6 8 10"
-			"radius"			
+			"AbilityCooldown"
+			{
+				"value"			"60"
+				"special_bonus_unique_mars_arena_cooldown"			"-20"
+			}
+			"duration"			"7 8 9"
+			"radius"
 			{
 				"value"		"550"
-				"affected_by_aoe_increase"	"1"		
+				"affected_by_aoe_increase"	"1"
 			}
 
 			"width"				"100"
-			"spear_damage"		"80 160 240"
+			"spear_damage"		"160 240 320"
 			"formation_time"	"0.1"
-			"spear_distance_from_wall"	"250"
+			"spear_distance_from_wall"	"160"
 			"spear_attack_interval"	"0.5"
 			"warrior_count"		"14"
 			"first_warrior_angle"	"0.0"
@@ -750,23 +771,24 @@
 
 			"obscure_vision"
 			{
-				"value"		"1"
-				"special_bonus_facet_mars_arena"	"=1"
+				"value"		"0"
+				"special_bonus_facet_mars_arena"	"1"
 			}
-			"arena_kill_buff_duration"				
+			"arena_kill_buff_duration"
 			{
 				"value"				"15"
-				"special_bonus_facet_mars_victory_feast"			"+15"				
+				"special_bonus_facet_mars_victory_feast"			"+20"
 			}
 			"arena_kill_buff_damage_pct"
 			{
 				"value"				"20"
-				"special_bonus_facet_mars_victory_feast"			"+20"				
+				"special_bonus_facet_mars_victory_feast"			"+20"
 			}
+
 			"arena_kill_buff_heal_pct"
 			{
 				"value"				"20"
-				"special_bonus_facet_mars_victory_feast"			"+20"				
+				"special_bonus_facet_mars_victory_feast"			"+30"
 			}
 		}
     }
@@ -799,23 +821,23 @@
         "AbilityModifierSupportBonus"       "50"
         "AbilityValues"
 		{
-				"radius"				
+				"radius"
 				{
 					"value"		"300"
 					"affected_by_aoe_increase"	"1"
 					"special_bonus_unique_faceless_void_2" "+140"
 				}
-				"duration"				
+				"duration"
 				{
 					"value"			"2.5 3.0 3.5 4.0"
 				}
-				"vision_radius"			
+				"vision_radius"
 				{
 					"value"	"600"
 					"affected_by_aoe_increase"	"1"
 				}
 				"bonus_attack_speed"
-				{					
+				{
 					"value" "40 60 80 100"
 				"special_bonus_unique_faceless_void" "+80"
 				}
@@ -832,19 +854,19 @@
         "ReduxPerks"                    "support | aura"
         "ReduxCost"                     "120"
         "AbilityTextureName"            "custom/crystal_maiden_brilliance_aura_redux"
-        
+
         "AbilityValues"
 		{
-			"base_mana_regen"					
+			"base_mana_regen"
 			{
 				"value"										"1 2 3 4"
 			}
-			"proximity_mana_regen_tooltip"					
+			"proximity_mana_regen_tooltip"
 			{
 				"value"										"5 10 15 20"
 			}
 			"proximity_bonus_factor"		"5"
-			"proximity_bonus_radius"		
+			"proximity_bonus_radius"
 			{
 				"value"		"1200"
 				"special_bonus_facet_crystal_maiden_cold_comfort"		"=1200"

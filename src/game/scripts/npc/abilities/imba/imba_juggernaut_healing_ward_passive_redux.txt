@@ -51,6 +51,8 @@
             }
         }
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
+        "ReduxFlags"                                                           "support"
+        "ReduxPerks"                                                           "support | aura"
+        "ReduxBans"                                                            "imba_juggernaut_healing_ward_passive"
     }
 }

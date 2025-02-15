@@ -13,37 +13,36 @@ function lightning_lightning_dagger:OnSpellStart()
 	self:FireDagger(t,{		
 		bounces_left = bounces,
 		-- [tostring(t:GetEntityIndex())] = 1
-	})
+	}, c)
 
 end
 
-function lightning_lightning_dagger:FireDagger(t,extradata,spawn_origin)
+function lightning_lightning_dagger:FireDagger(t, extradata, source, spawn_origin)
 	local c = self:GetCaster()
-	local spawn_origin = spawn_origin or c
-	local info = 
-	  {
-	  Target = t,
-	  Source = spawn_origin,
-	  Ability = self,  
-	  EffectName = "particles/units/heroes/hero_lightning/lightning_dagger_mark_main.vpcf",
-	  vSpawnOrigin = spawn_origin,
-	  fDistance = 10000,
-	  fStartRadius = 64,
-	  fEndRadius = 64,
-	  bHasFrontalCone = false,
-	  bReplaceExisting = false,
-	  iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-	  iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-	  iUnitTargetType = DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC,
-	  fExpireTime = GameRules:GetGameTime() + 10.0,
-	  bDeleteOnHit = true,
-	  iMoveSpeed = 1600,
-	  bProvidesVision = false,
-	  iVisionRadius = 0,
-	  iVisionTeamNumber = c:GetTeamNumber(),
-	  iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
-	  ExtraData = extradata
-	  }
+	local spawn_origin = spawn_origin or source:GetAbsOrigin()
+	local info = {
+		Target = t,
+		Source = source,
+		Ability = self,  
+		EffectName = "particles/units/heroes/hero_lightning/lightning_dagger_arcana.vpcf",
+		vSpawnOrigin = spawn_origin,
+		fDistance = 10000,
+		fStartRadius = 64,
+		fEndRadius = 64,
+		bHasFrontalCone = false,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 10.0,
+		bDeleteOnHit = true,
+		iMoveSpeed = 1600,
+		bProvidesVision = false,
+		iVisionRadius = 100,
+		iVisionTeamNumber = c:GetTeamNumber(),
+		iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
+		ExtraData = extradata
+	}
   
   	local projectile = ProjectileManager:CreateTrackingProjectile(info)
 end
@@ -52,7 +51,6 @@ function lightning_lightning_dagger:OnProjectileHit_ExtraData(target,location,ex
 	if not target then return end
 
 	if target:TriggerSpellAbsorb(self) then return end
-	target:TriggerSpellReflect(self)
 
 	local damage = self:GetAbilityDamage()
 	local jump_radius = 700
@@ -63,16 +61,12 @@ function lightning_lightning_dagger:OnProjectileHit_ExtraData(target,location,ex
 
 	InflictDamage(target,self:GetCaster(),self,damage,DAMAGE_TYPE_PURE)
 
-	target:AddNewModifier(self:GetCaster(), self, "modifier_lightning_dagger_slow", {Duration=duration}) --[[Returns:void
-	No Description Set
-	]]
+	target:AddNewModifier(self:GetCaster(), self, "modifier_lightning_dagger_slow", {Duration=duration})
 
-	local en = FindEnemiesRandom(self:GetCaster(),target:GetAbsOrigin(),jump_radius)
-	
 	local enemies = FindUnitsInRadius(
 		self:GetCaster():GetTeamNumber(),	-- int, your team number
-		pos,	-- point, center point
-		nil,	-- handle, cacheUnit. (not known)
+		target:GetAbsOrigin(),	-- point, center point
+		target,	-- handle, cacheUnit. (not known)
 		jump_radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
 		DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
@@ -81,9 +75,8 @@ function lightning_lightning_dagger:OnProjectileHit_ExtraData(target,location,ex
 		false	-- bool, can grow cache
 	)
 	
-	local chosen = target
-
-	for k,v in pairs(enemies) do
+	local chosen
+	for _, v in ipairs(enemies) do
 		if v ~= target then
         	chosen = v
         	break
@@ -100,14 +93,21 @@ end
 modifier_lightning_dagger_slow = class({})
 
 function modifier_lightning_dagger_slow:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
 	}
-	return funcs
 end
 
 function modifier_lightning_dagger_slow:GetModifierMoveSpeedBonus_Percentage()
 	return -self:GetAbility():GetSpecialValueFor("slow")
+end
+
+function modifier_lightning_dagger_slow:GetEffectName()
+	return "particles/units/heroes/hero_lightning/lightning_dagger_mark_main.vpcf"
+end
+
+function modifier_lightning_dagger_slow:GetEffectAttachType()
+	return PATTACH_OVERHEAD_FOLLOW
 end
 
 function InflictDamage(target,attacker,ability,damage,damage_type,flags)

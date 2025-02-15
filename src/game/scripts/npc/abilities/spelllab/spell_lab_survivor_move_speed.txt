@@ -12,9 +12,9 @@
         {
             "bonus" "4.0 6.0 8.0 10.0"
         }
+
         "ReduxFlags"                                                           "mobility"
-        "ReduxBans"                                                            ""
-        //"ReduxPerks"                                                           ""
+        "ReduxPerks"                                                           "mobility"
         "ReduxCost"                                                            "60"
     }
 }

@@ -35,6 +35,10 @@ function side_gunner_redux:OnProjectileHit(target, location)
 	return true
 end
 
+function side_gunner_redux:GetAOERadius()
+	return self:GetSpecialValueFor("range")
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_side_gunner_redux = modifier_side_gunner_redux or class({})
@@ -103,12 +107,12 @@ if IsServer() then
 			attackRange,
 			DOTA_UNIT_TARGET_TEAM_ENEMY,
 			DOTA_UNIT_TARGET_ALL,
-			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-			FIND_ANY_ORDER,
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+			FIND_FARTHEST,
 			false
 		)
 
-		for _, unit in pairs(units) do
+		for _, unit in ipairs(units) do
 			if unit and not unit:IsNull() and parent:CanEntityBeSeenByMyTeam(unit) and not unit:IsInvulnerable() and not unit:IsAttackImmune() then
 				local projectileInfo =
 				{

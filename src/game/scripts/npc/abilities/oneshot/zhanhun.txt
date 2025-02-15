@@ -4,8 +4,9 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"custom/zhanhun"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"HotKeyOverride"	"C"
+
 		"ReduxFlags"														    "cooldown"
+
 		"Modifiers"
 		{
 			"modifier_zhanhun"

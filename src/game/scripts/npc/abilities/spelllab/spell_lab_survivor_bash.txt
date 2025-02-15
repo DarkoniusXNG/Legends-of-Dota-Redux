@@ -14,9 +14,9 @@
             "bonus" "2.5 5.0 6.5 8.0" // chance
             "duration" "0.75"
         }
+
         "ReduxFlags"                                                           "bash | attack_modifier"
-        //"ReduxBans"                                                            ""
-        //"ReduxPerks"                                                           ""
+        "ReduxPerks"                                                           "attack_modifier"
         "ReduxCost"                                                            "120"
     }
 }

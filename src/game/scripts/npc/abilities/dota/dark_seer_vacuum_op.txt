@@ -21,14 +21,14 @@
 				{
 					"value"		"1000 2000 3000 4000"
 					"affected_by_aoe_increase"	"1"
-					"special_bonus_unique_dark_seer_2" "+1000"
+					"special_bonus_unique_dark_seer_2" "+75"
 				}
 				"duration"				"0.3 0.4 0.5 0.6"
-				"damage"				"70 130 190 250"
+				"damage"				"100 175 250 325"
 				"radius_tree"				"150"
 		}
+
         "ReduxPerks"                                                           "enemymoving"
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
     }
 }

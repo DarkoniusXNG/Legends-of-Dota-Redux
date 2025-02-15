@@ -13,9 +13,7 @@
             "bonus" "25.0 50.0 75.0 100.0"
             "max" "3000.0"
         }
-        "ReduxFlags"                                                           ""
-        "ReduxBans"                                                            ""
-        //"ReduxPerks"                                                           ""
+
         "ReduxCost"                                                            "120"
     }
 }

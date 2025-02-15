@@ -25,7 +25,7 @@
                 "Function"                                             "MedicalTractat"
             }
         }
+
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
     }
 }

@@ -16,6 +16,7 @@
             "self_slow" "-30 -10 10 30"
             "aura_fade_time" "2.0"
         }
+
         "ReduxFlags"                                                           "mobility | invis"
         "ReduxPerks"                                                           "mobility | ice | lightning"
         "ReduxCost"                                                            "20"

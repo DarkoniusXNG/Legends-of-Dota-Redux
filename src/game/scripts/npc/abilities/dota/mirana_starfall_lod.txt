@@ -73,7 +73,10 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "upgradeable"
+
+        "ReduxFlags"                                                           "dota_custom | upgradeable"
+        "ReduxPerks"                                                           "light"
+        "ReduxBans"                                                            "mirana_starfall"
         "ReduxCost"                                                            "10"
     }
 }

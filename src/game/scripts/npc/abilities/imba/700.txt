@@ -89,6 +89,7 @@
         "AbilityUnitDamageType"                         "DAMAGE_TYPE_MAGICAL"
         "AbilityTextureName"                            "custom/imba_roshan_fury_op"
         "MaxLevel"                                      "1"
+
         "ReduxCost"                                     "120"
         "ReduxFlags"                                                           "stun"
 
@@ -258,6 +259,7 @@
         "AbilityTextureName"                    "custom/imba_ancient_stalwart_defense_op"
         "MaxLevel"                              "4"
         "AbilityCastRange"                      "1500"
+
         "ReduxFlags"                                                           "support"
         "ReduxPerks"                                                           "support | aura"
         "ReduxCost"                                     "120"
@@ -405,6 +407,7 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "ScriptFile"                    "abilities/dota imba/hero_clinkz.lua"
         "MaxLevel"                      "4"
+
         "ReduxCost"                                     "120"
 
         // Time
@@ -473,6 +476,7 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"            "custom/crystal_maiden_arcane_dynamo_op"
         "MaxLevel"                      "4"
+
         "ReduxCost"                                     "120"
 
         // Special

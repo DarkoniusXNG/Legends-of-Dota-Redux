@@ -258,34 +258,6 @@ function ForcefieldCheck(keys)
 
 end
 
-function ChainLightning( event )
-
-  local hero = event.caster
-  local ability = event.ability
-
-  local damage = event.damage
-  local bounce_range = 400
-  local decay = 0.0
-
-  local units = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetOrigin(), hero, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, 
-            DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, true)
-
-  local target = units[math.random(1,#units)]
-
-  if target == nil then return end
-
-  local lightningBolt = ParticleManager:CreateParticle("particles/units/heroes/hero_summoner/tesla_coil_bolt.vpcf", PATTACH_CUSTOMORIGIN, hero)
-  ParticleManager:SetParticleControl(lightningBolt,0,Vector(hero:GetAbsOrigin().x,hero:GetAbsOrigin().y,hero:GetAbsOrigin().z + hero:GetBoundingMaxs().z )) 
-  ParticleManager:SetParticleControl(lightningBolt,1,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z )) 
-  --ParticleManager:SetParticleControlEnt(lightningBolt, 1, target, 1, "attach_hitloc", target:GetAbsOrigin(), true)
-
-  EmitSoundOn("Hero_Zuus.ArcLightning.Target", target)  
-  ApplyDamage({ victim = target, attacker = hero, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
-  event.ability:ApplyDataDrivenModifier(hero, target, "modifier_tesla_coil_slow", {}) --[[Returns:void
-      No Description Set
-      ]]
-end
-
 function nanobots(keys)
 	local caster = keys.caster
 	local target = keys.target

@@ -7,7 +7,7 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "ScriptFile"                                                           "abilities/definitely not dota/makemeleecreeps_lua"
         "AbilityCastPoint"                                                     "0.0"
-        "AbilityCooldown"                                                      "45 36 36 24"
+        "AbilityCooldown"                                                      "45 40 35 30"
         "AbilityManaCost"                                                      "0"
         "AbilityValues"
         {

@@ -235,20 +235,15 @@ function blinding_speed_increase_stack(keys)
 	local ability = caster:FindAbilityByName("lightning_blinding_speed2")
 	local mod = "modifier_blinding_speed_stack"
 	local max_stacks_mod = "modifier_blinding_speed_max_stack"
-	local max_stacks = ability:GetLevelSpecialValueFor("max_stack", ability:GetLevel()) --[[Returns:table
-	No Description Set
-	]]
+	if not ability then return end
+	local max_stacks = ability:GetLevelSpecialValueFor("max_stack", ability:GetLevel())
 	local stacks = 0
 	if caster:HasModifier(mod) then
 		stacks = caster:GetModifierStackCount(mod,caster)
 	end
-	ability:ApplyDataDrivenModifier(caster, caster, mod, {}) --[[Returns:void
-		No Description Set
-		]]
+	ability:ApplyDataDrivenModifier(caster, caster, mod, {})
 	if stacks+1 >= max_stacks then
-		ability:ApplyDataDrivenModifier(caster, caster, max_stacks_mod, {}) --[[Returns:void
-		No Description Set
-		]]
+		ability:ApplyDataDrivenModifier(caster, caster, max_stacks_mod, {})
 		caster:SetModifierStackCount(mod,caster,max_stacks)
 	else
 		caster:SetModifierStackCount(mod,caster,stacks+1)

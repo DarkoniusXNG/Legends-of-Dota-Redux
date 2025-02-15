@@ -20,7 +20,7 @@
 
 				"OnCreated" {
 					"RunScript" {
-						"ScriptFile" "abilities/life_in_arena/PocketFactory.lua"
+						"ScriptFile" "abilities/life_in_arena/pocketfactory.lua"
 						"Function" "StartGoblinSpawn"
 					}
 				}

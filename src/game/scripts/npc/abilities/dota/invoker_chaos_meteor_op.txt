@@ -53,8 +53,8 @@
 				"special_bonus_shard"	"+4"
 			}
 		}
+
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
-		"ReduxPerks"														   "fire"
+        "ReduxPerks"														   "fire | skillshot"
     }
 }

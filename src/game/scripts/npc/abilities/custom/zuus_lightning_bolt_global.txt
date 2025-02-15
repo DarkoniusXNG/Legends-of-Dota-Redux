@@ -28,8 +28,9 @@
                 "LinkedSpecialBonus" "special_bonus_unique_zeus_3"
             }
         }
-        "ReduxPerks"                                                           "lightning"
+
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
+        "ReduxFlags"                                                           "stun"
+        "ReduxPerks"                                                           "lightning"
     }
 }

@@ -6,10 +6,10 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "custom/nightshadow"
 		"AbilityCooldown"				"0"
+
 		"ReduxCost"                                                            "10"
-		"ReduxFlags"														    "cooldown"
-		"ReduxBans"                                                            "aabs_nightshadow_op"
-		
+		"ReduxFlags"														   "cooldown"
+
 		"precache"
 		{
 			"particle" "particles/items_fx/electrical_arc_01_system.vpcf"
@@ -29,10 +29,11 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "custom/nightshadow_op"
 		"AbilityCooldown"				"0.0"
-		"ReduxCost"                                                            "10"
-		"ReduxFlags"														    "cooldown"
+
+		"ReduxFlags"														   "cooldown"
 		"ReduxCost"                                                            "120"
-		
+		"ReduxBans"                                                            "aabs_nightshadow"
+
 		"precache"
 		{
 			"particle" "particles/items_fx/electrical_arc_01_system.vpcf"

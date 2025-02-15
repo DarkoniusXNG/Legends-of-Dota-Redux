@@ -12,7 +12,7 @@
         "MaxLevel"                                                             "4"
         "RequiredLevel"                                                        "1"
         "LevelsBetweenUpgrades"                                                "2"
-        "AbilityCastRange"                                                     "1500"
+        "AbilityCastRange"                                                     "800"
         "AbilityCastPoint"                                                     "0.0"
         "AbilityCooldown"                                                      "16.0"
         "AbilityManaCost"                                                      "95 105 115 125"

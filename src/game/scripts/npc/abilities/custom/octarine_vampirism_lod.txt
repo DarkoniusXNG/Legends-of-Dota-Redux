@@ -13,7 +13,7 @@
             "creep_lifesteal" "3 6 9 12"
             "radius" "1200"
         }
-        "ReduxFlags"                                                           "support"
+        "ReduxFlags"                                                           "support | tank"
         "ReduxPerks"                                                           "support | aura"
     }
 }

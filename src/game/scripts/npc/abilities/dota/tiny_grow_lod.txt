@@ -22,7 +22,7 @@
             "cleave_distance" "600"
             "bonus_cleave_damage_scepter" "50"
         }
-        "ReduxFlags"                                                           "upgradeable | aoe_attack | attack_modifier"
+        "ReduxFlags"                                                           "aoe_attack | attack_modifier | dota_custom | upgradeable"
         "ReduxPerks"                                                           "attack_modifier"
         "ReduxCost"                                                            "80"
         "ReduxBans"                                                            "tiny_grow_lod_redux | tiny_grow"

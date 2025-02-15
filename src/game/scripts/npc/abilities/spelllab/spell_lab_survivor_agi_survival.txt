@@ -12,9 +12,7 @@
         {
             "bonus" "2 4 6 8"
         }
-        "ReduxFlags"                                                           ""
-        "ReduxBans"                                                            ""
-        //"ReduxPerks"                                                           ""
+
         "ReduxCost"                                                            "120"
     }
 }

@@ -15,7 +15,7 @@
 
     "AbilityCooldown"                                     "19 16 13 10"
 
-    "AbilityManaCost"                                     "60 75 85 100"
+    "AbilityManaCost"                                     "60 75 90 105"
     "AbilityProcsMagicStick"                              "1"
 
     "precache"
@@ -34,8 +34,16 @@
       "small_radius_damage"                               "350 450 550 650" // full damage
       "big_radius_damage"                                 "175 225 275 325" // partial damage - not in tooltip
 
-      "small_radius"                                      "200" // full damage radius and trigger radius
-      "big_radius"                                        "500" // aka half damage radius
+      "small_radius" // full damage radius and trigger radius
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "big_radius" // aka half damage radius
+      {
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
+      }
 
       "building_dmg_reduction"                            "50" // old (100%); Proximity Mines (30%)
     }

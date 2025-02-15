@@ -13,7 +13,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "150" // old: 100
     "AbilityCastPoint"                                    "0.0" // old: 1
-    "AoERadius"                                           "%radius"
 
     // Time    
     //-------------------------------------------------------------------------------------------------------------
@@ -40,7 +39,11 @@
     "AbilityValues"
     {    
       "duration"                                          "360"
-      "radius"                                            "450"
+      "radius"
+      {
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
+      }
       "activation_delay"                                  "0.5" // old: 1.5
       "think_interval"                                    "0.1"
       "detonation_delay"                                  "1.5"

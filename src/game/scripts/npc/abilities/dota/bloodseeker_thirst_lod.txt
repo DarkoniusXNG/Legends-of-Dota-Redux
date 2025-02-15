@@ -70,9 +70,10 @@
                 }
             }
         }
+
+        "ReduxFlags"                                                           "dota_custom | mobility"
+        "ReduxPerks"                                                           "blood | mobility"
         "ReduxBans"                                                            "veera_plains_runner"
         "ReduxCost"                                                            "50"
-        "ReduxFlags"                                                           ""
-        "ReduxPerks"                                                           "blood"
     }
 }

@@ -15,7 +15,9 @@
             "laser_damage" "140 180 220 260"
             "max_bounces" "4"
         }
-        "ReduxFlags"                                                           "dota_custom"
+
+        "ReduxFlags"                                                           "semi_passive | upgradeable"
+        "ReduxPerks"                                                           "light | scientific"
         "ReduxCost"                                                            "80"
     }
 }

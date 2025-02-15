@@ -13,11 +13,11 @@
     "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
     "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"       "1"
+
     "ReduxFlags"                                                           "upgradeable"
+    "ReduxPerks"                                                           "light | lightning"
     "ReduxCost"                                                            "20"
     "ReduxBans"                                                            "batrider_sticky_napalm"
-
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

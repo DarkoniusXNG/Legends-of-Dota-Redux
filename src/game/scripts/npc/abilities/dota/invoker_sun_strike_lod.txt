@@ -15,7 +15,7 @@
         {
             "delay" "1.7"
             "area_of_effect" "175"
-            "damage" "100 225 350 475"
+            "damage" "162 266 370 475"
             "vision_distance" "400"
             "vision_duration" "4.0"
         }
@@ -24,17 +24,18 @@
         "ReduxFlags"                                                           "wtfAutoBan"
     }
 
-    "invoker_sun_strike_lod_op"
+    "invoker_sun_strike_lod_op" // sun death ray
     {
-        "BaseClass"                                                            "invoker_sun_strike"
+        "BaseClass"                                                            "invoker_sun_strike_ad"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         "MaxLevel"                                                             "4"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PURE"
-        "AbilityTextureName"            "custom/invoker_sun_strike_lod_op"
-        "RequiredLevel"                                                        "1"
+        "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
+        "AbilityTextureName"                                                   "custom/invoker_sun_strike_lod_op"
+
         "AbilityCastRange"                                                     "0"
         "AbilityCastPoint"                                                     "0"
-        "AbilityCooldown"                                                      "45 30 15 5"
+        "AbilityCooldown"                                                      "25 20 15 10"
         "AbilityManaCost"                                                      "400 300 200 100"
         "AbilityValues"
         {
@@ -44,9 +45,10 @@
             "vision_distance" "400"
             "vision_duration" "4.0"
         }
+
+        "ReduxFlags"                                                           "wtfAutoBan"
         "ReduxPerks"                                                           "fire | skillshot"
         "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
-        "ReduxFlags"                                                           "wtfAutoBan"
         "ReduxCost"                                                            "120"
     }
 }

@@ -71,8 +71,8 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "support"
-        "ReduxPerks"                                                           "support"
+        "ReduxFlags"                                                           "support | mobility"
+        "ReduxPerks"                                                           "support | mobility"
         "ReduxCost"                                                            "120"
     }
 }

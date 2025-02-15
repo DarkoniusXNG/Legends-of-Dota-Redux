@@ -15,6 +15,16 @@
         "ReduxFlags"                                                           "summon"
         "ReduxPerks"                                                           "trap | channeled | nature | summon_non_ult | self_damage"
 
+        "precache"
+        {
+            //"model"                                                            "models/items/furion/treant/father_treant/father_treant.vmdl" // white
+            "model"                                                            "models/items/furion/treant/primeval_treant/primeval_treant.vmdl" // red
+            //"model"                                                            "models/items/furion/treant_flower_1.vmdl" // purple
+            //"model"                                                            "models/items/furion/treant/furion_treant_nelum_red/furion_treant_nelum_red.vmdl" // pink
+            //"model"                                                            "models/items/furion/treant/shroomling_treant/shroomling_treant.vmdl" // blue
+            //"model"                                                            "models/items/furion/treant/eternalseasons_treant/eternalseasons_treant.vmdl" // yellow
+        }
+
         "AbilityValues"
         {
             "range" "400"

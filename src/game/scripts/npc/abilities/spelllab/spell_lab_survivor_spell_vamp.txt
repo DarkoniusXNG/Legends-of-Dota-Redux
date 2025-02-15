@@ -8,17 +8,12 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "HasScepterUpgrade"                                                    "0"
-    		"precache"
-    		{
-          "particle"    "particles/items3_fx/octarine_core_lifesteal.vpcf"
-        }
+
         "AbilityValues"
         {
             "bonus" "6.0 8.0 10.0 12.0"
         }
         "ReduxFlags"                                                           "tank"
-        "ReduxBans"                                                            ""
-        //"ReduxPerks"                                                           ""
         "ReduxCost"                                                            "120"
     }
 }

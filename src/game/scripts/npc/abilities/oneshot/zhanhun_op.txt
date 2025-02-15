@@ -5,7 +5,11 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityTextureName"                                                   "custom/zhanhun_op"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "HotKeyOverride"                                                       "C"
+		
+        "ReduxFlags"                                                           "cooldown"
+        "ReduxCost"                                                            "120"
+        "ReduxBans"                                                            "zhanhun"
+
         "Modifiers"
         {
             "modifier_zhanhun"
@@ -28,8 +32,5 @@
         {
             "reduce_per" "2 3 4 5"
         }
-        "ReduxCost"                                                            "120"
-        "ReduxBans"                                                            "zhanhun"
-        "ReduxFlags"                                                           "cooldown"
     }
 }

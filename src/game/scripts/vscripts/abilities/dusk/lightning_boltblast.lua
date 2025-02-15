@@ -11,23 +11,27 @@ function lightning_boltblast:OnSpellStart()
 	CreateModifierThinker( c, self, "modifier_boltblast", {Duration=delay}, point, c:GetTeamNumber(), false )
 end
 
+function lightning_boltblast:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
+
 modifier_boltblast = class({})
 
 if IsServer() then
-
 	function modifier_boltblast:OnCreated()
-		local p = ParticleManager:CreateParticle("particles/units/heroes/hero_lightning/boltblast.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent()) --[[Returns:int
-		Creates a new particle effect
-		]]
-		local radius = self:GetAbility():GetSpecialValueFor("radius")
-		ParticleManager:SetParticleControl(p, 1, Vector(radius*0.90,0,0)) --[[Returns:void
-		Set the control point data for a control on a particle effect
-		]]
-		self:GetParent():EmitSound("Hero_Invoker.EMP.Charge")
-		self:AddParticle(p,false,false,10,false,false)
+		local parent = self:GetParent()
+
+		self.p = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_emp.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+
+		parent:EmitSound("Hero_Invoker.EMP.Charge")
 	end
 
 	function modifier_boltblast:OnDestroy()
+		if self.p then
+			ParticleManager:DestroyParticle(self.p, false)
+			ParticleManager:ReleaseParticleIndex(self.p)
+		end
+
 		local ability = self:GetAbility()
 		local c = ability:GetCaster()
 

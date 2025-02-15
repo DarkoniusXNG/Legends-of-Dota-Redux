@@ -6,6 +6,11 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"                                                   "custom/slark_essence_shift_intellect_lod"
+
+        "ReduxFlags"                                                           "attack_modifier | dota_custom"
+        "ReduxPerks"                                                           "attack_modifier"
+        "ReduxCost"                                                            "20"
+
         "AbilityValues"
         {
             "ranged_chance" "80"
@@ -93,8 +98,5 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "attack_modifier | dota_custom"
-        "ReduxPerks"                                                           "attack_modifier"
-        "ReduxCost"                                                            "20"
     }
 }

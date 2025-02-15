@@ -48,9 +48,8 @@
 					"special_bonus_unique_lone_druid_4"			"-10"
 				}
 		}
+
+        "ReduxPerks"                                                           "rage | enemyMoving"
         "ReduxCost"                                                            "120"
-        "ReduxBans"                                                            ""
-        "ReduxFlags"                                                           ""
-		"ReduxPerks"				"enemyMoving"
     }
 }

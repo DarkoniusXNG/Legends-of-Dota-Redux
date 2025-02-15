@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-    "angel_arena_razor_power_OP"
+    "angel_arena_razor_power_OP" // holy book op
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
@@ -37,7 +37,9 @@
                 }
             }
         }
+
         "ReduxFlags"                                                           "aoe_attack | attack_modifier"
+        "ReduxPerks"                                                           "attack_modifier | light"
         "ReduxCost"                                                            "120"
         "ReduxBans"                                                            "angel_arena_razor_power"
     }

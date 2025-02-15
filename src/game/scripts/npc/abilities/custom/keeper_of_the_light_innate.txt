@@ -16,7 +16,9 @@
             "vision_radius" "500 600 700 800"
             "scepter_bonus" "1000"
         }
-        "ReduxFlags"                                                           "doNotRandom"
+
+        "ReduxFlags"                                                           "doNotRandom | dota_custom | upgradeable"
+        "ReduxPerks"                                                           "light"
         "ReduxCost"                                                            "10"
     }
 }

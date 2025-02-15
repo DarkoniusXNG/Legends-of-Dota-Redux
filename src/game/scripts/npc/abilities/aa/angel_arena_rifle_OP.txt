@@ -151,8 +151,9 @@
                 }
             }
         }
-        "ReduxPerks"                                                           "scientific"
+        
+        "ReduxFlags"                                                           "attack_modifier"
+        "ReduxPerks"                                                           "attack_modifier | scientific"
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
     }
 }

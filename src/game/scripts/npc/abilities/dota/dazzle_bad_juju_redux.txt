@@ -16,10 +16,10 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "1200"
         
+        "ReduxFlags"                                                           "cooldown"
         "ReduxCost"                                                            "40"
         "ReduxBans"                                                            "storm_spirit_ball_lightning"
         "ReduxBanCategory"                                                     "SpammableSpells"
-        "ReduxFlags"                                                           "cooldown"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------

@@ -16,9 +16,9 @@
         {
             "bonus" "2 5 8 11"
         }
-        "ReduxFlags"                                                           "tank | attack_modifier"
-        "ReduxBans"                                                            ""
-        //"ReduxPerks"                                                           ""
+
+        "ReduxFlags"                                                           "attack_modifier"
+        "ReduxPerks"                                                           "attack_modifier"
         "ReduxCost"                                                            "120"
     }
 }

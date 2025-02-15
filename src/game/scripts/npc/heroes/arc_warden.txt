@@ -57,7 +57,7 @@
 	"arc_warden_tempest_double"
 	{
 		"ReduxPerks"                                                           "lightning"
-		"ReduxCost"                                                            "80"
+		"ReduxCost"                                                            "120"
 		"ReduxBans"                                                            "imba_omniknight_purification | tinker_rearm"
 	}
 
