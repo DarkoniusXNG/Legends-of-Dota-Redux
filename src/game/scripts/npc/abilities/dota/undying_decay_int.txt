@@ -136,6 +136,6 @@
             }
         }
         "ReduxFlags"                                                           "dota_custom | doNotRandom | upgradeable"
-        "ReduxPerks"                                                           "skillshot | drain"
+        "ReduxPerks"                                                           "skillshot | drain | undead"
     }
 }

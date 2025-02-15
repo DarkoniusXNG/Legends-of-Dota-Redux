@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_mars_perk ~= "" then modifier_npc_dota_hero_mars_perk = class({}) end
+modifier_npc_dota_hero_mars_perk = modifier_npc_dota_hero_mars_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_mars_perk:IsPassive()
 	return true
@@ -17,25 +17,22 @@ function modifier_npc_dota_hero_mars_perk:RemoveOnDeath()
 	return false
 end
 
-function modifier_npc_dota_hero_mars_perk:GetTexture()
-	return "custom/npc_dota_hero_mars_perk"
-end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+-- function modifier_npc_dota_hero_mars_perk:GetTexture()
+	-- return "custom/npc_dota_hero_mars_perk"
+-- end
 
 function modifier_npc_dota_hero_mars_perk:OnCreated()
     if IsServer() then
         local caster = self:GetCaster()
-        local mars = caster:FindAbilityByName("mars_bulwark")
+        local bonus_ability = caster:FindAbilityByName("mars_bulwark")
 
-        if mars then
-            mars:UpgradeAbility(false)
+        if bonus_ability then
+            bonus_ability:UpgradeAbility(false)
         else
-            mars = caster:AddAbility("mars_bulwark")
-            --mars:SetStolen(true)
-            mars:SetActivated(true)
-            mars:SetLevel(1)
+            bonus_ability = caster:AddAbility("mars_bulwark")
+            --bonus_ability:SetStolen(true)
+            bonus_ability:SetActivated(true)
+            bonus_ability:SetLevel(1)
         end
     end
 end

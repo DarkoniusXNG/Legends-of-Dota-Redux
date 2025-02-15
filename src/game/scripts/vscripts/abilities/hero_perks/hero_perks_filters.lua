@@ -5,12 +5,11 @@ require('abilities/hero_perks/npc_dota_hero_troll_warlord_perk')
 require('abilities/hero_perks/npc_dota_hero_spirit_breaker_perk')
 require('abilities/hero_perks/npc_dota_hero_dragon_knight_perk')
 require('abilities/hero_perks/npc_dota_hero_ancient_apparition_perk')
-require('abilities/hero_perks/npc_dota_hero_slardar_perk')
 require('abilities/hero_perks/npc_dota_hero_viper_perk')
 require('abilities/hero_perks/npc_dota_hero_silencer_perk')
 require('abilities/hero_perks/npc_dota_hero_venomancer_perk')
 require('abilities/hero_perks/npc_dota_hero_obsidian_destroyer_perk')
-require('abilities/hero_perks/npc_dota_hero_death_prophet_perk')
+require('abilities/hero_perks/npc_dota_hero_doom_bringer_perk')
 require('abilities/hero_perks/npc_dota_hero_abaddon_perk')
 
 --[[function heroPerksProjectileFilter(filterTable)
@@ -60,16 +59,16 @@ function heroPerksModifierFilter(filterTable)
   local caster = EntIndexToHScript( caster_index )
 
   local perks = {
-    modifier_npc_dota_hero_dragon_knight_perk = true,
+    modifier_npc_dota_hero_abaddon_perk = true,
     modifier_npc_dota_hero_ancient_apparition_perk = true,
-    modifier_npc_dota_hero_death_prophet_perk = true,
+    modifier_npc_dota_hero_doom_bringer_perk = true,
+    modifier_npc_dota_hero_dragon_knight_perk = true,
     modifier_npc_dota_hero_obsidian_destroyer_perk = true,
-    modifier_npc_dota_hero_venomancer_perk = true,
     modifier_npc_dota_hero_silencer_perk = true,
-    modifier_npc_dota_hero_viper_perk = true,
     modifier_npc_dota_hero_spirit_breaker_perk = true,
     modifier_npc_dota_hero_troll_warlord_perk = true,
-    modifier_npc_dota_hero_abaddon_perk = true,
+    modifier_npc_dota_hero_venomancer_perk = true,
+    modifier_npc_dota_hero_viper_perk = true,
   }
   local perkName = "modifier_" .. caster:GetName() .. "_perk"
   local targetPerk = caster:HasModifier(perkName)
@@ -80,8 +79,8 @@ function heroPerksModifierFilter(filterTable)
   PerkDragonKnight(filterTable)
   -- Perk for Ancient Apparition
   perkAncientApparition(filterTable)
-  -- Perk for Death Prophet
-  perkDeathProphet(filterTable)
+  -- Perk for Doom
+  perkDoom(filterTable)
    -- Perk for Outworld Devourer
   perkOD(filterTable)
   -- Perk for Venomancer
@@ -94,7 +93,6 @@ function heroPerksModifierFilter(filterTable)
   perkSpaceCow(filterTable)
   -- Perk for Troll Warlord
   perkTrollWarlord(filterTable)
-
 
   -- Returning the filterTable
   return filterTable
@@ -111,7 +109,6 @@ function heroPerksDamageFilter(filterTable)
 
   local perks = {
     modifier_npc_dota_hero_bane_perk = true,
-    modifier_npc_dota_hero_slardar_perk = true,
   }
   local perkName = "modifier_" .. caster:GetName() .. "_perk"
   local targetPerk = caster:HasModifier(perkName)
@@ -119,8 +116,6 @@ function heroPerksDamageFilter(filterTable)
   if not perks[perkName] then return filterTable end
   -- Perk for Bane
   PerkBane(filterTable)
-  -- Perk for Slardar
-  perkSlardar(filterTable)
 
   return filterTable
 end

@@ -72,7 +72,7 @@
         }
 
         "ReduxFlags"                                                           "mobility"
-        "ReduxPerks"                                                           "mobility"
+        "ReduxPerks"                                                           "blood | mobility"
         "ReduxBans"                                                            "veera_plains_runner | bloodseeker_thirst_lod"
         "ReduxCost"                                                            "120"
     }

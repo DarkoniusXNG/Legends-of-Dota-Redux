@@ -1,0 +1,110 @@
+// Abilities for drow ranger
+"DOTAAbilities"
+{
+	"drow_ranger_frost_arrows"
+	{
+		"ReduxFlags"                                                           "attack_modifier | physical"
+		"ReduxPerks"                                                           "attack_modifier | ice | autocast_basic | ranger | physical"
+	}
+
+	"drow_ranger_wave_of_silence"
+	{
+		"ReduxFlags"                                                           "silence"
+		"ReduxPerks"                                                           "enemyMoving | silence | ranger | skillshot"
+	}
+
+	"drow_ranger_silence"
+	{
+		"ReduxFlags"                                                           "silence"
+		"ReduxPerks"                                                           "ranger | silence"
+	}
+
+	"drow_ranger_multishot"
+	{
+		"ReduxFlags"                                                           "physical"
+		"ReduxPerks"                                                           "skillshot | ranger | channeled | physical"
+	}
+
+	"drow_ranger_marksmanship"
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | ranger"
+		"ReduxCost"                                                            "120"
+		"ReduxBans"                                                            "brawler_agi"
+	}
+
+	"drow_ranger_glacier"
+	{
+		"ReduxPerks"	"ice"
+
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"400"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"20 18 16 14"
+		"AbilityManaCost"				"50"
+		"AbilityValues"
+		{
+			"shard_width"				"180"
+			"shard_count"				"5"
+			"shard_speed"				"1200.0"
+			"shard_duration"			"8 9 10 11"
+			"shard_angle_step"			"40.0"
+			"shard_distance"			"125"
+			"turn_rate_slow"			"0"
+			"end_height"				"128"
+			"hilltop_offset"			"150 175 200 225"
+			"ramp_radius"				"150 175 200 225"
+			"attack_range_bonus"		"200 225 250 275"
+			"multishot_arrow_bonus"		"1 2 3 4"
+			"knockback_duration"		"0.1"
+			"knockback_distance"		"175"
+			"knockback_height"			"50"
+			"z_speed_override"			"800"
+		}
+	}
+
+	"drow_ranger_trueshot"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | aura | ranger"
+		"ReduxCost"                                                            "10"
+	}
+
+	"drow_ranger_vantage_point"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxPerks"                                                           "ranger"
+	}
+
+	"special_bonus_unique_drow_ranger_1"
+	{
+		"TalentRequiredAbility"                                                "drow_ranger_multishot"
+	}
+	"special_bonus_unique_drow_ranger_2"
+	{
+		"TalentRequiredAbility"                                                "drow_ranger_frost_arrows"
+	}
+	"special_bonus_unique_drow_ranger_3"
+	{
+		"TalentRequiredAbility"                                                "drow_ranger_marksmanship"
+	}
+	"special_bonus_unique_drow_ranger_6"
+	{
+		"TalentRequiredAbility"                                                "drow_ranger_multishot"
+	}
+	"special_bonus_unique_drow_ranger_7"
+	{
+		"TalentRequiredAbility"                                                "drow_ranger_wave_of_silence"
+	}
+	"special_bonus_unique_drow_ranger_8"
+	{
+		"TalentRequiredAbility"                                                "drow_ranger_multishot"
+	}
+	"special_bonus_unique_drow_ranger_gust_selfmovespeed"
+	{
+		"TalentRequiredAbility"                                                "drow_ranger_wave_of_silence"
+	}
+}

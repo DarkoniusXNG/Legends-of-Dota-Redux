@@ -14,6 +14,8 @@
 		"AnimationPlaybackRate"		 "0.5"
 		"FightRecapLevel"			   "1"
 		"AbilityTextureName"			"custom/erra_deathtouch"
+
+		"ReduxPerks"	"poison | undead"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -46,12 +48,5 @@
 			"particle"  "particles/units/heroes/hero_erra/deathtouch.vpcf"
 			"particle"  "particles/units/heroes/hero_erra/deathtouch_unit.vpcf"
 		}
-
-		"Modifiers"
-		{
-		}
-
-		"ReduxPerks"	"poison"
-		"ReduxFlags"	""
 	}
 }

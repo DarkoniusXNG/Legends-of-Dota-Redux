@@ -154,8 +154,5 @@
 				}
 			}
 		}
-	
-		"ReduxPerks"	""
-		"ReduxFlags"	""
 	}
 }

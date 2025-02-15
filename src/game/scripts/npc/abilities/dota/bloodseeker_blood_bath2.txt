@@ -17,6 +17,7 @@
             "non_hero_max_hp_heal" "15 20 25 30"
         }
         "ReduxFlags"                                                           "dota_custom"
+        "ReduxPerks"                                                           "blood"
         "ReduxCost"                                                            "80"
     }
 }

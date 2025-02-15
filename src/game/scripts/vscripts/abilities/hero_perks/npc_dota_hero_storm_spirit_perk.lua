@@ -23,22 +23,19 @@ end
 function modifier_npc_dota_hero_storm_spirit_perk:GetTexture()
 	return "custom/npc_dota_hero_storm_spirit_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_storm_spirit_perk:OnCreated()
 	if IsServer() then
 		local caster = self:GetCaster()
-		local mana_aura = caster:FindAbilityByName("forest_troll_high_priest_mana_aura")
+		local bonus_ability = caster:FindAbilityByName("forest_troll_high_priest_mana_aura")
 
-		if mana_aura then
-			mana_aura:UpgradeAbility(false)
+		if bonus_ability then
+			bonus_ability:UpgradeAbility(false)
 		else
-			mana_aura = caster:AddAbility("forest_troll_high_priest_mana_aura")
-			--mana_aura:SetStolen(true)
-			mana_aura:SetActivated(true)
-			mana_aura:SetLevel(1)
+			bonus_ability = caster:AddAbility("forest_troll_high_priest_mana_aura")
+			--bonus_ability:SetStolen(true)
+			bonus_ability:SetActivated(true)
+			bonus_ability:SetLevel(1)
 		end
 	end
 end

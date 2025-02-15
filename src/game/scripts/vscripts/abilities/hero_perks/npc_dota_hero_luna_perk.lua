@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Luna
---		Perk: Luna gains 1 free level of Lunar Blessing, whether she has it or not. 
+--		Perk: Moon Glaives free ability + Ultimate abilities have their cooldowns reduced by 25% during the night.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_luna_perk = modifier_npc_dota_hero_luna_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -23,21 +23,49 @@ end
 function modifier_npc_dota_hero_luna_perk:GetTexture()
 	return "custom/npc_dota_hero_luna_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_luna_perk:OnCreated()
-    if IsServer() then
-        local caster = self:GetCaster()
-        local blessing = caster:FindAbilityByName("luna_lunar_blessing")
 
-        if blessing then
-            blessing:UpgradeAbility(false)
-        else 
-            blessing = caster:AddAbility("luna_lunar_blessing")
-            --blessing:SetStolen(true)
-            blessing:SetActivated(true)
-            blessing:SetLevel(1)
-        end
-    end
+function modifier_npc_dota_hero_luna_perk:OnCreated()
+	if IsServer() then
+		local caster = self:GetParent()
+		local bonus_ability = caster:FindAbilityByName("luna_moon_glaive")
+
+		if bonus_ability then
+			bonus_ability:UpgradeAbility(false)
+		else
+			bonus_ability = caster:AddAbility("luna_moon_glaive")
+			--bonus_ability:SetStolen(true)
+			bonus_ability:SetActivated(true)
+			bonus_ability:SetLevel(1)
+		end
+		
+		self:StartIntervalThink(0.5)
+	end
+end
+
+function modifier_npc_dota_hero_luna_perk:OnIntervalThink()
+	if GameRules:IsDaytime() then
+		self:SetStackCount(0)
+	else
+		self:SetStackCount(-1) -- negative stack to not show on the hud
+	end
+end
+
+function modifier_npc_dota_hero_luna_perk:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+  }
+end
+
+if IsServer() then
+	function modifier_npc_dota_hero_luna_perk:GetModifierPercentageCooldown(keys)
+		local ability = keys.ability
+		if ability and math.abs(self:GetStackCount()) == 1 then
+			if ability:GetAbilityType() == ABILITY_TYPE_ULTIMATE then
+				return 25
+			end
+		else
+			return 0
+		end
+		return 0
+	end
 end

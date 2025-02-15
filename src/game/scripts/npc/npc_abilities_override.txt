@@ -6,8 +6,15 @@
 #base "heroes\axe.txt"
 #base "heroes\bane.txt"
 #base "heroes\batrider.txt"
+#base "heroes\bloodseeker.txt"
+#base "heroes\brewmaster.txt"
 #base "heroes\dawnbreaker.txt"
+#base "heroes\death_prophet.txt"
+#base "heroes\dragon_knight.txt"
+#base "heroes\drow_ranger.txt"
 #base "heroes\elder_titan.txt"
+#base "heroes\hoodwink.txt"
+#base "heroes\huskar.txt"
 #base "heroes\invoker.txt"
 #base "heroes\kez.txt"
 #base "heroes\kunkka.txt"
@@ -21,15 +28,91 @@
 #base "heroes\ringmaster.txt"
 #base "heroes\spectre.txt"
 #base "heroes\underlord.txt"
+#base "heroes\windranger.txt"
 
 "DOTAAbilities"
 {
+	"visage_lurker"
+	{
+		"ReduxFlags"                                                           "cooldown"
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"visage_soul_assumption"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"vengefulspirit_retribution"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"pudge_innate_graft_flesh"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"lich_death_charge"
+	{
+		"ReduxFlags"                                                           "mana"
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"grimstroke_ink_creature"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"undying_ceaseless_dirge"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"undying_flesh_golem"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"clinkz_bone_and_arrow"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"clinkz_death_pact"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"muerta_supernatural"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"muerta_pierce_the_veil"
+	{
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"muerta_ofrenda"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"skeleton_king_spectral_blade"
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | undead"
+	}
+
 	"shredder_twisted_chakram"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "scientific | skillshot"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 	}
 
 	"chen_summon_convert"
@@ -39,21 +122,6 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"				"30 25 20 15 10"
-	}
-
-	"brewmaster_primal_companion"
-	{
-		"ReduxFlags"                                                           "summon | doNotRandom"
-		"ReduxPerks"                                                           "summon_non_ult | earth | fire | lightning"
-
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"20 19 18 17"
-		"AbilityManaCost"				"50"
-		"AbilityValues"
-		{
-			"cooldown_on_death"				"70 55 40 25"
-			"cooldown_on_take_damage"		"3"
-		}
 	}
 
 	"keeper_of_the_light_radiant_bind"
@@ -246,36 +314,6 @@
 		}
 	}
 
-	"drow_ranger_glacier"
-	{
-		"ReduxPerks"	"ice"
-
-		"MaxLevel"						"4"
-		"AbilityCastRange"				"400"
-		"AbilityCastPoint"				"0.1"
-		"AbilityCooldown"				"20 18 16 14"
-		"AbilityManaCost"				"50"
-		"AbilityValues"
-		{
-			"shard_width"				"180"
-			"shard_count"				"5"
-			"shard_speed"				"1200.0"
-			"shard_duration"			"8 9 10 11"
-			"shard_angle_step"			"40.0"
-			"shard_distance"			"125"
-			"turn_rate_slow"			"0"
-			"end_height"				"128"
-			"hilltop_offset"			"150 175 200 225"
-			"ramp_radius"				"150 175 200 225"
-			"attack_range_bonus"		"200 225 250 275"
-			"multishot_arrow_bonus"		"1 2 3 4"
-			"knockback_duration"		"0.1"
-			"knockback_distance"		"175"
-			"knockback_height"			"50"
-			"z_speed_override"			"800"
-		}
-	}
-
 	"miniboss_reflect"
 	{
 		"ReduxFlags"                                                           "tank | doNotRandom"
@@ -312,7 +350,7 @@
 	"muerta_parting_shot"
 	{
 		"ReduxFlags"                                                           "stun | support | doNotRandom"
-		"ReduxPerks"                                                           "support | enemyMoving"
+		"ReduxPerks"                                                           "support | enemyMoving | undead"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 		"MaxLevel"						"4"
@@ -813,102 +851,6 @@
 		}
 	}
 
-	"brewmaster_earth_hurl_boulder"
-	{
-		"MaxLevel"                                                             "3"
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "earth"
-		"ReduxCost"                                                            "80"
-	}
-
-	"brewmaster_earth_spell_immunity"
-	{
-		"MaxLevel"                                                             "1"
-		"ReduxFlags"                                                           "tank | doNotRandom"
-		"ReduxPerks"                                                           "earth"
-		"ReduxCost"                                                            "500"
-	}
-
-	"brewmaster_earth_pulverize"
-	{
-		"MaxLevel"                                                             "3"
-		"ReduxFlags"                                                           "attack_modifier | doNotRandom"
-		"ReduxPerks"                                                           "attack_modifier | earth"
-	}
-
-	"brewmaster_storm_dispel_magic"
-	{
-		"ReduxFlags"                                                           "doNotRandom"
-		"ReduxPerks"                                                           "lightning"
-		"ReduxCost"                                                            "80"
-
-		"MaxLevel"                                                             "3"
-		"AbilityValues"
-		{
-			"damage"
-			{
-				"value" "1000 1250 1500"
-			}
-			"radius"
-			{
-				"value" "600 800 1000"
-			}
-		}
-	}
-
-	"brewmaster_storm_cyclone"
-	{
-		"ReduxFlags"                                                           "stun | doNotRandom"
-		"ReduxPerks"                                                           "nature"
-		"ReduxCost"                                                            "120"
-
-		"MaxLevel"                                                             "3"
-		"AbilityManaCost"					"150"
-		"AbilityValues"
-		{
-			"duration_hero"
-			{
-				"value" "3 4 5"
-			}
-			"duration_unit"
-			{
-				"value" "16"
-			}
-		}
-	}
-
-	"brewmaster_storm_wind_walk"
-	{
-		"MaxLevel"                                                             "3"
-		"ReduxFlags"                                                           "mobility | invis | doNotRandom"
-		"ReduxPerks"                                                           "mobility | invis"
-	}
-
-	"brewmaster_void_astral_pulse"
-	{
-		"MaxLevel"                                                             "3"
-		"ReduxFlags"                                                           "disarm_break"
-	}
-
-	"brewmaster_void_astral_pull"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | enemyMoving"
-		"MaxLevel"                                                             "3"
-	}
-
-	"brewmaster_fire_phase"
-	{
-		"ReduxPerks"                                                           "fire"
-		"ReduxCost"                                                            "40"
-
-		"MaxLevel"                                                             "3"
-		"AbilityValues"
-		{
-			"status_resistance"				"30 40 50"
-		}
-	}
-
 	"mudgolem_cloak_aura"
 	{
 		"ReduxFlags"    "tank | support"
@@ -932,14 +874,6 @@
 				"affected_by_aoe_increase"	"1"
 			}
 		}
-	}
-
-	"brewmaster_fire_permanent_immolation"
-	{
-		"MaxLevel"                                                             "3"
-		"ReduxPerks"                                                           "fire | aura"
-		"ReduxCost"                                                            "80"
-		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
 
 	"broodmother_poison_sting"
@@ -1235,7 +1169,7 @@
 	"fel_beast_haunt"
 	{
 		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "silence | neutral"
+		"ReduxPerks"                                                           "silence | neutral | undead"
 
 		"MaxLevel"				"4"
 		"AbilityCastRange"		"600 700 800 900"
@@ -1251,7 +1185,7 @@
 	"hill_troll_rally"
 	{
 		"ReduxFlags"		"support"
-		"ReduxPerks"		"support | aura | neutral"
+		"ReduxPerks"		"support | aura | neutral | undead"
 
 		"MaxLevel"				"4"
 		"AbilityValues"
@@ -1438,7 +1372,7 @@
 	"dark_troll_warlord_raise_dead"
 	{
 		"ReduxFlags"                                                           "summon"
-		"ReduxPerks"                                                           "neutral | summon_non_ult"
+		"ReduxPerks"                                                           "neutral | summon_non_ult | undead"
 		"ReduxBans"                                                            "tinker_rearm"
 
 		"MaxLevel"                                                             "4"
@@ -1682,7 +1616,7 @@
 	"ghost_frost_attack"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "neutral | attack_modifier | ice"
+		"ReduxPerks"                                                           "neutral | attack_modifier | ice | undead"
 
 		"MaxLevel"                                                             "4"
 		"AbilityValues"
@@ -1922,16 +1856,6 @@
 		}
 	}
 
-	"bloodseeker_rupture"
-	{
-		"ReduxCost"                                                            "10"
-		"ReduxBans"                                                            "batrider_sticky_napalm"
-	}
-	"brewmaster_primal_split"
-	{
-		"ReduxFlags"                                                           "summon"
-		"ReduxPerks"                                                           "earth | fire | lightning"
-	}
 	"centaur_stampede"
 	{
 		"ReduxFlags"                                                           "mobility"
@@ -2003,13 +1927,6 @@
 		"ReduxCost"                                                            "10"
 	}
 
-	"drow_ranger_marksmanship"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | ranger"
-		"ReduxCost"                                                            "120"
-		"ReduxBans"                                                            "brawler_agi"
-	}
 	"earth_spirit_geomagnetic_grip"
 	{
 		"ReduxFlags"                                                           "silence"
@@ -2045,13 +1962,7 @@
 		"ReduxFlags"                                                           "tank"
 		"ReduxCost"                                                            "40"
 	}
-	"huskar_life_break"
-	{
-		"ReduxFlags"                                                           "upgradeable | mobility"
-		"ReduxPerks"                                                           "self_damage | mobility | rage"
-		"ReduxCost"                                                            "120"
-		"ReduxBans"                                                            "spell_lab_symbiotic"
-	}
+
 	"jakiro_macropyre"
 	{
 		"ReduxFlags"                                                           "upgradeable"
@@ -2166,7 +2077,7 @@
 	"pugna_life_drain"
 	{
 		"ReduxFlags"                                                           "upgradeable | support"
-		"ReduxPerks"                                                           "support | drain | self_damage | channeled"
+		"ReduxPerks"                                                           "support | drain | self_damage | channeled | undead"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
 	"queenofpain_sonic_wave"
@@ -2203,7 +2114,7 @@
 	"nevermore_necromastery"
 	{
 		"ReduxFlags"                                                           "upgradeable"
-		"ReduxPerks"														   "demon"
+		"ReduxPerks"                                                           "demon | undead"
 		"ReduxCost"                                                            "10"
 	}
 	"nevermore_requiem"
@@ -2289,7 +2200,7 @@
 	"undying_decay"
 	{
 		"ReduxFlags"                                                           "upgradeable"
-		"ReduxPerks"                                                           "drain | skillshot"
+		"ReduxPerks"                                                           "drain | skillshot | undead"
 	}
 	"ursa_enrage"
 	{
@@ -2326,12 +2237,7 @@
 		"ReduxFlags"                                                           "upgradeable | mobility | support"
 		"ReduxPerks"                                                           "mobility | support"
 	}
-	"windrunner_focusfire"
-	{
-		"ReduxFlags"                                                           "attack_modifier | aoe_attack"
-		"ReduxCost"                                                            "40"
-		"ReduxPerks"														   "ranger"
-	}
+
 	"winter_wyvern_arctic_burn"
 	{
 		"ReduxFlags"                                                           "upgradeable | attack_modifier"
@@ -2345,7 +2251,8 @@
 	}
 	"skeleton_king_reincarnation"
 	{
-		"ReduxFlags"                                                           "wtfAutoBan"
+		"ReduxFlags"                                                           "wtfAutoBan | semi_passive"
+		"ReduxPerks"                                                           "undead"
 		"ReduxCost"                                                            "120"
 		"ReduxBans"                                                            "imba_dazzle_shallow_grave_passive | tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
@@ -2381,7 +2288,7 @@
 	"dazzle_shallow_grave"
 	{
 		"ReduxFlags"                                                           "support | wtfAutoBan"
-		"ReduxPerks"                                                           "support"
+		"ReduxPerks"                                                           "support | undead"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 	"enchantress_natures_attendants"
@@ -2389,11 +2296,7 @@
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support | nature"
 	}
-	"huskar_inner_vitality"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
-	}
+
 	"juggernaut_healing_ward"
 	{
 		"ReduxFlags"                                                           "support | summon"
@@ -2415,7 +2318,7 @@
 	"ogre_magi_bloodlust"
 	{
 		"ReduxFlags"                                                           "mobility | support"
-		"ReduxPerks"                                                           "mobility | support | rage"
+		"ReduxPerks"                                                           "mobility | support | rage | blood"
 	}
 	"omniknight_repel"
 	{
@@ -2449,12 +2352,12 @@
 	"skeleton_king_vampiric_spirit"
 	{
 		"ReduxFlags"                                                           "attack_modifier | upgradeable"
-		"ReduxPerks"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | undead"
 	}
 	"skeleton_king_bone_guard"
 	{
 		"ReduxFlags"                                                           "summon"
-		"ReduxPerks"                                                           "summon_non_ult"
+		"ReduxPerks"                                                           "summon_non_ult | undead"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 	"templar_assassin_psionic_trap"
@@ -2471,7 +2374,7 @@
 	"undying_soul_rip"
 	{
 		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | drain"
+		"ReduxPerks"                                                           "support | drain | undead"
 	}
 	"warlock_shadow_word"
 	{
@@ -2560,7 +2463,7 @@
 	"pugna_decrepify"
 	{
 		"ReduxFlags"                                                           "support | disarm_break"
-		"ReduxPerks"                                                           "support"
+		"ReduxPerks"                                                           "support | undead"
 		"ReduxCost"                                                            "10"
 	}
 	"warlock_upheaval"
@@ -2642,12 +2545,7 @@
 		"ReduxPerks"                                                           "mobility | rage"
 		"ReduxCost"                                                            "20"
 	}
-	"bloodseeker_thirst"
-	{
-		"ReduxFlags"                                                           "mobility | semi_passive"
-		"ReduxPerks"                                                           "mobility"
-		"ReduxCost"                                                            "20"
-	}
+
 	"void_spirit_dissimilate"
 	{
 		"ReduxFlags"                                                           "mobility"
@@ -2727,7 +2625,7 @@
 	"clinkz_wind_walk"
 	{
 		"ReduxFlags"                                                           "mobility | invis"
-		"ReduxPerks"                                                           "mobility | invis"
+		"ReduxPerks"                                                           "mobility | invis | undead"
 		"ReduxCost"                                                            "40"
 	}
 
@@ -2873,12 +2771,7 @@
 		"ReduxPerks"                                                           "mobility"
 		"ReduxCost"                                                            "30"
 	}
-	"windrunner_windrun"
-	{
-		"ReduxFlags"                                                           "mobility | invis | upgradeable"
-		"ReduxPerks"                                                           "mobility | invis | ranger"
-		"ReduxCost"                                                            "10"
-	}
+
 	"juggernaut_blade_fury"
 	{
 		"ReduxPerks"                                                           "rage"
@@ -2899,7 +2792,7 @@
 	"mirana_leap"
 	{
 		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | ranger"
 	}
 	"nyx_assassin_spiked_carapace"
 	{
@@ -2910,7 +2803,7 @@
 	"phantom_lancer_phantom_edge"
 	{
 		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | undead"
 	}
 	"magnataur_skewer"
 	{
@@ -3003,11 +2896,7 @@
 		"ReduxPerks"                                                           "scientific"
 		"ReduxCost"                                                            "40"
 	}
-	"huskar_berserkers_blood"
-	{
-		"ReduxFlags"                                                           "tank"
-		"ReduxCost"                                                            "30"
-	}
+
 	"phantom_assassin_blur"
 	{
 		"ReduxFlags"                                                           "upgradeable"
@@ -3050,12 +2939,7 @@
 	{
 		"ReduxPerks"                                                           "earth"
 	}
-	"dragon_knight_dragon_blood"
-	{
-		"ReduxFlags"                                                           "aoe_attack | attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | physical"
-		"ReduxCost"                                                            "10"
-	}
+
 	"tidehunter_kraken_shell"
 	{
 		"ReduxFlags"                                                           "tank"
@@ -3087,12 +2971,7 @@
 		"ReduxCost"                                                            "30"
 		"ReduxBans"                                                            "lone_druid_true_form"
 	}
-	"brewmaster_drunken_brawler"
-	{
-		"ReduxFlags"                                                           "crit | attack_modifier | semi_passive"
-		"ReduxPerks"                                                           "attack_modifier"
-		"ReduxCost"                                                            "20"
-	}
+
 	"doom_bringer_infernal_blade"
 	{
 		"ReduxFlags"                                                           "attack_modifier | bash"
@@ -3164,22 +3043,11 @@
 		"ReduxFlags"                                                           "aoe_attack | attack_modifier | upgradeable"
 		"ReduxPerks"                                                           "attack_modifier | scientific"
 	}
-	"dragon_knight_elder_dragon_form"
-	{
-		"ReduxFlags"                                                           "attack_modifier | physical | upgradeable"
-		"ReduxPerks"                                                           "attack_modifier | physical"
-		"ReduxCost"                                                            "10"
-	}
+
 	"monkey_king_jingu_mastery"
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"
 		"ReduxPerks"                                                           "attack_modifier | physical"
-	}
-	"bloodseeker_bloodrage"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | rage"
-		"ReduxCost"                                                            "20"
 	}
 
 	// Remove cooldown reduction talents
@@ -3241,22 +3109,7 @@
 		"ReduxPerks"                                                           "attack_modifier | earth"
 		"ReduxCost"                                                            "10"
 	}
-	"huskar_burning_spear"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | fire | self_damage | autocast_basic"
-		"ReduxCost"                                                            "10"
-		"ReduxBans"                                                            "batrider_sticky_napalm | spell_lab_symbiotic"
-	}
-	"drow_ranger_frost_arrows"
-	{
-		"ReduxFlags"                                                           "attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | ice | autocast_basic | ranger"
-	}
-	"drow_ranger_multishot"
-	{
-		"ReduxPerks"                                                           "skillshot | ranger | channeled"
-	}
+
 	"clinkz_searing_arrows"
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"
@@ -3329,7 +3182,7 @@
 	"phantom_lancer_juxtapose"
 	{
 		"ReduxFlags"                                                           "attack_modifier | upgradeable"
-		"ReduxPerks"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | undead"
 		"ReduxCost"                                                            "120" // Made single player because its causes lag, needs more investigation
 	}
 	"sniper_headshot"
@@ -3362,7 +3215,7 @@
 	{
 		"MaxLevel"                                                             "4"
 		"ReduxFlags"                                                           "attack_modifier | doNotRandom"
-		"ReduxPerks"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | undead"
 	}
 
 	"monkey_king_boundless_strike"
@@ -3430,21 +3283,13 @@
 	{
 		"ReduxFlags"                                                           "stun"
 	}
-	"windrunner_shackleshot"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "skillshot | ranger"
-	}
+
 	"enigma_malefice"
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "demon"
 	}
-	"dragon_knight_dragon_tail"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxCost"                                                            "10"
-	}
+
 	"dazzle_poison_touch"
 	{
 		"ReduxFlags"                                                           "physical"
@@ -3622,7 +3467,7 @@
 	}
 	"pangolier_swashbuckle"
 	{
-		"ReduxFlags"                                                           "mobility | physical"
+		"ReduxFlags"                                                           "mobility | physical | aoe_attack"
 		"ReduxPerks"                                                           "mobility | physical | skillshot"
 		"ReduxBans"                                                            "ursa_fury_swipes | ursa_fury_swipes_lod | obsidian_destroyer_arcane_orb"
 	}
@@ -3642,7 +3487,7 @@
 
 	"pangolier_gyroshell"
 	{
-		"ReduxFlags"                                                           "mobility | stun | physical"
+		"ReduxFlags"                                                           "mobility | stun | physical | aoe_attack"
 		"ReduxPerks"                                                           "mobility | enemyMoving | physical"
 	}
 
@@ -3685,15 +3530,11 @@
 	"undying_tombstone"
 	{
 		"ReduxFlags"                                                           "summon"
-		"ReduxPerks"                                                           "summon_non_ult"
+		"ReduxPerks"                                                           "summon_non_ult | undead"
 		"ReduxCost"                                                            "10"
 		"ReduxBans"                                                            "tinker_rearm"
 	}
-	"death_prophet_exorcism"
-	{
-		"ReduxFlags"                                                           "physical | upgradeable"
-		"ReduxPerks"                                                           "physical"
-	}
+
 	"dazzle_shadow_wave"
 	{
 		"ReduxFlags"                                                           "physical | support | upgradeable"
@@ -3705,20 +3546,11 @@
 		"ReduxPerks"                                                           "dagger | physical"
 		"ReduxCost"                                                            "20"
 	}
-	"bloodseeker_blood_bath"
-	{
-		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "skillshot | silence"
-	}
-	"death_prophet_silence"
-	{
-		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "silence | skillshot"
-	}
+
 	"muerta_the_calling"
 	{
 		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "silence"
+		"ReduxPerks"                                                           "silence | undead"
 	}
 	"silencer_last_word"
 	{
@@ -3735,11 +3567,7 @@
 		"ReduxFlags"                                                           "silence | mobility"
 		"ReduxPerks"                                                           "silence | mobility"
 	}
-	"drow_ranger_wave_of_silence"
-	{
-		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "enemyMoving | silence | ranger | skillshot"
-	}
+
 	"chaos_knight_phantasm"
 	{
 		"ReduxFlags"                                                           "illusion | upgradeable"
@@ -3760,7 +3588,7 @@
 	"phantom_lancer_spirit_lance"
 	{
 		"ReduxFlags"                                                           "illusion"
-		"ReduxPerks"                                                           "illusion"
+		"ReduxPerks"                                                           "illusion | undead"
 	}
 	"terrorblade_reflection"
 	{
@@ -3789,10 +3617,7 @@
 		"ReduxPerks"                                                           "fire"
 		"ReduxCost"                                                            "80"
 	}
-	"dragon_knight_breathe_fire"
-	{
-		"ReduxPerks"                                                           "fire | skillshot"
-	}
+
 	"nyx_assassin_mana_burn"
 	{
 		"ReduxFlags"                                                           "mana"
@@ -3867,17 +3692,18 @@
 
 	"visage_grave_chill"
 	{
-		"ReduxPerks"                                                           "ice | drain"
+		"ReduxPerks"                                                           "ice | drain | undead"
 	}
 	"visage_gravekeepers_cloak"
 	{
 		"ReduxFlags"                                                           "tank"
+		"ReduxPerks"                                                           "undead"
 		"ReduxBans"                                                            "tinker_rearm"
 	}
 	"pudge_rot"
 	{
 		"ReduxFlags"                                                           "upgradeable"
-		"ReduxPerks"                                                           "poison | self_damage"
+		"ReduxPerks"                                                           "poison | self_damage | undead"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
 	"venomancer_plague_ward"
@@ -3974,10 +3800,7 @@
 		"ReduxFlags"                                                           "physical | aoe_attack"
 		"ReduxPerks"                                                           "water | physical"
 	}
-	"brewmaster_thunder_clap"
-	{
-		"ReduxPerks"                                                           "lightning | earth"
-	}
+
 	"earthshaker_echo_slam"
 	{
 		"ReduxPerks"                                                           "earth"
@@ -4079,7 +3902,7 @@
 	"tinker_rearm"
 	{
 		"ReduxFlags"                                                           "cooldown"
-		"ReduxPerks"                                                           "scientific | channeled | refresh"
+		"ReduxPerks"                                                           "scientific | channeled"
 		"ReduxCost"                                                            "500"
 		"ReduxBans"                                                            "dazzle_shallow_grave | lich_absolute_zero | arc_warden_tempest_double"
 	}
@@ -4104,8 +3927,8 @@
 	}
 	"puck_illusory_orb"
 	{
-		"ReduxPerks"                                                           "light | skillshot"
-		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxFlags"                                                           "doNotRandom | mobility"
+		"ReduxPerks"                                                           "light | mobility | skillshot"
 	}
 	"skywrath_mage_arcane_bolt"
 	{
@@ -4120,10 +3943,6 @@
 	"lion_mana_drain"
 	{
 		"ReduxPerks"                                                           "drain | channeled | demon | mana"
-	}
-	"death_prophet_spirit_siphon"
-	{
-		"ReduxPerks"                                                           "drain"
 	}
 
 	"treant_leech_seed"
@@ -4189,7 +4008,7 @@
 	}
 	"item_blood_grenade"
 	{
-		"ReduxPerks"                                                           "support"
+		"ReduxPerks"                                                           "support | blood"
 	}
 	"item_dust"
 	{
@@ -4198,7 +4017,7 @@
 
 	"centaur_double_edge"
 	{
-		"ReduxPerks"                                                           "self_damage"
+		"ReduxPerks"                                                           "self_damage | blood"
 	}
 	"beastmaster_inner_beast"
 	{
@@ -4239,7 +4058,7 @@
 	"vengefulspirit_command_aura"
 	{
 		"ReduxFlags"                                                           "support | upgradeable"
-		"ReduxPerks"                                                           "aura | support"
+		"ReduxPerks"                                                           "aura | support | undead"
 		"ReduxCost"                                                            "20"
 	}
 
@@ -4250,6 +4069,10 @@
 	"item_assault"
 	{
 		"ReduxPerks"                                                           "aura"
+	}
+	"item_bloodstone"
+	{
+		"ReduxPerks"                                                           "blood"
 	}
 	"item_shivas_guard"
 	{
@@ -4367,18 +4190,11 @@
 		"ReduxBans"                                                            "dazzle_bad_juju_redux"
 	}
 
-	"windrunner_powershot"
-	{
-		"ReduxPerks"                                                           "channeled | skillshot | ranger"
-	}
 	"beastmaster_wild_axes"
 	{
 		"ReduxPerks"                                                           "skillshot"
 	}
-	"death_prophet_carrion_swarm"
-	{
-		"ReduxPerks"                                                           "skillshot"
-	}
+
 	"magnataur_shockwave"
 	{
 		"ReduxPerks"                                                           "skillshot | enemyMoving | lightning"
@@ -4456,7 +4272,7 @@
 	}
 	"item_bloodthorn"
 	{
-		"ReduxPerks"                                                           "silence"
+		"ReduxPerks"                                                           "silence | blood"
 	}
 	"item_wind_waker"
 	{
@@ -4539,11 +4355,6 @@
 		}
 	}
 
-	"death_prophet_witchcraft"
-	{
-		"ReduxFlags"                                                           "cooldown | mobility"
-		"ReduxPerks"                                                           "mobility"
-	}
 	"terrorblade_metamorphosis"
 	{
 		"ReduxCost"                                                            "30"
@@ -4659,7 +4470,8 @@
 	{
 		// Made single player ability because its laggy
 		"ReduxCost"                                                            "120"
-		"ReduxFlags"                                                           "doNotRandom | upgradeable"
+		"ReduxFlags"                                                           "aoe_attack | doNotRandom | upgradeable | physical"
+		"ReduxPerks"                                                           "physical"
 		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 	"grimstroke_soul_chain"
@@ -4749,26 +4561,6 @@
 		"ReduxCost"                                                            "400"
 	}
 
-	"hoodwink_acorn_shot"
-	{
-		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"														   "physical | nature"
-	}
-	"hoodwink_bushwhack"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "enemyMoving | skillshot | ranger"
-	}
-	"hoodwink_scurry"
-	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility"
-	}
-	"hoodwink_sharpshooter"
-	{
-		"ReduxFlags"                                                           "disarm_break"
-		"ReduxPerks"                                                           "channeled | skillshot | ranger"
-	}
 	"lich_frost_shield"
 	{
 		"ReduxFlags"                                                           "tank | support"
@@ -4795,28 +4587,6 @@
 	"omniknight_hammer_of_purity"
 	{
 		"ReduxPerks"                                                           "light"
-	}
-
-	"dragon_knight_fireball"
-	{
-		"ReduxPerks"                    "fire"
-
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"20 19 18 17"
-		"AbilityValues"
-		{
-			"radius"			"350 375 400 425"
-			"damage"
-			{
-				"value"			"75"
-				"CalculateSpellDamageTooltip" "1"
-			}
-			"duration"			"8.0"
-			"burn_interval"			"0.5"
-			"linger_duration"			"2"
-			"dragon_form_cast_range"	"1400"
-			"melee_cast_range"			"600"
-		}
 	}
 
 	"shredder_flamethrower"
@@ -4919,16 +4689,10 @@
 		"ReduxPerks"                                                           "support"
 	}
 
-	"huskar_inner_fire"
-	{
-		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "silence | enemyMoving | fire | rage | self_damage"
-	}
-
 	"lich_sinister_gaze"
 	{
 		"ReduxFlags"                                                           "stun | upgradeable"
-		"ReduxPerks"                                                           "enemyMoving | channeled"
+		"ReduxPerks"                                                           "enemyMoving | channeled | undead | drain"
 	}
 
 	"mars_spear"
@@ -4939,13 +4703,13 @@
 
 	"mars_gods_rebuke"
 	{
-		"ReduxPerks"                                                           "aoe_attack | crit"
-		"ReduxPerks"                                                           "enemyMoving"
+		"ReduxPerks"                                                           "aoe_attack | crit | physical"
+		"ReduxPerks"                                                           "enemyMoving | physical"
 	}
 
 	"mars_arena_of_blood"
 	{
-		"ReduxPerks"                                                           "enemyMoving"
+		"ReduxPerks"                                                           "enemyMoving | blood | undead"
 	}
 
 	"meepo_petrify"
@@ -5066,64 +4830,6 @@
 	"grimstroke_dark_artistry"
 	{
 		"ReduxPerks"                                                           "skillshot"
-	}
-
-	"hoodwink_decoy"
-	{
-		"ReduxFlags"					"invis | upgradeable | mobility | doNotRandom"
-		"ReduxPerks"					"invis | mobility"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"30.0 26.0 22.0 18.0"
-		"AbilityManaCost"				"60"
-		"AbilityValues"
-		{
-			"duration"					"6.0"
-			"decoy_detonate_radius"
-			{
-				"value"		"250 275 300 325"
-				"affected_by_aoe_increase"	"1"
-			}
-			"decoy_stun_duration"				"1.6 1.8 2.0 2.2"
-			"images_do_damage_percent"	"100"
-			"images_take_damage_percent"	"100"
-			"projectile_speed"	"1200"
-			"movement_speed"				"15"
-			"sharpshooter_damage_pct"			"60 70 80 90"
-		}
-	}
-
-	"hoodwink_hunters_boomerang"
-	{
-		"ReduxPerks"                                                           "ranger | skillshot"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"MaxLevel"						"4"
-		"AbilityCastRange"				"1100"
-		"AbilityCooldown"				"18 17 16 15"
-		"AbilityManaCost"				"125"
-		"AbilityValues"
-		{
-			"speed"					"900"
-			"radius"
-			{
-				"value"		"150"
-				"affected_by_aoe_increase"	"1"
-			}
-			"damage"				"200 225 250 275"
-			"mark_duration"			"7.0"
-			"slow_pct"				"20 25 30 35"
-			"spell_amp"				"20 25 30 35"
-			"status_resistance"		"0"
-			"spread"
-			{
-				"value"		"400"
-				"affected_by_aoe_increase"	"1"
-			}
-			"min_throw_duration"			"0.5"
-			"max_throw_duration"			"1.2"
-		}
 	}
 
 	"skywrath_mage_shield_of_the_scion"
@@ -5624,26 +5330,6 @@
 		}
 	}
 
-	"windrunner_gale_force"
-	{
-		"ReduxPerks"            "enemyMoving | ranger | nature"
-
-		"MaxLevel"                      "4"
-		"AbilityCastRange"              "1500 2000 2500 3000"
-		"AbilityCooldown"               "30 25 20 15"
-		"AbilityManaCost"               "150"
-		"AbilityValues"
-		{
-			"duration"          "3.5 4 4.5 5"
-			"wind_strength"     "240"
-			"radius"
-			{
-				"value"		"1000 1100 1200 1300"
-				"affected_by_aoe_increase"	"1"
-			}
-		}
-	}
-
 	"witch_doctor_voodoo_switcheroo"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
@@ -5665,36 +5351,10 @@
 		}
 	}
 
-	"bloodseeker_blood_mist"
-	{
-		"ReduxFlags"	"upgradeable"
-		"ReduxPerks"	"self_damage"
-
-		"MaxLevel"                      "4"
-		"AbilityCooldown"               "3.0 2.0 1.0 0.0"
-		"AbilityManaCost"               "0"
-		"AbilityValues"
-		{
-			"hp_cost_per_second"
-			{
-				"value"				"7"
-				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
-			}
-			"radius"
-			{
-				"value"		"450"
-				"affected_by_aoe_increase"	"1"
-			}
-			"movement_slow"			"30 35 40 45"
-			"barrier_decay_pct"			"0.5 0.45 0.4 0.35"
-			"voracity_bonus_pct"		"50 60 70 80"
-		}
-	}
-
 	"clinkz_burning_army"
 	{
 		"ReduxFlags"				"upgradeable | doNotRandom | summon"
-		"ReduxPerks"				"fire | summon_non_ult"
+		"ReduxPerks"				"fire | summon_non_ult | undead"
 
 		"MaxLevel"						"4"
 		"AbilityCooldown"				"80 65 50 35"
@@ -5710,6 +5370,7 @@
 	"medusa_cold_blooded"
 	{
 		"ReduxFlags"				    "doNotRandom"
+		"ReduxPerks"                                                           "blood"
 
 		"MaxLevel"						"4"
 		"AbilityCooldown"				"12 8 4 2"
@@ -5758,7 +5419,7 @@
 	"visage_silent_as_the_grave"
 	{
 		"ReduxFlags"	"mobility | invis | upgradeable"
-		"ReduxPerks"	"mobility | invis"
+		"ReduxPerks"	"mobility | invis | undead"
 
 		"MaxLevel"						"4"
 		"AbilityCooldown"				"45 35 25 15"
@@ -5839,12 +5500,6 @@
 	"clinkz_strafe"
 	{
 		"ReduxPerks"                                                           "fire | ranger"
-	}
-
-	"drow_ranger_silence"
-	{
-		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "ranger | silence"
 	}
 
 	"techies_sticky_bomb"
@@ -6010,7 +5665,7 @@
 	"lich_dark_sorcery"
 	{
 		"ReduxFlags"					"mana"
-		"ReduxPerks"                    "drain | self_damage"
+		"ReduxPerks"                    "drain | self_damage | undead"
 
 		"MaxLevel"						"4"
 		"AbilityCooldown"				"25 20 15 10"
@@ -6170,40 +5825,6 @@
 	"special_bonus_unique_beastmaster_wild_axe_cooldown"
 	{
 		"TalentRequiredAbility"                                                   "beastmaster_wild_axes"
-	}
-
-	// Brewmaster
-	"special_bonus_unique_brewmaster"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_primal_split"
-	}
-	"special_bonus_unique_brewmaster_2"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_primal_split"
-	}
-	"special_bonus_unique_brewmaster_3"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_thunder_clap"
-	}
-	"special_bonus_unique_brewmaster_4"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_cinder_brew"
-	}
-	"special_bonus_unique_brewmaster_5"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_cinder_brew"
-	}
-	"special_bonus_unique_brewmaster_6"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_primal_split"
-	}
-	"special_bonus_unique_brewmaster_7"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_thunder_clap"
-	}
-	"special_bonus_unique_brewmaster_8"
-	{
-		"TalentRequiredAbility"                                                   "brewmaster_drunken_brawler"
 	}
 
 	// Bristleback
@@ -6379,81 +6000,6 @@
 
 		"TalentRequiredAbility"                                                   "chaos_knight_chaos_bolt"
 	}
-
-	// Dragon Knight
-	"special_bonus_unique_dragon_knight"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_dragon_blood"
-	}
-	"special_bonus_unique_dragon_knight_2"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_dragon_tail"
-	}
-	"special_bonus_unique_dragon_knight_3"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_breathe_fire"
-	}
-	"special_bonus_unique_dragon_knight_4"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_dragon_blood"
-	}
-	"special_bonus_unique_dragon_knight_5"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_elder_dragon_form"
-	}
-	"special_bonus_unique_dragon_knight_6"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_elder_dragon_form"
-	}
-	"special_bonus_unique_dragon_knight_7"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_elder_dragon_form"
-	}
-	"special_bonus_unique_dragon_knight_8"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_dragon_tail"
-	}
-	"special_bonus_unique_dragon_knight_9"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "dragon_knight_breathe_fire"
-	}
-
 
 	// Earth Spirit
 	"special_bonus_unique_earth_spirit"
@@ -6727,40 +6273,6 @@
 	"special_bonus_unique_gyrocopter_flak_cannon_bonus_damage"
 	{
 		"TalentRequiredAbility"                                                   "gyrocopter_flak_cannon"
-	}
-
-	// Huskar
-	"special_bonus_unique_huskar"
-	{
-		"TalentRequiredAbility"                                                   "huskar_life_break"
-	}
-	"special_bonus_unique_huskar_2"
-	{
-		"TalentRequiredAbility"                                                   "huskar_burning_spear"
-	}
-	"special_bonus_unique_huskar_3"
-	{
-		"TalentRequiredAbility" 												  "huskar_inner_fire"
-	}
-	"special_bonus_unique_huskar_4"
-	{
-		"TalentRequiredAbility"                                                   "huskar_life_break"
-	}
-	"special_bonus_unique_huskar_5"
-	{
-		"TalentRequiredAbility"                                                   "huskar_burning_spear"
-	}
-	"special_bonus_unique_huskar_6"
-	{
-		"TalentRequiredAbility"                                                   "huskar_berserkers_blood"
-	}
-	"special_bonus_unique_huskar_7"
-	{
-		"TalentRequiredAbility"                                                   "huskar_life_break"
-	}
-	"special_bonus_unique_huskar_8"
-	{
-		"TalentRequiredAbility"                                                   "huskar_inner_fire"
 	}
 
 	// Jakiro
@@ -7432,7 +6944,7 @@
 	}
 	"special_bonus_unique_nevermore_4"
 	{
-		"TalentRequiredAbility"                                                   "nevermore_requiem"
+		"TalentRequiredAbility"                                                   "nevermore_frenzy"
 	}
 	"special_bonus_unique_nevermore_5"
 	{
@@ -7468,6 +6980,10 @@
 			"2" "nevermore_shadowraze2"
 			"3" "nevermore_shadowraze3"
 		}
+	}
+	"special_bonus_unique_nevermore_frenzy_castspeed"
+	{
+		"TalentRequiredAbility"                                                   "nevermore_frenzy"
 	}
 
 	"special_bonus_unique_nyx"
@@ -9242,61 +8758,6 @@
 		"TalentRequiredAbility"                                                   "weaver_shukuchi"
 	}
 
-
-
-
-	"special_bonus_unique_windranger"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_windrun"
-	}
-	"special_bonus_unique_windranger_2"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_focusfire"
-	}
-	"special_bonus_unique_windranger_3"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_powershot"
-	}
-	"special_bonus_unique_windranger_4"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_windrun"
-	}
-	"special_bonus_unique_windranger_5"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_shackleshot"
-	}
-	"special_bonus_unique_windranger_6"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_shackleshot"
-	}
-	"special_bonus_unique_windranger_7"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_windrun"
-	}
-	"special_bonus_unique_windranger_8"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_focusfire"
-	}
-	"special_bonus_unique_windranger_9"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_shackleshot"
-	}
-	"special_bonus_unique_windranger_10"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_windrun"
-	}
-	"special_bonus_unique_windranger_windrun_undispellable"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_windrun"
-	}
-	"special_bonus_unique_windranger_powershot_slow"
-	{
-		"TalentRequiredAbility"                                                   "windrunner_powershot"
-	}
-
-
-
-
 	"special_bonus_unique_winter_wyvern_1"
 	{
 		"TalentRequiredAbility"                                                   "winter_wyvern_arctic_burn"
@@ -9497,48 +8958,6 @@
 		"TalentRequiredAbility"                                                   "zuus_static_field"
 	}
 
-
-	"special_bonus_unique_drow_ranger_1"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_multishot"
-	}
-	"special_bonus_unique_drow_ranger_2"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_frost_arrows"
-	}
-	"special_bonus_unique_drow_ranger_3"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_marksmanship"
-	}
-	"special_bonus_unique_drow_ranger_4"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_wave_of_silence"
-	}
-	"special_bonus_unique_drow_ranger_5"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_wave_of_silence"
-	}
-	"special_bonus_unique_drow_ranger_6"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_multishot"
-	}
-	"special_bonus_unique_drow_ranger_7"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_wave_of_silence"
-	}
-	"special_bonus_unique_drow_ranger_8"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_multishot"
-	}
-	"special_bonus_unique_drow_ranger_gust_selfmovespeed"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_wave_of_silence"
-	}
-	"special_bonus_unique_drow_ranger_gust_invis"
-	{
-		"TalentRequiredAbility"                                                   "drow_ranger_wave_of_silence"
-	}
-
 	"special_bonus_unique_doom_1"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
@@ -9666,45 +9085,6 @@
 	{
 		"TalentRequiredAbility"                                                   "disruptor_glimpse"
 	}
-
-
-
-
-	"special_bonus_unique_death_prophet"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_exorcism"
-	}
-	"special_bonus_unique_death_prophet_2"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_carrion_swarm"
-	}
-	"special_bonus_unique_death_prophet_3"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_spirit_siphon"
-	}
-	"special_bonus_unique_death_prophet_4"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_spirit_siphon"
-	}
-	"special_bonus_unique_death_prophet_5"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_spirit_siphon"
-	}
-	"special_bonus_unique_death_prophet_crypt_swarm_slow"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_carrion_swarm"
-	}
-	"special_bonus_unique_death_prophet_silence_slow"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_silence"
-	}
-	"special_bonus_unique_death_prophet_silence_aoe"
-	{
-		"TalentRequiredAbility"                                                   "death_prophet_silence"
-	}
-
-
-
 
 	"special_bonus_unique_dazzle_1"
 	{
@@ -10054,41 +9434,6 @@
 		"TalentRequiredAbility"                                                   "bounty_hunter_jinada"
 	}
 
-
-
-	"special_bonus_unique_bloodseeker"
-	{
-		"TalentRequiredAbility"                                                   "bloodseeker_blood_bath"
-	}
-	"special_bonus_unique_bloodseeker_2"
-	{
-		"TalentRequiredAbility"                                          		"bloodseeker_blood_bath"
-	}
-	"special_bonus_unique_bloodseeker_3"
-	{
-		"TalentRequiredAbility"                                                   "bloodseeker_rupture"
-	}
-	"special_bonus_unique_bloodseeker_4"
-	{
-		"TalentRequiredAbility"                                                   "bloodseeker_thirst"
-	}
-	"special_bonus_unique_bloodseeker_5"
-	{
-		"TalentRequiredAbility"                                                   "bloodseeker_bloodrage"
-	}
-	"special_bonus_unique_bloodseeker_6"
-	{
-		"TalentRequiredAbility"                                                   "bloodseeker_bloodrage"
-	}
-	"special_bonus_unique_bloodseeker_7"
-	{
-		"TalentRequiredAbility"                                                   "bloodseeker_rupture"
-	}
-	"special_bonus_unique_bloodseeker_rupture_charges"
-	{
-		"TalentRequiredAbility"                                                   "bloodseeker_rupture"
-	}
-
 	"special_bonus_unique_grimstroke_1"
 	{
 		"TalentRequiredAbility" 					"grimstroke_spirit_walk"
@@ -10208,48 +9553,6 @@
 	"special_bonus_unique_snapfire_mortimer_kisses_impact_damage"
 	{
 		"TalentRequiredAbility" 		"snapfire_mortimer_kisses"
-	}
-
-
-	"special_bonus_unique_hoodwink_acorn_shot_charges"
-	{
-		"TalentRequiredAbility" 				"hoodwink_acorn_shot"
-	}
-	"special_bonus_unique_hoodwink_camouflage"
-	{
-		"TalentRequiredAbility" 				"hoodwink_scurry"
-	}
-	"special_bonus_unique_hoodwink_sharpshooter_speed"
-	{
-		"TalentRequiredAbility" 				"hoodwink_sharpshooter"
-	}
-	"special_bonus_unique_hoodwink_sharpshooter_pure_damage"
-	{
-		"TalentRequiredAbility" 				"hoodwink_sharpshooter"
-	}
-	"special_bonus_unique_hoodwink_bushwhack_cooldown"
-	{
-		"TalentRequiredAbility" 				"hoodwink_bushwhack"
-	}
-	"special_bonus_unique_hoodwink_bushwhack_damage"
-	{
-		"TalentRequiredAbility" 				"hoodwink_bushwhack"
-	}
-	"special_bonus_unique_hoodwink_scurry_duration"
-	{
-		"TalentRequiredAbility" 				"hoodwink_scurry"
-	}
-	"special_bonus_unique_hoodwink_acorn_shot_bounces"
-	{
-		"TalentRequiredAbility" 				"hoodwink_acorn_shot"
-	}
-	"special_bonus_unique_hoodwink_bushwhack_radius"
-	{
-		"TalentRequiredAbility" 				"hoodwink_bushwhack"
-	}
-	"special_bonus_unique_hoodwink_scurry_evasion"
-	{
-		"TalentRequiredAbility" 				"hoodwink_scurry"
 	}
 
 	"special_bonus_unique_marci_grapple_stun_duration"
@@ -10590,6 +9893,7 @@
 		"ItemCost"                      "750"
 		"ItemPurchasable"               "1"
 		"ItemSellable"                  "1"
+		"ReduxPerks"                                                           "blood | self_damage"
 	}
 	"item_specialists_array"
 	{

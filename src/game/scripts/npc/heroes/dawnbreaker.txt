@@ -8,8 +8,8 @@
 
 	"dawnbreaker_fire_wreath"
 	{
-		"ReduxFlags"                                                           "aoe_attack | stun"
-		"ReduxPerks"                                                           "light | skillshot"
+		"ReduxFlags"                                                           "aoe_attack | stun | physical"
+		"ReduxPerks"                                                           "light | physical | skillshot"
 	}
 
 	"dawnbreaker_luminosity"

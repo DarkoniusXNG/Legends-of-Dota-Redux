@@ -11,34 +11,31 @@ end
 function modifier_npc_dota_hero_sven_perk:IsHidden()
 	return false
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_sven_perk:RemoveOnDeath()
+
+function modifier_npc_dota_hero_sven_perk:IsPurgable()
 	return false
 end
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_sven_perk:IsPurgable()
+function modifier_npc_dota_hero_sven_perk:RemoveOnDeath()
 	return false
 end
 
 function modifier_npc_dota_hero_sven_perk:GetTexture()
 	return "custom/npc_dota_hero_sven_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_sven_perk:OnCreated()
     if IsServer() then
         local caster = self:GetCaster()
-        local cleave = caster:FindAbilityByName("sven_great_cleave")
+        local bonus_ability = caster:FindAbilityByName("sven_great_cleave")
 
-        if cleave then
-            cleave:UpgradeAbility(false)
+        if bonus_ability then
+            bonus_ability:UpgradeAbility(false)
         else
-            cleave = caster:AddAbility("sven_great_cleave")
-            --cleave:SetStolen(true)
-            cleave:SetActivated(true)
-            cleave:SetLevel(1)
+            bonus_ability = caster:AddAbility("sven_great_cleave")
+            --bonus_ability:SetStolen(true)
+            bonus_ability:SetActivated(true)
+            bonus_ability:SetLevel(1)
         end
     end
 end

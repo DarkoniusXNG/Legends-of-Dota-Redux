@@ -9,8 +9,8 @@
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"            "custom/life_stealer_feast_melee"
 
-        "ReduxFlags"                                                           "attack_modifier | dota_custom | underpowered"
-        "ReduxPerks"                                                           "attack_modifier"
+        "ReduxFlags"                                                           "attack_modifier | dota_custom | physical | underpowered"
+        "ReduxPerks"                                                           "attack_modifier | physical | blood | undead"
         "ReduxCost"                                                            "30"
 
         // Special

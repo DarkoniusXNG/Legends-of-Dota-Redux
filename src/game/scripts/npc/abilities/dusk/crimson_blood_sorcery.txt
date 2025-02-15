@@ -12,7 +12,7 @@
 		"AbilityTextureName"			"bloodseeker_thirst"
 
 		"ReduxFlags"                    "mana"
-		"ReduxPerks"                    "demon"
+		"ReduxPerks"                    "demon | blood"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

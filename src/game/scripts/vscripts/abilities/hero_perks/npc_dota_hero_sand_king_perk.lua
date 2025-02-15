@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Sand King
---		Perk: Channeling abilities refund 50% of their manacost when cast by Sand King. 
---
+--		Perk: Sand King gains +1% Spell Amp, +1% Cooldown Reduction and +1% Mana Cost Reduction for each level put in an Earth ability.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_sand_king_perk ~= "" then modifier_npc_dota_hero_sand_king_perk = class({}) end
+modifier_npc_dota_hero_sand_king_perk = modifier_npc_dota_hero_sand_king_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_sand_king_perk:IsPassive()
 	return true
@@ -25,31 +23,44 @@ end
 function modifier_npc_dota_hero_sand_king_perk:GetTexture()
 	return "custom/npc_dota_hero_sand_king_perk"
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_sand_king_perk:OnCreated()
-  local manaRefund = 50
-  local cooldownReduction = 50
 
-  self.manaRefund = manaRefund * 0.01
-  self.cooldownReduction = 1 - (cooldownReduction * 0.01)
+function modifier_npc_dota_hero_sand_king_perk:OnCreated()
+	self.bonusPerLevel = 1
+	if IsServer() then
+		self:StartIntervalThink(0.1)
+	end
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_sand_king_perk:OnIntervalThink()
+	if IsServer() then
+		local caster = self:GetParent()
+		local stacks = 0
+		for i = 0, caster:GetAbilityCount() - 1 do
+			local skill = caster:GetAbilityByIndex(i)
+			if skill and skill:HasAbilityFlag("earth") then
+				stacks = stacks + skill:GetLevel() * self.bonusPerLevel
+			end
+		end
+		self:SetStackCount(stacks)
+	end
+end
+
 function modifier_npc_dota_hero_sand_king_perk:DeclareFunctions()
-  local funcs = {
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-  }
-  return funcs
+	return {
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
+	}
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_sand_king_perk:OnAbilityFullyCast(keys)
-  if IsServer() then
-    if keys.ability:HasAbilityFlag("channeled") and keys.unit == self:GetParent() then
-      local cooldown = keys.ability:GetCooldownTimeRemaining()
-      keys.ability:EndCooldown()
-      keys.ability:StartCooldown(cooldown*self.cooldownReduction)
-      self:GetParent():GiveMana(keys.ability:GetManaCost(keys.ability:GetLevel()-1)*self.manaRefund)
-    end
-  end
+
+function modifier_npc_dota_hero_sand_king_perk:GetModifierSpellAmplify_Percentage()
+	return self:GetStackCount()
+end
+
+function modifier_npc_dota_hero_sand_king_perk:GetModifierPercentageCooldown()
+	return self:GetStackCount()
+end
+
+function modifier_npc_dota_hero_sand_king_perk:GetModifierPercentageManacostStacking()
+	return self:GetStackCount()
 end

@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Dark Willow
---		Perk: Dark Willow gains +2 to all stats for each level put in a support ability.
---
+--		Perk: Dark Willow gains +3 to all stats for each level put in a support ability.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_dark_willow_perk ~= "" then modifier_npc_dota_hero_dark_willow_perk = class({}) end
+modifier_npc_dota_hero_dark_willow_perk = modifier_npc_dota_hero_dark_willow_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_dark_willow_perk:IsPassive()
 	return true
@@ -21,19 +19,21 @@ end
 function modifier_npc_dota_hero_dark_willow_perk:RemoveOnDeath()
 	return false
 end
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_dark_willow_perk:GetTexture()
+	return "custom/npc_dota_hero_dark_willow_perk"
+end
+
 function modifier_npc_dota_hero_dark_willow_perk:DeclareFunctions()
 	return { 
-	MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-	MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-	MODIFIER_PROPERTY_STATS_STRENGTH_BONUS  
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 	}
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_dark_willow_perk:OnCreated()
-	self.bonusPerLevel = 2
-	self.bonusAmount = 1
+	self.bonusPerLevel = 3
 	if IsServer() then
 		self:StartIntervalThink(0.1)
 	end
@@ -42,32 +42,25 @@ end
 function modifier_npc_dota_hero_dark_willow_perk:OnIntervalThink()
 	if IsServer() then
 		local caster = self:GetParent()
+		local stacks = 0
 		for i = 0, caster:GetAbilityCount() - 1 do
 			local skill = caster:GetAbilityByIndex(i)
 			if skill and skill:HasAbilityFlag("support") then
-				if not skill.perkLevel then skill.perkLevel = skill:GetLevel() end
-				if skill:GetLevel() > skill.perkLevel then
-					local increase = (skill:GetLevel()  - skill.perkLevel)
-					increase = increase * self.bonusPerLevel
-					local stacks = self:GetStackCount()
-					self:SetStackCount(stacks + increase)
-					skill.perkLevel = skill:GetLevel()
-				end
+				stacks = stacks + skill:GetLevel() * self.bonusPerLevel
 			end
 		end
+		self:SetStackCount(stacks)
 	end
 end
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_dark_willow_perk:GetModifierBonusStats_Intellect(params)
-	return self.bonusAmount * self:GetStackCount()
+function modifier_npc_dota_hero_dark_willow_perk:GetModifierBonusStats_Intellect()
+	return self:GetStackCount()
 end
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_dark_willow_perk:GetModifierBonusStats_Agility(params)
-	return self.bonusAmount * self:GetStackCount()
+function modifier_npc_dota_hero_dark_willow_perk:GetModifierBonusStats_Agility()
+	return self:GetStackCount()
 end
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_dark_willow_perk:GetModifierBonusStats_Strength(params)
-	return self.bonusAmount * self:GetStackCount()
+function modifier_npc_dota_hero_dark_willow_perk:GetModifierBonusStats_Strength()
+	return self:GetStackCount()
 end
---------------------------------------------------------------------------------------------------------
-

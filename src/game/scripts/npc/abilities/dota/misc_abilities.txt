@@ -12,6 +12,7 @@
 
         "MaxLevel"                      "1"
         "ReduxCost"                                                            "150"
+        "ReduxPerks"                                                           "undead"
         "AbilityCastRange"              "800"
         "AbilityCastPoint"              "0.45"
         "AbilityCooldown"               "30"
@@ -609,6 +610,8 @@
         "AbilitySound"                  "Hero_Clinkz.DeathPact"
 
         "AbilityTextureName"            "custom/clinkz_burning_army_op"
+        "ReduxFlags"                                                           "upgradeable | doNotRandom | summon"
+        "ReduxPerks"                                                           "fire | summon_non_ult | undead"
         "ReduxCost"                                                            "120"
 
         "precache"
@@ -728,6 +731,7 @@
         "AbilitySound"                  "Hero_Mars.ArenaOfBlood.Start"
         "AbilityTextureName"            "custom/mars_arena_of_blood_op"
         "ReduxCost"                                                            "120"
+        "ReduxPerks"                                                           "enemyMoving | blood | undead"
 
         "precache"
         {

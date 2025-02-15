@@ -1,0 +1,92 @@
+// Abilities for bloodseeker
+"DOTAAbilities"
+{
+	"bloodseeker_rupture"
+	{
+		"ReduxPerks"                                                           "blood"
+		"ReduxCost"                                                            "10"
+		"ReduxBans"                                                            "batrider_sticky_napalm"
+	}
+
+	"bloodseeker_thirst"
+	{
+		"ReduxFlags"                                                           "mobility | semi_passive"
+		"ReduxPerks"                                                           "mobility | blood"
+		"ReduxCost"                                                            "20"
+	}
+
+	"bloodseeker_bloodrage"
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | rage | blood"
+		"ReduxCost"                                                            "20"
+	}
+
+	"bloodseeker_blood_bath"
+	{
+		"ReduxFlags"                                                           "silence"
+		"ReduxPerks"                                                           "skillshot | silence | blood"
+	}
+
+	"bloodseeker_blood_mist"
+	{
+		"ReduxFlags"	"upgradeable"
+		"ReduxPerks"	"self_damage | blood"
+
+		"MaxLevel"                      "4"
+		"AbilityCooldown"               "3.0 2.0 1.0 0.1"
+		"AbilityManaCost"               "0"
+		"AbilityValues"
+		{
+			"hp_cost_per_second"
+			{
+				"value"				"7"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
+			}
+			"radius"
+			{
+				"value"		"450"
+				"affected_by_aoe_increase"	"1"
+			}
+			"movement_slow"			"30 35 40 45"
+			"barrier_decay_pct"			"0.5 0.45 0.4 0.35"
+			"voracity_bonus_pct"		"50 60 70 80"
+		}
+	}
+
+	"bloodseeker_sanguivore"
+	{
+		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxPerks"                                                           "blood"
+	}
+
+	"special_bonus_unique_bloodseeker_2"
+	{
+		"TalentRequiredAbility"                                          	   "bloodseeker_blood_bath"
+	}
+	"special_bonus_unique_bloodseeker_3"
+	{
+		"TalentRequiredAbility"                                                "bloodseeker_rupture"
+	}
+	"special_bonus_unique_bloodseeker_4"
+	{
+		"TalentRequiredAbility"                                                "bloodseeker_thirst"
+	}
+	"special_bonus_unique_bloodseeker_5"
+	{
+		"TalentRequiredAbility"                                                "bloodseeker_bloodrage"
+	}
+	"special_bonus_unique_bloodseeker_6"
+	{
+		"TalentRequiredAbility"                                                "bloodseeker_bloodrage"
+	}
+	"special_bonus_unique_bloodseeker_7"
+	{
+		"TalentRequiredAbility"                                                "bloodseeker_rupture"
+	}
+	"special_bonus_unique_bloodseeker_rupture_charges"
+	{
+		"TalentRequiredAbility"                                                "bloodseeker_rupture"
+	}
+}

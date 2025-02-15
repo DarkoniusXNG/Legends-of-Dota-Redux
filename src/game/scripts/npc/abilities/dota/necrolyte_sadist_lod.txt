@@ -82,5 +82,6 @@
             }
         }
         "ReduxFlags"                                                           "dota_custom | doNotRandom"
+        "ReduxPerks"                                                           "undead"
     }
 }

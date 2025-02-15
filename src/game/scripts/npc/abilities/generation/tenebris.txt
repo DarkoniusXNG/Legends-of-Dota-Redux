@@ -22,7 +22,7 @@
         "SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
         "FightRecapLevel"       "1"
-        "ReduxPerks"                                                           "support"
+        "ReduxPerks"                                                           "support | blood"
         "ReduxFlags"                                                           "support"
  
         "AbilityTextureName"        "custom/tenebris_blood_ward"

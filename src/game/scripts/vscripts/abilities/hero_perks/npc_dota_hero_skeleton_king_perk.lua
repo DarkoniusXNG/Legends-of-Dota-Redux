@@ -24,19 +24,18 @@ function modifier_npc_dota_hero_skeleton_king_perk:GetTexture()
 	return "custom/npc_dota_hero_skeleton_king_perk"
 end
 
---------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_skeleton_king_perk:OnCreated()
 	if IsServer() then
 		local caster = self:GetCaster()
-		local crit = caster:FindAbilityByName("skeleton_king_mortal_strike")
+		local bonus_ability = caster:FindAbilityByName("skeleton_king_mortal_strike")
 
-		if crit then
-            crit:UpgradeAbility(false)
-        else
-            crit = caster:AddAbility("skeleton_king_mortal_strike")
-            --crit:SetStolen(true)
-            crit:SetActivated(true)
-            crit:SetLevel(1)
-        end
+		if bonus_ability then
+			bonus_ability:UpgradeAbility(false)
+		else
+			bonus_ability = caster:AddAbility("skeleton_king_mortal_strike")
+			--bonus_ability:SetStolen(true)
+			bonus_ability:SetActivated(true)
+			bonus_ability:SetLevel(1)
+		end
 	end
 end

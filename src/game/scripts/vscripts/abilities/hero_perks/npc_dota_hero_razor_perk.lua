@@ -11,12 +11,12 @@ end
 function modifier_npc_dota_hero_razor_perk:IsHidden()
 	return false
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_razor_perk:RemoveOnDeath()
+
+function modifier_npc_dota_hero_razor_perk:IsPurgable()
 	return false
 end
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_razor_perk:IsPurgable()
+function modifier_npc_dota_hero_razor_perk:RemoveOnDeath()
 	return false
 end
 
@@ -30,21 +30,20 @@ if IsServer() then
 	function modifier_npc_dota_hero_razor_perk:OnCreated()
 		self.reduction = 25
 	    local caster = self:GetCaster()
-	    local unstableCurrent = caster:FindAbilityByName("razor_unstable_current")
-	    if unstableCurrent then
-	        unstableCurrent:UpgradeAbility(false)
+	    local bonus_ability = caster:FindAbilityByName("razor_storm_surge")
+	    if bonus_ability then
+	        bonus_ability:UpgradeAbility(false)
 	    else
-	        unstableCurrent = caster:AddAbility("razor_unstable_current")
-	        --unstableCurrent:SetStolen(true)
-	        unstableCurrent:SetActivated(true)
-	        unstableCurrent:SetLevel(1)
+	        bonus_ability = caster:AddAbility("razor_storm_surge")
+	        --bonus_ability:SetStolen(true)
+	        bonus_ability:SetActivated(true)
+	        bonus_ability:SetLevel(1)
 	    end
 	end
 	function modifier_npc_dota_hero_razor_perk:DeclareFunctions()
-		local funcs = {
+		return {
 			MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
 		}
-		return funcs
 	end
 	--------------------------------------------------------------------------------------------------------
 	function modifier_npc_dota_hero_razor_perk:OnAbilityFullyCast(params)

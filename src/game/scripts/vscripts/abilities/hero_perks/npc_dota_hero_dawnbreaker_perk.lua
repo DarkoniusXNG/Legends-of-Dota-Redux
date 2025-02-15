@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Dawnbreaker
 --		Perk: Dawnbreaker gains 3% hp regen amplification for every level of Light spells she has.
---
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_dawnbreaker_perk ~= "" then modifier_npc_dota_hero_dawnbreaker_perk = class({}) end
+modifier_npc_dota_hero_dawnbreaker_perk = modifier_npc_dota_hero_dawnbreaker_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_dawnbreaker_perk:IsPassive()
 	return true
@@ -35,7 +33,6 @@ end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_dawnbreaker_perk:OnCreated()
 	self.bonusPerLevel = 3
-	self.bonusAmount = 1
 	if IsServer() then
 		self:StartIntervalThink(0.1)
 	end
@@ -56,9 +53,9 @@ function modifier_npc_dota_hero_dawnbreaker_perk:OnIntervalThink()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_dawnbreaker_perk:GetModifierHPRegenAmplify_Percentage()
-	return self.bonusAmount * self:GetStackCount()
+	return self:GetStackCount()
 end
 
 function modifier_npc_dota_hero_dawnbreaker_perk:GetModifierLifestealRegenAmplify_Percentage()
-	return self.bonusAmount * self:GetStackCount()
+	return self:GetStackCount()
 end

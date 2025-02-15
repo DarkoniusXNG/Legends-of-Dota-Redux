@@ -75,7 +75,7 @@
       "particle"                                          "particles/units/heroes/heroes_underlord/abyssal_underlord_dark_rift_portal.vpcf"
     }
 
-    "ReduxPerks"                                          "teleport | demon | blink | skillshot"
-    "ReduxFlags"                                          "stun | upgradeable"
+    "ReduxPerks"                                          "channeled | teleport | demon | blink | skillshot | mobility"
+    "ReduxFlags"                                          "mobility | stun | upgradeable"
   }
 }

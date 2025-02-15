@@ -9,6 +9,8 @@
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "1200"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "ReduxPerks"                                                           "aura | undead"
+        "ReduxCost"                                                            "120"
         "AbilityValues"
         {
             "stat_reduction" "-10 -20 -30"
@@ -41,8 +43,5 @@
                 }
             }
         }
-        "ReduxPerks"                                                           "aura"
-        "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
     }
 }

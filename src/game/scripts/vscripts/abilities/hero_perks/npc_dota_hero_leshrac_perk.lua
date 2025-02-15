@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Leshrac
---		Perk: At the start of the game, Leshrac gains a free level of Octarine Vampirism, whether he has it or not.
---
+--		Perk: Octarine Vampirism free ability
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_leshrac_perk ~= "" then modifier_npc_dota_hero_leshrac_perk = class({}) end
+modifier_npc_dota_hero_leshrac_perk = modifier_npc_dota_hero_leshrac_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_leshrac_perk:IsPassive()
 	return true
@@ -25,23 +23,19 @@ end
 function modifier_npc_dota_hero_leshrac_perk:GetTexture()
 	return "custom/npc_dota_hero_leshrac_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_leshrac_perk:OnCreated(keys)
-	self.created = GameRules:GetGameTime()
     if IsServer() then
         local caster = self:GetCaster()
-        local octarine = caster:FindAbilityByName("octarine_vampirism_lod")
+        local bonus_ability = caster:FindAbilityByName("octarine_vampirism_lod")
 
-        if octarine then
-            octarine:UpgradeAbility(false)
+        if bonus_ability then
+            bonus_ability:UpgradeAbility(false)
         else 
-            octarine = caster:AddAbility("octarine_vampirism_lod")
-            --octarine:SetStolen(true)
-            octarine:SetActivated(true)
-            octarine:SetLevel(1)
+            bonus_ability = caster:AddAbility("octarine_vampirism_lod")
+            --bonus_ability:SetStolen(true)
+            bonus_ability:SetActivated(true)
+            bonus_ability:SetLevel(1)
         end
     end
 end

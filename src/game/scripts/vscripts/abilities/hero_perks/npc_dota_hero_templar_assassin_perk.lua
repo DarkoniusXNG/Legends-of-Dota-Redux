@@ -28,21 +28,21 @@ function modifier_npc_dota_hero_templar_assassin_perk:GetTexture()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_templar_assassin_perk:OnCreated(keys)
-    if IsServer() then
+	if IsServer() then
 		local caster = self:GetCaster()
-        self.invisDelay = 2
-        caster:AddNewModifier(caster, nil, "modifier_npc_dota_hero_templar_assassin_invis_break", {duration = self.invisDelay})
+		self.invisDelay = 2
+		caster:AddNewModifier(caster, nil, "modifier_npc_dota_hero_templar_assassin_invis_break", {duration = self.invisDelay})
 
-		local psi_blades = caster:FindAbilityByName("templar_assassin_psi_blades")
-		if psi_blades then
-			psi_blades:UpgradeAbility(false)
+		local bonus_ability = caster:FindAbilityByName("templar_assassin_psi_blades")
+		if bonus_ability then
+			bonus_ability:UpgradeAbility(false)
 		else
-			psi_blades = caster:AddAbility("templar_assassin_psi_blades")
-			--psi_blades:SetStolen(true)
-			psi_blades:SetActivated(true)
-			psi_blades:SetLevel(1)
+			bonus_ability = caster:AddAbility("templar_assassin_psi_blades")
+			--bonus_ability:SetStolen(true)
+			bonus_ability:SetActivated(true)
+			bonus_ability:SetLevel(1)
 		end
-    end
+	end
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_templar_assassin_perk:DeclareFunctions()

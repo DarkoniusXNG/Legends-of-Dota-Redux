@@ -16,11 +16,7 @@ function modifier_octarine_vampirism_lod_buff:IsHidden()
     return false
 end
 
-function modifier_octarine_vampirism_lod_buff:IsBuff()
-    if self:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then
-        return true
-    end
-
+function modifier_octarine_vampirism_lod_buff:IsDeBuff()
     return false
 end
 

@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Tidehunter
 --		Perk: Bonus 5 Damage Block for each level in Water spell
---
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_tidehunter_perk ~= "" then modifier_npc_dota_hero_tidehunter_perk = class({}) end
+modifier_npc_dota_hero_tidehunter_perk = modifier_npc_dota_hero_tidehunter_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_tidehunter_perk:IsPassive()
 	return true
@@ -21,9 +19,11 @@ end
 function modifier_npc_dota_hero_tidehunter_perk:RemoveOnDeath()
 	return false
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_tidehunter_perk:GetTexture()
+	return "custom/npc_dota_hero_tidehunter_perk"
+end
+
 function modifier_npc_dota_hero_tidehunter_perk:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
@@ -32,7 +32,6 @@ end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_tidehunter_perk:OnCreated()
 	self.bonusPerLevel = 5
-	self.bonusAmount = 1
 	if IsServer() then
 		self:StartIntervalThink(0.1)
 	end
@@ -53,6 +52,6 @@ function modifier_npc_dota_hero_tidehunter_perk:OnIntervalThink()
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_tidehunter_perk:GetModifierPhysical_ConstantBlock()
-	return self.bonusAmount * self:GetStackCount()
+	return self:GetStackCount()
 end
 

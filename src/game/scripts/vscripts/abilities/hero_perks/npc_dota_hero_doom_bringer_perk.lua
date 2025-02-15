@@ -1,12 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Doom Bringer
---		Perk: Doom will always cast doom as if he has scepter, with scepter cooldown reduced by 50%
---
+--		Perk: Bonus damage with Demon spells. Silence spells also apply mute for 2 seconds.
 --------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_doom_bringer_perk_dummy", "abilities/hero_perks/npc_dota_hero_doom_bringer_perk.lua" ,LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_doom_bringer_perk ~= "" then modifier_npc_dota_hero_doom_bringer_perk = class({}) end
+modifier_npc_dota_hero_doom_bringer_perk = modifier_npc_dota_hero_doom_bringer_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_doom_bringer_perk:IsPassive()
 	return true
@@ -23,70 +19,71 @@ end
 function modifier_npc_dota_hero_doom_bringer_perk:RemoveOnDeath()
 	return false
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_doom_bringer_perk:OnCreated(keys)
-	self.cooldownPercentReduction = 50
-	self.cooldownReduction = self.cooldownPercentReduction / 100
+
+function modifier_npc_dota_hero_doom_bringer_perk:GetTexture()
+	return "custom/npc_dota_hero_doom_bringer_perk"
 end
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_doom_bringer_perk:DeclareFunctions()
-	local funcs = {
-	  MODIFIER_EVENT_ON_ABILITY_FULLY_CAST
-	}
-	return funcs
-end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_doom_bringer_perk:OnAbilityFullyCast(keys)
-  if IsServer() then
-    local hero = self:GetCaster()
-    local target = keys.target
-    local ability = keys.ability
-    if hero == keys.unit and ability and ability:GetAbilityName() == "doom_bringer_doom" then
-    	if hero:HasScepter() then
-		  	local cooldown = ability:GetCooldownTimeRemaining() * self.cooldownReduction
-	      	ability:EndCooldown()
-	      	ability:StartCooldown(cooldown)
-	    else
-	    	Timers:CreateTimer(1,function()
-	    		local modifier = target:AddNewModifier(hero,ability,"modifier_npc_dota_hero_doom_bringer_perk_dummy",{duration = -1 + ability:GetSpecialValueFor("duration")})
-	    	end)
-	    end
-	end
-  end
+    return {
+        MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
+    }
 end
 
---------------------------------------------------------------------------------------------------------
-
-modifier_npc_dota_hero_doom_bringer_perk_dummy = class({})
-
-function modifier_npc_dota_hero_doom_bringer_perk_dummy:IsHidden() return true end
-function modifier_npc_dota_hero_doom_bringer_perk_dummy:IsPurgable() return false end
-
-function modifier_npc_dota_hero_doom_bringer_perk_dummy:OnCreated()
-	if IsClient() then return end
-	self:StartIntervalThink(FrameTime())
-end
-
-function modifier_npc_dota_hero_doom_bringer_perk_dummy:OnIntervalThink()
-	local hero = self:GetCaster()
-	local unit = self:GetParent()
-	local ability = self:GetAbility()	
-
-	if hero:GetRangeToUnit(unit) < 900 then
-		local modifier = unit:FindModifierByNameAndCaster("modifier_doom_bringer_doom",hero)
-		if modifier then
-			modifier:SetDuration(modifier:GetRemainingTime()+FrameTime(),true)
-			self:SetDuration(modifier:GetRemainingTime()+FrameTime(),false)
-		else
-			self:Destroy()
+if IsServer() then
+	function modifier_npc_dota_hero_doom_bringer_perk:GetModifierTotalDamageOutgoing_Percentage(keys)
+		local ability = keys.inflictor
+		if not ability or ability:IsNull() then
+			return 0
 		end
+		if ability:HasAbilityFlag("demon") then
+			return 15
+		end
+		return 0
 	end
 end
 
-function modifier_npc_dota_hero_doom_bringer_perk_dummy:CheckState()
-	return {
-		[MODIFIER_STATE_PASSIVES_DISABLED] = true,
-	}
+--------------------------------------------------------------------------------------------------------
+LinkLuaModifier("modifier_npc_dota_hero_doom_perk_mute", "abilities/hero_perks/npc_dota_hero_doom_bringer_perk.lua", LUA_MODIFIER_MOTION_NONE)
+
+modifier_npc_dota_hero_doom_perk_mute = modifier_npc_dota_hero_doom_perk_mute or class({})
+
+function modifier_npc_dota_hero_doom_perk_mute:IsHidden()
+	return not self:GetParent():IsSilenced()
+end
+
+function modifier_npc_dota_hero_doom_perk_mute:IsDebuff()
+	return true
+end
+
+function modifier_npc_dota_hero_doom_perk_mute:IsPurgable()
+	return true
+end
+
+function modifier_npc_dota_hero_doom_perk_mute:CheckState()
+  return {
+    [MODIFIER_STATE_MUTED] = self:GetParent():IsSilenced(),
+  }
+end
+
+function modifier_npc_dota_hero_doom_perk_mute:GetTexture()
+  return "custom/npc_dota_hero_doom_bringer_perk"
+end
+--------------------------------------------------------------------------------------------------------
+function perkDoom(filterTable)  --ModifierGainedFilter
+  local parent_index = filterTable["entindex_parent_const"]
+  local caster_index = filterTable["entindex_caster_const"]
+  local ability_index = filterTable["entindex_ability_const"]
+  if not parent_index or not caster_index or not ability_index then
+    return true
+  end
+  local parent = EntIndexToHScript( parent_index )
+  local caster = EntIndexToHScript( caster_index )
+  local ability = EntIndexToHScript( ability_index )
+  if ability then
+    if caster:HasModifier("modifier_npc_dota_hero_doom_bringer_perk") and caster ~= parent and ability:HasAbilityFlag("silence") then
+        --local modifierDuration = filterTable["duration"]
+        parent:AddNewModifier(caster, ability, "modifier_npc_dota_hero_doom_perk_mute", {duration = 2})
+    end
+  end
 end

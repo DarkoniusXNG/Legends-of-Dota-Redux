@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Lina
 --		Perk: Increases Lina's intelligence by 3 for each level put in fire-type spells.
---
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_lina_perk ~= "" then modifier_npc_dota_hero_lina_perk = class({}) end
+modifier_npc_dota_hero_lina_perk = modifier_npc_dota_hero_lina_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_lina_perk:IsPassive()
 	return true
@@ -34,7 +32,6 @@ end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_lina_perk:OnCreated()
 	self.bonusPerLevel = 3
-	self.bonusAmount = 1
 	if IsServer() then
 		self:StartIntervalThink(0.1)
 	end
@@ -54,6 +51,6 @@ function modifier_npc_dota_hero_lina_perk:OnIntervalThink()
 	end
 end
 --------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_lina_perk:GetModifierBonusStats_Intellect(params)
-	return self.bonusAmount * self:GetStackCount()
+function modifier_npc_dota_hero_lina_perk:GetModifierBonusStats_Intellect()
+	return self:GetStackCount()
 end
