@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Primal Beast
---		Perk: Bonus move speed and turn speed while disarmed.
+--		Perk: 
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_primal_beast_perk = modifier_npc_dota_hero_primal_beast_perk or class({})
 

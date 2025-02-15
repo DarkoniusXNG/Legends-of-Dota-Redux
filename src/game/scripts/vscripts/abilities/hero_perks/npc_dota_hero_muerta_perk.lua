@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Muerta
---		Perk: Bonus spell amp while ethereal
+--		Perk: 
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_muerta_perk = modifier_npc_dota_hero_muerta_perk or class({})
 

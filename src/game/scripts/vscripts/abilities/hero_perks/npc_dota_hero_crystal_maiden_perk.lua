@@ -27,19 +27,19 @@ end
 function modifier_npc_dota_hero_crystal_maiden_perk:OnCreated()
 	self.bonusPerLevel = 1
 	if IsServer() then
-        local caster = self:GetCaster()
-        local bonus_ability = caster:FindAbilityByName("crystal_maiden_brilliance_aura")
+		local caster = self:GetCaster()
+		local bonus_ability = caster:FindAbilityByName("crystal_maiden_brilliance_aura")
 
-        if bonus_ability then
-            bonus_ability:UpgradeAbility(false)
-        else 
-            bonus_ability = caster:AddAbility("crystal_maiden_brilliance_aura")
-            --bonus_ability:SetStolen(true)
-            bonus_ability:SetActivated(true)
-            bonus_ability:SetLevel(1)
-        end
+		if bonus_ability then
+			bonus_ability:UpgradeAbility(false)
+		else 
+			bonus_ability = caster:AddAbility("crystal_maiden_brilliance_aura")
+			--bonus_ability:SetStolen(true)
+			bonus_ability:SetActivated(true)
+			bonus_ability:SetLevel(1)
+		end
 		self:StartIntervalThink(0.1)
-    end
+	end
 end
 
 function modifier_npc_dota_hero_crystal_maiden_perk:OnIntervalThink()

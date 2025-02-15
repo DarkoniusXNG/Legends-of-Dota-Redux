@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Pudge
---		Perk: Pudge gains 0.1 Strength for each creep kill and for each creep death within 250 radius.
+--		Perk: Pudge gains 0.1 Strength for each enemy creep kill and for each enemy creep death within 250 radius.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_pudge_perk = modifier_npc_dota_hero_pudge_perk or class({})
 --------------------------------------------------------------------------------------------------------
