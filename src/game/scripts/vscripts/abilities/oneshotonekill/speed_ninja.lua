@@ -9,13 +9,16 @@ function zhanhun( keys )
 	if abilityManaCost == 0 then return nil end
 	if abilityCooldown < 3 then return nil end
 
-
-	for i = 0,10 do
+	for i = 0, caster:GetAbilityCount() - 1 do
 		local ability = caster:GetAbilityByIndex(i)
-		if ability:GetLevel()>0 and not ability:IsCooldownReady() then
-			local remain = ability:GetCooldownTimeRemaining()
-			ability:EndCooldown()
-			ability:StartCooldown(remain-reduce)
+		if ability then
+			if ability:GetLevel() > 0 and not ability:IsCooldownReady() then
+				local remain = ability:GetCooldownTimeRemaining()
+				ability:EndCooldown()
+				if remain - reduce >= 0 then
+					ability:StartCooldown(remain-reduce)
+				end
+			end
 		end
 	end
 end

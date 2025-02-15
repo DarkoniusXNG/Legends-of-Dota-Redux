@@ -24,8 +24,9 @@
 				"special_bonus_scepter"	"+2000 +4000 +6000"
 			}			
 		}
-        "ReduxPerks"                                                           "teleport"
+
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
+        "ReduxFlags"                                                           "support"
+        "ReduxPerks"                                                           "teleport | support"
     }
 }

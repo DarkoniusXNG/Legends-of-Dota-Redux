@@ -65,7 +65,6 @@
 			"slow"	"20 30 40 50"					
 		}
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
-		"ReduxPerks"														   "fire | enemyMoving"
+		"ReduxPerks"														   "fire | enemyMoving | skillshot"
     }
 }

@@ -8,7 +8,8 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"            "custom/life_stealer_feast_melee"
-        "ReduxFlags"                                                           "attack_modifier | underpowered"
+
+        "ReduxFlags"                                                           "attack_modifier | dota_custom | underpowered"
         "ReduxPerks"                                                           "attack_modifier"
         "ReduxCost"                                                            "30"
 

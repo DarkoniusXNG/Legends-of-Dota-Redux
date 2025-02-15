@@ -16,11 +16,6 @@
         "AbilityCastPoint"              "0.45"
         "AbilityCooldown"               "30"
         "AbilityManaCost"               "30"
-
-		"precache"
-        {
-            "particle"                                                    "particles/econ/courier/courier_polycount_01/courier_trail_polycount_01.vpcf"
-        }
     }
 
     "Brainthirsty"
@@ -406,9 +401,9 @@
         "ReduxFlags"                                                           "upgradeable | silence"
         "ReduxPerks"                                                           "silence"
         "ReduxCost"                                                            "120"
-        "AbilityCastPoint"              "0.3 0.3 0.3 0.3"
+        "AbilityCastPoint"              "0.3"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
-        "AbilityManaCost"               "75 75 75"
+        "AbilityManaCost"               "75"
         "AbilityValues"
 		{
 			"duration"
@@ -516,31 +511,35 @@
 		{
 				"bonus_attack_range"
 				{
-					"value"		"130 160 190 220 250"
-					"special_bonus_unique_templar_assassin_8"	"+120"
+					"value"		"130 160 190 220"
+					"special_bonus_unique_templar_assassin_8"	"+100"
 				}
 				"attack_spill_range"
 				{
-					"value"							"600 800 1000 1200 1400"
-					"special_bonus_unique_templar_assassin_8"	"+120"
-				}
-				"spill_slow_duration"
-				{
-					"value"											"3.0"
-					"special_bonus_facet_templar_assassin_voidblades"	"+3.0"
+					"value"							"600 800 1000 1200"
+					"special_bonus_unique_templar_assassin_8"	"+100"
 				}
 				"attack_spill_width"
 				{
 					"value"		"90"
 					"affected_by_aoe_increase"	"1"
 				}
+				"attack_spill_pct"			"100"
+				"meld_strike_spills"
+				{
+					"value"											"0.0"
+					"special_bonus_facet_templar_assassin_voidblades"	"+1.0"
+				}
+				"spill_slow_duration"
+				{
+					"value"											"3.0"
+					//"special_bonus_facet_templar_assassin_voidblades"	"+3.0"
+				}
 				"spill_movement_slow_pct"
 				{
-					"value"		"40"
-					"special_bonus_facet_templar_assassin_voidblades"	"+30"
+					"value"											"30"
+					//"special_bonus_facet_templar_assassin_voidblades"	"+30"
 				}
-				"attack_spill_pct"			"100"
-				"attack_spill_penalty"			"0"
 		}
         "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_3"
     }
@@ -562,18 +561,39 @@
 		{
 			"damage_per_stack"
 			{
-				"value"					"5 15 20 25"
-				"special_bonus_facet_bristleback_berserk"	"+0"
-				"special_bonus_unique_bristleback_3"	"+20"
+				"value"					"15 20 25"
+				"special_bonus_facet_bristleback_berserk"	"=5"
+				"special_bonus_unique_bristleback_3"	"+18"
 			}
 			"aspd_per_stack"
 			{
-				"value"					"5 10 15 20"
-				"special_bonus_facet_bristleback_berserk"	"+5 +10 +15 +20"
+				"value"					"5 10 15"
+				"special_bonus_facet_bristleback_berserk"	"=10 =15 =20"
 			}
-			"move_speed_per_stack"		"2 3 4 5"
-			"stack_duration"				"30"
-			"max_stacks"					"10 15 20 25"
+			"move_speed_per_stack"		"3 4 5"
+			"stack_duration"				"20.0"
+			"max_stacks"					"10 15 20"
+
+			"active_bonus_attack_percent"
+			{
+				"value"									"0"
+				"special_bonus_facet_bristleback_seeing_red"				"50"
+			}
+			"active_bonus_movement_percent"
+			{
+				"value"									"0"
+				"special_bonus_facet_bristleback_seeing_red"				"50"
+			}
+			"active_duration"
+			{
+				"value"				"0"
+				"special_bonus_facet_bristleback_seeing_red"				"4 5 6"
+			}
+			"active_view_angle_restriction"
+			{
+				"value"				"0"
+				"special_bonus_facet_bristleback_seeing_red"				"90"
+			}
 		}
     }
 
@@ -717,12 +737,16 @@
         "AbilityCastRange"              "1000"
         "AbilityCastPoint"              "0.1"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
-        "AbilityCooldown"               "60"
         "AbilityManaCost"               "150 200 250"
 
         "AbilityValues"
 		{
-			"duration"			"6 8 10"
+			"AbilityCooldown"
+			{
+				"value"			"60"
+				"special_bonus_unique_mars_arena_cooldown"			"-20"
+			}
+			"duration"			"7 8 9"
 			"radius"
 			{
 				"value"		"550"
@@ -730,9 +754,9 @@
 			}
 
 			"width"				"100"
-			"spear_damage"		"80 160 240"
+			"spear_damage"		"160 240 320"
 			"formation_time"	"0.1"
-			"spear_distance_from_wall"	"250"
+			"spear_distance_from_wall"	"160"
 			"spear_attack_interval"	"0.5"
 			"warrior_count"		"14"
 			"first_warrior_angle"	"0.0"
@@ -743,23 +767,24 @@
 
 			"obscure_vision"
 			{
-				"value"		"1"
-				"special_bonus_facet_mars_arena"	"=1"
+				"value"		"0"
+				"special_bonus_facet_mars_arena"	"1"
 			}
 			"arena_kill_buff_duration"
 			{
 				"value"				"15"
-				"special_bonus_facet_mars_victory_feast"			"+15"
+				"special_bonus_facet_mars_victory_feast"			"+20"
 			}
 			"arena_kill_buff_damage_pct"
 			{
 				"value"				"20"
 				"special_bonus_facet_mars_victory_feast"			"+20"
 			}
+
 			"arena_kill_buff_heal_pct"
 			{
 				"value"				"20"
-				"special_bonus_facet_mars_victory_feast"			"+20"
+				"special_bonus_facet_mars_victory_feast"			"+30"
 			}
 		}
     }

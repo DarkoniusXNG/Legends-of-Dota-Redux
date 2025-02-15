@@ -12,7 +12,7 @@
         "MaxLevel"                                                             "4"
         "RequiredLevel"                                                        "1"
         "LevelsBetweenUpgrades"                                                "2"
-        "AbilityCastRange"                                                     "4000"
+        "AbilityCastRange"                                                     "600"
         "AbilityCastPoint"                                                     "0.3"
         "AbilityCooldown"                                                      "10.0"
         "AbilityManaCost"                                                      "95 105 115 125"
@@ -130,9 +130,11 @@
                 }
             }
         }
-        "ReduxPerks"                                                           "trap | explosive"
+
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
+        "ReduxFlags"                                                           "stun"
+        "ReduxPerks"                                                           "explosive | scientific"
+        "ReduxBans"                                                            "android_cluster_rockets"
 
     }
 }

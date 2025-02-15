@@ -22,6 +22,7 @@
         {
             "duration" "30 60 90 120"
         }
+
         "ReduxFlags"                                                           "upgradeable | support | dota_custom"
         "ReduxPerks"                                                           "support"
         "ReduxCost"                                                            "10"

@@ -4,6 +4,10 @@
     {
         "BaseClass"                    "death_prophet_witchcraft"
         "AbilityTextureName"            "custom/death_prophet_witchcraft_op"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"4"
+		"Innate"						"0"
+		"IsBreakable"					"1"
         
         "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           "cooldown"
@@ -12,6 +16,14 @@
 		{
 			"movement_speed_pct_per_level"		"1.5"
 			"cooldown_reduction_pct_per_level"	"1.0"
+            "movement_speed_tooltip"
+			{
+				"dynamic_value"					"true"
+			}
+			"cooldown_reduction_tooltip"
+			{
+				"dynamic_value"					"true"
+			}
 		}
     }
 }

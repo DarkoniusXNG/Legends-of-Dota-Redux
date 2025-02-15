@@ -14,9 +14,8 @@
             "battle_thirst" "45.0"
             "max" "50.0"
         }
+
         "ReduxFlags"                                                           "cooldown"
-        "ReduxBans"                                                            ""
-        //"ReduxPerks"                                                           ""
         "ReduxCost"                                                            "120"
     }
 
@@ -32,9 +31,8 @@
         {
             "bonus" "4.0 5.0 6.0 7.0"
         }
+
         "ReduxFlags"                                                           "cooldown"
-        "ReduxBans"                                                            ""
-        //"ReduxPerks"                                                           ""
         "ReduxCost"                                                            "120"
     }
 }

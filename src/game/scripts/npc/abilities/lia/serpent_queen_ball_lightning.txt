@@ -22,6 +22,7 @@
         {
             "particle"                                                     "particles/units/heroes/hero_stormspirit/stormspirit_base_attack_explosion.vpcf"
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
+            "model"                                                        "models/heroes/keeper_of_the_light/kotl_wisp.vmdl"
         }
         "AbilityValues"
         {

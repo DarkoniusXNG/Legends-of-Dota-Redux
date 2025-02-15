@@ -24,9 +24,8 @@
             "particle"                                                     "particles/spell_lab/taxi_linear.vpcf"
       			"particle"          "particles/spell_lab/taxi_shock.vpcf"
         }
-        "ReduxFlags"                                                           ""
-        //"ReduxBans"                                                            ""
-        //"ReduxPerks"                                                           ""
+        "ReduxFlags"                                                           "support"
+        "ReduxPerks"                                                           "support"
         "ReduxCost"                                                            "30"
 		     "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
     }

@@ -16,7 +16,7 @@
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "AbilityManaCost"                                                      "150"
         "AbilityChannelTime"                                                   "10 14 18 22"
-        "ReduxPerks"                                                           "earth"
+
         "AbilityValues"
         {
             "radius" "600"
@@ -33,5 +33,6 @@
         }
         "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           ""
+        "ReduxPerks"                                                           "channeled | earth"
     }
 }

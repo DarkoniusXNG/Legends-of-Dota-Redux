@@ -11,8 +11,6 @@ function nyx_assassin_burrow_redux:OnAbilityPhaseStart()
 	local particle_unburrow = "particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_exit.vpcf"
 	
 	if not caster:HasModifier(modifier_burrowed) then -- Burrowing
-		-- Start gesture
-		caster:StartGesture(ACT_DOTA_CAST_ABILITY_4)	
 
 		-- Play burrow sound
 		caster:EmitSound(sound_burrow)

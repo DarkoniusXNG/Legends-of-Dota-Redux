@@ -36,7 +36,7 @@
                 "Function"  "LevelTome"
             }
         }
+
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
     }
 }

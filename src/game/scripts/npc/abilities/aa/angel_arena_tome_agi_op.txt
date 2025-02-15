@@ -12,7 +12,7 @@
         "AbilityCastPoint"                                                     "0.0"
         "AbilityValues"
         {
-            "agi" "1 2 3 5"
+            "agi" "1 2 3 4"
             "gold_cost_toolip" "50 100 150 200"
         }
         "OnSpellStart"
@@ -32,7 +32,7 @@
                 "Function"  "LevelTome"
             }
         }
+
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
     }
 }

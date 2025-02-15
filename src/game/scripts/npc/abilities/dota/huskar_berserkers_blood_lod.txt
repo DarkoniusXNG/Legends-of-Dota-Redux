@@ -32,6 +32,7 @@
                 "Function"                                             "ApplyLuaModifier"
             }
         }
+
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "80"
     }

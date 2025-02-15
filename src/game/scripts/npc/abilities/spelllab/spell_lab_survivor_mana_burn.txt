@@ -8,19 +8,16 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "HasScepterUpgrade"                                                    "0"
-    		"precache"
-    		{
-    			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
-          "particle"    "particles/generic_gameplay/generic_manaburn.vpcf"
-        }
+
         "AbilityValues"
         {
             "bonus" "3 6 9 12" // mana burn
             "damage_pct" "50.0"
         }
+
         "ReduxFlags"                                                           "attack_modifier"
-        //"ReduxBans"                                                            ""
-        //"ReduxPerks"                                                           ""
+        "ReduxPerks"                                                           "attack_modifier"
+        "ReduxBans"                                                            "antimage_mana_break"
         "ReduxCost"                                                            "120"
     }
 }

@@ -6,6 +6,9 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/alchemist_goblins_greed_op"
 		"MaxLevel"						"4"
+		"Innate"						"0"
+		"IsBreakable"					"1"
+
         "AbilityValues"
 		{
 			"duration"				"90"
@@ -26,11 +29,10 @@
 			"starting_gold_bonus"
 			{
 				"value"				"1000"
-				"special_bonus_facet_alchemist_seed_money"	"250"
 			}
 		}
+
         "ReduxCost"                                                            "120"
         "ReduxBans"                                                            "alchemist_goblins_greed"
-        "ReduxFlags"                                                           ""
     }
 }

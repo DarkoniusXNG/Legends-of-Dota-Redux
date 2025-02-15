@@ -4,7 +4,7 @@
     {
         "BaseClass"                                                            "dragon_knight_dragon_blood"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "MaxLevel"                                                             "20"
+        "MaxLevel"                                                             "4"
         "AbilityTextureName"                                                   "custom/dragon_knight_dragon_blood_OP"
         "AbilityValues"
 		{
@@ -91,8 +91,10 @@
 				"RequiresFacet"	""
 			}
 		}
+
+        "ReduxFlags"                                                           "aoe_attack | attack_modifier"
+        "ReduxPerks"                                                           "attack_modifier"
         "ReduxCost"                                                            "120"
         "ReduxBans"                                                            "dragon_knight_dragon_blood"
-        "ReduxFlags"                                                           ""
     }
 }

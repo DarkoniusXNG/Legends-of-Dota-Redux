@@ -12,9 +12,8 @@
         {
             "bonus" "1 2 3 4"
         }
+
         "ReduxFlags"                                                           "tank"
-        "ReduxBans"                                                            ""
-        //"ReduxPerks"                                                           ""
         "ReduxCost"                                                            "120"
     }
 }

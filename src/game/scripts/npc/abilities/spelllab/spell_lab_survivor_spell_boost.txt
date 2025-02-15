@@ -13,9 +13,7 @@
             "bonus" "3.0 4.0 5.0 6.0"
             "battle_thirst" "45.0"
         }
-        "ReduxFlags"                                                           ""
-        "ReduxBans"                                                            ""
-        //"ReduxPerks"                                                           ""
+
         "ReduxCost"                                                            "120"
     }
 
@@ -31,9 +29,7 @@
         {
             "bonus" "6.0 8.0 10.0 12.0"
         }
-        "ReduxFlags"                                                           ""
-        "ReduxBans"                                                            ""
-        //"ReduxPerks"                                                           ""
+
         "ReduxCost"                                                            "120"
     }
 }

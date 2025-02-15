@@ -13,9 +13,9 @@
             "bonus" "2.0 4.0 6.0 8.0" // cleave percent
             "range" "450.0"
         }
-        "ReduxFlags"                                                           "attack_modifier"
-        //"ReduxBans"                                                            ""
-        //"ReduxPerks"                                                           ""
+
+        "ReduxFlags"                                                           "aoe_attack | attack_modifier"
+        "ReduxPerks"                                                           "attack_modifier"
         "ReduxCost"                                                            "60"
     }
 }

@@ -7,6 +7,8 @@
         "AbilityTextureName"            "custom/nevermore_necromastery_op"
 		"DependentOnAbility"			""
 		"Innate"						"0"
+		"HasScepterUpgrade"				"1"
+		"IsBreakable"					"1"
 		
         "AbilityValues"
 			{
@@ -22,7 +24,7 @@
 						"special_bonus_scepter"		"+5"
 					}
 					"souls_per_kill"				"1"
-					"necromastery_soul_release"		"0.0"
+					"necromastery_soul_release"		"0.7"
 					"attack_range_bonus" "0"
 					"shard_souls_per_kill" 
 					{
@@ -39,8 +41,12 @@
 						"value"				"1.5"
 						"RequiresShard"			"1"
 					}
-					"soul_release_tooltip"			"0.0"
-				
+					"soul_release_tooltip"			"30.0"
+					"max_soul_increase_on_hero_kill"
+					{
+						"value"												"0"
+						"special_bonus_facet_nevermore_lasting_presence"	"1"
+					}
 			}			
         
         "ReduxCost"                                                            "120"

@@ -22,7 +22,7 @@
         {
             "reduce" "100"
         }
-        "ReduxCost"                                                            "20"
+        "ReduxCost"                                                            "500"
         "ReduxFlags"                                                            "cooldown"
     }
 }

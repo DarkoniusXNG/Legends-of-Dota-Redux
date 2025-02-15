@@ -21,9 +21,6 @@
             "armor_bonus" "5 10 15"
             "radius" "700"
         }
-        "precache"
-        {
-        }
         "Modifiers"
         {
             "lich_cold_aura_mod"

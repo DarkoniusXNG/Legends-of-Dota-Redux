@@ -5,7 +5,10 @@
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/side_gunner_redux"
 		"HasScepterUpgrade"                                                    "1"
-		"ReduxCost"                                                            "20"
+
+        "ReduxFlags"                                                           "attack_modifier | dota_custom"
+        "ReduxPerks"                                                           "attack_modifier"
+        "ReduxCost"                                                            "20"
 
 		"AOERadius"	"700"
 

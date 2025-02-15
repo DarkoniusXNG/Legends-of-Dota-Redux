@@ -23,6 +23,7 @@
             "bonus_cleave_damage_scepter" "50"
         }
         "ReduxCost"                                                            "20"
-        "ReduxFlags"                                                    "underpowered"               
+        "ReduxFlags"                                                           "aoe_attack | attack_modifier | dota_custom | underpowered | upgradeable"
+        "ReduxPerks"                                                           "attack_modifier"
     }
 }

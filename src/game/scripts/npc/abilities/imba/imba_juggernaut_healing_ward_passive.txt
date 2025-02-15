@@ -76,6 +76,7 @@
             }
         }
         "ReduxCost"                                                            "90"
-        "ReduxFlags"                                                           "doNotRandom"
+        "ReduxFlags"                                                           "doNotRandom | support"
+        "ReduxPerks"                                                           "support | aura"
     }
 }

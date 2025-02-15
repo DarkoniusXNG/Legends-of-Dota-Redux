@@ -15,6 +15,7 @@
             "multicast_4_times" "0 0 15"
             "delay" "0.2"
         }
+        "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "40"
         "ReduxBans"                                                            "ogre_magi_multicast | meepo_divided_we_stand | android_pocket_factory | monkey_king_wukongs_command"
     }

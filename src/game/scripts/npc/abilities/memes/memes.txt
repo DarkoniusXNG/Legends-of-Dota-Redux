@@ -1,131 +1,125 @@
 "DOTAAbilities"
 {
     "lina_banana"
+    {
+        "precache"
         {
-            "precache"
-            {
-                "particle"          "particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf"
-            }
-            // General
-            //-------------------------------------------------------------------------------------------------------------
-            "AbilityType"                   "DOTA_ABILITY_TYPE_BASIC"
-            "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-            "BaseClass"                     "ability_datadriven"
-            "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_TREE"
-            "AbilityTextureName"            "custom/banana_op"
-            "FightRecapLevel"               "2"
-            "LevelsBetweenUpgrades"         "2"
-            "MaxLevel"                      "4"
-            "AbilityCooldown"               "60 50 40 30"
-            "AbilityManaCost"               "60 70 80 90"
-            "AbilityCastRange"              "150"
-            "AbilityCastPoint"              "0.3"
-            "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
-            "AOERadius"                     "%tree_radius"
-            "ReduxCost"                     "120"
-            // Special
-            //-------------------------------------------------------------------------------------------------------------
-            "AbilityValues"
+            "particle"          "particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf"
+        }
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "BaseClass"                     "ability_datadriven"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_TREE"
+        "AbilityTextureName"            "custom/banana_op"
+        "AbilityCooldown"               "60 50 40 30"
+        "AbilityManaCost"               "60 70 80 90"
+        "AbilityCastRange"              "150"
+        "AbilityCastPoint"              "0.3"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
+        "AOERadius"                     "%tree_radius"
+        "ReduxCost"                     "120"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
         {
             "int_per_tree" "5 7 9 11"
             "cooldown_tooltip" "60 50 40 30"
             "tree_radius" "10"
         }
-            "OnSpellStart"
+        "OnSpellStart"
+        {
+            "DestroyTrees"
             {
-                "DestroyTrees"
-                {
-                    "Target"        "POINT"
-                    "Radius"        "%tree_radius"
-                }
-                "ApplyModifier"
-                {
-                    "ModifierName"  "modifier_banana"
-                    "Target"        "CASTER"
-                }
-                "FireSound"
-                {
-                    "EffectName"    "Memes.Tree"
-                    "Target"        "CASTER"
-                }
+                "Target"        "POINT"
+                "Radius"        "%tree_radius"
             }
-            "Modifiers"
+            "ApplyModifier"
             {
-                "modifier_banana"
+                "ModifierName"  "modifier_banana"
+                "Target"        "CASTER"
+            }
+            "FireSound"
+            {
+                "EffectName"    "Memes.Tree"
+                "Target"        "CASTER"
+            }
+        }
+        "Modifiers"
+        {
+            "modifier_banana"
+            {
+                "Passive"           "0"
+                "IsHidden"          "1"
+                "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE"
+                "Properties"
                 {
-                    "Passive"           "0"
-                    "IsHidden"          "1"
-                    "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE"
-                    "Properties"
-                    {
-                        "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"   "%int_per_tree"
-                    }
+                    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"   "%int_per_tree"
                 }
             }
         }
+    }
     "lina_banana_redux"
+    {
+        "precache"
         {
-            "precache"
-            {
-                "particle"          "particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf"
-            }
-            // General
-            //-------------------------------------------------------------------------------------------------------------
-            "AbilityType"                   "DOTA_ABILITY_TYPE_BASIC"
-            "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-            "BaseClass"                     "ability_datadriven"
-            "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_TREE"
-            "AbilityTextureName"            "custom/Banana"
-            "FightRecapLevel"               "2"
-            "LevelsBetweenUpgrades"         "2"
-            "MaxLevel"                      "4"
-            "AbilityCooldown"               "60 50 40 30"
-            "AbilityManaCost"               "60 70 80 90"
-            "AbilityCastRange"              "150"
-            "AbilityCastPoint"              "0.3"
-            "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
-            "AOERadius"                     "%tree_radius"
-            "ReduxCost"                     "0"
-            // Special
-            //-------------------------------------------------------------------------------------------------------------
-            "AbilityValues"
+            "particle"          "particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf"
+        }
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "BaseClass"                     "ability_datadriven"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_TREE"
+        "AbilityTextureName"            "custom/Banana"
+
+        "AbilityCooldown"               "60 50 40 30"
+        "AbilityManaCost"               "60 70 80 90"
+        "AbilityCastRange"              "150"
+        "AbilityCastPoint"              "0.3"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
+        "AOERadius"                     "%tree_radius"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
         {
             "int_per_tree" "1"
             "cooldown_tooltip" "60 50 40 30"
             "tree_radius" "10"
         }
-            "OnSpellStart"
+        "OnSpellStart"
+        {
+            "DestroyTrees"
             {
-                "DestroyTrees"
-                {
-                    "Target"        "POINT"
-                    "Radius"        "%tree_radius"
-                }
-                "ApplyModifier"
-                {
-                    "ModifierName"  "modifier_banana_redux"
-                    "Target"        "CASTER"
-                }
-                "FireSound"
-                {
-                    "EffectName"    "Memes.Tree"
-                    "Target"        "CASTER"
-                }
+                "Target"        "POINT"
+                "Radius"        "%tree_radius"
             }
-            "Modifiers"
+            "ApplyModifier"
             {
-                "modifier_banana_redux"
+                "ModifierName"  "modifier_banana_redux"
+                "Target"        "CASTER"
+            }
+            "FireSound"
+            {
+                "EffectName"    "Memes.Tree"
+                "Target"        "CASTER"
+            }
+        }
+        "Modifiers"
+        {
+            "modifier_banana_redux"
+            {
+                "Passive"           "0"
+                "IsHidden"          "1"
+                "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE"
+                "Properties"
                 {
-                    "Passive"           "0"
-                    "IsHidden"          "1"
-                    "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE"
-                    "Properties"
-                    {
-                        "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"   "%int_per_tree"
-                    }
+                    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"   "%int_per_tree"
                 }
             }
         }
+    }
 
     "lina_blazer"
     {
@@ -143,13 +137,12 @@
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityTextureName"            "custom/Blazer"
-        "FightRecapLevel"               "2"
-        "LevelsBetweenUpgrades"         "5"
-        "MaxLevel"                      "3"
+
         "AOERadius"                     "%radius"
         "AbilityCooldown"               "60 40 20"
         "AbilityManaCost"               "420"
         "ReduxCost"                     "120"
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
@@ -235,21 +228,17 @@
         }
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityType"                   "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "BaseClass"                     "ability_datadriven"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_TREE"
         "AbilityTextureName"            "custom/coconut"
-        "FightRecapLevel"               "2"
-        "LevelsBetweenUpgrades"         "2"
-        "MaxLevel"                      "4"
         "AbilityCooldown"               "60 50 40 30"
         "AbilityManaCost"               "60 70 80 90"
         "AbilityCastRange"              "150"
         "AbilityCastPoint"              "0.3"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
         "AOERadius"                     "%tree_radius"
-        "ReduxCost"                     "0"
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
@@ -299,14 +288,10 @@
         }
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityType"                   "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "BaseClass"                     "ability_datadriven"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_TREE"
         "AbilityTextureName"            "custom/coconut_op"
-        "FightRecapLevel"               "2"
-        "LevelsBetweenUpgrades"         "2"
-        "MaxLevel"                      "4"
         "AbilityCooldown"               "60 50 40 30"
         "AbilityManaCost"               "60 70 80 90"
         "AbilityCastRange"              "150"
@@ -314,6 +299,7 @@
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
         "AOERadius"                     "%tree_radius"
         "ReduxCost"                     "120"
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
@@ -363,21 +349,17 @@
         }
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityType"                   "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "BaseClass"                     "ability_datadriven"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_TREE"
         "AbilityTextureName"            "custom/grapefruit"
-        "FightRecapLevel"               "2"
-        "LevelsBetweenUpgrades"         "2"
-        "MaxLevel"                      "4"
         "AbilityCooldown"               "60 50 40 30"
         "AbilityManaCost"               "60 70 80 90"
         "AbilityCastRange"              "150"
         "AbilityCastPoint"              "0.3"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
         "AOERadius"                     "%tree_radius"
-        "ReduxCost"                     "0"
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
@@ -427,14 +409,10 @@
         }
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityType"                   "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "BaseClass"                     "ability_datadriven"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_TREE"
         "AbilityTextureName"            "custom/grapefruit_op"
-        "FightRecapLevel"               "2"
-        "LevelsBetweenUpgrades"         "2"
-        "MaxLevel"                      "4"
         "AbilityCooldown"               "60 50 40 30"
         "AbilityManaCost"               "60 70 80 90"
         "AbilityCastRange"              "150"
@@ -442,6 +420,7 @@
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
         "AOERadius"                     "%tree_radius"
         "ReduxCost"                     "120"
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"

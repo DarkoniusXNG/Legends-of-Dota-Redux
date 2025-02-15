@@ -36,6 +36,6 @@
 		}
         "ReduxPerks"                                                           "enemymoving"
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
+        "ReduxFlags"                                                           "stun"
     }
 }
