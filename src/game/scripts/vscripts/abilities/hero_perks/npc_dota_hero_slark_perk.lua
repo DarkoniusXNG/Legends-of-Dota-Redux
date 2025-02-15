@@ -47,7 +47,7 @@ function modifier_npc_dota_hero_slark_perk:OnCreated()
 			bonus_ability:UpgradeAbility(false)
 		else
 			bonus_ability = caster:AddAbility("slark_dark_pact")
-			bonus_ability:SetStolen(true)
+			--bonus_ability:SetStolen(true)
 			bonus_ability:SetActivated(true)
 			bonus_ability:SetLevel(1)
 		end
