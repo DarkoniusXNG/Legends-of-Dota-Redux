@@ -39,7 +39,7 @@ local hero_names = {
 	"grimstroke", -- ok, A tier
 	"gyrocopter", -- ok, A tier
 	"hoodwink", -- ok, missing icon
-	"huskar", -- badly coded idea not bad, D tier
+	"huskar", -- ok, D tier
 	"invoker", -- kinda bad, S tier
 	"jakiro", -- ok, bot
 	"juggernaut", -- ok, A tier, bot
