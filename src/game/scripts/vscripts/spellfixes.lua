@@ -120,8 +120,6 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
                     mab = hero:AddAbility("ogre_magi_multicast_lod")
                 end
 
-                local doubleMode = false
-
                 if multicastMadness or mab then
                     -- Grab the level of the ability
                     local lvl
@@ -146,72 +144,24 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
                         -- Grab a random number
                         local r = math.random(0,100)
 
-                        -- Calculate multiplyer
-                        if doubleMode then
-                            if lvl == 1 then
-                                if r < 25 then
-                                    mult = 2
-                                end
-                            elseif lvl == 2 then
-                                if r < 6 then
-                                    mult = 4
-                                elseif r < 13 then
-                                    mult = 3
-                                elseif r < 38 then
-                                    mult = 2
-                                end
-                            elseif lvl == 3 then
-                                if r < 12 then
-                                    mult = 4
-                                elseif r < 25 then
-                                    mult = 3
-                                elseif r < 50 then
-                                    mult = 2
-                                end
-                            elseif lvl == 4 then
-                                if r < 19 then
-                                    mult = 4
-                                elseif r < 38 then
-                                    mult = 3
-                                elseif r < 63 then
-                                    mult = 2
-                                end
-                            elseif lvl == 5 then
-                                if r < 25 then
-                                    mult = 4
-                                elseif r < 50 then
-                                    mult = 3
-                                elseif r < 75 then
-                                    mult = 2
-                                end
-                            elseif lvl == 6 then
-                                if r < 31 then
-                                    mult = 4
-                                elseif r < 63 then
-                                    mult = 3
-                                elseif r < 88 then
-                                    mult = 2
-                                end
+                        -- Calculate multiplier
+                        if lvl == 1 then
+                            if r < 70 then
+                                mult = 2
                             end
-                        else
-                            if lvl == 1 then
-                                if r < 60 then
-                                    mult = 2
-                                end
-                            elseif lvl == 2 then
-                                if r < 30 then
-                                    mult = 3
-                                elseif r < 60 then
-                                    mult = 2
-                                end
-                            elseif lvl == 3 then
-                                if r < 15 then
-                                    mult = 4
-                                elseif r < 30 then
-                                    mult = 3
-                                elseif r < 60 then
-                                    mult = 2
-                                end
+                        elseif lvl == 2 then
+                            if r < 30 then
+                                mult = 3
+                            elseif r < 70 then
+                                mult = 2
+                            end
+                        elseif lvl == 3 then
+                            if r < 15 then
+                                mult = 4
+                            elseif r < 30 then
+                                mult = 3
+                            elseif r < 70 then
+                                mult = 2
                             end
                         end
 
@@ -238,7 +188,7 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
                             -- Is this an item based ability?
                             local isItemAb = false
 
-                            -- If we failed to find it, it might hav e been an item
+                            -- If we failed to find it, it might have been an item
                             if not ab and (hero:HasModifier('modifier_item_ultimate_scepter') or multicastMadness) then
                                 for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
                                     -- Grab the slot item

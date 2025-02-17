@@ -58,7 +58,7 @@ function modifier_drow_splitshot:OnCreated( kv )
 	self.projectile = self:GetParent():GetRangedProjectileName()
 
 	-- for melee heroes
-	if not self.projectile or self.projectile == "particles/base_attacks/ranged_hero.vpcf" then
+	if not self.projectile or self.projectile == "" or self.projectile == "particles/base_attacks/ranged_hero.vpcf" then
 		self.projectile = "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
 	end
 	if self.projSpeed <= 0 then

@@ -256,70 +256,122 @@
 
     // Stop multicast on these spells
     "noMulticast" {
-        "ability_wards"                     "1"
-        "ability_wards_op"                  "1"
-        "angel_arena_tome_agi"              "1"
-        "angel_arena_tome_agi_op"           "1"
-        "angel_arena_tome_gods"             "1"
-        "angel_arena_tome_gods_op"          "1"
-        "angel_arena_tome_int"              "1"
-        "angel_arena_tome_int_op"           "1"
-        "angel_arena_tome_lvlup"            "1"
-        "angel_arena_tome_lvlup_op"         "1"
-        "angel_arena_tome_med"              "1"
-        "angel_arena_tome_med_op"           "1"
-        "angel_arena_tome_str"              "1"
-        "angel_arena_tome_str_op"           "1"
-        "arc_warden_tempest_double"         "1"
-        "arcane_mastery"                    "1"
-        "enraged_wildkin_tornado"           "1"
-        "furion_teleportation"              "1"
-        "hoodwink_sharpshooter"             "1"
-        "hoodwink_sharpshooter_release"     "1"
-        "invoker_cold_snap_lod"             "1"
-        "item_ancient_janggo"               "1"
-        "item_black_king_bar"               "1"
-        "item_bottle"                       "1"
-        "item_clarity"                      "1"
-        "item_courier"                      "1"
-        "item_diffusal_blade"               "1"
-        "item_diffusal_blade_2"             "1"
-        "item_dust"                         "1"
-        "item_enchanted_mango"              "1"
-        "item_flask"                        "1"
-        "item_moon_shard"                   "1"
-        "item_power_treads"                 "1"
-        "item_slippers_of_halcyon"          "1"
-        "item_tango"                        "1"
-        "item_tango_single"                 "1"
-        "item_tpscroll"                     "1"
-        "item_travel_boots"                 "1"
-        "item_travel_boots_2"               "1"
-        "item_urn_of_shadows"               "1"
-        "item_ward_dispenser"               "1"
-        "item_ward_observer"                "1"
-        "item_ward_sentry"                  "1"
-        "lich_dark_ritual"                  "1"
-        "life_stealer_infest"               "1"
-        "lina_banana_redux"                 "1"
-        "lina_coconut_redux"                "1"
-        "lina_grapefruit_redux"             "1"
-        "master_magic"                      "1"
-        "phantom_assassin_phantom_strike"   "1"
-        "phoenix_sun_ray"                   "1"
-        "pudge_meat_hook"                   "1"
-        "shredder_chakram"                  "1"
-        "shredder_chakram_2"                "1"
-        "shredder_timber_chain"             "1"
-        "spell_lab_bfg"                     "1"
-        "spell_lab_ggs"                     "1"
-        "spell_lab_symbiotic"               "1"
-        "spell_lab_taxi"                    "1"
-        "tusk_snowball"                     "1"
-        "uther_Hurl_Hammer"                 "1"
-        //"witch_doctor_death_ward"         "1"
-        "earth_spirit_rolling_boulder"      "1"
-        "ancient_priestess_spirit_link"     "1" // ability doesnt bounce to other players if multicasted
+		"ability_wards"                     "1"
+		"ability_wards_op"                  "1"
+		"abyssal_underlord_cancel_dark_rift"  "1" // wastes multicast cd
+		"abyssal_underlord_cancel_dark_rift_oaa"  "1" // wastes multicast cd
+		"alchemist_unstable_concoction_throw"  "1" // wastes multicast cd
+		"ancient_apparition_ice_blast_release"  "1" // wastes multicast cd
+		"ancient_priestess_spirit_link"     "1" // ability doesnt bounce to other players if multicasted
+		"angel_arena_tome_agi"              "1"
+		"angel_arena_tome_agi_op"           "1"
+		"angel_arena_tome_gods"             "1"
+		"angel_arena_tome_gods_op"          "1"
+		"angel_arena_tome_int"              "1"
+		"angel_arena_tome_int_op"           "1"
+		"angel_arena_tome_lvlup"            "1"
+		"angel_arena_tome_lvlup_op"         "1"
+		"angel_arena_tome_med"              "1"
+		"angel_arena_tome_med_op"           "1"
+		"angel_arena_tome_str"              "1"
+		"angel_arena_tome_str_op"           "1"
+		"arc_warden_tempest_double"         "1" // bugs out
+		"arcane_mastery"                    "1"
+		"bane_nightmare_end"                "1" // wastes multicast cd
+		"centaur_mount"                     "1" // bugs out
+		"crystal_maiden_freezing_field_stop"  "1" // wastes multicast cd
+		"dawnbreaker_converge"              "1" // wastes multicast cd
+		"dawnbreaker_land"                  "1" // wastes multicast cd
+		"earth_spirit_rolling_boulder"      "1" // bugs out
+		"elder_titan_move_spirit"           "1" // wastes multicast cd
+		"elder_titan_return_spirit"         "1" // wastes multicast cd
+		"ember_spirit_activate_fire_remnant"  "1" // wastes multicast cd
+		"enraged_wildkin_tornado"           "1" // multiplies
+		"faceless_void_time_walk_reverse"   "1" // wastes multicast cd
+		"furion_teleportation"              "1"
+		"hoodwink_sharpshooter"             "1"
+		"hoodwink_sharpshooter_release"     "1" // wastes multicast cd
+		"invoker_cold_snap_lod"             "1"
+		"item_ancient_janggo"               "1"
+		"item_black_king_bar"               "1"
+		"item_bottle"                       "1"
+		"item_clarity"                      "1"
+		"item_courier"                      "1"
+		"item_diffusal_blade"               "1"
+		"item_diffusal_blade_2"             "1"
+		"item_dust"                         "1"
+		"item_enchanted_mango"              "1"
+		"item_flask"                        "1"
+		"item_moon_shard"                   "1"
+		"item_power_treads"                 "1"
+		"item_slippers_of_halcyon"          "1"
+		"item_tango"                        "1"
+		"item_tango_single"                 "1"
+		"item_tpscroll"                     "1"
+		"item_travel_boots"                 "1"
+		"item_travel_boots_2"               "1"
+		"item_urn_of_shadows"               "1"
+		"item_ward_dispenser"               "1"
+		"item_ward_observer"                "1"
+		"item_ward_sentry"                  "1"
+		"keeper_of_the_light_illuminate_end"  "1" // wastes multicast cd
+		"keeper_of_the_light_spirit_form_illuminate_end"  "1" // wastes multicast cd
+		"kez_shodo_sai_parry_cancel"        "1" // wastes multicast cd
+		"kunkka_return"                     "1" // wastes multicast cd
+		"lich_dark_ritual"                  "1"
+		"life_stealer_infest"               "1"
+		"life_stealer_consume"              "1" // wastes multicast cd
+		"lina_banana_redux"                 "1"
+		"lina_coconut_redux"                "1"
+		"lina_grapefruit_redux"             "1"
+		"master_magic"                      "1"
+		"meepo_megameepo_fling"             "1"
+		"monkey_king_primal_spring"         "1" // bugs out
+		"monkey_king_tree_dance"            "1" // bugs out
+		"monkey_king_untransform"           "1" // wastes multicast cd
+		"morphling_replicate"               "1" // bugs out
+		"morphling_morph_replicate"         "1" // wastes multicast cd
+		"nyx_assassin_burrow"               "1"
+		"nyx_assassin_burrow_redux"         "1" // can cancel normal cast
+		"nyx_assassin_unburrow"             "1" // wastes multicast cd
+		"naga_siren_song_of_the_siren_cancel"  "1" // wastes multicast cd
+		"pangolier_gyroshell_stop"          "1" // wastes multicast cd
+		"pangolier_rollup_stop"             "1" // wastes multicast cd
+		"phantom_assassin_phantom_strike"   "1"
+		"phoenix_icarus_dive_stop"          "1" // wastes multicast cd
+		"phoenix_sun_ray"                   "1"
+		"phoenix_sun_ray_stop"              "1" // wastes multicast cd
+		"phoenix_sun_ray_toggle_move"       "1" // wastes multicast cd
+		"primal_beast_onslaught_release"    "1" // wastes multicast cd
+		"puck_ethereal_jaunt"               "1" // wastes multicast cd
+		"pudge_meat_hook"                   "1"
+		"pudge_eject"                       "1" // wastes multicast cd
+		"ringmaster_tame_the_beasts_crack"  "1" // wastes multicast cd
+		"rubick_telekinesis_land"           "1" // wastes multicast cd
+		"rubick_telekinesis_land_self"      "1" // wastes multicast cd
+		"shadow_demon_shadow_poison_release"  "1" // wastes multicast cd
+		"shredder_chakram"                  "1" // multiplies
+		"shredder_chakram_2"                "1" // multiplies
+		"shredder_return_chakram"           "1" // wastes multicast cd
+		"shredder_return_chakram_2"         "1" // wastes multicast cd
+		"shredder_timber_chain"             "1"
+		"snapfire_spit_creep"               "1" // wastes multicast cd
+		"sohei_flurry_of_blows"             "1" // can cancel normal cast
+		"spectre_reality"                   "1" // wastes multicast cd
+		"spell_lab_bfg"                     "1"
+		"spell_lab_ggs"                     "1"
+		"spell_lab_symbiotic"               "1"
+		"spell_lab_taxi"                    "1"
+		"techies_focused_detonate"          "1" // wastes multicast cd
+		"techies_reactive_tazer_stop"       "1" // wastes multicast cd
+		"tiny_toss_tree"                    "1" // wastes multicast cd
+		"tusk_snowball"                     "1" // bugs out
+		"tusk_launch_snowball"              "1" // wastes multicast cd
+		"uther_Hurl_Hammer"                 "1"
+		"visage_stone_form_self_cast"       "1" // wastes multicast cd
+		//"witch_doctor_death_ward"         "1"
+		"windrunner_focusfire_cancel"       "1" // wastes multicast cd
+		"wisp_tether_break"                 "1" // wastes multicast cd
     }
 
     "noSpellEcho" {

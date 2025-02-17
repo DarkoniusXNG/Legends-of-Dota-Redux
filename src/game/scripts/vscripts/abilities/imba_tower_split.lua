@@ -99,7 +99,7 @@ if IsServer() then
 			-- Choose the correct particle for this tower
 			local attack_projectile = parent:GetRangedProjectileName()
 			local parent_team = parent:GetTeamNumber()
-			if not attack_projectile or attack_projectile == "" then
+			if not attack_projectile or attack_projectile == "" or attack_projectile == "particles/base_attacks/ranged_hero.vpcf" then
 				if parent_team == DOTA_TEAM_BADGUYS then
 					attack_projectile = "particles/base_attacks/ranged_tower_bad.vpcf"
 				elseif parent_team == DOTA_TEAM_GOODGUYS then
