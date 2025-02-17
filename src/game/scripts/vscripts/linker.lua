@@ -106,7 +106,7 @@ local hero_names = {
 	"terrorblade", -- ok, S tier
 	"tidehunter", -- ok, A tier
 	"tinker", -- ok, D tier
-	"tiny", -- badly coded idea not bad, bot
+	"tiny", -- ok, bot
 	"treant", -- ok
 	"troll_warlord", -- ok
 	"tusk", -- ok, S tier

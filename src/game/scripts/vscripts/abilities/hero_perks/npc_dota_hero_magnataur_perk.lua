@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Magnus
 --		Perk: When Magnus casts Enemy Moving abilities, they will have 25% mana refunded and cooldowns reduced by 25%.
---
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_magnataur_perk ~= "" then modifier_npc_dota_hero_magnataur_perk = class({}) end
+modifier_npc_dota_hero_magnataur_perk = modifier_npc_dota_hero_magnataur_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_magnataur_perk:IsPassive()
 	return true
@@ -21,22 +19,23 @@ end
 function modifier_npc_dota_hero_magnataur_perk:RemoveOnDeath()
 	return false
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_magnataur_perk:OnCreated()
-  local manaRefund = 25
-  local cooldownReduction = 25
 
-  self.manaRefund = manaRefund * 0.01
-  self.cooldownReduction = 1 - (cooldownReduction * 0.01)
+function modifier_npc_dota_hero_magnataur_perk:GetTexture()
+	return "custom/npc_dota_hero_magnataur_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_magnataur_perk:OnCreated()
+	local manaRefund = 25
+	local cooldownReduction = 25
+
+	self.manaRefund = manaRefund * 0.01
+	self.cooldownReduction = 1 - (cooldownReduction * 0.01)
+end
+
 function modifier_npc_dota_hero_magnataur_perk:DeclareFunctions()
-  local funcs = {
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-  }
-  return funcs
+	return {
+		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
+	}
 end
 --------------------------------------------------------------------------------------------------------
 if IsServer() then

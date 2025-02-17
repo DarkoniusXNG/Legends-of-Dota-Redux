@@ -1,8 +1,6 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Tiny
---		Perk: Casting an ability that targetted a tree gives 5% tenacity, stacks diminishingly
---
+--		Perk: Tiny gains +1% Damage Amp for each level put in an Earth or Nature ability.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_tiny_perk = modifier_npc_dota_hero_tiny_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -13,54 +11,46 @@ end
 function modifier_npc_dota_hero_tiny_perk:IsHidden()
 	return false
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_tiny_perk:RemoveOnDeath()
+
+function modifier_npc_dota_hero_tiny_perk:IsPurgable()
 	return false
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_tiny_perk:IsPurgable()
+
+function modifier_npc_dota_hero_tiny_perk:RemoveOnDeath()
 	return false
 end
 
 function modifier_npc_dota_hero_tiny_perk:GetTexture()
 	return "custom/npc_dota_hero_tiny_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_tiny_perk:DeclareFunctions()
-	local funcs = {
-		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-	}
-	return funcs
-end
 
-if IsServer() then
-	function modifier_npc_dota_hero_tiny_perk:OnAbilityFullyCast(params)
-		self.tenacity = 50
-		local tenacityDuration = 60
-		if params.unit == self:GetParent() then
-			if params.target and params.target.IsStanding then
-				self:IncrementStackCount()
-				if not self.started then
-					self:StartIntervalThink(tenacityDuration)
-					self.started = true
-				end
-			end
-		end
+function modifier_npc_dota_hero_tiny_perk:OnCreated()
+	self.bonusPerLevel = 1
+	if IsServer() then
+		self:StartIntervalThink(0.1)
 	end
-end
-
-function modifier_npc_dota_hero_tiny_perk:GetTenacity()
-	local n = 1 - (self.tenacity / 100)
-	return n^self:GetStackCount()
 end
 
 function modifier_npc_dota_hero_tiny_perk:OnIntervalThink()
-	if self:GetStackCount() > 0 then
-		self:DecrementStackCount()
-	else
-		self:StartIntervalThink(-1)
-		self.started = false
+	if IsServer() then
+		local caster = self:GetParent()
+		local stacks = 0
+		for i = 0, caster:GetAbilityCount() - 1 do
+			local skill = caster:GetAbilityByIndex(i)
+			if skill and (skill:HasAbilityFlag("earth") or skill:HasAbilityFlag("nature")) then
+				stacks = stacks + skill:GetLevel() * self.bonusPerLevel
+			end
+		end
+		self:SetStackCount(stacks)
 	end
+end
+
+function modifier_npc_dota_hero_tiny_perk:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
+	}
+end
+
+function modifier_npc_dota_hero_tiny_perk:GetModifierTotalDamageOutgoing_Percentage(keys)
+	return self:GetStackCount()
 end

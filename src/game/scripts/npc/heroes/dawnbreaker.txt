@@ -6,7 +6,7 @@
 		"ReduxPerks"                                                           "light | skillshot | fire | mobility"
 	}
 
-	"dawnbreaker_fire_wreath"
+	"dawnbreaker_fire_wreath" // Starbreaker
 	{
 		"ReduxFlags"                                                           "aoe_attack | stun | physical"
 		"ReduxPerks"                                                           "light | physical | skillshot"
@@ -27,8 +27,16 @@
 	"dawnbreaker_break_of_dawn"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
 		"ReduxFlags"                                                           "doNotRandom | support"
 		"ReduxPerks"                                                           "light | support"
+	}
+	
+	"dawnbreaker_unbreakable"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ReduxFlags"                                                           "cooldown | doNotRandom"
 	}
 
 	"special_bonus_unique_dawnbreaker_solar_guardian_radius"

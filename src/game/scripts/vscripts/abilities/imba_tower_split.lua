@@ -123,41 +123,32 @@ if IsServer() then
 				FIND_ANY_ORDER,
 				false
 			)
-			if #nearby_enemies > 1 then
+			
+			-- Fake split projectile info
+			local split_projectile = {
+				Source = target,
+				Ability = ability,
+				EffectName = attack_projectile,
+				bDodgeable = true,
+				bProvidesVision = false,
+				iMoveSpeed = speed,
+				iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
+				bVisibleToEnemies = true,
+			}
 
-				-- Initialize the target table
-				local split_targets = {}
-
-				-- Add enemies to the target table until it's full
-				for _, enemy in pairs(nearby_enemies) do
-					
-					-- Do not add the original target
-					if enemy ~= target then
-						split_targets[#split_targets + 1] = enemy
-
-						-- If the target table is full, stop looking for more
-						if #split_targets >= split_amount then
-							break
-						end
-					end
-				end
-
-				-- Split projectile base parameters
-				local split_projectile = {
-					Source = target,
-					Ability = ability,
-					EffectName = attack_projectile,
-					bDodgeable = true,
-					bProvidesVision = false,
-					iMoveSpeed = speed,
-					iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-					bVisibleToEnemies = true,
-				}
-
-				-- Create fake split projectiles
-				for _, split_target in pairs(split_targets) do
-					split_projectile.Target = split_target
+			-- Create fake split projectiles
+			for _, enemy in pairs(nearby_enemies) do
+				if enemy and not enemy:IsNull() and enemy ~= target and not enemy:IsInvulnerable() and not enemy:IsAttackImmune() then
+					split_projectile.Target = enemy
 					ProjectileManager:CreateTrackingProjectile(split_projectile)
+					
+					-- Decrease split amount
+					split_amount = split_amount - 1
+					
+					-- Check if max amount is reached
+					if split_amount <= 0 then
+						return
+					end
 				end
 			end
 		end

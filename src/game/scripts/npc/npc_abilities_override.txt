@@ -27,6 +27,7 @@
 #base "heroes\night_stalker.txt"
 #base "heroes\ringmaster.txt"
 #base "heroes\spectre.txt"
+#base "heroes\tiny.txt"
 #base "heroes\underlord.txt"
 #base "heroes\windranger.txt"
 
@@ -653,35 +654,6 @@
 			{
 				"value" "1.65 1.7 1.75 1.8"
 			}
-		}
-	}
-
-	"tiny_tree_channel"
-	{
-		"ReduxFlags"					"aoe_attack"
-		"ReduxPerks"					"nature | channeled"
-
-		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"MaxLevel"						"4"
-		"AbilityChannelTime"			"2.5 2.75 3.0 3.25"
-		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"17 16 15 14"
-		"AbilityManaCost"				"200"
-		"AbilityValues"
-		{
-			"speed"		"1000.0"
-			"range"		"1200"
-			"splash_radius"
-			{
-				"value"		"400"
-				"affected_by_aoe_increase"	"1"
-			}
-			"tree_grab_radius"
-			{
-				"value"		"700"
-				"affected_by_aoe_increase"	"1"
-			}
-			"interval"		"0.5 0.45 0.3 0.35"
 		}
 	}
 
@@ -2935,10 +2907,6 @@
 		"ReduxPerks"                                                           "nature"
 		"ReduxCost"                                                            "10"
 	}
-	"tiny_craggy_exterior"
-	{
-		"ReduxPerks"                                                           "earth"
-	}
 
 	"tidehunter_kraken_shell"
 	{
@@ -3269,11 +3237,7 @@
 		"ReduxFlags"                                                           "stun | upgradeable"
 		"ReduxPerks"                                                           "lightning"
 	}
-	"tiny_avalanche"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "earth | skillshot"
-	}
+
 	"slardar_slithereen_crush"
 	{
 		"ReduxFlags"                                                           "stun | physical | upgradeable"
@@ -4256,16 +4220,6 @@
 		"ReduxPerks"                                                           "enemyMoving | support"
 	}
 
-	"tiny_toss"
-	{
-		"ReduxFlags"														   "stun"
-		"ReduxPerks"                                                           "enemyMoving | earth"
-	}
-	"tiny_grow"
-	{
-		"ReduxPerks"                                                           "earth | nature"
-	}
-
 	"item_orchid"
 	{
 		"ReduxPerks"                                                           "silence"
@@ -4776,11 +4730,7 @@
 			"bounty"		"100"
 		}
 	}
-	"tiny_tree_grab"
-	{
-		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"                                                           "physical | nature"
-	}
+
 	"tusk_tag_team"
 	{
 		"ReduxFlags"                                                           "physical | support"
@@ -8263,38 +8213,6 @@
 	{
 		"TalentRequiredAbility"                                                   "tinker_defense_matrix"
 	}
-
-
-
-	"special_bonus_unique_tiny"
-	{
-		"TalentRequiredAbility"                                                   "tiny_avalanche"
-	}
-	"special_bonus_unique_tiny_2"
-	{
-		"TalentRequiredAbility"                                                   "tiny_toss"
-	}
-	"special_bonus_unique_tiny_3"
-	{
-		"TalentRequiredAbility"                                                   "tiny_avalanche"
-	}
-	"special_bonus_unique_tiny_4"
-	{
-		"TalentRequiredAbility"                                                   "tiny_avalanche"
-	}
-	"special_bonus_unique_tiny_5"
-	{
-		"TalentRequiredAbility"                                                   "tiny_toss"
-	}
-	"special_bonus_unique_tiny_6"
-	{
-		"TalentRequiredAbility"                                                   "tiny_grow"
-	}
-	"special_bonus_unique_tiny_7"
-	{
-		"TalentRequiredAbility"                                                   "tiny_grow"
-	}
-
 
 	"special_bonus_unique_treant"
 	{
