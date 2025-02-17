@@ -79,6 +79,14 @@
 		"ReduxPerks"                                                           "ranger"
 	}
 
+	"drow_ranger_creep_rally"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "ranger"
+	}
+
 	"special_bonus_unique_drow_ranger_1"
 	{
 		"TalentRequiredAbility"                                                "drow_ranger_multishot"

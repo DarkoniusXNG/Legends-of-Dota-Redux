@@ -31,12 +31,13 @@
 		"ReduxFlags"                                                           "doNotRandom | support"
 		"ReduxPerks"                                                           "light | support"
 	}
-	
+
 	"dawnbreaker_unbreakable"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
+
 		"ReduxFlags"                                                           "cooldown | doNotRandom"
+		"ReduxPerks"                                                           "light"
 	}
 
 	"special_bonus_unique_dawnbreaker_solar_guardian_radius"

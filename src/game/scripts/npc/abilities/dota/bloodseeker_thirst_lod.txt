@@ -73,7 +73,7 @@
 
         "ReduxFlags"                                                           "dota_custom | mobility"
         "ReduxPerks"                                                           "blood | mobility"
-        "ReduxBans"                                                            "bloodseeker_thirst | veera_plains_runner"
+        "ReduxBans"                                                            "veera_plains_runner"
         "ReduxCost"                                                            "50"
     }
 }
