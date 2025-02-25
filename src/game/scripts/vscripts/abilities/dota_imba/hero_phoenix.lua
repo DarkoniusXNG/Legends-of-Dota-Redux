@@ -1837,7 +1837,7 @@ function modifier_imba_phoenix_supernova_caster_dummy:OnCreated()
 	self.abilities = {}
 	
 	if self:GetCaster() == self:GetParent() then
-		for slot = 0, DOTA_MAX_ABILITIES - 1 do
+		for slot = 0, self:GetParent():GetAbilityCount() - 1 do
 			local ability = self:GetParent():GetAbilityByIndex(slot)
 			
 			if ability and ability:IsActivated() and (not self:GetParent():HasScepter() or (self:GetParent():HasScepter() and ability:GetName() ~= "imba_phoenix_sun_ray")) then

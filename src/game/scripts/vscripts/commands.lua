@@ -191,7 +191,7 @@ function Commands:OnPlayerChat(keys)
         end
     elseif IsCommand("-printabilities") then
         local abilities = ""
-        for i = 0, DOTA_MAX_ABILITIES - 1 do
+        for i = 0, hero:GetAbilityCount() - 1 do
             local abil = hero:GetAbilityByIndex(i)
             print(i)
             if abil then
@@ -241,7 +241,7 @@ function Commands:OnPlayerChat(keys)
             local status2,err2 = pcall(function()
                 local talents = {}
 
-                for i = 0, DOTA_MAX_ABILITIES - 1 do
+                for i = 0, hero:GetAbilityCount() - 1 do
                     if hero:GetAbilityByIndex(i) then
                         local ability = hero:GetAbilityByIndex(i)
                         if ability and util:IsTalent(ability) then
@@ -556,7 +556,7 @@ function Commands:OnPlayerChat(keys)
                 local validAbility = false
                 if splitedcommand[1] then
                     local abilityToRemoveName
-                    for i = 0, DOTA_MAX_ABILITIES - 1 do
+                    for i = 0, hero:GetAbilityCount() - 1 do
                         local abil = hero:GetAbilityByIndex(i)
                         if abil then
                             if splitedcommand[1] == "all" then

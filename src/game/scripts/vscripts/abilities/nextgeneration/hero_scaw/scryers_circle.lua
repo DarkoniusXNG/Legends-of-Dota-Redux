@@ -94,10 +94,10 @@ function CreateScryerIllusions( keys )
 		for i=1,casterLevel-1 do
 			illusion:HeroLevelUp(false)
 		end
-
+		local fireBombIndex
 		-- Set the skill points to 0 and learn the skills of the caster
 		illusion:SetAbilityPoints(0)
-		for abilitySlot=0,15 do
+		for abilitySlot = 0, caster:GetAbilityCount() - 1 do
 			local ability = caster:GetAbilityByIndex(abilitySlot)
 			if ability ~= nil then 
 				local abilityLevel = ability:GetLevel()

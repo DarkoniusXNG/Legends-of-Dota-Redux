@@ -1399,7 +1399,7 @@ end
 
 function CheckTrollCombo(tower, newAbility, banList)
 	local build = {}
-	for i = 0, DOTA_MAX_ABILITIES - 1 do
+	for i = 0, tower:GetAbilityCount() - 1 do
 		local ab = tower:GetAbilityByIndex(i)
 		if ab then
 			table.insert(build, ab:GetName())
@@ -1827,7 +1827,7 @@ function ApplyAllRandomOmgAbilities( hero )
 	end
 
 	-- Remove default abilities
-	for i = 0, DOTA_MAX_ABILITIES - 1 do
+	for i = 0, hero:GetAbilityCount() - 1 do
 		local old_ability = hero:GetAbilityByIndex(i)
 		if old_ability and not DONOTREMOVE[old_ability:GetAbilityName()] then
 			hero:RemoveAbility(old_ability:GetAbilityName())
@@ -2172,7 +2172,7 @@ function PassiveBreak( unit, duration )
 	}
 
 	-- Set all passive abilities' levels to zero
-	for i = 0, 15 do
+	for i = 0, unit:GetAbilityCount() - 1 do
 		local ability = unit:GetAbilityByIndex(i)
 		if ability and ability:GetLevel() > 0 then
 			
@@ -2213,7 +2213,7 @@ function PassiveBreak( unit, duration )
 			-- Restore ability levels if duration has elapsed
 			if unit.break_duration_left <= 0 then
 				if not ( not unit:IsAlive() and IMBA_ABILITY_MODE_RANDOM_OMG ) then
-					for i = 0, 15 do
+					for i = 0, unit:GetAbilityCount() - 1 do
 						if unit.break_learn_levels[i] and unit.break_learn_levels[i] > 0 then
 							local ability = unit:GetAbilityByIndex(i)
 							local excess_levels = ability:GetLevel()
@@ -2274,7 +2274,7 @@ function UpgradeTower( tower )
     local abilities = {}
 
     -- Fetch tower abilities
-    for i = 0, 15 do
+    for i = 0, tower:GetAbilityCount() - 1 do
         local current_ability = tower:GetAbilityByIndex(i)
         if current_ability and current_ability:GetName() ~= "backdoor_protection" and current_ability:GetName() ~= "imba_tower_ai_controller"and current_ability:GetName() ~= "lone_druid_savage_roar_tower" and current_ability:GetName() ~= "backdoor_protection_in_base" and current_ability:GetName() ~= "imba_tower_buffs" then
             abilities[#abilities+1] = current_ability 

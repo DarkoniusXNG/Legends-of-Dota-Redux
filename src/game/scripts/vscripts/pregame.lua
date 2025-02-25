@@ -1873,7 +1873,7 @@ function Pregame:networkHeroes()
             if heroData.BotImplemented == 1 then
                 self.botHeroes[heroName] = {}
 
-                for i = 1, DOTA_MAX_ABILITIES - 1 do
+                for i = 1, DOTA_MAX_ABILITIES do
                     local abName = heroData['Ability' .. i]
                     if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
                         table.insert(self.botHeroes[heroName], abName)
@@ -1934,7 +1934,7 @@ function Pregame:networkHeroes()
             end
 
             local sn = 1
-            for i = 1, DOTA_MAX_ABILITIES - 1 do
+            for i = 1, DOTA_MAX_ABILITIES do
                 local abName = heroData['Ability' .. i]
                 if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
                     theData['Ability' .. sn] = abName
@@ -1953,7 +1953,7 @@ function Pregame:networkHeroes()
 
             local sb = 1
             local talentStartIndex = heroData.AbilityTalentStart or baseHero.AbilityTalentStart
-            for i = tonumber(talentStartIndex), DOTA_MAX_ABILITIES - 1 do
+            for i = tonumber(talentStartIndex), DOTA_MAX_ABILITIES do
                 local abName = heroData['Ability' .. i]
                 if abName and util:IsTalent(abName) then
                     theData['SpecialBonus'..tostring(math.ceil(sb / 2))] = theData['SpecialBonus'..tostring(math.ceil(sb / 2))] or {}
@@ -1968,7 +1968,7 @@ function Pregame:networkHeroes()
             allowedHeroes[heroName] = true
 
             -- Store the owners
-            for i = 1, DOTA_MAX_ABILITIES - 1 do
+            for i = 1, DOTA_MAX_ABILITIES do
                 local abName = theData['Ability'..i]
                 if abName and abName ~= '' and abName ~= 'special_bonus_attributes' and abName ~= 'generic_hidden' then
                     self.abilityHeroOwner[abName] = heroName
@@ -7316,13 +7316,13 @@ function Pregame:levelUpAbilities(hero)
 
     if points >= 1 then
         for p=1,points do
-            for i = 0, DOTA_MAX_ABILITIES - 1 do
+            for i = 0, hero:GetAbilityCount() - 1 do
                 if upgrades >= points then
                     break
                 end
 
-                if hero:GetAbilityByIndex(i) then
-                    local ability = hero:GetAbilityByIndex(i)
+                local ability = hero:GetAbilityByIndex(i)
+                if ability then
                     local function attemptUpgrade( ability )
                         if ability and ability:GetLevel() < ability:GetMaxLevel() and not ability:IsHidden() and not string.match(ability:GetName(), "special") and upgrades < points then
                             ability:UpgradeAbility(false)
@@ -7411,7 +7411,7 @@ function Pregame:hookBotStuff()
 
                     -- Leveling the talents for bots
                     if keys.level == 10 then
-                        for i = 1, DOTA_MAX_ABILITIES - 1 do
+                        for i = 1, hero:GetAbilityCount() - 1 do
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(0,1)
@@ -7420,7 +7420,7 @@ function Pregame:hookBotStuff()
                             end
                         end
                     elseif keys.level == 15 then
-                        for i = 1, DOTA_MAX_ABILITIES - 1 do
+                        for i = 1, hero:GetAbilityCount() - 1 do
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(2,3)
@@ -7430,7 +7430,7 @@ function Pregame:hookBotStuff()
                         end
 
                     elseif keys.level == 20 then
-                        for i = 1, DOTA_MAX_ABILITIES - 1 do
+                        for i = 1, hero:GetAbilityCount() - 1 do
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(4,5)
@@ -7440,7 +7440,7 @@ function Pregame:hookBotStuff()
                         end
 
                     elseif keys.level == 25 then
-                        for i = 1, DOTA_MAX_ABILITIES - 1 do
+                        for i = 1, hero:GetAbilityCount() - 1 do
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(6,7)
@@ -7873,7 +7873,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
 			-- CUSTOMSLOTS = {
 				-- npc_dota_hero_nevermore = (maxSlots == 4 and 6 or 8)
 			-- }
-			-- for i = 0, DOTA_MAX_ABILITIES - 1 do
+			-- for i = 0, spawnedUnit:GetAbilityCount() - 1 do
                 -- local ab = spawnedUnit:GetAbilityByIndex(i)
                 -- if ab and not string.match(ab:GetAbilityName(), "special_bonus") and not string.match(ab:GetName(), "perk") and spawnedUnit:GetUnitName() == 'npc_dota_hero_nevermore' then
                     -- ab:SetHidden(false)

@@ -306,7 +306,7 @@ function StartTrackingTalentLevels()
             if hero and not hero:IsNull() then
                 local first
                 local function isEven(n) return math.fmod(n,2) ==0 end
-                for j = 0, DOTA_MAX_ABILITIES - 1 do
+                for j = 0, hero:GetAbilityCount() - 1 do
                     local ability = hero:GetAbilityByIndex(j)
                     if ability and not ability:IsNull() and util:IsTalent(ability) then
                         first = first or j
@@ -341,7 +341,7 @@ end
 
 function RemoveAllTalents(hero)
     print("REMOVING TALENTS")
-    for j = 0, DOTA_MAX_ABILITIES - 1 do
+    for j = 0, hero:GetAbilityCount() - 1 do
         local ability = hero:GetAbilityByIndex(j)
         if ability and not ability:IsNull() and util:IsTalent(ability) then
             hero:RemoveAbility(ability:GetAbilityName())

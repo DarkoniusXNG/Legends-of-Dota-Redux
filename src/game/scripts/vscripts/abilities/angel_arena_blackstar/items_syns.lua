@@ -34,7 +34,7 @@ function CooldownReduction( keys )
 				return
 			end
 		end
-		for i = 0, caster:GetAbilityCount()-1 do
+		for i = 0, caster:GetAbilityCount() - 1 do
 			local ability = caster:GetAbilityByIndex(i)
 			if ability then
 				local cooldown_remaining = ability:GetCooldownTimeRemaining()
@@ -42,10 +42,10 @@ function CooldownReduction( keys )
 				if cooldown_remaining > cooldown_reducted then
 					ability:StartCooldown(cooldown_remaining - cooldown_reducted)
 					local healParticle = ParticleManager:CreateParticle("particles/items_fx/electrical_arc_01_system.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
-				      ParticleManager:SetParticleControl(healParticle, 1, Vector(radius, radius, radius))
-				      ParticleManager:ReleaseParticleIndex(healParticle)
-				      keys.ability:StartCooldown(1.5)
-				      print("test")
+				    ParticleManager:SetParticleControl(healParticle, 1, Vector(radius, radius, radius))
+				    ParticleManager:ReleaseParticleIndex(healParticle)
+				    keys.ability:StartCooldown(1.5)
+				    print("test")
 				end
 			end
 		end

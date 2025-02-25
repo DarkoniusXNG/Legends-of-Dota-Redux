@@ -15,9 +15,8 @@ end
 function onHeroKill( event )
 	local caster = event.caster
 	local cooldownReduction = event.ability:GetSpecialValueFor("cooldownReduction")
-	local abilityCount = caster:GetAbilityCount()
 
-	for i = 0, abilityCount - 1 do
+	for i = 0, caster:GetAbilityCount() - 1 do
         local ability = caster:GetAbilityByIndex(i)
 		
 		if ability ~= nil and ability ~= event.ability then

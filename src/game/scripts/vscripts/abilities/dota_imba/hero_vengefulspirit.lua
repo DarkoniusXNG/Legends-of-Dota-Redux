@@ -1000,21 +1000,6 @@ function imba_vengefulspirit_nether_swap:OnOwnerDied()
 			super_illusion:HeroLevelUp(false)
 		end
 
-		-- -- Set the skill points to 0 and learn the skills of the caster
-
-		-- elfansoer: fix illusions does not have redux ability
-		-- super_illusion:SetAbilityPoints(0)
-		-- for abilitySlot=0,15 do
-		-- 	local ability = caster:GetAbilityByIndex(abilitySlot)
-		-- 	if ability ~= nil then
-		-- 		local abilityLevel = ability:GetLevel()
-		-- 		local abilityName = ability:GetAbilityName()
-		-- 		local illusionAbility = super_illusion:FindAbilityByName(abilityName)
-		-- 		if illusionAbility then
-		-- 			illusionAbility:SetLevel(abilityLevel)
-		-- 		end
-		-- 	end
-		-- end
 		super_illusion:SetAbilityPoints(0)
 		for abilitySlot = 0, super_illusion:GetAbilityCount() - 1 do
 			-- erase original ability

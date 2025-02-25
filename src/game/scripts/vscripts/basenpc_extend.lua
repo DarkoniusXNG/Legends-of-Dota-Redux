@@ -154,7 +154,7 @@ if CDOTA_BaseNPC then
 	function CDOTA_BaseNPC:GetUnsafeAbilitiesCount()
 		local count = 0
 		local randomKv = self.randomKv
-		for i = 0, DOTA_MAX_ABILITIES - 1 do
+		for i = 0, self:GetAbilityCount() - 1 do
 			if self:GetAbilityByIndex(i) then
 				local ability = self:GetAbilityByIndex(i)
 				local name = ability:GetName()
@@ -168,7 +168,7 @@ if CDOTA_BaseNPC then
 
 	function CDOTA_BaseNPC:GetSafeAbilitiesCount()
 		local count = 0
-		for i = 0, DOTA_MAX_ABILITIES - 1 do
+		for i = 0, self:GetAbilityCount() - 1 do
 			local ability = self:GetAbilityByIndex(i)
 			if ability then
 				local name = ability:GetName()
@@ -284,7 +284,7 @@ if CDOTA_BaseNPC then
 
 		-- Check if illusion has the hero abilities in the same slots
 		local hasHeroAbilities = true
-		for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
+		for abilitySlot = 0, source:GetAbilityCount() - 1 do
 			local illusionAbility = self:GetAbilityByIndex(abilitySlot)
 			local heroAbility = source:GetAbilityByIndex(abilitySlot)
 			if heroAbility then
@@ -310,14 +310,14 @@ if CDOTA_BaseNPC then
 		if not hasHeroAbilities then
 			-- Created illusion does not have the same abilities as the original hero. Fixing...
 			-- Remove all abilities first
-			for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
+			for abilitySlot = 0, self:GetAbilityCount() - 1 do
 				local ab = self:GetAbilityByIndex(abilitySlot)
 				if ab then
 					self:RemoveAbility(ab:GetAbilityName())
 				end
 			end
 			-- Add all hero abilities to the illusion
-			for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
+			for abilitySlot = 0, source:GetAbilityCount() - 1 do
 				local heroAbility = source:GetAbilityByIndex(abilitySlot)
 				if heroAbility then
 					if not DONOTREMOVE[heroAbility:GetAbilityName()] then -- illusions dont need those abilities
@@ -338,7 +338,7 @@ if CDOTA_BaseNPC then
 			end
 		else
 			-- Created Illusion has the same abilities as the hero. Fixing toggles only
-			for abilitySlot = 0, DOTA_MAX_ABILITIES - 1 do
+			for abilitySlot = 0, source:GetAbilityCount() - 1 do
 				local heroAbility = source:GetAbilityByIndex(abilitySlot)
 				local illusionAbility = self:GetAbilityByIndex(abilitySlot)
 				if heroAbility and illusionAbility then
@@ -352,7 +352,7 @@ if CDOTA_BaseNPC then
 	end
 
 	function CDOTA_BaseNPC:HasAbilityWithFlag(flag)
-		for i = 0, DOTA_MAX_ABILITIES - 1 do
+		for i = 0, self:GetAbilityCount() - 1 do
 			local ability = self:GetAbilityByIndex(i)
 			if ability then
 				if ability:HasAbilityFlag(flag) then
@@ -394,10 +394,16 @@ if CDOTA_BaseNPC then
 				return DOTA_ITEM_TP_SCROLL, tp_scroll
 			end
 		end
-		local neutral_item = self:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-		if neutral_item then
-			if neutral_item:GetAbilityName() == item_name then
-				return DOTA_ITEM_NEUTRAL_SLOT, neutral_item
+		local neutral_item_1 = self:GetItemInSlot(DOTA_ITEM_NEUTRAL_ACTIVE_SLOT)
+		if neutral_item_1 then
+			if neutral_item_1:GetAbilityName() == item_name then
+				return DOTA_ITEM_NEUTRAL_ACTIVE_SLOT, neutral_item_1
+			end
+		end
+		local neutral_item_2 = self:GetItemInSlot(DOTA_ITEM_NEUTRAL_ACTIVE_SLOT)
+		if neutral_item_2 then
+			if neutral_item_2:GetAbilityName() == item_name then
+				return DOTA_ITEM_NEUTRAL_ACTIVE_SLOT, neutral_item_2
 			end
 		end
 		return nil, nil

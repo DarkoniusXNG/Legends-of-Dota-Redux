@@ -69,7 +69,7 @@ function MindControlAdd( keys )
 		for i = 2, caster_level do
 			target.nexusdouble:HeroLevelUp(false)
 		end
-		for ability_id = 0, 15 do
+		for ability_id = 0, target.nexusdouble:GetAbilityCount() - 1 do
 			local ability = target.nexusdouble:GetAbilityByIndex(ability_id)
 			if ability then
 				ability:SetLevel(caster:GetAbilityByIndex(ability_id):GetLevel())
