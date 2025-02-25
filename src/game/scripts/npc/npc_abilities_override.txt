@@ -33,6 +33,22 @@
 
 "DOTAAbilities"
 {
+	"medusa_undulation"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"dark_seer_aggrandize"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"roshan_grab_and_throw"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "enemyMoving | neutral | rage"
+	}
+
 	"visage_lurker"
 	{
 		"ReduxFlags"                                                           "cooldown"
@@ -213,19 +229,21 @@
 
 	"roshan_revengeroar"
 	{
+		"ReduxFlags"                    "disarm_break"
 		"ReduxPerks"                    "neutral | rage"
 
 		"MaxLevel"						"4"
 		"AbilityManaCost"				"0"
 		"AbilityCooldown"				"20.0 18.0 16.0 14.0"
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"0.5"
 		"AbilityValues"
 		{
-			"radius"			"900"
+			"radius"			"600"
 			"damage"			"50 90 130 170"
 			"damage_pct"		"25"
 			"duration"          "8"
-			"damage_growth"		"10 15 20 25"
+			"damage_growth"		"10"
+			"disarm_duration"	"2 3 4 5"
 		}
 	}
 
@@ -5729,6 +5747,14 @@
 	{
 		"TalentRequiredAbility"                                                   "mars_arena_of_blood"
 	}
+	"special_bonus_unique_mars_dauntless_hpregen"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" "special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "mars_dauntless"
+	}
 
 
 	// Beastmaster
@@ -6529,6 +6555,14 @@
 	{
 		"TalentRequiredAbility"                                                   "lich_frost_shield"
 	}
+	"special_bonus_unique_lich_jump_damage"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "lich_chain_frost"
+	}
 
 	"special_bonus_unique_lina_1"
 	{
@@ -6686,8 +6720,20 @@
 	{
 		"TalentRequiredAbility"                                                   "medusa_stone_gaze"
 	}
-	"special_bonus_special_bonus_unique_medusa_gorgons_grasp_volleys"
+	"special_bonus_unique_medusa_gorgons_grasp_volleys"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "medusa_gorgon_grasp"
+	}
+	"special_bonus_unique_medusa_gorgons_grasp_radius"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "medusa_gorgon_grasp"
 	}
 
@@ -7158,6 +7204,13 @@
 	{
 		"TalentRequiredAbility"                                                   "phantom_lancer_illusory_armaments"
 	}
+	"special_bonus_unique_phantom_lancer_lance_slow_duration"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+		"TalentRequiredAbility"                                                   "phantom_lancer_spirit_lance"
+	}
 
 
 	"special_bonus_unique_phoenix_1"
@@ -7199,6 +7252,14 @@
 	"special_bonus_unique_phoenix_dive_damage"
 	{
 		"TalentRequiredAbility"                                                   "phoenix_icarus_dive"
+	}
+	"special_bonus_unique_phoenix_blinding_sun_misschance"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "phoenix_blinding_sun"
 	}
 
 
@@ -7500,6 +7561,14 @@
 	"special_bonus_unique_sand_king_scorpion_strike_damage"
 	{
 		"TalentRequiredAbility"                                                   "sandking_scorpion_strike"
+	}
+	"special_bonus_unique_sand_king_caustic_finale_radius"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sandking_caustic_finale"
 	}
 
 
@@ -8035,6 +8104,14 @@
 	{
 		"TalentRequiredAbility"                                                   "templar_assassin_refraction"
 	}
+	"special_bonus_unique_templar_assassin_meld_duration"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "templar_assassin_meld"
+	}
 
 
 	"special_bonus_unique_terrorblade"
@@ -8137,6 +8214,14 @@
 	"special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"
 	{
 		"TalentRequiredAbility"                                                   "shredder_reactive_armor"
+	}
+	"special_bonus_unique_timbersaw_exposure_therapy_health"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "shredder_exposure_therapy"
 	}
 
 
@@ -8538,6 +8623,14 @@
 	{
 		"TalentRequiredAbility"                                                   "viper_predator"
 	}
+	"special_bonus_unique_viper_nethertoxin_radius"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "viper_nethertoxin"
+	}
 
 
 
@@ -8723,6 +8816,14 @@
 	{
 		"TalentRequiredAbility"                                                   "wisp_tether"
 	}
+	"special_bonus_unique_wisp_overcharge_duration"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "wisp_overcharge"
+	}
 
 
 
@@ -8810,6 +8911,30 @@
 	"special_bonus_unique_wraith_king_vampiric_skeleton_duration"
 	{
 		"TalentRequiredAbility"                                                   "skeleton_king_bone_guard"
+	}
+	"special_bonus_unique_wraith_king_facet_1"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" "special_bonus_base"
+
+		"TalentRequiredAbility"
+		{
+			"1" "skeleton_king_bone_guard"
+			"2" "skeleton_king_spectral_blade"
+		}
+	}
+	"special_bonus_unique_wraith_king_facet_3"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" "special_bonus_base"
+
+		"TalentRequiredAbility"
+		{
+			"1" "skeleton_king_bone_guard"
+			"2" "skeleton_king_spectral_blade"
+		}
 	}
 
 
@@ -8999,6 +9124,14 @@
 	"special_bonus_unique_dazzle_poison_touch_attack_range_bonus"
 	{
 		"TalentRequiredAbility"                                                   "dazzle_poison_touch"
+	}
+	"special_bonus_unique_dazzle_shallow_grave_cooldown"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dazzle_shallow_grave"
 	}
 
 
@@ -9508,6 +9641,22 @@
 	"special_bonus_unique_marci_unleash_extend_duration"
 	{
 		"TalentRequiredAbility" 		"marci_unleash"
+	}
+	"special_bonus_unique_marci_dispose_slow"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" "special_bonus_base"
+
+		"TalentRequiredAbility" 		"marci_grapple"
+	}
+	"special_bonus_unique_marci_rebound_radius"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" "special_bonus_base"
+
+		"TalentRequiredAbility" 		"marci_companion_run"
 	}
 
 

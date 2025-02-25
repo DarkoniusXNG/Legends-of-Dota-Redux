@@ -1,7 +1,6 @@
 DONOTREMOVE = {
 	ability_capture = true,
 	ability_lamp_use = true,
-	ability_pluck_famango = true,
 	twin_gate_portal_warp = true,
 	--special_bonus_attributes = true,
 }
