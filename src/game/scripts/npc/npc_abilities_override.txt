@@ -33,6 +33,14 @@
 
 "DOTAAbilities"
 {
+	"shadow_shaman_voodoo_hands"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | hex"
+	}
+
 	"medusa_undulation"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
@@ -46,7 +54,7 @@
 	"roshan_grab_and_throw"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "enemyMoving | neutral | rage"
+		"ReduxPerks"                                                           "channeled | enemyMoving | neutral | rage"
 	}
 
 	"visage_lurker"

@@ -1939,6 +1939,9 @@ function Pregame:networkHeroes()
                 if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
                     theData['Ability' .. sn] = abName
                     sn = sn + 1
+                    if util:IsVanillaInnate(abName) then
+                        self.vanillaInnates[heroName] = abName
+                    end
                 end
             end
 
@@ -1972,9 +1975,6 @@ function Pregame:networkHeroes()
                 local abName = theData['Ability'..i]
                 if abName and abName ~= '' and abName ~= 'special_bonus_attributes' and abName ~= 'generic_hidden' then
                     self.abilityHeroOwner[abName] = heroName
-                    if util:IsVanillaInnate(abName) then
-                        self.vanillaInnates[heroName] = abName
-                    end
                 end
             end
         end
@@ -7660,10 +7660,10 @@ function Pregame:fixSpawnedHero( spawnedUnit )
 	if not util:isPlayerBot(playerID) and IsValidEntity(spawnedUnit) then
 		local vanillaInnateName = self.vanillaInnates[spawnedUnit:GetUnitName()]
 		local disabledInnates = {
-			bounty_hunter_cutpurse = true,
+			invoker_invoke = true,
 		}
 		-- Add vanilla innate if it's not disabled and if the hero does not have it already
-		if not disabledInnates[vanillaInnateName] and not spawnedUnit:HasAbility(vanillaInnateName) then
+		if vanillaInnateName and not disabledInnates[vanillaInnateName] and not spawnedUnit:HasAbility(vanillaInnateName) then
 			local vanillaInnate = spawnedUnit:AddAbility(vanillaInnateName)
 			if vanillaInnate then
 				print('Pregame:fixSpawnedHero: Innate '..vanillaInnateName..' sucessfully added to '..spawnedUnit:GetUnitName())
@@ -7739,27 +7739,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                 end
             end
 
-            -- Stalker Innate Auto-Level
-            --if spawnedUnit:HasAbility('night_stalker_innate_redux') then
-            --    local stalkerInnate = spawnedUnit:FindAbilityByName('night_stalker_innate_redux')
-            --    if stalkerInnate then
-            --        if stalkerInnate:GetLevel() ~= 1 then
-            --            stalkerInnate:UpgradeAbility(false)
-            --        end
-            --    end
-            --end
-
-            -- KOTL Innate Auto-Level
-            --if spawnedUnit:HasAbility('keeper_of_the_light_innate_redux') then
-            --    local kotlInnate = spawnedUnit:FindAbilityByName('keeper_of_the_light_innate_redux')
-            --    if kotlInnate then
-            --        if kotlInnate:GetLevel() ~= 1 then
-            --            kotlInnate:UpgradeAbility(false)
-            --        end
-            --    end
-            --end
-
-             -- 'No Charges' fix for Tiny Toss
+            -- 'No Charges' fix for Tiny Toss
             if spawnedUnit:HasAbility('tiny_toss') then
                 Timers:CreateTimer(function()
                     local toss = spawnedUnit:FindAbilityByName('tiny_toss')
@@ -8226,15 +8206,6 @@ function Pregame:fixSpawningIssues()
                     noticeAura:SetLevel(1)
                 end, DoUniqueString('eyesFix'), 0.5)
             end
-
-        -- Remove Gyro's innate scepter bonus
-        --[[Timers:CreateTimer(function()
-            if IsValidEntity(spawnedUnit) then
-                if spawnedUnit:HasModifier('modifier_gyrocopter_flak_cannon_scepter') then
-                    spawnedUnit:RemoveModifierByName('modifier_gyrocopter_flak_cannon_scepter')
-                end
-            end
-        end, DoUniqueString('gyroFixInnate'), 1)]]--
 
             if Wearables:HasDefaultWearables( spawnedUnit:GetUnitName() ) then
                 Wearables:AttachWearableList( spawnedUnit, Wearables:GetDefaultWearablesList( spawnedUnit:GetUnitName() ) )

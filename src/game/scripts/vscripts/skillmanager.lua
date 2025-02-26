@@ -866,7 +866,7 @@ function SkillManager:isPassive(name)
     if not name then
         return false
     end    
-    if name == "" or name == 'special_bonus_attributes' or name == 'generic_hidden' or DONOTREMOVE[name] then
+    if name == "" or name == 'special_bonus_attributes' or name == 'generic_hidden' or DONOTREMOVE[name] or name == "ability_base" then
         return false
     end
     local ability_data = GetAbilityKeyValuesByName(name)

@@ -390,12 +390,6 @@ function Ingame:FilterExecuteOrder(filterTable)
     --     return false
     -- end
 
-    -- Block Alchemists Innate, heroes should not have innate abilities
-    --  if ability and target then
-    --      if string.match(target:GetName(), "npc_dota_hero_") and ability:GetName() == "item_ultimate_scepter" and unit:GetUnitName() == "npc_dota_hero_alchemist" then
-    --          return false
-    --      end
-    --  end
     if unit then
         if unit:IsRealHero() then
             local unitPlayerID = unit:GetPlayerID()

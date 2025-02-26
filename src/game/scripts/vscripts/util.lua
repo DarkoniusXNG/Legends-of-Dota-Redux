@@ -140,7 +140,7 @@ function util:IsTalent(ability)
     local ability_name
     if type(ability) == "string" then
         ability_name = ability
-        if ability_name == "" then
+        if ability_name == "" or ability_name == 'generic_hidden' or ability_name == "ability_base" then
             return false
         end
         local ability_data = GetAbilityKeyValuesByName(ability_name)
@@ -165,36 +165,37 @@ end
 
 -- Tells you if given spell is an innate
 function util:IsVanillaInnate(ability)
-	local ability_name
-	if type(ability) == "string" then
-		ability_name = ability
-		if ability_name == "" then
-			return false
-		end
-	else
-		if not ability or ability:IsNull() then
-			print("util:IsVanillaInnate: Passed parameter does not exist!")
-			return false
-		end
-		if not ability.GetAbilityName then
-			print("util:IsVanillaInnate: Passed parameter is not an ability!")
-			return false
-		end
-		ability_name = ability:GetAbilityName()
-	end
+    local ability_name
+    if type(ability) == "string" then
+        ability_name = ability
+    else
+        if not ability or ability:IsNull() then
+            print("util:IsVanillaInnate: Passed parameter does not exist!")
+            return false
+        end
+        if not ability.GetAbilityName then
+            print("util:IsVanillaInnate: Passed parameter is not an ability!")
+            return false
+        end
+        ability_name = ability:GetAbilityName()
+    end
 
-	local ability_data = GetAbilityKeyValuesByName(ability_name)
-	if not ability_data then
-		print("util:IsVanillaInnate: Ability "..ability_name.." does not exist!")
-		return false
-	end
+    if ability_name == "" or ability_name == 'special_bonus_attributes' or ability_name == 'generic_hidden' or DONOTREMOVE[ability_name] or ability_name == "ability_base" then
+        return false
+    end
 
-	if ability_data.Innate ~= nil then
-		if tonumber(ability_data.Innate) == 1 then
-			return true
-		end
-	end
-	return false
+    local ability_data = GetAbilityKeyValuesByName(ability_name)
+    if not ability_data then
+        print("util:IsVanillaInnate: Ability "..ability_name.." does not exist!")
+        return false
+    end
+
+    if ability_data.Innate ~= nil then
+        if tonumber(ability_data.Innate) == 1 then
+            return true
+        end
+    end
+    return false
 end
 
 function util:sortTable(input)
