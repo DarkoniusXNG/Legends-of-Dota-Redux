@@ -5715,10 +5715,6 @@
 	{
 		"TalentRequiredAbility"                                                   "mars_gods_rebuke"
 	}
-	"special_bonus_unique_mars_spear_cooldown"
-	{
-		"TalentRequiredAbility"                                                   "mars_spear"
-	}
 	"special_bonus_unique_mars_rebuke_cooldown"
 	{
 		"TalentRequiredAbility"                                                   "mars_gods_rebuke"
@@ -5730,22 +5726,6 @@
 	"special_bonus_unique_mars_arena_of_blood_hp_regen"
 	{
 		"TalentRequiredAbility"                                                   "mars_arena_of_blood"
-	}
-	"special_bonus_unique_mars_bulwark_damage_reduction"
-	{
-		"TalentRequiredAbility"                                                   "mars_bulwark"
-	}
-	"special_bonus_unique_mars_bulwark_speed"
-	{
-		"TalentRequiredAbility"                                                   "mars_bulwark"
-	}
-	"special_bonus_unique_mars_rebuke_slow"
-	{
-		"TalentRequiredAbility"                                                   "mars_gods_rebuke"
-	}
-	"special_bonus_unique_mars_bulwark_redirect_chance"
-	{
-		"TalentRequiredAbility"                                                   "mars_bulwark"
 	}
 	"special_bonus_unique_mars_rebuke_radius"
 	{
@@ -5766,17 +5746,17 @@
 
 
 	// Beastmaster
-	"special_bonus_unique_beastmaster"
-	{
-		"TalentRequiredAbility"                                                   "beastmaster_wild_axes"
-	}
 	"special_bonus_unique_beastmaster_2"
 	{
 		"TalentRequiredAbility"                                                   "beastmaster_inner_beast"
 	}
 	"special_bonus_unique_beastmaster_3"
 	{
-		"TalentRequiredAbility"                                                   "beastmaster_inner_beast"
+		"TalentRequiredAbility"
+		{
+			"1"                                                                   "beastmaster_call_of_the_wild_boar"
+			"2"                                                                   "beastmaster_call_of_the_wild_hawk"
+		}
 	}
 	"special_bonus_unique_beastmaster_4"
 	{
@@ -5793,10 +5773,6 @@
 	"special_bonus_unique_beastmaster_7"
 	{
 		"TalentRequiredAbility"                                                   "beastmaster_primal_roar"
-	}
-	"special_bonus_unique_beastmaster_8"
-	{
-		"TalentRequiredAbility"                                                   "beastmaster_call_of_the_wild_hawk"
 	}
 	"special_bonus_unique_beastmaster_9"
 	{
@@ -6264,7 +6240,7 @@
 	{
 		"TalentRequiredAbility"                                                   "jakiro_dual_breath"
 	}
-	"special_bonus_unique_jakiro_4"
+	"special_bonus_unique_jakiro_3"
 	{
 		"TalentRequiredAbility"
 		{
@@ -6272,9 +6248,9 @@
 			"2" "jakiro_liquid_ice"
 		}
 	}
-	"special_bonus_unique_jakiro_5"
+	"special_bonus_unique_jakiro_4"
 	{
-		"TalentRequiredAbility"                                                   "jakiro_dual_breath"
+		"TalentRequiredAbility"                                                   "jakiro_liquid_fire"
 	}
 	"special_bonus_unique_jakiro_6"
 	{
@@ -6283,14 +6259,6 @@
 	"special_bonus_unique_jakiro_7"
 	{
 		"TalentRequiredAbility"                                                   "jakiro_macropyre"
-	}
-	"special_bonus_unique_jakiro_8"
-	{
-		"TalentRequiredAbility"                                                   "jakiro_liquid_fire"
-	}
-	"special_bonus_unique_jakiro_dualbreath_slow"
-	{
-		"TalentRequiredAbility"                                                   "jakiro_dual_breath"
 	}
 	"special_bonus_unique_jakiro_dualbreath_cooldown"
 	{
@@ -6497,10 +6465,6 @@
 	{
 		"TalentRequiredAbility"                                                   "leshrac_diabolic_edict"
 	}
-	"special_bonus_unique_leshrac_2"
-	{
-		"TalentRequiredAbility"                                                   "leshrac_lightning_storm"
-	}
 	"special_bonus_unique_leshrac_3"
 	{
 		"TalentRequiredAbility"                                                   "leshrac_pulse_nova"
@@ -6509,17 +6473,13 @@
 	{
 		"TalentRequiredAbility"                                                   "leshrac_pulse_nova"
 	}
-	"special_bonus_unique_leshrac_5"
-	{
-		"TalentRequiredAbility"                                                   "leshrac_split_earth"
-	}
 	"special_bonus_unique_leshrac_6"
 	{
 		"TalentRequiredAbility"                                                   "leshrac_lightning_storm"
 	}
 	"special_bonus_unique_leshrac_7"
 	{
-		"TalentRequiredAbility"                                                   "leshrac_pulse_nova"
+		"TalentRequiredAbility"                                                   "leshrac_diabolic_edict"
 	}
 
 	"special_bonus_unique_leshrac_pulse_nova_lightning"
@@ -6546,10 +6506,6 @@
 	"special_bonus_unique_lich_4"
 	{
 		"TalentRequiredAbility"                                                   "lich_frost_shield"
-	}
-	"special_bonus_unique_lich_5"
-	{
-		"TalentRequiredAbility"                                                   "lich_chain_frost"
 	}
 	"special_bonus_unique_lich_6"
 	{
@@ -6588,38 +6544,25 @@
 	{
 		"TalentRequiredAbility"                                                   "lina_fiery_soul"
 	}
-	"special_bonus_unique_lina_5"
-	{
-		"TalentRequiredAbility"                                                   "lina_laguna_blade"
-	}
 	"special_bonus_unique_lina_6"
 	{
 		"TalentRequiredAbility"                                                   "lina_laguna_blade"
 	}
 	"special_bonus_unique_lina_7"
 	{
-		"TalentRequiredAbility"                                                   "lina_laguna_blade"
+		"TalentRequiredAbility"                                                   "lina_combustion"
 	}
-	"special_bonus_unique_lina_dragon_slave_crits"
+	"special_bonus_unique_lina_crit_debuff"
 	{
-		"TalentRequiredAbility"                                                   "lina_dragon_slave"
-	}
-	"special_bonus_unique_lina_supercharge_stacks"
-	{
-		"TalentRequiredAbility"                                                   "lina_laguna_blade"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "lina_fiery_soul"
 	}
 
 
-
-	"special_bonus_unique_lion"
-	{
-		"TalentRequiredAbility"                                                   "lion_mana_drain"
-	}
 	"special_bonus_unique_lion_2"
-	{
-		"TalentRequiredAbility"                                                   "lion_impale"
-	}
-	"special_bonus_unique_lion_3"
 	{
 		"TalentRequiredAbility"                                                   "lion_impale"
 	}
@@ -6635,17 +6578,9 @@
 	{
 		"TalentRequiredAbility"                                                   "lion_mana_drain"
 	}
-	"special_bonus_unique_lion_7"
-	{
-		"TalentRequiredAbility"                                                   "lion_impale"
-	}
 	"special_bonus_unique_lion_8"
 	{
 		"TalentRequiredAbility"                                                   "lion_finger_of_death"
-	}
-	"special_bonus_unique_lion_9"
-	{
-		"TalentRequiredAbility"                                                   "lion_mana_drain"
 	}
 	"special_bonus_unique_lion_10"
 	{
@@ -6653,11 +6588,7 @@
 	}
 	"special_bonus_unique_lion_11"
 	{
-		"TalentRequiredAbility"                                                   "lion_finger_of_death"
-	}
-	"special_bonus_unique_lion_manadrain_damage"
-	{
-		"TalentRequiredAbility"                                                   "lion_mana_drain"
+		"TalentRequiredAbility"                                                   "lion_to_hell_and_back"
 	}
 
 	"special_bonus_unique_magnus"
@@ -6668,29 +6599,33 @@
 	{
 		"TalentRequiredAbility"                                                   "magnataur_empower"
 	}
-	"special_bonus_unique_magnus_3"
-	{
-		"TalentRequiredAbility"                                                   "magnataur_skewer"
-	}
-	"special_bonus_unique_magnus_4"
-	{
-		"TalentRequiredAbility"                                                   "magnataur_empower"
-	}
 	"special_bonus_unique_magnus_5"
 	{
 		"TalentRequiredAbility"                                                   "magnataur_reverse_polarity"
 	}
 	"special_bonus_unique_magnus_6"
 	{
-		"TalentRequiredAbility"                                                   "magnataur_shockwave"
+		"TalentRequiredAbility"                                                   "magnataur_skewer"
 	}
 	"special_bonus_unique_magnus_7"
 	{
 		"TalentRequiredAbility"                                                   "magnataur_skewer"
 	}
-	"special_bonus_unique_magnus_reverse_polarity_strength"
+	"special_bonus_unique_magnus_reverse_polarity_stats"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "magnataur_reverse_polarity"
+	}
+	"special_bonus_unique_magnus_skewer_damage_distance"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "magnataur_skewer"
 	}
 
 
@@ -6708,19 +6643,7 @@
 	{
 		"TalentRequiredAbility"                                                   "medusa_mystic_snake"
 	}
-	"special_bonus_unique_medusa_4"
-	{
-		"TalentRequiredAbility"                                                   "medusa_split_shot"
-	}
 	"special_bonus_unique_medusa_5"
-	{
-		"TalentRequiredAbility"                                                   "medusa_mystic_snake"
-	}
-	"special_bonus_unique_medusa_6"
-	{
-		"TalentRequiredAbility"                                                   "medusa_mana_shield"
-	}
-	"special_bonus_unique_medusa_7"
 	{
 		"TalentRequiredAbility"                                                   "medusa_mystic_snake"
 	}
@@ -6788,7 +6711,7 @@
 	}
 	"special_bonus_unique_mirana_3"
 	{
-		"TalentRequiredAbility"                                                   "mirana_arrow"
+		"TalentRequiredAbility"                                                   "mirana_starfall"
 	}
 	"special_bonus_unique_mirana_4"
 	{
@@ -6869,22 +6792,6 @@
 
 
 	"special_bonus_unique_morphling_1"
-	{
-		"TalentRequiredAbility"                                                   "morphling_waveform"
-	}
-	"special_bonus_unique_morphling_2"
-	{
-		"TalentRequiredAbility"                                                   "morphling_replicate"
-	}
-	"special_bonus_unique_morphling_4"
-	{
-		"TalentRequiredAbility"                                                   "morphling_waveform"
-	}
-	"special_bonus_unique_morphling_5"
-	{
-		"TalentRequiredAbility"                                                   "morphling_replicate"
-	}
-	"special_bonus_unique_morphling_6"
 	{
 		"TalentRequiredAbility"                                                   "morphling_waveform"
 	}
@@ -6972,23 +6879,31 @@
 	}
 	"special_bonus_unique_nyx_3"
 	{
-		"TalentRequiredAbility"                                                   "nyx_assassin_vendetta"
+		"TalentRequiredAbility"                                                   "nyx_assassin_impale"
 	}
 	"special_bonus_unique_nyx_4"
 	{
-		"TalentRequiredAbility"                                                   "nyx_assassin_impale"
-	}
-	"special_bonus_unique_nyx_5"
-	{
-		"TalentRequiredAbility"                                                   "nyx_assassin_jolt"
+		"TalentRequiredAbility"                                                   "nyx_assassin_spiked_carapace"
 	}
 	"special_bonus_unique_nyx_6"
 	{
 		"TalentRequiredAbility"                                                   "nyx_assassin_spiked_carapace"
 	}
-	"special_bonus_unique_nyx_carapace_reflect_duration"
+	"special_bonus_unique_nyx_vendetta_damage"
 	{
-		"TalentRequiredAbility"                                                   "nyx_assassin_spiked_carapace"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "nyx_assassin_vendetta"
+	}
+	"special_bonus_unique_nyx_jolt_cooldown"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "nyx_assassin_jolt"
 	}
 
 
@@ -7098,21 +7013,17 @@
 		"TalentRequiredAbility"                                                   "oracle_fortunes_end"
 	}
 
-
-
-
-
 	"special_bonus_unique_outworld_devourer"
 	{
 		"TalentRequiredAbility"                                                   "obsidian_destroyer_arcane_orb"
 	}
 	"special_bonus_unique_outworld_devourer_2"
 	{
-		"TalentRequiredAbility"                                                   "imba_obsidian_destroyer_equilibrium"
+		"TalentRequiredAbility"                                                   "obsidian_destroyer_astral_imprisonment"
 	}
 	"special_bonus_unique_outworld_devourer_3"
 	{
-		"TalentRequiredAbility"                                                   "obsidian_destroyer_astral_imprisonment"
+		"TalentRequiredAbility"                                                   "obsidian_destroyer_equilibrium"
 	}
 	"special_bonus_unique_outworld_devourer_4"
 	{
@@ -7180,10 +7091,6 @@
 	{
 		"TalentRequiredAbility"                                                   "phantom_lancer_phantom_edge"
 	}
-	"special_bonus_unique_phantom_lancer_3"
-	{
-		"TalentRequiredAbility"                                                   "phantom_lancer_juxtapose"
-	}
 	"special_bonus_unique_phantom_lancer_4"
 	{
 		"TalentRequiredAbility"                                                   "phantom_lancer_doppelwalk"
@@ -7195,14 +7102,6 @@
 	"special_bonus_unique_phantom_lancer_6"
 	{
 		"TalentRequiredAbility"                                                   "phantom_lancer_juxtapose"
-	}
-	"special_bonus_unique_phantom_lancer_7"
-	{
-		"TalentRequiredAbility"                                                   "phantom_lancer_spirit_lance"
-	}
-	"special_bonus_unique_phantom_lancer_lance_damage"
-	{
-		"TalentRequiredAbility"                                                   "phantom_lancer_spirit_lance"
 	}
 	"special_bonus_unique_phantom_lancer_phantom_rush_agility"
 	{
@@ -7242,22 +7141,6 @@
 		"TalentRequiredAbility"                                                   "phoenix_sun_ray"
 	}
 	"special_bonus_unique_phoenix_6"
-	{
-		"TalentRequiredAbility"                                                   "phoenix_icarus_dive"
-	}
-	"special_bonus_unique_phoenix_7"
-	{
-		"TalentRequiredAbility"
-		{
-			"1" "phoenix_sun_ray"
-			"2" "phoenix_supernova"
-		}
-	}
-	"special_bonus_unique_phoenix_8"
-	{
-		"TalentRequiredAbility"                                                   "phoenix_sun_ray"
-	}
-	"special_bonus_unique_phoenix_dive_damage"
 	{
 		"TalentRequiredAbility"                                                   "phoenix_icarus_dive"
 	}
@@ -7423,21 +7306,9 @@
 	{
 		"TalentRequiredAbility"                                                   "razor_eye_of_the_storm"
 	}
-	"special_bonus_unique_razor_3"
-	{
-		"TalentRequiredAbility"                                                   "razor_static_link"
-	}
 	"special_bonus_unique_razor_4"
 	{
 		"TalentRequiredAbility"                                                   "razor_plasma_field"
-	}
-	"special_bonus_unique_razor_5"
-	{
-		"TalentRequiredAbility"                                                   "razor_unstable_current"
-	}
-	"special_bonus_unique_razor_6"
-	{
-		"TalentRequiredAbility"                                                   "razor_static_link"
 	}
 	"special_bonus_unique_razor_plasmafield_second_ring"
 	{
@@ -7449,14 +7320,14 @@
 	}
 	"special_bonus_unique_razor_storm_surge_damage_and_slow"
 	{
-		"TalentRequiredAbility"                                                   "razor_unstable_current"
+		"TalentRequiredAbility"                                                   "razor_storm_surge"
 	}
 
 
 
 	"special_bonus_unique_riki_1"
 	{
-		"TalentRequiredAbility"                                                   "riki_backstab"
+		"TalentRequiredAbility"                                                   "riki_innate_backstab"
 	}
 	"special_bonus_unique_riki_2"
 	{
@@ -7466,17 +7337,13 @@
 	{
 		"TalentRequiredAbility"                                                   "riki_smoke_screen"
 	}
-	"special_bonus_unique_riki_4"
-	{
-		"TalentRequiredAbility"                                                   "riki_tricks_of_the_trade"
-	}
 	"special_bonus_unique_riki_5"
 	{
 		"TalentRequiredAbility"                                                   "riki_tricks_of_the_trade"
 	}
 	"special_bonus_unique_riki_6"
 	{
-		"TalentRequiredAbility"                                                   "riki_tricks_of_the_trade"
+		"TalentRequiredAbility"                                                   "riki_backstab"
 	}
 	"special_bonus_unique_riki_7"
 	{
@@ -7491,15 +7358,13 @@
 		"TalentRequiredAbility"                                                   "riki_blink_strike"
 	}
 
-
-
 	"special_bonus_unique_rubick"
 	{
 		"TalentRequiredAbility"                                                   "rubick_telekinesis"
 	}
 	"special_bonus_unique_rubick_2"
 	{
-		"TalentRequiredAbility"                                                   "rubick_fade_bolt"
+		"TalentRequiredAbility"                                                   "rubick_might_and_magus"
 	}
 	"special_bonus_unique_rubick_3"
 	{
@@ -7526,10 +7391,6 @@
 		"TalentRequiredAbility"                                                   "rubick_telekinesis"
 	}
 
-
-
-
-
 	"special_bonus_unique_sand_king"
 	{
 		"TalentRequiredAbility"                                                   "sandking_epicenter"
@@ -7550,10 +7411,6 @@
 	{
 		"TalentRequiredAbility"                                                   "sandking_epicenter"
 	}
-	"special_bonus_unique_sand_king_6"
-	{
-		"TalentRequiredAbility"                                                   "sandking_caustic_finale"
-	}
 	"special_bonus_unique_sand_king_7"
 	{
 		"TalentRequiredAbility"                                                   "sandking_burrowstrike"
@@ -7561,14 +7418,6 @@
 	"special_bonus_unique_sand_king_8"
 	{
 		"TalentRequiredAbility"                                                   "sandking_burrowstrike"
-	}
-	"special_bonus_unique_sand_king_burrowstrike_stun"
-	{
-		"TalentRequiredAbility"                                                   "sandking_burrowstrike"
-	}
-	"special_bonus_unique_sand_king_scorpion_strike_damage"
-	{
-		"TalentRequiredAbility"                                                   "sandking_scorpion_strike"
 	}
 	"special_bonus_unique_sand_king_caustic_finale_radius"
 	{
@@ -7586,7 +7435,7 @@
 	}
 	"special_bonus_unique_dark_willow_2"
 	{
-		"TalentRequiredAbility"                                                   "dark_willow_bedlam"
+		"TalentRequiredAbility"                                                   "dark_willow_terrorize"
 	}
 	"special_bonus_unique_dark_willow_3"
 	{
@@ -7596,13 +7445,9 @@
 	{
 		"TalentRequiredAbility"                                                   "dark_willow_bedlam"
 	}
-	"special_bonus_unique_dark_willow_5"
-	{
-		"TalentRequiredAbility"                                                   "dark_willow_shadow_realm"
-	}
 	"special_bonus_unique_dark_willow_6"
 	{
-		"TalentRequiredAbility"                                                   "dark_willow_cursed_crown"
+		"TalentRequiredAbility"                                                   "dark_willow_bedlam"
 	}
 	"special_bonus_unique_dark_willow_7"
 	{
@@ -7662,10 +7507,6 @@
 	{
 		"TalentRequiredAbility"                                                   "shadow_demon_demonic_purge"
 	}
-	"special_bonus_unique_shadow_demon_2"
-	{
-		"TalentRequiredAbility"                                                   "shadow_demon_soul_catcher"
-	}
 	"special_bonus_unique_shadow_demon_3"
 	{
 		"TalentRequiredAbility"                                                   "shadow_demon_shadow_poison"
@@ -7674,21 +7515,9 @@
 	{
 		"TalentRequiredAbility"                                                   "shadow_demon_shadow_poison"
 	}
-	"special_bonus_unique_shadow_demon_5"
-	{
-		"TalentRequiredAbility"                                                   "shadow_demon_disruption"
-	}
-	"special_bonus_unique_shadow_demon_6"
-	{
-		"TalentRequiredAbility"                                                   "shadow_demon_soul_catcher"
-	}
 	"special_bonus_unique_shadow_demon_7"
 	{
 		"TalentRequiredAbility"                                                   "shadow_demon_disruption"
-	}
-	"special_bonus_unique_shadow_demon_8"
-	{
-		"TalentRequiredAbility"                                                   "shadow_demon_soul_catcher"
 	}
 	"special_bonus_unique_shadow_demon_9"
 	{
@@ -7840,19 +7669,15 @@
 	}
 	"special_bonus_unique_slardar_6"
 	{
-		"TalentRequiredAbility"                                                   "slardar_amplify_damage"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "slardar_seaborn_sentinel"
 	}
 	"special_bonus_unique_slardar_7"
 	{
 		"TalentRequiredAbility"                                                   "slardar_sprint"
-	}
-	"special_bonus_unique_slardar_8"
-	{
-		"TalentRequiredAbility"                                                   "slardar_slithereen_crush"
-	}
-	"special_bonus_unique_slardar_slithereen_crush_stun"
-	{
-		"TalentRequiredAbility"                                                   "slardar_slithereen_crush"
 	}
 
 
@@ -7890,6 +7715,14 @@
 		"TalentRequiredAbility"                                                   "slark_shadow_dance"
 	}
 
+	"special_bonus_unique_sniper_1"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sniper_assassinate"
+	}
 	"special_bonus_unique_sniper_2"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
@@ -7920,9 +7753,16 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "sniper_shrapnel"
+		"TalentRequiredAbility"                                                   "sniper_take_aim"
 	}
+	"special_bonus_unique_sniper_6"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
+		"TalentRequiredAbility"                                                   "sniper_take_aim"
+	}
 	"special_bonus_unique_sniper_headshot_damage"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
@@ -8006,12 +7846,9 @@
 		"TalentRequiredAbility"                                                   "storm_spirit_overload"
 	}
 
-
-
-
 	"special_bonus_unique_sven"
 	{
-		"TalentRequiredAbility"                                                   "sven_storm_bolt"
+		"TalentRequiredAbility"                                                   "sven_vanquisher"
 	}
 	"special_bonus_unique_sven_2"
 	{
@@ -8026,10 +7863,6 @@
 		"TalentRequiredAbility"                                                   "sven_storm_bolt"
 	}
 	"special_bonus_unique_sven_5"
-	{
-		"TalentRequiredAbility"                                                   "sven_warcry"
-	}
-	"special_bonus_unique_sven_6"
 	{
 		"TalentRequiredAbility"                                                   "sven_warcry"
 	}
@@ -8069,16 +7902,9 @@
 		"TalentRequiredAbility"                                                   "techies_suicide"
 	}
 
-
-
-
 	"special_bonus_unique_templar_assassin"
 	{
 		"TalentRequiredAbility"                                                   "templar_assassin_refraction"
-	}
-	"special_bonus_unique_templar_assassin_2"
-	{
-		"TalentRequiredAbility"                                                   "templar_assassin_meld"
 	}
 	"special_bonus_unique_templar_assassin_3"
 	{
@@ -8086,15 +7912,7 @@
 	}
 	"special_bonus_unique_templar_assassin_4"
 	{
-		"TalentRequiredAbility"                                                   "templar_assassin_meld"
-	}
-	"special_bonus_unique_templar_assassin_5"
-	{
-		"TalentRequiredAbility"                                                   "templar_assassin_psi_blades"
-	}
-	"special_bonus_unique_templar_assassin_6"
-	{
-		"TalentRequiredAbility"                                                   "templar_assassin_psionic_trap"
+		"TalentRequiredAbility"                                                   "templar_assassin_refraction"
 	}
 	"special_bonus_unique_templar_assassin_7"
 	{
@@ -8120,7 +7938,6 @@
 
 		"TalentRequiredAbility"                                                   "templar_assassin_meld"
 	}
-
 
 	"special_bonus_unique_terrorblade"
 	{
@@ -8238,13 +8055,9 @@
 	{
 		"TalentRequiredAbility"                                                   "tinker_laser"
 	}
-	"special_bonus_unique_tinker_2"
-	{
-		"TalentRequiredAbility"                                                   "tinker_march_of_the_machines"
-	}
 	"special_bonus_unique_tinker_3"
 	{
-		"TalentRequiredAbility"                                                   "tinker_heat_seeking_missile"
+		"TalentRequiredAbility"                                                   "tinker_defense_matrix"
 	}
 	"special_bonus_unique_tinker_4"
 	{
@@ -8254,15 +8067,7 @@
 	{
 		"TalentRequiredAbility"                                                   "tinker_keen_teleport"
 	}
-	"special_bonus_unique_tinker_6"
-	{
-		"TalentRequiredAbility"                                                   "tinker_heat_seeking_missile"
-	}
 	"special_bonus_unique_tinker_7"
-	{
-		"TalentRequiredAbility"                                                   "tinker_defense_matrix"
-	}
-	"special_bonus_unique_tinker_defense_matrix_cdr"
 	{
 		"TalentRequiredAbility"                                                   "tinker_defense_matrix"
 	}
@@ -8270,19 +8075,11 @@
 	{
 		"TalentRequiredAbility"                                                   "tinker_march_of_the_machines"
 	}
-	"special_bonus_unique_tinker_rearm_magic_resistance"
-	{
-		"TalentRequiredAbility"                                                   "tinker_rearm"
-	}
 	"special_bonus_unique_tinker_defense_matrix_status_resistance"
 	{
 		"TalentRequiredAbility"                                                   "tinker_defense_matrix"
 	}
 
-	"special_bonus_unique_treant"
-	{
-		"TalentRequiredAbility"                                                   "treant_living_armor"
-	}
 	"special_bonus_unique_treant_2"
 	{
 		"TalentRequiredAbility"                                                   "treant_leech_seed"
@@ -8290,18 +8087,6 @@
 	"special_bonus_unique_treant_3"
 	{
 	   "TalentRequiredAbility"                                                    "treant_leech_seed"
-	}
-	"special_bonus_unique_treant_4"
-	{
-		"TalentRequiredAbility"                                                   "treant_natures_guise"
-	}
-	"special_bonus_unique_treant_5"
-	{
-		"TalentRequiredAbility"                                                   "treant_overgrowth"
-	}
-	"special_bonus_unique_treant_6"
-	{
-		"TalentRequiredAbility"                                                   "treant_living_armor"
 	}
 	"special_bonus_unique_treant_7"
 	{
@@ -8315,17 +8100,9 @@
 	{
 		"TalentRequiredAbility"                                                   "treant_natures_grasp"
 	}
-	"special_bonus_unique_treant_10"
-	{
-		"TalentRequiredAbility"                                                   "treant_bonus_inherent"
-	}
-	"special_bonus_unique_treant_11"
-	{
-		"TalentRequiredAbility"                                                   "treant_overgrowth"
-	}
 	"special_bonus_unique_treant_12"
 	{
-		"TalentRequiredAbility"                                                   "treant_natures_grasp"
+		"TalentRequiredAbility"                                                   "treant_natures_guise"
 	}
 	"special_bonus_unique_treant_13"
 	{
@@ -8609,11 +8386,7 @@
 	}
 	"special_bonus_unique_viper_4"
 	{
-		"TalentRequiredAbility"                                                   "viper_poison_attack"
-	}
-	"special_bonus_unique_viper_5"
-	{
-		"TalentRequiredAbility"                                                   "viper_nethertoxin"
+		"TalentRequiredAbility"                                                   "viper_viper_strike"
 	}
 	"special_bonus_unique_viper_6"
 	{
@@ -8646,10 +8419,6 @@
 	{
 		"TalentRequiredAbility"                                                   "visage_summon_familiars"
 	}
-	"special_bonus_unique_visage_2"
-	{
-		"TalentRequiredAbility"                                                   "visage_summon_familiars"
-	}
 	"special_bonus_unique_visage_3"
 	{
 		"TalentRequiredAbility"                                                   "visage_soul_assumption"
@@ -8668,10 +8437,18 @@
 	}
 	"special_bonus_unique_visage_7"
 	{
-		"TalentRequiredAbility"                                                   "visage_grave_chill"
+		"TalentRequiredAbility"                                                   "visage_summon_familiars"
 	}
 	"special_bonus_unique_visage_8"
 	{
+		"TalentRequiredAbility"                                                   "visage_lurker"
+	}
+	"special_bonus_unique_visage_grave_chill_duration"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "visage_grave_chill"
 	}
 
@@ -8784,10 +8561,6 @@
 	{
 		"TalentRequiredAbility"                                                   "wisp_spirits"
 	}
-	"special_bonus_unique_wisp_2"
-	{
-		"TalentRequiredAbility"                                                   "wisp_tether"
-	}
 	"special_bonus_unique_wisp_3"
 	{
 		"TalentRequiredAbility"                                                   "wisp_tether"
@@ -8796,17 +8569,9 @@
 	{
 		"TalentRequiredAbility"                                                   "wisp_tether"
 	}
-	"special_bonus_unique_wisp_5"
-	{
-		"TalentRequiredAbility"                                                   "wisp_tether"
-	}
 	"special_bonus_unique_wisp_6"
 	{
 		"TalentRequiredAbility"                                                   "wisp_relocate"
-	}
-	"special_bonus_unique_wisp_7"
-	{
-		"TalentRequiredAbility"                                                   "wisp_spirits"
 	}
 	"special_bonus_unique_wisp_8"
 	{
@@ -8814,15 +8579,11 @@
 	}
 	"special_bonus_unique_wisp_9"
 	{
-		"TalentRequiredAbility"                                                   "wisp_tether"
+		"TalentRequiredAbility"                                                   "wisp_overcharge"
 	}
 	"special_bonus_unique_wisp_10"
 	{
 		"TalentRequiredAbility"                                                   "wisp_overcharge"
-	}
-	"special_bonus_unique_wisp_11"
-	{
-		"TalentRequiredAbility"                                                   "wisp_tether"
 	}
 	"special_bonus_unique_wisp_overcharge_duration"
 	{
@@ -8832,9 +8593,6 @@
 
 		"TalentRequiredAbility"                                                   "wisp_overcharge"
 	}
-
-
-
 
 	"special_bonus_unique_witch_doctor_1"
 	{
@@ -8865,20 +8623,9 @@
 		"TalentRequiredAbility"                                                   "witch_doctor_maledict"
 	}
 
-
-
-
-	"special_bonus_unique_wraith_king_1"
-	{
-		"TalentRequiredAbility"                                                   "skeleton_king_reincarnation"
-	}
 	"special_bonus_unique_wraith_king_2"
 	{
 		"TalentRequiredAbility"                                                   "skeleton_king_vampiric_spirit"
-	}
-	"special_bonus_unique_wraith_king_3"
-	{
-		"TalentRequiredAbility"                                                   "skeleton_king_hellfire_blast"
 	}
 	"special_bonus_unique_wraith_king_4"
 	{
@@ -8888,26 +8635,6 @@
 			"2" "skeleton_king_hellfire_blast"
 		}
 	}
-	"special_bonus_unique_wraith_king_5"
-	{
-		"TalentRequiredAbility"                                                   "skeleton_king_bone_guard"
-	}
-	"special_bonus_unique_wraith_king_6"
-	{
-		"TalentRequiredAbility"                                                   "skeleton_king_bone_guard"
-	}
-	"special_bonus_unique_wraith_king_7"
-	{
-		"TalentRequiredAbility"                                                   "skeleton_king_hellfire_blast"
-	}
-	"special_bonus_unique_wraith_king_8"
-	{
-		"TalentRequiredAbility"                                                   "skeleton_king_bone_guard"
-	}
-	"special_bonus_unique_wraith_king_9"
-	{
-		"TalentRequiredAbility"                                                   "skeleton_king_hellfire_blast"
-	}
 	"special_bonus_unique_wraith_king_10"
 	{
 		"TalentRequiredAbility"                                                   "skeleton_king_mortal_strike"
@@ -8915,10 +8642,6 @@
 	"special_bonus_unique_wraith_king_11"
 	{
 		"TalentRequiredAbility"                                                   "skeleton_king_hellfire_blast"
-	}
-	"special_bonus_unique_wraith_king_vampiric_skeleton_duration"
-	{
-		"TalentRequiredAbility"                                                   "skeleton_king_bone_guard"
 	}
 	"special_bonus_unique_wraith_king_facet_1"
 	{
@@ -9011,33 +8734,9 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "doom_bringer_scorched_earth"
-	}
-	"special_bonus_unique_doom_5"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "doom_bringer_doom"
+		"TalentRequiredAbility"                                                   "doom_bringer_infernal_blade"
 	}
 	"special_bonus_unique_doom_6"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "doom_bringer_scorched_earth"
-	}
-	"special_bonus_unique_doom_7"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "doom_bringer_doom"
-	}
-	"special_bonus_unique_doom_8"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -9070,17 +8769,7 @@
 		"TalentRequiredAbility"                                                   "doom_bringer_doom"
 	}
 
-
-
 	"special_bonus_unique_disruptor"
-	{
-		"TalentRequiredAbility"                                                   "disruptor_thunder_strike"
-	}
-	"special_bonus_unique_disruptor_2"
-	{
-		"TalentRequiredAbility"                                                   "disruptor_kinetic_field"
-	}
-	"special_bonus_unique_disruptor_3"
 	{
 		"TalentRequiredAbility"                                                   "disruptor_thunder_strike"
 	}
@@ -9090,11 +8779,11 @@
 	}
 	"special_bonus_unique_disruptor_5"
 	{
-		"TalentRequiredAbility"                                                   "disruptor_kinetic_field"
-	}
-	"special_bonus_unique_disruptor_6"
-	{
-		"TalentRequiredAbility"                                                   "disruptor_kinetic_field"
+		"TalentRequiredAbility"
+		{
+			"1"                                                                   "disruptor_kinetic_field"
+			"2"                                                                   "disruptor_kinetic_fence"
+		}
 	}
 	"special_bonus_unique_disruptor_7"
 	{
@@ -9107,6 +8796,14 @@
 	"special_bonus_unique_disruptor_9"
 	{
 		"TalentRequiredAbility"                                                   "disruptor_glimpse"
+	}
+	"special_bonus_unique_disruptor_consecutive_strike_damage"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "disruptor_thunder_strike"
 	}
 
 	"special_bonus_unique_dazzle_1"
@@ -9125,10 +8822,6 @@
 	{
 		"TalentRequiredAbility"                                                   "dazzle_innate_weave"
 	}
-	"special_bonus_unique_dazzle_5"
-	{
-		"TalentRequiredAbility"                                                   "dazzle_shallow_grave"
-	}
 	"special_bonus_unique_dazzle_poison_touch_attack_range_bonus"
 	{
 		"TalentRequiredAbility"                                                   "dazzle_poison_touch"
@@ -9141,8 +8834,6 @@
 
 		"TalentRequiredAbility"                                                   "dazzle_shallow_grave"
 	}
-
-
 
 	"special_bonus_unique_dark_seer"
 	{
@@ -9219,15 +8910,7 @@
 	{
 		"TalentRequiredAbility"                                                   "crystal_maiden_freezing_field"
 	}
-	"special_bonus_unique_crystal_maiden_4"
-	{
-		"TalentRequiredAbility"                                                   "crystal_maiden_brilliance_aura"
-	}
 	"special_bonus_unique_crystal_maiden_5"
-	{
-		"TalentRequiredAbility"                                                   "crystal_maiden_crystal_nova"
-	}
-	"special_bonus_unique_crystal_maiden_6"
 	{
 		"TalentRequiredAbility"                                                   "crystal_maiden_crystal_nova"
 	}
@@ -9236,16 +8919,9 @@
 		"TalentRequiredAbility"                                                   "crystal_maiden_frostbite"
 	}
 
-
-
-
 	"special_bonus_unique_clockwerk"
 	{
 		"TalentRequiredAbility"                                                   "rattletrap_battery_assault"
-	}
-	"special_bonus_unique_clockwerk_2"
-	{
-		"TalentRequiredAbility"                                                   "rattletrap_power_cogs"
 	}
 	"special_bonus_unique_clockwerk_3"
 	{
@@ -9267,14 +8943,6 @@
 	{
 		"TalentRequiredAbility"                                                   "rattletrap_rocket_flare"
 	}
-	"special_bonus_unique_clockwerk_8"
-	{
-		"TalentRequiredAbility"                                                   "rattletrap_power_cogs"
-	}
-	"special_bonus_unique_clockwerk_9"
-	{
-		"TalentRequiredAbility"                                                   "rattletrap_power_cogs"
-	}
 	"special_bonus_unique_clockwerk_flare_damage"
 	{
 		"TalentRequiredAbility"                                                   "rattletrap_rocket_flare"
@@ -9288,15 +8956,9 @@
 		"TalentRequiredAbility"                                                   "rattletrap_hookshot"
 	}
 
-
-
 	"special_bonus_unique_clinkz_1"
 	{
-		"TalentRequiredAbility"                                                   "clinkz_tar_bomb"
-	}
-	"special_bonus_unique_clinkz_2"
-	{
-		"TalentRequiredAbility"                                                   "clinkz_wind_walk"
+		"TalentRequiredAbility"                                                   "clinkz_strafe"
 	}
 	"special_bonus_unique_clinkz_3"
 	{
@@ -9305,14 +8967,6 @@
 	"special_bonus_unique_clinkz_4"
 	{
 		"TalentRequiredAbility"                                                   "clinkz_strafe"
-	}
-	"special_bonus_unique_clinkz_5"
-	{
-		"TalentRequiredAbility"                                                   "clinkz_burning_army"
-	}
-	"special_bonus_unique_clinkz_6"
-	{
-		"TalentRequiredAbility"                                                   "clinkz_death_pact"
 	}
 	"special_bonus_unique_clinkz_7"
 	{
@@ -9330,29 +8984,14 @@
 	{
 		"TalentRequiredAbility"                                                   "clinkz_wind_walk"
 	}
-	"special_bonus_unique_clinkz_11"
-	{
-		"TalentRequiredAbility"                                                   "clinkz_death_pact"
-	}
-	"special_bonus_unique_clinkz_12"
-	{
-		"TalentRequiredAbility"                                                   "clinkz_strafe"
-	}
 
-
-
-
-	"special_bonus_unique_chen_1"
-	{
-		"TalentRequiredAbility"                                                   "chen_holy_persuasion"
-	}
 	"special_bonus_unique_chen_2"
 	{
 		"TalentRequiredAbility"                                                   "chen_hand_of_god"
 	}
 	"special_bonus_unique_chen_3"
 	{
-		"TalentRequiredAbility"                                                   "chen_holy_persuasion"
+		"TalentRequiredAbility"                                                   "chen_summon_convert"
 	}
 	"special_bonus_unique_chen_4"
 	{
@@ -9362,10 +9001,6 @@
 	{
 		"TalentRequiredAbility"                                                   "chen_holy_persuasion"
 	}
-	"special_bonus_unique_chen_6"
-	{
-		"TalentRequiredAbility"                                                   "chen_divine_favor"
-	}
 	"special_bonus_unique_chen_7"
 	{
 		"TalentRequiredAbility"                                                   "chen_hand_of_god"
@@ -9373,14 +9008,6 @@
 	"special_bonus_unique_chen_8"
 	{
 		"TalentRequiredAbility"                                                   "chen_penitence"
-	}
-	"special_bonus_unique_chen_9"
-	{
-		"TalentRequiredAbility"                                                   "chen_holy_persuasion"
-	}
-	"special_bonus_unique_chen_10"
-	{
-		"TalentRequiredAbility"                                                   "chen_divine_favor"
 	}
 	"special_bonus_unique_chen_11"
 	{
@@ -9390,9 +9017,6 @@
 	{
 		"TalentRequiredAbility"                                                   "chen_hand_of_god"
 	}
-
-
-
 
 	"special_bonus_unique_broodmother_1"
 	{
@@ -9416,7 +9040,7 @@
 	}
 	"special_bonus_unique_broodmother_6"
 	{
-		"TalentRequiredAbility"                                                   "broodmother_spin_web"
+		"TalentRequiredAbility"                                                   "broodmother_spiders_milk"
 	}
 	"special_bonus_unique_broodmother_7"
 	{
@@ -9436,19 +9060,7 @@
 	{
 		"TalentRequiredAbility"                                                   "bounty_hunter_track"
 	}
-	"special_bonus_unique_bounty_hunter_4"
-	{
-		"TalentRequiredAbility"                                                   "bounty_hunter_jinada"
-	}
 	"special_bonus_unique_bounty_hunter_5"
-	{
-		"TalentRequiredAbility"                                                   "bounty_hunter_shuriken_toss"
-	}
-	"special_bonus_unique_bounty_hunter_6"
-	{
-		"TalentRequiredAbility"                                                   "bounty_hunter_track"
-	}
-	"special_bonus_unique_bounty_hunter_7"
 	{
 		"TalentRequiredAbility"                                                   "bounty_hunter_shuriken_toss"
 	}
@@ -9586,34 +9198,6 @@
 		"TalentRequiredAbility" 		"snapfire_mortimer_kisses"
 	}
 
-	"special_bonus_unique_marci_grapple_stun_duration"
-	{
-		"TalentRequiredAbility" 		"marci_grapple"
-	}
-	"special_bonus_unique_marci_lunge_range"
-	{
-		"TalentRequiredAbility" 		"marci_companion_run"
-	}
-	"special_bonus_unique_marci_guardian_lifesteal"
-	{
-		"TalentRequiredAbility"
-		{
-			"1"		"marci_guardian"
-			"2"		"marci_bodyguard"
-		}
-	}
-	"special_bonus_unique_marci_unleash_silence"
-	{
-		"TalentRequiredAbility" 		"marci_unleash"
-	}
-	"special_bonus_unique_marci_guardian_magic_immune"
-	{
-		"TalentRequiredAbility"
-		{
-			"1"		"marci_guardian"
-			"2"		"marci_bodyguard"
-		}
-	}
 	"special_bonus_unique_marci_grapple_damage"
 	{
 		"TalentRequiredAbility" 		"marci_grapple"
@@ -9622,21 +9206,9 @@
 	{
 		"TalentRequiredAbility" 		"marci_unleash"
 	}
-	"special_bonus_unique_marci_lunge_cooldown"
-	{
-		"TalentRequiredAbility" 		"marci_companion_run"
-	}
-	"special_bonus_unique_marci_lunge_damage"
-	{
-		"TalentRequiredAbility" 		"marci_companion_run"
-	}
 	"special_bonus_unique_marci_grapple_stun_duration"
 	{
 		"TalentRequiredAbility" 		"marci_companion_run"
-	}
-	"special_bonus_unique_marci_dispose_range"
-	{
-		"TalentRequiredAbility" 		"marci_grapple"
 	}
 	"special_bonus_unique_marci_guardian_damage"
 	{
@@ -9666,12 +9238,15 @@
 
 		"TalentRequiredAbility" 		"marci_companion_run"
 	}
-
-
-	"special_bonus_unique_primal_beast_onslaught_damage"
+	"special_bonus_unique_marci_lunge_movespeed"
 	{
-		"TalentRequiredAbility" 		"primal_beast_onslaught"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" "special_bonus_base"
+
+		"TalentRequiredAbility" 		"marci_companion_run"
 	}
+
 	"special_bonus_unique_primal_beast_trample_attack_damage"
 	{
 		"TalentRequiredAbility" 		"primal_beast_trample"
@@ -9696,10 +9271,6 @@
 	{
 		"TalentRequiredAbility" 		"primal_beast_trample"
 	}
-	"special_bonus_unique_primal_beast_pulverize_pierces_magic_immunity"
-	{
-		"TalentRequiredAbility" 		"primal_beast_pulverize"
-	}
 	"special_bonus_unique_primal_beast_trample_unslowable"
 	{
 		"TalentRequiredAbility" 		"primal_beast_trample"
@@ -9707,10 +9278,6 @@
 
 
 	"special_bonus_unique_muerta_dead_shot_range"
-	{
-		"TalentRequiredAbility"                                                   "muerta_dead_shot"
-	}
-	"special_bonus_unique_muerta_dead_shot_damage"
 	{
 		"TalentRequiredAbility"                                                   "muerta_dead_shot"
 	}
@@ -9726,15 +9293,21 @@
 	{
 		"TalentRequiredAbility"                                                   "muerta_dead_shot"
 	}
-
-	"special_bonus_unique_arc_warden_flux_silences"
+	"special_bonus_unique_muerta_calling_hp_regen"
 	{
-		"TalentRequiredAbility"                                                   "arc_warden_flux"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "muerta_the_calling"
 	}
-
-	"special_bonus_unique_underlord_7"
+	"special_bonus_unique_muerta_gunslinger_bonus_damage"
 	{
-		"TalentRequiredAbility"                                                   "abyssal_underlord_raid_boss"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "muerta_gunslinger"
 	}
 
 	//=================================================================================================================

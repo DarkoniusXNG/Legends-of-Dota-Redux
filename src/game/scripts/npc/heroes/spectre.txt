@@ -139,7 +139,7 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Special Bonus
+	// Ability: Special Bonus // maybe add all illusion spells to the list
 	//=================================================================================================================
 	"special_bonus_unique_spectre_4"
 	{
@@ -164,12 +164,5 @@
 	"special_bonus_unique_spectre_6"
 	{
 		"TalentRequiredAbility"                                                   "spectre_spectral_dagger"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_spectre_desolate_radius"
-	{
-		"TalentRequiredAbility"                                                   "spectre_desolate"
 	}
 }

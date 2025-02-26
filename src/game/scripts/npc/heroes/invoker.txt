@@ -199,7 +199,7 @@
 		"HasScepterUpgrade"			    "1"
 		"AbilityCastRange"				"0"
 		"AbilityCastPoint"				"0.05"
-		"AbilityCooldown"				"25 24 23 22"
+
 		"AbilityManaCost"				"175"
 		"AbilityValues"
 		{
@@ -209,6 +209,11 @@
 			{
 				"value"		"175"
 				"affected_by_aoe_increase"	"1"
+			}
+			"AbilityCooldown"
+			{
+				"value"					"23 22 21 20"
+				"special_bonus_unique_invoker_11" "-4"
 			}
 			"damage"					"200 300 400 500"
 			"vision_distance"			"400"
@@ -263,8 +268,7 @@
 			}
 			"spirit_count"
 			{
-				"value"			"1"
-				"special_bonus_unique_invoker_11" "+1"
+				"value"			"1 1 1 2"
 			}
 		}
 	}
@@ -417,29 +421,9 @@
 		"TalentRequiredAbility"                                                   "invoker_tornado_ad"
 	}
 
-	"special_bonus_unique_invoker_4"
-	{
-		"TalentRequiredAbility"                                                   "invoker_sunstrike_ad"
-	}
-
 	"special_bonus_unique_invoker_5"
 	{
 		"TalentRequiredAbility"                                                   "invoker_alacrity_ad"
-	}
-
-	"special_bonus_unique_invoker_6"
-	{
-		"TalentRequiredAbility"                                                   "invoker_chaos_meteor_ad"
-	}
-
-	"special_bonus_unique_invoker_7"
-	{
-		"TalentRequiredAbility"                                                   "invoker_cold_snap_ad"
-	}
-
-	"special_bonus_unique_invoker_8"
-	{
-		"TalentRequiredAbility"                                                   "invoker_tornado_ad"
 	}
 
 	"special_bonus_unique_invoker_9"
@@ -449,13 +433,15 @@
 
 	"special_bonus_unique_invoker_11"
 	{
-		"TalentRequiredAbility"                                                   "invoker_forge_spirit_ad"
+		"TalentRequiredAbility"                                                   "invoker_sun_strike_ad"
 	}
-
-	"special_bonus_unique_invoker_12"
-	{
-		"TalentRequiredAbility"                                                   "invoker_ice_wall_ad"
-	}
+	
+	// "special_bonus_unique_invoker_13"
+	// {
+		// "AbilityType"                                                          "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		// "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		// "BaseClass"                                                            "special_bonus_base"
+	// }
 
 	"special_bonus_unique_invoker_ice_wall_dps"
 	{

@@ -115,7 +115,7 @@
 	//=================================================================================================================
 	"special_bonus_unique_underlord_8"
 	{
-		"TalentRequiredAbility"                                                   "abyssal_underlord_firestorm"
+		"TalentRequiredAbility"                                                   "abyssal_underlord_atrophy_aura"
 	}
 
 	//=================================================================================================================

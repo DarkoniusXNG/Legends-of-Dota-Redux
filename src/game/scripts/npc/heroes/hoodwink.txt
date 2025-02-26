@@ -91,21 +91,9 @@
 	{
 		"TalentRequiredAbility" 				"hoodwink_acorn_shot"
 	}
-	"special_bonus_unique_hoodwink_sharpshooter_pure_damage"
-	{
-		"TalentRequiredAbility" 				"hoodwink_sharpshooter"
-	}
-	"special_bonus_unique_hoodwink_bushwhack_cooldown"
-	{
-		"TalentRequiredAbility" 				"hoodwink_bushwhack"
-	}
 	"special_bonus_unique_hoodwink_bushwhack_damage"
 	{
 		"TalentRequiredAbility" 				"hoodwink_bushwhack"
-	}
-	"special_bonus_unique_hoodwink_scurry_duration"
-	{
-		"TalentRequiredAbility" 				"hoodwink_scurry"
 	}
 	"special_bonus_unique_hoodwink_acorn_shot_bounces"
 	{

@@ -61,6 +61,15 @@
 		"ReduxPerks"                                                           "blood"
 	}
 
+	"special_bonus_unique_bloodseeker"
+	{
+		"AbilityType"                                                          "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
+		"TalentRequiredAbility"                                                "bloodseeker_bloodrage"
+	}
+
 	"special_bonus_unique_bloodseeker_2"
 	{
 		"TalentRequiredAbility"                                          	   "bloodseeker_blood_bath"

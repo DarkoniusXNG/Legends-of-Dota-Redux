@@ -93,7 +93,7 @@
 	}
 	"special_bonus_unique_drow_ranger_2"
 	{
-		"TalentRequiredAbility"                                                "drow_ranger_frost_arrows"
+		"TalentRequiredAbility"                                                "drow_ranger_multishot"
 	}
 	"special_bonus_unique_drow_ranger_3"
 	{

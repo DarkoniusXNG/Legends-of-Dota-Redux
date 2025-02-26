@@ -94,15 +94,6 @@
 		"TalentRequiredAbility"                                                "dawnbreaker_fire_wreath"
 	}
 
-	"special_bonus_unique_dawnbreaker_fire_wreath_swipe"
-	{
-		"AbilityType"                                                          "DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"                                                            "special_bonus_base"
-
-		"TalentRequiredAbility"                                                "dawnbreaker_fire_wreath"
-	}
-
 	"special_bonus_unique_dawnbreaker_luminosity_attack_count"
 	{
 		"AbilityType"                                                          "DOTA_ABILITY_TYPE_ATTRIBUTES"

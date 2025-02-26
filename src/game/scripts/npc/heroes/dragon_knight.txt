@@ -83,30 +83,6 @@
 
 		"TalentRequiredAbility"                                                "dragon_knight_breathe_fire"
 	}
-	// "special_bonus_unique_dragon_knight_4"
-	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		// "BaseClass"						"special_bonus_base"
-
-		// "TalentRequiredAbility"                                                "dragon_knight_dragon_blood"
-	// }
-	// "special_bonus_unique_dragon_knight_5"
-	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		// "BaseClass"						"special_bonus_base"
-
-		// "TalentRequiredAbility"                                                "dragon_knight_elder_dragon_form"
-	// }
-	// "special_bonus_unique_dragon_knight_6"
-	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		// "BaseClass"						"special_bonus_base"
-
-		// "TalentRequiredAbility"                                                "dragon_knight_elder_dragon_form"
-	// }
 	"special_bonus_unique_dragon_knight_7"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
@@ -121,7 +97,11 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                "dragon_knight_dragon_tail"
+		"TalentRequiredAbility"
+		{
+			"1"                                                                   "dragon_knight_elder_dragon_form"
+			"2"                                                                   "dragon_knight_dragon_blood"
+		}
 	}
 	"special_bonus_unique_dragon_knight_9"
 	{
@@ -129,6 +109,10 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                "dragon_knight_breathe_fire"
+		"TalentRequiredAbility"
+		{
+			"1"                                                                   "dragon_knight_elder_dragon_form"
+			"2"                                                                   "dragon_knight_breathe_fire"
+		}
 	}
 }

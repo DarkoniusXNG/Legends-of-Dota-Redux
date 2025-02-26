@@ -171,16 +171,6 @@
 		"TalentRequiredAbility"			"life_stealer_open_wounds"
 	}
 
-	"special_bonus_unique_lifestealer_7"
-	{
-		"TalentRequiredAbility"			"life_stealer_ghoul_frenzy"
-	}
-
-	"special_bonus_unique_lifestealer_infest_damage"
-	{
-		"TalentRequiredAbility"			"life_stealer_infest"
-	}
-
 	"special_bonus_unique_lifestealer_infest_target_bonus"
 	{
 		"TalentRequiredAbility"			 "life_stealer_infest"
