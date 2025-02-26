@@ -1,5 +1,6 @@
 "DOTAAbilities" {
-	"pudge_flesh_heap_str" {
+	"pudge_flesh_heap_str"
+	{
 		"BaseClass" "ability_lua"
 		"AbilityTextureName" "pudge_flesh_heap"
 		"ScriptFile" "abilities/pudge_flesh_heap_str.lua"
@@ -12,8 +13,11 @@
 
 		"AbilityValues"
         {
-            "flesh_heap_strength_buff_amount" "1.0 1.5 2 2.5"
+            "flesh_heap_strength_buff_amount" "1.1 1.4 1.7 2.0"
             "flesh_heap_range" "450"
         }
+
+		"ReduxFlags"                                                           "dota_custom"
+		"ReduxBans"                     "pudge_innate_graft_flesh"
 	}
 }

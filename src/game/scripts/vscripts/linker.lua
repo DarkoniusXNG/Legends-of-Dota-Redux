@@ -128,3 +128,5 @@ local hero_names = {
 for _, name in pairs (hero_names) do
 	LinkLuaModifier("modifier_npc_dota_hero_"..name.."_perk", "abilities/hero_perks/npc_dota_hero_"..name.."_perk.lua", LUA_MODIFIER_MOTION_NONE)
 end
+
+LinkLuaModifier("modifier_pudge_custom_flesh_heap_kill_tracker", "abilities/modifiers/modifier_pudge_custom_flesh_heap_kill_tracker.lua", LUA_MODIFIER_MOTION_NONE)
