@@ -8393,7 +8393,7 @@
 "DOTA_Tooltip_Ability_beastmaster_hawk_perch"  "Hawk Perch"
 "DOTA_Tooltip_Ability_beastmaster_hawk_perch_Description"  "Jump on a tree anywhere on the map. Global cast range. Gains permanent tree-walking after perching."
 "DOTA_Tooltip_ability_centaur_work_horse_Description"  "Centaur hitches a cart behind him. While active, Centaur gains the benefit of Stampede for the current level of Stampede, and can cast Hitch a Ride on a target ally.<br><br><font color='#FF4949'>Warning:</font> Requires Aghanim Scepter to work."
-"DOTA_Tooltip_ability_dark_seer_normal_punch_Description"  "Passive ability. Causes Dark Seer's next attack on a hero to have True Strike, knock a replica out of the victim, damaging and stunning them based on how far Dark Seer has moved in the past %recent_duration% seconds. Max power is reached after %max_distance% distance moved.<br><br><font color='#FF4949'>Warning:</font> Requires Aghanim Scepter to work."
+"DOTA_Tooltip_ability_dark_seer_normal_punch_Description"  "Passive ability. Causes Dark Seer's next attack on a hero to have True Strike, knock a replica out of the victim, damaging and stunning them based on how far Dark Seer has moved in the past %recent_duration% seconds. Max power is reached after %max_distance% distance moved.<br><br><font color='#FF4949'>Warning:</font> Requires Wall of Replica and Aghanim Scepter to work."
 "DOTA_Tooltip_ablaze_modifier" "<font color='#d30000'>ABLAZE</font>!"
 "DOTA_Tooltip_ablaze_modifier_Description" "You are <font color='#d30000'>Ablaze</font>! Taking half of Molten Lord's amror every 0.5 seconds."
 "DOTA_Tooltip_benneng_beibu" "You are in someone's sight"
