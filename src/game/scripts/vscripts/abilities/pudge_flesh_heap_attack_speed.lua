@@ -60,7 +60,7 @@ end
 
 function modifier_flesh_heap_attack_speed:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_ATTACK_SPEED_BONUS,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
 end
 
