@@ -532,7 +532,7 @@ end
 
 function CDOTA_BaseNPC:HighestTalentTypeValue(talentType)
 	local value = 0
-	for i = 0, 23 do
+	for i = 0, self:GetAbilityCount() - 1 do
 		local talent = self:GetAbilityByIndex(i)
 		if talent and string.match(talent:GetName(), "special_bonus_"..talentType.."_(%d+)") and self:FindTalentValue(talent:GetName()) > value then
 			value = self:FindTalentValue(talent:GetName())
@@ -1042,7 +1042,7 @@ function CDOTA_BaseNPC_Hero:CopyTalents(hEntity, flags) --type 1(generic only), 
     end
 
     if (bit.band(flags, DOTA_TALENT_COPY_UNIQUE) > 0) then
-        local endAbilityIndex = (self:GetAbilityCount()-1)
+        local endAbilityIndex = self:GetAbilityCount() - 1
         while endAbilityIndex >= 0 do
             local ability = self:GetAbilityByIndex(endAbilityIndex)
             if ability then

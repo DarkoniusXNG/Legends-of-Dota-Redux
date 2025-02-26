@@ -13,7 +13,7 @@
         }
         "AbilityValues"
         {
-            "flesh_heap_value_buff_amount" "15 20 25 30"
+            "flesh_heap_value_buff_amount" "5 10 15 20"
             "flesh_heap_range" "450"
         }
         "ReduxFlags"                                                           "dota_custom"

@@ -19,7 +19,7 @@
 	{
 		"ReduxFlags"                                                           "tank"
 		"ReduxPerks"                                                           "blood"
-		"ReduxCost"                                                            "30"
+		"ReduxCost"                                                            "50"
 	}
 
 	"huskar_burning_spear"

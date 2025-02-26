@@ -1,0 +1,116 @@
+// Abilities for tiny
+"DOTAAbilities"
+{
+	"tiny_avalanche"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "earth | skillshot"
+	}
+
+	"tiny_toss"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "earth | enemyMoving"
+	}
+
+	"tiny_tree_grab"
+	{
+		"ReduxFlags"                                                           "physical"
+		"ReduxPerks"                                                           "physical | nature"
+	}
+
+	"tiny_grow"
+	{
+		"ReduxFlags"                                                           "tank"
+		"ReduxPerks"                                                           "earth | nature"
+		"ReduxBans"                                                            "tiny_grow_lod_redux"
+	}
+
+	"tiny_tree_channel"
+	{
+		"ReduxFlags"					"aoe_attack"
+		"ReduxPerks"					"nature | channeled"
+
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"MaxLevel"						"4"
+		"AbilityChannelTime"			"2.5 2.75 3.0 3.25"
+		"AbilityCooldown"				"17 16 15 14"
+		"AbilityManaCost"				"200"
+		"AbilityValues"
+		{
+			"speed"		"1000.0"
+			"range"		"1200"
+			"splash_radius"
+			{
+				"value"		"400"
+				"affected_by_aoe_increase"	"1"
+			}
+			"tree_grab_radius"
+			{
+				"value"		"700"
+				"affected_by_aoe_increase"	"1"
+			}
+			"interval"		"0.5 0.45 0.4 0.35"
+		}
+	}
+
+	//=================================================================================================================
+	// Craggy Exterior (Innate)
+	//=================================================================================================================
+	"tiny_craggy_exterior"
+	{
+		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxPerks"                                                           "earth"
+	}
+
+	//=================================================================================================================
+	// Rocksteady (Unknown)
+	//=================================================================================================================
+	"tiny_rocksteady"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"                                                               "0"
+
+		"ReduxPerks"                                                           "earth"
+	}
+	//=================================================================================================================
+	// Insurmountable (Facet)
+	//=================================================================================================================
+	"tiny_insurmountable"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"                                                               "0"
+
+		"ReduxPerks"                                                           "earth"
+	}
+
+	"special_bonus_unique_tiny"
+	{
+		"TalentRequiredAbility"                                                "tiny_avalanche"
+	}
+	"special_bonus_unique_tiny_2"
+	{
+		"TalentRequiredAbility"                                                "tiny_toss"
+	}
+	"special_bonus_unique_tiny_3"
+	{
+		"TalentRequiredAbility"                                                "tiny_avalanche"
+	}
+	"special_bonus_unique_tiny_4"
+	{
+		"TalentRequiredAbility"                                                "tiny_avalanche"
+	}
+	"special_bonus_unique_tiny_5"
+	{
+		"TalentRequiredAbility"                                                "tiny_toss"
+	}
+	"special_bonus_unique_tiny_6"
+	{
+		"TalentRequiredAbility"                                                "tiny_grow"
+	}
+	"special_bonus_unique_tiny_7"
+	{
+		"TalentRequiredAbility"                                                "tiny_tree_grab"
+	}
+}

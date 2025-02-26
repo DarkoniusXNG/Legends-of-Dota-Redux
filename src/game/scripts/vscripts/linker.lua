@@ -39,7 +39,7 @@ local hero_names = {
 	"grimstroke", -- ok, A tier
 	"gyrocopter", -- ok, A tier
 	"hoodwink", -- ok, missing icon
-	"huskar", -- badly coded idea not bad, D tier
+	"huskar", -- ok, D tier
 	"invoker", -- kinda bad, S tier
 	"jakiro", -- ok, bot
 	"juggernaut", -- ok, A tier, bot
@@ -106,7 +106,7 @@ local hero_names = {
 	"terrorblade", -- ok, S tier
 	"tidehunter", -- ok, A tier
 	"tinker", -- ok, D tier
-	"tiny", -- badly coded idea not bad, bot
+	"tiny", -- ok, bot
 	"treant", -- ok
 	"troll_warlord", -- ok
 	"tusk", -- ok, S tier
@@ -128,3 +128,5 @@ local hero_names = {
 for _, name in pairs (hero_names) do
 	LinkLuaModifier("modifier_npc_dota_hero_"..name.."_perk", "abilities/hero_perks/npc_dota_hero_"..name.."_perk.lua", LUA_MODIFIER_MOTION_NONE)
 end
+
+LinkLuaModifier("modifier_pudge_custom_flesh_heap_kill_tracker", "abilities/modifiers/modifier_pudge_custom_flesh_heap_kill_tracker.lua", LUA_MODIFIER_MOTION_NONE)

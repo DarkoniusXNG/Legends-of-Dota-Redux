@@ -2,7 +2,7 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Abaddon: Death Coil (mist coil)
+	// Abaddon: Death Coil (Mist Coil)
 	//=================================================================================================================
 	"abaddon_death_coil"
 	{
@@ -103,7 +103,7 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"TalentRequiredAbility"                                                   "abaddon_frostmourne"
+		"TalentRequiredAbility"                                                   "abaddon_withering_mist"
 	}
 
 	"special_bonus_unique_abaddon_7"

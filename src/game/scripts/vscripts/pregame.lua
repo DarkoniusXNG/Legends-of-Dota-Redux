@@ -1873,7 +1873,7 @@ function Pregame:networkHeroes()
             if heroData.BotImplemented == 1 then
                 self.botHeroes[heroName] = {}
 
-                for i = 1, DOTA_MAX_ABILITIES - 1 do
+                for i = 1, DOTA_MAX_ABILITIES do
                     local abName = heroData['Ability' .. i]
                     if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
                         table.insert(self.botHeroes[heroName], abName)
@@ -1934,11 +1934,14 @@ function Pregame:networkHeroes()
             end
 
             local sn = 1
-            for i = 1, DOTA_MAX_ABILITIES - 1 do
+            for i = 1, DOTA_MAX_ABILITIES do
                 local abName = heroData['Ability' .. i]
                 if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
                     theData['Ability' .. sn] = abName
                     sn = sn + 1
+                    if util:IsVanillaInnate(abName) then
+                        self.vanillaInnates[heroName] = abName
+                    end
                 end
             end
 
@@ -1953,7 +1956,7 @@ function Pregame:networkHeroes()
 
             local sb = 1
             local talentStartIndex = heroData.AbilityTalentStart or baseHero.AbilityTalentStart
-            for i = tonumber(talentStartIndex), DOTA_MAX_ABILITIES - 1 do
+            for i = tonumber(talentStartIndex), DOTA_MAX_ABILITIES do
                 local abName = heroData['Ability' .. i]
                 if abName and util:IsTalent(abName) then
                     theData['SpecialBonus'..tostring(math.ceil(sb / 2))] = theData['SpecialBonus'..tostring(math.ceil(sb / 2))] or {}
@@ -1968,13 +1971,10 @@ function Pregame:networkHeroes()
             allowedHeroes[heroName] = true
 
             -- Store the owners
-            for i = 1, DOTA_MAX_ABILITIES - 1 do
+            for i = 1, DOTA_MAX_ABILITIES do
                 local abName = theData['Ability'..i]
                 if abName and abName ~= '' and abName ~= 'special_bonus_attributes' and abName ~= 'generic_hidden' then
                     self.abilityHeroOwner[abName] = heroName
-                    if util:IsVanillaInnate(abName) then
-                        self.vanillaInnates[heroName] = abName
-                    end
                 end
             end
         end
@@ -7316,13 +7316,13 @@ function Pregame:levelUpAbilities(hero)
 
     if points >= 1 then
         for p=1,points do
-            for i = 0, DOTA_MAX_ABILITIES - 1 do
+            for i = 0, hero:GetAbilityCount() - 1 do
                 if upgrades >= points then
                     break
                 end
 
-                if hero:GetAbilityByIndex(i) then
-                    local ability = hero:GetAbilityByIndex(i)
+                local ability = hero:GetAbilityByIndex(i)
+                if ability then
                     local function attemptUpgrade( ability )
                         if ability and ability:GetLevel() < ability:GetMaxLevel() and not ability:IsHidden() and not string.match(ability:GetName(), "special") and upgrades < points then
                             ability:UpgradeAbility(false)
@@ -7411,7 +7411,7 @@ function Pregame:hookBotStuff()
 
                     -- Leveling the talents for bots
                     if keys.level == 10 then
-                        for i = 1, DOTA_MAX_ABILITIES - 1 do
+                        for i = 1, hero:GetAbilityCount() - 1 do
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(0,1)
@@ -7420,7 +7420,7 @@ function Pregame:hookBotStuff()
                             end
                         end
                     elseif keys.level == 15 then
-                        for i = 1, DOTA_MAX_ABILITIES - 1 do
+                        for i = 1, hero:GetAbilityCount() - 1 do
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(2,3)
@@ -7430,7 +7430,7 @@ function Pregame:hookBotStuff()
                         end
 
                     elseif keys.level == 20 then
-                        for i = 1, DOTA_MAX_ABILITIES - 1 do
+                        for i = 1, hero:GetAbilityCount() - 1 do
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(4,5)
@@ -7440,7 +7440,7 @@ function Pregame:hookBotStuff()
                         end
 
                     elseif keys.level == 25 then
-                        for i = 1, DOTA_MAX_ABILITIES - 1 do
+                        for i = 1, hero:GetAbilityCount() - 1 do
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(6,7)
@@ -7470,7 +7470,7 @@ function Pregame:applyExtraAbility( spawnedUnit )
             local random = RandomInt(1,16)
             local givenAbility = false
             -- Randomly choose which flesh heap to give them
-            if random == 1 and not spawnedUnit:HasAbility('pudge_flesh_heap') then fleshHeapToGive = "pudge_flesh_heap" ; givenAbility = true
+            if random == 1 and not spawnedUnit:HasAbility('pudge_flesh_heap_str') then fleshHeapToGive = "pudge_flesh_heap_str" ; givenAbility = true
             elseif random == 2 and not spawnedUnit:HasAbility('pudge_flesh_heap_int') then fleshHeapToGive = "pudge_flesh_heap_int" ; givenAbility = true
             elseif random == 3 and not spawnedUnit:HasAbility('pudge_flesh_heap_agility') then fleshHeapToGive = "pudge_flesh_heap_agility" ; givenAbility = true
             elseif random == 4 and not spawnedUnit:HasAbility('pudge_flesh_heap_move_speed') then fleshHeapToGive = "pudge_flesh_heap_move_speed" ; givenAbility = true
@@ -7481,7 +7481,7 @@ function Pregame:applyExtraAbility( spawnedUnit )
             elseif random == 9 and not spawnedUnit:HasAbility('pudge_flesh_heap_magic_resistance') then fleshHeapToGive = "pudge_flesh_heap_evasion" ; givenAbility = true
             elseif random == 10 and not spawnedUnit:HasAbility('pudge_flesh_heap_evasion') then fleshHeapToGive = "pudge_flesh_heap_evasion" ; givenAbility = true
             elseif random == 11 and not spawnedUnit:HasAbility('pudge_flesh_heap_cast_range') then fleshHeapToGive = "pudge_flesh_heap_cast_range" ; givenAbility = true
-            elseif random == 12 and not spawnedUnit:HasAbility('pudge_flesh_heap_tenacity') then fleshHeapToGive = "pudge_flesh_heap_tenacity" ; givenAbility = true
+            elseif random == 12 and not spawnedUnit:HasAbility('pudge_flesh_heap_attack_speed ') then fleshHeapToGive = "pudge_flesh_heap_attack_speed " ; givenAbility = true
             elseif random == 13 and not spawnedUnit:HasAbility('pudge_flesh_heap_willpower') then fleshHeapToGive = "pudge_flesh_heap_willpower" ; givenAbility = true
             elseif random == 14 and not spawnedUnit:HasAbility('pudge_flesh_heap_armor') then fleshHeapToGive = "pudge_flesh_heap_armor" ; givenAbility = true
             elseif random == 15 and not spawnedUnit:HasAbility('pudge_flesh_heap_health_regeneration') then fleshHeapToGive = "pudge_flesh_heap_health_regeneration" ; givenAbility = true
@@ -7490,7 +7490,7 @@ function Pregame:applyExtraAbility( spawnedUnit )
 
             -- If they randomly picked a flesh heap they already had, go through this list and try to give them one until they get one
             if not givenAbility then
-                if not spawnedUnit:HasAbility('pudge_flesh_heap') then fleshHeapToGive = "pudge_flesh_heap"
+                if not spawnedUnit:HasAbility('pudge_flesh_heap_str') then fleshHeapToGive = "pudge_flesh_heap_str"
                 elseif not spawnedUnit:HasAbility('pudge_flesh_heap_int') then fleshHeapToGive = "pudge_flesh_heap_int"
                 elseif not spawnedUnit:HasAbility('pudge_flesh_heap_agility') then fleshHeapToGive = "pudge_flesh_heap_agility"
                 elseif not spawnedUnit:HasAbility('pudge_flesh_heap_move_speed') then fleshHeapToGive = "pudge_flesh_heap_move_speed"
@@ -7660,10 +7660,10 @@ function Pregame:fixSpawnedHero( spawnedUnit )
 	if not util:isPlayerBot(playerID) and IsValidEntity(spawnedUnit) then
 		local vanillaInnateName = self.vanillaInnates[spawnedUnit:GetUnitName()]
 		local disabledInnates = {
-			bounty_hunter_cutpurse = true,
+			invoker_invoke = true,
 		}
 		-- Add vanilla innate if it's not disabled and if the hero does not have it already
-		if not disabledInnates[vanillaInnateName] and not spawnedUnit:HasAbility(vanillaInnateName) then
+		if vanillaInnateName and not disabledInnates[vanillaInnateName] and not spawnedUnit:HasAbility(vanillaInnateName) then
 			local vanillaInnate = spawnedUnit:AddAbility(vanillaInnateName)
 			if vanillaInnate then
 				print('Pregame:fixSpawnedHero: Innate '..vanillaInnateName..' sucessfully added to '..spawnedUnit:GetUnitName())
@@ -7739,27 +7739,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                 end
             end
 
-            -- Stalker Innate Auto-Level
-            --if spawnedUnit:HasAbility('night_stalker_innate_redux') then
-            --    local stalkerInnate = spawnedUnit:FindAbilityByName('night_stalker_innate_redux')
-            --    if stalkerInnate then
-            --        if stalkerInnate:GetLevel() ~= 1 then
-            --            stalkerInnate:UpgradeAbility(false)
-            --        end
-            --    end
-            --end
-
-            -- KOTL Innate Auto-Level
-            --if spawnedUnit:HasAbility('keeper_of_the_light_innate_redux') then
-            --    local kotlInnate = spawnedUnit:FindAbilityByName('keeper_of_the_light_innate_redux')
-            --    if kotlInnate then
-            --        if kotlInnate:GetLevel() ~= 1 then
-            --            kotlInnate:UpgradeAbility(false)
-            --        end
-            --    end
-            --end
-
-             -- 'No Charges' fix for Tiny Toss
+            -- 'No Charges' fix for Tiny Toss
             if spawnedUnit:HasAbility('tiny_toss') then
                 Timers:CreateTimer(function()
                     local toss = spawnedUnit:FindAbilityByName('tiny_toss')
@@ -7873,7 +7853,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
 			-- CUSTOMSLOTS = {
 				-- npc_dota_hero_nevermore = (maxSlots == 4 and 6 or 8)
 			-- }
-			-- for i = 0, DOTA_MAX_ABILITIES - 1 do
+			-- for i = 0, spawnedUnit:GetAbilityCount() - 1 do
                 -- local ab = spawnedUnit:GetAbilityByIndex(i)
                 -- if ab and not string.match(ab:GetAbilityName(), "special_bonus") and not string.match(ab:GetName(), "perk") and spawnedUnit:GetUnitName() == 'npc_dota_hero_nevermore' then
                     -- ab:SetHidden(false)
@@ -8226,15 +8206,6 @@ function Pregame:fixSpawningIssues()
                     noticeAura:SetLevel(1)
                 end, DoUniqueString('eyesFix'), 0.5)
             end
-
-        -- Remove Gyro's innate scepter bonus
-        --[[Timers:CreateTimer(function()
-            if IsValidEntity(spawnedUnit) then
-                if spawnedUnit:HasModifier('modifier_gyrocopter_flak_cannon_scepter') then
-                    spawnedUnit:RemoveModifierByName('modifier_gyrocopter_flak_cannon_scepter')
-                end
-            end
-        end, DoUniqueString('gyroFixInnate'), 1)]]--
 
             if Wearables:HasDefaultWearables( spawnedUnit:GetUnitName() ) then
                 Wearables:AttachWearableList( spawnedUnit, Wearables:GetDefaultWearablesList( spawnedUnit:GetUnitName() ) )

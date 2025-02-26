@@ -82,7 +82,7 @@
 	"alchemist_corrosive_weaponry"
 	{
 		"ReduxFlags"                    "attack_modifier"
-		"ReduxPerks"                    "poison"
+		"ReduxPerks"                    "attack_modifier | poison"
 	}
 
 	"special_bonus_unique_alchemist"

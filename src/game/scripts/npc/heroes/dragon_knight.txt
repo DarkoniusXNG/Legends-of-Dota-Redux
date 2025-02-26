@@ -4,8 +4,7 @@
 	"dragon_knight_dragon_blood"
 	{
 		"ReduxFlags"                                                           "aoe_attack | attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | physical | blood"
-		"ReduxCost"                                                            "10"
+		"ReduxPerks"                                                           "attack_modifier | physical | blood | poison"
 	}
 
 	"dragon_knight_elder_dragon_form"
@@ -66,7 +65,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "dragon_knight_inherited_vigor"
+		"TalentRequiredAbility"                                                "dragon_knight_inherited_vigor"
 	}
 	"special_bonus_unique_dragon_knight_2"
 	{
@@ -74,7 +73,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "dragon_knight_dragon_tail"
+		"TalentRequiredAbility"                                                "dragon_knight_dragon_tail"
 	}
 	"special_bonus_unique_dragon_knight_3"
 	{
@@ -82,39 +81,15 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "dragon_knight_breathe_fire"
+		"TalentRequiredAbility"                                                "dragon_knight_breathe_fire"
 	}
-	// "special_bonus_unique_dragon_knight_4"
-	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		// "BaseClass"						"special_bonus_base"
-
-		// "TalentRequiredAbility"                                                   "dragon_knight_dragon_blood"
-	// }
-	// "special_bonus_unique_dragon_knight_5"
-	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		// "BaseClass"						"special_bonus_base"
-
-		// "TalentRequiredAbility"                                                   "dragon_knight_elder_dragon_form"
-	// }
-	// "special_bonus_unique_dragon_knight_6"
-	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		// "BaseClass"						"special_bonus_base"
-
-		// "TalentRequiredAbility"                                                   "dragon_knight_elder_dragon_form"
-	// }
 	"special_bonus_unique_dragon_knight_7"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "dragon_knight_elder_dragon_form"
+		"TalentRequiredAbility"                                                "dragon_knight_elder_dragon_form"
 	}
 	"special_bonus_unique_dragon_knight_8"
 	{
@@ -122,7 +97,11 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "dragon_knight_dragon_tail"
+		"TalentRequiredAbility"
+		{
+			"1"                                                                   "dragon_knight_elder_dragon_form"
+			"2"                                                                   "dragon_knight_dragon_blood"
+		}
 	}
 	"special_bonus_unique_dragon_knight_9"
 	{
@@ -130,6 +109,10 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "dragon_knight_breathe_fire"
+		"TalentRequiredAbility"
+		{
+			"1"                                                                   "dragon_knight_elder_dragon_form"
+			"2"                                                                   "dragon_knight_breathe_fire"
+		}
 	}
 }

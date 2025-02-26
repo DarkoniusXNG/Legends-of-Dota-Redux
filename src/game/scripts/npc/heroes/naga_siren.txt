@@ -170,16 +170,17 @@
 	//=================================================================================================================
 	// Ability: Special Bonus
 	//=================================================================================================================
-	"special_bonus_unique_naga_siren_net_cooldown"
+	"special_bonus_unique_naga_siren_net_breaks"
 	{
 		"TalentRequiredAbility"                                                   "naga_siren_ensnare"
 	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_naga_siren_net_breaks"
+	"special_bonus_unique_naga_siren_reel_in_speed"
 	{
-		"TalentRequiredAbility"                                                   "naga_siren_ensnare"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "naga_siren_reel_in"
 	}
 }

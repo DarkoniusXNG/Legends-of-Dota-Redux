@@ -5,7 +5,7 @@
 	//=================================================================================================================
 	"bane_enfeeble"
 	{
-		"ReduxPerks"                                "drain"
+		"ReduxPerks"                                "demon"
 	}
 
 	//=================================================================================================================
@@ -13,7 +13,7 @@
 	//=================================================================================================================
 	"bane_brain_sap"
 	{
-		"ReduxPerks"                                "drain"
+		"ReduxPerks"                                "demon | drain"
 	}
 
 	//=================================================================================================================
@@ -22,7 +22,7 @@
 	"bane_fiends_grip"
 	{
 		"ReduxFlags"                                "upgradeable | stun"
-		"ReduxPerks"                                "drain | channeled"
+		"ReduxPerks"                                "channeled | demon | drain"
 		"ReduxCost"                                 "10"
 	}
 
@@ -32,7 +32,7 @@
 	"bane_nightmare"
 	{
 		"ReduxFlags"                                "stun"
-		"ReduxPerks"                                "sleep"
+		"ReduxPerks"                                "demon | sleep"
 	}
 
 	//=================================================================================================================
@@ -41,6 +41,8 @@
 	"bane_ichor_of_nyctasha"
 	{
 		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxPerks"                                "demon"
 	}
 
 	"special_bonus_unique_bane_1"

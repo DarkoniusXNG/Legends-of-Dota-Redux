@@ -328,7 +328,6 @@
             "monkey_king_wukongs_command"   "1"
             //"monkey_king_mischief"  "1" // makes the model of the hero completely invisible sometimes
             "morphling_adaptive_strike_agi"            "1"
-            "morphling_adaptive_strike_str"           "1"
             "morphling_morph_agi"            "1"
             "morphling_morph_str"            "1"
             "morphling_replicate"            "1"
@@ -889,9 +888,9 @@
 			"leshrac_chronoptic_nourishment"		"1"
 			"leshrac_defilement"		"1"
 			"lich_death_charge"		"1"
-			"lich_innate_chain_frost_bounces"		"1"
-			"lich_innate_chain_frost_projectile_speed"		"1"
-			"lich_variant_ice_rite"		"1"
+			//"lich_innate_chain_frost_bounces"		"1" // does not exist
+			//"lich_innate_chain_frost_projectile_speed"		"1" // does not exist
+			//"lich_variant_ice_rite"		"1" // does not exist
 			"life_stealer_corpse_eater"		"1"
 			"life_stealer_unfettered"		"1"
 			"lina_slow_burn"		"1"
@@ -1054,7 +1053,7 @@
 			"ringmaster_wheel"                     "1"
 			"ringmaster_impalement"                "1"
 			"ringmaster_dark_carnival_souvenirs"   "1"
-			
+
 			// Kez
 			"kez_echo_slash"                       "1"
 			"kez_grappling_claw"                   "1"
@@ -1065,6 +1064,14 @@
 			"kez_shodo_sai"                        "1"
 			"kez_ravens_veil"                      "1"
 			"kez_switch_weapons"                   "1"
+
+			// 7.38
+			"shadow_shaman_voodoo_hands"           "1"
+			"dazzle_nothl_projection"              "1"
+			"dark_seer_aggrandize"                 "1"
+			"chaos_knight_fundamental_forging"     "1"
+			"keeper_of_the_light_special_reserve"  "1"
+			"medusa_undulation"                    "1"
         }
         // The neutrals skills
         "neutral" {
@@ -1166,10 +1173,11 @@
             }
 
             "roshan_group" {
-                "roshan_slam"                "1"
-                "roshan_spell_block"                "1"
-                "roshan_bash"                "1"
+				"roshan_slam"                "1"
+				"roshan_spell_block"                "1"
+				"roshan_bash"                "1"
 				"roshan_revengeroar"		"1"
+				"roshan_grab_and_throw"                "1"
             }
 
             "prowler_group" {
@@ -1185,7 +1193,13 @@
             }
 
             "misc_neutral_1_group" {
-
+				"frogmen_riverborn_aura"		"1"
+				"frogmen_arm_of_the_deep"		"1"
+				"frogmen_tendrils_of_the_deep"		"1"
+				"frogmen_congregation_of_the_deep"		"1"
+				"frogmen_water_bubble_small"		"1"
+				"frogmen_water_bubble_medium"		"1"
+				"frogmen_water_bubble_large"		"1"
             }
 
             "misc_neutral_2_group" {
@@ -1200,28 +1214,26 @@
         {
             "flesh_heap"
             {
-                  "pudge_flesh_heap_agility"            "1"       // errors on startup but does work ok
+                  "pudge_flesh_heap_str"            "1"
+                  "pudge_flesh_heap_agility"            "1"
                   "pudge_flesh_heap_int"            "1"
-                  "pudge_flesh_heap_move_speed"     "1"           // works ok
-                  "pudge_flesh_heap_spell_amp"       "1"          // works ok but doesnt show extra spell amp on character sheet
-                  "pudge_flesh_heap_attack_range"   "1"           // works ok
-                  // "pudge_flesh_heap_attack_speed"   "1"         // script errors
-                  "pudge_flesh_heap_cast_range"   "1"             // works ok
-                  "pudge_flesh_heap_bonus_vision" "1"             // works ok
-                  "pudge_flesh_heap_cooldown_reduction" "1"       // errors on startup but does work ok
-                  "pudge_flesh_heap_magic_resistance" "1"         // works ok
-                  "pudge_flesh_heap_evasion" "1"                  // errors on startup but does work ok
+                  "pudge_flesh_heap_move_speed"     "1"
+                  "pudge_flesh_heap_spell_amp"       "1"
+                  "pudge_flesh_heap_attack_range"   "1"
+                  "pudge_flesh_heap_attack_speed"   "1"        
+                  "pudge_flesh_heap_cast_range"   "1"
+                  "pudge_flesh_heap_bonus_vision" "1"
+                  "pudge_flesh_heap_cooldown_reduction" "1"
+                  "pudge_flesh_heap_magic_resistance" "1"
+                  "pudge_flesh_heap_evasion" "1"
                   // "pudge_flesh_heap_spell_lifesteal" "1"        // not working
                   // "pudge_flesh_heap_lifesteal" "1"              // not working
-                  "pudge_flesh_heap_armor" "1"                    // works ok
-                  "pudge_flesh_heap_health_regeneration" "1"      // works ok
-                  "pudge_flesh_heap_mana_regeneration" "1"        // works ok
-                  "pudge_flesh_heap_minion_damage" "1"            // works ok
-                  "pudge_flesh_heap_tenacity" "1"                 // script errors when levelling up but does work ok
-                  "pudge_flesh_heap_willpower" "1"                // script errors when levelling up but does work ok
-
-                  // most of these have CalculateStatBonus script errors so may not work as intended
-
+                  "pudge_flesh_heap_armor" "1"
+                  "pudge_flesh_heap_health_regeneration" "1"
+                  "pudge_flesh_heap_mana_regeneration" "1"
+                  "pudge_flesh_heap_minion_damage" "1"
+                  //"pudge_flesh_heap_tenacity" "1"                 // script errors when levelling up but does work ok
+                  "pudge_flesh_heap_willpower" "1"
             }
 
             "survivor"
@@ -2531,9 +2543,12 @@
                   "templar_assassin_psi_blades_op"          "1"
                   "abyssal_underlord_atrophy_aura_op"     "1"       // needs updating to match new version
 				  "tornado_tempest"						"1"
-				  "miniboss_reflect"					"1"
-				  "miniboss_unyielding_shield"			"1"
-				  "miniboss_radiance"					"1"
+                  "miniboss_reflect"					"1"
+                  "miniboss_unyielding_shield"			"1"
+                  "miniboss_radiance"					"1"
+                  "miniboss_alleviation"                 "1"
+                  "miniboss_minion_unyielding_shield"		"1"
+                  "miniboss_minion_deflecting_shield"		"1"
 				  "meepo_divided_we_stand"            "1"
             }
 
@@ -2645,6 +2660,7 @@
 		"npc_dota_hero_bloodseeker" {
             "1"            "bloodseeker_thirst_lod"
             "2"            "bloodseeker_blood_bath2"
+			"3"            "bloodseeker_blood_mist"
         }
 
 		"npc_dota_hero_bounty_hunter" {
@@ -2683,6 +2699,7 @@
 
 		"npc_dota_hero_chaos_knight" {
             "1"        "chaos_knight_phantasmagoria"
+			"2"        "chaos_knight_fundamental_forging"
 		}
 
 		"npc_dota_hero_chen" {
@@ -2700,6 +2717,7 @@
 		"npc_dota_hero_dark_seer" {
 			"1"            "dark_seer_quick_wit"
 			"2"            "dark_seer_heart_of_battle"
+			"3"            "dark_seer_mental_fortitude"
 		}
 
 		// "npc_dota_hero_dark_willow" {
@@ -2721,6 +2739,7 @@
             "3"        "dazzle_good_juju"
             "4"        "dazzle_bad_juju_redux"
 			"5"		   "dazzle_rain_of_vermin"
+			"6"        "dazzle_bad_juju"
         }
 
 		"npc_dota_hero_death_prophet" {
@@ -2807,12 +2826,13 @@
             "8"            "invoker_sun_strike_ad"
             "9"            "invoker_tornado_ad"
             "10"           "invoker_deafening_blast_ad"
+			"11"           "invoker_mastermind"
         }
 
-		"npc_dota_hero_jakiro" {
-			"1"		"jakiro_liquid_fire"
-			"2"		"jakiro_liquid_ice"
-		}
+		// "npc_dota_hero_jakiro" {
+			// "1"		"jakiro_liquid_fire"
+			// "2"		"jakiro_liquid_ice"
+		// }
 
 		"npc_dota_hero_juggernaut" {
 			"1"            "juggernaut_bladeform"
@@ -2824,6 +2844,7 @@
             "3"  "keeper_of_the_light_recall"
             "4"  "keeper_of_the_light_innate_redux"
 			"5"	 "keeper_of_the_light_radiant_bind"
+			"6"  "keeper_of_the_light_mana_magnifier"
         }
 
 		"npc_dota_hero_kunkka" {
@@ -2841,10 +2862,9 @@
         }
 
 		"npc_dota_hero_life_stealer" {
-            "1"           "life_stealer_rage"
-            "2"           "life_stealer_assimilate"
-			"3"			  "life_stealer_unfettered"
-			"4"           "life_stealer_corpse_eater"
+            "1"           "life_stealer_assimilate"
+			"2"			  "life_stealer_unfettered"
+			"3"           "life_stealer_corpse_eater"
         }
 
 		"npc_dota_hero_lina" {
@@ -2876,11 +2896,11 @@
 
 		"npc_dota_hero_marci" {
 			"1"		"marci_guardian"
-			"2"		"marci_bodyguard"
         }
 
 		"npc_dota_hero_medusa" {
 			"1"     "medusa_venomed_volley"
+			"2"     "medusa_undulation"
 		}
 
 		"npc_dota_hero_meepo" {
@@ -2889,9 +2909,8 @@
         }
 
 		"npc_dota_hero_mirana" {
-            "1"           "mirana_invis"
-			"2"			  "mirana_starfall_lod"
-			"3"           "mirana_solar_flare"
+			"1"			  "mirana_starfall_lod"
+			"2"           "mirana_solar_flare"
         }
 
 		"npc_dota_hero_morphling"
@@ -2906,6 +2925,7 @@
 
 		"npc_dota_hero_muerta" {
 			"1"  "muerta_ofrenda"
+			"2"  "muerta_parting_shot"
 		}
 
 		"npc_dota_hero_naga_siren" {
@@ -2954,7 +2974,7 @@
 			"1"    "oracle_clairvoyant_cure"
 			"2"    "oracle_clairvoyant_curse"
 		}
-		
+
 		"npc_dota_hero_pangolier" {
 			"1"    "pangolier_heartpiercer_old"
 		}
@@ -2965,7 +2985,7 @@
 
 		"npc_dota_hero_queenofpain" {
             "1"   "queenofpain_masochist"
-			"2"   "queenofpain_succubus"
+			"2"   "queenofpain_bondage"
         }
 
 		"npc_dota_hero_razor" {
@@ -2989,6 +3009,7 @@
 
 		"npc_dota_hero_shadow_shaman" {
 			"1"		"shadow_shaman_serpentine"
+			"2"     "shadow_shaman_voodoo_hands"
         }
 
 		"npc_dota_hero_shredder" {

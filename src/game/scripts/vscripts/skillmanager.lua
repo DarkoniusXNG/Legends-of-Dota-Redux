@@ -41,7 +41,7 @@ for heroName, value in pairs(herolist) do
             heroIDToName[heroData.HeroID] = heroName
 
             -- Loop over all possible slots
-            for i = 1, DOTA_MAX_ABILITIES - 1 do
+            for i = 1, DOTA_MAX_ABILITIES do
                 -- Grab the ability
                 local ab = heroData['Ability'..i]
 
@@ -188,7 +188,7 @@ function SkillManager:GetHeroSkills(heroClass)
 
     -- Build list of abilities
     local heroData = GetUnitKeyValuesByName(heroClass)
-    for i = 1, DOTA_MAX_ABILITIES - 1 do
+    for i = 1, DOTA_MAX_ABILITIES do
         local ab = heroData["Ability"..i]
         if ab and ab ~= '' and ab ~= 'special_bonus_attributes' then --and ab ~= 'generic_hidden' then
             table.insert(skills, ab)
@@ -341,7 +341,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
         playerID = hero:GetPlayerID()
 
         if hero and playerID and not util:isPlayerBot(playerID) then
-            for i = 0, DOTA_MAX_ABILITIES - 1 do
+            for i = 0, hero:GetAbilityCount() - 1 do
                 local ab = hero:GetAbilityByIndex(i)
                 if ab and not DONOTREMOVE[ab:GetAbilityName()] then
                     hero:RemoveAbility(ab:GetName())
@@ -400,7 +400,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
 
 
             -- Handle cooldowns
-            for i = 0, hero:GetAbilityCount()-1 do
+            for i = 0, hero:GetAbilityCount() - 1 do
                 local ab = hero:GetAbilityByIndex(i)
                 if IsValidEntity(ab) then
                     local timeLeft = ab:GetCooldownTimeRemaining()
@@ -419,7 +419,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
                 hero = PlayerResource:ReplaceHeroWith(playerID, build.hero, 0, 0)
                 UTIL_Remove(old)
                 if hero and playerID and not util:isPlayerBot(playerID) then
-                    for i = 0, DOTA_MAX_ABILITIES - 1 do
+                    for i = 0, hero:GetAbilityCount() - 1 do
                         local ab = hero:GetAbilityByIndex(i)
                         if ab and not DONOTREMOVE[ab:GetAbilityName()] then
                             hero:RemoveAbility(ab:GetName())
@@ -568,17 +568,6 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
 
     -- List of abilities we've already seen
     local seenAbilities = {}
-
-    -- Build slot list for swapping
-    --[[local slotList = {}
-    local slotCount = 0
-    for i=1,23 do
-        local ab = hero:GetAbilityByIndex(i)
-        if ab then
-            slotList[i] = ab:GetClassname()
-            slotCount = slotCount+1
-        end
-    end]]
 
     -- Copy
     local abs = {}
@@ -799,20 +788,6 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
     end
 end
 
---function SkillManager:overrideHooks()
-    -- Implement the get ability by slot index method
-    --[[if GameRules:isSource1() then
-        function CDOTA_BaseNPC:GetAbilityByIndex(index)
-            if currentSkillList[self] then
-                local skillName = currentSkillList[self][index]
-                if skillName then
-                    return self:FindAbilityByName(skillName)
-                end
-            end
-        end
-    end]]
---end
-
 -- Grabs an object that has a new build with an ability slot changed
 function SkillManager:grabNewBuild(originalBuild, slotNumber, newAbility)
     local build = {}
@@ -891,7 +866,7 @@ function SkillManager:isPassive(name)
     if not name then
         return false
     end    
-    if name == "" or name == 'special_bonus_attributes' or name == 'generic_hidden' or DONOTREMOVE[name] then
+    if name == "" or name == 'special_bonus_attributes' or name == 'generic_hidden' or DONOTREMOVE[name] or name == "ability_base" then
         return false
     end
     local ability_data = GetAbilityKeyValuesByName(name)

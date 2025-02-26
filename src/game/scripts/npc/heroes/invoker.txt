@@ -6,14 +6,19 @@
 	"invoker_mastermind"
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
 		"ReduxFlags"                    "doNotRandom"
 	}
 
+	//=================================================================================================================
+	// Invoker: Cold Snap (AD)
+	//=================================================================================================================
 	"invoker_cold_snap_ad"
 	{
-		"AbilityTextureName"            "invoker_cold_snap_ad_png"
 		"ReduxFlags"                    "stun"
 		"ReduxPerks"                    "ice"
+
+		"AbilityTextureName"            "invoker_cold_snap_ad_png"
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.05"
 		"AbilityManaCost"				"90"
@@ -40,9 +45,10 @@
 	//=================================================================================================================
 	"invoker_ghost_walk_ad"
 	{
-		"AbilityTextureName"            "invoker_ghost_walk_ad_png"
-		"ReduxPerks"                    "ice | mobility | invis"
 		"ReduxFlags"                    "invis | mobility"
+		"ReduxPerks"                    "invis | mobility | ice"
+
+		"AbilityTextureName"            "invoker_ghost_walk_ad_png"
 		"MaxLevel"						"4"
 		"AbilityManaCost"				"175"
 		"AbilityCastPoint"				"0.05"
@@ -50,7 +56,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"32 28 24 20"
+				"value"					"45 40 35 30"
 			}
 			"duration"				"100.0"
 			"area_of_effect"
@@ -69,9 +75,10 @@
 	//=================================================================================================================
 	"invoker_tornado_ad"
 	{
-		"AbilityTextureName"            "invoker_tornado_ad_png"
 		"ReduxFlags"                    "stun"
-		"ReduxPerks"                    "skillshot"
+		"ReduxPerks"                    "nature | skillshot"
+
+		"AbilityTextureName"            "invoker_tornado_ad_png"
 		"AbilityCastRange"				"2000"
 		"AbilityCastPoint"				"0.05"
 		"AbilityManaCost"				"140"
@@ -79,10 +86,10 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"27 25 23 21"
+				"value"					"30 27 24 21"
 				"special_bonus_unique_invoker_3" "-4"
 			}
-			"travel_distance"		"1500 2100 2700 3300"
+			"travel_distance"		"1400 2000 2600 3200"
 			"travel_speed"			"1000"
 			"area_of_effect"
 			{
@@ -99,7 +106,7 @@
 			{
 				"value"				"1.1 1.6 2.1 2.6"
 			}
-			"base_damage"			"50"
+			"base_damage"			"70"
 			"quas_damage"			"0 0 0 0"
 			"wex_damage"			"90 180 270 360"
 		}
@@ -110,15 +117,15 @@
 	//=================================================================================================================
 	"invoker_emp_ad"
 	{
+		"ReduxFlags"					"mana"
+		"ReduxPerks"					"drain | skillshot"
+
 		"AbilityTextureName"            "invoker_emp_ad_png"
 		"HasShardUpgrade"				"1"
 		"AbilityCastRange"				"950"
 		"AbilityCastPoint"				"0.05"
-		"AbilityCooldown"				"27 24 21 18"
+		"AbilityCooldown"				"30 26 22 18"
 		"AbilityManaCost"				"125"
-
-		"ReduxFlags"					"mana"
-		"ReduxPerks"					"drain | skillshot"
 
 		"AbilityValues"
 		{
@@ -133,7 +140,7 @@
 			}
 			"mana_burned"
 			{
-				"value"			"100 275 450 625"
+				"value"			"100 250 400 550"
 			}
 			"damage_per_mana_pct"
 			{
@@ -155,13 +162,13 @@
 	//=================================================================================================================
 	"invoker_alacrity_ad"
 	{
-		"AbilityTextureName"            "invoker_alacrity_ad_png"
-		"ReduxPerks"                    "support"
 		"ReduxFlags"					"support"
-		"AbilitySound"					"Hero_Invoker.Alacrity"
+		"ReduxPerks"                    "support"
+
+		"AbilityTextureName"            "invoker_alacrity_ad_png"
 		"AbilityCastRange"				"650"
 		"AbilityCastPoint"				"0.05"
-		"AbilityCooldown"				"15 14 13 12"
+		"AbilityCooldown"				"17 16 15 14"
 		"AbilityManaCost"				"90"
 		"AbilityValues"
 		{
@@ -184,14 +191,15 @@
 	//=================================================================================================================
 	"invoker_sun_strike_ad"
 	{
+		"ReduxFlags"					"upgradeable | wtfAutoBan"
+		"ReduxPerks"                    "fire | light | skillshot"
+
 		"AbilityTextureName"            "invoker_sun_strike_ad_png"
-		"ReduxPerks"                    "fire | skillshot"
-		"ReduxFlags"					"upgradeable"
 		"MaxLevel"						"4"
 		"HasScepterUpgrade"			    "1"
 		"AbilityCastRange"				"0"
 		"AbilityCastPoint"				"0.05"
-		"AbilityCooldown"				"23 22 21 20"
+
 		"AbilityManaCost"				"175"
 		"AbilityValues"
 		{
@@ -199,8 +207,13 @@
 
 			"area_of_effect"
 			{
-					"value"		"175"
-					"affected_by_aoe_increase"	"1"
+				"value"		"175"
+				"affected_by_aoe_increase"	"1"
+			}
+			"AbilityCooldown"
+			{
+				"value"					"23 22 21 20"
+				"special_bonus_unique_invoker_11" "-4"
 			}
 			"damage"					"200 300 400 500"
 			"vision_distance"			"400"
@@ -234,10 +247,11 @@
 	//=================================================================================================================
 	"invoker_forge_spirit_ad"
 	{
-		"AbilityTextureName"            "invoker_forge_spirit_ad_png"
-		"ReduxPerks"                    "summon_non_ult"
 		"ReduxFlags"					"summon"
-		"AbilityCooldown"				"27 25 23 21"
+		"ReduxPerks"                    "fire | ice | summon_non_ult"
+
+		"AbilityTextureName"            "invoker_forge_spirit_ad_png"
+		"AbilityCooldown"				"30 27 24 21"
 		"AbilityManaCost"				"75"
 		"AbilityCastPoint"				"0.05"
 		"AbilityValues"
@@ -248,18 +262,13 @@
 			"spirit_attack_range"	"365 470 580 690"
 			"spirit_hp"				"400 566 733 900"
 			"spirit_duration"		"30 50 70 90"
-			"spirit_count"
-			{
-				"value"			"1"
-				"special_bonus_unique_invoker_11" "+1"
-			}
 			"armor_per_attack"
 			{
 				"value"			"1.2 1.3 1.4 1.5"
 			}
-			"spirit_attack_speed"
+			"spirit_count"
 			{
-				"special_bonus_unique_invoker_11" "+50"
+				"value"			"1 1 1 2"
 			}
 		}
 	}
@@ -269,14 +278,14 @@
 	//=================================================================================================================
 	"invoker_chaos_meteor_ad"
 	{
-		"AbilityTextureName"            "invoker_chaos_meteor_ad_png"
 		"ReduxPerks"                    "fire | skillshot"
+
+		"AbilityTextureName"            "invoker_chaos_meteor_ad_png"
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.05"
 		"AbilityManaCost"				"200"
 		"AbilityValues"
 		{
-
 			"AbilityCooldown"
 			{
 				"value"					"50 45 40 35"
@@ -311,7 +320,7 @@
 			"burn_duration"				"3.0"
 			"burn_dps"
 			{
-				"value"					"15 25 35 45"
+				"value"					"20 25 30 35"
 				"CalculateSpellDamageTooltip"	"1"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 			}
@@ -328,16 +337,17 @@
 	//=================================================================================================================
 	"invoker_ice_wall_ad"
 	{
+		"ReduxPerks"                    "ice | skillshot"
+
 		"AbilityTextureName"            "invoker_ice_wall_ad_png"
-		"ReduxPerks"                    "ice"
-		"AbilityCooldown"				"23 22 21 20"
+		"AbilityCooldown"				"25 23 21 19"
 		"AbilityManaCost"				"125"
 		"AbilityCastPoint"				"0.05"
 		"AbilityValues"
 		{
 			"duration"				"4.5 7.0 9.5 12.0"
 
-			"slow"					"-40 -80 -120 -160"
+			"slow"					"-50 -80 -110 -140"
 			"slow_duration"			"2.0"
 			"damage_per_second"
 			{
@@ -368,8 +378,9 @@
 	//=================================================================================================================
 	"invoker_deafening_blast_ad"
 	{
-		"AbilityTextureName"            "invoker_deafening_blast_ad_png"
 		"ReduxPerks"                    "enemyMoving | skillshot"
+
+		"AbilityTextureName"            "invoker_deafening_blast_ad_png"
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.05"
 		"AbilityCooldown"				"36 32 28 24"
@@ -410,29 +421,9 @@
 		"TalentRequiredAbility"                                                   "invoker_tornado_ad"
 	}
 
-	"special_bonus_unique_invoker_4"
-	{
-		"TalentRequiredAbility"                                                   "invoker_sunstrike_ad"
-	}
-
 	"special_bonus_unique_invoker_5"
 	{
 		"TalentRequiredAbility"                                                   "invoker_alacrity_ad"
-	}
-
-	"special_bonus_unique_invoker_6"
-	{
-		"TalentRequiredAbility"                                                   "invoker_chaos_meteor_ad"
-	}
-
-	"special_bonus_unique_invoker_7"
-	{
-		"TalentRequiredAbility"                                                   "invoker_cold_snap_ad"
-	}
-
-	"special_bonus_unique_invoker_8"
-	{
-		"TalentRequiredAbility"                                                   "invoker_tornado_ad"
 	}
 
 	"special_bonus_unique_invoker_9"
@@ -442,13 +433,15 @@
 
 	"special_bonus_unique_invoker_11"
 	{
-		"TalentRequiredAbility"                                                   "invoker_forge_spirit_ad"
+		"TalentRequiredAbility"                                                   "invoker_sun_strike_ad"
 	}
-
-	"special_bonus_unique_invoker_12"
-	{
-		"TalentRequiredAbility"                                                   "invoker_ice_wall_ad"
-	}
+	
+	// "special_bonus_unique_invoker_13"
+	// {
+		// "AbilityType"                                                          "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		// "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		// "BaseClass"                                                            "special_bonus_base"
+	// }
 
 	"special_bonus_unique_invoker_ice_wall_dps"
 	{

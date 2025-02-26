@@ -1,57 +1,18 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Huskar
---		Perk: Huskar gets tenacity for every 10% of health he is missing.
---
+--		Perk: Bonus damage with Self Damaging spells
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_huskar_perk ~= "" then modifier_npc_dota_hero_huskar_perk = class({}) end
---------------------------------------------------------------------------------------------------------
-if IsServer() then
-    function modifier_npc_dota_hero_huskar_perk:OnCreated()
-        self:StartIntervalThink(1.0)
-        self:OnIntervalThink()
-    end
-
-    function modifier_npc_dota_hero_huskar_perk:OnIntervalThink()
-        local hero = self:GetParent()
-        local maxHealth = hero:GetMaxHealth()
-        local health = hero:GetHealth()
-
-        local stacks = 10 - math.floor((health / maxHealth) * 10)
-
-        self:SetStackCount(stacks)
-    end
-end
---------------------------------------------------------------------------------------------------------
---[[function modifier_npc_dota_hero_huskar_perk:DeclareFunctions()
-    local funcs = {
-        MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
-    }
-
-    return funcs
-end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_huskar_perk:GetModifierConstantHealthRegen()
-    return 1 * self:GetStackCount()
-end]]
-
-function modifier_npc_dota_hero_huskar_perk:GetTenacity()
-    return 10 * self:GetStackCount()
-end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_huskar_perk:IsPurgable()
-	return false
-end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_huskar_perk:GetAttributes()
-  return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
+modifier_npc_dota_hero_huskar_perk = modifier_npc_dota_hero_huskar_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_huskar_perk:IsPassive()
 	return true
 end
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_huskar_perk:IsHidden()
+	return false
+end
+--------------------------------------------------------------------------------------------------------
+function modifier_npc_dota_hero_huskar_perk:IsPurgable()
 	return false
 end
 --------------------------------------------------------------------------------------------------------
@@ -59,6 +20,25 @@ function modifier_npc_dota_hero_huskar_perk:RemoveOnDeath()
 	return false
 end
 --------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+function modifier_npc_dota_hero_huskar_perk:GetTexture()
+	return "custom/npc_dota_hero_huskar_perk"
+end
 
+function modifier_npc_dota_hero_huskar_perk:DeclareFunctions()
+    return {
+        MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
+    }
+end
+
+if IsServer() then
+	function modifier_npc_dota_hero_huskar_perk:GetModifierTotalDamageOutgoing_Percentage(keys)
+		local ability = keys.inflictor
+		if not ability or ability:IsNull() then
+			return 0
+		end
+		if ability:HasAbilityFlag("self_damage") then
+			return 15
+		end
+		return 0
+	end
+end

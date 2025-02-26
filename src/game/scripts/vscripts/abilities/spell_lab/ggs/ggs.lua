@@ -37,7 +37,7 @@ function spell_lab_ggs:OnChannelThink(fInterval)
 
 	self.fThink = self.fThink + fInterval
 
-	if (self.fThink >= self.fInterval) then
+	if self.fThink >= self.fInterval then
 		self.fThink = 0
 		if self.npc_point then
 			if self.npc_point:IsAlive() then

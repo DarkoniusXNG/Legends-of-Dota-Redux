@@ -1158,7 +1158,7 @@ function imba_warlock_rain_of_chaos:SummonGolem(target_point, bScepter, bDeath)
 		-- end
 
 		-- clean vanilla abilities
-		for i=0,5 do
+		for i = 0, golem:GetAbilityCount() - 1 do
 			local ability = golem:GetAbilityByIndex( i )
 			if ability then
 				golem:RemoveAbilityByHandle( ability )

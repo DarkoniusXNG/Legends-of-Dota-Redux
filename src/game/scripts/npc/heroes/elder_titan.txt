@@ -1,11 +1,11 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Elder Titan: Echo Stomp
+	// Elder Titan: Echo Stomp - requires Astral Spirit to work
 	//=================================================================================================================
 	"elder_titan_echo_stomp"
 	{
-		"ReduxFlags"		"physical"
+		"ReduxFlags"		"physical | doNotRandom"
 		"ReduxPerks"		"physical | sleep | channeled"
 	}
 
@@ -14,12 +14,12 @@
 	//=================================================================================================================
 	"elder_titan_echo_stomp_spirit"
 	{
-		"ReduxPerks"		"sleep | channeled"
 		"ReduxFlags"		"doNotRandom"
+		"ReduxPerks"		"sleep | channeled"
 	}
 
 	//=================================================================================================================
-	// Elder Titan: Ancestral Spirit
+	// Elder Titan: Astral Spirit
 	//=================================================================================================================
 	"elder_titan_ancestral_spirit"
 	{
@@ -56,8 +56,8 @@
 	//=================================================================================================================
 	"elder_titan_natural_order_spirit"
 	{
-		"ReduxPerks"		"aura | earth"
 		"ReduxFlags"		"doNotRandom"
+		"ReduxPerks"		"aura | earth"
 	}
 
 	//=================================================================================================================
@@ -83,6 +83,7 @@
 	"elder_titan_tip_the_scales"
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
 		"ReduxFlags"                    "doNotRandom"
 	}
 

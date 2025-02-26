@@ -19,7 +19,7 @@
 
 	"death_prophet_exorcism"
 	{
-		"ReduxFlags"                                                           "physical | upgradeable"
+		"ReduxFlags"                                                           "physical | summon | upgradeable"
 		"ReduxPerks"                                                           "physical | undead"
 	}
 
@@ -33,7 +33,26 @@
 
 	"death_prophet_mourning_ritual"
 	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"Innate"                                                               "0"
+
 		"ReduxPerks"                                                           "undead"
+	}
+
+	"death_prophet_spirit_collector"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"death_prophet_innate_healing_mastery"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "doNotRandom | support"
+		"ReduxPerks"                                                           "support | undead"
 	}
 
 	"special_bonus_unique_death_prophet"

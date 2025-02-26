@@ -54,10 +54,6 @@
 		"ReduxPerks"                                                           "mobility | ranger"
 	}
 
-	"special_bonus_unique_windranger"
-	{
-		"TalentRequiredAbility"                                                "windrunner_windrun"
-	}
 	"special_bonus_unique_windranger_2"
 	{
 		"TalentRequiredAbility"                                                "windrunner_focusfire"
@@ -70,17 +66,9 @@
 	{
 		"TalentRequiredAbility"                                                "windrunner_windrun"
 	}
-	"special_bonus_unique_windranger_5"
-	{
-		"TalentRequiredAbility"                                                "windrunner_shackleshot"
-	}
 	"special_bonus_unique_windranger_6"
 	{
 		"TalentRequiredAbility"                                                "windrunner_shackleshot"
-	}
-	"special_bonus_unique_windranger_7"
-	{
-		"TalentRequiredAbility"                                                "windrunner_windrun"
 	}
 	"special_bonus_unique_windranger_8"
 	{
@@ -88,11 +76,7 @@
 	}
 	"special_bonus_unique_windranger_9"
 	{
-		"TalentRequiredAbility"                                                "windrunner_shackleshot"
-	}
-	"special_bonus_unique_windranger_10"
-	{
-		"TalentRequiredAbility"                                                "windrunner_windrun"
+		"TalentRequiredAbility"                                                "windrunner_easy_breezy"
 	}
 	"special_bonus_unique_windranger_windrun_undispellable"
 	{

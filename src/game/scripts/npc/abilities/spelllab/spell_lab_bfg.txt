@@ -17,8 +17,8 @@
         "AoERadius"               "400"
         "AbilityValues"
         {
-            "mana_pct" "3.0 5.0 7.0"
-            "mana_pct_scepter" "5.0 7.0 9.0"
+            "mana_pct" "0.5 1 1.5"
+            "mana_pct_scepter" "1 2 3"
         }
         "precache"
         {
@@ -27,9 +27,8 @@
             "particle"                                                     "particles/spell_lab/bfg_aoe.vpcf"
       			"particle"          "particles/spell_lab/bfg_shock.vpcf"
         }
-        "ReduxFlags"                                                           ""
-        //"ReduxBans"                                                            ""
-        "ReduxPerks"                                                           "channeled"
+
+        "ReduxPerks"                                                           "explosive | channeled"
         "ReduxCost"                                                            "80"
 		     "AbilityCastAnimation"		"ACT_DOTA_CHANNEL_ABILITY_1"
     }

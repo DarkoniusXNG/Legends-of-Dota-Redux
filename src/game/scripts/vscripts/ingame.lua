@@ -370,15 +370,17 @@ function Ingame:FilterExecuteOrder(filterTable)
 		local item_kvs = GetAbilityKeyValuesByName(shop_item_name)
 		local isNeutral = false
         if item_kvs then
-			local hasKey = item_kvs.ItemIsNeutralDrop
-			if hasKey then
-				isNeutral = tonumber(hasKey) == 1
+			local hasKey1 = item_kvs.ItemIsNeutralActiveDrop
+			local hasKey2 = item_kvs.ItemIsNeutralPassiveDrop
+			if hasKey1 then
+				isNeutral = tonumber(hasKey1) == 1
+			elseif hasKey2 then
+				isNeutral = tonumber(hasKey2) == 1
 			end
 		end
 
 		if isNeutral and OptionManager:GetOption('neutralItems') == 0 then
-			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(issuer), "display_custom_error",
-			{ message = "#you_cannot_buy_neutral_item" })
+			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(issuer), "display_custom_error", { message = "#you_cannot_buy_neutral_item" })
 			return false
 		end
     end
@@ -388,12 +390,6 @@ function Ingame:FilterExecuteOrder(filterTable)
     --     return false
     -- end
 
-    -- Block Alchemists Innate, heroes should not have innate abilities
-    --  if ability and target then
-    --      if string.match(target:GetName(), "npc_dota_hero_") and ability:GetName() == "item_ultimate_scepter" and unit:GetUnitName() == "npc_dota_hero_alchemist" then
-    --          return false
-    --      end
-    --  end
     if unit then
         if unit:IsRealHero() then
             local unitPlayerID = unit:GetPlayerID()
@@ -573,7 +569,7 @@ function Ingame:onStart()
                 if hero:IsRealHero() then
                     local level = hero:GetLevel() - 1
                     local points = hero:GetAbilityPoints()
-                    for i = 0, DOTA_MAX_ABILITIES - 1 do
+                    for i = 0, hero:GetAbilityCount() - 1 do
                         local ab = hero:GetAbilityByIndex(i)
                         if ab then
                             points = points + ab:GetLevel()

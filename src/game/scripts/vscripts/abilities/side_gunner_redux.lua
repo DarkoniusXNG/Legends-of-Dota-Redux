@@ -114,8 +114,7 @@ if IsServer() then
 
 		for _, unit in ipairs(units) do
 			if unit and not unit:IsNull() and parent:CanEntityBeSeenByMyTeam(unit) and not unit:IsInvulnerable() and not unit:IsAttackImmune() then
-				local projectileInfo =
-				{
+				local projectileInfo = {
 					EffectName = "particles/units/heroes/hero_gyrocopter/gyro_base_attack.vpcf",
 					Ability = ability,
 					Target = unit,

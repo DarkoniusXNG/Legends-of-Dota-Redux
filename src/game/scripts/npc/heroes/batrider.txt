@@ -26,6 +26,8 @@
 	"batrider_stoked"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"ReduxFlags"                    "mobility"
+		"ReduxPerks"                    "enemyMoving | mobility"
 	}
 
 	//=================================================================================================================
