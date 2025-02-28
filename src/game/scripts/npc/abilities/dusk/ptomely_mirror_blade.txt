@@ -11,10 +11,10 @@
 		"SpellImmunityType"			 "SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastAnimation"		  "ACT_DOTA_ATTACK"
 		"AnimationPlaybackRate"		 "1"
-		"FightRecapLevel"			   "1"
 		"AbilityTextureName"			"custom/ptomely_mirror_blade"
-		"ReduxPerks"					"physical | skillshot"
+
 		"ReduxFlags"					"physical"
+		"ReduxPerks"					"physical | skillshot"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

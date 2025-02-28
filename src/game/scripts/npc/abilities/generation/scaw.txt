@@ -22,7 +22,6 @@
     {
         "BaseClass"             "ability_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-        "FightRecapLevel"               "1"
         "AbilityTextureName"            "custom/scawmar_fade_blink"
         "AbilityProcsMagicStick"        "0"
         "AbilityCastAnimation"          "ACT_DOTA_CHANNEL_ABILITY_1"
@@ -228,7 +227,6 @@
     {
         "BaseClass"             "ability_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-        "FightRecapLevel"               "1"
         "AbilityTextureName"            "custom/scawmar_fade_blink"
         "AbilityProcsMagicStick"        "1"
 
@@ -250,7 +248,6 @@
         // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "25 20 15 10"
-
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
@@ -366,7 +363,6 @@
     {
         "BaseClass"             "ability_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT"
-        "FightRecapLevel"               "1"
         "AbilityTextureName"            "custom/scawmar_illusion_line"
         "AbilityProcsMagicStick"        "1"
         "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
@@ -498,7 +494,6 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-        "FightRecapLevel"               "2"
         "AbilityTextureName"            "custom/scawmar_mesmerize"
         "AbilityProcsMagicStick"        "1"
         "HasScepterUpgrade"             "1"
@@ -515,11 +510,9 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "25"
 
-
         // Cost
         //-------------------------------------------------------------------------------------------------------------
         "AbilityManaCost"               "100 120 140 160"
-
 
         "AbilityValues"
         {
@@ -648,7 +641,6 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-        "FightRecapLevel"               "1"
         "AbilityTextureName"            "custom/scawmar_scryers_circle"
         "AbilityProcsMagicStick"        "1"
 
@@ -798,7 +790,6 @@
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-        "FightRecapLevel"               "1"
         "AbilityTextureName"            "custom/scawmar_scryers_circle"
         "AbilityCastAnimation"          "ACT_DOTA_CHANNEL_ABILITY_1"
 
@@ -807,11 +798,9 @@
         "AbilityCastPoint"              "0.0"
         "AbilityChannelTime"                "3.5"
 
-
         // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "0"
-
 
         "AbilityValues"
         {

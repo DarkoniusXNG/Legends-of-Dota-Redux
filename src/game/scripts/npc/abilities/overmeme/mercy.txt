@@ -12,7 +12,6 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
-        "FightRecapLevel"               "1"
         "AbilityTextureName"            "custom/mercy_caduceus_healing"
 
         "ReduxFlags"                    "support"
@@ -112,7 +111,6 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
-        "FightRecapLevel"               "1"
         "AbilityTextureName"            "custom/mercy_caduceus_power"
 
         "ReduxFlags"                    "support"
@@ -361,7 +359,6 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
-        "FightRecapLevel"               "2"
         "AbilityTextureName"            "custom/mercy_heroes_never_die"
 
         "ReduxFlags"                    "support"

@@ -7775,25 +7775,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                 end, DoUniqueString('disruptfix'), 1)
             end
 
-            -- Change sniper assassinate to our custom version to work with aghs
-            --if spawnedUnit:HasAbility("sniper_assassinate") and not util:isPlayerBot(playerID) and not spawnedUnit:FindAbilityByName("sniper_assassinate"):IsHidden() then
-                    --spawnedUnit:AddAbility("sniper_assassinate_redux")
-                    --spawnedUnit:SwapAbilities("sniper_assassinate","sniper_assassinate_redux",false,true)
-                    --spawnedUnit:RemoveAbility("sniper_assassinate")
-            --end
-
-            -- Custom Flesh Heap fixes
-            --[[for abilitySlot=0,6 do
-                local abilityTemp = spawnedUnit:GetAbilityByIndex(abilitySlot)
-                if abilityTemp then
-                    if string.find(abilityTemp:GetAbilityName(),"flesh_heap_") then
-                        local abilityName = abilityTemp:GetAbilityName()
-                        local modifierName = "modifier"..string.sub(abilityName,6)
-                        spawnedUnit:AddNewModifier(spawnedUnit,abilityTemp,modifierName,{})
-
-                    end
-                end
-            end]]--
             -- Add mutator modifiers
             if OptionManager:GetOption('vampirism') == 1 then
                 if RollPercentage(50) then

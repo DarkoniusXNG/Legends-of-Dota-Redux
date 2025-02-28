@@ -9,7 +9,6 @@
 		"AbilityUnitTargetTeam"		 "DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"SpellImmunityType"			 "SPELL_IMMUNITY_ENEMIES_NO"
 		"AnimationPlaybackRate"		 "1"
-		"FightRecapLevel"			   "1"
 		"AbilityTextureName"			"custom/erra_grave_guard"
 
 		"ReduxPerks"                  "undead"

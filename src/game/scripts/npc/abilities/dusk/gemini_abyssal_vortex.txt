@@ -15,7 +15,6 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AoERadius"						"675"
-		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"enigma_black_hole"
 
 		// Precache

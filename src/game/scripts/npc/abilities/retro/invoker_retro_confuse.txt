@@ -7,12 +7,11 @@
         "AbilityTextureName"                                                   "custom/invoker_retro_confuse"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityCastAnimation"                                                 "ACT_DOTA_CAST_FORGE_SPIRIT"
-        "FightRecapLevel"                                                      "1"
-        "MaxLevel"                                                             "4"
         "AbilityProcsMagicStick"                                               "1"
         "AbilityCooldown"                                                      "15 14 13 12"
         "AbilityManaCost"                                                      "100"
         "AbilityCastRange"                                                     "1500 2000 2500 3000"
+
         "precache"
         {
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_terrorblade.vsndevts"

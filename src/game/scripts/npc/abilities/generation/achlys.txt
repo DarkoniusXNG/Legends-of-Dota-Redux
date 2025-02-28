@@ -310,9 +310,9 @@
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"  
-        "FightRecapLevel"               "2"
         "AbilityTextureName"            "custom/achlys_death_mist"
         "AbilityProcsMagicStick"        "1"
+
         "ReduxPerks"                    "self_damage | undead"
 
         // Precache
@@ -334,9 +334,6 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "120 100 80"
 
-        // Cost
-        //-------------------------------------------------------------------------------------------------------------
-        
         // Cast Range
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "600"

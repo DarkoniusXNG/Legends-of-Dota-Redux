@@ -8,7 +8,7 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "SpellDispellableType"                                                 "SPELL_DISPELLABLE_YES_STRONG"
         "AbilityTextureName"                                                   "custom/dark_seer_vacuum_op"
-        "FightRecapLevel"                                                      "1"
+
         "LevelsBetweenUpgrades"                                                "2"
         "MaxLevel"                                                             "4"
         "AbilityCastRange"                                                     "600"

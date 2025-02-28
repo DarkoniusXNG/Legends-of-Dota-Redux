@@ -13,7 +13,7 @@
         "AbilityCastRange"                                                     "0"
         "AbilityCastPoint"                                                     "0.6"
         "AbilityCooldown"                                                      "70 50 30"
-        "AbilityManaCost"                                                      "75"
+        "AbilityManaCost"                                                      "100 200 300"
         "AbilityValues"
 		{
 
@@ -21,7 +21,7 @@
 			"teleport_delay"				"3 2 1"
 			"scepter_health_bonus" 
 			{
-				"special_bonus_scepter"	"+2000 +4000 +6000"
+				"special_bonus_scepter"	"+1000 +1500 +2000"
 			}			
 		}
 

@@ -7,7 +7,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
+
 		"MaxLevel"		"3"
 		"ReduxCost"                                                            "120"
 		"ReduxFlags"                                                           ""
@@ -19,7 +19,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				""
+		"AbilityCooldown"				"1"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -27,7 +27,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				""
+		"AbilityManaCost"				"0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -36,10 +36,6 @@
             "area_of_effect" "900"
             "heal" "100 200 300"
             "projectile_speed" "400"
-            "health_regen" "0"
-            "mana_regen" "0"
-            "regen_duration" "0"
-            "hero_multiplier" "0"
         }
 	}
 }

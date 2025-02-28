@@ -48,8 +48,7 @@
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
-        "FightRecapLevel"               "2"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "AbilityTextureName"            "custom/lich_chain_frost_op"
 
         "ReduxPerks"                    "ice"

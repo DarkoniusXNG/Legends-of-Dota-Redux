@@ -10,11 +10,11 @@
 		"AbilityUnitDamageType"		 "DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"			 "SPELL_IMMUNITY_ENEMIES_NO"
 		"AnimationPlaybackRate"		 "1"
-		"FightRecapLevel"			   "1"
 		"AbilityTextureName"			"custom/erra_morbid_blade"
 		"AoERadius"					 "%radius"
-		"ReduxPerks"					"physical"
+
 		"ReduxFlags"					"physical"
+		"ReduxPerks"					"physical"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

@@ -7,9 +7,8 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
-        "FightRecapLevel"                                                      "1"
         "AbilityTextureName"                                                   "custom/lich_cold_aura"
-        "MaxLevel"                                                             "3"
+
         "AbilityCastRange"                                                     "700"
         "AbilityCastPoint"                                                     "0"
         "AbilityCooldown"                                                      "0"

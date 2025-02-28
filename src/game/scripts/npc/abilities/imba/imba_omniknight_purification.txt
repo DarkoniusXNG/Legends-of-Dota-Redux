@@ -7,11 +7,11 @@
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PURE"
-        "FightRecapLevel"                                                      "1"
         "AbilityTextureName"                                                   "custom/imba_omniknight_purification"
         "AbilityCastRange"                                                     "%radius"
         "AbilityCastPoint"                                                     "0.25"
         "AbilityCooldown"                                                      "25"
+
         "precache"
         {
             "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"

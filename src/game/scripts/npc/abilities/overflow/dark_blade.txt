@@ -11,10 +11,11 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"							// Changes dynamically with scepter
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"FightRecapLevel"				"2"
+
 		"AbilityTextureName"				"custom/dark_blade"
 		"ScriptFile"					"abilities/overflow/dark_blade/dark_blade.lua"
 		"HasScepterUpgrade" "1"
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1200"

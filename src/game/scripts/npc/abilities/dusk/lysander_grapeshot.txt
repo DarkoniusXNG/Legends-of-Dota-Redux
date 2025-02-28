@@ -15,10 +15,10 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"custom/lysander_grapeshot"
-		"ReduxPerks"					"physical"
+
 		"ReduxFlags"					"physical | crit | stun"
+		"ReduxPerks"					"physical"
 		"ReduxBans"						"earthshaker_enchant_totem"
 
 		// Casting

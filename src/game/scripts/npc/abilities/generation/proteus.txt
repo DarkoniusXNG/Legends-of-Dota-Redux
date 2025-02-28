@@ -29,7 +29,6 @@
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "AbilityTextureName"            "custom/proteus_razorwind"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-        "FightRecapLevel"               "1"
         "CastFilterRejectCaster"        "1"
         "AbilityProcsMagicStick"        "1"
 
@@ -116,7 +115,6 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
         "AbilityTextureName"            "custom/proteus_polyp"
-        "FightRecapLevel"               "1"
         "AbilityProcsMagicStick"        "1"
 
         "ReduxFlags"                    "support | summon"
@@ -234,7 +232,6 @@
         "BaseClass"                     "ability_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
         "AbilityTextureName"            "custom/proteus_jet"
-        "FightRecapLevel"               "1"
         "HasScepterUpgrade"             "1"
 
         "ReduxFlags"                    "upgradeable | mobility"
@@ -352,7 +349,6 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "SpellImmunityType"             "SPELL_IMMUNITY_ALLIES_YES"
         "AbilityTextureName"            "custom/proteus_rarefaction"
-        "FightRecapLevel"               "1"
         "AbilityProcsMagicStick"        "1"
         "HasScepterUpgrade"             "1"
 

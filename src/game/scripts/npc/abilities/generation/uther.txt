@@ -628,9 +628,10 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
-        "FightRecapLevel"               "2"
+
         "AbilityTextureName"            "custom/uther_omniscience"
         "AbilityProcsMagicStick"        "1"
+
         "ReduxPerks"                                                           "light"
 
         // Casting

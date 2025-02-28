@@ -8,7 +8,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"bloodseeker_thirst"
 
 		"ReduxFlags"                    "mana"

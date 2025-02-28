@@ -14,7 +14,6 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"custom/gemini_voidal_bolt"
 
 		// Precache

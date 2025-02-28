@@ -10,9 +10,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
 		"AbilityCastPoint"				"0.1"
-		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"custom/seer"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityChannelTime"      "20.0"

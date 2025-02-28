@@ -13,7 +13,6 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT_END"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"FightRecapLevel"				"1"
 		"AnimationPlaybackRate"			"0.6"
 		"AbilityTextureName"			"custom/lysander_adventurous_gale"
 
@@ -48,11 +47,7 @@
 			"particle"					"particles/units/heroes/hero_lysander/mystical_wave.vpcf"
 		}
 
-		"Modifiers"
-		{
-		}
-
+		"ReduxFlags"	"support"
 		"ReduxPerks"	"water | support"
-		"ReduxFlags"	""
 	}
 }

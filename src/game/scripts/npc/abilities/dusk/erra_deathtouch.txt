@@ -12,7 +12,6 @@
 		"AbilityUnitDamageType"		 "DAMAGE_TYPE_MAGICAL"   
 		"SpellImmunityType"			 "SPELL_IMMUNITY_ENEMIES_NO"
 		"AnimationPlaybackRate"		 "0.5"
-		"FightRecapLevel"			   "1"
 		"AbilityTextureName"			"custom/erra_deathtouch"
 
 		"ReduxPerks"	"poison | undead"

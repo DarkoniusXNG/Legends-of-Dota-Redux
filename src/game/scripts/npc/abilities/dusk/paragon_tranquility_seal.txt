@@ -12,7 +12,6 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"custom/paragon_tranquility_seal"
 
 		// Casting
@@ -42,7 +41,7 @@
 			"particle"			"particles/units/heroes/hero_paragon/tranquil_seal_rune.vpcf"
 		}
 
+		"ReduxFlags"	"support"
 		"ReduxPerks"	"support"
-		"ReduxFlags"	""
 	}
 }
