@@ -7050,7 +7050,7 @@
 	}
 	"special_bonus_unique_phantom_assassin_3"
 	{
-		"TalentRequiredAbility"                                                   "phantom_assassin_blur"
+		"TalentRequiredAbility"                                                   "phantom_assassin_immaterial"
 	}
 	"special_bonus_unique_phantom_assassin_4"
 	{
