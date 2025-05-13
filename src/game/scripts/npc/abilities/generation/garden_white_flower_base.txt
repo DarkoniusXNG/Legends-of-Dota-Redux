@@ -9,7 +9,6 @@
         "AbilityChannelTime"                                                   "1.0"
         "AbilityTextureName"                                                   "custom/cherub_flower_white"
         "AnimationPlaybackRate"                                                "0.2"
-        "MaxLevel"                                                             "4"
         "AOERadius"                                                            "900"
 
         "ReduxFlags"                                                           "summon"

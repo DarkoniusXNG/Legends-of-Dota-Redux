@@ -6,11 +6,9 @@
         "AbilityTextureName"                                                   "custom/keeper_of_the_light_innate_redux"
         "ScriptFile"                                                           "abilities/keeper_of_the_light_innate.lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
         "HasScepterUpgrade"                                                    "1"
-        "MaxLevel"                                                             "4"
-        "precache"
-        {
-        }
+
         "AbilityValues"
         {
             "vision_radius" "500 600 700 800"

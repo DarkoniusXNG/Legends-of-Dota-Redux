@@ -4,7 +4,6 @@
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityTextureName"                                                   "custom/firelord_fire_trap"
-        "MaxLevel"                                                             "4"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"

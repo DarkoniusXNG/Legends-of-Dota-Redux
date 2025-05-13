@@ -12,7 +12,6 @@
             "particle"                                                     "particles/units/heroes/hero_siren/naga_siren_song_debuff.vpcf"
         }
 
-        "MaxLevel"                                                             "3"
         "AbilityCooldown"                                                      "80 60 40"
         "AbilityManaCost"                                                      "100"
         "AbilityValues"

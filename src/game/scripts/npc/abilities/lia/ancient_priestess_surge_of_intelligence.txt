@@ -4,7 +4,6 @@
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName" "custom/ancient_priestess_surge_of_intelligence"
-		"MaxLevel" "4"
 		"AbilityCastPoint" "0.3"
 
 		"precache"

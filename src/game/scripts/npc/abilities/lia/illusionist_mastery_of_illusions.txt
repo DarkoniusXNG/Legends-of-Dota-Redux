@@ -10,7 +10,6 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityTextureName"                                                   "custom/illusionist_mastery_of_illusions"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                                                             "3"
         "AbilityCastRange"                                                     "700"
         "AbilityCastPoint"                                                     "0.0"
         "AbilityCooldown"                                                      "30.0"

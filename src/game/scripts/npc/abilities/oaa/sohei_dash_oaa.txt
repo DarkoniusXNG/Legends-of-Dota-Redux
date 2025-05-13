@@ -17,8 +17,6 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" // this is for UI tooltip
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "4"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"

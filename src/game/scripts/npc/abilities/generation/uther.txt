@@ -21,7 +21,6 @@
         "BaseClass"                     "ability_lua"
         "ScriptFile"                    "abilities/nextgeneration/hero_uther/Argent_Smite.lua"
         "AbilityTextureName"            "custom/uther_Argent_Smite"
-        "MaxLevel"                      "4"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_ALL"
@@ -159,7 +158,6 @@
     {
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/uther_hurl_hammer"
-        "MaxLevel"                      "4"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "AbilityProcsMagicStick"        "1"
@@ -529,7 +527,6 @@
     {
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/uther_Threatening_Bolt"
-        "MaxLevel"                      "4"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -541,6 +538,7 @@
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
         "AbilityManaCost"               "70 80 90 100"
         "AbilityProcsMagicStick"        "1"
+
         "ReduxPerks"                                                           "light"
     
         "precache"

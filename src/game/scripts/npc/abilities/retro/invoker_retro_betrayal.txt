@@ -11,7 +11,7 @@
         "AbilityCastAnimation"                                                 "ACT_DOTA_CAST_COLD_SNAP"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityProcsMagicStick"                                               "1"
-        "AbilityCooldown"                                                      "30 25 20 15"
+        "AbilityCooldown"                                                      "30 25 20"
         "AbilityManaCost"                                                      "100"
         "AbilityCastRange"                                                     "600"
 

@@ -9,7 +9,6 @@
 		"AbilityTextureName"				"custom/chi_strike_sp"
 		"AbilityCooldown"               "1.0"
 		"AbilityCastRange"				"800 900 1000 1100"
-		//"MaxLevel"	"7"
 
 		"precache"
 		{

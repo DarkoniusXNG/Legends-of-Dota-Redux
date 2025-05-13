@@ -5,7 +5,6 @@
 		"SpellImmunityType" "SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
 		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel" "3"
 		"AbilityTextureName" "custom/angel_arena_hola_heal"
 
 		"precache"
@@ -13,7 +12,7 @@
 			"particle" "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_c.vpcf"
 		}
 
-		"AbilityCastPoint" "0.3 0.3 0.3"
+		"AbilityCastPoint" "0.3"
 		"AbilityCooldown" "60.0"
 		"AbilityManaCost" "200 300 400"
 

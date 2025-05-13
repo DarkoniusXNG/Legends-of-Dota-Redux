@@ -10,11 +10,12 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"                                                   "custom/archmage_magic_barrier"
         "CastFilterRejectCaster"                                               "1"
-        "MaxLevel"                                                             "4"
+
         "precache"
         {
             "particle"                                                     "particles/abaddon_aphotic_shield.vpcf"
         }
+
         "AbilityValues"
         {
             "lol" "45 60 75 90"

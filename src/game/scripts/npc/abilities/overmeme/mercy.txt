@@ -188,7 +188,6 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityTextureName"            "custom/mercy_guardian_angel"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
-        "MaxLevel"                      "4"
         "CastFilterRejectCaster"        "1"
 
         "ReduxFlags"                    "support | mobility"
@@ -266,7 +265,6 @@
         "BaseClass"                     "ability_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"            "custom/mercy_angelic_descent"
-        "MaxLevel"                      "4"
 
         "ReduxFlags"                    "support | doNotRandom | tank"
         "ReduxPerks"                    "support"

@@ -8,7 +8,6 @@
         "AbilityCooldown"                                                      "5.0"
         "AbilityChannelTime"                                                   "1.0"
         "AbilityTextureName"                                                   "custom/garden_red_flower_base_OP"
-        "MaxLevel"                                                             "4"
         "AnimationPlaybackRate"                                                "0.2"
         "AOERadius"                                                            "400"
         "AbilityManaCost"                                                      "100 150 200 250"

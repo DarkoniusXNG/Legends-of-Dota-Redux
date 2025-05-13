@@ -9,8 +9,6 @@
     "AbilityTextureName"                                  "custom/mana_eater_mana_shell"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "MaxLevel"                                            "4"
-
     "ReduxFlags"                                          "mana"
     
     "AbilityValues"

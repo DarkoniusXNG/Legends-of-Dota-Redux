@@ -7,7 +7,6 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/imba_tower_split"
-        "MaxLevel"                                                             "3"
         "AbilitySharedWithTeammates"                                           "1"
 
         "AbilityValues"

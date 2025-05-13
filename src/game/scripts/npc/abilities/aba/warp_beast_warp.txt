@@ -7,8 +7,6 @@
     "AbilityTextureName"                                  "custom/warp_beast_warp"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-
-    "MaxLevel"                                            "3"
 	
     "ReduxFlags"                                          "mana | semi_passive"
 

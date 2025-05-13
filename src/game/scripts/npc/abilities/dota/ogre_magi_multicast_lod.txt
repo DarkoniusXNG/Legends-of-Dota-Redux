@@ -4,7 +4,6 @@
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "MaxLevel"                                                             "3"
         "AbilityTextureName"                                                   "custom/ogre_magi_multicast_lod"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityCooldown"                                                      "30 15 10"

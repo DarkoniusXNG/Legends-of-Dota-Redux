@@ -7,7 +7,6 @@
     {
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/zeros_gerrymandering"
-        "MaxLevel"                      "3"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
@@ -147,7 +146,6 @@
     {
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/zeros_impose_tax"
-        "MaxLevel"                      "4"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
@@ -306,7 +304,6 @@
     {
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/zeros_golden_statue"
-        "MaxLevel"                      "4"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -513,7 +510,6 @@
     {
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/zeros_blade_of_malice"
-        "MaxLevel"                      "4"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -713,7 +709,6 @@
 
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityTextureName"            "custom/skeleton_king_vampiric_aura"
-        "MaxLevel"                      "3"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
         "AbilityCastPoint"              "0.3"

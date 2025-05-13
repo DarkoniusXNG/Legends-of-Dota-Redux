@@ -10,8 +10,6 @@
         "AbilityTextureName"                                                   "custom/lord_of_lightning_brain_storm"
         "AoERadius"                                                            "500"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                                                             "3"
-        "RequiredLevel"                                                        "6"
         "AbilityCastRange"                                                     "800"
         "AbilityCastPoint"                                                     "0"
         "AbilityCooldown"                                                      "50 40 30"

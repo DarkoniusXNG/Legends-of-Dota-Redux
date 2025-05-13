@@ -16,8 +16,6 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                                            "4"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "3000"

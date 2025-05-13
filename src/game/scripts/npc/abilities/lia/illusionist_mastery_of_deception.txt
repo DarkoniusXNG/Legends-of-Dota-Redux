@@ -6,9 +6,7 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
         "AbilityTextureName"                                                   "custom/illusionist_mastery_of_deception"
-        "MaxLevel"                                                             "4"
-        "RequiredLevel"                                                        "1"
-        "LevelsBetweenUpgrades"                                                "2"
+
         "Modifiers"
         {
             "Modifier_illusionist_mastery_of_deception"
@@ -34,6 +32,7 @@
                 }
             }
         }
+
         "AbilityValues"
         {
             "time" "12 14 16 18"

@@ -7,9 +7,6 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "AbilityDamage"                                                        "75 100 125 150"
-        "MaxLevel"                                                             "4"
-        "RequiredLevel"                                                        "1"
-        "LevelsBetweenUpgrades"                                                "2"
 
         "precache"
         {

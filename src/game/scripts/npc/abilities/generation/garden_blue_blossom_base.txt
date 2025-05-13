@@ -9,7 +9,6 @@
         "AbilityChannelTime"                                                   "1.0"
         "AnimationPlaybackRate"                                                "0.2"
         "AbilityTextureName"                                                   "custom/cherub_flower_blue"
-        "MaxLevel"                                                             "4"
         "AOERadius"                                                            "1000"
 
         "ReduxFlags"                                                           "support | mana"

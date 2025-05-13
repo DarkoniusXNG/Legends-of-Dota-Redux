@@ -630,7 +630,6 @@
     {
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/suna_skeleton_puppets"
-        "MaxLevel"                      "4"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
 

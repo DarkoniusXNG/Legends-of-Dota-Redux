@@ -9,7 +9,6 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ALLIES_YES"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityTextureName"                                                   "custom/angel_arena_grace"
-        "MaxLevel"                                                             "3"
         "AbilityCastRange"                                                     "1000"
         "AbilityCastPoint"                                                     "0.2"
         "AbilityCooldown"                                                      "50.0 40.0 30.0"

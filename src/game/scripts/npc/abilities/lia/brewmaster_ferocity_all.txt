@@ -7,7 +7,6 @@
 		"AbilityUnitTargetFlags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AoERadius" "600"
 		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel" "3"
 		"AbilityCastRange" "600"
 
 		"AbilityValues"

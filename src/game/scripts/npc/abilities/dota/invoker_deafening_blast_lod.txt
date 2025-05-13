@@ -16,7 +16,6 @@
 		"AbilityManaCost"			"200"
 		"AbilityCooldown"			"40"
 		"AbilityCastPoint"			"0"
-		"MaxLevel" 					"4"
 
 		"precache"
 		{

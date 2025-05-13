@@ -14,9 +14,6 @@
             "particle"                                                     "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
         }
 
-        "MaxLevel"                                                             "4"
-        "RequiredLevel"                                                        "1"
-        "LevelsBetweenUpgrades"                                                "2"
         "AoERadius"                                                            "400"
         "AbilityCastRange"                                                     "700"
         "AbilityCastPoint"                                                     "0.0"

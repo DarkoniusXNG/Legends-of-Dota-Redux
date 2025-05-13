@@ -12,9 +12,6 @@
 		}
 
 		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel" "3"
-		"RequiredLevel" "5"
-		"LevelsBetweenUpgrades" "4"
 		"AbilityCastRange" "500"
 		"AbilityCastPoint" "0.3"
 		"AbilityCooldown" "140"

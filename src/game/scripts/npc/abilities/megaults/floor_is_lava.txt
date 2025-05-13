@@ -4,12 +4,14 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                                                             "1"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "AbilityTextureName"                                                   "jakiro_macropyre"
-        "RequiredLevel"                                                        "24"
+
         "AbilityCooldown"                                                      "120"
         "AbilityManaCost"                                                      "500"
+
+        "RequiredLevel"                                                        "24"
+        "MaxLevel"                                                             "1"
 
         "ReduxCost"                                                            "120"
 

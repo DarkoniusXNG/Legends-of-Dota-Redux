@@ -5,7 +5,6 @@
 		"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType" "SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName" "custom/dark_knight_dark_forces"
-		"MaxLevel" "4"
 		"AbilityCastPoint" "0.0"
 		"AbilityCooldown" "17 16 15 14"
 		"AbilityManaCost" "120"

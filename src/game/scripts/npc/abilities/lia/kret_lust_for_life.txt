@@ -6,13 +6,14 @@
         "ScriptFile"                                                           "abilities/life_in_arena/kret_lust_for_life"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/kret_lust_for_life"
-        "MaxLevel"                                                             "4"
+
         "AbilityValues"
         {
             "intellect_sacrifice" "0"
             "tolltip" "2"
             "health_regen_percent" "0.04 0.06 0.08 0.10"
         }
+
         "ReduxFlags"                                                           "tank"
         "ReduxCost"                                                            "30"
     }

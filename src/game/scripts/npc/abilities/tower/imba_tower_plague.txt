@@ -5,7 +5,6 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/tower_rot"
-        "MaxLevel"                                                             "3"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "700"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"

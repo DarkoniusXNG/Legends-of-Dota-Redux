@@ -7,7 +7,6 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityTextureName"                                                   "custom/ancient_priestess_ritual_protection"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                                                             "3"
         "AbilityCastPoint"                                                     "0"
         "AbilityCooldown"                                                      "55 40 25"
         "AbilityManaCost"                                                      "100 125 150"
@@ -24,6 +23,7 @@
             "radius" "1200"
             "duration" "15"
         }
+
         "ReduxFlags"                                                           "support"
         "ReduxPerks"                                                           "support | light"
     }

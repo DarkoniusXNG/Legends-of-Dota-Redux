@@ -17,8 +17,6 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" // this is for UI tooltip
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "4"
-
     "ReduxPerks"                                          "enemyMoving"
 
     // Casting

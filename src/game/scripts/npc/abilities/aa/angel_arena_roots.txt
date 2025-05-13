@@ -7,14 +7,15 @@
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
-        "AbilityCastPoint"                                                     "0.3 0.3 0.3"
+        "AbilityCastPoint"                                                     "0.3"
         "AbilityTextureName"                                                   "custom/angel_arena_roots"
-        "MaxLevel"                                                             "3"
         "AbilityCooldown"                                                      "70 60 50"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf"
         }
+
         "AbilityManaCost"                                                      "150 175 200"
         "AbilityValues"
         {

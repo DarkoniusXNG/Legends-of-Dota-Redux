@@ -262,15 +262,15 @@
         // Time     
         //-------------------------------------------------------------------------------------------------------------
         "AbilityChannelTime"            "1"
-        "AbilityCooldown"               "50 40 30 20"
+        "AbilityCooldown"               "50 40 30"
         
-        "AbilityManaCost"               "200 150 100 50"
+        "AbilityManaCost"               "200 150 100"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
         {
-            "camps_spawned" "1 2 3 4"
+            "camps_spawned" "1 2 3"
             "spawn_radius" "350"
             "channel_time" "1"
         }

@@ -9,7 +9,6 @@
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityTextureName"                                                   "custom/angel_arena_lightning"
-        "MaxLevel"                                                             "4"
 
         "precache"
         {

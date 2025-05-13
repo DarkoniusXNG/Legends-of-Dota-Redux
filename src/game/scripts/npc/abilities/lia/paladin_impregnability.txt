@@ -12,8 +12,6 @@
         "AbilityCastPoint"                                                     "0.5"
         "AbilityTextureName"                                                   "custom/paladin_impregnability"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                                                             "3"
-        "RequiredLevel"                                                        "6"
         "AbilityCooldown"                                                      "90.0 80.0 70.0"
         "AbilityManaCost"                                                      "200"
         "AbilityCastRange"                                                     "1000"

@@ -10,7 +10,6 @@
         "AbilityCastRange"                                                     "0"
         "AbilityManaCost"                                                      "70 80 90 100"
         "AoERadius"                                                            "400"
-        "MaxLevel"                                                             "4"
         "AbilityCastPoint"                                                     "0.2"
 
         "precache"

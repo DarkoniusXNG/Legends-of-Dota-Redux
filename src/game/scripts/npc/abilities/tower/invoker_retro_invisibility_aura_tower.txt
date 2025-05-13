@@ -8,6 +8,7 @@
 		"AbilityCastRange" "500 600 700"
 
 		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
+
 		"ReduxFlags"                                                           "invis"
 		"ReduxCost"                                                            "120"
 		
