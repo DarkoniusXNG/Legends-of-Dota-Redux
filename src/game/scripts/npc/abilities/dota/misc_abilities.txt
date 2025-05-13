@@ -41,8 +41,9 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+
     	"MaxLevel"							"4"
-        "AbilityModifierSupportBonus"   "5"
+
         "AbilityValues"
 		{
 			"slow"
