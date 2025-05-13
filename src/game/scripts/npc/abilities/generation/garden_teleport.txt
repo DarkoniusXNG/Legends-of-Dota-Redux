@@ -9,9 +9,9 @@
 		"AbilityCooldown" "5"
 		"AbilityManaCost" "0"
 
-		"precache" {
+		"precache"
+		{
 			"particle" "particles/units/heroes/hero_furion/furion_teleport_e.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_furion.vsndevts"
 		}
 
 		"AbilityValues"

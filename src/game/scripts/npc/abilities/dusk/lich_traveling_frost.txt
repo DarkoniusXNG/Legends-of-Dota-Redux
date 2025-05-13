@@ -52,7 +52,6 @@
 		{
 			"particle" "particles/units/heroes/hero_tusk/tusk_ice_shards_projectile.vpcf"
 			"particle" "particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet_frozen.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
 		}
 
 		"ReduxPerks"	"ice | skillshot"

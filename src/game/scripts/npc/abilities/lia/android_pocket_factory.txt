@@ -12,13 +12,14 @@
         "AbilityCastPoint"                                                     "0.3"
         "AbilityCooldown"                                                      "30"
         "AbilityManaCost"                                                      "200"
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
             "model"                                                        "models/items/rattletrap/forge_warrior_rocket_cannon/forge_warrior_rocket_cannon.vmdl"
             "model"                                                        "models/items/rattletrap/clockwerk_furnator_furnators_furnace/clockwerk_furnator_furnators_furnace.vmdl"
             "particle"                                                     "particles/units/heroes/hero_techies/techies_suicide.vpcf"
         }
+
         "AbilityValues"
         {
             "factory_duration" "45"

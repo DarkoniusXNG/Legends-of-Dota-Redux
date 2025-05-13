@@ -30,12 +30,13 @@
             "purple_flower_buff" "30 40 50"
             "white_flower_damage" "45 60 75"
         }
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
             "particle"                                                     "particles/cherub_pink_flower_heal_projectile.vpcf"
             "model"                                                        "models/items/furion/treant_flower_1.vmdl"
         }
+
         "OnSpellStart"
         {
             "ApplyModifier"

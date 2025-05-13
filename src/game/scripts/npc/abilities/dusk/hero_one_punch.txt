@@ -53,9 +53,6 @@
 		
 		"precache"
 		{
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
 			"particle" "particles/units/heroes/hero_hero/one_punch_air.vpcf"
 			"particle" "particles/units/heroes/hero_hero/one_punch_land.vpcf"
 		}

@@ -52,8 +52,6 @@
 
 		"precache"
 		{
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
 			"particle"					"particles/units/heroes/hero_lysander/grapeshot.vpcf"
 			"particle"					"particles/units/heroes/hero_lysander/grapeshot_crit.vpcf"
 

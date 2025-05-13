@@ -28,7 +28,6 @@
         }
 		"precache"
 		{
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
 			"particle"                  "particles/eldri_power.vpcf"
 		}
 	}

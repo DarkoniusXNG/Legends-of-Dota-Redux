@@ -11,11 +11,12 @@
         "MaxLevel"                                                             "4"
         "RequiredLevel"                                                        "1"
         "LevelsBetweenUpgrades"                                                "2"
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
             "particle"                                                     "particles/status_fx/status_effect_frost_lich.vpcf"
         }
+
         "AbilityCastRange"                                                     "%range"
         "AbilityCastPoint"                                                     "0.0 0.0 0.0 0.0"
         "AbilityCooldown"                                                      "14 13 12 11"

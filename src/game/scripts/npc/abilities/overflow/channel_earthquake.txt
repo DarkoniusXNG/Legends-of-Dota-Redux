@@ -30,7 +30,6 @@
 
 		"precache"
 		{
-			"soundfile"                 "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
 			"particle"                  "particles/units/heroes/hero_earth_spirit/espirit_spawn.vpcf"
 		}
 	}

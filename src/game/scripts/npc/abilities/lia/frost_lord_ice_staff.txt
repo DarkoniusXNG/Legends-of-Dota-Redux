@@ -6,10 +6,11 @@
 		"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityTextureName" "ancient_apparition_ice_vortex"
 
-		"precache" {
+		"precache"
+		{
 			"particle" "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
 		}
+
 		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
 		"MaxLevel" "3"
 		"RequiredLevel" "5"

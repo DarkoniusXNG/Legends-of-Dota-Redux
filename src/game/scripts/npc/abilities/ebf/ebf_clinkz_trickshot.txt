@@ -19,7 +19,6 @@
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_clinkz/clinkz_strafe_fire.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
         }
 
         "ReduxFlags"                                                           "aoe_attack | upgradeable"

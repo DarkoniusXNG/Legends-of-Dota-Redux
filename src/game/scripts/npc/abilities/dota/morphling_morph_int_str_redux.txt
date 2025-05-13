@@ -19,7 +19,6 @@
     "precache"
     {
       "particle"      "particles/units/heroes/hero_morphling/morphling_morph_str.vpcf"
-      "soundfile"     "soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
     }
     
     // Special

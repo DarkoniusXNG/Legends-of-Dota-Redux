@@ -13,8 +13,8 @@
 		"AbilityCastPoint" "0.3"
 		"ReduxPerks"                                                           "demon"
 
-		"precache" {
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
+		"precache"
+		{
 			"particle" "particles/units/heroes/hero_doom_bringer/doom_bringer_devour.vpcf"
 		}
 

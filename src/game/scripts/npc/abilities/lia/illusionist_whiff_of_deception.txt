@@ -13,11 +13,12 @@
         "RequiredLevel"                                                        "1"
         "LevelsBetweenUpgrades"                                                "2"
         "AbilityCastPoint"                                                     "0.2"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_arc_warden/arc_warden_flux_cast.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
         }
+
         "OnSpellStart"
         {
             "RunScript"

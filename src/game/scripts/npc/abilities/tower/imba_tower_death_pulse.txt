@@ -10,13 +10,15 @@
         "AbilityCastRange"                                                     "800 1000 1200"
         "AbilityCooldown"                                                      "6"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+
         "ReduxPerks"                                                           "undead"
         "ReduxCost"                                                            "120"
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
         }
+
         "AbilityValues"
         {
             "area_of_effect" "900"

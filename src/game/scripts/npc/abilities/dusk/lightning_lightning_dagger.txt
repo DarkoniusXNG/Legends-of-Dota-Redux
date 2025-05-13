@@ -41,8 +41,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"soundfile"							"soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
-			"soundfile"							"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
 			"particle"							"particles/units/heroes/hero_lightning/lightning_dagger_arcana.vpcf"
 			"particle"							"particles/units/heroes/hero_lightning/lightning_dagger_mark_main.vpcf"
 			"particle" 							"particles/units/heroes/hero_stormspirit/stormspirit_overload_discharge.vpcf"

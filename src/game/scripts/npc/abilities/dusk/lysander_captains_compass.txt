@@ -40,8 +40,6 @@
 
 		"precache"
 		{
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
 			"particle"					"particles/units/heroes/hero_lysander/captains_compass.vpcf"
 		}
 

@@ -26,7 +26,6 @@
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts"
         }
         "OnSpellStart"
         {

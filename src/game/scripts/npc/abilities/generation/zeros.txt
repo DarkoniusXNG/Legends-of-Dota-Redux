@@ -174,9 +174,6 @@
             "particle"  "particles/items2_fx/hand_of_midas.vpcf"
             "particle"  "particles/zeros_impose_tax_slow.vpcf"
             "particle"  "particles/econ/courier/courier_flopjaw_gold/flopjaw_death_coins_gold.vpcf"
-            "soundfile" "sounds/items/item_handofmidas.vsnd"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
         }
         "OnSpellStart"
         {
@@ -341,7 +338,6 @@
             "particle"  "particles/econ/items/effigies/status_fx_effigies/base_statue_destruction_gold.vpcf"
             "particle"  "particles/econ/items/effigies/status_fx_effigies/gold_effigy_ambient_radiant_lvl2.vpcf"
             "particle"  "particles/econ/courier/courier_golden_doomling/courier_golden_doomling_bloom_ambient.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
         }
         "OnSpellStart"
         {
@@ -533,13 +529,14 @@
             "duration" "8.0"
             "bonus_movement_speed" "8 9 10 11"
         }
+
         "precache"
         {
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
             "particle"  "particles/units/heroes/hero_skeletonking/skeleton_king_weapon_blur_critical.vpcf"
             "particle"  "particles/zeros_blade_of_malice.vpcf"
             "particle"  "particles/generic_gameplay/generic_stunned.vpcf"
         }
+
         "Modifiers"
         {
             "modifier_malice"
@@ -736,12 +733,13 @@
             "day_vision_penalty" "-1100"
             "night_vision_penalty" "-100"
         }
+
         "precache"
         {
             "particle"  "particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
             "particle"  "particles/units/heroes/hero_ursa/ursa_overpower_buff.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
         }
+
         "OnSpellStart"
         {
             "ApplyModifier"

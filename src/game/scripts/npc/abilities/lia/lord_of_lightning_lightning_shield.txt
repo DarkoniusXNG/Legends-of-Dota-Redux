@@ -21,13 +21,14 @@
         "AbilityCooldown"                                                      "14 12 10 8"
         "AbilityManaCost"                                                      "75"
         "AOERadius"                                                            "350"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_stormspirit/stormspirit_overload_discharge.vpcf"
 			"particle"													   "particles/units/heroes/hero_zuus/zuus_static_field.vpcf"
 			"particle"													   "particles/items2_fx/mjollnir_shield.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
         }
+
         "AbilityValues"
         {
             "radius" "350"

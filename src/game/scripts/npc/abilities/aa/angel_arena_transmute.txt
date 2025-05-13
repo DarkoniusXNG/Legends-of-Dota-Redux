@@ -18,9 +18,9 @@
             "hp_percent" "60 80 100"
         }
 
-		"precache" {
+		"precache"
+		{
 			"particle" "particles/units/heroes/hero_clinkz/clinkz_death_pact.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
 		}
 
 		"OnSpellStart" {

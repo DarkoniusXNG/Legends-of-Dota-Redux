@@ -15,9 +15,9 @@
 
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_creeps.vsndevts"
             "particle"                                                     "particles/spell_lab/one_with_nothing.vpcf"
         }
+
         "ReduxFlags"                                                           "doNotRandom"
         //"ReduxBans"                                                            ""
         //"ReduxPerks"                                                           "support | mobility"

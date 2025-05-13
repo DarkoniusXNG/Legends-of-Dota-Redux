@@ -211,7 +211,6 @@
         {
             "model"     "models/items/rattletrap/cog_tesla/cog_tesla.vmdl"
             "particle"  "particles/units/heroes/hero_shadowshaman/shadowshaman_ether_shock.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
         }
     
         "AbilityValues"
@@ -402,7 +401,6 @@
         {
             "particle"  "particles/keen_slag_armor_projectile.vpcf"
             "particle"  "particles/econ/events/coal/coal_projectile.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
         }
     
         "AbilityValues"

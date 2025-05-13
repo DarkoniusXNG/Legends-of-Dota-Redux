@@ -17,9 +17,9 @@
             "chance_scepter" "40"
             "duration" "60.0"
         }
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_brewmaster.vsndevts"
             "particle"                                                     "particles/master_magic.vpcf"
         }
 

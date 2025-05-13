@@ -28,7 +28,6 @@
         }
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
             "particle"                                                     "particles/cherub_explosive_spore.vpcf"
         }
         "OnSpellStart"

@@ -26,11 +26,12 @@
             "range_scepter" "3000"
             "stat_scepter" "5"
         }
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
             "particle"                                                     "particles/spell_lab/symbiotic_overhead.vpcf"
         }
+
         "ReduxFlags"                                                           "upgradeable | support | mobility | doNotRandom"
         "ReduxBans"                                                            "storm_spirit_ball_lightning | life_stealer_assimilate | terrorblade_sunder"
         "ReduxPerks"                                                           "support | mobility"

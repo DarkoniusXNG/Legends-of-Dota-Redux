@@ -2661,7 +2661,6 @@
 		"BaseClass"                    "npc_dota_creature"    // Class of entity of link to.
 		"Model"                        "models/items/pugna/ward/weta_call_of_the_nether_lotus_ward/weta_call_of_the_nether_lotus_ward.vmdl"    // Model.
 		"SoundSet"                    "Hero_TechiesLandMines"                    // Name of sound set.
-		"GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
 		"Level"                        "1"
 		"ModelScale"                 "1.2"
 
@@ -4366,7 +4365,6 @@
 		"Model"						"models\items\lone_druid\true_form\iron_claw_true_form\iron_claw_true_form.vmdl"	// Model.
 		"BaseClass"					"npc_dota_creature"
 		"SoundSet"					"LoneDruid_SpiritBear"
-		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
 		"Level"						"4"
 		"ModelScale" 				"1.3"
 	    "ConsideredHero"             "1"
@@ -4434,7 +4432,6 @@
 
 		//Precache
 		//---------------------------------------------------------------------
-		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
 		"precache"
 		{
 			"particle_folder"		"particles/units/heroes/hero_ursa"
@@ -4510,7 +4507,6 @@
 		"Model"						"models/heroes/lone_druid/spirit_bear.vmdl"	// Model.
 		"BaseClass"					"npc_dota_creature"
 		"SoundSet"					"LoneDruid_SpiritBear"
-		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
 		"Level"						"1"
 		"ModelScale" 				"0.9"
 
@@ -4583,7 +4579,6 @@
 		"Model"						"models\items\lone_druid\bear\iron_claw_spirit_bear\iron_claw_spirit_bear.vmdl"	// Model.
 		"BaseClass"					"npc_dota_creature"
 		"SoundSet"					"LoneDruid_SpiritBear"
-		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
 		"Level"						"2"
 		"ModelScale" 				"1.4"
 		"CanBeDominated"			"0"
@@ -4642,7 +4637,6 @@
 
 		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
-		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
 		"VoiceFile"					"soundevents/voscripts/game_sounds_vo_lone_druid.vsndevts"
 
 		// Team
@@ -4700,7 +4694,6 @@
 		"Model"						"models/heroes/sven/sven.vmdl"
 		"BaseClass"					"npc_dota_creature"
 		"SoundSet"					"Hero_Sven"
-		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
 		"Level"						"4"
 		"ModelScale" 				"1"
 		"CanBeDominated"			"0"
@@ -4764,7 +4757,6 @@
 
 		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
-		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
 		"VoiceFile"					"soundevents/voscripts/game_sounds_vo_lone_druid.vsndevts"
 
 		// Team
@@ -5228,7 +5220,6 @@
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"	// Model.
 		"SoundSet"					"Hero_TechiesLandMines"					// Name of sound set.
-		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
 		"Level"						"1"
 		"ModelScale" 				"1.2"
 
@@ -5300,7 +5291,6 @@
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/items/undying/idol_of_ruination/idol_tower_gold.vmdl"
 		"SoundSet"			"Creep_Siege_Dire"
-		"GameSoundsFile"	"soundevents/game_sounds_creeps.vsndevts"
 		"Level"						"1"
 		"ModelScale" 				"0.8"
 
@@ -5345,33 +5335,7 @@
 		//Inventory
 		"HasInventory"				"0"
 	}
-	"npc_armageddon"
-	{
-		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"  "DOTA_UNIT_CAP_NO_ATTACK"
-		"Ability1"				"armageddon_chaos_meteor"
-		"StatusMana"			"1000"
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
-
-		"UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
-
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"0"		// Range of vision during day light.
-		"VisionNighttimeRange"		"0"		// Range of vision at night time.
-		"WakesNeutrals"				"0"
-
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"500"		// Range of vision during day light.
-		"VisionNighttimeRange"		"500"		// Range of vision at night time.
-	}
 	"npc_lava"
 	{
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
@@ -5466,7 +5430,6 @@
         "BaseClass"                 "npc_dota_creature"
         "Model"                     "models/heroes/undying/undying_minion.vmdl"
         "SoundSet"                  "Undying_Zombie"
-        "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
         "ModelScale"                "1.2"
         "Level"                     "0"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -5516,7 +5479,6 @@
         "BaseClass"                 "npc_dota_creature"
         "Model"                     "models/heroes/undying/undying_minion.vmdl"
         "SoundSet"                  "Undying_Zombie"
-        "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
         "ModelScale"                "2.3"
         "Level"                     "5"
 	
@@ -5573,7 +5535,6 @@
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/heroes/undying/undying_minion.vmdl"	// Model.
 		"SoundSet"					"Undying_Zombie"					// Name of sound set.
-		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
 		"ModelScale"				"1"
 		"Level"						"1"
 
@@ -5686,7 +5647,6 @@
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/heroes/undying/undying_minion_torso.vmdl"	// Model.
 		"SoundSet"					"Undying_Zombie"					// Name of sound set.
-		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
 		"ModelScale"				"1"
 		"Level"						"1"
 		"CanBeDominated"			"1"

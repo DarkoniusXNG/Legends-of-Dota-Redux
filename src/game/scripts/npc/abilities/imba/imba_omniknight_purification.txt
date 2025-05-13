@@ -14,9 +14,9 @@
 
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_omniknight/omniknight_purification_cast.vpcf"
         }
+
         "AbilityValues"
         {
             "heal_base" "200"

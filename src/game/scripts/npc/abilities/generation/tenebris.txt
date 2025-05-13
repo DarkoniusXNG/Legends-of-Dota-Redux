@@ -48,7 +48,6 @@
 
         "precache"
         {
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
             "particle"  "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_dot.vpcf"
         }
 
@@ -188,7 +187,6 @@
 
         "precache"
         {
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
             "particle"  "particles/econ/items/abaddon/abaddon_alliance/abaddon_death_coil_alliance.vpcf"
             "particle"  "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_dot.vpcf"
             "particle"  "particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
@@ -351,7 +349,6 @@
             "particle"  "particles/units/heroes/hero_riki/riki_blink_strike.vpcf"
             "particle"  "particles/units/heroes/hero_dazzle/dazzle_shadow_wave_impact_damage.vpcf"
             "particle"  "particles/units/heroes/hero_invoker/invoker_deafening_blast_disarm_debuff.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
         }
     }
     "tenebris_mortal_coil"

@@ -18,8 +18,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
 			"particle"			"particles/units/heroes/hero_gemini/gemini_dark_rift.vpcf"
 			"particle"			"particles/units/heroes/hero_chen/chen_teleport.vpcf"
 		}

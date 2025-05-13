@@ -35,7 +35,6 @@
 
 		"precache"
 		{
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
 			"particle"			"particles/units/heroes/hero_crimson/crimson_ancient_pact.vpcf"
 		}
 

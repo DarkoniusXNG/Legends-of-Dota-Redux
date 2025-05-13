@@ -46,7 +46,6 @@
 		"precache"
 		{
 			"particle" "particles/units/heroes/hero_terrorblade/terrorblade_reflection_cast.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_terrorblade.vsndevts"
 		}
 	}
 }

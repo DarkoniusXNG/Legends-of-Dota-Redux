@@ -15,9 +15,9 @@
             "radius_dop_dmg" "200"
         }
 
-		"precache" {
+		"precache"
+		{
 			"particle" "particles/units/heroes/hero_zuus/zuus_lightning_bolt.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_disruptor.vsndevts"
 		}
 
 		"Modifiers" {

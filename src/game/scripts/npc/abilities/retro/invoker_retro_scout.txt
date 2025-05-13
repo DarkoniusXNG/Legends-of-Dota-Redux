@@ -16,9 +16,9 @@
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_bloodseeker/bloodseeker_thirst_owner.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
             "model"                                                        "models/items/courier/snowl/snowl_flying.vmdl"
         }
+
         "AbilityValues"
         {
             "owl_duration" "30 35 40 45"

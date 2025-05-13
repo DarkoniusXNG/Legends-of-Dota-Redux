@@ -12,9 +12,9 @@
 
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf"
         }
+
         "AbilityCooldown"                                                      "50.0"
         "AbilityValues"
         {

@@ -33,8 +33,6 @@
             "particle"              "particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf"
             "particle"              "particles/generic_gameplay/generic_stunned_old.vpcf"
             "particle"              "particles/units/heroes/hero_sandking/sandking_epicenter.vpcf"
-            "soundfile"             "soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
-            "soundfile"             "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
         }
 
         "AbilityCastPoint"              "0.12 0.12 0.12 0.12"
@@ -210,7 +208,6 @@
             "model"                     "models/heroes/sand_king/sand_king.vmdl"
             "particle"                  "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf"
             "particle"                  "particles/units/heroes/hero_sandking/sandking_loadout.vpcf"
-            "soundfile"                 "soundevents/game_sounds_heroes/game_sounds_terrorblade.vsndevts"
         }
 
         "AbilityDamage"                 "70 140 210 280"

@@ -19,8 +19,8 @@
             "duration" "5"
         }
 
-		"precache" {
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+		"precache"
+		{
 			"particle" "particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
 		}
 

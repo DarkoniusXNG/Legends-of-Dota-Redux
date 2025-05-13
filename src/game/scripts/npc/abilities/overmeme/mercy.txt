@@ -273,7 +273,6 @@
 
         "precache"
         {
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
             "particle"          "particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff_rune.vpcf"
         }
 
@@ -368,8 +367,6 @@
         //-------------------------------------------------------------------------------------------------------------
         "precache"
         {
-            "soundfile"                 "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
-            "soundfile"                 "soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
             "soundfile"                 "soundevents/overmemed_soundevents.vsndevts"
             "particle"                  "particles/units/heroes/hero_omniknight/omniknight_guardian_angel_omni.vpcf"
             "particle"                  "particles/status_fx/status_effect_omnislash.vpcf"

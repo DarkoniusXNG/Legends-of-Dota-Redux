@@ -9,11 +9,12 @@
         "AbilityCooldown"                                                      "100.0"
         "AbilityManaCost"                                                      "100 125 150"
         "MaxLevel"                                                             "3"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_clinkz/clinkz_strafe_fire.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
         }
+
         "AbilityValues"
         {
             "bonus_armor" "40.0 60.0 75.0"

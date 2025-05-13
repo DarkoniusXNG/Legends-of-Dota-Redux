@@ -20,11 +20,12 @@
             "bonus_regen" "15 25 35"
             "bonus_damage" "5 8 11"
         }
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture_glow_lv.vpcf"
-            "soundfile"                                                    "soundevents\hero_phantom.vsndevts"
         }
+
         "Modifiers"
         {
             "modifier_command_aura"

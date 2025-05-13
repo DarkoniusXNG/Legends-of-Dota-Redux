@@ -18,13 +18,14 @@
             "duration" "10"
             "damage_to_wake" "125 150 175 200"
         }
+
         "precache"
         {
             "particle"                                                     "particles/cherub_sleep_status.vpcf"
             "particle"                                                     "particles/cherub_sleep_cloud.vpcf"
             "particle"                                                     "particles/cherub_sleep_cloud_smoke.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
         }
+
         "OnSpellStart"
         {
             "SpawnUnit"

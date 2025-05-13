@@ -10,11 +10,12 @@
         "MaxLevel"                                                             "4"
         "RequiredLevel"                                                        "1"
         "LevelsBetweenUpgrades"                                                "2"
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_crystalmaiden/maiden_frostbite.vpcf"
         }
+
         "AbilityValues"
         {
             "freezing_chance" "20 30 40 50"

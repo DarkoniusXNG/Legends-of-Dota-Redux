@@ -42,8 +42,6 @@
         //-------------------------------------------------------------------------------------------------------------
         "precache"
         {
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_nightstalker.vsndevts"
             "particle"  "particles/units/heroes/hero_bane/bane_projectile.vpcf"
             "particle"  "particles/achlys_miserable_claws_debuff.vpcf"
             "particle"  "particles/achlys_miserable_claws_root.vpcf"
@@ -69,8 +67,6 @@
         //-------------------------------------------------------------------------------------------------------------
         "precache"
          {
-          "soundfile"   "soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
-          "soundfile"   "soundevents/game_sounds_heroes/game_sounds_shadow_demon.vsndevts"
           "particle"    "particles/achlys_nights_embrace.vpcf"
           "particle"    "particles/achlys_nights_embrace_invis.vpcf"
           "particle"    "particles/generic_hero_status/status_invisibility_start.vpcf"
@@ -319,8 +315,6 @@
         //-------------------------------------------------------------------------------------------------------------
         "precache"
         {
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_nightstalker.vsndevts"
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
             "particle"          "particles/achlys_death_mist_startup.vpcf"
             "particle"          "particles/achlys_death_mist_main.vpcf"
             "particle"          "particles/achlys_death_mist_main_shockwave.vpcf"

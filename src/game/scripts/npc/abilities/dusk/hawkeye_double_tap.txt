@@ -46,11 +46,7 @@
             "mult" "0.50 0.60 0.70 0.80"
             "mult_scepter" "2.00"
         }
-		
-		"precache"
-		{
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
-		}
+
 		"OnUpgrade"
 		{
 			"LevelUpAbility"

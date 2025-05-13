@@ -51,8 +51,6 @@
 		
 		"precache"
 		{
-			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
-			"soundfile" 					"soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
 			"particle"						"particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_cast.vpcf"
 			"particle"						"particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_caster.vpcf" // for dummy
 			"particle"						"particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_targetted_marker.vpcf"

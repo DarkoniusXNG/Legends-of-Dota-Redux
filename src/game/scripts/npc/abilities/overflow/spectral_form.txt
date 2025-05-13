@@ -31,8 +31,8 @@
 			"particle"	"particles/items_fx/ghost.vpcf"
 			"particle"	"particles/status_fx/status_effect_ghost.vpcf"
 			"particle"	"particles/units/heroes/hero_sven/sven_gods_strength_hero_effect.vpcf"
-			"soundfile"	"soundevents/game_sounds_creeps.vsndevts"
 		}
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"

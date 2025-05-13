@@ -60,8 +60,6 @@
         {
             "particle"      "particles/proteus_razorwind_trail.vpcf"
             "particle"      "particles/proteus_razorwind_projectile.vpcf"
-            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"
-            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
         }
         "OnSpellStart"
         {
@@ -253,7 +251,6 @@
         "precache"
         {
             "particle"  "particles/proteus_jet_trail.vpcf"
-            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"
         }
 
         // Special

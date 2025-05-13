@@ -12,11 +12,12 @@
         "AbilityCooldown"                                                      "120 105 90"
         "AbilityManaCost"                                                      "250 375 500"
         "AbilityDuration"                                                      "4 5 6"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_silencer/silencer_global_silence.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
         }
+
         "AbilityValues"
         {
             "duration" "4 5 6"

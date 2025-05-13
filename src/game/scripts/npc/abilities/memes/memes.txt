@@ -66,6 +66,7 @@
         {
             "particle"          "particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf"
         }
+
         // General
         //-------------------------------------------------------------------------------------------------------------
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -126,8 +127,8 @@
         "precache"
         {
             "particle"          "particles/units/heroes/hero_lina/lina_spell_laguna_blade.vpcf"
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
         }
+
         // General
         //-------------------------------------------------------------------------------------------------------------
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"

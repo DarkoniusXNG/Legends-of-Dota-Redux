@@ -6,11 +6,12 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PURE"
         "AbilityTextureName"                                                   "custom/angel_arena_berserk"
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
             "particle"          "particles/status_fx/status_effect_life_stealer_rage.vpcf"
         }
+
         "AbilityCooldown"                                                      "30.0"
         "AbilityCastPoint"                                                     "0.0 0.0 0.0 0.0"
         "AbilityManaCost"                                                      "30"

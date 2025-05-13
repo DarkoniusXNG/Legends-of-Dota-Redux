@@ -60,7 +60,6 @@
         {
             "particle"  "particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
             "particle"  "particles/units/heroes/hero_lich/lich_slowed_cold.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
         }
         
         "AbilityCastRange"              "750"

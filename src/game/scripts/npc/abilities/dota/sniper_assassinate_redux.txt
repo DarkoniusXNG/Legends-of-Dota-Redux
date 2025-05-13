@@ -28,8 +28,8 @@
             "scepter_crit_bonus" "280"
         }
 
-		"precache" {
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+		"precache"
+		{
 			"particle" "particles/units/heroes/hero_sniper/sniper_crosshair.vpcf"
 		}
 	}

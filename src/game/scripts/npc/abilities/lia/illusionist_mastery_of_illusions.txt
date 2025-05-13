@@ -26,11 +26,12 @@
             "incoming_damage" "300 250 200"
             "outgoing_damage_tooltip" "40 50 60"
         }
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts"
         }
+
         "OnSpellStart"
         {
             "RunScript"

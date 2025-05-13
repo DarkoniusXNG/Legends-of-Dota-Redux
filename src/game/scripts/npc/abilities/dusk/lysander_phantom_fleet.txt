@@ -50,8 +50,6 @@
 
 		"precache"
 		{
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
 			"particle"					"particles/units/heroes/hero_lysander/phantom_fleet_ship_main.vpcf"
 			"particle"					"particles/units/heroes/hero_lysander/phantom_fleet_cannoball.vpcf"
 		}

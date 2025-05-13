@@ -45,7 +45,6 @@
 		
 		"precache"
 		{
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
 			"particle"	"particles/units/heroes/hero_sniper/sniper_crosshair.vpcf"
 			"soundfile" "soundevents/hero_hawkeye.vsndevts"
 		}

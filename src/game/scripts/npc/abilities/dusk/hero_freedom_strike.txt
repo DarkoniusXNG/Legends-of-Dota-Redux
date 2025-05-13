@@ -51,8 +51,6 @@
 		"precache"
 		{
 			"particle" "particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_brewmaster.vsndevts"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
 		}
 	}
 }

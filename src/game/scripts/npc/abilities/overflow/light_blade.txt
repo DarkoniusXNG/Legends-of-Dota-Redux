@@ -21,8 +21,8 @@
         "precache"
         {
             "particle"                                                     "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
         }
+
         "AbilityValues"
         {
             "damage" "5 10 15"

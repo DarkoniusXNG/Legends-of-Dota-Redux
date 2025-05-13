@@ -12,11 +12,12 @@
         "AoERadius"                                                            "400"
         "MaxLevel"                                                             "4"
         "AbilityCastPoint"                                                     "0.2"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
         }
+
         "AbilityValues"
         {
             "radius" "400"

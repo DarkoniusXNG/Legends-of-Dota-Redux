@@ -44,12 +44,7 @@
 		
 		"precache"
 		{
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
 			"particle" "particles/units/heroes/hero_stormspirit/stormspirit_overload_discharge.vpcf"
-		}
-		
-		"Modifiers"
-		{
 		}
 
 		"ReduxPerks"	"lightning"

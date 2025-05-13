@@ -31,10 +31,7 @@
             "red_flower_damage" "40 65 90 115"
             "flower_health" "250 400 550 700"
         }
-        "precache"
-        {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
-        }
+
         "OnSpellStart"
         {
             "ApplyModifier"

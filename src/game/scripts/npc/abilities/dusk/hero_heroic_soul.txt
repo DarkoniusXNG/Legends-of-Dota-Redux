@@ -37,7 +37,6 @@
 
 		"precache"
 		{
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
 			"particle"			"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
 			"particle"			"particles/status_fx/status_effect_gods_strength.vpcf"
 		}

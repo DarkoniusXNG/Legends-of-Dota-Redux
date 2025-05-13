@@ -8,10 +8,11 @@
 		"MaxLevel" "3"
 		"AbilityTextureName" "custom/angel_arena_hola_heal"
 
-		"precache" {
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+		"precache"
+		{
 			"particle" "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_c.vpcf"
 		}
+
 		"AbilityCastPoint" "0.3 0.3 0.3"
 		"AbilityCooldown" "60.0"
 		"AbilityManaCost" "200 300 400"

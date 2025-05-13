@@ -19,8 +19,8 @@
             "bonus_hp" "500 800 1100"
         }
 
-		"precache" {
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_terrorblade.vsndevts"
+		"precache"
+		{
 			"particle" "particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_ambient.vpcf"
 			"particle" "particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_transform.vpcf"
 			"particle" "particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis.vpcf"

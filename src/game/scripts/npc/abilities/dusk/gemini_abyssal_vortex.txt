@@ -21,8 +21,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
 			"particle"			"particles/units/heroes/hero_enigma/enigma_blackhole.vpcf"
 			"particle"			"particles/units/heroes/hero_enigma/enigma_blackhole_fallback_low.vpcf"
 			"particle"			"particles/units/heroes/hero_enigma/enigma_blackhole_fallback_mid.vpcf"

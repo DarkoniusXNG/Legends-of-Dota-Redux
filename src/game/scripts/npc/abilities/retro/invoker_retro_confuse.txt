@@ -12,10 +12,6 @@
         "AbilityManaCost"                                                      "100"
         "AbilityCastRange"                                                     "1500 2000 2500 3000"
 
-        "precache"
-        {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_terrorblade.vsndevts"
-        }
         "AbilityValues"
         {
             "duration" "10 12 14 16"

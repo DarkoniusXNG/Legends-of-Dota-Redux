@@ -170,7 +170,6 @@
 
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_legion_commander/legion_commander_press.vpcf"
             "particle"                                                     "particles/units/heroes/hero_legion_commander/legion_commander_press_buff.vpcf"
         }
@@ -266,7 +265,6 @@
 
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_legion_commander/legion_commander_press.vpcf"
             "particle"                                                     "particles/units/heroes/hero_legion_commander/legion_commander_press_buff.vpcf"
         }
@@ -375,7 +373,6 @@
         "precache"
         {
             "particle"                  "particles/units/heroes/hero_clinkz/clinkz_strafe_fire.vpcf"
-            "soundfile"                 "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
         }
 
         // Special
@@ -427,7 +424,6 @@
         "precache"
         {
             "particle"                  "particles/units/heroes/hero_clinkz/clinkz_strafe_fire.vpcf"
-            "soundfile"                 "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
         }
 
         // Special

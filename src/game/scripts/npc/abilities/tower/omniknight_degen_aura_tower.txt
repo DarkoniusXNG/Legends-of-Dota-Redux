@@ -17,11 +17,12 @@
             "sticky_time" "3"
             "stack_reduction_pct" "2 3 4"
         }
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_omniknight/omniknight_degen_aura_debuff.vpcf"
         }
+
         "OnUpgrade"
         {
             "RemoveModifier"

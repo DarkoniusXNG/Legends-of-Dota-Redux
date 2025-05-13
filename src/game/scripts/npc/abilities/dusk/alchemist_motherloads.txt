@@ -49,7 +49,6 @@
 			"particle" "particles/status_fx/status_effect_alchemist_gold_armor.vpcf"
 			"particle" "particles/units/heroes/hero_alchemist/alchemist_lasthit_coins.vpcf"
 			"particle" "particles/units/heroes/hero_alchemist/alchemist_lasthit_msg_gold.vpcf"
-			"soundfile" "soundevents/game_sounds_items.vsndevts"
 		}
 			
 		"OnSpellStart"

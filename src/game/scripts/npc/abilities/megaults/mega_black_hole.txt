@@ -22,10 +22,8 @@
         "precache"
         {
             "particle"      "particles/other/mega_black_hole.vpcf"
-            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"            
-            "soundfile"     "sounds/weapons/hero/enigma/black_hole_loop.vsnd"
-            "soundfile"     "sounds/weapons/hero/enigma/black_hole_stop.vsnd"
         }
+
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "1200"

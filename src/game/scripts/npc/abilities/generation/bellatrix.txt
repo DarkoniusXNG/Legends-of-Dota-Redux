@@ -67,8 +67,6 @@
             "particle"      "particles/units/heroes/hero_sandking/sandking_caustic_finale_explode.vpcf"
             "particle"      "particles/items2_fx/soul_ring_blood.vpcf"
             "particle"      "particles/generic_gameplay/generic_lifesteal_old.vpcf"
-            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
-            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
         }
 
         "OnSpellStart"
@@ -466,7 +464,6 @@
         {
             "particle"                  "particles/bellatrix/bellatrix_live_transfusion.vpcf"
             "particle"                  "particles/bellatrix/blood_trail.vpcf"
-            "soundfile"                 "soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
         }
 
         "AbilityValues"
@@ -688,7 +685,6 @@
             "particle"          "particles/bellatrix/bellatrix_unholy_ecstasy.vpcf"
             "particle"          "particles/bellatrix/bellatrix_unholy_bonus.vpcf"
             "particle"          "particles/bellatrix_unholy_ecstasy_orb.vpcf"
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
         }
 
         "AbilityValues"

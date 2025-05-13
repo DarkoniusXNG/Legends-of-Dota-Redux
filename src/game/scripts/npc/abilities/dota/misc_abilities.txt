@@ -190,10 +190,6 @@
         "ReduxFlags"                                                           "mobility"
         "ReduxPerks"                                                           "mobility"
 
-        "precache"
-        {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_pangolier.vsndevts"
-        }
         "AbilityCastPoint"              "0.0"
         "AbilityCastRange"              "1500"
         "AbilityManaCost"               "75 80 85 90"
@@ -253,10 +249,6 @@
         "ReduxFlags"                                                           "upgradeable | wtfAutoBan"
         "ReduxCost"                                                            "120"
 
-        "precache"
-        {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_faceless_void.vsndevts"
-        }
         "AbilityCastRange"              "600"
         "AbilityCastPoint"              "0.35 0.35 0.35"
         "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
@@ -467,10 +459,6 @@
 
         "ReduxCost"                                                            "120"
 
-        "precache"
-        {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_grimstroke.vsndevts"
-        }
         "AbilityCastAnimation"          "ACT_DOTA_GS_SOUL_CHAIN"
         "AbilityCastGestureSlot"        "DEFAULT"
         "AbilityCooldown"               "40 30 20"
@@ -510,10 +498,6 @@
         "ReduxCost"                                                            "120"
 		"ReduxBans"                                                            "templar_assassin_psi_blades"
 
-        "precache"
-        {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts"
-        }
         "AbilityValues"
 		{
 				"bonus_attack_range"
@@ -604,10 +588,6 @@
         "ReduxPerks"                                                           "fire | summon_non_ult | undead"
         "ReduxCost"                                                            "120"
 
-        "precache"
-        {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
-        }
         "AbilityCastRange"              "3000"
         "AbilityCastPoint"              "0"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
@@ -640,10 +620,6 @@
 		"AbilityCastRange"				"150"
 		"AbilityCastPoint"				"0.0"
 
-        "precache"
-        {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
-        }
         "AbilityValues"
 		{
 			"bonus_damage"
@@ -678,11 +654,6 @@
         "AbilityTextureName"            "custom/grimstroke_soul_chain_op"
 
         "ReduxCost"                                                            "120"
-
-        "precache"
-        {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_grimstroke.vsndevts"
-        }
 
         "AbilityCastAnimation"          "ACT_DOTA_GS_SOUL_CHAIN"
         "AbilityCastGestureSlot"        "DEFAULT"
@@ -722,11 +693,6 @@
 
         "ReduxCost"                                                            "120"
         "ReduxPerks"                                                           "enemyMoving | blood | undead"
-
-        "precache"
-        {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_mars.vsndevts"
-        }
 
         "AbilityCastRange"              "1000"
         "AbilityCastPoint"              "0.1"
@@ -802,10 +768,6 @@
         "ReduxFlags"                                                           "stun"
         "ReduxCost"                                                            "120"
 
-        "precache"
-        {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_faceless_void.vsndevts"
-        }
         "AbilityCastRange"              "600"
         "AbilityCastPoint"              "0.1"
         "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"

@@ -11,11 +11,12 @@
 
 		"ReduxFlags"   "summon"
 
-		"precache" {
-			"Model" "models/items/venomancer/centipede_ward/centipede_ward.vmdl"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
+		"precache"
+		{
+			"model" "models/items/venomancer/centipede_ward/centipede_ward.vmdl"
 			"particle" "particles/units/heroes/hero_alchemist/alchemist_unstable_concoction_projectile.vpcf"
 		}
+
 		"AbilityCastRange" "700"
 		"AbilityCastPoint" "0.35 0.35 0.35"
 		"AbilityCooldown" "60 55 50"

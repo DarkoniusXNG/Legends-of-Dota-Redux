@@ -45,11 +45,6 @@
 		{
 			"particle"  "particles/units/heroes/hero_stormspirit/stormspirit_overload_discharge.vpcf"
 			"particle"	"particles/units/heroes/hero_lightning/spark.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
-		}
-		
-		"Modifiers"
-		{
 		}
 
 		"ReduxPerks"	"lightning"

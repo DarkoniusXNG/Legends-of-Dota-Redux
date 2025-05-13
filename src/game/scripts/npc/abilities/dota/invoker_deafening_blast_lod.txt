@@ -25,7 +25,6 @@
 			"particle"  "particles/units/heroes/hero_invoker/invoker_deafening_blast.vpcf"
 			"particle"  "particles/units/heroes/hero_invoker/invoker_deafening_blast_knockback_debuff.vpcf"
 			"particle"  "particles/units/heroes/hero_invoker/invoker_deafening_blast_disarm_debuff.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
 		}
 
 		"AbilityValues"

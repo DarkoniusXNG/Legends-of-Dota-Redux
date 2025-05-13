@@ -31,7 +31,6 @@
         {
             "particle"  "particles/ui/ui_godrays.vpcf"
             "particle"  "particles/uther/argent_smite.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
         }
     
         "AbilityValues"
@@ -61,15 +60,15 @@
       "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
     
       "AbilityValues"
-        {
-            "duration" "15"
-            "radius" "1200"
-            "check_radius" "2500"
-        }
+      {
+        "duration" "15"
+        "radius" "1200"
+        "check_radius" "2500"
+      }
+
       "precache"
       {
         "particle"    "particles/units/heroes/hero_disruptor/disruptor_kineticfield.vpcf"
-        "soundfile" "soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
       }
     
       "OnSpellStart"
@@ -194,8 +193,6 @@
             "particle"  "particles/uther/hurl_hammer.vpcf"
             "particle"  "particles/econ/courier/courier_trail_05/courier_trail_05.vpcf"
             "model"     "models/heroes/omniknight/hammer.vmdl"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts"
         }
 
         "OnUpgrade"
@@ -552,9 +549,6 @@
             "particle"  "particles/econ/courier/courier_trail_spirit/courier_trail_spirit.vpcf"
             "particle"  "particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
             "particle"  "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_recall_source.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
         }
     
         "AbilityValues"
@@ -658,7 +652,6 @@
         {
             "particle"  "particles/units/heroes/hero_brewmaster/brewmaster_dispel_magic.vpcf"
             "particle"  "particles/uther_omniscience_waveactive.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
         }
         
         "OnSpellStart"

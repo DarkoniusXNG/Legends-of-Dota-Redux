@@ -10,10 +10,11 @@
 		"SpellImmunityType" "SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName" "custom/angel_arena_archmage_anomaly"
 
-		"precache" {
+		"precache"
+		{
 			"particle" "particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
 		}
+
 		"AbilityCastRange" "1200"
 		"AOERadius" "550"
 		"AbilityCastPoint" "0.1"

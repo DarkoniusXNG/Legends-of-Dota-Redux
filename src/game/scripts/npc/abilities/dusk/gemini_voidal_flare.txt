@@ -20,7 +20,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_vengefulspirit.vsndevts"
 			"particle"			"particles/units/heroes/hero_gemini/voidal_flare.vpcf"		
 		}
 
