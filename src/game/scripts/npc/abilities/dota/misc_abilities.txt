@@ -466,7 +466,6 @@
         "AbilityCastPoint"              "0.15"
         "AbilityManaCost"               "50"
 
-        "AbilityModifierSupportValue"   "0.75"
         "AbilityValues"
 		{
 			"chain_duration"		"10.0 15.0 20.0"
@@ -661,7 +660,7 @@
         "AbilityCastRange"              "1000 2000 3000"
         "AbilityCastPoint"              "0.15"
         "AbilityManaCost"               "150 200 250"
-        "AbilityModifierSupportValue"   "0.75"
+
         "AbilityValues"
 		{
 			"chain_duration"		"15.0 20.0 25.0"

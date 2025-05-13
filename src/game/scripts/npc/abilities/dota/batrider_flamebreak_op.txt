@@ -13,7 +13,7 @@
         "AbilityCastPoint"                                                     "0.2"
         "AbilityCooldown"                                                      "15 14 13 12"
         "AbilityManaCost"                                                      "110 115 120 125"
-        "AbilityModifierSupportValue"                                          "1.0"
+
         "AbilityValues"
 		{
 			"damage_impact"		

@@ -11,7 +11,7 @@
         "AbilityCastPoint"                                                     "0"
         "AbilityCooldown"                                                      "55"
         "AbilityManaCost"                                                      "200"
-        "AbilityModifierSupportValue"                                          "0.0"
+
         "AbilityValues"
         {
             "burn_dps" "11.5 18.5 25.5 32.5"

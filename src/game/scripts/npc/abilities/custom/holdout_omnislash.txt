@@ -10,7 +10,7 @@
         "AbilityCastPoint"                                                     "0.3 0.3 0.3"
         "AbilityCooldown"                                                      "40.0 30.0 20.0"
         "AbilityManaCost"                                                      "100"
-        "AbilityModifierSupportValue"                                          "0.25"
+
         "AbilityValues"
         {
             "image_travel_speed" "850"

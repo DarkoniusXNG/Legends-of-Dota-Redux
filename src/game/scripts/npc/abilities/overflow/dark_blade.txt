@@ -29,10 +29,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"150 200 250"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// Modifier just delays damage
-
 		"precache"
 		{
 			"particle"          "particles/econ/items/terrorblade/terrorblade_back_ti8/terrorblade_sunder_ti8.vpcf"

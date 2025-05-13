@@ -11,7 +11,6 @@
         "AbilityCastRange"                                                     "700"
         "AbilityCastPoint"                                                     "0.05"
         "AbilityManaCost"                                                      "200"
-        "AbilityModifierSupportValue"                                          "0.0"
 
         "precache"
         {

@@ -10,7 +10,7 @@
         "RequiredLevel"                                                        "24"
         "AbilityCooldown"                                                      "120"
         "AbilityManaCost"                                                      "500"
-        "AbilityModifierSupportValue"                                          "0.0"
+
         "ReduxCost"                                                            "120"
 
         // Casting

@@ -14,7 +14,7 @@
         "AbilityDamage"                                                        "125 200 275 350"
         "AbilityCooldown"                                                      "6.0 6.0 6.0 6.0"
         "AbilityManaCost"                                                      "120 125 130 135"
-        "AbilityModifierSupportValue"                                          "0.1"
+
         "AbilityValues"
         {
             "true_sight_radius" "1500"
