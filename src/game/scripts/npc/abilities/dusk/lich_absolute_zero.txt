@@ -50,7 +50,6 @@
 		{
 			"particle" "particles/status_fx/status_effect_frost_lich.vpcf"
 			"particle" "particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet_frozen.vpcf"
-			"soundfile" "soundevents/hero_lich.vsndevts"
 		}
 
 		"ReduxPerks"	"ice"

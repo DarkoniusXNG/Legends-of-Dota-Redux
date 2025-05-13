@@ -34,7 +34,6 @@
 		"precache"
 		{
 			"particle" "particles/units/heroes/hero_summoner/vassal_shield.vpcf"
-			"soundfile" "soundevents/hero_phantom.vsndevts"
 		}
 		
 		"Modifiers"

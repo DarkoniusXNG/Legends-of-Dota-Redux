@@ -45,10 +45,6 @@
 			"particle"  "particles/units/heroes/hero_erra/to_dust_affected_unit.vpcf"
 		}
 
-		"Modifiers"
-		{
-		}
-
 		"ReduxPerks"	""
 		"ReduxFlags"	""
 	}

@@ -27,12 +27,13 @@
             "stat_scale_up" "2"
             "radius" "400"
         }
+
         "precache"
         {
-            "soundfile"                                                    "sounds/weapons/hero/undying/decay_cast.vsnd"
             "particle"                                                     "particles/undying_decay_fakeprojectile_glow_int.vpcf"
-            "EffectName"                                                   "particles/undying_decay_intelligence_buff.vpcf"
+            "particle"                                                     "particles/undying_decay_intelligence_buff.vpcf"
         }
+
         "OnSpellStart"
         {
             "FireSound"

@@ -3208,9 +3208,6 @@
 
 		"precache"
 		{
-			//"soundfile" "scripts/game_sounds/nian.txt"
-			"soundfile" "scripts/game_sounds/frostivus.txt"
-
 			"particle_folder"				"particles/creature_splitter"
 			"particle_folder"				"particles/frostivus_gameplay"
 			"particle_folder"				"particles/frostivus_herofx"
