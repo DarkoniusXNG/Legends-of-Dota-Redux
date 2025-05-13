@@ -23,7 +23,8 @@
 
         "precache"
         {
-            "particle"                                                     "particles/units/heroes/hero_omniknight/omniknight_purification_cast.vpcf"
+            "particle"                                                 "particles/units/heroes/hero_omniknight/omniknight_purification_cast.vpcf"
+            "particle"                                                 "particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
         }
 
         "OnSpellStart"
@@ -55,6 +56,12 @@
         {
             "modifier_grace_damage_reduce"
             {
+                "IsBuff"		"1"
+                "IsPurgable"	"1"
+
+                "EffectName"		"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
+                "EffectAttachType"	"follow_origin"
+                
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduce"

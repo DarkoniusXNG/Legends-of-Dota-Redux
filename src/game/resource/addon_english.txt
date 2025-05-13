@@ -738,7 +738,7 @@
 "DOTA_Tooltip_ability_angel_arena_demonic_Description" "Transform into a demon, gaining increased base attack damage, modified attack speed, increased attack range, and increased health for a short duration.<br><br><font color='#7D7D7D'>Imported from <font color='#f26868'>Angel Arena Reborn.</font></font><br>"
 "DOTA_Tooltip_ability_angel_arena_demonic_duration" "DURATION:"
 "DOTA_Tooltip_ability_angel_arena_grace" "Saint's Grace"
-"DOTA_Tooltip_ability_angel_arena_grace_damage_reduce" "%DAMAGE REDUCE:"
+"DOTA_Tooltip_ability_angel_arena_grace_damage_reduce" "%DAMAGE REDUCTION:"
 "DOTA_Tooltip_ability_angel_arena_grace_Description" "Heal the targeted allied unit within range and reduce the damage they take for a short duration.<br><br><font color='#7D7D7D'>Imported from <font color='#f26868'>Angel Arena Reborn.</font></font><br>"
 "DOTA_Tooltip_ability_angel_arena_grace_duration" "DURATION:"
 "DOTA_Tooltip_ability_angel_arena_grace_heal" "HEAL:"
