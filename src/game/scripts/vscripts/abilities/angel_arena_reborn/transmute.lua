@@ -1,45 +1,48 @@
-if IsServer() then
-	require('lib/timers')
-end
-
 function Transmute( event )
-	-- Variables
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	if not caster or not target or not ability then return end
 
-	local hp_to_gold_percent = event.health_to_gold / 100
-	local target_health = target:GetHealth()	
-	local cd_time = ability:GetCooldownTimeRemaining()
-
-	if not target_health or not cd_time then return end
-	if hp_to_gold_percent > 1 then hp_to_gold_percent = 0.5 end
-
-	_G.transmute_antibug = _G.transmute_antibug or {}
-
-	if _G.transmute_antibug[caster:GetPlayerOwnerID()] and _G.transmute_antibug[caster:GetPlayerOwnerID()] > 0 then
-		print("returned")
+	if not caster or not target or not ability then
 		return
 	end
-	_G.transmute_antibug[caster:GetPlayerOwnerID()] = cd_time
 
-	if not _G.tansmute_antibug_bool then
-		Timers:CreateTimer(1, function()
-      								for i,x in pairs(_G.transmute_antibug) do
-      									if i and x then
-      										if x > 0 then
-      											_G.transmute_antibug[i] = _G.transmute_antibug[i] - 1
-      										end
-      									end
-      								end
-				      			return 1
-  								end )
-		_G.tansmute_antibug_bool = true
+	local hp_to_gold_percent = event.health_to_gold / 100
+	local target_health = target:GetHealth()
+
+	if target_health < 1 then
+		return
 	end
+	
+	if target:IsRealHero() then
+		return
+	end	
+	
+	local gold_reward = hp_to_gold_percent*target_health
 
-	caster:ModifyGold(hp_to_gold_percent*target_health, false, 0) 
+	-- Sound
+	target:EmitSound("DOTA_Item.Hand_Of_Midas")
 
-	ApplyDamage({ victim = target, attacker = caster, damage = target_health+1,	damage_type = DAMAGE_TYPE_PURE })
+	local particle_gold = ParticleManager:CreateParticle("particles/items2_fx/hand_of_midas.vpcf", PATTACH_CUSTOMORIGIN, target)
+	ParticleManager:SetParticleControlEnt(particle_gold, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(particle_gold, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+	ParticleManager:ReleaseParticleIndex(particle_gold)
 
+	caster:ModifyGold(gold_reward, true, DOTA_ModifyGold_Unspecified)
+
+	target:SetMinimumGoldBounty(0)
+	target:SetMaximumGoldBounty(0)
+	ApplyDamage({ victim = target, attacker = caster, damage = target_health+1, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+
+	-- Message Particle, has a bunch of options
+	local symbol = 0 -- "+" presymbol
+	local color = Vector(255, 200, 33) -- Gold color
+	local lifetime = 2
+	local digits = string.len(gold_reward) + 1
+	local particleName = "particles/units/heroes/hero_alchemist/alchemist_lasthit_msg_gold.vpcf"
+	local particle_message = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN, target)
+	ParticleManager:SetParticleControl(particle_message, 1, Vector(symbol, gold_reward, symbol))
+	ParticleManager:SetParticleControl(particle_message, 2, Vector(lifetime, digits, 0))
+	ParticleManager:SetParticleControl(particle_message, 3, color)
+	ParticleManager:ReleaseParticleIndex(particle_message)
 end

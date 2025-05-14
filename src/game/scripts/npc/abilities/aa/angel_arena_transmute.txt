@@ -19,31 +19,18 @@
 
 		"precache"
 		{
-			"particle" "particles/units/heroes/hero_clinkz/clinkz_death_pact.vpcf"
+			"particle" "particles/units/heroes/hero_alchemist/alchemist_lasthit_msg_gold.vpcf"
 		}
 
 		"OnSpellStart" {
-			"FireEffect" {
-				"EffectName" "particles/units/heroes/hero_clinkz/clinkz_death_pact.vpcf"
-				"EffectAttachType" "follow_origin"
-				"Target" "TARGET"
-
-				"ControlPointEntities" {
-					"TARGET" "attach_origin"
-					"CASTER" "attach_origin"
-				}
-			}
-
-			"FireSound" {
-				"EffectName" "Hero_Clinkz.DeathPact"
-				"Target" "TARGET"
-			}
-
 			"RunScript" {
 				"ScriptFile" "abilities/angel_arena_reborn/transmute.lua"
 				"Function" "Transmute"
 				"health_to_gold" "%hp_percent"
 			}
 		}
+
+		"ReduxPerks"	"gold"
+		"ReduxFlags"	"wtfAutoBan"
 	}
 }

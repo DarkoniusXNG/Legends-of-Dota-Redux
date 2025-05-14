@@ -38,7 +38,6 @@
 		
 		"precache"
 		{
-			"particle" "particles/items2_fx/hand_of_midas.vpcf"
 			"particle" "particles/units/heroes/hero_alchemist/alchemist_lasthit_coins.vpcf"
 			"particle" "particles/units/heroes/hero_alchemist/alchemist_lasthit_msg_gold.vpcf"
 		}
@@ -52,11 +51,8 @@
 				"gold" "%transmute_gold"
 			}
 		}
-		
-		"Modifiers"
-		{
-		}
-		"ReduxPerks"	""
-		"ReduxFlags"	""
+
+		"ReduxPerks"	"gold"
+		"ReduxFlags"	"wtfAutoBan"
 	}
 }
