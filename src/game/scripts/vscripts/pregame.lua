@@ -7415,8 +7415,11 @@ function Pregame:hookBotStuff()
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(0,1)
-                                hero:GetAbilityByIndex(i+random):UpgradeAbility(true)
-                                break
+                                local talent_random = hero:GetAbilityByIndex(i+random)
+                                if talent_random then
+                                    talent_random:UpgradeAbility(true)
+                                    break
+                                end
                             end
                         end
                     elseif keys.level == 15 then
@@ -7424,8 +7427,11 @@ function Pregame:hookBotStuff()
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(2,3)
-                                hero:GetAbilityByIndex(i+random):UpgradeAbility(true)
-                                break
+                                local talent_random = hero:GetAbilityByIndex(i+random)
+                                if talent_random then
+                                    talent_random:UpgradeAbility(true)
+                                    break
+                                end
                             end
                         end
 
@@ -7434,8 +7440,11 @@ function Pregame:hookBotStuff()
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(4,5)
-                                hero:GetAbilityByIndex(i+random):UpgradeAbility(true)
-                                break
+                                local talent_random = hero:GetAbilityByIndex(i+random)
+                                if talent_random then
+                                    talent_random:UpgradeAbility(true)
+                                    break
+                                end
                             end
                         end
 
@@ -7444,8 +7453,11 @@ function Pregame:hookBotStuff()
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(6,7)
-                                hero:GetAbilityByIndex(i+random):UpgradeAbility(true)
-                                break
+                                local talent_random = hero:GetAbilityByIndex(i+random)
+                                if talent_random then
+                                    talent_random:UpgradeAbility(true)
+                                    break
+                                end
                             end
                         end
                     end

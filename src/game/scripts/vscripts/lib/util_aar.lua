@@ -1548,8 +1548,7 @@ function saveAbilitiesCooldowns(unit)
     end
    
     local savetable = {}
-    local abilities = unit:GetAbilityCount() - 1
-    for i = 0, abilities do
+    for i = 0, unit:GetAbilityCount() - 1 do
         if unit:GetAbilityByIndex(i) then
             savetable[i] = unit:GetAbilityByIndex(i):GetCooldownTimeRemaining()
             --print("Save Ability Cooldown abilityname='" .. unit:GetAbilityByIndex(i):GetAbilityName() .. "' cooldown = " .. savetable[i])
@@ -1568,11 +1567,10 @@ function saveAbilitiesCooldowns(unit)
 end
  
 function setAbilitiesCooldowns(unit, settable)
-    local abilities = unit:GetAbilityCount() - 1
     if not settable or not unit then
         return
     end
-    for i = 0, abilities do
+    for i = 0, unit:GetAbilityCount() - 1 do
         if unit:GetAbilityByIndex(i) then
             unit:GetAbilityByIndex(i):StartCooldown(settable[i])
             if settable[i] == 0 then
@@ -1594,9 +1592,8 @@ end
  
 function resetAllAbilitiesCooldown(unit, item_table)
     if not unit then return end
- 
-    local abilities = unit:GetAbilityCount() - 1
-    for i = 0, abilities do
+
+    for i = 0, unit:GetAbilityCount() - 1 do
         if unit:GetAbilityByIndex(i) then
             unit:GetAbilityByIndex(i):EndCooldown()
         end

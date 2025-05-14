@@ -23,7 +23,7 @@ function mirage( keys )
   end
 
   illusion:SetAbilityPoints(0)
-  for abilitySlot=0,15 do
+  for abilitySlot = 0, caster:GetAbilityCount() - 1 do
     local ability = caster:GetAbilityByIndex(abilitySlot)
     if ability ~= nil then 
       local abilityLevel = ability:GetLevel()

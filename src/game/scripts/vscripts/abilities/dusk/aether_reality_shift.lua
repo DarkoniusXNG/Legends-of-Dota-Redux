@@ -199,7 +199,7 @@ function DealDamage(target,attacker,damageAmount,damageType,damageFlags,ability)
           damage = dmg,
           damage_type = type,
           damage_flags = flags,
-		  ability = ability
+          ability = ability
         })
       end
     end
@@ -211,7 +211,7 @@ function DealDamage(target,attacker,damageAmount,damageType,damageFlags,ability)
     damage = dmg,
     damage_type = type,
     damage_flags = flags,
-	ability = ability
+    ability = ability
   })
 end
 

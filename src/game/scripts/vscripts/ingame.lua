@@ -492,10 +492,6 @@ function Ingame:FilterExecuteOrder(filterTable)
     -- Next Gen hackery
     filterTable = nextGenOrderFilter(filterTable)
 
-    if not OptionManager:GetOption('disablePerks') then
-        filterTable = heroPerksOrderFilter(filterTable)
-    end
-
     if OptionManager:GetOption('memesRedux') == 1 then
         filterTable = memesOrderFilter(filterTable)
     end
@@ -2056,10 +2052,7 @@ end
     local caster = EntIndexToHScript(casterIndex)
     local abilityIndex = filterTable["entindex_ability_const"]
     local ability = EntIndexToHScript(abilityIndex)
-    -- Hero perks
-    if not OptionManager:GetOption('disablePerks') then
-        filterTable = heroPerksProjectileFilter(filterTable) --Sending all the data to the heroPerksDamageFilter
-    end
+
     return true
   end]]
         --
@@ -2154,10 +2147,6 @@ function Ingame:FilterDamage(filterTable)
         end
     end
 
-    -- Hero perks
-    if not OptionManager:GetOption('disablePerks') then
-        filterTable = heroPerksDamageFilter(filterTable)
-    end
     -- Next Gen
     filterTable = nextGenDamageFilter(filterTable)
     -- Memes
