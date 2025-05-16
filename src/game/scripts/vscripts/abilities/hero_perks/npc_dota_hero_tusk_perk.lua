@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Tusk
---		Perk: Walrus Kick and Walrus Punch will refund their manacost when used by Tusk. 
---
+--		Perk: Tusk gains 3 damage for each point in an Ice ability.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_tusk_perk ~= "" then modifier_npc_dota_hero_tusk_perk = class({}) end
+modifier_npc_dota_hero_tusk_perk = modifier_npc_dota_hero_tusk_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_tusk_perk:IsPassive()
 	return true
@@ -21,25 +19,38 @@ end
 function modifier_npc_dota_hero_tusk_perk:RemoveOnDeath()
 	return false
 end
---------------------------------------------------------------------------------------------------------
 
--- Add additional functions
---------------------------------------------------------------------------------------------------------
-
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_tusk_perk:DeclareFunctions()
-	return { MODIFIER_EVENT_ON_ABILITY_FULLY_CAST }
+function modifier_npc_dota_hero_tusk_perk:GetTexture()
+	return "custom/npc_dota_hero_tusk_perk"
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_tusk_perk:OnAbilityFullyCast(keys)
+
+function modifier_npc_dota_hero_tusk_perk:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+	}
+end
+
+function modifier_npc_dota_hero_tusk_perk:OnCreated()
+	self.baseDamage = 3
 	if IsServer() then
-		if self:GetCaster() == keys.unit then
-			if keys.ability:GetName() == "tusk_walrus_kick" then
-				keys.ability:RefundManaCost()
-			elseif keys.ability:GetName() == "tusk_walrus_punch" then
-				-- GetManaCost() and RefundManaCost() do not work for Walrus Punch, so this is a loosy goosy workaround
-				self:GetCaster():GiveMana(25 + (25 * keys.ability:GetLevel()))
+		self:StartIntervalThink(0.1)
+	end
+end
+
+function modifier_npc_dota_hero_tusk_perk:OnIntervalThink()
+	if IsServer() then
+		local parent = self:GetParent()
+		local stacks = 0
+		for i = 0, parent:GetAbilityCount() - 1 do
+			local skill = parent:GetAbilityByIndex(i)
+			if skill and skill:HasAbilityFlag("ice") then
+				stacks = stacks + skill:GetLevel() * self.baseDamage
 			end
 		end
+		self:SetStackCount(stacks)
 	end
+end
+
+function modifier_npc_dota_hero_tusk_perk:GetModifierPreAttack_BonusDamage()
+	return self:GetStackCount()
 end

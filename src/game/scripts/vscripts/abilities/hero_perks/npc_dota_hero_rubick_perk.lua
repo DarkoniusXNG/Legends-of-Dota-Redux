@@ -39,4 +39,3 @@ function modifier_npc_dota_hero_rubick_perk:OnCreated()
         end
     end
 end
---------------------------------------------------------------------------------------------------------

@@ -1,0 +1,100 @@
+"DOTAAbilities"
+{
+	"shadow_shaman_voodoo_hands"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | hex"
+	}
+
+	"shadow_shaman_mass_serpent_ward"
+	{
+		"ReduxFlags"                                                           "summon | wtfAutoBan"
+		"ReduxCost"                                                            "20"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	"shadow_shaman_voodoo"
+	{
+		"ReduxFlags"                                                           "stun | silence"
+		"ReduxPerks"                                                           "hex | silence"
+	}
+
+	"shadow_shaman_shackles"
+	{
+		"ReduxFlags"                                                           "stun | upgradeable"
+		"ReduxPerks"                                                           "lightning | channeled | drain"
+		"ReduxBans"                                                            "batrider_sticky_napalm"
+	}
+
+	"shadow_shaman_ether_shock"
+	{
+		"ReduxPerks"                                                           "lightning"
+	}
+
+	"shadow_shaman_serpentine"
+	{
+		"ReduxFlags"					"summon | doNotRandom | wtfAutoBan"
+
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"35 30 25 20"
+		"AbilityManaCost"				"100"
+		"AbilityValues"
+		{
+			"count"
+			{
+				"value" "8"
+			}
+			"length"
+			{
+				"value" "925"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Shadow Shaman: Fowl Play (Innate but shown in UI)
+	//=================================================================================================================
+	"shadow_shaman_fowl_play"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+		"ReduxFlags"                                                           "upgradeable | wtfAutoBan"
+		"ReduxPerks"                                                           "hex | illusion"
+	}
+
+	"special_bonus_unique_shadow_shaman_1"
+	{
+		"TalentRequiredAbility"                                                   "shadow_shaman_mass_serpent_ward"
+	}
+	"special_bonus_unique_shadow_shaman_2"
+	{
+		"TalentRequiredAbility"                                                   "shadow_shaman_shackles"
+	}
+	"special_bonus_unique_shadow_shaman_3"
+	{
+		"TalentRequiredAbility"                                                   "shadow_shaman_ether_shock"
+	}
+	"special_bonus_unique_shadow_shaman_4"
+	{
+		"TalentRequiredAbility"                                                   "shadow_shaman_mass_serpent_ward"
+	}
+
+	"special_bonus_unique_shadow_shaman_6"
+	{
+		"TalentRequiredAbility"                                                   "shadow_shaman_shackles"
+	}
+	"special_bonus_unique_shadow_shaman_7"
+	{
+		"TalentRequiredAbility"                                                   "shadow_shaman_voodoo"
+	}
+	"special_bonus_unique_shadow_shaman_8"
+	{
+		"TalentRequiredAbility"                                                   "shadow_shaman_mass_serpent_ward"
+	}
+	"special_bonus_unique_shadow_shaman_hex_damage_amp"
+	{
+		"TalentRequiredAbility"                                                   "shadow_shaman_voodoo"
+	}
+}

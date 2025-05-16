@@ -1,0 +1,100 @@
+"DOTAAbilities"
+{
+	"storm_spirit_electric_vortex"
+	{
+		"ReduxFlags"                                                           "upgradeable | stun"
+		"ReduxPerks"                                                           "lightning | enemyMoving"
+	}
+
+	"storm_spirit_ball_lightning"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | lightning"
+		"ReduxCost"                                                            "20"
+		"ReduxBans"                                                            "nyx_assassin_burrow | nyx_assassin_burrow_redux"
+	}
+
+	"storm_spirit_overload"
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | lightning"
+		//"ReduxBans"                                                            "obsidian_destroyer_arcane_orb"
+		"ReduxBanCategory"                                                     "ToggleSpells"
+	}
+
+	"storm_spirit_static_remnant"
+	{
+		"ReduxPerks"                                                           "lightning | trap"
+	}
+
+	"storm_spirit_electric_rave"
+	{
+		"ReduxFlags"					"support | doNotRandom"
+		"ReduxPerks"					"support | lightning"
+
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"30 25 20 15"
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"		"750 1000 1250 1500"
+				"affected_by_aoe_increase"	"1"
+			}
+			"charges"				"3 4 5 6"
+			"duration"				"12 14 16 18"
+		}
+	}
+
+	//=================================================================================================================
+	// Storm Spirit: Galvanized (Innate)
+	//=================================================================================================================
+	"storm_spirit_galvanized"
+	{
+		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                        "mana"
+		"ReduxPerks"                        "lightning"
+	}
+
+	"special_bonus_unique_storm_spirit"
+	{
+		"TalentRequiredAbility"                                                   "storm_spirit_electric_vortex"
+	}
+	// "special_bonus_unique_storm_spirit_2"
+	// {
+		// "TalentRequiredAbility"                                                   "storm_spirit_ball_lightning"
+	// }
+	// "special_bonus_unique_storm_spirit_3"
+	// {
+		// "TalentRequiredAbility"                                                   "storm_spirit_overload"
+	// }
+	"special_bonus_unique_storm_spirit_4"
+	{
+		"TalentRequiredAbility"
+		{
+			"1" "storm_spirit_ball_lightning"
+			"2" "storm_spirit_static_remnant"
+		}
+	}
+	"special_bonus_unique_storm_spirit_5"
+	{
+		"TalentRequiredAbility"                                                   "storm_spirit_static_remnant"
+	}
+	// "special_bonus_unique_storm_spirit_6"
+	// {
+		// "TalentRequiredAbility"                                                   "storm_spirit_overload"
+	// }
+	"special_bonus_unique_storm_spirit_7"
+	{
+		"TalentRequiredAbility"                                                   "storm_spirit_overload"
+	}
+	"special_bonus_unique_storm_spirit_8"
+	{
+		"TalentRequiredAbility"                                                   "storm_spirit_static_remnant"
+	}
+	"special_bonus_unique_storm_spirit_overload_aspd"
+	{
+		"TalentRequiredAbility"                                                   "storm_spirit_overload"
+	}
+}

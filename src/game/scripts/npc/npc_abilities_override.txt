@@ -8,6 +8,7 @@
 #base "heroes\batrider.txt"
 #base "heroes\bloodseeker.txt"
 #base "heroes\brewmaster.txt"
+#base "heroes\chen.txt"
 #base "heroes\dawnbreaker.txt"
 #base "heroes\death_prophet.txt"
 #base "heroes\dragon_knight.txt"
@@ -18,6 +19,7 @@
 #base "heroes\invoker.txt"
 #base "heroes\kez.txt"
 #base "heroes\kunkka.txt"
+#base "heroes\leshrac.txt"
 #base "heroes\life_stealer.txt"
 #base "heroes\lone_druid.txt"
 #base "heroes\luna.txt"
@@ -26,21 +28,15 @@
 #base "heroes\necrophos.txt"
 #base "heroes\night_stalker.txt"
 #base "heroes\ringmaster.txt"
+#base "heroes\shadow_shaman.txt"
 #base "heroes\spectre.txt"
+#base "heroes\storm_spirit.txt"
 #base "heroes\tiny.txt"
 #base "heroes\underlord.txt"
 #base "heroes\windranger.txt"
 
 "DOTAAbilities"
 {
-	"shadow_shaman_voodoo_hands"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | hex"
-	}
-
 	"medusa_undulation"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
@@ -138,15 +134,6 @@
 		"ReduxPerks"                                                           "scientific | skillshot"
 
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-	}
-
-	"chen_summon_convert"
-	{
-		"ReduxFlags"                                                           "summon | doNotRandom"
-		"ReduxPerks"                                                           "summon_non_ult"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityCooldown"				"30 25 20 15 10"
 	}
 
 	"keeper_of_the_light_radiant_bind"
@@ -1859,12 +1846,7 @@
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility | earth | rage"
 	}
-	"chen_holy_persuasion"
-	{
-		"ReduxFlags"                                                           "upgradeable"
-		"ReduxPerks"                                                           "light"
-		"ReduxCost"                                                            "10"
-	}
+
 	"rattletrap_hookshot"
 	{
 		"ReduxFlags"                                                           "mobility | stun"
@@ -1983,11 +1965,7 @@
 		"ReduxCost"                                                            "80"
 		"ReduxBans"                                                            "spell_lab_symbiotic"
 	}
-	"leshrac_pulse_nova"
-	{
-		"ReduxPerks"                                                           "light | lightning"
-		"ReduxCost"                                                            "20"
-	}
+
 	"lich_chain_frost"
 	{
 		"ReduxPerks"                                                           "ice"
@@ -2120,12 +2098,6 @@
 		"ReduxFlags"                                                           "upgradeable | doNotRandom"
 		"ReduxPerks"                                                           "channeled | demon"
 	}
-	"shadow_shaman_mass_serpent_ward"
-	{
-		"ReduxFlags"                                                           "summon | upgradeable | wtfAutoBan"
-		"ReduxCost"                                                            "20"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
-	}
 	"silencer_global_silence"
 	{
 		"ReduxFlags"                                                           "support | silence | wtfAutoBan | upgradeable"
@@ -2142,11 +2114,7 @@
 	{
 		"ReduxPerks"                                                           "mobility | blink"
 	}
-	"storm_spirit_electric_vortex"
-	{
-		"ReduxFlags"                                                           "upgradeable | stun"
-		"ReduxPerks"                                                           "lightning | enemyMoving"
-	}
+
 	"sven_gods_strength"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
@@ -2432,16 +2400,7 @@
 		"ReduxFlags"                                                           "support | mobility | invis"
 		"ReduxPerks"                                                           "support | mobility | invis"
 	}
-	"chen_test_of_faith"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | light"
-	}
-	"chen_hand_of_god"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | light"
-	}
+
 	"treant_living_armor"
 	{
 		"ReduxFlags"                                                           "support | tank"
@@ -2749,13 +2708,7 @@
 		"ReduxCost"                                                            "100"
 		"ReduxBans"                                                            "nyx_assassin_burrow | nyx_assassin_burrow_redux"
 	}
-	"storm_spirit_ball_lightning"
-	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility | lightning"
-		"ReduxCost"                                                            "20"
-		"ReduxBans"                                                            "nyx_assassin_burrow | nyx_assassin_burrow_redux"
-	}
+
 	"furion_teleportation"
 	{
 		"ReduxFlags"                                                           "mobility"
@@ -3153,7 +3106,6 @@
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | poison"
 		"ReduxCost"                                                            "10"
-		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
 	"viper_poison_attack"
 	{
@@ -3185,13 +3137,7 @@
 		"ReduxPerks"                                                           "attack_modifier | physical"
 		"ReduxCost"                                                            "10"
 	}
-	"storm_spirit_overload"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | lightning"
-		"ReduxBans"                                                            "obsidian_destroyer_arcane_orb"
-		"ReduxBanCategory"                                                     "ToggleSpells"
-	}
+
 	"troll_warlord_fervor"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
@@ -3217,11 +3163,6 @@
 		"ReduxFlags"                                                           "stun | physical | crit | aoe_attack"
 		"ReduxPerks"                                                           "physical"
 		"ReduxCost"                                                            "20"
-	}
-	"shadow_shaman_voodoo"
-	{
-		"ReduxFlags"                                                           "stun | silence"
-		"ReduxPerks"                                                           "hex | silence"
 	}
 	"lion_voodoo"
 	{
@@ -3333,11 +3274,7 @@
 		"ReduxPerks"                                                           "scientific | trap"
 		"ReduxBans"                                                            "arc_warden_tempest_double"
 	}
-	"leshrac_split_earth"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "earth | skillshot"
-	}
+
 	"lion_impale"
 	{
 		"ReduxFlags"                                                           "stun"
@@ -3370,7 +3307,7 @@
 		"ReduxFlags"                                                           "stun | wtfAutoBan"
 		"ReduxPerks"                                                           "earth"
 		"ReduxCost"                                                            "120"
-		"ReduxBans"                                                            "zuus_arc_lightning | storm_spirit_ball_lightning | storm_spirit_static_remnant | obsidian_destroyer_arcane_orb"
+		"ReduxBans"                                                            "storm_spirit_ball_lightning | obsidian_destroyer_arcane_orb"
 		"ReduxBanCategory"                                                     "SpammableSpells"
 	}
 	"dazzle_bad_juju"
@@ -3393,12 +3330,6 @@
 	{
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "teleport | channeled"
-	}
-	"shadow_shaman_shackles"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "lightning | channeled | drain"
-		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
 	"crystal_maiden_frostbite"
 	{
@@ -3638,7 +3569,6 @@
 	{
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility | demon | fire"
-		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
 
 	"crystal_maiden_crystal_nova"
@@ -3718,10 +3648,7 @@
 	{
 		"ReduxPerks"                                                           "lightning | scientific | enemyMoving | trap"
 	}
-	"leshrac_lightning_storm"
-	{
-		"ReduxPerks"                                                           "lightning"
-	}
+
 	"razor_plasma_field"
 	{
 		"ReduxPerks"                                                           "lightning"
@@ -3739,14 +3666,7 @@
 	{
 		"ReduxPerks"                                                           "lightning"
 	}
-	"shadow_shaman_ether_shock"
-	{
-		"ReduxPerks"                                                           "lightning"
-	}
-	"storm_spirit_static_remnant"
-	{
-		"ReduxPerks"                                                           "lightning | trap"
-	}
+
 	"zuus_arc_lightning"
 	{
 		"ReduxPerks"                                                           "lightning"
@@ -3892,16 +3812,7 @@
 		"ReduxCost"                                                            "500"
 		"ReduxBans"                                                            "dazzle_shallow_grave | lich_absolute_zero | arc_warden_tempest_double"
 	}
-	"chen_penitence"
-	{
-		"ReduxPerks"                                                           "light"
-	}
-	"chen_test_of_faith_teleport"
-	{
-		"ReduxFlags"                                                           "support | doNotRandom"
-		"ReduxPerks"                                                           "support | light | teleport"
-		"ReduxBans"                                                            "invoker_retro_betrayal"
-	}
+
 	"keeper_of_the_light_blinding_light"
 	{
 		"ReduxPerks"                                                           "light | enemyMoving"
@@ -4399,12 +4310,6 @@
 			"attack_targets"			"2 3 4 5"
 			"bonus_attack_range"		"100"
 		}
-	}
-
-	"leshrac_diabolic_edict"
-	{
-		"ReduxFlags"                                                           "wtfAutoBan"
-		"ReduxBans"                                                            "tinker_rearm"
 	}
 
 	"techies_focused_detonate"
@@ -4923,27 +4828,6 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier | doNotRandom"
 		"ReduxPerks"                                                           "attack_modifier | fire"
-	}
-
-	// nihilism
-	"leshrac_greater_lightning_storm"
-	{
-		"ReduxFlags"					"upgradeable | disarm_break"
-
-		"MaxLevel"                      "4"
-		"AbilityCooldown"               "25 21 19 16"
-		"AbilityManaCost"               "75"
-		"AbilityValues"
-		{
-			"duration"		"4"
-			"magic_amp"		"30 35 40 45"
-			"slow"		"30 35 40 45"
-			"radius"
-			{
-				"value"		"500"
-				"affected_by_aoe_increase"		"1"
-			}
-		}
 	}
 
 	// ogre fire shield
@@ -5591,45 +5475,6 @@
 			"hp_regen"
 			{
 				"value" "25 30 35 40"
-			}
-		}
-	}
-
-	"storm_spirit_electric_rave"
-	{
-		"ReduxFlags"					"support | doNotRandom"
-		"ReduxPerks"					"support | lightning"
-
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"30 25 20 15"
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"		"750 1000 1250 1500"
-				"affected_by_aoe_increase"	"1"
-			}
-			"charges"				"3 4 5 6"
-			"duration"				"12 14 16 18"
-		}
-	}
-
-	"shadow_shaman_serpentine"
-	{
-		"ReduxFlags"					"summon | doNotRandom | wtfAutoBan"
-
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"35 30 25 20"
-		"AbilityManaCost"				"100"
-		"AbilityValues"
-		{
-			"count"
-			{
-				"value" "8"
-			}
-			"length"
-			{
-				"value" "925"
 			}
 		}
 	}
@@ -6458,37 +6303,6 @@
 	"special_bonus_unique_legion_commander_pta_movespeed"
 	{
 		"TalentRequiredAbility"                                                   "legion_commander_press_the_attack"
-	}
-
-
-	"special_bonus_unique_leshrac_1"
-	{
-		"TalentRequiredAbility"                                                   "leshrac_diabolic_edict"
-	}
-	"special_bonus_unique_leshrac_3"
-	{
-		"TalentRequiredAbility"                                                   "leshrac_pulse_nova"
-	}
-	"special_bonus_unique_leshrac_4"
-	{
-		"TalentRequiredAbility"                                                   "leshrac_pulse_nova"
-	}
-	"special_bonus_unique_leshrac_6"
-	{
-		"TalentRequiredAbility"                                                   "leshrac_lightning_storm"
-	}
-	"special_bonus_unique_leshrac_7"
-	{
-		"TalentRequiredAbility"                                                   "leshrac_diabolic_edict"
-	}
-
-	"special_bonus_unique_leshrac_pulse_nova_lightning"
-	{
-		"TalentRequiredAbility"
-		{
-			"1"	"leshrac_pulse_nova"
-			"2"	"leshrac_lightning_storm"
-		}
 	}
 
 	"special_bonus_unique_lich_1"
@@ -7528,45 +7342,6 @@
 		"TalentRequiredAbility"                                                   "shadow_demon_disseminate"
 	}
 
-
-	"special_bonus_unique_shadow_shaman_1"
-	{
-		"TalentRequiredAbility"                                                   "shadow_shaman_mass_serpent_ward"
-	}
-	"special_bonus_unique_shadow_shaman_2"
-	{
-		"TalentRequiredAbility"                                                   "shadow_shaman_shackles"
-	}
-	"special_bonus_unique_shadow_shaman_3"
-	{
-		"TalentRequiredAbility"                                                   "shadow_shaman_ether_shock"
-	}
-	"special_bonus_unique_shadow_shaman_4"
-	{
-		"TalentRequiredAbility"                                                   "shadow_shaman_mass_serpent_ward"
-	}
-	"special_bonus_unique_shadow_shaman_5"
-	{
-		"TalentRequiredAbility"                                                   "shadow_shaman_voodoo"
-	}
-	"special_bonus_unique_shadow_shaman_6"
-	{
-		"TalentRequiredAbility"                                                   "shadow_shaman_shackles"
-	}
-	"special_bonus_unique_shadow_shaman_7"
-	{
-		"TalentRequiredAbility"                                                   "shadow_shaman_voodoo"
-	}
-	"special_bonus_unique_shadow_shaman_8"
-	{
-		"TalentRequiredAbility"                                                   "shadow_shaman_mass_serpent_ward"
-	}
-	"special_bonus_unique_shadow_shaman_hex_damage_amp"
-	{
-		"TalentRequiredAbility"                                                   "shadow_shaman_voodoo"
-	}
-
-
 	"special_bonus_unique_silencer"
 	{
 		"TalentRequiredAbility"                                                   "silencer_curse_of_the_silent"
@@ -7799,51 +7574,6 @@
 	"special_bonus_unique_spirit_breaker_shield"
 	{
 		"TalentRequiredAbility"                                                   "spirit_breaker_bulldoze"
-	}
-
-
-
-
-
-	"special_bonus_unique_storm_spirit"
-	{
-		"TalentRequiredAbility"                                                   "storm_spirit_electric_vortex"
-	}
-	"special_bonus_unique_storm_spirit_2"
-	{
-		"TalentRequiredAbility"                                                   "storm_spirit_ball_lightning"
-	}
-	"special_bonus_unique_storm_spirit_3"
-	{
-		"TalentRequiredAbility"                                                   "storm_spirit_overload"
-	}
-	"special_bonus_unique_storm_spirit_4"
-	{
-		"TalentRequiredAbility"
-		{
-			"1" "storm_spirit_ball_lightning"
-			"2" "storm_spirit_static_remnant"
-		}
-	}
-	"special_bonus_unique_storm_spirit_5"
-	{
-		"TalentRequiredAbility"                                                   "storm_spirit_static_remnant"
-	}
-	"special_bonus_unique_storm_spirit_6"
-	{
-		"TalentRequiredAbility"                                                   "storm_spirit_overload"
-	}
-	"special_bonus_unique_storm_spirit_7"
-	{
-		"TalentRequiredAbility"                                                   "storm_spirit_overload"
-	}
-	"special_bonus_unique_storm_spirit_8"
-	{
-		"TalentRequiredAbility"                                                   "storm_spirit_static_remnant"
-	}
-	"special_bonus_unique_storm_spirit_overload_aspd"
-	{
-		"TalentRequiredAbility"                                                   "storm_spirit_overload"
 	}
 
 	"special_bonus_unique_sven"
@@ -8983,39 +8713,6 @@
 	"special_bonus_unique_clinkz_10"
 	{
 		"TalentRequiredAbility"                                                   "clinkz_wind_walk"
-	}
-
-	"special_bonus_unique_chen_2"
-	{
-		"TalentRequiredAbility"                                                   "chen_hand_of_god"
-	}
-	"special_bonus_unique_chen_3"
-	{
-		"TalentRequiredAbility"                                                   "chen_summon_convert"
-	}
-	"special_bonus_unique_chen_4"
-	{
-		"TalentRequiredAbility"                                                   "chen_holy_persuasion"
-	}
-	"special_bonus_unique_chen_5"
-	{
-		"TalentRequiredAbility"                                                   "chen_holy_persuasion"
-	}
-	"special_bonus_unique_chen_7"
-	{
-		"TalentRequiredAbility"                                                   "chen_hand_of_god"
-	}
-	"special_bonus_unique_chen_8"
-	{
-		"TalentRequiredAbility"                                                   "chen_penitence"
-	}
-	"special_bonus_unique_chen_11"
-	{
-		"TalentRequiredAbility"                                                   "chen_penitence"
-	}
-	"special_bonus_unique_chen_12"
-	{
-		"TalentRequiredAbility"                                                   "chen_hand_of_god"
 	}
 
 	"special_bonus_unique_broodmother_1"

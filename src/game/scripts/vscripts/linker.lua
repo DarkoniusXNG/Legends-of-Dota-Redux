@@ -1,5 +1,5 @@
 local hero_names = {
-	"abaddon", -- ok, very bad, D tier
+	"abaddon", -- ok, D tier
 	"abyssal_underlord", -- ok
 	"alchemist", -- ok
 	"ancient_apparition", -- ok
@@ -16,7 +16,7 @@ local hero_names = {
 	"broodmother", -- kinda bad
 	"centaur", -- ok, S tier
 	"chaos_knight", -- ok, bot
-	"chen", -- badly coded idea not bad, S tier
+	"chen", -- ok, S tier
 	"clinkz", -- ok, D tier
 	"crystal_maiden", -- ok, D tier, bot
 	"dark_seer", -- kinda bad
@@ -26,7 +26,7 @@ local hero_names = {
 	"death_prophet", -- ok, S tier, bot
 	"disruptor", -- terrible
 	"doom_bringer", -- ok
-	"dragon_knight", -- ok, kinda bad and outdated, A tier, bot
+	"dragon_knight", -- ok, A tier, bot
 	"drow_ranger", -- ok, A tier, bot
 	"earth_spirit", -- ok, missing icon, S tier
 	"earthshaker", -- ok, A tier, bot
@@ -54,7 +54,7 @@ local hero_names = {
 	"lion", -- kinda bad, bot
 	"lone_druid", -- poorly coded, D tier
 	"luna", -- ok, bot
-	"lycan", -- kinda bad
+	"lycan", -- ok
 	"magnataur", -- ok
 	--"marci",
 	"mars", -- ok, missing icon, S tier
@@ -88,7 +88,7 @@ local hero_names = {
 	"rubick", -- ok
 	"sand_king", -- ok, D tier, bot
 	"shadow_demon", -- ok, A tier
-	"shadow_shaman", -- too strong?
+	"shadow_shaman", -- ok
 	"shredder", -- ok, A tier
 	"silencer", -- ok
 	"skeleton_king", -- ok, bot
@@ -99,7 +99,7 @@ local hero_names = {
 	"sniper", -- ok, A tier, bot
 	"spectre", -- ok, D tier
 	"spirit_breaker", -- ok, kinda bad
-	"storm_spirit", -- ok, kinda bad
+	"storm_spirit", -- ok
 	"sven", -- ok, bot
 	"techies", -- ok, S tier
 	"templar_assassin", -- ok, D tier

@@ -1,0 +1,82 @@
+// Abilities for chen
+"DOTAAbilities"
+{
+	"chen_penitence"
+	{
+		"ReduxPerks"                                                           "light"
+	}
+
+	"chen_summon_convert"
+	{
+		"ReduxFlags"                                                           "summon | doNotRandom"
+		"ReduxPerks"                                                           "summon_non_ult"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"30 25 20 15 10"
+	}
+
+	"chen_holy_persuasion"
+	{
+		"ReduxFlags"                                                           "summon | upgradeable"
+		"ReduxPerks"                                                           "light"
+		"ReduxCost"                                                            "10"
+	}
+
+	"chen_test_of_faith"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | light"
+	}
+
+	"chen_hand_of_god"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | light"
+	}
+
+	"chen_divine_favor"
+	{
+		"ReduxFlags"                                                           "support | semi_passive | tank"
+		"ReduxPerks"                                                           "aura | support | light"
+	}
+
+	"chen_test_of_faith_teleport"
+	{
+		"ReduxFlags"                                                           "support | doNotRandom"
+		"ReduxPerks"                                                           "support | light | teleport"
+		"ReduxBans"                                                            "invoker_retro_betrayal"
+	}
+
+	"special_bonus_unique_chen_2"
+	{
+		"TalentRequiredAbility"                                                   "chen_hand_of_god"
+	}
+	"special_bonus_unique_chen_3"
+	{
+		"TalentRequiredAbility"                                                   "chen_summon_convert"
+	}
+	"special_bonus_unique_chen_4"
+	{
+		"TalentRequiredAbility"                                                   "chen_holy_persuasion"
+	}
+	"special_bonus_unique_chen_5"
+	{
+		"TalentRequiredAbility"                                                   "chen_holy_persuasion"
+	}
+	"special_bonus_unique_chen_7"
+	{
+		"TalentRequiredAbility"                                                   "chen_hand_of_god"
+	}
+	"special_bonus_unique_chen_8"
+	{
+		"TalentRequiredAbility"                                                   "chen_penitence"
+	}
+	"special_bonus_unique_chen_11"
+	{
+		"TalentRequiredAbility"                                                   "chen_penitence"
+	}
+	"special_bonus_unique_chen_12"
+	{
+		"TalentRequiredAbility"                                                   "chen_hand_of_god"
+	}
+}

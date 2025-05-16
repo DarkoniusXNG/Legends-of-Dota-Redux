@@ -87,6 +87,16 @@
 		"ReduxFlags"                                                           "mobility | invis | doNotRandom"
 		"ReduxPerks"                                                           "mobility | invis"
 	}
+	
+	//=================================================================================================================
+	// Kez: Shadowhawk (Facet)
+	//=================================================================================================================
+	"kez_shadowhawk_passive"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" // not learnable because it requires Raven's Veil
+
+		"ReduxFlags"                                                           "crit | doNotRandom | invis"
+	}
 
 	//=================================================================================================================
 	// Ability: Special Bonus

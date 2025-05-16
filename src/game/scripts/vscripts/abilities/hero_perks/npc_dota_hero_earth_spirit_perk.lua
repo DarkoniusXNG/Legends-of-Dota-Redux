@@ -39,10 +39,10 @@ end
 
 function modifier_npc_dota_hero_earth_spirit_perk:OnIntervalThink()
 	if IsServer() then
-		local spirit = self:GetParent()
+		local parent = self:GetParent()
 		local stacks = 0
-		for i = 0, spirit:GetAbilityCount() - 1 do
-			local skill = spirit:GetAbilityByIndex(i)
+		for i = 0, parent:GetAbilityCount() - 1 do
+			local skill = parent:GetAbilityByIndex(i)
 			if skill and skill:HasAbilityFlag("earth") then
 				stacks = stacks + skill:GetLevel() * self.baseDamage
 			end

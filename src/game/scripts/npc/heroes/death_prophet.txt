@@ -33,9 +33,10 @@
 
 	"death_prophet_mourning_ritual"
 	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" // not learnable because it requires Exorcism
 		"Innate"                                                               "0"
 
+		"ReduxFlags"                                                           "tank | doNotRandom"
 		"ReduxPerks"                                                           "undead"
 	}
 

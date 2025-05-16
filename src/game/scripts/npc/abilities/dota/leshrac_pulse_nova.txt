@@ -17,7 +17,6 @@
     "ReduxFlags"                                                           "upgradeable"
     "ReduxPerks"                                                           "light | lightning"
     "ReduxCost"                                                            "20"
-    "ReduxBans"                                                            "batrider_sticky_napalm"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

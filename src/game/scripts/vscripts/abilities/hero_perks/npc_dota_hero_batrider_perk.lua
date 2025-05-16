@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Batrider
---		Perk: Increases Batrider's movement speed by 20% while Flying.
+--		Perk: Increases Batrider's movement speed by 20% and spell amp by 10% while Flying.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_batrider_perk = modifier_npc_dota_hero_batrider_perk or class({})
 --------------------------------------------------------------------------------------------------------

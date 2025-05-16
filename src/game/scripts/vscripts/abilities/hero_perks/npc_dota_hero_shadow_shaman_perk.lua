@@ -1,17 +1,15 @@
 --------------------------------------------------------------------------------------------------------
---
 --    Hero: Shadow Shaman
---    Perk: When targeted by a spell, Hex the caster for 3 seconds. Has 40 second cooldown.
---
+--    Perk: When targeted by a spell, Hex the caster for 1 second. Has 15 second cooldown.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_shadow_shaman_perk ~= "" then modifier_npc_dota_hero_shadow_shaman_perk = class({}) end
+modifier_npc_dota_hero_shadow_shaman_perk = modifier_npc_dota_hero_shadow_shaman_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_shadow_shaman_perk:IsPassive()
-  return true
+	return true
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_shadow_shaman_perk:IsHidden()
-  return false
+	return false
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_shadow_shaman_perk:IsPurgable()
@@ -21,29 +19,28 @@ end
 function modifier_npc_dota_hero_shadow_shaman_perk:RemoveOnDeath()
 	return false
 end
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_shadow_shaman_perk:GetTexture()
+	return "custom/npc_dota_hero_shadow_shaman_perk"
+end
+
 function modifier_npc_dota_hero_shadow_shaman_perk:OnCreated()
   if IsServer() then
-    self.cooldownTime = 40
-    self.hexDuration = 3
+    self.cooldownTime = 15
+    self.hexDuration = 1
 
     self.cooldownReady = true
   end
-  return true
 end
 
 function modifier_npc_dota_hero_shadow_shaman_perk:DestroyOnExpire ()
   return false
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_shadow_shaman_perk:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_ABSORB_SPELL
   }
-  return funcs
 end
 
 function modifier_npc_dota_hero_shadow_shaman_perk:GetAbsorbSpell(keys)
