@@ -34,6 +34,7 @@
 #base "heroes\tiny.txt"
 #base "heroes\underlord.txt"
 #base "heroes\windranger.txt"
+#base "heroes\winter_wyvern.txt"
 
 "DOTAAbilities"
 {
@@ -594,7 +595,7 @@
 
 	"black_dragon_fireball"
 	{
-		"ReduxPerks"                                                           "fire | neutral"
+		"ReduxPerks"                                                           "dragon | fire | neutral"
 
 		"MaxLevel"                                                             "4"
 		"AbilityCooldown"													   "15 14 13 12"
@@ -1033,7 +1034,7 @@
 
 	"black_drake_magic_amplification_aura"
 	{
-		"ReduxPerks"	"aura | neutral" // not support because it affects enemies
+		"ReduxPerks"	"aura | dragon | neutral" // not support because it affects enemies
 
 		"MaxLevel"						"4"
 		"AbilityValues"
@@ -1398,7 +1399,7 @@
 	"blue_dragonspawn_overseer_devotion_aura"
 	{
 		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | neutral | aura"
+		"ReduxPerks"                                                           "aura | dragon | neutral | support"
 
 		"MaxLevel"                                                             "4"
 		"AbilityValues"
@@ -1469,7 +1470,7 @@
 	"black_dragon_dragonhide_aura"
 	{
 		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | neutral | aura"
+		"ReduxPerks"                                                           "aura | dragon | neutral | support"
 
 		"MaxLevel"						"4"
 		"AbilityValues"
@@ -1583,7 +1584,7 @@
 	"black_dragon_splash_attack"
 	{
 		"ReduxFlags"                                                           "aoe_attack | attack_modifier"
-		"ReduxPerks"                                                           "neutral | attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | dragon | neutral"
 		"ReduxCost"                                                            "100"
 
 		"MaxLevel"                                                             "4"
@@ -1702,7 +1703,7 @@
 	"blue_dragonspawn_overseer_evasion"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
-		"ReduxPerks"                                                           "neutral"
+		"ReduxPerks"                                                           "dragon | neutral"
 
 		"MaxLevel"                      "4"
 		"AbilityValues"
@@ -1717,7 +1718,7 @@
 	"blue_dragonspawn_sorcerer_evasion"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
-		"ReduxPerks"                                                           "neutral"
+		"ReduxPerks"                                                           "dragon | neutral"
 
 		"MaxLevel"                      "4"
 		"AbilityValues"
@@ -1946,7 +1947,7 @@
 	"jakiro_macropyre"
 	{
 		"ReduxFlags"                                                           "upgradeable"
-		"ReduxPerks"                                                           "fire | skillshot"
+		"ReduxPerks"                                                           "dragon | fire | skillshot"
 	}
 	"juggernaut_omni_slash"
 	{
@@ -2183,7 +2184,7 @@
 	"viper_viper_strike"
 	{
 		"ReduxFlags"                                                           "disarm_break"
-		"ReduxPerks"                                                           "poison"
+		"ReduxPerks"                                                           "dragon | poison"
 	}
 	"visage_summon_familiars"
 	{
@@ -2204,12 +2205,6 @@
 		"ReduxPerks"                                                           "mobility | support"
 	}
 
-	"winter_wyvern_arctic_burn"
-	{
-		"ReduxFlags"                                                           "upgradeable | attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | ice"
-		"ReduxCost"                                                            "20"
-	}
 	"witch_doctor_death_ward"
 	{
 		"ReduxFlags"                                                           "summon | upgradeable"
@@ -2347,11 +2342,7 @@
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support"
 	}
-	"winter_wyvern_cold_embrace"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | ice"
-	}
+
 	"legion_commander_press_the_attack"
 	{
 		"ReduxFlags"                                                           "support"
@@ -2737,7 +2728,7 @@
 	"phoenix_icarus_dive"
 	{
 		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility | fire | self_damage"
+		"ReduxPerks"                                                           "dragon | fire | mobility | self_damage"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
 	"mirana_leap"
@@ -2856,7 +2847,7 @@
 	"viper_corrosive_skin"
 	{
 		"ReduxFlags"                                                           "tank | upgradeable"
-		"ReduxPerks"                                                           "poison"
+		"ReduxPerks"                                                           "dragon | poison"
 		"ReduxCost"                                                            "20"
 	}
 	"bristleback_bristleback"
@@ -3077,12 +3068,12 @@
 	"jakiro_liquid_fire"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | fire | autocast_basic | explosive"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | dragon | explosive | fire"
 	}
 	"jakiro_liquid_ice"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | ice | autocast_basic"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | dragon | ice"
 	}
 	"silencer_glaives_of_wisdom"
 	{
@@ -3110,7 +3101,7 @@
 	"viper_poison_attack"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | poison | autocast_basic"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | dragon | poison"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
 	"weaver_geminate_attack"
@@ -3283,7 +3274,7 @@
 	"jakiro_ice_path"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "ice | skillshot"
+		"ReduxPerks"                                                           "dragon | ice | skillshot"
 	}
 	"witch_doctor_paralyzing_cask"
 	{
@@ -3296,12 +3287,7 @@
 		"ReduxPerks"                                                           "water"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
 	}
-	"winter_wyvern_winters_curse"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "ice"
-		"ReduxBans"                                                            "tinker_rearm"
-	}
+
 	"earthshaker_aftershock"
 	{
 		"ReduxFlags"                                                           "stun | wtfAutoBan"
@@ -3527,7 +3513,7 @@
 
 	"lina_dragon_slave"
 	{
-		"ReduxPerks"                                                           "fire | skillshot"
+		"ReduxPerks"                                                           "dragon | fire | skillshot"
 	}
 	"lina_fiery_soul"
 	{
@@ -3542,7 +3528,7 @@
 	}
 	"jakiro_dual_breath"
 	{
-		"ReduxPerks"                                                           "fire | ice | skillshot"
+		"ReduxPerks"                                                           "dragon | fire | ice | skillshot"
 	}
 	"ember_spirit_fire_remnant"
 	{
@@ -4431,11 +4417,6 @@
 		"ReduxPerks"                                                           "neutral"
 	}
 
-	"winter_wyvern_splinter_blast"
-	{
-		"ReduxPerks"                                                           "ice"
-	}
-
 	"backdoor_protection"
 	{
 		"ReduxFlags"                                                           "tank"
@@ -4499,7 +4480,7 @@
 
 	"snapfire_mortimer_kisses"
 	{
-		"ReduxPerks"                                                           "fire | skillshot | channeled"
+		"ReduxPerks"                                                           "channeled | dragon | fire | skillshot"
 	}
 
 	"snapfire_gobble_up"
@@ -4507,7 +4488,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 
 		"ReduxFlags"		"support | stun | doNotRandom | upgradeable"
-		"ReduxPerks"        "fire | skillshot | support"
+		"ReduxPerks"        "dragon | fire | skillshot | support"
 	}
 
 	"sniper_shrapnel"
@@ -5392,7 +5373,7 @@
 	"viper_nose_dive"
 	{
 		"ReduxFlags"					"mobility | upgradeable"
-		"ReduxPerks"					"poison | mobility"
+		"ReduxPerks"					"dragon | mobility | poison"
 
 		"MaxLevel"						"4"
 		"AbilityCastPoint"				"0.1"
@@ -8255,37 +8236,6 @@
 	{
 		"TalentRequiredAbility"                                                   "weaver_shukuchi"
 	}
-
-	"special_bonus_unique_winter_wyvern_1"
-	{
-		"TalentRequiredAbility"                                                   "winter_wyvern_arctic_burn"
-	}
-	"special_bonus_unique_winter_wyvern_2"
-	{
-		"TalentRequiredAbility"                                                   "winter_wyvern_splinter_blast"
-	}
-	"special_bonus_unique_winter_wyvern_3"
-	{
-		"TalentRequiredAbility"                                                   "winter_wyvern_winters_curse"
-	}
-	"special_bonus_unique_winter_wyvern_4"
-	{
-		"TalentRequiredAbility"                                                   "winter_wyvern_splinter_blast"
-	}
-	"special_bonus_unique_winter_wyvern_5"
-	{
-		"TalentRequiredAbility"                                                   "winter_wyvern_cold_embrace"
-	}
-	"special_bonus_unique_winter_wyvern_6"
-	{
-		"TalentRequiredAbility"                                                   "winter_wyvern_arctic_burn"
-	}
-	"special_bonus_unique_winter_wyvern_7"
-	{
-		"TalentRequiredAbility"                                                   "winter_wyvern_splinter_blast"
-	}
-
-
 
 	"special_bonus_unique_wisp"
 	{

@@ -23,6 +23,6 @@
 			"duration"			"9 10 11 12"
 			"burn_interval"			"0.5"
         }
-        "ReduxPerks"                                                           "neutral"
+        "ReduxPerks"                                                           "dragon | fire | neutral"
     }
 }
