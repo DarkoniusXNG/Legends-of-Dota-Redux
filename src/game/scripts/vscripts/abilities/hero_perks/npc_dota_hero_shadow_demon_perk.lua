@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Shadow Demon
---		Perk: Demonic abilities cast by Shadow Demon will have 25% mana cost refunded and 25% cooldown reduction
+--		Perk: Demonic abilities cast by Shadow Demon will have reduced cooldown and mana cost.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_shadow_demon_perk = modifier_npc_dota_hero_shadow_demon_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -23,36 +23,31 @@ end
 function modifier_npc_dota_hero_shadow_demon_perk:GetTexture()
 	return "custom/npc_dota_hero_shadow_demon_perk"
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_shadow_demon_perk:OnCreated()
-	if IsServer() then
-		local cooldownReductionPercent = 25
-		local manacostReductionPercent = 25
-		self.cooldownReduction = 1 - (cooldownReductionPercent / 100)
-		self.manacostReduction = manacostReductionPercent / 100
-	end
-end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_shadow_demon_perk:DeclareFunctions()
-  return {
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-  }
+	return {
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
+	}
 end
 
-function modifier_npc_dota_hero_shadow_demon_perk:OnAbilityFullyCast(keys)
-  if IsServer() then
-    local hero = self:GetParent()
-    local unit = keys.unit
-    local ability = keys.ability
+function modifier_npc_dota_hero_shadow_demon_perk:GetModifierPercentageCooldown(keys)
+	local ability = keys.ability
+	if ability then
+		if ability:HasAbilityFlag("demon") then
+			return 25
+		end
+	end
+	return 0
+end
 
-    if hero == unit and ability:HasAbilityFlag("demon") then
-      local cooldown = ability:GetCooldownTimeRemaining() * self.cooldownReduction
-      hero:GiveMana(ability:GetManaCost(ability:GetLevel()-1) * self.manacostReduction)
-      ability:EndCooldown()
-      ability:StartCooldown(cooldown)
-    end
-  end
+function modifier_npc_dota_hero_shadow_demon_perk:GetModifierPercentageManacostStacking(keys)
+	local ability = keys.ability
+	if ability then
+		if ability:HasAbilityFlag("demon") then
+			return 25
+		end
+	end
+	return 0
 end
 

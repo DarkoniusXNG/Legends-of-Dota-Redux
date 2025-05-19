@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --      Hero: Visage
---      Perk: For Visage, Summon Familiars will refund 100% of manacost and have its cooldown reduced by 50%.
---
+--      Perk: Visage gains spell amp for each level put in an Aura ability. Includes item auras.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_visage_perk ~= "" then modifier_npc_dota_hero_visage_perk = class({}) end
+modifier_npc_dota_hero_visage_perk = modifier_npc_dota_hero_visage_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_visage_perk:IsPassive()
 	return true
@@ -21,31 +19,59 @@ end
 function modifier_npc_dota_hero_visage_perk:RemoveOnDeath()
 	return false
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_visage_perk:OnCreated(keys)
-	self.cooldownPercentReduction = 50
-	self.cooldownReduction = 1 - (self.cooldownPercentReduction / 100)
+
+function modifier_npc_dota_hero_visage_perk:GetTexture()
+	return "custom/npc_dota_hero_visage_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_visage_perk:DeclareFunctions()
-  local funcs = {
-	MODIFIER_EVENT_ON_ABILITY_FULLY_CAST
-  }
-  return funcs
-end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_visage_perk:OnAbilityFullyCast(keys)
-  if IsServer() then
-	local hero = self:GetCaster()
-	local target = keys.target
-	local ability = keys.ability
-	if hero == keys.unit and ability:GetName() == "visage_summon_familiars" then
-	  local cooldown = ability:GetCooldownTimeRemaining() * self.cooldownReduction
-	  ability:RefundManaCost()
-	  ability:EndCooldown()
-	  ability:StartCooldown(cooldown)
+
+function modifier_npc_dota_hero_visage_perk:OnCreated()
+	self.bonusPerLevel = 1
+	if IsServer() then
+		self:StartIntervalThink(0.5)
 	end
-  end
+end
+
+function modifier_npc_dota_hero_visage_perk:OnIntervalThink()
+	if IsServer() then
+		local caster = self:GetParent()
+		local ability_aura_lvls = 0
+		local item_auras = {}
+
+		for i = 0, caster:GetAbilityCount() - 1 do 
+			local ability = caster:GetAbilityByIndex(i)
+			if ability and ability:HasAbilityFlag("aura") then
+				ability_aura_lvls = ability_aura_lvls + ability:GetLevel() * self.bonusPerLevel
+			end
+		end
+
+		for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+			local item = caster:GetItemInSlot(i)
+			local addItem = true
+			if item and item:HasAbilityFlag("aura") then
+				for _, v in ipairs(item_auras) do 
+					if v == item:GetName() then
+						addItem = false
+						break
+					end
+				end
+
+				if addItem then
+					table.insert(item_auras, item:GetName())
+				end
+			end
+		end
+
+		local stacks = ability_aura_lvls + #item_auras
+		self:SetStackCount(stacks)
+	end
+end
+
+function modifier_npc_dota_hero_visage_perk:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+	}
+end
+
+function modifier_npc_dota_hero_visage_perk:GetModifierSpellAmplify_Percentage()
+	return self:GetStackCount()
 end
