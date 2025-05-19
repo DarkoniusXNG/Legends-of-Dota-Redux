@@ -7,6 +7,7 @@
 #base "heroes\bane.txt"
 #base "heroes\batrider.txt"
 #base "heroes\bloodseeker.txt"
+#base "heroes\bounty_hunter.txt"
 #base "heroes\brewmaster.txt"
 #base "heroes\chen.txt"
 #base "heroes\dawnbreaker.txt"
@@ -17,6 +18,7 @@
 #base "heroes\hoodwink.txt"
 #base "heroes\huskar.txt"
 #base "heroes\invoker.txt"
+#base "heroes\juggernaut.txt"
 #base "heroes\kez.txt"
 #base "heroes\kunkka.txt"
 #base "heroes\leshrac.txt"
@@ -126,13 +128,13 @@
 	"skeleton_king_spectral_blade"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | undead"
+		"ReduxPerks"                                                           "attack_modifier | blades | undead"
 	}
 
 	"shredder_twisted_chakram"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
-		"ReduxPerks"                                                           "scientific | skillshot"
+		"ReduxPerks"                                                           "blades | scientific | skillshot"
 
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 	}
@@ -1827,7 +1829,7 @@
 
 	"muerta_dead_shot"
 	{
-		"ReduxPerks"                                                           "enemyMoving | skillshot"
+		"ReduxPerks"                                                           "enemyMoving | skillshot | undead"
 	}
 
 	"beastmaster_mark_of_the_beast"
@@ -1949,12 +1951,7 @@
 		"ReduxFlags"                                                           "upgradeable"
 		"ReduxPerks"                                                           "dragon | fire | skillshot"
 	}
-	"juggernaut_omni_slash"
-	{
-		"ReduxFlags"                                                           "physical"
-		"ReduxCost"                                                            "20"
-		"ReduxPerks"                                                           "physical"
-	}
+
 	"keeper_of_the_light_illuminate"
 	{
 		"ReduxPerks"                                                           "light | channeled | skillshot"
@@ -1973,7 +1970,7 @@
 	}
 	"lina_laguna_blade"
 	{
-		"ReduxPerks"                                                           "fire | lightning"
+		"ReduxPerks"                                                           "blades | lightning"
 	}
 
 	"lina_flame_cloak"
@@ -2258,11 +2255,6 @@
 		"ReduxPerks"                                                           "support | nature"
 	}
 
-	"juggernaut_healing_ward"
-	{
-		"ReduxFlags"                                                           "support | summon"
-		"ReduxPerks"                                                           "support | summon_non_ult"
-	}
 	// "lich_dark_ritual"
 	// {
 		// "ReduxFlags"                                                           "support | mana"
@@ -2446,12 +2438,7 @@
 		"ReduxPerks"                                                           "support | mobility"
 		"ReduxCost"                                                            "10"
 	}
-	"bounty_hunter_track"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
-		"ReduxCost"                                                            "10"
-	}
+
 	"slardar_amplify_damage"
 	{
 		"ReduxPerks"                                                           "water"
@@ -2556,20 +2543,10 @@
 	"riki_backstab"
 	{
 		"ReduxFlags"                                                           "invis"
-		"ReduxPerks"                                                           "invis"
+		"ReduxPerks"                                                           "dagger | invis"
 		"ReduxCost"                                                            "120"
 	}
-	"bounty_hunter_wind_walk"
-	{
-		"ReduxFlags"                                                           "mobility | invis"
-		"ReduxPerks"                                                           "mobility | invis"
-		"ReduxCost"                                                            "40"
-	}
-	"bounty_hunter_wind_walk_ally"
-	{
-		"ReduxFlags"                                                           "mobility | invis"
-		"ReduxPerks"                                                           "mobility | invis"
-	}
+
 	"clinkz_wind_walk"
 	{
 		"ReduxFlags"                                                           "mobility | invis"
@@ -2714,12 +2691,6 @@
 		"ReduxCost"                                                            "30"
 	}
 
-	"juggernaut_blade_fury"
-	{
-		"ReduxPerks"                                                           "rage"
-		"ReduxCost"                                                            "20"
-		"ReduxBans"                                                            "batrider_sticky_napalm"
-	}
 	"techies_suicide"
 	{
 		"ReduxFlags"                                                           "mobility"
@@ -2913,7 +2884,7 @@
 	"doom_bringer_infernal_blade"
 	{
 		"ReduxFlags"                                                           "attack_modifier | bash"
-		"ReduxPerks"                                                           "demon | attack_modifier | fire | autocast_basic | bash"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | bash | blades | demon | fire"
 		"ReduxCost"                                                            "20"
 	}
 	"phantom_assassin_coup_de_grace"
@@ -2922,12 +2893,7 @@
 		"ReduxPerks"                                                           "attack_modifier"
 		"ReduxCost"                                                            "80"
 	}
-	"juggernaut_blade_dance"
-	{
-		"ReduxFlags"                                                           "crit | attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier"
-		"ReduxCost"                                                            "10"
-	}
+
 	"chaos_knight_chaos_strike"
 	{
 		"ReduxFlags"                                                           "crit | attack_modifier"
@@ -2943,11 +2909,6 @@
 		"ReduxFlags"                                                           "crit | attack_modifier | bash"
 		"ReduxPerks"                                                           "attack_modifier | bash"
 		"ReduxCost"                                                            "40"
-	}
-	"bounty_hunter_jinada"
-	{
-		"ReduxFlags"                "attack_modifier"
-		"ReduxPerks"                "attack_modifier | autocast_basic"
 	}
 
 	"warlock_golem_flaming_fists"
@@ -2967,13 +2928,13 @@
 	"sven_great_cleave"
 	{
 		"ReduxFlags"                                                           "aoe_attack | attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | physical"
+		"ReduxPerks"                                                           "attack_modifier | blades | physical"
 		"ReduxCost"                                                            "10"
 	}
 	"templar_assassin_psi_blades"
 	{
 		"ReduxFlags"                                                           "aoe_attack | attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | blades"
 		"ReduxCost"                                                            "10"
 	}
 	"gyrocopter_flak_cannon"
@@ -3044,7 +3005,7 @@
 	"meepo_geostrike"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | earth"
+		"ReduxPerks"                                                           "attack_modifier | earth | gold"
 		"ReduxCost"                                                            "10"
 	}
 
@@ -3371,7 +3332,7 @@
 	"pangolier_swashbuckle"
 	{
 		"ReduxFlags"                                                           "mobility | physical | aoe_attack"
-		"ReduxPerks"                                                           "mobility | physical | skillshot"
+		"ReduxPerks"                                                           "mobility | blades | physical | skillshot"
 		"ReduxBans"                                                            "ursa_fury_swipes | ursa_fury_swipes_lod | obsidian_destroyer_arcane_orb"
 	}
 
@@ -3446,7 +3407,7 @@
 	"phantom_assassin_stifling_dagger"
 	{
 		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"                                                           "dagger | physical"
+		"ReduxPerks"                                                           "blades | dagger | physical"
 		"ReduxCost"                                                            "20"
 	}
 
@@ -3547,7 +3508,6 @@
 	}
 	"phoenix_fire_spirits"
 	{
-		"ReduxFlags"                                                           "summon"
 		"ReduxPerks"                                                           "fire | self_damage | skillshot"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
@@ -3773,7 +3733,7 @@
 
 	"shredder_chakram"
 	{
-		"ReduxPerks"                        "scientific | skillshot"
+		"ReduxPerks"                        "blades | scientific | skillshot"
 	}
 	"shredder_return_chakram"
 	{
@@ -3843,19 +3803,19 @@
 	}
 	"item_blink"
 	{
-		"ReduxPerks"                                                           "blink | dagger"
+		"ReduxPerks"                                                           "blades | blink | dagger"
 	}
 	"item_arcane_blink"
 	{
-		"ReduxPerks"                                                           "blink | dagger"
+		"ReduxPerks"                                                           "blades | blink | dagger"
 	}
 	"item_swift_blink"
 	{
-		"ReduxPerks"                                                           "blink | dagger"
+		"ReduxPerks"                                                           "blades | blink | dagger"
 	}
 	"item_overwhelming_blink"
 	{
-		"ReduxPerks"                                                           "blink | dagger"
+		"ReduxPerks"                                                           "blades | blink | dagger"
 	}
 	"item_tpscroll"
 	{
@@ -3900,7 +3860,7 @@
 
 	"centaur_double_edge"
 	{
-		"ReduxPerks"                                                           "self_damage | blood"
+		"ReduxPerks"                                                           "blades | blood | self_damage"
 	}
 	"beastmaster_inner_beast"
 	{
@@ -4053,7 +4013,7 @@
 	"queenofpain_shadow_strike"
 	{
 		"ReduxFlags"                                                           "upgradeable"
-		"ReduxPerks"                                                           "dagger | poison"
+		"ReduxPerks"                                                           "blades | dagger | poison"
 	}
 	"oracle_fortunes_end"
 	{
@@ -4075,7 +4035,7 @@
 
 	"beastmaster_wild_axes"
 	{
-		"ReduxPerks"                                                           "skillshot"
+		"ReduxPerks"                                                           "blades | skillshot"
 	}
 
 	"magnataur_shockwave"
@@ -4100,11 +4060,12 @@
 	"troll_warlord_whirling_axes_ranged"
 	{
 		"ReduxFlags"														   "upgradeable"
-		"ReduxPerks"                                                           "skillshot"
+		"ReduxPerks"                                                           "blades | skillshot"
 	}
 	"troll_warlord_whirling_axes_melee"
 	{
 		"ReduxFlags"														   "upgradeable"
+		"ReduxPerks"                                                           "blades"
 	}
 	"vengefulspirit_wave_of_terror"
 	{
@@ -4315,7 +4276,7 @@
 	"shredder_chakram_2"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
-		"ReduxPerks"                                                           "scientific | skillshot"
+		"ReduxPerks"                                                           "blades | scientific | skillshot"
 	}
 	"ember_spirit_activate_fire_remnant"
 	{
@@ -4842,7 +4803,7 @@
 	"phantom_assassin_fan_of_knives"
 	{
 		"ReduxFlags"                                                           "physical | disarm_break"
-		"ReduxPerks"                                                           "physical | dagger"
+		"ReduxPerks"                                                           "blades | dagger | physical"
 
 		"MaxLevel"                      "4"
 		"AbilityCooldown"               "15 14 13 12"
@@ -4993,20 +4954,6 @@
 			"root_base_duration"	"2.0"
 			"root_per_target"		"0.5"
 			"max_root"		"5 5.5 6 6.5"
-		}
-	}
-
-	"juggernaut_swift_slash"
-	{
-		"ReduxFlags"					"upgradeable | physical | doNotRandom"
-		"ReduxPerks"                    "physical"
-
-		"MaxLevel"                      "4"
-		"AbilityCooldown"               "20 18 16 14"
-		"AbilityManaCost"               "150"
-		"AbilityValues"
-		{
-			"duration"		"1 1.25 1.5 1.75"
 		}
 	}
 
@@ -6094,50 +6041,6 @@
 
 		"TalentRequiredAbility"                                                   "jakiro_dual_breath"
 	}
-
-
-
-	"special_bonus_unique_juggernaut"
-	{
-		"TalentRequiredAbility"                                                   "juggernaut_blade_fury"
-	}
-	"special_bonus_unique_juggernaut_2"
-	{
-		"TalentRequiredAbility"                                                   "juggernaut_healing_ward"
-	}
-	"special_bonus_unique_juggernaut_3"
-	{
-		"TalentRequiredAbility"                                                   "juggernaut_duelist"
-	}
-	"special_bonus_unique_juggernaut_4"
-	{
-		"TalentRequiredAbility"                                                   "juggernaut_blade_dance"
-	}
-	"special_bonus_unique_juggernaut_5"
-	{
-		"TalentRequiredAbility"                                                   "juggernaut_healing_ward"
-	}
-	"special_bonus_unique_juggernaut_blade_dance_lifesteal"
-	{
-		"TalentRequiredAbility"                                                   "juggernaut_blade_dance"
-	}
-	"special_bonus_unique_juggernaut_omnislash_duration"
-	{
-		"TalentRequiredAbility"                                                   "juggernaut_omni_slash"
-	}
-	"special_bonus_unique_juggernaut_blade_fury_cooldown"
-	{
-		"TalentRequiredAbility"                                                   "juggernaut_blade_fury"
-	}
-	"special_bonus_unique_juggernaut_blade_fury_movespeed"
-	{
-		"TalentRequiredAbility"                                                   "juggernaut_blade_fury"
-	}
-	"special_bonus_unique_juggernaut_healing_ward_heal"
-	{
-		"TalentRequiredAbility"                                                   "juggernaut_healing_ward"
-	}
-
 
 	"special_bonus_unique_keeper_of_the_light"
 	{
@@ -8694,36 +8597,6 @@
 		"TalentRequiredAbility"                                                   "broodmother_spawn_spiderlings"
 	}
 
-
-	"special_bonus_unique_bounty_hunter"
-	{
-		"TalentRequiredAbility"                                                   "bounty_hunter_jinada"
-	}
-	"special_bonus_unique_bounty_hunter_2"
-	{
-		"TalentRequiredAbility"                                                   "bounty_hunter_shuriken_toss"
-	}
-	"special_bonus_unique_bounty_hunter_3"
-	{
-		"TalentRequiredAbility"                                                   "bounty_hunter_track"
-	}
-	"special_bonus_unique_bounty_hunter_5"
-	{
-		"TalentRequiredAbility"                                                   "bounty_hunter_shuriken_toss"
-	}
-	"special_bonus_unique_bounty_hunter_8"
-	{
-		"TalentRequiredAbility"                                                   "bounty_hunter_track"
-	}
-	"special_bonus_unique_bounty_hunter_9"
-	{
-		"TalentRequiredAbility"                                                   "bounty_hunter_wind_walk"
-	}
-	"special_bonus_unique_bounty_hunter_jinada_no_cooldown"
-	{
-		"TalentRequiredAbility"                                                   "bounty_hunter_jinada"
-	}
-
 	"special_bonus_unique_grimstroke_1"
 	{
 		"TalentRequiredAbility" 					"grimstroke_spirit_walk"
@@ -9160,7 +9033,6 @@
 		"ItemCost"                      "750"
 		"ItemPurchasable"               "1"
 		"ItemSellable"                  "1"
-		"ReduxPerks"                                                           "blood | self_damage"
 	}
 	"item_specialists_array"
 	{

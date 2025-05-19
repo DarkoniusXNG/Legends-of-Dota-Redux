@@ -14,7 +14,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"custom/lightning_lightning_dagger"
 		
-			// Casting
+		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.1"
 		"AbilityCastRange"				"750"
@@ -47,6 +47,6 @@
 			"particle"							"particles/units/heroes/hero_zuus/zuus_arc_lightning_impact.vpcf"
 		}
 
-		"ReduxPerks"	"dagger | lightning"
+		"ReduxPerks"	"blades | dagger | lightning"
 	}
 }

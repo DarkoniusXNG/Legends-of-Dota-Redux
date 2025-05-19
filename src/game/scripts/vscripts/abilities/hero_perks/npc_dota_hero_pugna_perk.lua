@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Pugna
---		Perk: Drain spells will have 50% mana refunded and have 35% reduced cooldowns when cast by Pugna.
---
+--		Perk: Drain abilities cast by Pugna will have reduced cooldown and mana cost.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_pugna_perk ~= "" then modifier_npc_dota_hero_pugna_perk = class({}) end
+modifier_npc_dota_hero_pugna_perk = modifier_npc_dota_hero_pugna_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_pugna_perk:IsPassive()
 	return true
@@ -21,32 +19,34 @@ end
 function modifier_npc_dota_hero_pugna_perk:RemoveOnDeath()
 	return false
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_pugna_perk:OnCreated()
-	self.cooldownPercentReduction = 35
-	self.manaPercentReduction = 50
 
-	self.cooldownReduction = 1 - (self.cooldownPercentReduction / 100)
-	self.manaReduction = 1 - (self.manaPercentReduction / 100)
+function modifier_npc_dota_hero_pugna_perk:GetTexture()
+	return "custom/npc_dota_hero_pugna_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_pugna_perk:DeclareFunctions()
-  local funcs = {
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-  }
-  return funcs
+	return {
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
+	}
 end
 
-function modifier_npc_dota_hero_pugna_perk:OnAbilityFullyCast(params)
-	if IsServer() and params.unit == self:GetParent() then
-		if params.ability:HasAbilityFlag("drain") then
-			local cooldown = params.ability:GetCooldownTimeRemaining() * self.cooldownReduction
-			self:GetCaster():GiveMana(params.ability:GetManaCost(-1) * self.manaReduction)
-			params.ability:EndCooldown()
-			params.ability:StartCooldown(cooldown)
+function modifier_npc_dota_hero_pugna_perk:GetModifierPercentageCooldown(keys)
+	local ability = keys.ability
+	if ability then
+		if ability:HasAbilityFlag("drain") then
+			return 35
 		end
 	end
+	return 0
+end
+
+function modifier_npc_dota_hero_pugna_perk:GetModifierPercentageManacostStacking(keys)
+	local ability = keys.ability
+	if ability then
+		if ability:HasAbilityFlag("drain") then
+			return 35
+		end
+	end
+	return 0
 end

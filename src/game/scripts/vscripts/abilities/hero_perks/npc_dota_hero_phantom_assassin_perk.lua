@@ -1,8 +1,6 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Phantom Assassin
---		Perk: Dagger spells will have 50% of their manacost refunded, and their cooldown reduced by 2 seconds.
---
+--		Perk: Dagger abilities cast by Phantom Assassin will have reduced mana cost. Phantom Assassin will gain a stackable Agility buff for a few seconds every time she evades an attack.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_phantom_assassin_perk = modifier_npc_dota_hero_phantom_assassin_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -25,38 +23,60 @@ end
 function modifier_npc_dota_hero_phantom_assassin_perk:GetTexture()
 	return "custom/npc_dota_hero_phantom_assassin_perk"
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_phantom_assassin_perk:OnCreated(keys)
-	self.cooldownBaseReduction = 2
-	self.manaPercentReduction = 50
 
-	self.manaReduction = self.manaPercentReduction / 100
-end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_phantom_assassin_perk:DeclareFunctions()
 	return {
-		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
+		MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
+		MODIFIER_EVENT_ON_ATTACK_FAIL,
 	}
 end
---------------------------------------------------------------------------------------------------------
-if IsServer() then
-	function modifier_npc_dota_hero_phantom_assassin_perk:OnAbilityFullyCast(keys)
-		local hero = self:GetCaster()
-		local target = keys.target
-		local ability = keys.ability
-		if hero == keys.unit and ability and ability:HasAbilityFlag("dagger") then
-			hero:GiveMana(ability:GetManaCost(-1) * self.manaReduction)
-			if ability:GetCooldownTimeRemaining() > self.cooldownBaseReduction + 0.5 then
-				local cooldown = ability:GetCooldownTimeRemaining() - self.cooldownBaseReduction
-				ability:EndCooldown()
-				ability:StartCooldown(cooldown)
-			else
-				local cooldown = ability:GetCooldownTimeRemaining() * 0.5
-				ability:EndCooldown()
-				ability:StartCooldown(cooldown)
-			end
+
+function modifier_npc_dota_hero_phantom_assassin_perk:GetModifierPercentageManacostStacking(keys)
+	local ability = keys.ability
+	if ability then
+		if ability:HasAbilityFlag("dagger") then
+			return 50
 		end
 	end
+	return 0
+end
+
+if IsServer() then
+	function modifier_npc_dota_hero_phantom_assassin_perk:OnAttackFail(event)
+		local parent = self:GetParent()
+		if event.target == parent and event.fail_type == DOTA_ATTACK_RECORD_FAIL_TARGET_EVADED then
+			parent:AddNewModifier(parent, nil, "modifier_npc_dota_hero_phantom_assassin_perk_buff", {duration = 10})
+		end
+	end
+end
+
+--------------------------------------------------------------------------------------------------------
+LinkLuaModifier("modifier_npc_dota_hero_phantom_assassin_perk_buff", "abilities/hero_perks/npc_dota_hero_phantom_assassin_perk.lua", LUA_MODIFIER_MOTION_NONE)
+--------------------------------------------------------------------------------------------------------
+modifier_npc_dota_hero_phantom_assassin_perk_buff = modifier_npc_dota_hero_phantom_assassin_perk_buff or class({})
+
+function modifier_npc_dota_hero_phantom_assassin_perk_buff:IsHidden()
+	return true
+end
+
+function modifier_npc_dota_hero_phantom_assassin_perk_buff:IsDebuff()
+	return false
+end
+
+function modifier_npc_dota_hero_phantom_assassin_perk_buff:IsPurgable()
+	return false
+end
+
+function modifier_npc_dota_hero_phantom_assassin_perk_buff:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_npc_dota_hero_phantom_assassin_perk_buff:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+	}
+end
+
+function modifier_npc_dota_hero_phantom_assassin_perk_buff:GetModifierBonusStats_Agility()
+	return 1
 end

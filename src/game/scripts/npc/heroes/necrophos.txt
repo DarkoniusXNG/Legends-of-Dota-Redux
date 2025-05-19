@@ -71,7 +71,7 @@
 	"necrolyte_reapers_scythe"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "undead"
+		"ReduxPerks"                                                           "blades | undead"
 		"ReduxCost"                                                            "10"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}

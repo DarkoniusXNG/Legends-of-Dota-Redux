@@ -18,6 +18,9 @@
         "AbilityCooldown"                                                      "80.0 70.0 60.0"
         "AbilityManaCost"                                                      "150 200 250"
 
+        "ReduxFlags"                                                           "upgradeable"
+        "ReduxPerks"                                                           "blades | fire"
+
         "precache"
         {
             "particle"                                                     "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf"
@@ -32,6 +35,5 @@
             "bonus_scepter" "10"
             "fade_scepter" "0.05"
         }
-        "ReduxPerks"                                                           "fire"
     }
 }

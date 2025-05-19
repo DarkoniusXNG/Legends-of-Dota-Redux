@@ -11,7 +11,7 @@
 		"IsBreakable"                                      "1"
 
 		"ReduxFlags"                                       "attack_modifier | dota_custom"
-		"ReduxPerks"                                       "attack_modifier"
+		"ReduxPerks"                                       "attack_modifier | blades"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------

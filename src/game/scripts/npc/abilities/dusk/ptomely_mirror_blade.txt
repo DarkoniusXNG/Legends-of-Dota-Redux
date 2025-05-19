@@ -14,7 +14,7 @@
 		"AbilityTextureName"			"custom/ptomely_mirror_blade"
 
 		"ReduxFlags"					"physical"
-		"ReduxPerks"					"physical | skillshot"
+		"ReduxPerks"					"blades | physical | skillshot"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

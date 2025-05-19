@@ -16,6 +16,9 @@
 		"ScriptFile"					"abilities/overflow/dark_blade/dark_blade.lua"
 		"HasScepterUpgrade" "1"
 
+		"ReduxFlags"                    "upgradeable"
+		"ReduxPerks"                    "blades"
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1200"

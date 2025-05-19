@@ -173,6 +173,6 @@
 			}
 		}
 
-		"ReduxPerks"	"lightning | dagger"
+		"ReduxPerks"	"blades | lightning | dagger"
 	}
 }

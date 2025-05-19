@@ -14,7 +14,7 @@
 		"AoERadius"					 "%radius"
 
 		"ReduxFlags"					"physical"
-		"ReduxPerks"					"physical"
+		"ReduxPerks"					"blades | physical"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

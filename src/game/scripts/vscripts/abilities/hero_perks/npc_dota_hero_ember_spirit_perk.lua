@@ -1,11 +1,8 @@
---local timers = require('easytimers')
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Ember Spirit
---		Perk: If Ember Spirit has Fire Remnant and Activate Fire Remnant, he will gain a free level at the start of the game. Also, Activate Fire Remnant will have 50% Mana Refunded.
---
+--		Perk: Ember Spirit gains +3 Agility and +2% Mana Cost Reduction for each level put in a Fire ability.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_ember_spirit_perk ~= "" then modifier_npc_dota_hero_ember_spirit_perk = class({}) end
+modifier_npc_dota_hero_ember_spirit_perk = modifier_npc_dota_hero_ember_spirit_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_ember_spirit_perk:IsPassive()
 	return true
@@ -22,37 +19,43 @@ end
 function modifier_npc_dota_hero_ember_spirit_perk:RemoveOnDeath()
 	return false
 end
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_ember_spirit_perk:GetTexture()
+	return "custom/npc_dota_hero_ember_spirit_perk"
+end
+
 function modifier_npc_dota_hero_ember_spirit_perk:OnCreated()
-	if IsServer() then		
-			Timers:CreateTimer(function()
-					if self:GetCaster():HasAbility("ember_spirit_fire_remnant") then
-						self:GetCaster():HeroLevelUp(true)
-					end
-				return
-			end, DoUniqueString('levelup_ES'), 2)		
+	self.bonusPerLevel = 1
+	if IsServer() then
+		self:StartIntervalThink(0.1)
 	end
-	return true
 end
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_ember_spirit_perk:OnIntervalThink()
+	if IsServer() then
+		local caster = self:GetParent()
+		local stacks = 0
+		for i = 0, caster:GetAbilityCount() - 1 do
+			local skill = caster:GetAbilityByIndex(i)
+			if skill and skill:HasAbilityFlag("fire") then
+				stacks = stacks + skill:GetLevel() * self.bonusPerLevel
+			end
+		end
+		self:SetStackCount(stacks)
+	end
+end
+
 function modifier_npc_dota_hero_ember_spirit_perk:DeclareFunctions()
-  local funcs = {
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-  }
-  return funcs
+	return {
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+		MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
+	}
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_ember_spirit_perk:OnAbilityFullyCast(keys)
-  if IsServer() then
 
-    local manaRefund = .5 --Give back 50% of mana
-
-	if keys.ability:GetAbilityName() == "ember_spirit_activate_fire_remnant" and keys.unit == self:GetParent() then
-      self:GetParent():GiveMana(keys.ability:GetManaCost(keys.ability:GetLevel()-1)*manaRefund)
-    end
-  end
+function modifier_npc_dota_hero_ember_spirit_perk:GetModifierBonusStats_Agility()
+	return 3 * self:GetStackCount()
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 
+function modifier_npc_dota_hero_ember_spirit_perk:GetModifierPercentageManacostStacking()
+	return 2 * self:GetStackCount()
+end

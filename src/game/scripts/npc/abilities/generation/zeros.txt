@@ -515,7 +515,7 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
         "ReduxFlags"                    "crit | bash"
-        "ReduxPerks"                    "bash"
+        "ReduxPerks"                    "bash | blades"
 
         "AbilityValues"
         {

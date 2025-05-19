@@ -125,8 +125,14 @@ end
 
 function modifier_item_desolator_lod_passive:GetModifierPreAttack_BonusDamage()
 	local parent = self:GetParent()
-	if not parent.desolator_stacks_lod then
-		parent.desolator_stacks_lod = 0
+	if IsServer() then
+		if not parent.desolator_stacks_lod then
+			parent.desolator_stacks_lod = 0
+		end
+	else
+		if not parent.desolator_stacks_lod then
+			parent.desolator_stacks_lod = self:GetStackCount()
+		end
 	end
 	return self.bonus_damage + parent.desolator_stacks_lod
 end
@@ -249,12 +255,12 @@ if IsServer() then
 		local caster = self:GetCaster()
 		local killer = event.attacker
 		local dead = event.unit
-		
+
 		-- Check if the dead has this debuff
 		if dead ~= parent then
 			return
 		end
-		
+
 		-- Check for existence of GetUnitName method to determine if dead unit isn't something weird (an item, rune etc.)
 		if parent.GetUnitName == nil then
 			return
@@ -269,17 +275,17 @@ if IsServer() then
 		if not parent:IsHero() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearCustom() or parent:IsReincarnating() then
 			return
 		end
-		
+
 		-- Check if caster exists
 		if not caster or caster:IsNull() then
 			return
 		end
 
-		-- Desolator does not grant charges to illusions or if caster is dead 
+		-- Desolator does not grant charges to illusions or if caster is dead
 		if caster:IsIllusion() or not caster:IsAlive() then
 			return
 		end
-		
+
 		-- Desolator does not grant charges to Tempest Doubles and Monkey King clones
 		if IsMonkeyKingCloneCustom(caster) or caster:IsTempestDouble() then
 			return
@@ -298,17 +304,17 @@ if IsServer() then
 		local stacks_per_kill = ability:GetSpecialValueFor("bonus_damage_per_kill")
 		local stacks_per_assist = ability:GetSpecialValueFor("bonus_damage_per_assist")
 		local max_stacks = ability:GetSpecialValueFor("max_damage")
-		
+
 		local deso_passives = caster:FindAllModifiersByName("modifier_item_desolator_lod_passive")
 		if not deso_passives then
 			return
 		end
-		
+
 		local deso_modifier = deso_passives[1]
 		if not deso_modifier then
 			return
 		end
-		
+
 		if not caster.desolator_stacks_lod then
 			caster.desolator_stacks_lod = 0
 		end
@@ -317,15 +323,17 @@ if IsServer() then
 		if caster.desolator_stacks_lod == max_stacks or caster:HasModifier("modifier_item_desolator_lod_consumed") then
 			return
 		end
-		
+
 		local stacks_increase = 0
 		if killer == caster then
 			stacks_increase = stacks_per_kill
 		elseif killer:GetTeamNumber() == caster:GetTeamNumber() then
 			stacks_increase = stacks_per_assist
 		end
-		
+
 		caster.desolator_stacks_lod = math.min(caster.desolator_stacks_lod + stacks_increase, max_stacks)
+
+		caster:SetModifierStackCount("modifier_item_desolator_lod_passive", caster, caster.desolator_stacks_lod)
 	end
 end
 

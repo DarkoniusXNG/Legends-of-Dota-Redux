@@ -20,6 +20,9 @@
             "animation_rate" "0.2"
             "bonus_damage" "50 85 120"
         }
+        
+        "ReduxFlags"                                                           "physical"
+        "ReduxPerks"                                                           "blades | physical"
         "ReduxBans"                                                            "holdout_multishot"
     }
 }
