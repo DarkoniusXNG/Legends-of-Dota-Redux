@@ -1,0 +1,88 @@
+// Abilities for bounty hunter
+"DOTAAbilities"
+{
+	"bounty_hunter_shuriken_toss"
+	{
+		"ReduxFlags"                                                           "upgradeable"
+		"ReduxPerks"                                                           "blades"
+	}
+
+	"bounty_hunter_jinada"
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | gold"
+	}
+
+	"bounty_hunter_wind_walk"
+	{
+		"ReduxFlags"                                                           "mobility | invis | stun"
+		"ReduxPerks"                                                           "mobility | invis"
+		"ReduxCost"                                                            "40"
+	}
+
+	"bounty_hunter_wind_walk_ally"
+	{
+		"ReduxFlags"                                                           "mobility | invis | support"
+		"ReduxPerks"                                                           "mobility | invis | support"
+	}
+
+	"bounty_hunter_track"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "gold | support"
+		"ReduxCost"                                                            "10"
+	}
+
+	//=================================================================================================================
+	// Cutpurse (Facet)
+	//=================================================================================================================
+	"bounty_hunter_cutpurse"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" // not learnable because it requires Track
+
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "gold"
+	}
+
+	//=================================================================================================================
+	// Big Game Hunter (Innate)
+	//=================================================================================================================
+	"bounty_hunter_big_game_hunter"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "gold"
+	}
+
+	"special_bonus_unique_bounty_hunter"
+	{
+		"TalentRequiredAbility"                                                   "bounty_hunter_jinada"
+	}
+	"special_bonus_unique_bounty_hunter_2"
+	{
+		"TalentRequiredAbility"                                                   "bounty_hunter_shuriken_toss"
+	}
+	"special_bonus_unique_bounty_hunter_3"
+	{
+		"TalentRequiredAbility"                                                   "bounty_hunter_track"
+	}
+	"special_bonus_unique_bounty_hunter_5"
+	{
+		"TalentRequiredAbility"                                                   "bounty_hunter_shuriken_toss"
+	}
+	"special_bonus_unique_bounty_hunter_8"
+	{
+		"TalentRequiredAbility"                                                   "bounty_hunter_track"
+	}
+	"special_bonus_unique_bounty_hunter_9"
+	{
+		"TalentRequiredAbility"                                                   "bounty_hunter_wind_walk"
+	}
+	"special_bonus_unique_bounty_hunter_jinada_no_cooldown"
+	{
+		"TalentRequiredAbility"                                                   "bounty_hunter_jinada"
+	}
+}

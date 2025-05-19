@@ -35,35 +35,33 @@ function modifier_npc_dota_hero_ogre_magi_perk:OnCreated()
 		self.bloodlust:UpgradeAbility(false)
 	end
 	-- Bonus INT if Ogre does not have Dumb Luck
-	self.bonus_int_base = 0
-	self.bonus_int_per_lvl = 0
-	local dumb_luck = caster:FindAbilityByName("ogre_magi_dumb_luck")
-	if not dumb_luck then
-		self.bonus_int_base = 10
-		self.bonus_int_per_lvl = 1
-	end
+	-- self.bonus_int_base = 0
+	-- self.bonus_int_per_lvl = 0
+	-- local dumb_luck = caster:FindAbilityByName("ogre_magi_dumb_luck")
+	-- if not dumb_luck then
+		-- self.bonus_int_base = 10
+		-- self.bonus_int_per_lvl = 1
+	-- end
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_ogre_magi_perk:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+		--MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
 	}
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_ogre_magi_perk:OnAbilityFullyCast(keys)
-  if IsServer() then
-	local hero = self:GetCaster()
-	local target = keys.target
-	--local ability = keys.ability
-	if hero == keys.unit then
-		hero:AddNewModifier(hero,self.bloodlust,"modifier_ogre_magi_bloodlust",{duration=20})
+
+if IsServer() then
+	function modifier_npc_dota_hero_ogre_magi_perk:OnAbilityFullyCast(keys)
+		local hero = self:GetCaster()
+		local ability = keys.ability
+
+		if hero == keys.unit and ability then
+			hero:AddNewModifier(hero, self.bloodlust, "modifier_ogre_magi_bloodlust", {duration = 20})
+		end
 	end
-  end
 end
 
-function modifier_npc_dota_hero_ogre_magi_perk:GetModifierBonusStats_Intellect()
-	return self.bonus_int_base + self:GetParent():GetLevel() * self.bonus_int_per_lvl
-end
+-- function modifier_npc_dota_hero_ogre_magi_perk:GetModifierBonusStats_Intellect()
+-- 	return self.bonus_int_base + self:GetParent():GetLevel() * self.bonus_int_per_lvl
+-- end

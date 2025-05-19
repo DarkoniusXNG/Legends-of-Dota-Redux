@@ -1,0 +1,104 @@
+// Abilities for juggernaut
+"DOTAAbilities"
+{
+	"juggernaut_blade_fury"
+	{
+		"ReduxPerks"                                                           "blades | rage"
+		"ReduxCost"                                                            "20"
+		"ReduxBans"                                                            "batrider_sticky_napalm"
+	}
+
+	"juggernaut_healing_ward"
+	{
+		"ReduxFlags"                                                           "support | summon"
+		"ReduxPerks"                                                           "support | summon_non_ult"
+	}
+
+	"juggernaut_blade_dance"
+	{
+		"ReduxFlags"                                                           "attack_modifier | crit"
+		"ReduxPerks"                                                           "attack_modifier | blades"
+		"ReduxCost"                                                            "10"
+	}
+
+	"juggernaut_omni_slash"
+	{
+		"ReduxFlags"                                                           "physical"
+		"ReduxPerks"                                                           "blades | physical"
+		"ReduxCost"                                                            "20"
+	}
+
+	"juggernaut_swift_slash"
+	{
+		"ReduxFlags"                                                           "upgradeable | physical | doNotRandom"
+		"ReduxPerks"                                                           "blades | physical"
+
+		"MaxLevel"                      "4"
+		"AbilityCooldown"               "20 18 16 14"
+		"AbilityManaCost"               "150"
+		"AbilityValues"
+		{
+			"duration"		"1 1.25 1.5 1.75"
+		}
+	}
+
+	//=================================================================================================================
+	// Duelist (Innate)
+	//=================================================================================================================
+	"juggernaut_duelist"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+	}
+
+	//=================================================================================================================
+	// Bladeform (Facet)
+	//=================================================================================================================
+	"juggernaut_bladeform"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "blades | mobility"
+	}
+
+	"special_bonus_unique_juggernaut"
+	{
+		"TalentRequiredAbility"                                                   "juggernaut_blade_fury"
+	}
+	"special_bonus_unique_juggernaut_2"
+	{
+		"TalentRequiredAbility"                                                   "juggernaut_healing_ward"
+	}
+	"special_bonus_unique_juggernaut_3"
+	{
+		"TalentRequiredAbility"                                                   "juggernaut_duelist"
+	}
+	"special_bonus_unique_juggernaut_4"
+	{
+		"TalentRequiredAbility"                                                   "juggernaut_blade_dance"
+	}
+	"special_bonus_unique_juggernaut_5"
+	{
+		"TalentRequiredAbility"                                                   "juggernaut_healing_ward"
+	}
+	"special_bonus_unique_juggernaut_blade_dance_lifesteal"
+	{
+		"TalentRequiredAbility"                                                   "juggernaut_blade_dance"
+	}
+	"special_bonus_unique_juggernaut_omnislash_duration"
+	{
+		"TalentRequiredAbility"                                                   "juggernaut_omni_slash"
+	}
+	"special_bonus_unique_juggernaut_blade_fury_cooldown"
+	{
+		"TalentRequiredAbility"                                                   "juggernaut_blade_fury"
+	}
+	"special_bonus_unique_juggernaut_blade_fury_movespeed"
+	{
+		"TalentRequiredAbility"                                                   "juggernaut_blade_fury"
+	}
+	"special_bonus_unique_juggernaut_healing_ward_heal"
+	{
+		"TalentRequiredAbility"                                                   "juggernaut_healing_ward"
+	}
+}

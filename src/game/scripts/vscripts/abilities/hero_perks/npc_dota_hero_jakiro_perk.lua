@@ -43,21 +43,18 @@ function modifier_npc_dota_hero_jakiro_perk:OnCreated(keys)
 	self.cooldownReduction = 1 - (self.cooldownPercentReduction / 100)
 	self.manaReduction = self.manaPercentReduction / 100
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_jakiro_perk:DeclareFunctions()
-	local funcs = {
-		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST
+	return {
+		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
 	}
-	return funcs
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_jakiro_perk:OnAbilityFullyCast(keys)
-	if IsServer() then
+
+if IsServer() then
+	function modifier_npc_dota_hero_jakiro_perk:OnAbilityFullyCast(keys)
 		local caster = self:GetCaster()
-		local target = keys.target
 		local ability = keys.ability
+
 		if caster == keys.unit and ability then
 			if ability:HasAbilityFlag("fire") then
 				if caster:HasModifier(self.firePerk) then

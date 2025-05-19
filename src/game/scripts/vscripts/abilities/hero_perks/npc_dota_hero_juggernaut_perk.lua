@@ -25,21 +25,24 @@ end
 function modifier_npc_dota_hero_juggernaut_perk:GetTexture()
 	return "custom/npc_dota_hero_juggernaut_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_juggernaut_perk:DeclareFunctions()
-  local funcs = {
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-  }
-  return funcs
+	return {
+		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
+	}
 end
 
-function modifier_npc_dota_hero_juggernaut_perk:OnAbilityFullyCast(params)
-	if IsServer() and params.unit == self:GetParent() then
-		if string.find(params.ability:GetAbilityName(), "omni_slash") then
-			params.target:AddNewModifier(params.unit, params.ability, "modifier_silver_edge_debuff", {duration = 3})
+if IsServer() then
+	function modifier_npc_dota_hero_juggernaut_perk:OnAbilityFullyCast(params)
+	 	local parent = self:GetParent()
+		local unit = params.unit
+		local target = params.target
+		local ability = params.ability
+
+		if unit == parent and target and ability then
+			if string.find(ability:GetAbilityName(), "omni_slash") then
+				target:AddNewModifier(parent, ability, "modifier_silver_edge_debuff", {duration = 3})
+			end
 		end
 	end
 end

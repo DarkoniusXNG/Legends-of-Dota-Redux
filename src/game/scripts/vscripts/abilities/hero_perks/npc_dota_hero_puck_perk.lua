@@ -42,17 +42,15 @@ if IsServer() then
 		end
 		return 0
 	end
+end
 
-	function modifier_npc_dota_hero_puck_perk:GetModifierPercentageCooldown(keys)
-		local ability = keys.ability
-		if ability then
-			if not ability:HasAbilityFlag("mobility") then
-				return 10
-			end
-		else
-			return 0
+function modifier_npc_dota_hero_puck_perk:GetModifierPercentageCooldown(keys)
+	local ability = keys.ability
+	if ability then
+		if not ability:HasAbilityFlag("mobility") then
+			return 10
 		end
-		return 0
 	end
+	return 0
 end
 

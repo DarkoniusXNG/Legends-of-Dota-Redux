@@ -25,7 +25,7 @@
 	"huskar_burning_spear"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | fire | self_damage | autocast_basic"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | fire | self_damage"
 		"ReduxCost"                                                            "10"
 		"ReduxBans"                                                            "batrider_sticky_napalm | spell_lab_symbiotic"
 	}

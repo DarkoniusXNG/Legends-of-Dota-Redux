@@ -1,8 +1,6 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Riki
 --		Perk: Increases Riki's health and mana regeneration by 2% while invisible.
---
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_riki_perk = modifier_npc_dota_hero_riki_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -25,9 +23,6 @@ end
 function modifier_npc_dota_hero_riki_perk:GetTexture()
 	return "custom/npc_dota_hero_riki_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_riki_perk:DeclareFunctions()
 	return {
@@ -35,7 +30,7 @@ function modifier_npc_dota_hero_riki_perk:DeclareFunctions()
 		MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE,
 	}
 end
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_riki_perk:GetModifierHealthRegenPercentage()
 	if self:GetCaster():IsInvisible() then
  		return 2

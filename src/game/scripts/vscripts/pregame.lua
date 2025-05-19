@@ -7391,9 +7391,6 @@ function Pregame:hookBotStuff()
                                         if nextUpgrade <= level then
                                             -- Is this the lowest level skill?
                                             if abLevel < lowestLevel then
-
-
-
                                                 lowestLevel = abLevel
                                                 lowestAb = ab
                                             end

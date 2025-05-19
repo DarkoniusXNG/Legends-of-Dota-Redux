@@ -63,7 +63,7 @@ if IsServer() then
 				FIND_ANY_ORDER,
 				false
 			)
-			
+
 			for _, unit in pairs(allies) do
 				if unit and not unit:IsNull() and unit.IsRealHero then
 					if unit:IsRealHero() and unit ~= parent then

@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Broodmother
---		Perk: Non-ultimate Summon abilities will have 20% mana cost refunded and 20% cooldown reduction
---
+--		Perk: Non-ultimate Summon abilities cast by Broodmother will have reduced cooldown and mana cost.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_broodmother_perk ~= "" then modifier_npc_dota_hero_broodmother_perk = class({}) end
+modifier_npc_dota_hero_broodmother_perk = modifier_npc_dota_hero_broodmother_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_broodmother_perk:IsPassive()
 	return true
@@ -21,36 +19,34 @@ end
 function modifier_npc_dota_hero_broodmother_perk:RemoveOnDeath()
 	return false
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_broodmother_perk:OnCreated()
-  if IsServer() then
-    local cooldownReductionPercent = 25
-    self.cooldownReduction = 1 - (cooldownReductionPercent / 100)
-  end
-  return true
+
+function modifier_npc_dota_hero_broodmother_perk:GetTexture()
+	return "custom/npc_dota_hero_broodmother_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_broodmother_perk:DeclareFunctions()
-  local funcs = {
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-  }
-  return funcs
+	return {
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
+	}
 end
 
-function modifier_npc_dota_hero_broodmother_perk:OnAbilityFullyCast(keys)
-  if IsServer() then
-    local hero = self:GetCaster()
-    local unit = keys.unit
-    local ability = keys.ability
-
-    if hero == unit and ability:HasAbilityFlag("summon_non_ult") then
-      local cooldown = ability:GetCooldownTimeRemaining() * self.cooldownReduction
-      hero:GiveMana(ability:GetManaCost(ability:GetLevel()-1) * 0.25)
-      ability:EndCooldown()
-      ability:StartCooldown(cooldown)
-    end
-  end
+function modifier_npc_dota_hero_broodmother_perk:GetModifierPercentageCooldown(keys)
+	local ability = keys.ability
+	if ability then
+		if ability:HasAbilityFlag("summon_non_ult") then
+			return 25
+		end
+	end
+	return 0
 end
 
+function modifier_npc_dota_hero_broodmother_perk:GetModifierPercentageManacostStacking(keys)
+	local ability = keys.ability
+	if ability then
+		if ability:HasAbilityFlag("summon_non_ult") then
+			return 25
+		end
+	end
+	return 0
+end
