@@ -3230,7 +3230,7 @@
 	"lion_impale"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "earth | skillshot | demon"
+		"ReduxPerks"                                                           "earth | demon"
 	}
 	"jakiro_ice_path"
 	{
@@ -3510,6 +3510,11 @@
 	{
 		"ReduxPerks"                                                           "fire | self_damage | skillshot"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
+	}
+	"phoenix_launch_fire_spirit"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "skillshot"
 	}
 	"doom_bringer_scorched_earth"
 	{
@@ -4069,12 +4074,12 @@
 	}
 	"vengefulspirit_wave_of_terror"
 	{
-		"ReduxPerks"                                                           "skillshot"
+		"ReduxPerks"                                                           "skillshot | undead"
 	}
 	"weaver_the_swarm"
 	{
-		"ReduxFlags"                                                           "physical | summon"
-		"ReduxPerks"                                                           "skillshot | physical | summon_non_ult"
+		"ReduxFlags"                                                           "physical"
+		"ReduxPerks"                                                           "skillshot | physical"
 	}
 	"pugna_nether_blast"
 	{
@@ -4281,6 +4286,7 @@
 	"ember_spirit_activate_fire_remnant"
 	{
 		"ReduxFlags"                                                           "doNotRandom | mobility"
+		"ReduxPerks"                                                           "skillshot"
 	}
 	"shadow_demon_shadow_poison_release"
 	{
@@ -4450,6 +4456,12 @@
 
 		"ReduxFlags"		"support | stun | doNotRandom | upgradeable"
 		"ReduxPerks"        "dragon | fire | skillshot | support"
+	}
+
+	"snapfire_spit_creep"
+	{
+		"ReduxFlags"		"doNotRandom"
+		"ReduxPerks"        "skillshot"
 	}
 
 	"sniper_shrapnel"

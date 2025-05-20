@@ -6,7 +6,7 @@
 	"spectre_spectral_dagger"
 	{
 		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility | dagger | skillshot"
+		"ReduxPerks"                                                           "mobility | dagger"
 	}
 
 	//=================================================================================================================

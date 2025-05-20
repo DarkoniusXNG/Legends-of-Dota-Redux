@@ -31,7 +31,7 @@ local hero_names = {
 	"earth_spirit", -- ok, missing icon, S tier
 	"earthshaker", -- ok, A tier, bot
 	"elder_titan", -- kinda bad
-	"ember_spirit", -- kinda bad
+	"ember_spirit", -- ok
 	"enchantress", -- badly coded idea not bad
 	"enigma", -- ok
 	"faceless_void", -- ok
@@ -44,7 +44,7 @@ local hero_names = {
 	"jakiro", -- ok, bot
 	"juggernaut", -- ok, A tier, bot
 	"keeper_of_the_light", -- ok, A tier
-	--"kez", -- D tier
+	"kez", -- ok, D tier
 	"kunkka", -- ok, S tier, bot
 	"legion_commander", -- ok
 	"leshrac", -- ok, S tier
@@ -56,14 +56,14 @@ local hero_names = {
 	"luna", -- ok, bot
 	"lycan", -- ok
 	"magnataur", -- ok
-	--"marci",
+	"marci", -- ok
 	"mars", -- ok, missing icon, S tier
 	"medusa", -- A tier
 	"meepo", -- kinda bad?
 	"mirana", -- ok
 	"monkey_king", -- ok, S tier
 	"morphling", -- ok, A tier
-	--"muerta", -- S tier
+	"muerta", -- ok, S tier
 	"naga_siren", -- ok, A tier
 	"necrolyte", -- ok, D tier, bot
 	"nevermore", -- ok, S tier, bot
@@ -74,10 +74,10 @@ local hero_names = {
 	"omniknight", -- ok, bot
 	"oracle", -- kinda bad, A tier, bot
 	"pangolier", -- ok, D tier
-	"phantom_assassin", -- ok, kinda bad, bot
+	"phantom_assassin", -- ok, bot
 	"phantom_lancer", -- kinda bad, D tier
 	"phoenix", -- ok, D tier
-	--"primal_beast", -- S tier
+	"primal_beast", -- ok, S tier
 	"puck", -- ok
 	"pudge", -- ok, bot
 	"pugna", -- ok, S tier
@@ -85,6 +85,7 @@ local hero_names = {
 	"rattletrap", -- ok, missing icon, A tier
 	"razor", -- ok
 	"riki", -- ok, D tier
+	"ringmaster", -- ok
 	"rubick", -- ok
 	"sand_king", -- ok, D tier, bot
 	"shadow_demon", -- ok, A tier
@@ -92,7 +93,7 @@ local hero_names = {
 	"shredder", -- ok, A tier
 	"silencer", -- ok
 	"skeleton_king", -- ok, bot
-	"skywrath_mage", -- terrible, bot
+	"skywrath_mage", -- ok, bot
 	"slardar", -- ok, A tier
 	"slark", -- ok, D tier
 	"snapfire", -- ok, missing icon, A tier
@@ -115,7 +116,7 @@ local hero_names = {
 	"vengefulspirit", -- ok, bot
 	"venomancer" , -- ok, D tier
 	"viper", -- ok, bot
-	"visage", -- kinda bad
+	"visage", -- ok
 	"void_spirit", -- ok, kinda bad, D tier
 	"warlock", -- too strong idea not bad, A tier, bot
 	"weaver", -- ok, D tier

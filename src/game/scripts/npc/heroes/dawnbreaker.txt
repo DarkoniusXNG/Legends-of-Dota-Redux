@@ -6,6 +6,12 @@
 		"ReduxPerks"                                                           "light | skillshot | fire | mobility"
 	}
 
+	"dawnbreaker_converge"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "skillshot"
+	}
+
 	"dawnbreaker_fire_wreath" // Starbreaker
 	{
 		"ReduxFlags"                                                           "aoe_attack | stun | physical"
