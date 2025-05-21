@@ -14,7 +14,7 @@
 		"AbilityTextureName"			"custom/aether_reality_shift"
 
 		"ReduxFlags"                    "stun | support"
-		"ReduxPerks"                    "enemyMoving | light | support"
+		"ReduxPerks"                    "enemymoving | light | support"
 		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 
 		// Casting

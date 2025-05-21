@@ -33,7 +33,7 @@
         "AbilityProcsMagicStick"        "1"
 
         "ReduxFlags"                    "support"
-        "ReduxPerks"                    "enemyMoving | nature | support"
+        "ReduxPerks"                    "enemymoving | nature | support"
 
         // Casting
         //-------------------------------------------------------------------------------------------------------------

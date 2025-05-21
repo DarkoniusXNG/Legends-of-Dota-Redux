@@ -64,7 +64,8 @@
 			}
 			"slow"	"20 30 40 50"					
 		}
-        "ReduxCost"                                                            "120"
-		"ReduxPerks"														   "fire | enemyMoving | skillshot"
+
+		"ReduxPerks"														   "fire | enemymoving | skillshot"
+		"ReduxCost"                                                            "120"
     }
 }

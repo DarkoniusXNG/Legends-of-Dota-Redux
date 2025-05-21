@@ -66,7 +66,7 @@
 	"elder_titan_earth_splitter"
 	{
 		"ReduxFlags"			"stun | physical"
-		"ReduxPerks"			"earth | skillshot | enemyMoving | physical"
+		"ReduxPerks"			"earth | skillshot | enemymoving | physical"
 	}
 
 	//=================================================================================================================

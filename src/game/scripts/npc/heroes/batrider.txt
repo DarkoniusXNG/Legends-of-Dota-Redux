@@ -29,7 +29,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" // not learnable because it requires Flaming Lasso
 
 		"ReduxFlags"                    "mobility | doNotRandom"
-		"ReduxPerks"                    "enemyMoving | mobility"
+		"ReduxPerks"                    "enemymoving | mobility"
 	}
 
 	//=================================================================================================================
@@ -37,7 +37,7 @@
 	//=================================================================================================================
 	"batrider_flamebreak"
 	{
-		"ReduxPerks"                    "fire | skillshot | enemyMoving | explosive"
+		"ReduxPerks"                    "fire | skillshot | enemymoving | explosive"
 	}
 
 	//=================================================================================================================
@@ -55,7 +55,7 @@
 	"batrider_flaming_lasso"
 	{
 		"ReduxFlags"                    "upgradeable | stun"
-		"ReduxPerks"                    "fire | enemyMoving"
+		"ReduxPerks"                    "fire | enemymoving"
 		"ReduxCost"                     "10"
 	}
 

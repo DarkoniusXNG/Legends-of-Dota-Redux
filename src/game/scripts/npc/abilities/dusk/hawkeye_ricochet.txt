@@ -41,16 +41,11 @@
 		
 		"precache"
 		{
-			"particle" "particles/item_fx/desolator_projectile.vpcf"
 			"particle" "particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet_frozen.vpcf"
 		}
-		
-		"Modifiers"
-		{
-		}
 
-		"ReduxPerks"	""
-		"ReduxBans"	"enchantress_impetus"
-		"ReduxFlags"	""
+		"ReduxFlags"                    ""
+		"ReduxPerks"                    "scientific | ranger"
+		"ReduxBans"                     "enchantress_impetus"
 	}
 }

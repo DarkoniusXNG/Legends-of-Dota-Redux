@@ -36,7 +36,7 @@
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
 
         "ReduxFlags"                    "stun"
-        "ReduxPerks"                    "demon | enemyMoving"
+        "ReduxPerks"                    "demon | enemymoving"
 
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
         "AbilityCooldown"               "12"
@@ -176,7 +176,7 @@
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
 
         "ReduxFlags"                    "stun"
-        "ReduxPerks"                    "demon | enemyMoving"
+        "ReduxPerks"                    "demon | enemymoving"
         "ReduxCost"                     "120"
 
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"

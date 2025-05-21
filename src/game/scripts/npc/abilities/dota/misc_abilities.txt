@@ -617,7 +617,9 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "AbilityTextureName"            "custom/bounty_hunter_jinada_op"
 
-        "ReduxCost"                                                            "120"
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | gold"
+		"ReduxCost"                                                            "120"
 		"ReduxBans"                                                            "bounty_hunter_jinada"
 
 		"AbilityCastRange"				"150"
@@ -695,7 +697,7 @@
         "AbilityTextureName"            "custom/mars_arena_of_blood_op"
 
         "ReduxCost"                                                            "120"
-        "ReduxPerks"                                                           "enemyMoving | blood | undead"
+        "ReduxPerks"                                                           "enemymoving | blood | undead"
 
         "AbilityCastRange"              "1000"
         "AbilityCastPoint"              "0.1"

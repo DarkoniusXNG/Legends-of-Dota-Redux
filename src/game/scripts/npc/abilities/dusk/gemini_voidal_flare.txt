@@ -48,7 +48,7 @@
             "duration" "60"
         }
 
-		"ReduxPerks"	""
 		"ReduxFlags"	"stun"
+		"ReduxPerks"	"light"
 	}
 }

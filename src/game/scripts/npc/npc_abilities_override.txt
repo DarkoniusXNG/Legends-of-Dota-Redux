@@ -40,6 +40,48 @@
 
 "DOTAAbilities"
 {
+	"frogmen_riverborn_aura"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "aura | mobility | neutral | water"
+	}
+
+	"frogmen_arm_of_the_deep"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "neutral | water"
+	}
+
+	"frogmen_tendrils_of_the_deep"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "neutral | water"
+	}
+
+	"frogmen_congregation_of_the_deep"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "neutral | water"
+	}
+
+	"frogmen_water_bubble_small"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "neutral | support | water"
+	}
+
+	"frogmen_water_bubble_medium"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "neutral | support | water"
+	}
+
+	"frogmen_water_bubble_large"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "neutral | support | water"
+	}
+
 	"medusa_undulation"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
@@ -53,7 +95,7 @@
 	"roshan_grab_and_throw"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "channeled | enemyMoving | neutral | rage"
+		"ReduxPerks"                                                           "channeled | enemymoving | neutral | rage"
 	}
 
 	"visage_lurker"
@@ -367,7 +409,7 @@
 	"muerta_parting_shot"
 	{
 		"ReduxFlags"                                                           "stun | support | doNotRandom"
-		"ReduxPerks"                                                           "support | enemyMoving | undead"
+		"ReduxPerks"                                                           "support | enemymoving | undead"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 		"MaxLevel"						"4"
@@ -1002,7 +1044,7 @@
 	"enraged_wildkin_hurricane"
 	{
 		"ReduxFlags"	"support"
-		"ReduxPerks"	"neutral | enemyMoving | support | nature"
+		"ReduxPerks"	"neutral | enemymoving | support | nature"
 
 		"MaxLevel"						"4"
 		"AbilityCastRange"				"400 600 800 1000"
@@ -1331,7 +1373,7 @@
 	"tusk_walrus_kick"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "enemyMoving"
+		"ReduxPerks"                                                           "enemymoving"
 		"ReduxCost"                                                            "20"
 
 		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
@@ -1824,12 +1866,12 @@
 	"beastmaster_primal_roar"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "enemyMoving | rage"
+		"ReduxPerks"                                                           "enemymoving | rage"
 	}
 
 	"muerta_dead_shot"
 	{
-		"ReduxPerks"                                                           "enemyMoving | skillshot | undead"
+		"ReduxPerks"                                                           "enemymoving | skillshot | undead"
 	}
 
 	"beastmaster_mark_of_the_beast"
@@ -1930,7 +1972,7 @@
 	"enigma_black_hole"
 	{
 		"ReduxFlags"                                                           "upgradeable | stun | silence"
-		"ReduxPerks"                                                           "channeled | enemyMoving | silence"
+		"ReduxPerks"                                                           "channeled | enemymoving | silence"
 		"ReduxCost"                                                            "10"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
@@ -2046,7 +2088,7 @@
 	"pudge_meat_hook"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "skillshot | enemyMoving"
+		"ReduxPerks"                                                           "skillshot | enemymoving"
 	}
 	"pugna_life_drain"
 	{
@@ -2056,7 +2098,7 @@
 	}
 	"queenofpain_sonic_wave"
 	{
-		"ReduxPerks"                                                           "skillshot | enemyMoving"
+		"ReduxPerks"                                                           "skillshot | enemymoving"
 	}
 	"razor_eye_of_the_storm"
 	{
@@ -2176,7 +2218,7 @@
 	"vengefulspirit_nether_swap"
 	{
 		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | enemyMoving"
+		"ReduxPerks"                                                           "support | enemymoving"
 	}
 	"viper_viper_strike"
 	{
@@ -2230,7 +2272,7 @@
 	"disruptor_glimpse"
 	{
 		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | lightning | enemyMoving"
+		"ReduxPerks"                                                           "support | lightning | enemymoving"
 		"ReduxCost"                                                            "10"
 	}
 	"omniknight_purification"
@@ -2721,7 +2763,7 @@
 	"magnataur_skewer"
 	{
 		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility | skillshot | enemyMoving"
+		"ReduxPerks"                                                           "mobility | skillshot | enemymoving"
 	}
 	"riki_blink_strike"
 	{
@@ -2864,7 +2906,7 @@
 	"spirit_breaker_greater_bash"
 	{
 		"ReduxFlags"                                                           "bash | attack_modifier"
-		"ReduxPerks"                                                           "bash | attack_modifier | enemyMoving"
+		"ReduxPerks"                                                           "bash | attack_modifier | enemymoving"
 		"ReduxCost"                                                            "120"
 	}
 	"faceless_void_time_lock"
@@ -2907,7 +2949,7 @@
 	"tusk_walrus_punch"
 	{
 		"ReduxFlags"                                                           "crit | attack_modifier | bash"
-		"ReduxPerks"                                                           "attack_modifier | bash"
+		"ReduxPerks"                                                           "attack_modifier | bash | enemymoving"
 		"ReduxCost"                                                            "40"
 	}
 
@@ -3018,7 +3060,7 @@
 	"slark_essence_shift"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | drain"
 		"ReduxCost"                                                            "80"
 	}
 	"sandking_caustic_finale"
@@ -3140,7 +3182,7 @@
 	"morphling_adaptive_strike_agi"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "water | enemyMoving"
+		"ReduxPerks"                                                           "water | enemymoving"
 	}
 	"skeleton_king_hellfire_blast"
 	{
@@ -3192,7 +3234,7 @@
 	"rubick_telekinesis"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "enemyMoving"
+		"ReduxPerks"                                                           "enemymoving"
 	}
 	"nyx_assassin_impale"
 	{
@@ -3212,13 +3254,13 @@
 	"magnataur_reverse_polarity"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "enemyMoving"
+		"ReduxPerks"                                                           "enemymoving"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
 	}
 	"earth_spirit_boulder_smash"
 	{
 		"ReduxFlags"                                                           "stun | doNotRandom"
-		"ReduxPerks"                                                           "earth | skillshot | enemyMoving"
+		"ReduxPerks"                                                           "earth | skillshot | enemymoving"
 	}
 	"techies_stasis_trap"
 	{
@@ -3352,7 +3394,7 @@
 	"pangolier_gyroshell"
 	{
 		"ReduxFlags"                                                           "mobility | stun | physical | aoe_attack"
-		"ReduxPerks"                                                           "mobility | enemyMoving | physical"
+		"ReduxPerks"                                                           "mobility | enemymoving | physical"
 	}
 
 	"dark_willow_bramble_maze"
@@ -3370,7 +3412,7 @@
 	 "dark_willow_terrorize"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "skillshot | enemyMoving"
+		"ReduxPerks"                                                           "skillshot | enemymoving"
 	}
 
 	"dark_willow_shadow_realm"
@@ -3597,7 +3639,7 @@
 	}
 	"rattletrap_power_cogs"
 	{
-		"ReduxPerks"                                                           "lightning | scientific | enemyMoving | trap"
+		"ReduxPerks"                                                           "lightning | scientific | enemymoving | trap"
 	}
 
 	"razor_plasma_field"
@@ -3766,7 +3808,7 @@
 
 	"keeper_of_the_light_blinding_light"
 	{
-		"ReduxPerks"                                                           "light | enemyMoving"
+		"ReduxPerks"                                                           "light | enemymoving"
 	}
 	"keeper_of_the_light_spirit_form"
 	{
@@ -4045,7 +4087,7 @@
 
 	"magnataur_shockwave"
 	{
-		"ReduxPerks"                                                           "skillshot | enemyMoving | lightning"
+		"ReduxPerks"                                                           "skillshot | enemymoving | lightning"
 	}
 	"nevermore_shadowraze1"
 	{
@@ -4087,22 +4129,22 @@
 	}
 	"chaos_knight_reality_rift"
 	{
-		"ReduxPerks"                                                           "enemyMoving | mobility"
+		"ReduxPerks"                                                           "enemymoving | mobility"
 		"ReduxFlags"														   "mobility"
 	}
 	"dark_seer_vacuum"
 	{
-		"ReduxPerks"                                                           "enemyMoving"
+		"ReduxPerks"                                                           "enemymoving"
 		"ReduxCost"                                                            "10"
 	}
 
 	"item_force_staff"
 	{
-		"ReduxPerks"                                                           "enemyMoving | support"
+		"ReduxPerks"                                                           "enemymoving | support"
 	}
 	"item_hurricane_pike"
 	{
-		"ReduxPerks"                                                           "enemyMoving | support"
+		"ReduxPerks"                                                           "enemymoving | support"
 	}
 
 	"item_orchid"
@@ -4472,7 +4514,7 @@
 	"sniper_concussive_grenade"
 	{
 		"ReduxFlags"                                                           "disarm_break"
-		"ReduxPerks"                                                           "scientific | explosive | enemyMoving | mobility"
+		"ReduxPerks"                                                           "scientific | explosive | enemymoving | mobility"
 
 		"MaxLevel"						"4"
 		"AbilityValues"
@@ -4527,24 +4569,24 @@
 	"lich_sinister_gaze"
 	{
 		"ReduxFlags"                                                           "stun | upgradeable"
-		"ReduxPerks"                                                           "enemyMoving | channeled | undead | drain"
+		"ReduxPerks"                                                           "enemymoving | channeled | undead | drain"
 	}
 
 	"mars_spear"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "enemyMoving | skillshot"
+		"ReduxPerks"                                                           "enemymoving | skillshot"
 	}
 
 	"mars_gods_rebuke"
 	{
 		"ReduxPerks"                                                           "aoe_attack | crit | physical"
-		"ReduxPerks"                                                           "enemyMoving | physical"
+		"ReduxPerks"                                                           "enemymoving | physical"
 	}
 
 	"mars_arena_of_blood"
 	{
-		"ReduxPerks"                                                           "enemyMoving | blood | undead"
+		"ReduxPerks"                                                           "enemymoving | blood | undead"
 	}
 
 	"meepo_petrify"
@@ -4590,7 +4632,7 @@
 	"keeper_of_the_light_will_o_wisp"
 	{
 		"ReduxFlags"                    "upgradeable"
-		"ReduxPerks"                    "light | enemyMoving"
+		"ReduxPerks"                    "light | enemymoving"
 
 		"MaxLevel"						"4"
 		"AbilityCooldown"				"60 55 50 45"
@@ -4861,7 +4903,7 @@
 	"tinker_warp_grenade"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "enemyMoving | scientific"
+		"ReduxPerks"                                                           "enemymoving | scientific"
 
 		"MaxLevel"                      "4"
 		"AbilityCastRange"              "700"
@@ -4928,7 +4970,7 @@
 	"dark_seer_normal_punch"
 	{
 		"ReduxFlags"		"bash | illusion | stun | upgradeable"
-		"ReduxPerks"		"bash | illusion | enemyMoving"
+		"ReduxPerks"		"bash | illusion | enemymoving"
 
 		"MaxLevel"                      "4"
 		"AbilityCooldown"               "9"
@@ -4997,7 +5039,7 @@
 	"magnataur_horn_toss"
 	{
 		"ReduxFlags"                                                           "stun | upgradeable"
-		"ReduxPerks"                                                           "enemyMoving"
+		"ReduxPerks"                                                           "enemymoving"
 
 		"MaxLevel"                      "4"
 		"AbilityCooldown"               "30 25 20 15"
@@ -5106,7 +5148,7 @@
 	"terrorblade_terror_wave"
 	{
 		"ReduxFlags"					"upgradeable | doNotRandom"
-		"ReduxPerks"					"demon | enemyMoving"
+		"ReduxPerks"					"demon | enemymoving"
 
 		"MaxLevel"                      "4"
 		"AbilityCooldown"               "90 80 70 60"
@@ -5244,7 +5286,7 @@
 	"marci_grapple"
 	{
 		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | enemyMoving"
+		"ReduxPerks"                                                           "support | enemymoving"
 	}
 
 	"marci_companion_run"
@@ -5268,7 +5310,7 @@
 	"primal_beast_onslaught"
 	{
 		"ReduxFlags"                                                           "mobility | stun | physical"
-		"ReduxPerks"                                                           "mobility | enemyMoving | skillshot | rage | physical"
+		"ReduxPerks"                                                           "mobility | enemymoving | skillshot | rage | physical"
 	}
 
 	"primal_beast_trample"
@@ -5285,12 +5327,12 @@
 	"primal_beast_pulverize"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "channeled | rage | earth | enemyMoving"
+		"ReduxPerks"                                                           "channeled | rage | earth | enemymoving"
 	}
 
 	"void_spirit_aether_remnant"
 	{
-		"ReduxPerks"                                                           "enemyMoving | trap"
+		"ReduxPerks"                                                           "enemymoving | trap"
 	}
 
 	"clinkz_strafe"
@@ -5454,7 +5496,7 @@
 	"pangolier_rollup"
 	{
 		"ReduxFlags"					"stun | doNotRandom"
-		"ReduxPerks"					"enemyMoving"
+		"ReduxPerks"					"enemymoving"
 
 		"MaxLevel"						"4"
 		"AbilityCooldown"				"40 32 24 16"

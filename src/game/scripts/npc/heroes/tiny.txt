@@ -10,7 +10,7 @@
 	"tiny_toss"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "earth | enemyMoving"
+		"ReduxPerks"                                                           "earth | enemymoving"
 	}
 
 	"tiny_tree_grab"

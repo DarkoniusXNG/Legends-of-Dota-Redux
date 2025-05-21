@@ -151,6 +151,9 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
 
+        "ReduxFlags"                    ""
+        "ReduxPerks"                    "gold"
+
         "AbilityCastRange"              "750"
         "AbilityCastPoint"              "0.3"
 
@@ -309,7 +312,7 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		
         "ReduxFlags"                    "summon"
-        "ReduxPerks"                    "summon_non_ult"
+        "ReduxPerks"                    "gold | summon_non_ult"
 
         "AbilityCooldown"               "20"
         "AbilityManaCost"               "75"

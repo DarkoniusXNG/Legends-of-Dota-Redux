@@ -17,7 +17,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 	
     "ReduxFlags"                                          "attack_modifier | crit | stun | doNotRandom"
-    "ReduxPerks"                                          "attack_modifier | enemyMoving"
+    "ReduxPerks"                                          "attack_modifier | enemymoving"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------

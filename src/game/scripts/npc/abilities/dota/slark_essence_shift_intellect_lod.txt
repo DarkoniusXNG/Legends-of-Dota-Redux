@@ -8,7 +8,7 @@
         "AbilityTextureName"                                                   "custom/slark_essence_shift_intellect_lod"
 
         "ReduxFlags"                                                           "attack_modifier | dota_custom"
-        "ReduxPerks"                                                           "attack_modifier"
+        "ReduxPerks"                                                           "attack_modifier | drain"
         "ReduxCost"                                                            "20"
 
         "AbilityValues"

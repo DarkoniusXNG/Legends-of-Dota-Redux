@@ -289,7 +289,7 @@
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
 
-        "ReduxPerks"                    "blood | blades | enemyMoving | self_damage | skillshot"
+        "ReduxPerks"                    "blood | blades | enemymoving | self_damage | skillshot"
 
         // Casting
         "AbilityCastPoint"              "0.1"

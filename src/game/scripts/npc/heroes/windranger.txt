@@ -28,7 +28,7 @@
 
 	"windrunner_gale_force"
 	{
-		"ReduxPerks"            "enemyMoving | ranger | nature"
+		"ReduxPerks"            "enemymoving | ranger | nature"
 
 		"MaxLevel"                      "4"
 		"AbilityCastRange"              "1500 2000 2500 3000"

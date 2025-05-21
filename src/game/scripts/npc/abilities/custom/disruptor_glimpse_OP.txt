@@ -34,6 +34,6 @@
 		}
         "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           "support | mobility"
-        "ReduxPerks"                                                           "support | mobility| lightning | enemyMoving"
+        "ReduxPerks"                                                           "support | mobility| lightning | enemymoving"
     }
 }

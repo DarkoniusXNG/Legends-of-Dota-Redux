@@ -48,7 +48,8 @@
 			}
 		}
 
-        "ReduxCost"                                                            "120"
-        "ReduxBans"                                                            "alchemist_goblins_greed"
+		"ReduxPerks"                                                           "gold | scientific"
+		"ReduxCost"                                                            "120"
+		"ReduxBans"                                                            "alchemist_goblins_greed"
     }
 }

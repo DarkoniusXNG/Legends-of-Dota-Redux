@@ -7,6 +7,9 @@
 		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityTextureName" "custom/angel_arena_hola_heal"
 
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "rage | support"
+
 		"precache"
 		{
 			"particle" "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_c.vpcf"

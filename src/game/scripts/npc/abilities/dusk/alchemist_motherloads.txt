@@ -108,7 +108,7 @@
 			}
 		}
 
-		"ReduxPerks"	""
-		"ReduxFlags"	""
+		"ReduxFlags"	"support"
+		"ReduxPerks"	"gold | support"
 	}
 }

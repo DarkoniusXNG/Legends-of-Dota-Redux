@@ -33,7 +33,7 @@
 	"huskar_inner_fire"
 	{
 		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "silence | enemyMoving | fire | rage | self_damage"
+		"ReduxPerks"                                                           "silence | enemymoving | fire | rage | self_damage"
 	}
 
 	"huskar_blood_magic"

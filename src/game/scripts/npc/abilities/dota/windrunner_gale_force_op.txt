@@ -23,7 +23,7 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 
-        "ReduxPerks"                                                           "enemyMoving | ranger | nature"
+        "ReduxPerks"                                                           "enemymoving | ranger | nature"
         "ReduxCost"                                                            "120"
 	}
 

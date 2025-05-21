@@ -22,7 +22,7 @@
 			"knockback_distance"		"600"
 		}
 
-		"ReduxPerks"	"skillshot | enemyMoving | water"
+		"ReduxPerks"	"skillshot | enemymoving | water"
 	}
 
 	//=================================================================================================================
@@ -90,7 +90,7 @@
 	"kunkka_x_marks_the_spot"
 	{
 		"ReduxFlags"                                                           "mobility | stun"
-		"ReduxPerks"                                                           "mobility | enemyMoving"
+		"ReduxPerks"                                                           "mobility | enemymoving"
 	}
 
 	//=================================================================================================================
@@ -99,7 +99,7 @@
 	"kunkka_return"
 	{
 		"ReduxFlags"                                                           "mobility | stun"
-		"ReduxPerks"                                                           "mobility | enemyMoving"
+		"ReduxPerks"                                                           "mobility | enemymoving"
 	}
 
 	//=================================================================================================================

@@ -33,6 +33,6 @@
       }
     }
 
-    "ReduxPerks"                                          "teleport | demon | enemyMoving"
+    "ReduxPerks"                                          "teleport | demon | enemymoving"
   }
 }

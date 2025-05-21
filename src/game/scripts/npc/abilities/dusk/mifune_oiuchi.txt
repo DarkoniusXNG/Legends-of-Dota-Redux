@@ -97,8 +97,8 @@
 				}	
 			}	
 		}
-		
-		"ReduxPerks"	""
-		"ReduxFlags"	""
+
+		"ReduxFlags"	"attack_modifier | crit"
+		"ReduxPerks"	"attack_modifier"
 	}
 }

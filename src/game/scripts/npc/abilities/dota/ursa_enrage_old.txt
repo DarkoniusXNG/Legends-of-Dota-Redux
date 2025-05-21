@@ -91,7 +91,9 @@
                 }
             }
         }
+
         "ReduxFlags"                                                           "dota_custom"
+        "ReduxPerks"                                                           "rage"
         "ReduxCost"                                                            "10"
     }
 }

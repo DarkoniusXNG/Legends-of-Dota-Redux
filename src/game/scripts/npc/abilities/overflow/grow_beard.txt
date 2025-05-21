@@ -10,6 +10,9 @@
 		"AbilityManaCost"               "0"
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 
+		"ReduxFlags"                    ""
+		"ReduxPerks"                    "gold"
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"

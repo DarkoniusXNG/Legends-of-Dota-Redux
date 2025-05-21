@@ -53,7 +53,7 @@
 			"particle" "particles/units/heroes/hero_hero/one_punch_land.vpcf"
 		}
 
-		"ReduxPerks"	""
-		"ReduxFlags"	""
+		"ReduxFlags"	"crit | stun | upgradeable"
+		"ReduxPerks"	"enemymoving"
 	}
 }

@@ -30,7 +30,7 @@
 			}
 		}
 
-		"ReduxPerks"	"gold"
 		"ReduxFlags"	"wtfAutoBan"
+		"ReduxPerks"	"gold"
 	}
 }

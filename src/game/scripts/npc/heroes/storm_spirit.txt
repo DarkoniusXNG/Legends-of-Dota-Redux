@@ -3,7 +3,7 @@
 	"storm_spirit_electric_vortex"
 	{
 		"ReduxFlags"                                                           "upgradeable | stun"
-		"ReduxPerks"                                                           "lightning | enemyMoving"
+		"ReduxPerks"                                                           "lightning | enemymoving"
 	}
 
 	"storm_spirit_ball_lightning"

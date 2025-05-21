@@ -17,7 +17,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityTextureName"			"custom/lysander_grapeshot"
 
-		"ReduxFlags"					"physical | crit | stun"
+		"ReduxFlags"					"physical | crit | stun | upgradeable"
 		"ReduxPerks"					"physical"
 		"ReduxBans"						"earthshaker_enchant_totem"
 
@@ -54,73 +54,6 @@
 		{
 			"particle"					"particles/units/heroes/hero_lysander/grapeshot.vpcf"
 			"particle"					"particles/units/heroes/hero_lysander/grapeshot_crit.vpcf"
-
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"abilities/dusk/lysander_abilities.lua"
-				"Function"		"grapeshot"
-				"mult"			"%multiplier"
-				"range_ministun""%range_ministun"
-				"stun"			"%stun"
-				"crit"			"%crit"
-				"crit_mult"		"%crit_multiplier"
-				"crit_stun"		"%crit_stun"
-				"base_dmg"		"%base_damage"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_grapeshot_aghanims_crit_timer_check"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"abilities/dusk/lysander_abilities.lua"
-						"Function"		"grapeshot_aghanims"
-					}
-				}
-				
-			}
-
-			"modifier_grapeshot_aghanims_crit_timer"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Duration"			"10"
-
-				"OnDestroy"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Ability.Ghostship.bell"
-						"Target" 		"CASTER"
-					}
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_grapeshot_aghanims_crit"
-						"Target" 		"CASTER"
-					}
-				}
-			}
-
-			"modifier_grapeshot_aghanims_crit"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"IsBuff"			"1"
-			}
 		}
 	}
 }

@@ -112,7 +112,7 @@
 		}
 
 		"ReduxFlags"					"doNotRandom | upgradeable"
-		"ReduxPerks"                	"enemyMoving | water | channeled"
+		"ReduxPerks"                	"enemymoving | water | channeled"
 	}
 
 	//=================================================================================================================
