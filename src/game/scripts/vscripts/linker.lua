@@ -13,7 +13,7 @@ local hero_names = {
 	"bounty_hunter", -- ok, bot
 	"brewmaster", -- ok, A tier
 	"bristleback", -- kinda bad, bot
-	"broodmother", -- kinda bad
+	"broodmother", -- ok
 	"centaur", -- ok, S tier
 	"chaos_knight", -- ok, bot
 	"chen", -- ok, S tier
@@ -21,8 +21,8 @@ local hero_names = {
 	"crystal_maiden", -- ok, D tier, bot
 	"dark_seer", -- kinda bad
 	"dark_willow", -- ok
-	"dawnbreaker", -- kinda bad, missing icon, A tier
-	"dazzle", -- kinda bad, bot
+	"dawnbreaker", -- ok, missing icon, A tier
+	"dazzle", -- ok, bot
 	"death_prophet", -- ok, S tier, bot
 	"disruptor", -- terrible
 	"doom_bringer", -- ok
@@ -30,7 +30,7 @@ local hero_names = {
 	"drow_ranger", -- ok, A tier, bot
 	"earth_spirit", -- ok, missing icon, S tier
 	"earthshaker", -- ok, A tier, bot
-	"elder_titan", -- kinda bad
+	"elder_titan", -- ok
 	"ember_spirit", -- ok
 	"enchantress", -- badly coded idea not bad
 	"enigma", -- ok

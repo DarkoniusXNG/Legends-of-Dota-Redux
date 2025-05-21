@@ -24,7 +24,7 @@ function modifier_npc_dota_hero_abaddon_perk:GetTexture()
 	return "custom/npc_dota_hero_abaddon_perk"
 end
 
-function modifier_npc_dota_hero_abaddon_perk:OnCreated(keys)
+function modifier_npc_dota_hero_abaddon_perk:OnCreated()
 	self.bonusPerLevel = 2
 	if IsServer() then
 		local caster = self:GetCaster()
