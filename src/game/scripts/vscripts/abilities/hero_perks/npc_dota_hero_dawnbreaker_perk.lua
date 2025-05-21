@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Dawnbreaker
---		Perk: Dawnbreaker gains 3% hp regen amplification for every level of Light spells she has.
+--		Perk: Dawnbreaker gains hp regen amplification and lifesteal amplification for every level of Light spells she has.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_dawnbreaker_perk = modifier_npc_dota_hero_dawnbreaker_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -23,21 +23,14 @@ end
 -- function modifier_npc_dota_hero_dawnbreaker_perk:GetTexture()
 	-- return "custom/npc_dota_hero_dawnbreaker_perk"
 -- end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_dawnbreaker_perk:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-		MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-	}
-end
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_dawnbreaker_perk:OnCreated()
 	self.bonusPerLevel = 3
 	if IsServer() then
 		self:StartIntervalThink(0.1)
 	end
 end
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_dawnbreaker_perk:OnIntervalThink()
 	if IsServer() then
 		local caster = self:GetParent()
@@ -51,7 +44,14 @@ function modifier_npc_dota_hero_dawnbreaker_perk:OnIntervalThink()
 		self:SetStackCount(stacks)
 	end
 end
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_dawnbreaker_perk:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+	}
+end
+
 function modifier_npc_dota_hero_dawnbreaker_perk:GetModifierHPRegenAmplify_Percentage()
 	return self:GetStackCount()
 end

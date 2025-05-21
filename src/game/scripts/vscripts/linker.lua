@@ -9,7 +9,7 @@ local hero_names = {
 	"bane", -- ok, bot
 	"batrider", -- ok
 	"beastmaster", -- ok
-	"bloodseeker", -- ok
+	"bloodseeker", -- ok, bot
 	"bounty_hunter", -- ok, bot
 	"brewmaster", -- ok, A tier
 	"bristleback", -- kinda bad, bot
@@ -40,7 +40,7 @@ local hero_names = {
 	"gyrocopter", -- ok, A tier
 	"hoodwink", -- ok, missing icon
 	"huskar", -- ok, D tier
-	"invoker", -- kinda bad, S tier
+	"invoker", -- kinda bad, A tier
 	"jakiro", -- ok, bot
 	"juggernaut", -- ok, A tier, bot
 	"keeper_of_the_light", -- ok, A tier
@@ -51,15 +51,15 @@ local hero_names = {
 	"lich", -- ok, bot
 	"life_stealer", -- ok, S tier
 	"lina", -- ok, S tier, bot
-	"lion", -- kinda bad, bot
-	"lone_druid", -- poorly coded, D tier
+	"lion", -- maybe op, bot
+	"lone_druid", -- ok, D tier
 	"luna", -- ok, bot
 	"lycan", -- ok
 	"magnataur", -- ok
 	"marci", -- ok
 	"mars", -- ok, missing icon, S tier
-	"medusa", -- A tier
-	"meepo", -- kinda bad?
+	"medusa", -- ok, A tier
+	"meepo", -- ok
 	"mirana", -- ok
 	"monkey_king", -- ok, S tier
 	"morphling", -- ok, A tier
@@ -72,10 +72,10 @@ local hero_names = {
 	"obsidian_destroyer", -- ok, kinda bad, A tier
 	"ogre_magi", -- ok, S tier
 	"omniknight", -- ok, bot
-	"oracle", -- kinda bad, A tier, bot
+	"oracle", -- ok, A tier, bot
 	"pangolier", -- ok, D tier
 	"phantom_assassin", -- ok, bot
-	"phantom_lancer", -- kinda bad, D tier
+	"phantom_lancer", -- kinda bad, C tier
 	"phoenix", -- ok, D tier
 	"primal_beast", -- ok, S tier
 	"puck", -- ok
@@ -111,10 +111,10 @@ local hero_names = {
 	"treant", -- ok
 	"troll_warlord", -- ok
 	"tusk", -- ok, S tier
-	"undying", -- badly coded idea not bad
+	"undying", -- bad
 	"ursa", -- ok, kinda bad
 	"vengefulspirit", -- ok, bot
-	"venomancer" , -- ok, D tier
+	"venomancer" , -- ok, C tier
 	"viper", -- ok, bot
 	"visage", -- ok
 	"void_spirit", -- ok, kinda bad, D tier
@@ -124,7 +124,7 @@ local hero_names = {
 	"winter_wyvern", -- ok, D tier
 	"wisp", -- ok, D tier
 	"witch_doctor", -- ok, bot
-	"zuus", -- ok, D tier, bot
+	"zuus", -- ok, C tier, bot
 }
 for _, name in pairs (hero_names) do
 	LinkLuaModifier("modifier_npc_dota_hero_"..name.."_perk", "abilities/hero_perks/npc_dota_hero_"..name.."_perk.lua", LUA_MODIFIER_MOTION_NONE)

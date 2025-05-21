@@ -710,7 +710,7 @@
 	"furbolg_enrage_attack_speed"
 	{
 		"ReduxFlags"                                                           "support | doNotRandom"
-		"ReduxPerks"                                                           "support | neutral"
+		"ReduxPerks"                                                           "support | neutral | rage"
 
 		"MaxLevel"						"4"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -735,7 +735,7 @@
 	"furbolg_enrage_damage"
 	{
 		"ReduxFlags"                                                           "support | doNotRandom"
-		"ReduxPerks"                                                           "support | neutral"
+		"ReduxPerks"                                                           "support | neutral | rage"
 
 		"MaxLevel"						"4"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -2876,7 +2876,7 @@
 	"troll_warlord_berserkers_rage"
 	{
 		"ReduxFlags"                                                           "attack_modifier | semi_passive"
-		"ReduxPerks"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | rage"
 		"ReduxCost"                                                            "30"
 		"ReduxBans"                                                            "lone_druid_true_form"
 	}
