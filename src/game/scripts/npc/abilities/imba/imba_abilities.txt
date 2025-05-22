@@ -171,11 +171,12 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ALLIES_YES"
         "FightRecapLevel"                                                      "1"
         "AbilityTextureName"                                                   "custom/dazzle_nothl_protection"
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf"
         }
+
         "AbilityCooldown"                                                      "50.0"
         "AbilityValues"
         {
@@ -2316,7 +2317,6 @@
 
 		"precache"
 		{
-			"soundfile"									"soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
 			"particle" 									"particles/units/heroes/hero_abaddon/abaddon_death_coil.vpcf"
 			"particle"									"particles/dev/library/base_dust_hit_detail.vpcf"
 			"particle"									"particles/dev/library/base_dust_hit_smoke.vpcf"
@@ -2366,7 +2366,6 @@
 
 		"precache"
 		{
-			"soundfile"									"soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
 			"particle"  								"particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf"
 			"particle"									"particles/units/heroes/hero_abaddon/abaddon_aphotic_shield.vpcf"
 			"particle"									"particles/econ/courier/courier_baekho/courier_baekho_ambient_vapor.vpcf"
@@ -2507,7 +2506,6 @@
 
 		"precache"
 		{
-			"soundfile"									"soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
 			"particle"									"particles/units/heroes/hero_abaddon/abaddon_borrowed_time.vpcf"
 			"particle"									"particles/status_fx/status_effect_abaddon_borrowed_time.vpcf"
 			"particle"									"particles/units/heroes/hero_abaddon/abaddon_borrowed_time_heal.vpcf"
@@ -2753,7 +2751,6 @@
 
 		"precache"
 		{
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
 			"soundfile" "soundevents/voscripts/game_sounds_vo_alchemist.vsndevts"
 			"particle"  "particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
 			"particle"	"particles/ui_mouseactions/range_display_grnd.vpcf"
@@ -2811,7 +2808,6 @@
 
 		"precache"
 		{
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
 			"soundfile" "soundevents/voscripts/game_sounds_vo_alchemist.vsndevts"
 			"particle"	"particles/units/heroes/hero_alchemist/alchemist_unstable_concoction_timer.vpcf"
 			"particle"	"particles/units/heroes/hero_alchemist/alchemist_unstable_concoction_projectile.vpcf"
@@ -2864,7 +2860,6 @@
 
 		"precache"
 		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
 			"soundfile"		"soundevents/voscripts/game_sounds_vo_alchemist.vsndevts"
 			"particle"		"particles/units/heroes/hero_alchemist/alchemist_lasthit_coins.vpcf"
 			"particle"		"particles/units/heroes/hero_alchemist/alchemist_lasthit_msg_gold.vpcf"
@@ -2933,7 +2928,6 @@
 
 		"precache"
 		{
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
 			"soundfile" "soundevents/voscripts/game_sounds_vo_alchemist.vsndevts"
 			"particle"	"particles/status_fx/status_effect_chemical_rage.vpcf"
 			"particle"	"particles/units/heroes/hero_alchemist/alchemist_chemical_rage.vpcf"
@@ -3193,7 +3187,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
 			"particle"					"particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_owner_shoutmask.vpcf"
 			"particle"					"particles/status_fx/status_effect_beserkers_call.vpcf"
 		}
@@ -3234,7 +3227,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
 			"particle"					"particles/units/heroes/hero_axe/axe_battle_hunger.vpcf"
 			"particle"					"particles/status_fx/status_effect_battle_hunger.vpcf"
 		}
@@ -3296,7 +3288,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"soundfile"									"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
 			"particle"									"particles/units/heroes/hero_axe/axe_attack_blur_counterhelix.vpcf"
 			"particle"									"particles/units/heroes/hero_axe/axe_counterhelix.vpcf"
 		}
@@ -3344,7 +3335,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
 			"particle"					"particles/units/heroes/hero_axe/axe_culling_blade.vpcf"
 			"particle"					"particles/units/heroes/hero_axe/axe_culling_blade_boost.vpcf"
 			"particle"					"particles/units/heroes/hero_axe/axe_culling_blade_kill.vpcf"
@@ -5028,10 +5018,6 @@
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityDamage"					"40 70 100 130"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.2"	// applies many mini-stuns
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -5845,10 +5831,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100 110 120 130"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// just does damage
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -5898,10 +5880,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"35 40 45 50"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"2.5"	// Value much higher than manacost
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -12347,10 +12325,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"800 900 1000 1100"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.1"	// Primarily about the damage
-
 		"precache"
 		{
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
@@ -12514,10 +12488,6 @@
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1275"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// Only does damage
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -13750,7 +13720,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityCooldown"				"115 110 105 100"
 		"AbilityManaCost"				"50"		
-		"AbilityModifierSupportValue"	"0.35"	// Attacks are primarily about the damage
+
 		"HasScepterUpgrade"				"1"
 
 		"precache"
@@ -14862,10 +14832,6 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 		"AbilitySound"					"Hero_FacelessVoid.TimeLockImpact"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportBonus"		"25"
-
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -15213,11 +15179,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"140 150 160 170"
 		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// already gets credit for the healing
-
-		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -15263,11 +15224,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"75 100 125 150"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// already gets credit for the healing
-
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -16699,10 +16655,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.25"	// generally used for damage only
-		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -16754,7 +16706,6 @@
 		"AbilityCastPoint"				"3.0"
 		"AbilityCooldown"				"30.0"
 		"AbilityManaCost"				"0"
-		"AbilityModifierSupportValue"	"0.5"	// Applies 2 modifiers
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -17837,10 +17788,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
-			
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// Modifier just delays damage
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
