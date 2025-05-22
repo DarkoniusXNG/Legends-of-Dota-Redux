@@ -28,7 +28,6 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-        "FightRecapLevel"               "1"
         "AbilityProcsMagicStick"        "1"
 
         "ReduxFlags"                    "support"
@@ -68,8 +67,6 @@
             "particle"      "particles/units/heroes/hero_sandking/sandking_caustic_finale_explode.vpcf"
             "particle"      "particles/items2_fx/soul_ring_blood.vpcf"
             "particle"      "particles/generic_gameplay/generic_lifesteal_old.vpcf"
-            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
-            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
         }
 
         "OnSpellStart"
@@ -291,9 +288,8 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-        "FightRecapLevel"               "1"
 
-        "ReduxPerks"                    "self_damage | skillshot | enemyMoving | blood"
+        "ReduxPerks"                    "blood | blades | enemymoving | self_damage | skillshot"
 
         // Casting
         "AbilityCastPoint"              "0.1"
@@ -443,10 +439,7 @@
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-        "FightRecapLevel"               "1"
-        "MaxLevel"                      "3"
-        "RequiredLevel"                 "6"
-        "LevelsBetweenUpgrades"         "5"
+
         "AbilityProcsMagicStick"        "1"
         "HasScepterUpgrade"             "1"
 
@@ -471,7 +464,6 @@
         {
             "particle"                  "particles/bellatrix/bellatrix_live_transfusion.vpcf"
             "particle"                  "particles/bellatrix/blood_trail.vpcf"
-            "soundfile"                 "soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
         }
 
         "AbilityValues"
@@ -671,7 +663,6 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-        "FightRecapLevel"               "1"
         "AbilityProcsMagicStick"        "1"
 
         "ReduxFlags"                    "tank | support | mana"
@@ -694,7 +685,6 @@
             "particle"          "particles/bellatrix/bellatrix_unholy_ecstasy.vpcf"
             "particle"          "particles/bellatrix/bellatrix_unholy_bonus.vpcf"
             "particle"          "particles/bellatrix_unholy_ecstasy_orb.vpcf"
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
         }
 
         "AbilityValues"

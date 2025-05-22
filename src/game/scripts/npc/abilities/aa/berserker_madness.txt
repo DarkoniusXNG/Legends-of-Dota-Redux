@@ -8,13 +8,11 @@
         "AbilityCooldown"                                                      "80 70 60"
         "AbilityManacost"                                                      "125 150 175"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                                                             "3"
-        "RequiredLevel"                                                        "5"
+
         "precache"
         {
             "particle"          "particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
             "particle"          "particles/status_fx/status_effect_gods_strength.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
         }
 
         "AbilityValues"

@@ -7391,9 +7391,6 @@ function Pregame:hookBotStuff()
                                         if nextUpgrade <= level then
                                             -- Is this the lowest level skill?
                                             if abLevel < lowestLevel then
-
-
-
                                                 lowestLevel = abLevel
                                                 lowestAb = ab
                                             end
@@ -7415,8 +7412,11 @@ function Pregame:hookBotStuff()
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(0,1)
-                                hero:GetAbilityByIndex(i+random):UpgradeAbility(true)
-                                break
+                                local talent_random = hero:GetAbilityByIndex(i+random)
+                                if talent_random then
+                                    talent_random:UpgradeAbility(true)
+                                    break
+                                end
                             end
                         end
                     elseif keys.level == 15 then
@@ -7424,8 +7424,11 @@ function Pregame:hookBotStuff()
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(2,3)
-                                hero:GetAbilityByIndex(i+random):UpgradeAbility(true)
-                                break
+                                local talent_random = hero:GetAbilityByIndex(i+random)
+                                if talent_random then
+                                    talent_random:UpgradeAbility(true)
+                                    break
+                                end
                             end
                         end
 
@@ -7434,8 +7437,11 @@ function Pregame:hookBotStuff()
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(4,5)
-                                hero:GetAbilityByIndex(i+random):UpgradeAbility(true)
-                                break
+                                local talent_random = hero:GetAbilityByIndex(i+random)
+                                if talent_random then
+                                    talent_random:UpgradeAbility(true)
+                                    break
+                                end
                             end
                         end
 
@@ -7444,8 +7450,11 @@ function Pregame:hookBotStuff()
                             local ab = hero:GetAbilityByIndex(i)
                             if ab and util:IsTalent(ab) then
                                 local random = RandomInt(6,7)
-                                hero:GetAbilityByIndex(i+random):UpgradeAbility(true)
-                                break
+                                local talent_random = hero:GetAbilityByIndex(i+random)
+                                if talent_random then
+                                    talent_random:UpgradeAbility(true)
+                                    break
+                                end
                             end
                         end
                     end
@@ -7775,25 +7784,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                 end, DoUniqueString('disruptfix'), 1)
             end
 
-            -- Change sniper assassinate to our custom version to work with aghs
-            --if spawnedUnit:HasAbility("sniper_assassinate") and not util:isPlayerBot(playerID) and not spawnedUnit:FindAbilityByName("sniper_assassinate"):IsHidden() then
-                    --spawnedUnit:AddAbility("sniper_assassinate_redux")
-                    --spawnedUnit:SwapAbilities("sniper_assassinate","sniper_assassinate_redux",false,true)
-                    --spawnedUnit:RemoveAbility("sniper_assassinate")
-            --end
-
-            -- Custom Flesh Heap fixes
-            --[[for abilitySlot=0,6 do
-                local abilityTemp = spawnedUnit:GetAbilityByIndex(abilitySlot)
-                if abilityTemp then
-                    if string.find(abilityTemp:GetAbilityName(),"flesh_heap_") then
-                        local abilityName = abilityTemp:GetAbilityName()
-                        local modifierName = "modifier"..string.sub(abilityName,6)
-                        spawnedUnit:AddNewModifier(spawnedUnit,abilityTemp,modifierName,{})
-
-                    end
-                end
-            end]]--
             -- Add mutator modifiers
             if OptionManager:GetOption('vampirism') == 1 then
                 if RollPercentage(50) then

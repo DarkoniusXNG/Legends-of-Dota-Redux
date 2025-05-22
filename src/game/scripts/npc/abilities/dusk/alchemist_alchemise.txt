@@ -28,10 +28,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"50"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// All about the damage
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -42,10 +38,8 @@
 		
 		"precache"
 		{
-			"particle" "particles/items2_fx/hand_of_midas.vpcf"
 			"particle" "particles/units/heroes/hero_alchemist/alchemist_lasthit_coins.vpcf"
 			"particle" "particles/units/heroes/hero_alchemist/alchemist_lasthit_msg_gold.vpcf"
-			"soundfile" "soundevents/game_sounds_items.vsndevts"
 		}
 			
 		"OnSpellStart"
@@ -57,11 +51,8 @@
 				"gold" "%transmute_gold"
 			}
 		}
-		
-		"Modifiers"
-		{
-		}
-		"ReduxPerks"	""
-		"ReduxFlags"	""
+
+		"ReduxPerks"	"gold"
+		"ReduxFlags"	"wtfAutoBan"
 	}
 }

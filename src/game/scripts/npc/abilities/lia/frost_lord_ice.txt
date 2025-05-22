@@ -7,15 +7,13 @@
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityTextureName"                                                   "custom/frost_lord_ice"
+
         "precache"
         {
             "particle"                                                     "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
         }
+
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                                                             "3"
-        "RequiredLevel"                                                        "5"
-        "LevelsBetweenUpgrades"                                                "4"
         "AbilityCastRange"                                                     "700"
         "AbilityCastPoint"                                                     "0.3"
         "AbilityCooldown"                                                      "120 100 80"

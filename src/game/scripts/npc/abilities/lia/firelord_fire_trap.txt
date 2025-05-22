@@ -4,7 +4,6 @@
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityTextureName"                                                   "custom/firelord_fire_trap"
-        "MaxLevel"                                                             "4"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
@@ -13,6 +12,7 @@
         "AbilityCastPoint"                                                     "0"
         "AbilityCooldown"                                                      "15 14 13 12"
         "AbilityManaCost"                                                      "80"
+
         "AbilityValues"
         {
             "duration" "300"
@@ -22,11 +22,12 @@
             "activation_delay" "1"
             "detection_radius" "250 275 300 325"
         }
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
             "particle"                                                     "particles/firelord_fire_trap_explode_custom.vpcf"
         }
+
         "OnSpellStart"
         {
             "RunScript"

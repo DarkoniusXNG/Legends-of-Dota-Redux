@@ -31,10 +31,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"50"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// All about the damage
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -48,7 +44,6 @@
 		
 		"precache"
 		{
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
 			"soundfile" "soundevents/hero_hero.vsndevts"
 			"particle" "particles/units/heroes/hero_hero/hero_justice_kick.vpcf"
 			"particle" "particles/units/heroes/hero_hero/one_punch_mega_crit.vpcf"

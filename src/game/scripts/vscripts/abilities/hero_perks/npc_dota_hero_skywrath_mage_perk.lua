@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Skywrath Mage
---		Perk: Skywrath Mage refunds 30% of the manacost of spells with a cooldown of 7 seconds or less.
---
+--		Perk: Skywrath Mage gains Intelligence and Mana Cost Reduction for each level put in a Light ability.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_skywrath_mage_perk ~= "" then modifier_npc_dota_hero_skywrath_mage_perk = class({}) end
+modifier_npc_dota_hero_skywrath_mage_perk = modifier_npc_dota_hero_skywrath_mage_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_skywrath_mage_perk:IsPassive()
 	return true
@@ -25,29 +23,39 @@ end
 function modifier_npc_dota_hero_skywrath_mage_perk:GetTexture()
 	return "custom/npc_dota_hero_skywrath_mage_perk"
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_skywrath_mage_perk:OnCreated(keys)
-	self.cooldownThreshold = 7
-    self.manaPercentReduction = 30
-    self.manaReduction = self.manaPercentReduction / 100
+
+function modifier_npc_dota_hero_skywrath_mage_perk:OnCreated()
+	self.bonusPerLevel = 1
+	if IsServer() then
+		self:StartIntervalThink(0.1)
+	end
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_skywrath_mage_perk:OnIntervalThink()
+	if IsServer() then
+		local caster = self:GetParent()
+		local stacks = 0
+		for i = 0, caster:GetAbilityCount() - 1 do
+			local skill = caster:GetAbilityByIndex(i)
+			if skill and skill:HasAbilityFlag("light") then
+				stacks = stacks + skill:GetLevel() * self.bonusPerLevel
+			end
+		end
+		self:SetStackCount(stacks)
+	end
+end
+
 function modifier_npc_dota_hero_skywrath_mage_perk:DeclareFunctions()
-  local funcs = {
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST
-  }
-  return funcs
+	return {
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+		MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
+	}
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_skywrath_mage_perk:OnAbilityFullyCast(keys)
-  if IsServer() then
-    local hero = self:GetCaster()
-    local target = keys.target
-    local ability = keys.ability
-    if hero == keys.unit and ability and ability:GetCooldownTimeRemaining() < self.cooldownThreshold then
-      hero:GiveMana(ability:GetManaCost(ability:GetLevel() - 1) * self.manaReduction)
-    end
-  end
+
+function modifier_npc_dota_hero_skywrath_mage_perk:GetModifierBonusStats_Intellect()
+	return 3 * self:GetStackCount()
+end
+
+function modifier_npc_dota_hero_skywrath_mage_perk:GetModifierPercentageManacostStacking()
+	return 2 * self:GetStackCount()
 end

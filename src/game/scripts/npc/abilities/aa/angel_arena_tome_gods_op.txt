@@ -4,14 +4,14 @@
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "AbilityCooldown"                                                      "30"
+        "AbilityCooldown"                                                      "50 40 30"
         "AbilityGoldCost"                                                      "300 400 500"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                                                             "3"
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO"
         "AbilityTextureName"                                                   "custom/tome_un_3_op"
         "AbilityCastPoint"                                                     "0.0"
+
         "AbilityValues"
         {
             "str" "2 3 5"

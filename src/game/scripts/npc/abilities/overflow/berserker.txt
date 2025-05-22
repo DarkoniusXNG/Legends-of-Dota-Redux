@@ -4,7 +4,7 @@
     {
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/overflow/berserker/passive.lua"
-        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/berserker"
         "precache"
         {
@@ -17,6 +17,8 @@
             "duration" "12"
             "max" "20"
         }
+
+        "ReduxPerks"                                                           "rage"
         "ReduxBans"                                                            "pudge_rot"
     }
 }

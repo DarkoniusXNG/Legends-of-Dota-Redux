@@ -7,13 +7,13 @@
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "SpellDispellableType"                                                 "SPELL_DISPELLABLE_YES"
-        "FightRecapLevel"                                                      "1"
+
         "AbilityTextureName"                                                   "custom/batrider_flamebreak_op"
         "AbilityCastRange"                                                     "2000"
-        "AbilityCastPoint"                                                     "0.2 0.2 0.2 0.2"
+        "AbilityCastPoint"                                                     "0.2"
         "AbilityCooldown"                                                      "15 14 13 12"
         "AbilityManaCost"                                                      "110 115 120 125"
-        "AbilityModifierSupportValue"                                          "1.0"
+
         "AbilityValues"
 		{
 			"damage_impact"		
@@ -35,22 +35,22 @@
 			"explosion_radius"		
 			{
 				"value"		"450 550 650 750"
-					"affected_by_aoe_increase"	"1"
+				"affected_by_aoe_increase"	"1"
 			}
 			"collision_radius"		
 			{
-				"value"		"100 100 100 100"
-					"affected_by_aoe_increase"	"1"
+				"value"		"100"
+				"affected_by_aoe_increase"	"1"
 			}
 			"stun_duration"			"0.5 0.75 1.0 1.25"
 			"speed"					"5000"
 			"knockback_distance"	
 			{
-				"value"				"400 550 650 750"
+				"value"				"400 500 600 700"
 				"special_bonus_unique_batrider_3"	"+50"
 				"affected_by_aoe_increase"	"1"
 			}
-			"knockback_height"		"100 100 100 100"
+			"knockback_height"		"100"
 			"knockback_duration"	"0.35 0.45 0.55 0.65"
 			"napalm_stacks"
 			{
@@ -64,7 +64,8 @@
 			}
 			"slow"	"20 30 40 50"					
 		}
-        "ReduxCost"                                                            "120"
-		"ReduxPerks"														   "fire | enemyMoving | skillshot"
+
+		"ReduxPerks"														   "fire | enemymoving | skillshot"
+		"ReduxCost"                                                            "120"
     }
 }

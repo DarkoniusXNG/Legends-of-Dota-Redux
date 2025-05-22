@@ -51,6 +51,6 @@ function modifier_npc_dota_hero_kunkka_perk:DeclareFunctions()
 	}
 end
 
-function modifier_npc_dota_hero_kunkka_perk:GetModifierTotalDamageOutgoing_Percentage(keys)
+function modifier_npc_dota_hero_kunkka_perk:GetModifierTotalDamageOutgoing_Percentage()
 	return self:GetStackCount()
 end

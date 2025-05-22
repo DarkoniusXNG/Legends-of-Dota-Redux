@@ -35,10 +35,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"50"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// All about the damage
-
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -53,7 +49,6 @@
 
 		"precache"
 		{
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
 			"particle"					"particles/units/heroes/hero_sniper/sniper_shrapnel.vpcf"
 			"particle"					"particles/units/heroes/hero_sniper/sniper_shrapnel_launch.vpcf"
 			"particle"					"particles/econ/items/sniper/sniper_charlie/sniper_shrapnel_charlie.vpcf"

@@ -8,7 +8,6 @@
         "AbilityCooldown"                                                      "5.0"
         "AbilityChannelTime"                                                   "1.0"
         "AbilityTextureName"                                                   "custom/cherub_flower_red"
-        "MaxLevel"                                                             "4"
         "AnimationPlaybackRate"                                                "0.2"
         "AOERadius"                                                            "400"
 
@@ -31,10 +30,7 @@
             "red_flower_damage" "40 65 90 115"
             "flower_health" "250 400 550 700"
         }
-        "precache"
-        {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
-        }
+
         "OnSpellStart"
         {
             "ApplyModifier"

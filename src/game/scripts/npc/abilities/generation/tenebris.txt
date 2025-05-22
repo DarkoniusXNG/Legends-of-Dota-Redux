@@ -8,7 +8,7 @@
     //
     //
     //                                  Tenebris
-    //                                  Original concept by MeatScythe from Hammer's Heroes                         
+    //                                  Original concept by MeatScythe from Hammer's Heroes
     //
     //
     //
@@ -21,19 +21,19 @@
         "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
         "SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
-        "FightRecapLevel"       "1"
-        "ReduxPerks"                                                           "support | blood"
+
         "ReduxFlags"                                                           "support"
- 
+		"ReduxPerks"                                                           "support | blood"
+
         "AbilityTextureName"        "custom/tenebris_blood_ward"
- 
+
         //Casting
         "AbilityCastPoint"      "0.3"
         "AbilityCastRange"      "400"
         "AbilityCooldown"       "36.0 34.0 32.0 30.0"
         "AbilityManaCost"       "100"
         "AOERadius"         "%radius"
- 
+
         // Special
         "AbilityValues"
         {
@@ -45,13 +45,12 @@
             "attacks_to_destroy" "3 5 7 9"
             "hero_value" "4"
         }
- 
+
         "precache"
         {
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
             "particle"  "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_dot.vpcf"
         }
- 
+
         "OnSpellStart"
         {
             "SpawnUnit"
@@ -84,7 +83,7 @@
                 }
             }
         }
- 
+
         "Modifiers"
         {
             "tenebris_blood_ward_modifier"
@@ -99,13 +98,13 @@
                 "Aura_Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
              // "Aura_Flags"     "DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED"
                 "Aura_ApplyToCaster" "1"
- 
+
                 "States"
                 {
                     "MODIFIER_STATE_STUNNED"        "MODIFIER_STATE_VALUE_ENABLED"
                     "MODIFIER_STATE_MAGIC_IMMUNE"       "MODIFIER_STATE_VALUE_ENABLED"
                 }
- 
+
                 "OnCreated"
                 {
                     "RunScript"
@@ -114,7 +113,7 @@
                         "Function"  "BloodWard_OnCreated"
                     }
                 }
- 
+
                 "OnTakeDamage"
                 {
                     "RunScript"
@@ -129,7 +128,7 @@
                 "IsDebuff"  "1"
                 "IsPurgable"    "1"
                 "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
- 
+
                 "ThinkInterval"     "0.1"
                 "OnIntervalThink"
                 {
@@ -139,7 +138,7 @@
                         "Function"  "BloodWard_OnThink"
                     }
                 }
- 
+
                 "OnAttackLanded"
                 {
                     "RunScript"
@@ -162,21 +161,21 @@
         "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_YES"
-        "AbilityUnitDamageType"     "DAMAGE_TYPE_PURE" 
-        "FightRecapLevel"       "2"
+        "AbilityUnitDamageType"     "DAMAGE_TYPE_PURE"
+
         "HasScepterUpgrade"             "1"
- 
+
         "AbilityTextureName"        "dark_seer_vacuum"
- 
+
         //Casting
         "AbilityCastRange"      "%range"
         "AbilityCastPoint"      "0.5"
         "AbilityCooldown"       "80 70 60"
         "AbilityManaCost"       "200 225 250"
- 
+
         //Misc
         "AbilityProcsMagicStick" "1"
- 
+
         //Special
         "AbilityValues"
         {
@@ -185,15 +184,14 @@
             "scepter_duration" "10 15 20"
             "radius" "900"
         }
- 
+
         "precache"
         {
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
             "particle"  "particles/econ/items/abaddon/abaddon_alliance/abaddon_death_coil_alliance.vpcf"
             "particle"  "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_dot.vpcf"
             "particle"  "particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
         }
- 
+
         "OnSpellStart"
         {
             "FireSound"
@@ -211,7 +209,7 @@
                 "EffectName"        "particles/econ/items/abaddon/abaddon_alliance/abaddon_death_coil_alliance.vpcf"
                 "EffectAttachType"  "follow_customorigin"
                 "Target"        "TARGET"
- 
+
                 "ControlPointEntities"
                 {
                     "CASTER" "attach_hitloc"
@@ -224,7 +222,7 @@
                 "Function"  "Effigy_OnSpellStart"
             }
         }
- 
+
         //Modifiers
         "Modifiers"
         {
@@ -248,13 +246,13 @@
                     }
                 }
             }
- 
+
             "tenebris_effigy_modifier_debuff"
             {
                 "IsDebuff"      "1"
                 "EffectName"        "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_dot.vpcf"
                 "EffectAttachType"  "follow_origin"
- 
+
                 "OnTakeDamage"
                 {
                     "RunScript"
@@ -264,7 +262,7 @@
                         "damage"    "%attack_damage"
                     }
                 }
- 
+
                 "OnDeath"
                 {
                     "RunScript"
@@ -274,12 +272,12 @@
                     }
                 }
             }
- 
+
             "tenebris_effigy_modifier_timer"
             {
                 "IsHidden"  "1"
                 "Duration"  "1"
- 
+
                 "OnCreated"
                 {
                     "DelayedAction"
@@ -327,16 +325,16 @@
         "AbilityUnitDamageType"                  "DAMAGE_TYPE_PHYSICAL"
         "SpellImmunityType"                      "SPELL_IMMUNITY_ENEMIES_YES"
 
-        "ReduxPerks"                             "attack_modifier | autocast_basic | physical | invis"
         "ReduxFlags"                             "attack_modifier | physical | invis"
-        
+		"ReduxPerks"                             "attack_modifier | autocast_basic | physical | invis"
+
         "AbilityTextureName"        "custom/tenebris_fade_strike"
- 
+
         //Casting
         "AbilityCastRange"      "150"
         "AbilityCooldown"       "0.2"
         "AbilityManaCost"       "30"
- 
+
         // Special
         "AbilityValues"
         {
@@ -345,13 +343,12 @@
             "duration_debuff"                    "1.0" // disarm duration
             "trigger_essence_aura"               "1"
         }
- 
+
         "precache"
         {
             "particle"  "particles/units/heroes/hero_riki/riki_blink_strike.vpcf"
             "particle"  "particles/units/heroes/hero_dazzle/dazzle_shadow_wave_impact_damage.vpcf"
             "particle"  "particles/units/heroes/hero_invoker/invoker_deafening_blast_disarm_debuff.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
         }
     }
     "tenebris_mortal_coil"
@@ -361,12 +358,12 @@
         "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_NO"
- 
+
         "AbilityTextureName"        "custom/tenebris_mortal_coil"
- 
+
         //Casting
         "AbilityCastRange"      "%radius"
- 
+
         // Special
         "AbilityValues"
         {
@@ -374,19 +371,19 @@
             "radius" "600 700 800 900"
             "duration_max" "1.0 1.2 1.4 1.6"
         }
- 
+
         "precache"
         {
             "particle"  "particles/units/heroes/hero_sniper/sniper_headshot_slow.vpcf"
         }
- 
+
         "Modifiers"
         {
             "tenebris_mortal_coil_modifier"
             {
                 "Passive"       "1"
                 "IsHidden"      "1"
- 
+
                 "OnCreated"
                 {
                     "RunScript"
@@ -395,7 +392,7 @@
                         "Function"      "MortalCoil_OnCreated"
                     }
                 }
- 
+
                 "ThinkInterval"     "0.1"
                 "OnIntervalThink"
                 {
@@ -428,7 +425,7 @@
                     }
                 }
             }
- 
+
             "tenebris_mortal_coil_modifier_timer"
             {
                 "IsHidden"  "1"
@@ -436,7 +433,7 @@
                 "IsPurgable"    "1"
                 "IsHidden"  "1"
                 "Duration"  "0.6"
- 
+
                 "OnDestroy"
                 {
                     "RemoveModifier"
@@ -446,12 +443,12 @@
                     }
                 }
             }
- 
+
             "tenebris_mortal_coil_modifier_aura"
             {
                 "IsDebuff"  "1"
                 "IsPurgable"    "1"
- 
+
                 "OnTakeDamage"
                 {
                     "RunScript"
@@ -462,14 +459,14 @@
                     }
                 }
             }
- 
+
             "tenebris_mortal_coil_modifier_debuff"
             {
                 "IsDebuff"      "1"
                 "IsPurgable"        "1"
                 "EffectName"        "particles/units/heroes/hero_sniper/sniper_headshot_slow.vpcf"
                 "EffectAttachType"  "follow_overhead"
- 
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "-10000"
@@ -477,5 +474,4 @@
             }
         }
     }
-    //=================================================================================================================
 }

@@ -7,22 +7,23 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityTextureName"                                                   "custom/ancient_priestess_ritual_protection"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                                                             "3"
         "AbilityCastPoint"                                                     "0"
         "AbilityCooldown"                                                      "55 40 25"
         "AbilityManaCost"                                                      "100 125 150"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_oracle/oracle_fatesedict_disarm.vpcf"
 			"particle"													   "particles/units/heroes/hero_dazzle/dazzle_lucky_charm.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
         }
+
         "AbilityValues"
         {
             "damage_absorb" "300 600 900"
             "radius" "1200"
             "duration" "15"
         }
+
         "ReduxFlags"                                                           "support"
         "ReduxPerks"                                                           "support | light"
     }

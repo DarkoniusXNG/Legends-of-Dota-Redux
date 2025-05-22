@@ -8,7 +8,7 @@
         "AbilityCooldown"                                                      "40.0"
         "AbilityCastPoint"                                                     "0.0"
         "AbilityManaCost"                                                      "100"
-        "MaxLevel"                                                             "4"
+
         "AbilityValues"
         {
             "duration" "180.0"

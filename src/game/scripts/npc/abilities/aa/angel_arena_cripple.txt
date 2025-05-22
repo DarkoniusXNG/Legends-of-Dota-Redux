@@ -5,12 +5,12 @@
 		"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"AbilityTextureName" "custom/angel_arena_cripple"
-		"MaxLevel" "4"
 
-		"precache" {
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
+		"precache"
+		{
 			"particle" "particles/units/heroes/hero_bane/bane_enfeeble.vpcf"
 		}
+
 		"AbilityCastRange" "850"
 		"AbilityCastPoint" "0.3 0.3 0.3 0.3"
 		"AbilityCooldown" "15.0 14.0 13.0 12.0"

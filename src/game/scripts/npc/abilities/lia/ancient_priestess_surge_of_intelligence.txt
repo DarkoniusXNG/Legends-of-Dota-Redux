@@ -4,14 +4,12 @@
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName" "custom/ancient_priestess_surge_of_intelligence"
-		"MaxLevel" "4"
 		"AbilityCastPoint" "0.3"
 
-		"precache" {
+		"precache"
+		{
 			"particle" "particles/leshrac_diabolic_edict_custom.vpcf"
 			"particle" "particles/units/heroes/hero_lion/lion_spell_voodoo.vpcf"
-
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
 		}
 
 		"AbilityValues"

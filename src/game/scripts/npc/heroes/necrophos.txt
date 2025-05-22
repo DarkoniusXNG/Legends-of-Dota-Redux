@@ -47,12 +47,13 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Necrolyte's Sadist
+	// Ability: Necrolyte's Sadist (Innate)
 	//=================================================================================================================
 	"necrolyte_sadist"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
+		"ReduxFlags"                                                           "mana"
 		"ReduxPerks"                                                           "undead"
 	}
 
@@ -70,7 +71,7 @@
 	"necrolyte_reapers_scythe"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "undead"
+		"ReduxPerks"                                                           "blades | undead"
 		"ReduxCost"                                                            "10"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}

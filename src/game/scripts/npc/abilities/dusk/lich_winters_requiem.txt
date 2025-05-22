@@ -29,10 +29,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"110 120 130 140"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// All about the damage
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -55,8 +51,6 @@
 			"particle" "particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet_frozen.vpcf"
 			"particle" "particles/units/heroes/hero_lich/winters_requiem.vpcf"
 			"particle" "particles/units/heroes/hero_lich/winters_requiem_target.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
 		}
 
 		"ReduxPerks"	"ice"

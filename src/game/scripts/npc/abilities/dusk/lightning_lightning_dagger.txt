@@ -14,7 +14,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"custom/lightning_lightning_dagger"
 		
-			// Casting
+		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.1"
 		"AbilityCastRange"				"750"
@@ -41,14 +41,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"soundfile"							"soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
-			"soundfile"							"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
 			"particle"							"particles/units/heroes/hero_lightning/lightning_dagger_arcana.vpcf"
 			"particle"							"particles/units/heroes/hero_lightning/lightning_dagger_mark_main.vpcf"
 			"particle" 							"particles/units/heroes/hero_stormspirit/stormspirit_overload_discharge.vpcf"
 			"particle"							"particles/units/heroes/hero_zuus/zuus_arc_lightning_impact.vpcf"
 		}
 
-		"ReduxPerks"	"dagger | lightning"
+		"ReduxPerks"	"blades | dagger | lightning"
 	}
 }

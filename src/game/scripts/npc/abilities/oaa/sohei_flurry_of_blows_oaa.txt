@@ -17,8 +17,6 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // this is for UI tooltip
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" // this is for UI tooltip
 
-    "MaxLevel"                                            "3"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.7"

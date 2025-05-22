@@ -25,10 +25,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"110"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// All about the damage
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -46,7 +42,6 @@
 		
 		"precache"
 		{
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
 			"particle"  "particles/units/heroes/hero_disruptor/disruptor_thuderstrike_aoe_area.vpcf"
 			"particle"  "particles/units/heroes/hero_lightning/thunder_wave_lightning_bolt.vpcf"
 		}

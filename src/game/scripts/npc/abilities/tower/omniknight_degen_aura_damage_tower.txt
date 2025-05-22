@@ -5,7 +5,6 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                                                             "3"
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"                                                   "custom/omniknight_degen_aura_damage_tower"
@@ -17,11 +16,12 @@
             "sticky_time" "3"
             "stack_reduction_pct" "3 5 7"
         }
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_omniknight/omniknight_degen_aura_debuff.vpcf"
         }
+
         "OnUpgrade"
         {
             "RemoveModifier"

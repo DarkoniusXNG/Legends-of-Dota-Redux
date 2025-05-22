@@ -9,13 +9,13 @@
         "AbilityCooldown"                                                      "60"
         "AbilityManaCost"                                                      "100 125 150"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                                                             "3"
         "AbilityProcsMagicStick"                                               "1"
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/custom_arcane_mastery.vsndevts"
             "particle"                                                     "particles/custom_arcane_mastery/arcane_mastery_main.vpcf"
         }
+
         "AbilityValues"
         {
             "duration" "20 25 30"
@@ -31,11 +31,11 @@
                 "EffectName"                                           "particles/custom_arcane_mastery/arcane_mastery_phase.vpcf"
                 "EffectAttachType"                                     "follow_origin"
             }
-            "FireSound"
-            {
-                "EffectName"                                           "Custom.Arcane_Mastery_Phase"
-                "Target"                                               "CASTER"
-            }
+            //"FireSound"
+            //{
+                //"EffectName"                                           "Custom.Arcane_Mastery_Phase"
+                //"Target"                                               "CASTER"
+            //}
         }
         "OnSpellStart"
         {
@@ -44,11 +44,11 @@
                 "ScriptFile"                                           "abilities/arcane_mastery.lua"
                 "Function"                                             "onSpellStart"
             }
-            "FireSound"
-            {
-                "EffectName"                                           "Custom.Arcane_Mastery"
-                "Target"                                               "CASTER"
-            }
+            //"FireSound"
+            //{
+                //"EffectName"                                           "Custom.Arcane_Mastery"
+                //"Target"                                               "CASTER"
+            //}
         }
         "Modifiers"
         {

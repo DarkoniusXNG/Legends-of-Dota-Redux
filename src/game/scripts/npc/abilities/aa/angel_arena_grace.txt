@@ -9,7 +9,6 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ALLIES_YES"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityTextureName"                                                   "custom/angel_arena_grace"
-        "MaxLevel"                                                             "3"
         "AbilityCastRange"                                                     "1000"
         "AbilityCastPoint"                                                     "0.2"
         "AbilityCooldown"                                                      "50.0 40.0 30.0"
@@ -21,11 +20,13 @@
             "damage_reduce" "-40 -50 -60"
             "duration" "4 5 6"
         }
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
-            "particle"                                                     "particles/units/heroes/hero_omniknight/omniknight_purification_cast.vpcf"
+            "particle"                                                 "particles/units/heroes/hero_omniknight/omniknight_purification_cast.vpcf"
+            "particle"                                                 "particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
         }
+
         "OnSpellStart"
         {
             "FireSound"
@@ -55,6 +56,12 @@
         {
             "modifier_grace_damage_reduce"
             {
+                "IsBuff"		"1"
+                "IsPurgable"	"1"
+
+                "EffectName"		"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
+                "EffectAttachType"	"follow_origin"
+                
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduce"

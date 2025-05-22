@@ -21,47 +21,30 @@ function DealDamage(target,attacker,damageAmount,damageType,damageFlags,ability)
   local dmg = damageAmount
   local dtype = damageType
   local flags = damageFlags or DOTA_DAMAGE_FLAG_NONE
-  -- Damage Flags are:
-  -- DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK
-  -- DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY
-  -- DOTA_DAMAGE_FLAG_BYPASSES_MAGIC_BLOCK
-  -- DOTA_DAMAGE_FLAG_BYPASSES_MAGIC_IMMUNITY
-  -- DOTA_DAMAGE_FLAG_HPLOSS
-  -- DOTA_DAMAGE_FLAG_IGNORS_COMPOSITE_ARMOR
-  -- DOTA_DAMAGE_FLAG_IGNORES_MAGIC_ARMOR
-  -- DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR
-  -- DOTA_DAMAGE_FLAG_NONE
-  -- DOTA_DAMAGE_FLAG_NON_LETHAL
-  -- DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS
-  -- DOTA_DAMAGE_FLAG_NO_DIRECTOR_EVENT
-  -- DOTA_DAMAGE_FLAG_REFLECTION
-  -- DOTA_DAMAGE_FLAG_USE_COMBAT_PROFICIENCY
   
   if not IsValidEntity(target) and type(target) == "table" then -- assume a table was passed
-  print("[DealDamage] Dealing "..dmg.." of type "..dtype.." from attacker "..attacker:GetName().." to the following targets: ")
     for kd,vd in pairs(target) do
       if IsValidEntity(vd) then
-      print("==[DealDamage] Target "..k..": "..v:GetName())
         ApplyDamage({
           victim = vd,
           attacker = attacker,
           damage = dmg,
           damage_type = dtype,
-          damage_flags = flags
+          damage_flags = flags,
+          ability = ability
         })
       end
     end
     return
   end
-  
-  print("[DealDamage] Dealing "..dmg.." of type "..dtype.." to "..target:GetName().." from attacker "..attacker:GetName())
-  
+
   ApplyDamage({
     victim = target,
     attacker = attacker,
     damage = dmg,
     damage_type = dtype,
-    damage_flags = flags
+    damage_flags = flags,
+    ability = ability
   })
 end
 
@@ -108,8 +91,6 @@ function generate_thunder(keys)
 	local ldmg = keys.lightningdamage or 225
 	local count = 0
 	local vector = caster:GetAbsOrigin() + RandomVector(150)
-
-	print("[GENERATE_THUNDER]")
 
 	if caster.stop == false then
 
@@ -185,14 +166,14 @@ function check_pos(keys)
 	if caster.lastpos == nil then caster.lastpos = pos else caster.lastpos = caster.lastpos end
 
 	if pos == caster.lastpos then
-		print("[CHECK_POS] ADDING COUNT")
+		--print("[CHECK_POS] ADDING COUNT")
 		caster.poscount = caster.poscount+1
 	else
 		caster.poscount = 0
 	end
 
 	if caster.poscount > 10 then
-		print("[CHECK_POS] REMOVING MODIFIER")
+		--print("[CHECK_POS] REMOVING MODIFIER")
 		caster:RemoveModifierByName("modifier_blinding_speed_active") --[[Returns:void
 		Removes a modifier
 		]]

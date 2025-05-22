@@ -10,7 +10,6 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityTextureName"                                                   "custom/illusionist_mastery_of_illusions"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                                                             "3"
         "AbilityCastRange"                                                     "700"
         "AbilityCastPoint"                                                     "0.0"
         "AbilityCooldown"                                                      "30.0"
@@ -26,11 +25,12 @@
             "incoming_damage" "300 250 200"
             "outgoing_damage_tooltip" "40 50 60"
         }
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts"
         }
+
         "OnSpellStart"
         {
             "RunScript"

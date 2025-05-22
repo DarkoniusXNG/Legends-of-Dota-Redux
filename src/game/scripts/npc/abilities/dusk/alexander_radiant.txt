@@ -25,10 +25,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"80 90 100 110"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// All about the damage
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -44,7 +40,6 @@
 		{
 			"particle" "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_spirit_form_ambient.vpcf"
 			"particle" "particles/status_fx/status_effect_keeper_spirit_form.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
 		}
 	}
 }

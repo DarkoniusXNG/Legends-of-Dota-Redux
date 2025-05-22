@@ -22,7 +22,6 @@
     {
         "BaseClass"             "ability_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-        "FightRecapLevel"               "1"
         "AbilityTextureName"            "custom/scawmar_fade_blink"
         "AbilityProcsMagicStick"        "0"
         "AbilityCastAnimation"          "ACT_DOTA_CHANNEL_ABILITY_1"
@@ -43,8 +42,6 @@
             "particle"  "particles/status_fx/status_effect_item_editor.vpcf"
             "particle"  "particles/econ/items/invoker/invoker_ti6/invoker_tornado_child_ti6.vpcf"
             "particle"  "particles/scawmar_spirit_return.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_death_prophet.vsndevts"
         }
         "OnSpellStart"
         {
@@ -228,7 +225,6 @@
     {
         "BaseClass"             "ability_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-        "FightRecapLevel"               "1"
         "AbilityTextureName"            "custom/scawmar_fade_blink"
         "AbilityProcsMagicStick"        "1"
 
@@ -237,7 +233,6 @@
         "precache"
         {
             "particle"  "particles/units/heroes/hero_clinkz/clinkz_loadout.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
         }
 
         // Casting
@@ -250,7 +245,6 @@
         // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "25 20 15 10"
-
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
@@ -366,7 +360,6 @@
     {
         "BaseClass"             "ability_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT"
-        "FightRecapLevel"               "1"
         "AbilityTextureName"            "custom/scawmar_illusion_line"
         "AbilityProcsMagicStick"        "1"
         "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
@@ -383,7 +376,6 @@
             "particle"  "particles/scawmar_illusion_line_fireball.vpcf"
             "particle"  "particles/units/heroes/hero_clinkz/clinkz_loadout.vpcf"
             "particle"  "particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_trail.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
         }
 
         // Casting
@@ -498,7 +490,6 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-        "FightRecapLevel"               "2"
         "AbilityTextureName"            "custom/scawmar_mesmerize"
         "AbilityProcsMagicStick"        "1"
         "HasScepterUpgrade"             "1"
@@ -515,11 +506,9 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "25"
 
-
         // Cost
         //-------------------------------------------------------------------------------------------------------------
         "AbilityManaCost"               "100 120 140 160"
-
 
         "AbilityValues"
         {
@@ -529,12 +518,12 @@
             "scepter_maximum_charges" "3"
             "scepter_cooldown" "25"
         }
+
         "precache"
         {
             "particle"  "particles/scawmar_mind_control.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_puck.vsndevts"
         }
+
         "OnSpellStart"
         {
             "FireSound"
@@ -648,7 +637,6 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-        "FightRecapLevel"               "1"
         "AbilityTextureName"            "custom/scawmar_scryers_circle"
         "AbilityProcsMagicStick"        "1"
 
@@ -656,10 +644,6 @@
         //-------------------------------------------------------------------------------------------------------------
         "precache"
         {
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
             "particle"          "particles/econ/items/magnataur/shock_of_the_anvil/magnataur_shockanvil.vpcf"
             "particle"          "particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
             "particle"          "particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray_team.vpcf"
@@ -798,7 +782,6 @@
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-        "FightRecapLevel"               "1"
         "AbilityTextureName"            "custom/scawmar_scryers_circle"
         "AbilityCastAnimation"          "ACT_DOTA_CHANNEL_ABILITY_1"
 
@@ -807,11 +790,9 @@
         "AbilityCastPoint"              "0.0"
         "AbilityChannelTime"                "3.5"
 
-
         // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "0"
-
 
         "AbilityValues"
         {

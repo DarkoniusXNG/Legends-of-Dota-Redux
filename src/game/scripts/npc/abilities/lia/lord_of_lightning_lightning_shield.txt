@@ -4,9 +4,6 @@
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityTextureName"                                                   "custom/lightning_lord_lightning_shield"
-        "MaxLevel"                                                             "4"
-        "RequiredLevel"                                                        "1"
-        "LevelsBetweenUpgrades"                                                "2"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_BOTH"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
@@ -21,13 +18,14 @@
         "AbilityCooldown"                                                      "14 12 10 8"
         "AbilityManaCost"                                                      "75"
         "AOERadius"                                                            "350"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_stormspirit/stormspirit_overload_discharge.vpcf"
 			"particle"													   "particles/units/heroes/hero_zuus/zuus_static_field.vpcf"
 			"particle"													   "particles/items2_fx/mjollnir_shield.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
         }
+
         "AbilityValues"
         {
             "radius" "350"

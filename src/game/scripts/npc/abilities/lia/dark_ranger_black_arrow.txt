@@ -22,8 +22,8 @@
         "precache"
         {
             "particle"                           "particles/units/heroes/hero_vengeful/vengeful_magic_missle.vpcf"
-            "soundfile"                          "soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
         }
+
         "AbilityValues"
         {
             "damage"                             "15 25 35 45"

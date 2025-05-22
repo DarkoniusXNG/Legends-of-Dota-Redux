@@ -10,9 +10,9 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
-        "FightRecapLevel"               "2"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
         "AbilityTextureName"            "enigma_black_hole"
+
         "MaxLevel"                      "1"
         "RequiredLevel"                 "24"
         "ReduxCost"                                                            "120"
@@ -22,10 +22,8 @@
         "precache"
         {
             "particle"      "particles/other/mega_black_hole.vpcf"
-            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"            
-            "soundfile"     "sounds/weapons/hero/enigma/black_hole_loop.vsnd"
-            "soundfile"     "sounds/weapons/hero/enigma/black_hole_stop.vsnd"
         }
+
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "1200"

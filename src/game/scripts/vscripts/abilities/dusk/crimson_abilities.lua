@@ -110,10 +110,14 @@ function crimson_red_rituals_dmg(event)
 
   target:SetModifierStackCount("crimson_red_rituals_stun_check",event.ability,stack+damage)
 
-  print("STACKS ARE "..stack)
+  --print("STACKS ARE "..stack)
 
-  if stack >= threshold then print("PROC!!!") print("STUN DURATION IS "..stunduration) target:AddNewModifier(caster,nil,"modifier_stunned",{Duration=stunduration}) target:SetModifierStackCount("crimson_red_rituals_stun_check",event.ability,0) return end
-
+  if stack >= threshold then
+	--print("PROC!!!")
+	--print("STUN DURATION IS "..stunduration)
+	target:AddNewModifier(caster,nil,"modifier_stunned",{Duration=stunduration})
+	target:SetModifierStackCount("crimson_red_rituals_stun_check",event.ability,0)
+  end
 end
 
 function blood_sorcery(keys)
@@ -298,4 +302,37 @@ function AncientPact(keys)
 
   local p = ParticleManager:CreateParticle("particles/units/heroes/hero_crimson/crimson_ancient_pact.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
   ParticleManager:ReleaseParticleIndex(p)
+end
+
+function DealDamage(target,attacker,damageAmount,damageType,damageFlags,ability)
+  local target = target
+  local attacker = attacker or target -- if nil we assume we're dealing self damage
+  local dmg = damageAmount
+  local dtype = damageType
+  local flags = damageFlags or DOTA_DAMAGE_FLAG_NONE
+  
+  if not IsValidEntity(target) and type(target) == "table" then -- assume a table was passed
+    for kd,vd in pairs(target) do
+      if IsValidEntity(vd) then
+        ApplyDamage({
+          victim = vd,
+          attacker = attacker,
+          damage = dmg,
+          damage_type = dtype,
+          damage_flags = flags,
+          ability = ability
+        })
+      end
+    end
+    return
+  end
+
+  ApplyDamage({
+    victim = target,
+    attacker = attacker,
+    damage = dmg,
+    damage_type = dtype,
+    damage_flags = flags,
+    ability = ability
+  })
 end

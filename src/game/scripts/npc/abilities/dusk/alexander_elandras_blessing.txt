@@ -12,10 +12,10 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"custom/alexander_steadfast"
-		"ReduxPerks"					"support | light"
+
 		"ReduxFlags"					"support"
+		"ReduxPerks"					"support | light"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -43,8 +43,6 @@
 
 		"precache"
 		{
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
 			"particle"			"particles/units/heroes/hero_set/set_harsh_climate.vpcf"
 			"particle"			"particles/units/heroes/hero_alexander/greater_vitality.vpcf"
 			"particle"			"particles/units/heroes/hero_alexander/greater_vitality_damage.vpcf"

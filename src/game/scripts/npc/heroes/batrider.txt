@@ -7,7 +7,7 @@
 	"batrider_sticky_napalm"
 	{
 		"ReduxPerks"                    "fire"
-		"ReduxCost"                     "80"
+		"ReduxCost"                     "50"
 	}
 
 	//=================================================================================================================
@@ -16,6 +16,7 @@
 	"batrider_smoldering_resin"
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
 		"ReduxFlags"                    "attack_modifier"
 		"ReduxPerks"                    "attack_modifier | fire"
 	}
@@ -25,9 +26,10 @@
 	//=================================================================================================================
 	"batrider_stoked"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"ReduxFlags"                    "mobility"
-		"ReduxPerks"                    "enemyMoving | mobility"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" // not learnable because it requires Flaming Lasso
+
+		"ReduxFlags"                    "mobility | doNotRandom"
+		"ReduxPerks"                    "enemymoving | mobility"
 	}
 
 	//=================================================================================================================
@@ -35,7 +37,7 @@
 	//=================================================================================================================
 	"batrider_flamebreak"
 	{
-		"ReduxPerks"                    "fire | skillshot | enemyMoving | explosive"
+		"ReduxPerks"                    "fire | skillshot | enemymoving | explosive"
 	}
 
 	//=================================================================================================================
@@ -53,7 +55,7 @@
 	"batrider_flaming_lasso"
 	{
 		"ReduxFlags"                    "upgradeable | stun"
-		"ReduxPerks"                    "fire | enemyMoving"
+		"ReduxPerks"                    "fire | enemymoving"
 		"ReduxCost"                     "10"
 	}
 

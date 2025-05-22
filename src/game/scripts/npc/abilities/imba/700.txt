@@ -11,7 +11,7 @@
         "AbilityUnitTargetFlags"                        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "AbilityUnitDamageType"                         "DAMAGE_TYPE_MAGICAL"
         "AbilityTextureName"                            "custom/imba_roshan_fury"
-        "MaxLevel"                                      "4"
+
         "ReduxFlags"                                                           "stun"
 
         // Cost
@@ -163,14 +163,13 @@
         "BaseClass"                             "ability_datadriven"
         "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                    "custom/imba_ancient_stalwart_defense"
-        "MaxLevel"                              "4"
         "AbilityCastRange"                      "1500"
+
         "ReduxFlags"                                                           "support"
         "ReduxPerks"                                                           "support | aura"
 
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_legion_commander/legion_commander_press.vpcf"
             "particle"                                                     "particles/units/heroes/hero_legion_commander/legion_commander_press_buff.vpcf"
         }
@@ -257,7 +256,6 @@
         "BaseClass"                             "ability_datadriven"
         "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                    "custom/imba_ancient_stalwart_defense_op"
-        "MaxLevel"                              "4"
         "AbilityCastRange"                      "1500"
 
         "ReduxFlags"                                                           "support"
@@ -266,7 +264,6 @@
 
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_legion_commander/legion_commander_press.vpcf"
             "particle"                                                     "particles/units/heroes/hero_legion_commander/legion_commander_press_buff.vpcf"
         }
@@ -356,7 +353,6 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "ScriptFile"                    "abilities/dota imba/hero_clinkz.lua"
-        "MaxLevel"                      "4"
 
         // Time
         //-------------------------------------------------------------------------------------------------------------
@@ -375,7 +371,6 @@
         "precache"
         {
             "particle"                  "particles/units/heroes/hero_clinkz/clinkz_strafe_fire.vpcf"
-            "soundfile"                 "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
         }
 
         // Special
@@ -406,7 +401,6 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "ScriptFile"                    "abilities/dota imba/hero_clinkz.lua"
-        "MaxLevel"                      "4"
 
         "ReduxCost"                                     "120"
 
@@ -427,7 +421,6 @@
         "precache"
         {
             "particle"                  "particles/units/heroes/hero_clinkz/clinkz_strafe_fire.vpcf"
-            "soundfile"                 "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
         }
 
         // Special
@@ -456,7 +449,6 @@
         "ScriptFile"                    "abilities/dota imba/arcane_dynamo"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"            "custom/crystal_maiden_arcane_dynamo"
-        "MaxLevel"                      "4"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -475,7 +467,6 @@
         "ScriptFile"                    "abilities/dota imba/arcane_dynamo"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"            "custom/crystal_maiden_arcane_dynamo_op"
-        "MaxLevel"                      "4"
 
         "ReduxCost"                                     "120"
 
@@ -496,7 +487,6 @@
         "BaseClass"                             "ability_lua"
         "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                    "custom/drow_deadeye"
-        "MaxLevel"                              "4"
         "ScriptFile"                            "abilities/dota imba/deadeye"
 
         // Special

@@ -8,8 +8,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_lua"
 		"ScriptFile"			"abilities/dusk/hero_heroic_soul"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"	
-		"FightRecapLevel"				"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 		"AbilityTextureName"			"custom/hero_heroic_soul"
 
 		// Casting
@@ -38,7 +37,6 @@
 
 		"precache"
 		{
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
 			"particle"			"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
 			"particle"			"particles/status_fx/status_effect_gods_strength.vpcf"
 		}

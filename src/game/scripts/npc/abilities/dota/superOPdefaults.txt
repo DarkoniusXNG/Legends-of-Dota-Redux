@@ -48,8 +48,7 @@
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
-        "FightRecapLevel"               "2"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "AbilityTextureName"            "custom/lich_chain_frost_op"
 
         "ReduxPerks"                    "ice"
@@ -61,14 +60,12 @@
         {
             "particle"  "particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
             "particle"  "particles/units/heroes/hero_lich/lich_slowed_cold.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
         }
         
         "AbilityCastRange"              "750"
         "AbilityCastPoint"              "0.3"
         "AbilityCooldown"               "60.0 40.0 30.0"
         "AbilityManaCost"               "180 300 420"
-        "AbilityModifierSupportValue"   "0.0"   // Primarily about the damage
 
         "AbilityValues"
 		{

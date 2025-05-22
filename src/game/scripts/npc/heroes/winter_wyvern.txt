@@ -1,0 +1,81 @@
+// Abilities for winter wyvern
+"DOTAAbilities"
+{
+	"winter_wyvern_arctic_burn"
+	{
+		"ReduxFlags"                                                           "upgradeable | attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | dragon | ice"
+		"ReduxCost"                                                            "20"
+	}
+
+	"winter_wyvern_splinter_blast"
+	{
+		"ReduxPerks"                                                           "dragon | ice"
+	}
+
+	"winter_wyvern_cold_embrace"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | ice"
+	}
+
+	"winter_wyvern_winters_curse"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "ice"
+		"ReduxBans"                                                            "tinker_rearm"
+	}
+
+	"winter_wyvern_eldwurm_scholar"
+	{
+		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "doNotRandom | support"
+		"ReduxPerks"                                                           "support"
+	}
+
+	"winter_wyvern_essence_of_the_blueheart"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "doNotRandom | mana | support"
+		"ReduxPerks"                                                           "support"
+	}
+
+	"winter_wyvern_dragon_sight"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" // not learnable because it requires Winters Curse
+
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "dragon"
+	}
+
+	"special_bonus_unique_winter_wyvern_1"
+	{
+		"TalentRequiredAbility"                                                   "winter_wyvern_arctic_burn"
+	}
+	"special_bonus_unique_winter_wyvern_2"
+	{
+		"TalentRequiredAbility"                                                   "winter_wyvern_splinter_blast"
+	}
+	"special_bonus_unique_winter_wyvern_3"
+	{
+		"TalentRequiredAbility"                                                   "winter_wyvern_winters_curse"
+	}
+	"special_bonus_unique_winter_wyvern_4"
+	{
+		"TalentRequiredAbility"                                                   "winter_wyvern_splinter_blast"
+	}
+	"special_bonus_unique_winter_wyvern_5"
+	{
+		"TalentRequiredAbility"                                                   "winter_wyvern_cold_embrace"
+	}
+	"special_bonus_unique_winter_wyvern_6"
+	{
+		"TalentRequiredAbility"                                                   "winter_wyvern_arctic_burn"
+	}
+	"special_bonus_unique_winter_wyvern_7"
+	{
+		"TalentRequiredAbility"                                                   "winter_wyvern_splinter_blast"
+	}
+}

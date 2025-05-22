@@ -12,7 +12,6 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"custom/paragon_tranquility_seal"
 
 		// Casting
@@ -38,11 +37,10 @@
 
 		"precache"
 		{
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
 			"particle"			"particles/units/heroes/hero_paragon/tranquil_seal_rune.vpcf"
 		}
 
+		"ReduxFlags"	"support"
 		"ReduxPerks"	"support"
-		"ReduxFlags"	""
 	}
 }

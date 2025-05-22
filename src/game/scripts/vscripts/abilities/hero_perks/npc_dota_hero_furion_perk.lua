@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Nature's Prophet
---		Perk: Reduces the cooldown of all Teleportation abilities by 50%. 
---
+--		Perk: Nature and Teleportation abilities cast by Nature's Prophet will have reduced cooldown and mana cost.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_furion_perk ~= "" then modifier_npc_dota_hero_furion_perk = class({}) end
+modifier_npc_dota_hero_furion_perk = modifier_npc_dota_hero_furion_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_furion_perk:IsPassive()
 	return true
@@ -21,33 +19,34 @@ end
 function modifier_npc_dota_hero_furion_perk:RemoveOnDeath()
 	return false
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_furion_perk:OnCreated()
-  if IsServer() then
-    local cooldownReductionPercent = 50
-    self.cooldownReduction = 1 - (cooldownReductionPercent / 100)
-  end
+
+function modifier_npc_dota_hero_furion_perk:GetTexture()
+	return "custom/npc_dota_hero_furion_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_furion_perk:DeclareFunctions()
-  local funcs = {
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-  }
-  return funcs
+	return {
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
+	}
 end
 
-function modifier_npc_dota_hero_furion_perk:OnAbilityFullyCast(keys)
-  if IsServer() then
-    local hero = self:GetCaster()
-    local target = keys.target
-    local ability = keys.ability
+function modifier_npc_dota_hero_furion_perk:GetModifierPercentageCooldown(keys)
+	local ability = keys.ability
+	if ability then
+		if ability:HasAbilityFlag("nature") or ability:HasAbilityFlag("teleport") then
+			return 25
+		end
+	end
+	return 0
+end
 
-    if hero == keys.unit and ability and ability:HasAbilityFlag("teleport") then
-      local cooldown = ability:GetCooldownTimeRemaining() * self.cooldownReduction
-      ability:EndCooldown()
-      ability:StartCooldown(cooldown)
-    end
-  end
+function modifier_npc_dota_hero_furion_perk:GetModifierPercentageManacostStacking(keys)
+	local ability = keys.ability
+	if ability then
+		if ability:HasAbilityFlag("nature") or ability:HasAbilityFlag("teleport") then
+			return 25
+		end
+	end
+	return 0
 end

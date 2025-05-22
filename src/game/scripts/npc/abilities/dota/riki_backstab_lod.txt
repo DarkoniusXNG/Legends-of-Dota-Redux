@@ -7,11 +7,12 @@
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"                                                   "custom/riki_backstab_lod"
+
         "precache"
         {
-            "soundfile"                                                    "sounds/weapons/hero/riki/riki_attack1.vsnd"
             "particle"                                                     "particles/units/heroes/hero_riki/riki_backstab.vpcf"
         }
+
         "AbilityValues"
         {
             "agility_damage" "50 75 100 125"

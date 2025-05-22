@@ -50,13 +50,14 @@
             "creep_damage" "5 7 9 11"
             "creep_duration" "18"
         }
+
         "precache"
         {
             "particle"  "particles/suna_blight_and_wither.vpcf"
             "particle"  "particles/status_fx/status_effect_slardar_amp_damage.vpcf"
             "particle"  "particles/econ/items/pudge/pudge_tassles_of_black_death/pudge_black_death_rot_body_start.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
         }
+
         "OnSpellStart"
         {
             "FireEffect"
@@ -629,7 +630,6 @@
     {
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/suna_skeleton_puppets"
-        "MaxLevel"                      "4"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
 
@@ -857,14 +857,15 @@
             "duration" "8.0"
             "vicissitude_duration" "4.0 5.0 6.0 7.0"
         }
+
         "precache"
         {
             "particle"  "particles/units/heroes/hero_meepo/meepo_burrow.vpcf"
             "particle"  "particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_exit.vpcf"
             "particle"  "particles/status_fx/status_effect_faceless_timewalk.vpcf_c"
 			"particle"	"particles/econ/items/natures_prophet/natures_prophet_weapon_sufferwood/furion_teleport_end_team_sufferwood_ground_soft.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
         }
+
         "OnUpgrade"
         {
             "LevelUpAbility"

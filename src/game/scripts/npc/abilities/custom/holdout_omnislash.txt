@@ -7,10 +7,10 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
         "AbilityCastRange"                                                     "3000"
-        "AbilityCastPoint"                                                     "0.3 0.3 0.3"
+        "AbilityCastPoint"                                                     "0.3"
         "AbilityCooldown"                                                      "40.0 30.0 20.0"
         "AbilityManaCost"                                                      "100"
-        "AbilityModifierSupportValue"                                          "0.25"
+
         "AbilityValues"
         {
             "image_travel_speed" "850"
@@ -20,6 +20,9 @@
             "animation_rate" "0.2"
             "bonus_damage" "50 85 120"
         }
+        
+        "ReduxFlags"                                                           "physical"
+        "ReduxPerks"                                                           "blades | physical"
         "ReduxBans"                                                            "holdout_multishot"
     }
 }

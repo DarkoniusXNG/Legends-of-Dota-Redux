@@ -1,15 +1,17 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Lone Druid
---		Perk: Lone Druid transfers 50% of damage taken to his Spirit Bear if he has one and its within 1100 range.
---
+--		Perk: Lone Druid transfers 50% of damage taken to his Spirit Bear if he has one and its within 1800 range.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_lone_druid_perk ~= "" then modifier_npc_dota_hero_lone_druid_perk = class({}) end
+modifier_npc_dota_hero_lone_druid_perk = modifier_npc_dota_hero_lone_druid_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_lone_druid_perk:IsPassive()
 	return true
 end
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_lone_druid_perk:IsHidden()
+	return false
+end
+
 function modifier_npc_dota_hero_lone_druid_perk:IsPurgable()
 	return false
 end
@@ -21,63 +23,67 @@ end
 function modifier_npc_dota_hero_lone_druid_perk:GetTexture()
 	return "custom/npc_dota_hero_lone_druid_perk"
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_lone_druid_perk:IsHidden()
-	if IsClient() then
-		if not self.check then
-			local netTable = CustomNetTables:GetTableValue( "heroes", self:GetParent():GetName().."_perk"..self:GetParent():GetPlayerOwnerID() )
-			if netTable then
-				self.bear = netTable.hasValidAbility
-			end
-			self.check = true
-		end
-		if self.bear == 0 then return true else return false end
-	end
-end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
 if IsServer() then
 	function modifier_npc_dota_hero_lone_druid_perk:OnCreated()
 		self.bear = self:GetCaster():FindAbilityByName("lone_druid_spirit_bear")
-		
-		CustomNetTables:SetTableValue( "heroes", self:GetParent():GetName().."_perk"..self:GetParent():GetPlayerID(), { hasValidAbility = self.bear or false} )
-		
-		self.damageTaken = 0.5
-		self.damageRedirect = 1 - self.damageTaken
-		self.suicide = {item_bloodstone = true,
-						techies_suicide = true}
 		self.leash = 1800
 	end
 
 	function modifier_npc_dota_hero_lone_druid_perk:DeclareFunctions()
-		local funcs = {
-			MODIFIER_EVENT_ON_TAKEDAMAGE,
+		return {
+			MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		}
-		return funcs
 	end
 
-	function modifier_npc_dota_hero_lone_druid_perk:OnTakeDamage(params)
-		if params.unit == self:GetParent() then
-			if params.inflictor and self.suicide[params.inflictor:GetName()] then return end
-			if self.bear then
-				for _,bear in pairs ( Entities:FindAllByName( "npc_dota_lone_druid_bear*")) do
-					if bear:GetOwnerEntity() == self:GetParent() and bear:IsAlive() then
-						local distance = (bear:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D()
-						if distance < self.leash then
-							local damage = params.damage
-							if damage > self:GetParent():GetHealth() then damage = self:GetParent():GetHealth() end -- cap overkill damage
-							if bear:GetHealth() > damage*self.damageRedirect then
-								self:GetParent():SetHealth( self:GetParent():GetHealth() + damage*self.damageTaken )
-								bear:SetHealth( bear:GetHealth() - damage*self.damageRedirect )
-							else
-								self:GetParent():SetHealth( self:GetParent():GetHealth() + bear:GetHealth() - 1 )
-								bear:SetHealth(1)
-							end
-						end
+	function modifier_npc_dota_hero_lone_druid_perk:GetModifierIncomingDamage_Percentage(params)
+		if not self.bear then
+			return 0
+		end
+
+		local parent = self:GetParent()
+		local damage_after_reductions = params.damage
+
+		if damage_after_reductions <= 0 then
+			return 0
+		end
+
+		-- cap overkill damage
+		if damage_after_reductions > parent:GetHealth() then
+			damage_after_reductions = parent:GetHealth()
+		end
+
+		local redirect_pct = 50
+		local redirect_damage = damage_after_reductions * (redirect_pct/100)
+
+		local damage_table = {
+			attacker = params.attacker,
+			damage = redirect_damage,
+			damage_type = params.damage_type or DAMAGE_TYPE_PURE,
+			damage_flags = DOTA_DAMAGE_FLAG_NON_LETHAL,
+		}
+
+		local bear_found = false
+		for _, bear in pairs (Entities:FindAllByName("npc_dota_lone_druid_bear*")) do
+			if bear and not bear:IsNull() then
+				if bear:GetPlayerOwnerID() == parent:GetPlayerOwnerID() and bear:IsAlive() then
+					local parent_loc = parent:GetAbsOrigin()
+					local bear_loc = bear:GetAbsOrigin()
+					local distance = (bear_loc - parent_loc):Length2D()
+					if distance < self.leash then
+						bear_found = true
+						damage_table.victim = bear
+						ApplyDamage(damage_table)
 					end
 				end
 			end
 		end
+
+		if bear_found then
+			-- Block the amount of damage on the parent
+			return 0 - math.abs(redirect_pct)
+		end
+
+		return 0
 	end
 end

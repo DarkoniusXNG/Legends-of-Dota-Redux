@@ -17,7 +17,6 @@
 		{
 			"particle"	"particles/zulf_gale_force.vpcf"
 			"particle" 	"particles/generic_gameplay/generic_disarm.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
 		}
 
 		"AbilityValues"

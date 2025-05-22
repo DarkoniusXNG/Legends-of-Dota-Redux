@@ -32,10 +32,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// All about the damage
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -47,9 +43,8 @@
 		
 		"precache"
 		{
-				"soundfile"					"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
-				"particle"					"particles/units/building/last_resort_ally.vpcf"
-				"particle"					"particles/units/heroes/hero_tek/skycrack_eff.vpcf"
+			"particle"					"particles/units/building/last_resort_ally.vpcf"
+			"particle"					"particles/units/heroes/hero_tek/skycrack_eff.vpcf"
 		}
 		
 		"Modifiers"

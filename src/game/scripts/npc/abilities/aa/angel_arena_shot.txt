@@ -7,7 +7,7 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityTextureName"                                                   "custom/angel_arena_shot"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
-        "MaxLevel"                                                             "4"
+
         "AbilityValues"
         {
             "chance" "35 45 55 65"

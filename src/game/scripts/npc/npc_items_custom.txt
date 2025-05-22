@@ -1136,7 +1136,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"                                "50" // vanilla 50
+			"bonus_damage"                                "55" // vanilla 55
 			"corruption_armor"                            "-6"
 			"corruption_duration"                         "7.0"
 			"bonus_damage_per_kill"                       "2"
@@ -1156,7 +1156,6 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "70.0"
         "AbilitySharedCooldown"         "necronomicon"
-        "FightRecapLevel"               "1"
         "ItemPurchasable"              "0"
 
         // Item Info
@@ -1387,7 +1386,6 @@
         "Effect"                        "particles/generic_gameplay/dropped_item.vpcf"
         "AbilityTextureName"            "custom/redux_silver"
         "ItemAliases"					"silver;invis;shadow blade"
-        "FightRecapLevel"               "1"
         
         // Stats        
         //-------------------------------------------------------------------------------------------------------------
@@ -1504,7 +1502,6 @@
         "Effect"                        "particles/generic_gameplay/dropped_item.vpcf"
         "AbilityTextureName"            "custom/item_redux_silver_consume"
         "ItemAliases"                   "silver;invis;shadow blade"
-        "FightRecapLevel"               "1"
         
         // Stats        
         //-------------------------------------------------------------------------------------------------------------

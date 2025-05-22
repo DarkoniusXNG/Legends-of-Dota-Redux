@@ -10,7 +10,7 @@
 	"drow_ranger_wave_of_silence"
 	{
 		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "enemyMoving | silence | ranger | skillshot"
+		"ReduxPerks"                                                           "enemymoving | silence | ranger | skillshot"
 	}
 
 	"drow_ranger_silence"

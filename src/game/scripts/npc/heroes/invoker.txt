@@ -378,7 +378,7 @@
 	//=================================================================================================================
 	"invoker_deafening_blast_ad"
 	{
-		"ReduxPerks"                    "enemyMoving | skillshot"
+		"ReduxPerks"                    "enemymoving | skillshot"
 
 		"AbilityTextureName"            "invoker_deafening_blast_ad_png"
 		"AbilityCastRange"				"1000"

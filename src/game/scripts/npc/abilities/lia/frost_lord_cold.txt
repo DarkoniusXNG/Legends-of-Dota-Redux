@@ -8,14 +8,12 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "AbilityTextureName"                                                   "custom/frost_lord_cold"
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
         }
-        "MaxLevel"                                                             "4"
-        "RequiredLevel"                                                        "1"
-        "LevelsBetweenUpgrades"                                                "2"
+
         "AoERadius"                                                            "400"
         "AbilityCastRange"                                                     "700"
         "AbilityCastPoint"                                                     "0.0"

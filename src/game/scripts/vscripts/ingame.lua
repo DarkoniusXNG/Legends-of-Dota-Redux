@@ -492,10 +492,6 @@ function Ingame:FilterExecuteOrder(filterTable)
     -- Next Gen hackery
     filterTable = nextGenOrderFilter(filterTable)
 
-    if not OptionManager:GetOption('disablePerks') then
-        filterTable = heroPerksOrderFilter(filterTable)
-    end
-
     if OptionManager:GetOption('memesRedux') == 1 then
         filterTable = memesOrderFilter(filterTable)
     end
@@ -1704,14 +1700,13 @@ function Ingame:checkBuybackStatus()
                                 Pregame.selectedSkills[pID] = {}
                                 Pregame.selectedHeroes[pID] = Pregame:getRandomHero()
                                 Pregame.selectedPlayerAttr[pID] = ({ 'str', 'agi', 'int', 'all' })
-                                [math.random(1, 3)]
+                                [math.random(1, 4)]
                                 if util:isPlayerBot(pID) and Pregame.botPlayers then
                                     Pregame.botPlayers.all[pID] = {}
                                     Pregame:generateBotBuilds(pID)
 
                                     Pregame.selectedSkills[pID] = Pregame.botPlayers.all[pID].build
-                                    Pregame.selectedHeroes[pID] = Pregame.botPlayers.all[pID]
-                                    .heroName
+                                    Pregame.selectedHeroes[pID] = Pregame.botPlayers.all[pID].heroName
                                 end
                                 Pregame:onPlayerReady(nil, { PlayerID = pID, randomOnDeath = true })
                                 if not util:isPlayerBot(pID) then
@@ -1977,16 +1972,16 @@ function Ingame:addStrongTowers()
         end
 
         if OptionManager:GetOption('strongTowers') then
-            local tower_team = keys.teamnumber
+            local killer_team = keys.teamnumber -- team that killed the tower
             local towers = Entities:FindAllByClassname('npc_dota_tower')
             for _, tower in pairs(towers) do
-                if tower:GetTeamNumber() == tower_team then
+                if tower:GetTeamNumber() ~= killer_team then
                     self:UpgradeTower(tower)
                 end
             end
 
             -- Display upgrade message and play ominous sound
-            if tower_team == DOTA_TEAM_GOODGUYS then
+            if killer_team == DOTA_TEAM_BADGUYS then
                 -- add notification
                 GameRules:SendCustomMessage('radiantTowersUpgraded', 0, 0)
                 -- Only has a 50% chance to play sound because its kind of annoying if you hear it too much
@@ -2056,10 +2051,7 @@ end
     local caster = EntIndexToHScript(casterIndex)
     local abilityIndex = filterTable["entindex_ability_const"]
     local ability = EntIndexToHScript(abilityIndex)
-    -- Hero perks
-    if not OptionManager:GetOption('disablePerks') then
-        filterTable = heroPerksProjectileFilter(filterTable) --Sending all the data to the heroPerksDamageFilter
-    end
+
     return true
   end]]
         --
@@ -2154,10 +2146,6 @@ function Ingame:FilterDamage(filterTable)
         end
     end
 
-    -- Hero perks
-    if not OptionManager:GetOption('disablePerks') then
-        filterTable = heroPerksDamageFilter(filterTable)
-    end
     -- Next Gen
     filterTable = nextGenDamageFilter(filterTable)
     -- Memes

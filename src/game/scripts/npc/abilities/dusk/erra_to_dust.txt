@@ -9,7 +9,6 @@
 		"AbilityUnitTargetTeam"		 "DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"SpellImmunityType"			 "SPELL_IMMUNITY_ENEMIES_NO"
 		"AnimationPlaybackRate"		 "1"
-		"FightRecapLevel"			   "1"
 		"AbilityTextureName"			"custom/erra_to_dust"
 		
 		// Casting
@@ -24,10 +23,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"			   "115"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"   "0.5"   // Applies two modifiers
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -46,11 +41,7 @@
 			"particle"  "particles/units/heroes/hero_erra/to_dust_affected_unit.vpcf"
 		}
 
-		"Modifiers"
-		{
-		}
-
-		"ReduxPerks"	""
 		"ReduxFlags"	""
+		"ReduxPerks"	"demon | undead"
 	}
 }

@@ -10,12 +10,11 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityCastAnimation"                                                 "ACT_DOTA_CAST_COLD_SNAP"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "FightRecapLevel"                                                      "1"
-        "MaxLevel"                                                             "3"
         "AbilityProcsMagicStick"                                               "1"
-        "AbilityCooldown"                                                      "30 25 20 15"
+        "AbilityCooldown"                                                      "30 25 20"
         "AbilityManaCost"                                                      "100"
         "AbilityCastRange"                                                     "600"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_invoker/invoker_retro_betrayal_explosion.vpcf"

@@ -2,7 +2,7 @@ function ScepterCheck( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
-	print("not working")
+
 	EmitSoundOn("Hero_Undying.Decay.Transfer", target)
 	EmitSoundOn("Hero_Undying.Decay.Target", target)
 	

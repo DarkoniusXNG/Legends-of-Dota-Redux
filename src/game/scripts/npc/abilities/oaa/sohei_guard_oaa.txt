@@ -14,8 +14,6 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
 
-    "MaxLevel"                                            "4"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"

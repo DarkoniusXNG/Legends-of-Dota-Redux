@@ -12,7 +12,6 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
-        "FightRecapLevel"               "1"
         "AbilityTextureName"            "custom/mercy_caduceus_healing"
 
         "ReduxFlags"                    "support"
@@ -112,7 +111,6 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
-        "FightRecapLevel"               "1"
         "AbilityTextureName"            "custom/mercy_caduceus_power"
 
         "ReduxFlags"                    "support"
@@ -190,7 +188,6 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityTextureName"            "custom/mercy_guardian_angel"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
-        "MaxLevel"                      "4"
         "CastFilterRejectCaster"        "1"
 
         "ReduxFlags"                    "support | mobility"
@@ -268,14 +265,12 @@
         "BaseClass"                     "ability_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"            "custom/mercy_angelic_descent"
-        "MaxLevel"                      "4"
 
         "ReduxFlags"                    "support | doNotRandom | tank"
         "ReduxPerks"                    "support"
 
         "precache"
         {
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
             "particle"          "particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff_rune.vpcf"
         }
 
@@ -361,7 +356,6 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
-        "FightRecapLevel"               "2"
         "AbilityTextureName"            "custom/mercy_heroes_never_die"
 
         "ReduxFlags"                    "support"
@@ -371,8 +365,6 @@
         //-------------------------------------------------------------------------------------------------------------
         "precache"
         {
-            "soundfile"                 "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
-            "soundfile"                 "soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
             "soundfile"                 "soundevents/overmemed_soundevents.vsndevts"
             "particle"                  "particles/units/heroes/hero_omniknight/omniknight_guardian_angel_omni.vpcf"
             "particle"                  "particles/status_fx/status_effect_omnislash.vpcf"

@@ -5,9 +5,9 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/imba_tower_vicious"
-        "MaxLevel"                                                             "3"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+
         "AbilityValues"
         {
             "crit_chance" "35"

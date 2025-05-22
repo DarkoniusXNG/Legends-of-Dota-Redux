@@ -23,11 +23,12 @@
             "armor_duration" "8"
             "duration" "80"
         }
+
         "precache"
         {
             "particle"                                                     "particles/customgames/capturepoints/cp_wind.vpcf"
-            "soundfile"                                                    "sounds/items/dota_item_cyclone.vsnd"
         }
+
         "OnSpellStart"
         {
             "CreateThinker"

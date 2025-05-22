@@ -6,7 +6,6 @@
 		"ScriptFile"					"neutral_evasion.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"blue_dragonspawn_sorcerer_evasion"
-		"MaxLevel" 						"4"
 
 		"AbilityValues"
         {

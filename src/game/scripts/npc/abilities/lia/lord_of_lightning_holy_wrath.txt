@@ -2,7 +2,6 @@
 	"lord_of_lightning_holy_wrath" {
 		"BaseClass" "ability_datadriven"
 		"AbilityTextureName" "custom/lord_of_lightning_holy_wrath"
-		"MaxLevel" "4"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityCastRange" "900"
 		"AbilityCooldown" "0.25"
@@ -15,9 +14,9 @@
             "radius_dop_dmg" "200"
         }
 
-		"precache" {
+		"precache"
+		{
 			"particle" "particles/units/heroes/hero_zuus/zuus_lightning_bolt.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_disruptor.vsndevts"
 		}
 
 		"Modifiers" {

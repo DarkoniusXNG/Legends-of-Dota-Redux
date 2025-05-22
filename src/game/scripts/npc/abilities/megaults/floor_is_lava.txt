@@ -4,13 +4,15 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                                                             "1"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "AbilityTextureName"                                                   "jakiro_macropyre"
-        "RequiredLevel"                                                        "24"
+
         "AbilityCooldown"                                                      "120"
         "AbilityManaCost"                                                      "500"
-        "AbilityModifierSupportValue"                                          "0.0"
+
+        "RequiredLevel"                                                        "24"
+        "MaxLevel"                                                             "1"
+
         "ReduxCost"                                                            "120"
 
         // Casting
@@ -20,7 +22,6 @@
 
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_invoker/invoker_chaos_meteor.vpcf"
         }
 
@@ -54,7 +55,6 @@
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-        "FightRecapLevel"               "2"
 
         "HasScepterUpgrade"         "1"
 

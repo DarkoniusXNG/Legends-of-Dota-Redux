@@ -8,17 +8,17 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityCastAnimation"                                                 "ACT_DOTA_CAST_ABILITY_2"
         "AbilityTextureName"                                                   "custom/bahamut_reckoning_aura"
-        "MaxLevel"                                                             "3"
         "AbilityCastRange"                                                     "900"
         "AbilityCastPoint"                                                     "0"
         "AbilityCooldown"                                                      "0"
         "AbilityManaCost"                                                      "0"
-        "AbilityModifierSupportValue"                                          "0.0"
+
         "AbilityValues"
         {
             "damage" "20 40 60"
             "radius" "900"
         }
+
         "Modifiers"
         {
             "modifier_reckoning_aura"

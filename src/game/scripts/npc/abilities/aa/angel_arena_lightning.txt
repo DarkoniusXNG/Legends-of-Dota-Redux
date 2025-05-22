@@ -9,12 +9,12 @@
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityTextureName"                                                   "custom/angel_arena_lightning"
-        "MaxLevel"                                                             "4"
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf"
         }
+
         "AbilityCastRange"                                                     "800"
         "AbilityCastPoint"                                                     "0.2"
         "AbilityCooldown"                                                      "4"

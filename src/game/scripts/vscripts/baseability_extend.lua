@@ -113,6 +113,25 @@ if CDOTABaseAbility then
 		return ability_kvs.BaseClass ~= nil and not util:IsTalent(self)
 	end
 
+	function CDOTABaseAbility:IsChannelledCustom()
+		local name = self:GetAbilityName()
+		local ability_data = GetAbilityKeyValuesByName(name) or self:GetAbilityKeyValues()
+		if not ability_data then
+			print("IsChannelledCustom: Ability "..name.." does not exist!")
+			return
+		end
+		local behavior = ability_data.AbilityBehavior
+		if not behavior then
+			print("IsChannelledCustom: Ability "..name.." does not have a behavior!")
+			return
+		end
+		return string.find(behavior, "DOTA_ABILITY_BEHAVIOR_CHANNELLED")
+	end
+	
+	function CDOTABaseAbility:IsUltimateCustom()
+		return self:GetAbilityType() == ABILITY_TYPE_ULTIMATE
+	end
+
 	function CDOTABaseAbility:IsValidToggleAbilityForIllusions()
 		local black_list = {
 			butcher_zombie = true,
@@ -175,5 +194,54 @@ if CDOTABaseAbility then
 		end
 
 		return true
+	end
+end
+
+if C_DOTABaseAbility then
+	function C_DOTABaseAbility:HasAbilityFlag(flag)
+		local ability_kvs = GetAbilityKeyValuesByName(self:GetAbilityName()) or self:GetAbilityKeyValues()
+		if not ability_kvs then
+			print("HasAbilityFlag: Ability "..self:GetAbilityName().." does not exist.")
+			return
+		end
+		local perks = ability_kvs.ReduxPerks
+		if perks then
+			if string.find(perks, "lightning") and flag == "light" then
+				local s = string.gsub(perks, "lightning", "")
+				return string.find(s, flag)
+			else
+				return string.find(perks, flag)
+			end
+		end
+	end
+
+	function C_DOTABaseAbility:IsChannelledCustom()
+		local name = self:GetAbilityName()
+		local ability_data = GetAbilityKeyValuesByName(name) or self:GetAbilityKeyValues()
+		if not ability_data then
+			print("IsChannelledCustom: Ability "..name.." does not exist!")
+			return
+		end
+		local behavior = ability_data.AbilityBehavior
+		if not behavior then
+			print("IsChannelledCustom: Ability "..name.." does not have a behavior!")
+			return
+		end
+		return string.find(behavior, "DOTA_ABILITY_BEHAVIOR_CHANNELLED")
+	end
+
+	function C_DOTABaseAbility:IsUltimateCustom()
+		local name = self:GetAbilityName()
+		local ability_data = GetAbilityKeyValuesByName(name) or self:GetAbilityKeyValues()
+		if not ability_data then
+			print("IsUltimateCustom: Ability "..name.." does not exist!")
+			return
+		end
+		local ability_type = ability_data.AbilityType
+		if not ability_type then
+			-- If ability type is ommited it's usually a basic ability
+			return false
+		end
+		return string.find(ability_type, "DOTA_ABILITY_TYPE_ULTIMATE")
 	end
 end

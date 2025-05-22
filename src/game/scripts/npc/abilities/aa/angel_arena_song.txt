@@ -6,12 +6,12 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityTextureName"                                                   "custom/angel_arena_song"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_siren/naga_siren_song_debuff.vpcf"
         }
-        "MaxLevel"                                                             "3"
+
         "AbilityCooldown"                                                      "80 60 40"
         "AbilityManaCost"                                                      "100"
         "AbilityValues"

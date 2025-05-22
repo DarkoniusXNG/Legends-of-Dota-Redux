@@ -9,17 +9,17 @@
         "AbilityManaCost"                                                      "50"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "FightRecapLevel"                                                      "1"
         "HasScepterUpgrade"                                                    "1"
+
         "AbilityValues"
         {
             "stacks" "2 3 4"
             "chance_scepter" "40"
             "duration" "60.0"
         }
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_brewmaster.vsndevts"
             "particle"                                                     "particles/master_magic.vpcf"
         }
 

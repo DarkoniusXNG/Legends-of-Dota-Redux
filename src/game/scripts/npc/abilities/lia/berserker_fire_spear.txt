@@ -7,16 +7,15 @@
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
         "AbilityTextureName"                                                   "mars_spear"
         "AbilityCastAnimation"                                                 "ACT_DOTA_ATTACK"
-        "MaxLevel"                                                             "4"
 
         "ReduxFlags"                                                           "physical"
         "ReduxPerks"                                                           "fire | physical | skillshot"
 
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_mars/mars_spear.vpcf"
         }
+
         "AbilityCastRange"                                                     "900 1050 1200 1350"
         "AbilityCastPoint"                                                     "0.3 0.3 0.3 0.3"
         "AbilityCooldown"                                                      "12.0 11.0 10.0 9.0"

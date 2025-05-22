@@ -18,6 +18,9 @@
 
     "HasScepterUpgrade"                                   "1"
 
+    "ReduxFlags"                                          "upgradeable"
+    "ReduxPerks"                                          "blades"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700 800 900"

@@ -8,7 +8,6 @@
         "AbilityCooldown"                                                      "5.0"
         "AbilityChannelTime"                                                   "1.0"
         "AbilityTextureName"                                                   "custom/garden_red_flower_base_OP"
-        "MaxLevel"                                                             "4"
         "AnimationPlaybackRate"                                                "0.2"
         "AOERadius"                                                            "400"
         "AbilityManaCost"                                                      "100 150 200 250"
@@ -33,10 +32,7 @@
             "red_flower_damage" "60 80 100 120"
             "flower_health" "600 800 1000 1200"
         }
-        "precache"
-        {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
-        }
+
         "OnSpellStart"
         {
             "ApplyModifier"

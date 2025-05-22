@@ -2,7 +2,7 @@ function PopupNumbers(target, pfx, color, lifetime, number, presymbol, postsymbo
     local pfxPath = string.format("particles/msg_fx/msg_%s.vpcf", pfx)
     local pidx = nil
     if forplayer ~= nil and IsValidEntity(forplayer) then
-      print("===========POPUP CREATED FOR PLAYER")
+      --print("===========POPUP CREATED FOR PLAYER")
       pidx = ParticleManager:CreateParticleForPlayer(pfxPath, PATTACH_ABSORIGIN_FOLLOW, target, forplayer) -- target:GetOwner()
     else
       pidx = ParticleManager:CreateParticle(pfxPath, PATTACH_ABSORIGIN_FOLLOW, target) -- target:GetOwner()
@@ -29,13 +29,14 @@ function PopupGoldGain(target, amount)
 end
 
 function alchemist_alchemise_transmute_target(keys)
-  if keys.target:GetName() == "npc_dota_roshan" then EndCooldown() return end
+  if keys.target:GetName() == "npc_dota_roshan" then return end
   keys.caster:ModifyGold(keys.gold, true, 0)  --Give the player a flat amount of reliable gold.
   
   --Start the particle and sound.
   keys.target:EmitSound("DOTA_Item.Hand_Of_Midas")
   local midas_particle = ParticleManager:CreateParticle("particles/items2_fx/hand_of_midas.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.target)  
   ParticleManager:SetParticleControlEnt(midas_particle, 1, keys.caster, PATTACH_POINT_FOLLOW, "attach_hitloc", keys.caster:GetAbsOrigin(), false)
+  ParticleManager:ReleaseParticleIndex(midas_particle)
   
   local player = PlayerResource:GetPlayer(keys.caster:GetPlayerID())
   
@@ -46,11 +47,6 @@ function alchemist_alchemise_transmute_target(keys)
     keys.target:SetMinimumGoldBounty(0)
     keys.target:SetMaximumGoldBounty(0)
     keys.target:Kill(keys.ability, keys.caster) --Kill the creep.  This increments the caster's last hit counter.
-  else
-    keys.caster:EmitSound("DOTA_Item.Hand_Of_Midas")
-    local midas_particle = ParticleManager:CreateParticle("particles/items2_fx/hand_of_midas.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.caster)  
-    ParticleManager:SetParticleControlEnt(midas_particle, 1, keys.caster, PATTACH_POINT_FOLLOW, "attach_hitloc", keys.caster:GetAbsOrigin(), false)
-    return
   end
 end
 
@@ -79,7 +75,7 @@ end
 
 function alchemist_alchemise_tick_gold(keys)
   keys.target:ModifyGold(keys.gold, false, 0)
-  print("Adding "..keys.gold.." gold to modifier owner")
+  --print("Adding "..keys.gold.." gold to modifier owner")
 end
 
 function alchemist_multiply_gold_tgt(keys)
@@ -93,7 +89,7 @@ function alchemist_multiply_gold_tgt(keys)
   
 --  target:SetMaximumGoldBounty(gold+(gold*0.1))
 --  target:SetMinimumGoldBounty(gold-(gold*0.1))
-  print("============================== GAINING "..gold.." BONUS GOLD")
+  --print("============================== GAINING "..gold.." BONUS GOLD")
   attacker:ModifyGold(gold,true,0)
   target:EmitSound("DOTA_Item.Hand_Of_Midas")
   local midas_particle = ParticleManager:CreateParticle("particles/items2_fx/hand_of_midas.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)  
@@ -196,13 +192,13 @@ function alchemist_bottle_throw_boom(keys)
   
   for i =1,5 do
     if caster:HasModifier("alchemist_bt_"..modifier_list[i]) then
-      print("=========== Caster has modifier alchemist_bt_"..modifier_list[i])
+      --print("=========== Caster has modifier alchemist_bt_"..modifier_list[i])
       keys.ability:ApplyDataDrivenModifier(caster,target,"alchemist_bt_effect_"..modifier_list[i],{})
       caster:RemoveModifierByName("alchemist_bt_"..modifier_list[i])
       break
     elseif
       caster:HasModifier("alchemist_bt_"..modifier_list[i].."_enhanced") then
-      print("=========== Caster has modifier alchemist_bt_"..modifier_list[i].."_enhanced")
+      --print("=========== Caster has modifier alchemist_bt_"..modifier_list[i].."_enhanced")
       keys.ability:ApplyDataDrivenModifier(caster,target,"alchemist_bt_effect_"..modifier_list[i].."_enhanced",{})
       caster:RemoveModifierByName("alchemist_bt_"..modifier_list[i].."_enhanced")
       break
@@ -217,9 +213,9 @@ function alchemist_enhance(keys)
     
     if item ~= nil then
       keys.ability:ApplyDataDrivenModifier(caster,caster,"alchemist_enhance_"..item:GetName(),{})
-      print("APPLYING MODIFIER alchemist_enhance_"..item:GetName())
+      --print("APPLYING MODIFIER alchemist_enhance_"..item:GetName())
       if caster:HasModifier("alchemist_enhance_"..item:GetName()) then
-        print("CASTER HAS CORRECT MODIFIER")
+        --print("CASTER HAS CORRECT MODIFIER")
         if not caster:HasAnyAvailableInventorySpace() then keys.ability:EndCooldown() keys.ability:RefundManaCost() return end
         local name = item:GetName()
         if item:GetCurrentCharges() > 1 then
@@ -228,7 +224,7 @@ function alchemist_enhance(keys)
           caster:RemoveItem(item)
         end
         local int = RandomInt(1,100)
-        print("Trying to add item: "..name.."_enhanced, with integer "..int)
+        --print("Trying to add item: "..name.."_enhanced, with integer "..int)
         local entity = nil
         if int > 10 then entity = CreateItem(name.."_enhanced",caster,caster) else
           entity = CreateItem("item_cake",caster,caster)

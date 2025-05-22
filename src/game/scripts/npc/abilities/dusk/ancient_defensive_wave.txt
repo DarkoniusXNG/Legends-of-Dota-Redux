@@ -29,10 +29,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// All about the damage
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -44,7 +40,6 @@
 	
 		"precache"
 		{
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
 			"particle"					"particles/econ/items/luna/luna_lucent_ti5/luna_eclipse_impact_moonfall.vpcf"
 			"particle"					"particles/units/heroes/hero_tek/skycrack_eff.vpcf"
 		}

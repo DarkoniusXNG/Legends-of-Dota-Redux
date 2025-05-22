@@ -118,7 +118,7 @@
 	"brewmaster_void_astral_pull"
 	{
 		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | enemyMoving"
+		"ReduxPerks"                                                           "support | enemymoving"
 		"MaxLevel"                                                             "3"
 	}
 

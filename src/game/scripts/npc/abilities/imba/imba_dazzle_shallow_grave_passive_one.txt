@@ -8,13 +8,13 @@
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ALLIES_YES"
-        "FightRecapLevel"                                                      "1"
         "AbilityTextureName"                                                   "custom/dazzle_nothl_protection"
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf"
         }
+
         "AbilityCooldown"                                                      "50.0"
         "AbilityValues"
         {

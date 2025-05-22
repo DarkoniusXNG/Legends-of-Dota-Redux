@@ -42,6 +42,7 @@
 	"night_stalker_heart_of_darkness"
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
 		"ReduxFlags"                    "doNotRandom"
 	}
 
@@ -51,6 +52,8 @@
 	"night_stalker_night_reign"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                    "doNotRandom"
 	}
 
 	//=================================================================================================================

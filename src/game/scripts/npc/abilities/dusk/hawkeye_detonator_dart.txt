@@ -30,10 +30,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"150 175 200"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// All about the damage
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -52,9 +48,8 @@
 			"particle"  "particles/units/heroes/hero_hawkeye/detonator_dart.vpcf"
 			"particle" "particles/units/heroes/hero_hawkeye/det_dart_tag.vpcf"
 			"particle" "particles/units/heroes/hero_gyrocopter/gyrocopter_base_attack.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
-			"soundfile" "soundevents\hero_tek.vsndevts"
-			"soundfile" "soundevents\hero_hawkeye.vsndevts"
+			"soundfile" "soundevents/game_sounds_heroes/hero_tek.vsndevts"
+			"soundfile" "soundevents/hero_hawkeye.vsndevts"
 		}
 
 		"ReduxPerks"	"scientific | explosive"

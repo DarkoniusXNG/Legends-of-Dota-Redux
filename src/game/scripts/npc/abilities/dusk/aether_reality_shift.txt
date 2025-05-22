@@ -14,7 +14,7 @@
 		"AbilityTextureName"			"custom/aether_reality_shift"
 
 		"ReduxFlags"                    "stun | support"
-		"ReduxPerks"                    "enemyMoving | light | support"
+		"ReduxPerks"                    "enemymoving | light | support"
 		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 
 		// Casting
@@ -30,10 +30,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"150 200 250"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// All about the damage
-
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -47,7 +43,6 @@
 
 		"precache"
 		{
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"
 			"particle" "particles/units/heroes/hero_aether/aether_reality_shift.vpcf"
 		}
 	}

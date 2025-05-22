@@ -9,7 +9,7 @@
 	"hoodwink_bushwhack"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "enemyMoving | skillshot | ranger"
+		"ReduxPerks"                                                           "enemymoving | skillshot | ranger"
 	}
 	"hoodwink_scurry"
 	{

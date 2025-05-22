@@ -13,7 +13,7 @@ function lich_absolute_zero:OnSpellStart()
 	ParticleManager:CreateParticle("particles/units/heroes/hero_lich/absolute_zero.vpcf", PATTACH_ABSORIGIN_FOLLOW, target) --[[Returns:int
 	Creates a new particle effect
 	]]
-	target:EmitSound("Lich.AbsoluteZero")
+	--target:EmitSound("Lich.AbsoluteZero")
 
 	target:AddNewModifier(caster, self, "modifier_absolute_zero", {Duration=duration}) --[[Returns:void
 	No Description Set

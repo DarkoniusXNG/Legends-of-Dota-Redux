@@ -7,9 +7,8 @@
 		"AbilityUnitTargetFlags" "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityTextureName" "custom/angel_arena_transmute"
-		"MaxLevel" "3"
 		"AbilityCastRange" "800"
-		"AbilityCastPoint" "1.0 1.0 1.0"
+		"AbilityCastPoint" "1.0"
 		"AbilityCooldown" "100.0 90.0 80.0"
 		"AbilityManaCost" "100"
 
@@ -18,33 +17,20 @@
             "hp_percent" "60 80 100"
         }
 
-		"precache" {
-			"particle" "particles/units/heroes/hero_clinkz/clinkz_death_pact.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
+		"precache"
+		{
+			"particle" "particles/units/heroes/hero_alchemist/alchemist_lasthit_msg_gold.vpcf"
 		}
 
 		"OnSpellStart" {
-			"FireEffect" {
-				"EffectName" "particles/units/heroes/hero_clinkz/clinkz_death_pact.vpcf"
-				"EffectAttachType" "follow_origin"
-				"Target" "TARGET"
-
-				"ControlPointEntities" {
-					"TARGET" "attach_origin"
-					"CASTER" "attach_origin"
-				}
-			}
-
-			"FireSound" {
-				"EffectName" "Hero_Clinkz.DeathPact"
-				"Target" "TARGET"
-			}
-
 			"RunScript" {
 				"ScriptFile" "abilities/angel_arena_reborn/transmute.lua"
 				"Function" "Transmute"
 				"health_to_gold" "%hp_percent"
 			}
 		}
+
+		"ReduxFlags"	"wtfAutoBan"
+		"ReduxPerks"	"gold"
 	}
 }

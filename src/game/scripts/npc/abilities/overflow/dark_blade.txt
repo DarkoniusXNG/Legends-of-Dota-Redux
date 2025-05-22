@@ -11,10 +11,14 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"							// Changes dynamically with scepter
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"FightRecapLevel"				"2"
+
 		"AbilityTextureName"				"custom/dark_blade"
 		"ScriptFile"					"abilities/overflow/dark_blade/dark_blade.lua"
 		"HasScepterUpgrade" "1"
+
+		"ReduxFlags"                    "upgradeable"
+		"ReduxPerks"                    "blades"
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1200"
@@ -28,14 +32,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"150 200 250"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// Modifier just delays damage
-
 		"precache"
 		{
 			"particle"          "particles/econ/items/terrorblade/terrorblade_back_ti8/terrorblade_sunder_ti8.vpcf"
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_nightstalker.vsndevts"
 		}
 
 		// Special

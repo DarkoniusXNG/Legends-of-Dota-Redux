@@ -25,15 +25,15 @@ end
 function modifier_npc_dota_hero_phoenix_perk:GetTexture()
 	return "custom/npc_dota_hero_phoenix_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_phoenix_perk:DeclareFunctions()
-    return {
-        MODIFIER_EVENT_ON_TAKEDAMAGE,
-        MODIFIER_PROPERTY_MIN_HEALTH,
-    }
+	return {
+		MODIFIER_EVENT_ON_TAKEDAMAGE,
+		MODIFIER_PROPERTY_MIN_HEALTH,
+		--MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+	}
 end
+
 if IsServer() then
     function modifier_npc_dota_hero_phoenix_perk:OnCreated()
         self.eggLevel = 0
@@ -86,6 +86,16 @@ if IsServer() then
         end
     end
 end
+
+-- function modifier_npc_dota_hero_phoenix_perk:GetModifierPercentageCooldown(keys)
+	-- local ability = keys.ability
+	-- if ability then
+		-- if ability:HasAbilityFlag("fire") then
+			-- return 25
+		-- end
+	-- end
+	-- return 0
+-- end
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_phoenix_perk_delay = modifier_npc_dota_hero_phoenix_perk_delay or class({})
 --------------------------------------------------------------------------------------------------------
@@ -101,4 +111,3 @@ end
 function modifier_npc_dota_hero_phoenix_perk_delay:GetTexture()
 	return "custom/npc_dota_hero_phoenix_perk"
 end
---------------------------------------------------------------------------------------------------------

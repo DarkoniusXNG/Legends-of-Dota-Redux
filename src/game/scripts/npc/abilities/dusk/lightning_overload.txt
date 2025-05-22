@@ -26,10 +26,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"40 45 50 55"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// All about the damage
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -44,12 +40,7 @@
 		
 		"precache"
 		{
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
 			"particle" "particles/units/heroes/hero_stormspirit/stormspirit_overload_discharge.vpcf"
-		}
-		
-		"Modifiers"
-		{
 		}
 
 		"ReduxPerks"	"lightning"

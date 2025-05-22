@@ -3,7 +3,6 @@
 		"BaseClass" "ability_datadriven"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName" "custom/angel_arena_hawk_passive"
-		"MaxLevel" "4"
 
 		"AbilityValues"
         {

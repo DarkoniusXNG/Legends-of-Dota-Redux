@@ -927,8 +927,7 @@ function PlasmaField( keys )
 	if #heroes >= 1 or #creeps > 1 then
 		local plasma = caster:FindAbilityByName("plasma_internal_tower")
 		if not plasma then
-			caster:AddAbility("plasma_internal_tower")
-			plasma = caster:FindAbilityByName("plasma_internal_tower")
+			plasma = caster:AddAbility("plasma_internal_tower")
 			plasma:SetHidden(true)
 			plasma:SetLevel(ability_level)
 		end

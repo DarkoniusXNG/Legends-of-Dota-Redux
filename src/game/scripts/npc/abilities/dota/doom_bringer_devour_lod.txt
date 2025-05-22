@@ -2,7 +2,6 @@
 	"doom_bringer_devour_lod" {
 		"BaseClass" "ability_datadriven"
 		"AbilityTextureName" "doom_bringer_devour"
-		"MaxLevel" "4"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType" "DOTA_UNIT_TARGET_CREEP"
@@ -11,10 +10,11 @@
 		"AbilityManaCost" "40 50 60 70"
 		"AbilityCastRange" "300"
 		"AbilityCastPoint" "0.3"
-		"ReduxPerks"                                                           "demon"
 
-		"precache" {
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
+		"ReduxPerks"                                                           "demon | gold"
+
+		"precache"
+		{
 			"particle" "particles/units/heroes/hero_doom_bringer/doom_bringer_devour.vpcf"
 		}
 

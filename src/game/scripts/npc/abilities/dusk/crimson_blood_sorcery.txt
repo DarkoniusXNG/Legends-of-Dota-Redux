@@ -8,7 +8,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"bloodseeker_thirst"
 
 		"ReduxFlags"                    "mana"
@@ -36,7 +35,6 @@
 
 		"precache"
 		{
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
 			"particle"			"particles/units/heroes/hero_crimson/crimson_ancient_pact.vpcf"
 		}
 

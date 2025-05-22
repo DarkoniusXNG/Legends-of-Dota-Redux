@@ -34,10 +34,7 @@
             "bonus_speed" "150 200 250 300"
             "duration" "0.6"
         }
-        "precache"
-        {
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
-        }
+
         "OnSpellStart"
         {
             "FireSound"
@@ -178,6 +175,7 @@
             "creep_duration"                     "15.0"
             "trigger_essence_aura"               "1"
         }
+
         "precache"
         {
             "particle"      "particles/status_fx/status_effect_rupture.vpcf"
@@ -209,11 +207,13 @@
             "cooldown_reduction" "50"
             "duration" "20.0"
         }
+
         "precache"
         {
             "particle"  "particles/items_fx/courier_speed.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_veera.vsndevts"
         }
+
         "OnUpgrade"
         {
             "RunScript"
@@ -363,14 +363,14 @@
             "stun_duration" "0.8"
             "armor_reduction" "-2.0"
         }
+
         "precache"
         {
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_viper.vsndevts"
             "particle"          "particles/veera_toxic_darts.vpcf"
             "particle"          "particles/units/heroes/hero_dazzle/dazzle_poison_debuff.vpcf"
             "particle"          "particles/generic_gameplay/generic_stunned.vpcf"
         }
+
         "OnUpgrade"
         {
             "RunScript"

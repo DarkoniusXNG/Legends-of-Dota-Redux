@@ -27,10 +27,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"80 90 100 110"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// All about the damage
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -46,7 +42,6 @@
 		
 		"precache"
 		{
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
 			"particle"  "particles/units/heroes/hero_invoker/invoker_emp.vpcf"
 		}
 

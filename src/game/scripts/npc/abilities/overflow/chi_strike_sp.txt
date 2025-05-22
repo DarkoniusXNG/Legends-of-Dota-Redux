@@ -9,19 +9,18 @@
 		"AbilityTextureName"				"custom/chi_strike_sp"
 		"AbilityCooldown"               "1.0"
 		"AbilityCastRange"				"800 900 1000 1100"
-		//"MaxLevel"	"7"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
+
 		"precache"
 		{
 			"particle"	"particles/chi_strike_wave.vpcf"
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
 		}
+
 		"AbilityValues"
         {
             "range" "900 1000 1100 1200"
             "speed" "2000"
         }
+
 		"ReduxFlags"                                                           "aoe_attack | attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier"
 		"ReduxCost"                                                            "120"

@@ -12,12 +12,13 @@
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
         "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-        "FightRecapLevel"               "2"
+
         "MaxLevel"                      "1"
         "RequiredLevel"                 "24"
-        "ReduxCost"                                                            "120"
 
-        "HasScepterUpgrade"         "1"
+        "ReduxFlags"                    "physical"
+        "ReduxPerks"                    "blades | physical"
+        "ReduxCost"                     "120"
         
         // Casting
         //-------------------------------------------------------------------------------------------------------------
@@ -30,10 +31,6 @@
         // Cost
         //-------------------------------------------------------------------------------------------------------------
         "AbilityManaCost"               "350"
-
-        // Stats
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityModifierSupportValue"   "0.0"   // damage only
 
         // Special
         //-------------------------------------------------------------------------------------------------------------

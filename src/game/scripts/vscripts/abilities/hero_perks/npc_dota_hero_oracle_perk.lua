@@ -43,9 +43,7 @@ function modifier_npc_dota_hero_oracle_perk:OnCreated()
 		item_glimmer_cape = true,
 		item_guardian_greaves = true,
 		item_holy_locket = true,
-		item_iron_talon = true,
 		item_lotus_orb = true,
-		item_mechanical_arm = true,
 		item_medallion_of_courage = true,
 		item_mekansm = true,
 		item_pavise = true,
@@ -59,26 +57,22 @@ function modifier_npc_dota_hero_oracle_perk:OnCreated()
     }
   end
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_oracle_perk:DeclareFunctions()
-  local funcs = {
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST
-  }
-  return funcs
+	return {
+		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
+	}
 end
 
-function modifier_npc_dota_hero_oracle_perk:OnAbilityFullyCast(keys)
-  if IsServer() then
+if IsServer() then
+  function modifier_npc_dota_hero_oracle_perk:OnAbilityFullyCast(keys)
     local hero = self:GetCaster()
-    local target = keys.target
     local ability = keys.ability
+
     if hero == keys.unit and ability and self.limitedItems[ability:GetName()] then
-      local cooldown = ability:GetCooldownTimeRemaining() * self.cooldownReduction
+      local cooldown = ability:GetCooldownTimeRemaining() 
       ability:EndCooldown()
-      ability:StartCooldown(cooldown)
+      ability:StartCooldown(cooldown*self.cooldownReduction)
     end
   end
 end

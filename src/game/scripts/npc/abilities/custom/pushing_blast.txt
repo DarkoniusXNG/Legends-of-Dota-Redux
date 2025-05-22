@@ -19,7 +19,7 @@
         }
 
         "ReduxFlags"                                                           "stun"
-        "ReduxPerks"                                                           "enemyMoving | light"
+        "ReduxPerks"                                                           "enemymoving | light"
     }
 
     "special_bonus_unique_pushing_blast_0"

@@ -12,11 +12,12 @@
         "AbilityCastPoint"                                                     "0.3"
         "AbilityCooldown"                                                      "60"
         "AbilityManaCost"                                                      "120 125 130 135"
+
         "precache"
         {
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
             "particle"                                                     "particles/units/heroes/hero_juggernaut/juggernaut_ward_heal.vpcf"
         }
+
         "AbilityValues"
         {
             "heal_radius" "500"

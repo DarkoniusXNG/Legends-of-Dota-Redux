@@ -29,10 +29,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// All about the damage
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -45,7 +41,6 @@
 		
 		"precache"
 		{
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
 			"particle"	"particles/units/heroes/hero_sniper/sniper_crosshair.vpcf"
 			"soundfile" "soundevents/hero_hawkeye.vsndevts"
 		}

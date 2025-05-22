@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --    Hero: Mirana
---    Perk: When Mirana casts Skillshots, they will have 50% mana refunded and cooldowns reduced by 25%.
+--    Perk: Skillshot abilities cast by Mirana will have reduced cooldown and mana cost.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_mirana_perk = modifier_npc_dota_hero_mirana_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -23,28 +23,23 @@ end
 function modifier_npc_dota_hero_mirana_perk:GetTexture()
 	return "custom/npc_dota_hero_mirana_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_mirana_perk:DeclareFunctions()
-	return {
-		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-	}
-end
 
-if IsServer() then
-	function modifier_npc_dota_hero_mirana_perk:OnAbilityFullyCast(keys)
-		local manaRefund = 50
-		local cooldownReduction = 25
-
-		manaRefund = 1 - (manaRefund * 0.01)
-		cooldownReduction = 1 - (cooldownReduction * 0.01)
-
-		if keys.ability:HasAbilityFlag("skillshot") and keys.unit == self:GetParent() then
-			local cooldown = keys.ability:GetCooldownTimeRemaining()
-			keys.ability:EndCooldown()
-			keys.ability:StartCooldown(cooldown*cooldownReduction)
-			self:GetParent():GiveMana(keys.ability:GetManaCost(keys.ability:GetLevel()-1)*manaRefund)
+function modifier_npc_dota_hero_mirana_perk:GetModifierPercentageCooldown(keys)
+	local ability = keys.ability
+	if ability then
+		if ability:HasAbilityFlag("skillshot") then
+			return 25
 		end
 	end
+	return 0
+end
+
+function modifier_npc_dota_hero_mirana_perk:GetModifierPercentageManacostStacking(keys)
+	local ability = keys.ability
+	if ability then
+		if ability:HasAbilityFlag("skillshot") then
+			return 25
+		end
+	end
+	return 0
 end

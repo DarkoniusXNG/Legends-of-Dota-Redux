@@ -8,14 +8,15 @@
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "SpellDispellableType"                                                 "SPELL_DISPELLABLE_NO"
+
         "HasScepterUpgrade"                                                    "1"
         "AbilityCastRange"                                                     "650"
-        "AbilityCastPoint"                                                     "0.3 0.3 0.3 0.3"
-        "FightRecapLevel"                                                      "1"
+        "AbilityCastPoint"                                                     "0.3"
         "AbilityTextureName"                                                   "custom/undying_decay_agi"
         "AOERadius"                                                            "325"
         "AbilityCooldown"                                                      "10.0 8.0 6.0 4.0"
         "AbilityManaCost"                                                      "85 90 95 100"
+
         "AbilityValues"
         {
             "decay_damage" "120 180 220 280"
@@ -27,11 +28,13 @@
             "stat_scale_up" "2"
             "radius" "400"
         }
+
         "precache"
         {
-            "soundfile"                                                    "sounds/weapons/hero/undying/decay_cast.vsnd"
-            "particle"                                                     "particles/undying_decay_agility_buff.vpcf"
+			"particle"                                                     "particles/undying_decay_fakeprojectile_glow_agi.vpcf"
+			"particle"                                                     "particles/undying_decay_agility_buff.vpcf"
         }
+
         "OnSpellStart"
         {
             "FireSound"

@@ -4,8 +4,6 @@
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityTextureName"                                                   "custom/serpent_queen_ball_lightning"
-        "MaxLevel"                                                             "4"
-        "RequiredLevel"                                                        "1"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -18,12 +16,13 @@
         "AbilityCastPoint"                                                     "0.3"
         "AbilityCooldown"                                                      "40 36 32 28"
         "AbilityManaCost"                                                      "100 120 140 160"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_stormspirit/stormspirit_base_attack_explosion.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
             "model"                                                        "models/items/courier/echo_wisp/echo_wisp_flying.vmdl"
         }
+
         "AbilityValues"
         {
             "max_locusts_on_target" "18"

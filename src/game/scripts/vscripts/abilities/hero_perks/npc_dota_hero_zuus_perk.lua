@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Zeus
---		Perk: Zeus has 25% CDR and 25% manacost reduction for Lightning spells he casts.
+--		Perk: Lightning abilities cast by Zeus will have reduced cooldown and mana cost.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_zuus_perk = modifier_npc_dota_hero_zuus_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -23,30 +23,30 @@ end
 function modifier_npc_dota_hero_zuus_perk:GetTexture()
 	return "custom/npc_dota_hero_zuus_perk"
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_zuus_perk:OnCreated()
-  local manaRefund = 25
-  local cooldownReduction = 25
 
-  self.manaRefund = manaRefund * 0.01
-  self.cooldownReduction = 1 - (cooldownReduction * 0.01)
-end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_zuus_perk:DeclareFunctions()
 	return {
-		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
 	}
 end
---------------------------------------------------------------------------------------------------------
-if IsServer() then
-	function modifier_npc_dota_hero_zuus_perk:OnAbilityFullyCast(keys)
-		if keys.ability:HasAbilityFlag("lightning") and keys.unit == self:GetParent() then
-			local cooldown = keys.ability:GetCooldownTimeRemaining()
-			keys.ability:EndCooldown()
-			keys.ability:StartCooldown(cooldown*self.cooldownReduction)
-			self:GetParent():GiveMana(keys.ability:GetManaCost(keys.ability:GetLevel()-1)*self.manaRefund)
+
+function modifier_npc_dota_hero_zuus_perk:GetModifierPercentageCooldown(keys)
+	local ability = keys.ability
+	if ability then
+		if ability:HasAbilityFlag("lightning") then
+			return 25
 		end
 	end
+	return 0
+end
+
+function modifier_npc_dota_hero_zuus_perk:GetModifierPercentageManacostStacking(keys)
+	local ability = keys.ability
+	if ability then
+		if ability:HasAbilityFlag("lightning") then
+			return 25
+		end
+	end
+	return 0
 end

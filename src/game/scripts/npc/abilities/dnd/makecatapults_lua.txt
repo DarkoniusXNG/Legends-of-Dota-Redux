@@ -6,13 +6,12 @@
         "AbilityTextureName"                                                   "custom/spawnseigecreep"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "ScriptFile"                                                           "abilities/definitely not dota/makecatapults_lua"
-        "MaxLevel"                                                             "3"
         "AbilityCastPoint"                                                     "0.0"
-        "AbilityCooldown"                                                      "90 63 40"
+        "AbilityCooldown"                                                      "90 75 60 45"
         "AbilityManaCost"                                                      "0"
         "AbilityValues"
         {
-            "maxcatapults" "1 1 2"
+            "maxcatapults" "1 1 1 2"
         }
         "ReduxFlags"                                                           "summon | doNotRandom"
         "ReduxPerks"                                                           "summon_non_ult"

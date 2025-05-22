@@ -10,11 +10,11 @@
         "SpellImmunityType"             "SPELL_IMMUNITY_ALLIES_YES"
         "AbilityTextureName"            "custom/ogre_magi_bloodlust_op"
         "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
-        "MaxLevel"                      "4"
         "AbilityCastRange"              "900"
         "AbilityCastPoint"              "0.1"
         "AbilityCooldown"               "10"
         "AbilityManaCost"               "40"
+
         "AbilityValues"
 		{
 			"modelscale"				"35.0"

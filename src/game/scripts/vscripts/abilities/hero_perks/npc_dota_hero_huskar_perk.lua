@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Huskar
---		Perk: Bonus damage with Self Damaging spells
+--		Perk: Berserker's Blood free level + Bonus damage with Self Damaging spells
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_huskar_perk = modifier_npc_dota_hero_huskar_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -24,6 +24,22 @@ function modifier_npc_dota_hero_huskar_perk:GetTexture()
 	return "custom/npc_dota_hero_huskar_perk"
 end
 
+function modifier_npc_dota_hero_huskar_perk:OnCreated()
+	if IsServer() then
+		local caster = self:GetCaster()
+		local bonus_ability = caster:FindAbilityByName("huskar_berserkers_blood")
+
+		if bonus_ability then
+			bonus_ability:UpgradeAbility(false)
+		else 
+			bonus_ability = caster:AddAbility("huskar_berserkers_blood")
+			--bonus_ability:SetStolen(true)
+			bonus_ability:SetActivated(true)
+			bonus_ability:SetLevel(1)
+		end
+	end
+end
+
 function modifier_npc_dota_hero_huskar_perk:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
@@ -36,8 +52,8 @@ if IsServer() then
 		if not ability or ability:IsNull() then
 			return 0
 		end
-		if ability:HasAbilityFlag("self_damage") then
-			return 15
+		if ability:HasAbilityFlag("self_damage") and keys.target ~= self:GetParent() then
+			return 20
 		end
 		return 0
 	end

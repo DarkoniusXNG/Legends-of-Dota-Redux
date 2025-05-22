@@ -1,13 +1,14 @@
 "DOTAAbilities" {
-	"invoker_retro_invisibility_aura_tower" {
+	"invoker_retro_invisibility_aura_tower"
+	{
 		"BaseClass" "ability_datadriven"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
 		"AbilityTextureName" "custom/invoker_retro_invisibility_aura"
 		"SpellImmunityType" "SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastRange" "500 600 700"
-		"FightRecapLevel" "1"
-		"MaxLevel" "3"
+
 		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
+
 		"ReduxFlags"                                                           "invis"
 		"ReduxCost"                                                            "120"
 		

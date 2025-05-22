@@ -7,8 +7,7 @@
         "AbilityTextureName"                                                   "custom/invoker_retro_invisibility_aura"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityCastRange"                                                     "500"
-        "FightRecapLevel"                                                      "1"
-        "MaxLevel"                                                             "4"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_invoker/invoker_retro_invisibility_aura.vpcf"

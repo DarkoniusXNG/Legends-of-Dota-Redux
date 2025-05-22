@@ -23,11 +23,12 @@
             "speed_decrease" "-3 -4 -5 -6"
             "max_speed" "60"
         }
+
         "precache"
         {
             "particle"                                                     "particles/zulf_jet_stream.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
         }
+
         "OnSpellStart"
         {
             "RunScript"

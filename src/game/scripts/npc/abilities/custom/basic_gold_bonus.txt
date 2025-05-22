@@ -11,8 +11,9 @@
         {
             "gold_bonus" "60 90 120 150"
         }
+
         "ReduxFlags"                                                           "dota_custom"
-        "ReduxCost"                                                            "0"
+        "ReduxPerks"                                                           "gold"
     }
 
     "basic_gpm_bonus_op"
@@ -26,7 +27,9 @@
         {
             "gold_bonus" "100 200 300 400"
         }
+
         "ReduxFlags"                                                           "dota_custom"
+        "ReduxPerks"                                                           "gold"
         "ReduxCost"                                                            "120"
     }
 }

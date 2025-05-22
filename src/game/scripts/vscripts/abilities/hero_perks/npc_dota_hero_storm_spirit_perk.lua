@@ -1,23 +1,23 @@
 --------------------------------------------------------------------------------------------------------
 --    Hero: Storm Spirit
---    Perk: Mana Aura free ability
+--    Perk: Storm Spirit gains +1% Spell Amp and +3% Attack Speed for each level put in a Lightning ability.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_storm_spirit_perk = modifier_npc_dota_hero_storm_spirit_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_storm_spirit_perk:IsPassive()
-  return true
+	return true
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_storm_spirit_perk:IsHidden()
-  return false
+	return false
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_storm_spirit_perk:RemoveOnDeath()
-  return false
+	return false
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_storm_spirit_perk:IsPurgable()
-  return false
+	return false
 end
 
 function modifier_npc_dota_hero_storm_spirit_perk:GetTexture()
@@ -25,17 +25,38 @@ function modifier_npc_dota_hero_storm_spirit_perk:GetTexture()
 end
 
 function modifier_npc_dota_hero_storm_spirit_perk:OnCreated()
+	self.bonusPerLevel = 1
 	if IsServer() then
-		local caster = self:GetCaster()
-		local bonus_ability = caster:FindAbilityByName("forest_troll_high_priest_mana_aura")
-
-		if bonus_ability then
-			bonus_ability:UpgradeAbility(false)
-		else
-			bonus_ability = caster:AddAbility("forest_troll_high_priest_mana_aura")
-			--bonus_ability:SetStolen(true)
-			bonus_ability:SetActivated(true)
-			bonus_ability:SetLevel(1)
-		end
+		self:StartIntervalThink(0.1)
 	end
 end
+
+function modifier_npc_dota_hero_storm_spirit_perk:OnIntervalThink()
+	if IsServer() then
+		local caster = self:GetParent()
+		local stacks = 0
+		for i = 0, caster:GetAbilityCount() - 1 do
+			local skill = caster:GetAbilityByIndex(i)
+			if skill and skill:HasAbilityFlag("lightning") then
+				stacks = stacks + skill:GetLevel() * self.bonusPerLevel
+			end
+		end
+		self:SetStackCount(stacks)
+	end
+end
+
+function modifier_npc_dota_hero_storm_spirit_perk:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE,
+	}
+end
+
+function modifier_npc_dota_hero_storm_spirit_perk:GetModifierSpellAmplify_Percentage()
+	return self:GetStackCount()
+end
+
+function modifier_npc_dota_hero_storm_spirit_perk:GetModifierAttackSpeedPercentage()
+	return 3 * self:GetStackCount()
+end
+

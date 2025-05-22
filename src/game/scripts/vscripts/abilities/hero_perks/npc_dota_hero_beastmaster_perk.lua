@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Beastmaster
---      Perk: Increases Beastmaster's Strength by 3 for every level put in Non-ultimate Summon or Aura abilities. Beastmaster's summons take less damage while Beastmaster is alive.
+--      Perk: Beastmaster gains Strength for each level put in a Non-ultimate Summon or Aura abilities. Beastmaster's summons take less damage while Beastmaster is alive.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_beastmaster_perk = modifier_npc_dota_hero_beastmaster_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -24,12 +24,6 @@ function modifier_npc_dota_hero_beastmaster_perk:GetTexture()
 	return "custom/npc_dota_hero_beastmaster_perk"
 end
 
-function modifier_npc_dota_hero_beastmaster_perk:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-	}
-end
-
 function modifier_npc_dota_hero_beastmaster_perk:OnCreated()
 	self.bonusPerLevel = 3
 	if IsServer() then
@@ -49,6 +43,12 @@ function modifier_npc_dota_hero_beastmaster_perk:OnIntervalThink()
 		end
 		self:SetStackCount(stacks)
 	end
+end
+
+function modifier_npc_dota_hero_beastmaster_perk:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+	}
 end
 
 function modifier_npc_dota_hero_beastmaster_perk:GetModifierBonusStats_Strength()

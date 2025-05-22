@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Abaddon
---      Perk: When Abaddon casts Borrowed Time, it lasts 33% longer.
+--      Perk: Curse of Avernus free level + 2% Healing Amp for each level put in an Undead ability.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_abaddon_perk = modifier_npc_dota_hero_abaddon_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -24,20 +24,49 @@ function modifier_npc_dota_hero_abaddon_perk:GetTexture()
 	return "custom/npc_dota_hero_abaddon_perk"
 end
 
-function PerkAbaddon(filterTable)
-  	local parent_index = filterTable["entindex_parent_const"]
-  	local caster_index = filterTable["entindex_caster_const"]
-  	local ability_index = filterTable["entindex_ability_const"]
-  	local modifier_name = filterTable["name_const"]
-  	if not parent_index or not caster_index or not ability_index then
-    	return true
-  	end
-  	local parent = EntIndexToHScript( parent_index )
-  	local caster = EntIndexToHScript( caster_index )
-  	local ability = EntIndexToHScript( ability_index )
-  	if ability then
-  		if caster:GetUnitName() == "npc_dota_hero_abaddon" and string.find(ability:GetAbilityName(), "borrowed_time") then
-			filterTable["duration"] = filterTable["duration"] * 1.33
+function modifier_npc_dota_hero_abaddon_perk:OnCreated()
+	self.bonusPerLevel = 2
+	if IsServer() then
+		local caster = self:GetCaster()
+		local bonus_ability = caster:FindAbilityByName("abaddon_frostmourne")
+
+		if bonus_ability then
+			bonus_ability:UpgradeAbility(false)
+		else 
+			bonus_ability = caster:AddAbility("abaddon_frostmourne")
+			--bonus_ability:SetStolen(true)
+			bonus_ability:SetActivated(true)
+			bonus_ability:SetLevel(1)
 		end
+		self:StartIntervalThink(0.1)
 	end
+end
+
+function modifier_npc_dota_hero_abaddon_perk:OnIntervalThink()
+	if IsServer() then
+		local caster = self:GetParent()
+		local stacks = 0
+		for i = 0, caster:GetAbilityCount() - 1 do
+			local skill = caster:GetAbilityByIndex(i)
+			if skill and skill:HasAbilityFlag("undead") then
+				stacks = stacks + skill:GetLevel() * self.bonusPerLevel
+			end
+		end
+		self:SetStackCount(stacks)
+	end
+end
+
+function modifier_npc_dota_hero_abaddon_perk:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
+		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+	}
+end
+
+function modifier_npc_dota_hero_abaddon_perk:GetModifierHealAmplify_PercentageSource()
+	return self:GetStackCount()
+end
+
+function modifier_npc_dota_hero_abaddon_perk:GetModifierHealAmplify_PercentageTarget()
+	return self:GetStackCount()
 end

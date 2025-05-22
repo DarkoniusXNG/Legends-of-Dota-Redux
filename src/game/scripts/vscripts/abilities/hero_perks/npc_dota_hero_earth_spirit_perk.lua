@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Earth Spirit
---		Perk: Earth Spirit gains 3 damage for each point in Earth Abilities.
+--		Perk: Earth Spirit gains 3 damage for each point in an Earth ability.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_earth_spirit_perk = modifier_npc_dota_hero_earth_spirit_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -24,12 +24,6 @@ function modifier_npc_dota_hero_earth_spirit_perk:RemoveOnDeath()
 	return false
 end
 
-function modifier_npc_dota_hero_earth_spirit_perk:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-	}
-end
-
 function modifier_npc_dota_hero_earth_spirit_perk:OnCreated()
 	self.baseDamage = 3
 	if IsServer() then
@@ -39,16 +33,22 @@ end
 
 function modifier_npc_dota_hero_earth_spirit_perk:OnIntervalThink()
 	if IsServer() then
-		local spirit = self:GetParent()
+		local parent = self:GetParent()
 		local stacks = 0
-		for i = 0, spirit:GetAbilityCount() - 1 do
-			local skill = spirit:GetAbilityByIndex(i)
+		for i = 0, parent:GetAbilityCount() - 1 do
+			local skill = parent:GetAbilityByIndex(i)
 			if skill and skill:HasAbilityFlag("earth") then
 				stacks = stacks + skill:GetLevel() * self.baseDamage
 			end
 		end
 		self:SetStackCount(stacks)
 	end
+end
+
+function modifier_npc_dota_hero_earth_spirit_perk:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+	}
 end
 
 function modifier_npc_dota_hero_earth_spirit_perk:GetModifierPreAttack_BonusDamage()

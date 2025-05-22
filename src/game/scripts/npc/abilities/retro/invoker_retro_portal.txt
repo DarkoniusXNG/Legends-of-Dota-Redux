@@ -11,19 +11,19 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "AbilityCastAnimation"                                                 "ACT_DOTA_CAST_SUN_STRIKE"
-        "FightRecapLevel"                                                      "1"
-        "MaxLevel"                                                             "4"
+
         "AbilityProcsMagicStick"                                               "1"
         "CastFilterRejectCaster"                                               "1"
         "AbilityCooldown"                                                      "16 14 12 10"
         "AbilityManaCost"                                                      "100 90 80 70"
         "AbilityCastRange"                                                     "1200 1500 1800 2100"
         "AbilityCastPoint"                                                     ".75"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_invoker/invoker_retro_portal_drain.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_meepo.vsndevts"
         }
+
         "AbilityValues"
         {
             "damage" "0"

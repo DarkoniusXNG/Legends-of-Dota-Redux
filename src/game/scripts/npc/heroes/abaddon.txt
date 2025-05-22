@@ -25,8 +25,9 @@
 	//=================================================================================================================
 	"abaddon_the_quickening"
 	{
-		"ReduxFlags"                    "cooldown"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                    "cooldown"
 	}
 
 	//=================================================================================================================
@@ -45,7 +46,7 @@
 	"abaddon_frostmourne"
 	{
 		"ReduxFlags"                    "attack_modifier"
-		"ReduxPerks"                    "attack_modifier | ice"
+		"ReduxPerks"                    "attack_modifier | ice | undead"
 	}
 
 	//=================================================================================================================
@@ -54,6 +55,7 @@
 	"abaddon_borrowed_time"
 	{
 		"ReduxFlags"                    "upgradeable | wtfAutoBan | semi_passive | tank"
+		"ReduxPerks"                    "undead"
 		"ReduxCost"                     "120"
 		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand | phoenix_supernova"
 	}

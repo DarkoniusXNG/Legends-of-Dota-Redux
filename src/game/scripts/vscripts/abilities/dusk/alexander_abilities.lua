@@ -166,3 +166,36 @@ function elandras_blessing(keys)
 
 	DealDamage(attacker, caster, fdamage, DAMAGE_TYPE_MAGICAL)
 end
+
+function DealDamage(target,attacker,damageAmount,damageType,damageFlags,ability)
+  local target = target
+  local attacker = attacker or target -- if nil we assume we're dealing self damage
+  local dmg = damageAmount
+  local dtype = damageType
+  local flags = damageFlags or DOTA_DAMAGE_FLAG_NONE
+  
+  if not IsValidEntity(target) and type(target) == "table" then -- assume a table was passed
+    for kd,vd in pairs(target) do
+      if IsValidEntity(vd) then
+        ApplyDamage({
+          victim = vd,
+          attacker = attacker,
+          damage = dmg,
+          damage_type = dtype,
+          damage_flags = flags,
+          ability = ability
+        })
+      end
+    end
+    return
+  end
+  
+  ApplyDamage({
+    victim = target,
+    attacker = attacker,
+    damage = dmg,
+    damage_type = dtype,
+    damage_flags = flags,
+    ability = ability
+  })
+end

@@ -5,7 +5,7 @@
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange" "1200"
-		"AbilityCastPoint" "0.3 0.3 0.3"
+		"AbilityCastPoint" "0.3"
 		"AbilityCooldown" "60.0"
 		"AbilityManaCost" "150 200 250"
 

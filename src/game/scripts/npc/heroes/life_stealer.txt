@@ -19,7 +19,7 @@
 	}
 
 	//=================================================================================================================
-	// Lifestealer: Feast
+	// Lifestealer: Feast (Innate)
 	//=================================================================================================================
 	"life_stealer_feast"
 	{
@@ -125,6 +125,8 @@
 	"life_stealer_control"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+		"ReduxFlags"		"doNotRandom"
 	}
 
 	//=================================================================================================================

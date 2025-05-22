@@ -14,14 +14,12 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"custom/gemini_voidal_bolt"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_vengefulspirit.vsndevts"
 			"particle"			"particles/units/heroes/hero_gemini/voidal_flare.vpcf"		
 		}
 
@@ -50,7 +48,7 @@
             "duration" "60"
         }
 
-		"ReduxPerks"	""
 		"ReduxFlags"	"stun"
+		"ReduxPerks"	"light"
 	}
 }

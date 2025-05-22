@@ -36,7 +36,7 @@
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
 
         "ReduxFlags"                    "stun"
-        "ReduxPerks"                    "demon | enemyMoving"
+        "ReduxPerks"                    "demon | enemymoving"
 
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
         "AbilityCooldown"               "12"
@@ -61,8 +61,6 @@
         {
             "particle"          "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
             "particle"          "particles/units/heroes/hero_bounty_hunter/bounty_hunter_jinda_slow.vpcf"
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
         }
 
         "OnSpellStart"
@@ -178,7 +176,7 @@
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
 
         "ReduxFlags"                    "stun"
-        "ReduxPerks"                    "demon | enemyMoving"
+        "ReduxPerks"                    "demon | enemymoving"
         "ReduxCost"                     "120"
 
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
@@ -204,8 +202,6 @@
         {
             "particle"          "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
             "particle"          "particles/units/heroes/hero_bounty_hunter/bounty_hunter_jinda_slow.vpcf"
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
-            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
         }
 
         "OnSpellStart"
@@ -384,11 +380,12 @@
         "BaseClass"                     "ability_datadriven"
         "AbilityCooldown"                   "65.0 55.0 45.0 35.0"
 
+        "ReduxPerks"                        "blades"
+
         "precache"
         {
             "particle"      "particles/units/heroes/hero_hylonome/hylonome_armor_buff.vpcf"
             "particle"      "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok_ovr_arc.vpcf"
-            "soundfile" "soundevents/game_sounds_items.vsndevts"
         }
 
         "OnSpellStart"
@@ -559,9 +556,6 @@
             "particle"  "particles/hylonome_tentacle_tako.vpcf"
             "particle"  "particles/other/hylonome_libation_attack_buff.vpcf"
             "particle"  "particles/hylonome_libation.vpcf"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_shadow_demon.vsndevts"
         }
 
         "AbilityValues"

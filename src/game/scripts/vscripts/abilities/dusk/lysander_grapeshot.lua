@@ -7,38 +7,30 @@ function lysander_grapeshot:OnSpellStart()
 	local t = self:GetCursorTarget()
 
 	if t:TriggerSpellAbsorb(self) then return end
-	t:TriggerSpellReflect(self)
 
 	if t then
-
 		local base_dmg = self:GetSpecialValueFor("base_damage")
-
-		local cdr_duration = self:GetSpecialValueFor("cdr_duration")
-
 		local sound = "Hero_Kunkka.InverseBayonet"
 		local sound2 = ""
-
 		local particle = "particles/units/heroes/hero_lysander/grapeshot.vpcf"
-
 		local mult = self:GetSpecialValueFor("multiplier")
 		local stun = self:GetSpecialValueFor("stun")
 		local stun_range = self:GetSpecialValueFor("range_ministun")
-
 		local crit_mult = self:GetSpecialValueFor("crit_multiplier")
-
 		local cc_mult = self:GetSpecialValueFor("captains_compass_increase")/100
+		local crit = self:GetSpecialValueFor("crit") -- crit chance
 
 		local r = RandomInt(1,100)
-		local crit = self:GetSpecialValueFor("crit")
 
-		local noStuns = self.noStuns or false
-
-		if t:HasModifier("modifier_captains_compass") and noStuns ~= true then
+		if t:HasModifier("modifier_captains_compass") then
 			crit = 999 -- guaranteed crit
 			stun = stun * (1+cc_mult)
-			t:RemoveModifierByName("modifier_captains_compass") --[[Returns:void
-			Removes a modifier
-			]]
+			t:RemoveModifierByName("modifier_captains_compass")
+		end
+
+		local should_stun = false
+		if c:GetRangeToUnit(t) < stun_range then
+			should_stun = true
 		end
 
 		local isCrit = r <= crit
@@ -46,44 +38,33 @@ function lysander_grapeshot:OnSpellStart()
 		t:EmitSound(sound)
 
 		if isCrit then
+			mult = crit_mult
+			sound2 = "Hero_Silencer.LastWord.Damage"
+			particle = "particles/units/heroes/hero_lysander/grapeshot_crit.vpcf"
+			should_stun = true
+		end
+
+		-- Stun
+		if should_stun then
+			t:AddNewModifier(c, self, "modifier_stunned", {duration=stun})
+		end
+
+		local dmg = mult * (c:GetAverageTrueAttackDamage(c)+base_dmg)
+
+		InflictDamage(t,c,self,dmg,DAMAGE_TYPE_PHYSICAL)
+
+		if sound2 ~= "" then t:EmitSound(sound2) end
+
+		local p = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN_FOLLOW, t)
+		ParticleManager:SetParticleControlEnt(p,0,t,PATTACH_POINT_FOLLOW,"attach_hitloc",t:GetCenter(),true)
+		ParticleManager:ReleaseParticleIndex(p)
+
+		if isCrit then
 			local cd_after = self:GetCooldownTimeRemaining()/2
 			self:EndCooldown()
 			self:StartCooldown(cd_after)
 			self:RefundManaCost()
 		end
-
-		Timers:CreateTimer(0.2,function()
-
-			if isCrit then
-				mult = crit_mult
-				sound2 = "Hero_Silencer.LastWord.Damage"
-				particle = "particles/units/heroes/hero_lysander/grapeshot_crit.vpcf"
-				if not noStuns then
-					t:AddNewModifier(c, self, "modifier_stunned", {Duration=stun}) --[[Returns:void
-					No Description Set
-					]]
-				end
-			end
-
-			local dmg = mult * (c:GetAverageTrueAttackDamage(c)+base_dmg)
-
-			InflictDamage(t,c,self,dmg,DAMAGE_TYPE_PHYSICAL)
-
-			if sound2 ~= "" then t:EmitSound(sound2) end
-
-			local p = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN_FOLLOW, t) --[[Returns:int
-			Creates a new particle effect
-			]]
-			ParticleManager:SetParticleControlEnt(p,0,t,PATTACH_POINT_FOLLOW,"attach_hitloc",t:GetCenter(),true)
-
-			if not isCrit and c:GetRangeToUnit(t) < stun_range then
-				if not noStuns then
-					t:AddNewModifier(c, self, "modifier_stunned", {Duration=stun})
-				end
-			end
-
-		end)
-
 	end
 end
 
@@ -94,51 +75,104 @@ end
 modifier_grapeshot_scepter = class({})
 
 function modifier_grapeshot_scepter:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_EVENT_ON_ATTACK_LANDED
 	}
-	return funcs
 end
 
-function modifier_grapeshot_scepter:OnAttackLanded(params)
+function modifier_grapeshot_scepter:OnAttackLanded(event)
 	if IsServer() then
-		local attacker = params.attacker
+		local parent = self:GetParent()
+		local ability = self:GetAbility()
+		local attacker = event.attacker
+		local target = event.target
 
-		if attacker:IsIllusion() then return end
+		-- Check if attacker exists
+		if not attacker or attacker:IsNull() then
+			return
+		end
 
-		if not attacker == self:GetParent() then return end
-		if not attacker:HasScepter() then return end
+		-- Check if attacker has this modifier
+		if attacker ~= parent then
+			return
+		end
+		
+		-- Check if attacker is an illusion or dead
+		if attacker:IsIllusion() or not attacker:IsAlive() then
+			return
+		end
+		
+		-- Check if attacked unit exists
+		if not target or target:IsNull() then
+			return
+		end
 
-		local chance = self:GetAbility():GetSpecialValueFor("scepter_chance")
+		-- Check if attacked entity is an item, rune or something weird
+		if target.GetUnitName == nil then
+			return
+		end
+
+		-- Check if parent has aghanim scepter
+		if not parent:HasScepter() then
+			return
+		end
+
+		local chance = ability:GetSpecialValueFor("scepter_chance")
+		local radius = ability:GetSpecialValueFor("scepter_radius")
 		local r = RandomInt(1,100)
-
 		local hit = r <= chance
 
-		local radius = self:GetAbility():GetSpecialValueFor("scepter_radius")
-
 		if hit then
-			local ab = self:GetAbility()
+			local enemies = FindUnitsInRadius(
+				parent:GetTeam(),
+				parent:GetAbsOrigin(),
+				nil,
+				radius,
+				DOTA_UNIT_TARGET_TEAM_ENEMY,
+				DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
+				DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+				FIND_ANY_ORDER,
+				false
+			)
 
-			local en = FindUnitsInRadius(self:GetParent():GetTeam(), self:GetParent():GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			local rr = RandomInt(1, #enemies)
+			local random_enemy = enemies[rr]
 
-			--local en = FindEnemies(self:GetParent(),self:GetParent():GetAbsOrigin(),radius)
+			if random_enemy and not random_enemy:IsNull() and random_enemy ~= target then
+				local sound = "Hero_Kunkka.InverseBayonet"
+				local sound2 = ""
+				local particle = "particles/units/heroes/hero_lysander/grapeshot.vpcf"
+				local base_dmg = ability:GetSpecialValueFor("base_damage")
+				local mult = ability:GetSpecialValueFor("multiplier")
+				local crit_mult = ability:GetSpecialValueFor("crit_multiplier")
+				local crit = ability:GetSpecialValueFor("crit") -- crit chance
 
-			local enl = #en
+				local r2 = RandomInt(1,100)
 
-			local rr = RandomInt(1,enl)
-
-			if IsValidEntity(en[rr]) then
-				while enl > 1 and en[rr] == params.unit do
-					rr = RandomInt(1,enl)
+				if random_enemy:HasModifier("modifier_captains_compass") then
+					crit = 999 -- guaranteed crit
+					random_enemy:RemoveModifierByName("modifier_captains_compass")
 				end
-				if en[rr]:IsAlive() then
-					attacker:SetCursorCastTarget(en[rr]) --[[Returns:void
-					No Description Set
-					]]
-					ab.noStuns = true
-					ab:OnSpellStart()
-					ab.noStuns = false
+
+				local isCrit = r2 <= crit
+
+				random_enemy:EmitSound(sound)
+
+				if isCrit then
+					mult = crit_mult
+					sound2 = "Hero_Silencer.LastWord.Damage"
+					particle = "particles/units/heroes/hero_lysander/grapeshot_crit.vpcf"
 				end
+
+				local dmg = mult * (parent:GetAverageTrueAttackDamage(parent)+base_dmg)
+
+				InflictDamage(random_enemy,parent,ability,dmg,DAMAGE_TYPE_PHYSICAL)
+
+				if sound2 ~= "" then random_enemy:EmitSound(sound2) end
+
+				local p = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN_FOLLOW, random_enemy)
+				ParticleManager:SetParticleControlEnt(p,0,random_enemy,PATTACH_POINT_FOLLOW,"attach_hitloc",random_enemy:GetCenter(),true)
+				ParticleManager:ReleaseParticleIndex(p)
 			end
 		end
 	end
@@ -149,12 +183,11 @@ function modifier_grapeshot_scepter:AllowIllusionDuplicate()
 end
 
 function modifier_grapeshot_scepter:IsHidden()
-	-- if IsServer() then
-		if self:GetAbility():GetCaster():HasScepter() then
-			return false
-		end
-		return true
-	-- end
+	local parent = self:GetParent()
+	if parent:HasScepter() then
+		return false
+	end
+	return true
 end
 
 function InflictDamage(target,attacker,ability,damage,damage_type,flags)

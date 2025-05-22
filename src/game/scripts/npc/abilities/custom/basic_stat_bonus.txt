@@ -7,7 +7,7 @@
         "AbilityTextureName"                                                   "custom/attribute_bonus"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "LevelsBetweenUpgrades"                                                "1"
-        "MaxLevel"                                                              "20"
+        "MaxLevel"                                                             "20"
         
         "AbilityValues"
         {
@@ -25,7 +25,7 @@
         "AbilityTextureName"                                                   "custom/attribute_bonus_op"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "LevelsBetweenUpgrades"                                                "1"
-        "MaxLevel"                                                              "20"
+        "MaxLevel"                                                             "20"
         
         "AbilityValues"
         {

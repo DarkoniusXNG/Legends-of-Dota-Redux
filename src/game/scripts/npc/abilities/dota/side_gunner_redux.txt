@@ -13,7 +13,6 @@
 		"precache"
 		{
 			"particle"  "particles/units/heroes/hero_gyrocopter/gyro_base_attack.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
 		}
 
 		"AbilityValues"

@@ -1,10 +1,8 @@
-  --------------------------------------------------------------------------------------------------------
-  --
-  --    Hero: Chen
-  --    Perk: When Chen casts Holy Persuasion on a creep they will receive an extra ability.
-  --
-  --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_chen_perk ~= "" then modifier_npc_dota_hero_chen_perk = class({}) end
+--------------------------------------------------------------------------------------------------------
+--    Hero: Chen
+--    Perk: Chen's summons have 25% Spell Amp, 25% Cooldown Reduction and 25% Mana Cost Reduction while Chen is alive.
+--------------------------------------------------------------------------------------------------------
+modifier_npc_dota_hero_chen_perk = modifier_npc_dota_hero_chen_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_chen_perk:IsPassive()
 	return true
@@ -21,89 +19,75 @@ end
 function modifier_npc_dota_hero_chen_perk:RemoveOnDeath()
 	return false
 end
-  --------------------------------------------------------------------------------------------------------
-  -- Add additional functions
-  --------------------------------------------------------------------------------------------------------
-  function modifier_npc_dota_hero_chen_perk:DeclareFunctions()
-    local funcs = {
-      MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-    }
-    return funcs
-  end
 
-  function modifier_npc_dota_hero_chen_perk:OnAbilityFullyCast(keys)
-    --if IsServer() then
-      local hero = self:GetCaster()
-      local target = keys.target
-      local ability = keys.ability
-      
-          
-      if (ability:GetAbilityName() == "chen_holy_persuasion" or ability:GetAbilityName() == "enchantress_enchant" or ability:GetAbilityName() == "item_helm_of_the_dominator" or ability:GetAbilityName() == "item_helm_of_the_overlord") and target:IsCreep() then
-        local boolMana = false -- To check mana costs
-        local boolAllowActive = false -- To check if we should allow an active
-        if not target.chenAbilityCount then target.chenAbilityCount = 0 end
-        if not target.chenAbilityTable then target.chenAbilityTable = {} end
+function modifier_npc_dota_hero_chen_perk:GetTexture()
+	return "custom/npc_dota_hero_chen_perk"
+end
 
-        if target.chenAbilityCount == 0 or (target:GetAbilityCount() ~= 6 and RandomInt(1,2) == 1) then -- 50% chance to get a new one
-          target.chenAbilityCount = target.chenAbilityCount +1
-          
-          while boolMana == false or boolAllowActive == false do
-            --::LoopAgain::
-            --boolMana = false
-            boolAllowActive = false
-            --print("ChenPerkIFWhile")
-            local randomability = GetRandomAbilityFromListForPerk("chen_creep_abilities")
+function modifier_npc_dota_hero_chen_perk:IsAura()
+	return true
+end
 
-            if target:HasAbility(randomability) then
-              --goto LoopAgain
-            end 
-            target.chenAbilityTable[target.chenAbilityCount] = target:AddAbility(randomability)
-            target.chenAbilityTable[target.chenAbilityCount]:UpgradeAbility(true)
-            
-            local manaCost = target.chenAbilityTable[target.chenAbilityCount]:GetManaCost(target.chenAbilityTable[target.chenAbilityCount]:GetMaxLevel()-1) or 0
-            
-            if  manaCost <= target:GetMaxMana() then
-              boolMana = true
-            else
-              target:RemoveAbility(target.chenAbilityTable[target.chenAbilityCount]:GetAbilityName())
-              --goto LoopAgain
-            end
+function modifier_npc_dota_hero_chen_perk:GetModifierAura()
+	return "modifier_npc_dota_hero_chen_perk_aura_effect"
+end
 
-            if target.chenAbilityTable[target.chenAbilityCount]:IsPassive() or target:GetPlayerOwnerID() ~= -1 then 
-              boolAllowActive = true
-            else
-              target:RemoveAbility(target.chenAbilityTable[target.chenAbilityCount]:GetAbilityName())
-              --goto LoopAgain
-            end  
-            
-          end
-        else -- Pick a random ability to upgrade
+function modifier_npc_dota_hero_chen_perk:GetAuraRadius()
+	return 50000
+end
 
-         
-          local boolMaxedOut = false -- Check if there is an ability to upgrade
-          local tempAbilityTable = target.chenAbilityTable
-          for k,v in pairs(tempAbilityTable) do
-              if v:GetLevel() ~= v:GetMaxLevel() then
-                boolMaxedOut = false
-                break
-              else
-                boolMaxedOut = true
-              end
-          end
+function modifier_npc_dota_hero_chen_perk:GetAuraSearchTeam()
+	return DOTA_UNIT_TARGET_TEAM_FRIENDLY
+end
 
-          
-          
-          if boolMaxedOut == false then
-            local random = RandomInt(1,#tempAbilityTable)
-            local tempAbility = tempAbilityTable[random]
-            while tempAbility:GetLevel() >= tempAbility:GetMaxLevel() do
-              local random = RandomInt(1,#tempAbilityTable)
-              tempAbility = tempAbilityTable[random]
-            end
-            tempAbility:UpgradeAbility(true)
-          end
-        end
-      end
-    --end
-  end
-    
+function modifier_npc_dota_hero_chen_perk:GetAuraSearchType()
+	return DOTA_UNIT_TARGET_ALL
+end
+
+function modifier_npc_dota_hero_chen_perk:GetAuraSearchFlags()
+	return DOTA_UNIT_TARGET_FLAG_INVULNERABLE
+end
+
+function modifier_npc_dota_hero_chen_perk:GetAuraEntityReject(hEntity)
+	local caster = self:GetParent()
+	-- Dont provide the aura effect to allies that you can't control and dont provide to heroes
+	if hEntity.GetPlayerOwnerID then
+		if hEntity:GetPlayerOwnerID() ~= caster:GetPlayerOwnerID() then
+			return true
+		end
+		if hEntity == caster or hEntity:IsHero() then
+			return true
+		end
+	end
+
+	return false
+end
+
+--------------------------------------------------------------------------------------------------------
+LinkLuaModifier("modifier_npc_dota_hero_chen_perk_aura_effect", "abilities/hero_perks/npc_dota_hero_chen_perk.lua", LUA_MODIFIER_MOTION_NONE)
+--------------------------------------------------------------------------------------------------------
+modifier_npc_dota_hero_chen_perk_aura_effect = modifier_npc_dota_hero_chen_perk_aura_effect or class({})
+
+function modifier_npc_dota_hero_chen_perk_aura_effect:IsHidden()
+	return true
+end
+
+function modifier_npc_dota_hero_chen_perk_aura_effect:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
+	}
+end
+
+function modifier_npc_dota_hero_chen_perk_aura_effect:GetModifierSpellAmplify_Percentage()
+	return 25
+end
+
+function modifier_npc_dota_hero_chen_perk_aura_effect:GetModifierPercentageCooldown()
+	return 25
+end
+
+function modifier_npc_dota_hero_chen_perk_aura_effect:GetModifierPercentageManacostStacking()
+	return 25
+end

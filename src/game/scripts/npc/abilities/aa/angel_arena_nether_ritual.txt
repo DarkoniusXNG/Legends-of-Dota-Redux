@@ -6,7 +6,7 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/angel_arena_nether_ritual"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "MaxLevel"                                                             "3"
+
         "AbilityValues"
         {
             "bonus_hp_regen" "15.0 18.0 21.0"

@@ -6,8 +6,8 @@
         "ScriptFile"                                                           "abilities/life_in_arena/butcher_zombie.lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_TOGGLE"
         "AbilityTextureName"                                                   "custom/butcher_zombie"
-        "MaxLevel"                                                             "4"
         "AbilityCooldown"                                                      "0"
+
         "AbilityValues"
         {
             "zombie_hp_tooltip" "200"

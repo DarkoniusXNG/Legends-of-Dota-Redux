@@ -8,7 +8,6 @@
         "AbilityCooldown"                                                      "5.0"
         "AbilityChannelTime"                                                   "1.0"
         "AbilityTextureName"                                                   "custom/cherub_flower_pink"
-        "MaxLevel"                                                             "4"
         "AnimationPlaybackRate"                                                "0.2"
         "AOERadius"                                                            "1000"
 
@@ -32,11 +31,12 @@
             "heal_amount" "15 30 45 60"
             "flower_health" "250 400 550 700"
         }
+
         "precache"
         {
             "particle"                                                     "particles/cherub_pink_flower_heal_projectile.vpcf"
-            "soundfile"                                                    "soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
         }
+
         "OnSpellStart"
         {
             "ApplyModifier"

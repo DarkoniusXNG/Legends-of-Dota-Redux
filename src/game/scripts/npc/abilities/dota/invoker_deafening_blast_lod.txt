@@ -11,13 +11,11 @@
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 
 		"SpellDispellableType"		"SPELL_DISPELLABLE_YES_STRONG"
-		"AbilityModifierSupportValue" "0.5"
 		
 		"AbilityCastRange"			"1000"
 		"AbilityManaCost"			"200"
 		"AbilityCooldown"			"40"
 		"AbilityCastPoint"			"0"
-		"MaxLevel" 					"4"
 
 		"precache"
 		{
@@ -25,7 +23,6 @@
 			"particle"  "particles/units/heroes/hero_invoker/invoker_deafening_blast.vpcf"
 			"particle"  "particles/units/heroes/hero_invoker/invoker_deafening_blast_knockback_debuff.vpcf"
 			"particle"  "particles/units/heroes/hero_invoker/invoker_deafening_blast_disarm_debuff.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
 		}
 
 		"AbilityValues"

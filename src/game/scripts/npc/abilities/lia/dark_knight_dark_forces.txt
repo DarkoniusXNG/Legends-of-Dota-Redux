@@ -5,7 +5,6 @@
 		"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType" "SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName" "custom/dark_knight_dark_forces"
-		"MaxLevel" "4"
 		"AbilityCastPoint" "0.0"
 		"AbilityCooldown" "17 16 15 14"
 		"AbilityManaCost" "120"
@@ -19,8 +18,8 @@
             "duration" "5"
         }
 
-		"precache" {
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+		"precache"
+		{
 			"particle" "particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
 		}
 
