@@ -400,10 +400,10 @@ if CDOTA_BaseNPC then
 				return DOTA_ITEM_NEUTRAL_ACTIVE_SLOT, neutral_item_1
 			end
 		end
-		local neutral_item_2 = self:GetItemInSlot(DOTA_ITEM_NEUTRAL_ACTIVE_SLOT)
+		local neutral_item_2 = self:GetItemInSlot(DOTA_ITEM_NEUTRAL_PASSIVE_SLOT)
 		if neutral_item_2 then
 			if neutral_item_2:GetAbilityName() == item_name then
-				return DOTA_ITEM_NEUTRAL_ACTIVE_SLOT, neutral_item_2
+				return DOTA_ITEM_NEUTRAL_PASSIVE_SLOT, neutral_item_2
 			end
 		end
 		return nil, nil
