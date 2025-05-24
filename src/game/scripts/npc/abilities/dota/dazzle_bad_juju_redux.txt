@@ -17,7 +17,7 @@
         "AbilityCastRange"              "1200"
         
         "ReduxFlags"                                                           "cooldown"
-        "ReduxCost"                                                            "40"
+        "ReduxCost"                                                            "50"
         "ReduxBans"                                                            "storm_spirit_ball_lightning"
         "ReduxBanCategory"                                                     "SpammableSpells"
 

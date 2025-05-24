@@ -22,8 +22,9 @@
             "cleave_distance" "600"
             "bonus_cleave_damage_scepter" "50"
         }
-        "ReduxCost"                                                            "20"
+
         "ReduxFlags"                                                           "aoe_attack | attack_modifier | dota_custom | underpowered | upgradeable"
-        "ReduxPerks"                                                           "attack_modifier"
+        "ReduxPerks"                                                           "attack_modifier | earth | nature"
+        "ReduxCost"                                                            "20"
     }
 }

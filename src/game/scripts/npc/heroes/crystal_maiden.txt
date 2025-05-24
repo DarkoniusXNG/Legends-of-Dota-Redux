@@ -1,0 +1,105 @@
+// Abilities for crystal maiden
+"DOTAAbilities"
+{
+	"crystal_maiden_crystal_nova"
+	{
+		"ReduxPerks"                                                           "ice"
+	}
+
+	"crystal_maiden_frostbite"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "ice"
+		"ReduxCost"                                                            "10"
+	}
+
+	"crystal_maiden_brilliance_aura"
+	{
+		"ReduxFlags"                                                           "support | mana"
+		"ReduxPerks"                                                           "support | aura"
+	}
+
+	"crystal_maiden_freezing_field"
+	{
+		"ReduxFlags"                                                           "upgradeable"
+		"ReduxPerks"                                                           "ice | channeled"
+	}
+
+	"crystal_maiden_crystal_clone"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | ice"
+
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"10 9 8 7"
+		"AbilityManaCost"				"150"
+		"AbilityValues"
+		{
+			"hop_distance"				"275"
+			"hop_duration"				"0.3"
+			"clone_duration"			"5"
+			"frostbite_radius"
+			{
+				"value"						"450 500 550 600"
+				"affected_by_aoe_increase"	"1"
+			}
+			"anim_delay"				"0.02"
+			"clone_health"				"150"
+		}
+	}
+
+	"crystal_maiden_let_it_go"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "ice | mobility"
+
+		"MaxLevel"						"4"
+		"AbilityValues"
+		{
+			"AbilityCastPoint"				"0.1"
+			"AbilityCastRange"				"1400 1550 1700 1850"
+			"AbilityCooldown"				"30 25 20 15"
+			"AbilityManaCost"				"100"
+			"speed"							"50"
+			"duration"						"12"
+			"path_radius"
+			{
+				"value"						"150 175 200 225"
+				"affected_by_aoe_increase"		"1"
+			}
+			"slow"							"10 20 30 40"
+		}
+	}
+
+	//=================================================================================================================
+	// Blueheart Floe (Innate)
+	//=================================================================================================================
+	"crystal_maiden_blueheart_floe"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "doNotRandom | mana"
+		"ReduxPerks"                                                           "ice"
+	}
+
+	"special_bonus_unique_crystal_maiden_1"
+	{
+		"TalentRequiredAbility"                                                   "crystal_maiden_frostbite"
+	}
+	"special_bonus_unique_crystal_maiden_2"
+	{
+		"TalentRequiredAbility"                                                   "crystal_maiden_crystal_nova"
+	}
+	"special_bonus_unique_crystal_maiden_3"
+	{
+		"TalentRequiredAbility"                                                   "crystal_maiden_freezing_field"
+	}
+	"special_bonus_unique_crystal_maiden_5"
+	{
+		"TalentRequiredAbility"                                                   "crystal_maiden_crystal_nova"
+	}
+	"special_bonus_unique_crystal_maiden_frostbite_castrange"
+	{
+		"TalentRequiredAbility"                                                   "crystal_maiden_frostbite"
+	}
+}

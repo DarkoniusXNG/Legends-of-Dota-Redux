@@ -1,0 +1,92 @@
+// Abilities for wraith king
+"DOTAAbilities"
+{
+	"skeleton_king_hellfire_blast"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "demon | fire | undead"
+	}
+
+	"skeleton_king_bone_guard"
+	{
+		"ReduxFlags"                                                           "summon"
+		"ReduxPerks"                                                           "summon_non_ult | undead"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	"skeleton_king_spectral_blade"
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | blades | undead"
+	}
+
+	"skeleton_king_mortal_strike"
+	{
+		"ReduxFlags"                                                           "attack_modifier | crit"
+		"ReduxPerks"                                                           "attack_modifier"
+	}
+
+	"skeleton_king_reincarnation"
+	{
+		"ReduxFlags"                                                           "semi_passive | upgradeable | wtfAutoBan"
+		"ReduxPerks"                                                           "undead"
+		"ReduxCost"                                                            "120"
+		"ReduxBans"                                                            "imba_dazzle_shallow_grave_passive | tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	//=================================================================================================================
+	// Vampiric Spirit (Innate)
+	//=================================================================================================================
+	"skeleton_king_vampiric_spirit"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "attack_modifier | upgradeable"
+		"ReduxPerks"                                                           "attack_modifier | undead"
+	}
+
+	"special_bonus_unique_wraith_king_2"
+	{
+		"TalentRequiredAbility"                                                   "skeleton_king_vampiric_spirit"
+	}
+	"special_bonus_unique_wraith_king_4"
+	{
+		"TalentRequiredAbility"
+		{
+			"1" "skeleton_king_reincarnation"
+			"2" "skeleton_king_hellfire_blast"
+		}
+	}
+	"special_bonus_unique_wraith_king_10"
+	{
+		"TalentRequiredAbility"                                                   "skeleton_king_mortal_strike"
+	}
+	"special_bonus_unique_wraith_king_11"
+	{
+		"TalentRequiredAbility"                                                   "skeleton_king_hellfire_blast"
+	}
+	"special_bonus_unique_wraith_king_facet_1"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" "special_bonus_base"
+
+		"TalentRequiredAbility"
+		{
+			"1" "skeleton_king_spectral_blade"
+			"2" "skeleton_king_hellfire_blast"
+		}
+	}
+	"special_bonus_unique_wraith_king_facet_3"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" "special_bonus_base"
+
+		"TalentRequiredAbility"
+		{
+			"1" "skeleton_king_bone_guard"
+			"2" "skeleton_king_spectral_blade"
+		}
+	}
+}

@@ -1,0 +1,117 @@
+// Abilities for chaos knight
+"DOTAAbilities"
+{
+	"chaos_knight_chaos_bolt"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxCost"                                                            "10"
+	}
+
+	"chaos_knight_reality_rift"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "enemymoving | mobility"
+	}
+
+	"chaos_knight_chaos_strike"
+	{
+		"ReduxFlags"                                                           "attack_modifier | crit"
+		"ReduxPerks"                                                           "attack_modifier"
+	}
+
+	"chaos_knight_phantasm"
+	{
+		"ReduxFlags"                                                           "illusion | upgradeable"
+		"ReduxPerks"                                                           "illusion"
+	}
+
+	//=================================================================================================================
+	// Phantasmagoria (Facet)
+	//=================================================================================================================
+	"chaos_knight_phantasmagoria"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "illusion"
+		"ReduxPerks"                                                           "illusion"
+	}
+
+	//=================================================================================================================
+	// Reins of Chaos (Innate)
+	//=================================================================================================================
+	"chaos_knight_reins_of_chaos"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "illusion"
+		"ReduxPerks"                                                           "illusion"
+	}
+
+	//=================================================================================================================
+	// Fundamental Forging (Facet)
+	//=================================================================================================================
+	"chaos_knight_fundamental_forging"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"special_bonus_unique_chaos_knight"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "chaos_knight_reality_rift"
+	}
+	"special_bonus_unique_chaos_knight_2"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "chaos_knight_reality_rift"
+	}
+	"special_bonus_unique_chaos_knight_3"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "chaos_knight_chaos_bolt"
+	}
+	"special_bonus_unique_chaos_knight_4"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "chaos_knight_phantasm"
+	}
+	"special_bonus_unique_chaos_knight_5"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "chaos_knight_chaos_strike"
+	}
+	"special_bonus_unique_chaos_knight_6"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "chaos_knight_chaos_strike"
+	}
+
+	"special_bonus_unique_chaos_knight_8"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "chaos_knight_chaos_bolt"
+	}
+}

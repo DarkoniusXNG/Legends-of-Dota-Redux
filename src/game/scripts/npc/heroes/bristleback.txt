@@ -1,0 +1,93 @@
+// Abilities for bristleback
+"DOTAAbilities"
+{
+	"bristleback_viscous_nasal_goo"
+	{
+		"ReduxPerks"                                                           "poison"
+	}
+
+	"bristleback_quill_spray"
+	{
+		"ReduxFlags"                                                           "physical"
+		"ReduxPerks"                                                           "physical"
+	}
+
+	"bristleback_bristleback"
+	{
+		"ReduxFlags"                                                           "semi_passive | tank | upgradeable"
+		"ReduxCost"                                                            "20"
+		"ReduxBans"                                                            "nyx_assassin_burrow | nyx_assassin_burrow_redux"
+	}
+
+	"bristleback_warpath"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | rage | semi_passive"
+		"ReduxCost"                                                            "80"
+		"ReduxBans"                                                            "storm_spirit_ball_lightning"
+		"ReduxBanCategory"                                                     "ToggleSpells"
+	}
+
+	"bristleback_hairball"
+	{
+		"ReduxFlags"                                                           "doNotRandom | physical"
+		"ReduxPerks"                                                           "physical | skillshot"
+
+		"MaxLevel"                      "4"
+		"AbilityCooldown"               "16 15 14 13"
+		"AbilityManaCost"               "70 60 50 40"
+		"AbilityValues"
+		{
+			"projectile_speed"		"1200"
+			"radius"
+			{
+				"value"		"700"
+				"affected_by_aoe_increase"	"1"
+			}
+			"quill_stacks"		"1"
+			"goo_stacks"		"2"
+		}
+	}
+
+	//=================================================================================================================
+	// Prickly (Innate)
+	//=================================================================================================================
+	"bristleback_prickly"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+	}
+
+	"special_bonus_unique_bristleback_2"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "bristleback_quill_spray"
+	}
+	"special_bonus_unique_bristleback_3"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "bristleback_warpath"
+	}
+
+	"special_bonus_unique_bristleback_5"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "bristleback_viscous_nasal_goo"
+	}
+	"special_bonus_unique_bristleback_6"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "bristleback_bristleback"
+	}
+}

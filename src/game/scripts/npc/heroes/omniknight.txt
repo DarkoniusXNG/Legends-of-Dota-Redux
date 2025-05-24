@@ -1,0 +1,118 @@
+// Abilities for omniknight
+"DOTAAbilities"
+{
+	"omniknight_purification"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | light"
+	}
+
+	"omniknight_repel"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | light"
+		"ReduxCost"                                                            "20"
+	}
+
+	"omniknight_martyr"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | light"
+		"ReduxCost"                                                            "20"
+	}
+
+	"omniknight_hammer_of_purity"
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | light"
+	}
+
+	"omniknight_guardian_angel"
+	{
+		"ReduxFlags"                                                           "upgradeable | support | wtfAutoBan"
+		"ReduxPerks"                                                           "support | light"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	//=================================================================================================================
+	// Degen Aura (Innate)
+	//=================================================================================================================
+	"omniknight_degen_aura"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxPerks"                                                           "aura | light"
+	}
+
+	//=================================================================================================================
+	// Healing Hammer (Facet)
+	//=================================================================================================================
+	"omniknight_healing_hammer"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "doNotRandom | support"
+		"ReduxPerks"                                                           "light | support"
+	}
+
+	"omniknight_angelic_flight"
+	{
+		"ReduxFlags"                                                           "mobility | support"
+		"ReduxPerks"                                                           "mobility | support | light"
+
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"400 500 600 700"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"45 35 25 15"
+		"AbilityValues"
+		{
+			"duration"
+			{
+				"value" "5"
+			}
+			"movement_speed"
+			{
+				"value" "20 25 30 35"
+			}
+			"hp_regen"
+			{
+				"value" "25 30 35 40"
+			}
+		}
+	}
+
+	"omniknight_pacify"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support"
+	}
+
+	"special_bonus_unique_omniknight_1"
+	{
+		"TalentRequiredAbility"                                                   "omniknight_purification"
+	}
+	"special_bonus_unique_omniknight_2"
+	{
+		"TalentRequiredAbility"                                                   "omniknight_martyr"
+	}
+	"special_bonus_unique_omniknight_3"
+	{
+		"TalentRequiredAbility"                                                   "omniknight_hammer_of_purity"
+	}
+	"special_bonus_unique_omniknight_4"
+	{
+		"TalentRequiredAbility"                                                   "omniknight_hammer_of_purity"
+	}
+	"special_bonus_unique_omniknight_5"
+	{
+		"TalentRequiredAbility"                                                   "omniknight_martyr"
+	}
+	"special_bonus_unique_omniknight_6"
+	{
+		"TalentRequiredAbility"                                                   "omniknight_purification"
+	}
+	"special_bonus_unique_omniknight_7"
+	{
+		"TalentRequiredAbility"                                                   "omniknight_guardian_angel"
+	}
+}

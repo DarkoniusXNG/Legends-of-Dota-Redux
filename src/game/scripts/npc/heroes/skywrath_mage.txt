@@ -1,0 +1,111 @@
+// Abilities for skywrath mage
+"DOTAAbilities"
+{
+	"skywrath_mage_arcane_bolt"
+	{
+		"ReduxFlags"                                                           "upgradeable"
+		"ReduxPerks"                                                           "light"
+	}
+
+	"skywrath_mage_concussive_shot"
+	{
+		"ReduxFlags"                                                           "upgradeable"
+		"ReduxPerks"                                                           "light"
+	}
+
+	"skywrath_mage_ancient_seal"
+	{
+		"ReduxFlags"                                                           "silence"
+		"ReduxPerks"                                                           "light | silence"
+	}
+
+	"skywrath_mage_mystic_flare"
+	{
+		"ReduxFlags"                                                           "upgradeable"
+		"ReduxPerks"                                                           "light | skillshot"
+		"ReduxBans"                                                            "batrider_sticky_napalm"
+	}
+
+	//=================================================================================================================
+	// Shield of the Scion (Facet)
+	//=================================================================================================================
+	"skywrath_mage_shield_of_the_scion"
+	{
+		"ReduxFlags"                                                           "tank | doNotRandom"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"4"
+		"AbilityValues"
+		{
+			"stack_duration"			"25 30 35 40"
+			"bonus_intelligence"		"0"
+			"damage_barrier_base"		"10"
+			"damage_barrier_per_level"	"1"
+			"barrier_duration"			"12 18 24 30"
+		}
+	}
+
+	//=================================================================================================================
+	// Staff of the Scion (Facet)
+	//=================================================================================================================
+	"skywrath_mage_staff_of_the_scion"
+	{
+		"ReduxFlags"                                                           "cooldown | doNotRandom"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"4"
+		"AbilityValues"
+		{
+			"cooldown_reduction"		"0.1 0.15 0.2 0.25"
+		}
+	}
+
+	//=================================================================================================================
+	// Ruin And Restoration (Innate)
+	//=================================================================================================================
+	"skywrath_mage_ruin_and_restoration"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "tank"
+	}
+
+	"special_bonus_unique_skywrath"
+	{
+		"TalentRequiredAbility"                                                   "skywrath_mage_ancient_seal"
+	}
+	"special_bonus_unique_skywrath_2"
+	{
+		"TalentRequiredAbility"                                                   "skywrath_mage_arcane_bolt"
+	}
+	"special_bonus_unique_skywrath_3"
+	{
+		"TalentRequiredAbility"                                                   "skywrath_mage_ancient_seal"
+	}
+	"special_bonus_unique_skywrath_4"
+	{
+		"TalentRequiredAbility"                                                   "skywrath_mage_concussive_shot"
+	}
+	"special_bonus_unique_skywrath_5"
+	{
+		"TalentRequiredAbility"                                                   "skywrath_mage_mystic_flare"
+	}
+	"special_bonus_unique_skywrath_6"
+	{
+		"TalentRequiredAbility"                                                   "skywrath_mage_arcane_bolt"
+	}
+
+	"special_bonus_unique_skywrath_concussive_shot_slow"
+	{
+		"TalentRequiredAbility"                                                   "skywrath_mage_concussive_shot"
+	}
+
+	"special_bonus_unique_skywrath_arcane_bolt_lifesteal"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "skywrath_mage_ruin_and_restoration"
+	}
+}

@@ -1,0 +1,134 @@
+// Abilities for dazzle
+"DOTAAbilities"
+{
+	"dazzle_poison_touch"
+	{
+		"ReduxFlags"                                                           "physical"
+		"ReduxPerks"                                                           "hex | physical | poison"
+	}
+
+	"dazzle_shallow_grave"
+	{
+		"ReduxFlags"                                                           "support | wtfAutoBan"
+		"ReduxPerks"                                                           "support | undead"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	"dazzle_shadow_wave"
+	{
+		"ReduxFlags"                                                           "physical | support | upgradeable"
+		"ReduxPerks"                                                           "physical | support"
+	}
+
+	"dazzle_nothl_projection"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | undead"
+	}
+
+	"dazzle_bad_juju"
+	{
+		"ReduxFlags"                                                           "cooldown"
+		"ReduxPerks"                                                           "self_damage"
+		"ReduxCost"                                                            "50"
+		"ReduxBanCategory"                                                     "SpammableSpells"
+	}
+
+	"dazzle_good_juju"
+	{
+		"ReduxFlags"                                                           "cooldown | support | upgradeable"
+		"ReduxPerks"                                                           "support"
+	}
+
+	"dazzle_weave"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support"
+	}
+
+	"dazzle_rain_of_vermin"
+	{
+		"ReduxFlags"                                                           "physical | silence"
+		"ReduxPerks"                                                           "hex | physical | silence"
+
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"30 25 20 15"
+		"AbilityValues"
+		{
+			"duration"
+			{
+				"value" "7"
+			}
+			"interval"
+			{
+				"value" "0.5"
+			}
+			"radius"
+			{
+				"value" "650"
+			}
+			"hex_chance"
+			{
+				"value" "12 13 14 15"
+			}
+			"hex_duration"
+			{
+				"value" "1"
+			}
+			"damage"
+			{
+				"value" "125 150 175 200"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Weave (Innate)
+	//=================================================================================================================
+	"dazzle_innate_weave"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxCost"                                                            "50"
+	}
+
+	//=================================================================================================================
+	// Nothl Boon (Facet)
+	//=================================================================================================================
+	"dazzle_nothl_boon"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support"
+	}
+
+	"special_bonus_unique_dazzle_1"
+	{
+		"TalentRequiredAbility"                                                   "dazzle_poison_touch"
+	}
+	"special_bonus_unique_dazzle_2"
+	{
+		"TalentRequiredAbility"                                                   "dazzle_shadow_wave"
+	}
+	"special_bonus_unique_dazzle_3"
+	{
+		"TalentRequiredAbility"                                                   "dazzle_poison_touch"
+	}
+	"special_bonus_unique_dazzle_4"
+	{
+		"TalentRequiredAbility"                                                   "dazzle_innate_weave"
+	}
+	"special_bonus_unique_dazzle_poison_touch_attack_range_bonus"
+	{
+		"TalentRequiredAbility"                                                   "dazzle_poison_touch"
+	}
+	"special_bonus_unique_dazzle_shallow_grave_cooldown"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dazzle_shallow_grave"
+	}
+}

@@ -1,0 +1,87 @@
+// Abilities for sand king
+"DOTAAbilities"
+{
+	"sandking_burrowstrike"
+	{
+		"ReduxFlags"                                                           "mobility | stun"
+		"ReduxPerks"                                                           "earth | mobility"
+		"ReduxCost"                                                            "30"
+	}
+
+	"sandking_sand_storm"
+	{
+		"ReduxFlags"                                                           "invis"
+		"ReduxPerks"                                                           "earth | invis | nature"
+		"ReduxCost"                                                            "10"
+	}
+
+	"sandking_scorpion_strike"
+	{
+		"ReduxFlags"                                                           "aoe_attack | physical"
+		"ReduxPerks"                                                           "earth | physical | skillshot"
+	}
+
+	"sandking_epicenter"
+	{
+		"ReduxFlags"                                                           "upgradeable"
+		"ReduxPerks"                                                           "channeled | earth | nature"
+	}
+
+	//=================================================================================================================
+	// Caustic Finale (Innate)
+	//=================================================================================================================
+	"sandking_caustic_finale"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | poison"
+	}
+
+	"special_bonus_unique_sand_king"
+	{
+		"TalentRequiredAbility"                                                   "sandking_epicenter"
+	}
+	"special_bonus_unique_sand_king_2"
+	{
+		"TalentRequiredAbility"                                                   "sandking_sand_storm"
+	}
+	"special_bonus_unique_sand_king_3"
+	{
+		"TalentRequiredAbility"                                                   "sandking_scorpion_strike"
+	}
+	"special_bonus_unique_sand_king_4"
+	{
+		"TalentRequiredAbility"                                                   "sandking_sand_storm"
+	}
+	"special_bonus_unique_sand_king_5"
+	{
+		"TalentRequiredAbility"                                                   "sandking_epicenter"
+	}
+	"special_bonus_unique_sand_king_7"
+	{
+		"TalentRequiredAbility"                                                   "sandking_burrowstrike"
+	}
+	"special_bonus_unique_sand_king_8"
+	{
+		"TalentRequiredAbility"                                                   "sandking_burrowstrike"
+	}
+
+	"special_bonus_unique_sand_king_scorpion_strike_damage"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sandking_scorpion_strike"
+	}
+
+	"special_bonus_unique_sand_king_caustic_finale_radius"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sandking_caustic_finale"
+	}
+}

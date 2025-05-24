@@ -1,0 +1,125 @@
+// Abilities for oracle
+"DOTAAbilities"
+{
+	"oracle_fortunes_end"
+	{
+		"ReduxFlags"                                                           "support | stun"
+		"ReduxPerks"                                                           "channeled  | support"
+	}
+
+	"oracle_fates_edict"
+	{
+		"ReduxFlags"                                                           "support | disarm_break"
+		"ReduxPerks"                                                           "support"
+	}
+
+	"oracle_purifying_flames"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | fire"
+	}
+
+	"oracle_false_promise"
+	{
+		"ReduxFlags"                                                           "support | upgradeable"
+		"ReduxPerks"                                                           "support"
+		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
+	}
+
+	"oracle_rain_of_destiny"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | water"
+
+		"MaxLevel"                      "4"
+		"AbilityCooldown"               "40 35 30 25"
+		"AbilityManaCost"               "150"
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"		"650"
+				"affected_by_aoe_increase"	"1"
+			}
+			"duration"              "10"
+			"damage"
+			{
+				"value"				"35 40 45 50"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"tick_rate"             "1.0"
+			"heal_amp"              "20 25 30 35"
+		}
+	}
+
+	//=================================================================================================================
+	// Clairvoyant Curse (Facet)
+	//=================================================================================================================
+	"oracle_clairvoyant_curse"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+	//=================================================================================================================
+	// Clairvoyant Cure (Facet)
+	//=================================================================================================================
+	"oracle_clairvoyant_cure"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support"
+	}
+
+	//=================================================================================================================
+	// Prognosticate (Innate)
+	//=================================================================================================================
+	"oracle_prognosticate"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "doNotRandom | support"
+		"ReduxPerks"                                                           "support"
+	}
+
+	"special_bonus_unique_oracle"
+	{
+		"TalentRequiredAbility"                                                   "oracle_false_promise"
+	}
+	"special_bonus_unique_oracle_2"
+	{
+		"TalentRequiredAbility"                                                   "oracle_fortunes_end"
+	}
+	"special_bonus_unique_oracle_3"
+	{
+		"TalentRequiredAbility"                                                   "oracle_fates_edict"
+	}
+	"special_bonus_unique_oracle_4"
+	{
+		"TalentRequiredAbility"                                                   "oracle_false_promise"
+	}
+	"special_bonus_unique_oracle_5"
+	{
+		"TalentRequiredAbility"                                                   "oracle_purifying_flames"
+	}
+	"special_bonus_unique_oracle_6"
+	{
+		"TalentRequiredAbility"                                                   "oracle_false_promise"
+	}
+	"special_bonus_unique_oracle_7"
+	{
+		"TalentRequiredAbility"                                                   "oracle_fortunes_end"
+	}
+	"special_bonus_unique_oracle_8"
+	{
+		"TalentRequiredAbility"                                                   "oracle_purifying_flames"
+	}
+	"special_bonus_unique_oracle_fortunes_end_damage"
+	{
+		"TalentRequiredAbility"                                                   "oracle_fortunes_end"
+	}
+	"special_bonus_unique_oracle_damage_per_purge"
+	{
+		"TalentRequiredAbility"                                                   "oracle_fortunes_end"
+	}
+}

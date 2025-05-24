@@ -108,7 +108,7 @@ function spell_lab_bfg:Explosion(vPosition, tExtra)
 		 damage_type = self:GetAbilityDamageType(),
 		 ability = self
 	 }
-	if hCaster:HasScepter() then
+	if not hCaster:HasScepter() then
 		tdamage.damage = self:GetSpecialValueFor("mana_pct")*tExtra.dmg
 	else
 		tdamage.damage = self:GetSpecialValueFor("mana_pct_scepter")*tExtra.dmg
