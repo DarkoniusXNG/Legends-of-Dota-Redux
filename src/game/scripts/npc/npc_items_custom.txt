@@ -1085,7 +1085,7 @@
 		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
 		"AbilityTextureName"            "item_skadi"
 
-		"AbilityGoldCost"               "5300"
+		"AbilityGoldCost"               "5900"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -1098,11 +1098,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_all_stats"           "22"
-			"bonus_health"              "250"
-			"bonus_mana"                "250"
-			"cold_slow_melee"           "-20"
-			"cold_attack_slow_melee"    "-10"
+			"bonus_all_stats"           "35"
+			"bonus_health"              "0"
+			"bonus_mana"                "0"
+			"cold_slow_melee"           "-25"
+			"cold_attack_slow_melee"    "-20"
 			"cold_slow_ranged"          "-50"
 			"cold_attack_slow_ranged"   "-20"
 			"cold_duration"             "3.0"
