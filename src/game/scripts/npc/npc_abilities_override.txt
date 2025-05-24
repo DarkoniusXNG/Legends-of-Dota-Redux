@@ -2157,7 +2157,7 @@
 		"ReduxFlags"                                                           "support | silence"
 		"ReduxPerks"                                                           "support | silence"
 	}
-	
+
 	"furion_sprout"
 	{
 		"ReduxFlags"                                                           "support"
@@ -2835,7 +2835,7 @@
 		"ReduxBans"                                                            "arc_warden_tempest_double"
 	}
 
-	
+
 
 	"tidehunter_ravage"
 	{
@@ -4936,7 +4936,11 @@
 	// Furion
 	"special_bonus_unique_furion"
 	{
-		"TalentRequiredAbility"                                                   "furion_force_of_nature"
+		"TalentRequiredAbility"
+		{
+			"1" "furion_force_of_nature"
+			"2" "furion_spirit_of_the_forest"
+		}
 	}
 	"special_bonus_unique_furion_2"
 	{
@@ -4960,7 +4964,15 @@
 	}
 	"special_bonus_unique_furion_7"
 	{
-		"TalentRequiredAbility"                                                   "furion_sprout"
+		"TalentRequiredAbility"                                                   "furion_wrath_of_nature"
+	}
+	"special_bonus_unique_furion_8"
+	{
+		"TalentRequiredAbility"
+		{
+			"1" "furion_sprout"
+			"2" "furion_natures_profit"
+		}
 	}
 
 	// Gyrocopter
@@ -5451,10 +5463,7 @@
 		"TalentRequiredAbility"                                                   "obsidian_destroyer_astral_imprisonment"
 	}
 
-	"special_bonus_unique_phantom_lancer"
-	{
-		"TalentRequiredAbility"                                                   "phantom_lancer_phantom_edge"
-	}
+
 	"special_bonus_unique_phantom_lancer_2"
 	{
 		"TalentRequiredAbility"                                                   "phantom_lancer_phantom_edge"
@@ -5484,6 +5493,15 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "phantom_lancer_spirit_lance"
+	}
+	"special_bonus_unique_phantom_lancer_lance_illusion_damage"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_lancer_spirit_lance"
 	}
 
@@ -5827,10 +5845,6 @@
 	{
 		"TalentRequiredAbility"                                                   "silencer_curse_of_the_silent"
 	}
-	"special_bonus_unique_silencer_2"
-	{
-		"TalentRequiredAbility"                                                   "silencer_last_word"
-	}
 	"special_bonus_unique_silencer_3"
 	{
 		"TalentRequiredAbility"                                                   "silencer_glaives_of_wisdom"
@@ -5839,25 +5853,17 @@
 	{
 		"TalentRequiredAbility"                                                   "silencer_last_word"
 	}
-	//"special_bonus_unique_silencer_5"		// Glaives silence(??); not functional
-	//{
-	//    "TalentRequiredAbility"                                                   "silencer_glaives_of_wisdom"
-	//}
-	"special_bonus_unique_silencer_6"
+	"special_bonus_unique_silencer_5"
 	{
-		"TalentRequiredAbility"                                                   "silencer_curse_of_the_silent"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "silencer_glaives_of_wisdom"
 	}
 	"special_bonus_unique_silencer_7"
 	{
 		"TalentRequiredAbility"                                                   "silencer_global_silence"
-	}
-	"special_bonus_unique_silencer_glaives_bounces"
-	{
-		"TalentRequiredAbility"                                                   "silencer_glaives_of_wisdom"
-	}
-	"special_bonus_unique_silencer_arcane_curse_undispellable"
-	{
-		"TalentRequiredAbility"                                                   "silencer_curse_of_the_silent"
 	}
 	"special_bonus_unique_silencer_arcane_curse_charges"
 	{
@@ -5867,6 +5873,7 @@
 	{
 		"TalentRequiredAbility"                                                   "silencer_curse_of_the_silent"
 	}
+
 
 	"special_bonus_unique_slardar"
 	{
@@ -5996,7 +6003,7 @@
 	}
 	"special_bonus_unique_templar_assassin_8"
 	{
-		"TalentRequiredAbility"                                                   "templar_assassin_psi_blades"
+		"TalentRequiredAbility"                                                   "templar_assassin_meld"
 	}
 	"special_bonus_unique_templar_assassin_refraction_damage"
 	{
@@ -6373,10 +6380,6 @@
 	{
 		"TalentRequiredAbility"                                                   "venomancer_noxious_plague"
 	}
-	"special_bonus_unique_venomancer_6"
-	{
-		"TalentRequiredAbility"                                                   "venomancer_poison_nova"
-	}
 	"special_bonus_unique_venomancer_7"
 	{
 		"TalentRequiredAbility"                                                   "venomancer_plague_ward"
@@ -6388,10 +6391,6 @@
 	"special_bonus_unique_venomancer_poisonsting_regen_reduction"
 	{
 		"TalentRequiredAbility"                                                   "venomancer_poison_sting"
-	}
-	"special_bonus_unique_venomancer_gale_plagueward"
-	{
-		"TalentRequiredAbility"                                                   "venomancer_plague_ward"
 	}
 
 	"special_bonus_unique_visage_1"
@@ -6560,7 +6559,7 @@
 
 	"special_bonus_unique_disruptor"
 	{
-		"TalentRequiredAbility"                                                   "disruptor_thunder_strike"
+		"TalentRequiredAbility"                                                   "disruptor_static_storm"
 	}
 	"special_bonus_unique_disruptor_4"
 	{
@@ -6576,7 +6575,7 @@
 	}
 	"special_bonus_unique_disruptor_7"
 	{
-		"TalentRequiredAbility"                                                   "disruptor_static_storm"
+		"TalentRequiredAbility"                                                   "disruptor_electromagnetic_repulsion"
 	}
 	"special_bonus_unique_disruptor_8"
 	{
@@ -6657,12 +6656,17 @@
 	}
 
 
-
-
-
 	"special_bonus_unique_clockwerk"
 	{
 		"TalentRequiredAbility"                                                   "rattletrap_battery_assault"
+	}
+	"special_bonus_unique_clockwerk_2"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rattletrap_power_cogs"
 	}
 	"special_bonus_unique_clockwerk_3"
 	{
@@ -6681,10 +6685,6 @@
 		"TalentRequiredAbility"                                                   "rattletrap_power_cogs"
 	}
 	"special_bonus_unique_clockwerk_7"
-	{
-		"TalentRequiredAbility"                                                   "rattletrap_rocket_flare"
-	}
-	"special_bonus_unique_clockwerk_flare_damage"
 	{
 		"TalentRequiredAbility"                                                   "rattletrap_rocket_flare"
 	}
@@ -6825,8 +6825,6 @@
 	}
 
 
-
-
 	"special_bonus_unique_snapfire_1"
 	{
 		"TalentRequiredAbility" 		"snapfire_mortimer_kisses"
@@ -6839,13 +6837,9 @@
 	{
 		"TalentRequiredAbility" 		"snapfire_firesnap_cookie"
 	}
-	"special_bonus_unique_snapfire_4"
-	{
-		"TalentRequiredAbility" 		"snapfire_mortimer_kisses"
-	}
 	"special_bonus_unique_snapfire_5"
 	{
-		"TalentRequiredAbility" 		"snapfire_firesnap_cookie"
+		"TalentRequiredAbility" 		"snapfire_mortimer_kisses"
 	}
 	"special_bonus_unique_snapfire_6"
 	{
@@ -6859,10 +6853,11 @@
 	{
 		"TalentRequiredAbility" 		"snapfire_lil_shredder"
 	}
-	"special_bonus_unique_snapfire_mortimer_kisses_impact_damage"
+	"special_bonus_unique_snapfire_firesnap_cookie_additional_charge"
 	{
-		"TalentRequiredAbility" 		"snapfire_mortimer_kisses"
+		"TalentRequiredAbility" 		"snapfire_firesnap_cookie"
 	}
+
 
 	"special_bonus_unique_marci_grapple_damage"
 	{
@@ -6974,6 +6969,14 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "muerta_gunslinger"
+	}
+	"special_bonus_unique_muerta_pierce_the_veil_duration"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "muerta_pierce_the_veil"
 	}
 
 	//=================================================================================================================

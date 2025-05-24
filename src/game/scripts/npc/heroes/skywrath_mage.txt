@@ -99,13 +99,4 @@
 	{
 		"TalentRequiredAbility"                                                   "skywrath_mage_concussive_shot"
 	}
-
-	"special_bonus_unique_skywrath_arcane_bolt_lifesteal"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "skywrath_mage_ruin_and_restoration"
-	}
 }
