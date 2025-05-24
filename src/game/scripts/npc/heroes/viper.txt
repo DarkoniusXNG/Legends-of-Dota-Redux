@@ -1,0 +1,106 @@
+// Abilities for viper
+"DOTAAbilities"
+{
+	"viper_poison_attack"
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | dragon | poison"
+		"ReduxBans"                                                            "batrider_sticky_napalm"
+	}
+
+	"viper_nethertoxin"
+	{
+		"ReduxPerks"                                                           "poison | skillshot"
+	}
+
+	"viper_corrosive_skin"
+	{
+		"ReduxFlags"                                                           "tank | upgradeable"
+		"ReduxPerks"                                                           "dragon | poison"
+		"ReduxCost"                                                            "20"
+	}
+
+	"viper_viper_strike"
+	{
+		"ReduxFlags"                                                           "disarm_break"
+		"ReduxPerks"                                                           "dragon | poison"
+	}
+
+	//=================================================================================================================
+	// Predator (Innate)
+	//=================================================================================================================
+	"viper_predator"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "attack_modifier | physical"
+		"ReduxPerks"                                                           "attack_modifier | physical"
+	}
+
+	"viper_nose_dive"
+	{
+		"ReduxFlags"                                                           "mobility | upgradeable"
+		"ReduxPerks"                                                           "dragon | mobility | poison"
+
+		"MaxLevel"						"4"
+
+		"AbilityCastRange"				"700 800 900 1000"
+		"AbilityCooldown"				"20.0 17.0 14.0 11.0"
+		"AbilityManaCost"				"75"
+
+		"AbilityValues"
+		{
+			"corrosive_radius"
+			{
+				"value"			"500 600 700 800"
+				"affected_by_aoe_increase"	"1"
+			}
+			"duration"							"0.1"
+			"effect_duration"						"4"
+			"dive_speed"
+			{
+				"value"			"700 800 900 1000"
+			}
+			"start_height"						"100"
+			"movespeed_slow"					"0"
+		}
+	}
+
+	"special_bonus_unique_viper_1"
+	{
+		"TalentRequiredAbility"                                                   "viper_corrosive_skin"
+	}
+	"special_bonus_unique_viper_2"
+	{
+		"TalentRequiredAbility"                                                   "viper_viper_strike"
+	}
+	"special_bonus_unique_viper_3"
+	{
+		"TalentRequiredAbility"                                                   "viper_nethertoxin"
+	}
+	"special_bonus_unique_viper_4"
+	{
+		"TalentRequiredAbility"                                                   "viper_viper_strike"
+	}
+
+	"special_bonus_unique_viper_7"
+	{
+		"TalentRequiredAbility"                                                   "viper_poison_attack"
+	}
+	"special_bonus_unique_viper_8"
+	{
+		"TalentRequiredAbility"                                                   "viper_viper_strike"
+	}
+	"special_bonus_unique_viper_predator_damage"
+	{
+		"TalentRequiredAbility"                                                   "viper_predator"
+	}
+	"special_bonus_unique_viper_nethertoxin_radius"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "viper_nethertoxin"
+	}
+}

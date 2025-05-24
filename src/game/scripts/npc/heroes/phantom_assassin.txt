@@ -1,0 +1,103 @@
+// Abilities for phantom assassin
+"DOTAAbilities"
+{
+	"phantom_assassin_stifling_dagger"
+	{
+		"ReduxFlags"                                                           "physical"
+		"ReduxPerks"                                                           "blades | dagger | physical"
+		"ReduxCost"                                                            "20"
+	}
+	
+	"phantom_assassin_phantom_strike"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | blink"
+		"ReduxCost"                                                            "20"
+	}
+
+	"phantom_assassin_immaterial"
+	{
+		"ReduxFlags"                                                           "tank"
+	}
+	
+	"phantom_assassin_coup_de_grace"
+	{
+		"ReduxFlags"                                                           "attack_modifier | crit"
+		"ReduxPerks"                                                           "attack_modifier"
+		"ReduxCost"                                                            "80"
+	}
+	
+	//=================================================================================================================
+	// Blur (Innate but shown in UI)
+	//=================================================================================================================
+	"phantom_assassin_blur"
+	{
+		"ReduxFlags"                                                           "cooldown | doNotRandom | upgradeable"
+		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
+	}
+	
+	"phantom_assassin_fan_of_knives"
+	{
+		"ReduxFlags"                                                           "disarm_break | physical | upgradeable"
+		"ReduxPerks"                                                           "blades | dagger | physical"
+
+		"MaxLevel"                      "4"
+		"AbilityCooldown"               "14 13 12 11"
+		"AbilityManaCost"               "80 75 70 65"
+		"AbilityValues"
+		{
+			"pct_health_damage_initial"			"30 31 32 33"
+			"pct_health_damage"			"2"
+			"degen"			"-50"
+			"duration"		"4 4.5 5 5.5"
+			"radius"
+			{
+				"value"			"550"
+				"affected_by_aoe_increase"	"1"
+			}
+			"projectile_speed"			"1000"
+			"max_damage_initial"	"-1"
+		}
+	}
+	
+	"special_bonus_unique_phantom_assassin"
+	{
+		"TalentRequiredAbility"                                                   "phantom_assassin_stifling_dagger"
+	}
+	"special_bonus_unique_phantom_assassin_2"
+	{
+		"TalentRequiredAbility"                                                   "phantom_assassin_coup_de_grace"
+	}
+	"special_bonus_unique_phantom_assassin_3"
+	{
+		"TalentRequiredAbility"                                                   "phantom_assassin_immaterial"
+	}
+	"special_bonus_unique_phantom_assassin_4"
+	{
+		"TalentRequiredAbility"                                                   "phantom_assassin_phantom_strike"
+	}
+	"special_bonus_unique_phantom_assassin_5"
+	{
+		"TalentRequiredAbility"                                                   "phantom_assassin_stifling_dagger"
+	}
+	"special_bonus_unique_phantom_assassin_6"
+	{
+		"TalentRequiredAbility"                                                   "phantom_assassin_phantom_strike"
+	}
+	"special_bonus_unique_phantom_assassin_7"
+	{
+		"TalentRequiredAbility"                                                   "phantom_assassin_stifling_dagger"
+	}
+	"special_bonus_unique_phantom_assassin_8"
+	{
+		"TalentRequiredAbility"                                                   "phantom_assassin_stifling_dagger"
+	}
+	"special_bonus_unique_phantom_assassin_9"
+	{
+		"TalentRequiredAbility"                                                   "phantom_assassin_phantom_strike"
+	}
+	"special_bonus_unique_phantom_assassin_strike_aspd"
+	{
+		"TalentRequiredAbility"                                                   "phantom_assassin_phantom_strike"
+	}
+}

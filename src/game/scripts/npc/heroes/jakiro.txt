@@ -1,0 +1,80 @@
+// Abilities for jakiro
+"DOTAAbilities"
+{
+	"jakiro_dual_breath"
+	{
+		"ReduxPerks"                                                           "dragon | fire | ice | skillshot"
+	}
+
+	"jakiro_ice_path"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "dragon | ice | skillshot"
+	}
+
+	"jakiro_liquid_fire"
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | dragon | explosive | fire"
+	}
+
+	"jakiro_liquid_ice"
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | dragon | ice"
+	}
+
+	"jakiro_macropyre"
+	{
+		"ReduxFlags"                                                           "upgradeable"
+		"ReduxPerks"                                                           "dragon | fire | skillshot"
+	}
+
+	//=================================================================================================================
+	// Double Attack (Innate)
+	//=================================================================================================================
+	"jakiro_double_trouble"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | dragon"
+	}
+
+	"special_bonus_unique_jakiro"
+	{
+		"TalentRequiredAbility"                                                   "jakiro_ice_path"
+	}
+	"special_bonus_unique_jakiro_2"
+	{
+		"TalentRequiredAbility"                                                   "jakiro_dual_breath"
+	}
+	"special_bonus_unique_jakiro_3"
+	{
+		"TalentRequiredAbility"
+		{
+			"1" "jakiro_liquid_fire"
+			"2" "jakiro_liquid_ice"
+		}
+	}
+	"special_bonus_unique_jakiro_4"
+	{
+		"TalentRequiredAbility"                                                   "jakiro_liquid_fire"
+	}
+	"special_bonus_unique_jakiro_6"
+	{
+		"TalentRequiredAbility"                                                   "jakiro_ice_path"
+	}
+	"special_bonus_unique_jakiro_7"
+	{
+		"TalentRequiredAbility"                                                   "jakiro_macropyre"
+	}
+	"special_bonus_unique_jakiro_dualbreath_cooldown"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "jakiro_dual_breath"
+	}
+}

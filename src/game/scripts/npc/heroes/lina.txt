@@ -1,0 +1,99 @@
+// Abilities for lina
+"DOTAAbilities"
+{
+	"lina_dragon_slave"
+	{
+		"ReduxPerks"                                                           "dragon | fire | skillshot"
+	}
+
+	"lina_light_strike_array"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "fire | light | skillshot"
+	}
+
+	"lina_fiery_soul"
+	{
+		"ReduxPerks"                                                           "fire"
+		"ReduxCost"                                                            "80"
+	}
+
+	"lina_laguna_blade"
+	{
+		"ReduxPerks"                                                           "blades | lightning"
+	}
+
+	"lina_flame_cloak"
+	{
+		"ReduxFlags"                                                           "mobility | tank | upgradeable"
+		"ReduxPerks"                                                           "fire | mobility"
+
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"25 22 19 16"
+		"AbilityCastPoint"				"0.0"
+		"AbilityManaCost"				"50"
+		"AbilityValues"
+		{
+			"flame_cloak_duration"				"6 7 8 9"
+			"magic_resistance"					"35 40 45 50"
+			"spell_amp"							"30 35 40 45"
+			"visualzdelta"							"100"
+			"zchangespeed"							"350"
+		}
+	}
+
+	//=================================================================================================================
+	// Slow Burn (Facet)
+	//=================================================================================================================
+	"lina_slow_burn"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "fire"
+	}
+
+	//=================================================================================================================
+	// Combustion (Innate)
+	//=================================================================================================================
+	"lina_combustion"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "aoe_attack"
+		"ReduxPerks"                                                           "explosive | fire"
+	}
+
+	"special_bonus_unique_lina_1"
+	{
+		"TalentRequiredAbility"                                                   "lina_dragon_slave"
+	}
+	"special_bonus_unique_lina_2"
+	{
+		"TalentRequiredAbility"                                                   "lina_fiery_soul"
+	}
+	"special_bonus_unique_lina_3"
+	{
+		"TalentRequiredAbility"                                                   "lina_light_strike_array"
+	}
+	"special_bonus_unique_lina_4"
+	{
+		"TalentRequiredAbility"                                                   "lina_fiery_soul"
+	}
+	"special_bonus_unique_lina_6"
+	{
+		"TalentRequiredAbility"                                                   "lina_laguna_blade"
+	}
+	"special_bonus_unique_lina_7"
+	{
+		"TalentRequiredAbility"                                                   "lina_combustion"
+	}
+	"special_bonus_unique_lina_crit_debuff"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "lina_fiery_soul"
+	}
+}

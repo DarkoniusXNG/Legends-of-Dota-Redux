@@ -31,5 +31,6 @@
         }
 
         "ReduxFlags"                                                           "upgradeable | dota_custom"
+        "ReduxPerks"                                                           "light"
     }
 }

@@ -82,10 +82,6 @@
 	{
 		"TalentRequiredAbility"                                                "bloodseeker_thirst"
 	}
-	"special_bonus_unique_bloodseeker_5"
-	{
-		"TalentRequiredAbility"                                                "bloodseeker_bloodrage"
-	}
 	"special_bonus_unique_bloodseeker_6"
 	{
 		"TalentRequiredAbility"                                                "bloodseeker_bloodrage"

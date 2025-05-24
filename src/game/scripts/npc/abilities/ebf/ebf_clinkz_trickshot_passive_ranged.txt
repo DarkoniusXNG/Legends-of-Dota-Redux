@@ -10,9 +10,11 @@
 
         "HasScepterUpgrade"                                                    "1"
 
+        "AbilityCooldown"                                                      "2.2 1.6 1"
+
         "AbilityValues"
         {
-            "double_interval" "2.0 1.4 0.8"
+            "double_interval" "2.2 1.6 1.0"
             "targets_scepter" "3"
         }
 

@@ -1,0 +1,63 @@
+// Abilities for pudge
+"DOTAAbilities"
+{
+	"pudge_meat_hook"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "enemymoving | skillshot"
+	}
+
+	"pudge_rot"
+	{
+		"ReduxFlags"                                                           "upgradeable"
+		"ReduxPerks"                                                           "poison | self_damage | undead"
+		"ReduxBans"                                                            "batrider_sticky_napalm"
+	}
+
+	"pudge_flesh_heap"
+	{
+		"ReduxFlags"                                                           "tank"
+	}
+
+	"pudge_dismember"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "channeled | drain"
+	}
+
+	"pudge_innate_graft_flesh"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"special_bonus_unique_pudge_1"
+	{
+		"TalentRequiredAbility"
+		{
+			"1" "pudge_innate_graft_flesh"
+			"2" "pudge_flesh_heap"
+		}
+	}
+	"special_bonus_unique_pudge_3"
+	{
+		"TalentRequiredAbility"                                                   "pudge_dismember"
+	}
+	"special_bonus_unique_pudge_4"
+	{
+		"TalentRequiredAbility"                                                   "pudge_rot"
+	}
+	"special_bonus_unique_pudge_5"
+	{
+		"TalentRequiredAbility"                                                   "pudge_meat_hook"
+	}
+	"special_bonus_unique_pudge_6"
+	{
+		"TalentRequiredAbility"                                                   "pudge_dismember"
+	}
+	"special_bonus_unique_pudge_7"
+	{
+		"TalentRequiredAbility"                                                   "pudge_meat_hook"
+	}
+}

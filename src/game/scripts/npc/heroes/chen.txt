@@ -63,10 +63,6 @@
 	{
 		"TalentRequiredAbility"                                                   "chen_holy_persuasion"
 	}
-	"special_bonus_unique_chen_7"
-	{
-		"TalentRequiredAbility"                                                   "chen_hand_of_god"
-	}
 	"special_bonus_unique_chen_8"
 	{
 		"TalentRequiredAbility"                                                   "chen_penitence"
@@ -78,5 +74,13 @@
 	"special_bonus_unique_chen_12"
 	{
 		"TalentRequiredAbility"                                                   "chen_hand_of_god"
+	}
+	"special_bonus_unique_chen_divine_favor_healing"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "chen_divine_favor"
 	}
 }

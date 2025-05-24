@@ -175,12 +175,12 @@
 			"bonus_attack_speed"
 			{
 				"value"					"25 45 65 85"
-				"special_bonus_unique_invoker_5"	"+30"
+				"special_bonus_unique_invoker_5"	"+35"
 			}
 			"bonus_damage"
 			{
 				"value"					"25 45 65 85"
-				"special_bonus_unique_invoker_5"	"+30"
+				"special_bonus_unique_invoker_5"	"+35"
 			}
 			"duration"					"9"
 		}
@@ -213,7 +213,6 @@
 			"AbilityCooldown"
 			{
 				"value"					"23 22 21 20"
-				"special_bonus_unique_invoker_11" "-4"
 			}
 			"damage"					"200 300 400 500"
 			"vision_distance"			"400"
@@ -430,18 +429,6 @@
 	{
 		"TalentRequiredAbility"                                                   "invoker_cold_snap_ad"
 	}
-
-	"special_bonus_unique_invoker_11"
-	{
-		"TalentRequiredAbility"                                                   "invoker_sun_strike_ad"
-	}
-	
-	// "special_bonus_unique_invoker_13"
-	// {
-		// "AbilityType"                                                          "DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		// "BaseClass"                                                            "special_bonus_base"
-	// }
 
 	"special_bonus_unique_invoker_ice_wall_dps"
 	{

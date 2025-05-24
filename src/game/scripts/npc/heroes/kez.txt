@@ -62,8 +62,8 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 
-		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "silence"
+		"ReduxFlags"                                                           "physical | silence"
+		"ReduxPerks"                                                           "physical | silence"
 	}
 
 	//=================================================================================================================
@@ -87,7 +87,7 @@
 		"ReduxFlags"                                                           "mobility | invis | doNotRandom"
 		"ReduxPerks"                                                           "mobility | invis"
 	}
-	
+
 	//=================================================================================================================
 	// Kez: Shadowhawk (Facet)
 	//=================================================================================================================
@@ -98,9 +98,6 @@
 		"ReduxFlags"                                                           "crit | doNotRandom | invis"
 	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
 	"special_bonus_unique_kez_falcon_rush_duration"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
@@ -110,21 +107,15 @@
 		"TalentRequiredAbility"                                                   "kez_falcon_rush"
 	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	// "special_bonus_unique_kez_raptor_dance_radius"
-	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		// "BaseClass"						"special_bonus_base"
+	"special_bonus_unique_kez_raptor_dance_radius"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
-		// "TalentRequiredAbility"                                                   "kez_raptor_dance"
-	// }
+		"TalentRequiredAbility"                                                   "kez_raptor_dance"
+	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
 	"special_bonus_unique_kez_kazura_katana_bleed_damage"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
@@ -134,21 +125,6 @@
 		"TalentRequiredAbility"                                                   "kez_kazurai_katana"
 	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_kez_falcon_rush_evasion"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "kez_falcon_rush"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
 	"special_bonus_unique_kez_mark_damage"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
@@ -158,9 +134,6 @@
 		"TalentRequiredAbility"                                                   "kez_shodo_sai"
 	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
 	"special_bonus_unique_kez_echo_slash_strike_count"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
@@ -170,9 +143,6 @@
 		"TalentRequiredAbility"                                                   "kez_echo_slash"
 	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
 	// "special_bonus_unique_kez_ultimate_cooldown"
 	// {
 		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
@@ -186,19 +156,21 @@
 		// }
 	// }
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_kez_ravens_veil_mark_parry_bonus"
+	"special_bonus_unique_kez_raptor_dance_strikes"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"
-		{
-			"1" "kez_ravens_veil"
-			"2" "kez_shodo_sai"
-		}
+		"TalentRequiredAbility"                                                   "kez_raptor_dance"
+	}
+
+	"special_bonus_unique_kez_talon_toss_attack_factor"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "kez_talon_toss"
 	}
 }

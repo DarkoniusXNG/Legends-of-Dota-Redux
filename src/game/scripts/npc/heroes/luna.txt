@@ -60,8 +60,8 @@
 	//=================================================================================================================
 	"luna_eclipse"
 	{
-		"ReduxPerks"		"light"
-		"ReduxFlags"		"upgradeable | doNotRandom"
+		"ReduxFlags"                                                           "upgradeable | doNotRandom"
+		"ReduxPerks"                                                           "light"
 	}
 
 	"special_bonus_unique_luna_1"

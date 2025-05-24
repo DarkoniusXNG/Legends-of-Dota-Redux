@@ -1,0 +1,94 @@
+// Abilities for earthshaker
+"DOTAAbilities"
+{
+	"earthshaker_fissure"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "earth | skillshot"
+		"ReduxCost"                                                            "10"
+	}
+
+	"earthshaker_enchant_totem"
+	{
+		"ReduxFlags"                                                           "upgradeable"
+		"ReduxPerks"                                                           "earth"
+		"ReduxCost"                                                            "40"
+	}
+
+	"earthshaker_aftershock"
+	{
+		"ReduxFlags"                                                           "stun | wtfAutoBan"
+		"ReduxPerks"                                                           "earth"
+		"ReduxCost"                                                            "120"
+		"ReduxBans"                                                            "storm_spirit_ball_lightning | obsidian_destroyer_arcane_orb"
+		"ReduxBanCategory"                                                     "SpammableSpells"
+	}
+
+	"earthshaker_echo_slam"
+	{
+		"ReduxPerks"                                                           "earth"
+	}
+
+	//=================================================================================================================
+	// Spirit Cairn (old innate)
+	//=================================================================================================================
+	"earthshaker_spirit_cairn"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "earth"
+	}
+
+	//=================================================================================================================
+	// Slugger (Innate)
+	//=================================================================================================================
+	"earthshaker_slugger"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"special_bonus_unique_earthshaker"
+	{
+		"TalentRequiredAbility"                                                   "earthshaker_enchant_totem"
+	}
+	"special_bonus_unique_earthshaker_2"
+	{
+		"TalentRequiredAbility"                                                   "earthshaker_echo_slam"
+	}
+	"special_bonus_unique_earthshaker_3"
+	{
+		"TalentRequiredAbility"                                                   "earthshaker_fissure"
+	}
+	"special_bonus_unique_earthshaker_4"
+	{
+		"TalentRequiredAbility"                                                   "earthshaker_fissure"
+	}
+
+	"special_bonus_unique_earthshaker_6"
+	{
+		"TalentRequiredAbility"                                                   "earthshaker_aftershock"
+	}
+
+	"special_bonus_unique_earthshaker_totem_damage"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "earthshaker_enchant_totem"
+	}
+
+	"special_bonus_unique_earthshaker_echo_cd"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "earthshaker_echo_slam"
+	}
+}
