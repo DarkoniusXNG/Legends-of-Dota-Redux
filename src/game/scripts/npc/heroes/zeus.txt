@@ -1,0 +1,110 @@
+// Abilities for zeus
+"DOTAAbilities"
+{
+	"zuus_arc_lightning"
+	{
+		"ReduxPerks"                                                           "lightning"
+	}
+
+	"zuus_lightning_bolt"
+	{
+		"ReduxFlags"                                                           "stun | support"
+		"ReduxPerks"                                                           "lightning | support"
+	}
+
+	"zuus_heavenly_jump"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "lightning | mobility"
+		"ReduxCost"                                                            "20"
+	}
+
+	"zuus_thundergods_wrath"
+	{
+		"ReduxFlags"                                                           "wtfAutoBan"
+		"ReduxPerks"                                                           "lightning | rage"
+		"ReduxCost"                                                            "20"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	"zuus_cloud"
+	{
+		"ReduxFlags"                                                           "doNotRandom | summon | upgradeable | wtfAutoBan"
+		"ReduxPerks"                                                           "lightning"
+		"ReduxBans"                                                            "tinker_rearm"
+
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityCooldown"				"45 40 35 30"
+		"MaxLevel"						"4"
+		"AbilityValues"
+		{
+			"cloud_duration"	"30"
+			"cloud_bolt_interval"	"2.5 2.2 1.9 1.6"
+			"cloud_radius"
+			{
+				"value"			"450"
+				"affected_by_aoe_increase"	"1"
+			}
+			"hits_to_kill_tooltip"		"8"
+			"creep_hits_to_kill_tooltip"		"16"
+			"cloud_bounty_tooltip"		"125"
+		}
+	}
+
+	"zuus_lightning_hands"
+	{
+		"ReduxFlags"                                                           "attack_modifier | doNotRandom"
+		"ReduxPerks"                                                           "attack_modifier | lightning"
+
+		"MaxLevel"						"4"
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityValues"
+		{
+			"attack_speed_bonus"				"30 40 50 60"
+			"arc_lightning_damage_pct"		"50 60 70 80"
+			"arc_lightning_damage_illusion_pct"		"20 25 30 35"
+		}
+	}
+
+	//=================================================================================================================
+	// Static Field (Innate)
+	//=================================================================================================================
+	"zuus_static_field"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxPerks"                                                           "lightning"
+		"ReduxCost"                                                            "40"
+	}
+
+	"special_bonus_unique_zeus"
+	{
+		"TalentRequiredAbility"                                                   "zuus_heavenly_jump"
+	}
+	"special_bonus_unique_zeus_2"
+	{
+		"TalentRequiredAbility"                                                   "zuus_arc_lightning"
+	}
+	"special_bonus_unique_zeus_3"
+	{
+		"TalentRequiredAbility"                                                   "zuus_lightning_bolt"
+	}
+	"special_bonus_unique_zeus_4"
+	{
+		"TalentRequiredAbility"                                                   "zuus_thundergods_wrath"
+	}
+	"special_bonus_unique_zeus_5"
+	{
+		"TalentRequiredAbility"                                                   "zuus_lightning_bolt"
+	}
+	"special_bonus_unique_zeus_6"
+	{
+		"TalentRequiredAbility"                                                   "zuus_arc_lightning"
+	}
+	"special_bonus_unique_zeus_static_field_dmg"
+	{
+		"TalentRequiredAbility"                                                   "zuus_static_field"
+	}
+}

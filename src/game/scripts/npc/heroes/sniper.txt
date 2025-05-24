@@ -1,0 +1,142 @@
+// Abilities for sniper
+"DOTAAbilities"
+{
+	"sniper_shrapnel"
+	{
+		"ReduxPerks"                                                           "explosive | scientific | skillshot"
+	}
+
+	"sniper_headshot"
+	{
+		"ReduxFlags"                                                           "attack_modifier | physical"
+		"ReduxPerks"                                                           "attack_modifier | physical"
+		"ReduxCost"                                                            "10"
+	}
+
+	"sniper_take_aim"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "ranger"
+	}
+
+	"sniper_assassinate"
+	{
+		"ReduxFlags"                                                           "stun | upgradeable"
+		"ReduxPerks"                                                           "channeled | scientific"
+	}
+
+	"sniper_concussive_grenade"
+	{
+		"ReduxFlags"                                                           "disarm_break"
+		"ReduxPerks"                                                           "enemymoving | explosive | mobility | scientific"
+
+		"MaxLevel"						"4"
+		"AbilityValues"
+		{
+			"damage"
+			{
+				"value"					"200 240 280 320"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"AbilityCastRange"
+			{
+				"value"							"600"
+				"special_bonus_unique_sniper_grenade_range"		"+250"
+			}
+			"radius"
+			{
+				"value"		"375"
+				"affected_by_aoe_increase"	"1"
+			}
+			"slow"		"50 55 60 65"
+			"debuff_duration"		"3 3.5 4 4.5"
+			"knockback_height"		"100"
+			"knockback_distance"
+			{
+				"value"		"475"
+				"affected_by_aoe_increase"	"1"
+			}
+			"knockback_duration"		"0.4"
+			"self_push"
+			{
+				"value"			"1"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Keen Scope (Innate)
+	//=================================================================================================================
+	"sniper_keen_scope"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | ranger"
+	}
+
+	"special_bonus_unique_sniper_1"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sniper_assassinate"
+	}
+	"special_bonus_unique_sniper_2"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sniper_shrapnel"
+	}
+	"special_bonus_unique_sniper_3"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sniper_headshot"
+	}
+	"special_bonus_unique_sniper_4"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sniper_take_aim"
+	}
+	"special_bonus_unique_sniper_5"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sniper_take_aim"
+	}
+	"special_bonus_unique_sniper_6"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sniper_take_aim"
+	}
+	"special_bonus_unique_sniper_headshot_damage"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sniper_headshot"
+	}
+	"special_bonus_unique_sniper_shrapnel_damage"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sniper_shrapnel"
+	}
+}

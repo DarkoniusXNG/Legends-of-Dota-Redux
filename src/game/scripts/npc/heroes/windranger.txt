@@ -31,16 +31,16 @@
 		"ReduxPerks"            "enemymoving | ranger | nature"
 
 		"MaxLevel"                      "4"
-		"AbilityCastRange"              "1500 2000 2500 3000"
+		"AbilityCastRange"              "1200 1700 2200 2700"
 		"AbilityCooldown"               "30 25 20 15"
-		"AbilityManaCost"               "150"
+		"AbilityManaCost"               "125 130 135 140"
 		"AbilityValues"
 		{
 			"duration"          "3.5 4 4.5 5"
 			"wind_strength"     "240"
 			"radius"
 			{
-				"value"		"1000 1100 1200 1300"
+				"value"		"900 1000 1100 1200"
 				"affected_by_aoe_increase"	"1"
 			}
 		}

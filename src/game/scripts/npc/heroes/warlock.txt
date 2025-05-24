@@ -1,0 +1,110 @@
+// Abilities for warlock
+"DOTAAbilities"
+{
+	"warlock_fatal_bonds"
+	{
+		"ReduxFlags"                                                           "wtfAutoBan"
+		"ReduxPerks"                                                           "demon"
+	}
+
+	"warlock_shadow_word"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support"
+	}
+
+	"warlock_upheaval"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | channeled"
+	}
+
+	"warlock_rain_of_chaos"
+	{
+		"ReduxFlags"                                                           "upgradeable | stun | summon | wtfAutoBan"
+		"ReduxPerks"                                                           "demon | fire"
+		"ReduxCost"                                                            "20"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	"warlock_golem_flaming_fists"
+	{
+		"ReduxFlags"                                                           "aoe_attack | attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | demon | fire"
+		"ReduxCost"                                                            "120"
+	}
+
+	"warlock_golem_permanent_immolation"
+	{
+		"ReduxPerks"                                                           "aura | demon | fire"
+		"ReduxCost"                                                            "120"
+		"ReduxBans"                                                            "batrider_sticky_napalm"
+	}
+
+	"warlock_imp_explode"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "demon | fire | explosive | self_damage"
+	}
+
+	"warlock_imp_explode_major"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "demon | fire | explosive | self_damage"
+	}
+
+	//=================================================================================================================
+	// Eldritch Summoning (Innate)
+	//=================================================================================================================
+	"warlock_eldritch_summoning"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "summon"
+		"ReduxPerks"                                                           "demon | fire | summon_non_ult"
+	}
+
+	//=================================================================================================================
+	// Black Grimoire (Facet)
+	//=================================================================================================================
+	"warlock_black_grimoire"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "doNotRandom | support"
+		"ReduxPerks"                                                           "demon | support"
+	}
+
+	"special_bonus_unique_warlock_1"
+	{
+		"TalentRequiredAbility"                                                   "warlock_rain_of_chaos"
+	}
+	"special_bonus_unique_warlock_2"
+	{
+		"TalentRequiredAbility"                                                   "warlock_rain_of_chaos"
+	}
+	"special_bonus_unique_warlock_3"
+	{
+		"TalentRequiredAbility"                                                   "warlock_upheaval"
+	}
+	"special_bonus_unique_warlock_4"
+	{
+		"TalentRequiredAbility"                                                   "warlock_rain_of_chaos"
+	}
+	"special_bonus_unique_warlock_5"
+	{
+		"TalentRequiredAbility"                                                   "warlock_fatal_bonds"
+	}
+	"special_bonus_unique_warlock_7"
+	{
+		"TalentRequiredAbility"                                                   "warlock_shadow_word"
+	}
+	"special_bonus_unique_warlock_10"
+	{
+		"TalentRequiredAbility"                                                   "warlock_upheaval"
+	}
+	"special_bonus_unique_warlock_upheaval_aoe"
+	{
+		"TalentRequiredAbility"                                                   "warlock_upheaval"
+	}
+}

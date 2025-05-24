@@ -1,0 +1,100 @@
+// Abilities for witch doctor
+"DOTAAbilities"
+{
+	"witch_doctor_paralyzing_cask"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "poison"
+	}
+
+	"witch_doctor_voodoo_restoration"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support"
+		"ReduxCost"                                                            "10"
+	}
+
+	"witch_doctor_maledict"
+	{
+		"ReduxPerks"                                                           "poison | skillshot"
+		"ReduxCost"                                                            "10"
+	}
+
+	"witch_doctor_death_ward"
+	{
+		"ReduxFlags"                                                           "summon | upgradeable"
+		"ReduxPerks"                                                           "channeled | undead"
+	}
+
+	"witch_doctor_voodoo_switcheroo"
+	{
+		"ReduxFlags"                                                           "doNotRandom | upgradeable"
+		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
+
+		"MaxLevel"                      "4"
+		"AbilityCooldown"               "50 40 30 20"
+		"AbilityManaCost"               "200"
+
+		"AbilityValues"
+		{
+			"duration"
+			{
+				"value" "2.5 3 3.5 4"
+			}
+			"attack_speed_reduction"
+			{
+				"value" "45 35 25 15"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Maledict Health Restoration Reduction (Unknown)
+	//=================================================================================================================
+	"witch_doctor_innate_maledict_heal_reduction"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	//=================================================================================================================
+	// Gris Gris (Innate)
+	//=================================================================================================================
+	"witch_doctor_gris_gris"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "doNotRandom | support"
+		"ReduxPerks"                                                           "support"
+	}
+
+	"special_bonus_unique_witch_doctor_1"
+	{
+		"TalentRequiredAbility"                                                   "witch_doctor_death_ward"
+	}
+	"special_bonus_unique_witch_doctor_2"
+	{
+		"TalentRequiredAbility"                                                   "witch_doctor_voodoo_restoration"
+	}
+	"special_bonus_unique_witch_doctor_3"
+	{
+		"TalentRequiredAbility"                                                   "witch_doctor_paralyzing_cask"
+	}
+	"special_bonus_unique_witch_doctor_4"
+	{
+		"TalentRequiredAbility"                                                   "witch_doctor_voodoo_restoration"
+	}
+	"special_bonus_unique_witch_doctor_5"
+	{
+		"TalentRequiredAbility"                                                   "witch_doctor_death_ward"
+	}
+	"special_bonus_unique_witch_doctor_6"
+	{
+		"TalentRequiredAbility"                                                   "witch_doctor_maledict"
+	}
+	"special_bonus_unique_witch_doctor_7"
+	{
+		"TalentRequiredAbility"                                                   "witch_doctor_maledict"
+	}
+}

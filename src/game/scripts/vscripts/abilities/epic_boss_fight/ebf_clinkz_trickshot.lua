@@ -167,7 +167,7 @@ if IsServer() then
 		end
 
 		local attackRange = parent:Script_GetAttackRange() + parent:GetHullRadius()
-		local interval = 1.5
+		local interval = 1
 		local counter = 1
 
 		local ability = self:GetAbility()

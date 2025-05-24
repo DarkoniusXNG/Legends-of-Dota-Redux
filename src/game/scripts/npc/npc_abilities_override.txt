@@ -47,13 +47,20 @@
 #base "heroes\shadow_fiend.txt"
 #base "heroes\shadow_shaman.txt"
 #base "heroes\skywrath_mage.txt"
+#base "heroes\sniper.txt"
 #base "heroes\spectre.txt"
 #base "heroes\storm_spirit.txt"
+#base "heroes\sven.txt"
 #base "heroes\tiny.txt"
 #base "heroes\underlord.txt"
+#base "heroes\vengeful_spirit.txt"
+#base "heroes\viper.txt"
+#base "heroes\warlock.txt"
 #base "heroes\windranger.txt"
 #base "heroes\winter_wyvern.txt"
+#base "heroes\witch_doctor.txt"
 #base "heroes\wraith_king.txt"
+#base "heroes\zeus.txt"
 
 "DOTAAbilities"
 {
@@ -122,11 +129,6 @@
 	}
 
 	"visage_soul_assumption"
-	{
-		"ReduxPerks"                                                           "undead"
-	}
-
-	"vengefulspirit_retribution"
 	{
 		"ReduxPerks"                                                           "undead"
 	}
@@ -330,23 +332,6 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"archers_use_barrage"		"0"
-		}
-	}
-
-	"zuus_lightning_hands"
-	{
-		"ReduxFlags"					"attack_modifier | doNotRandom"
-		"ReduxPerks"					"attack_modifier | lightning"
-
-		"MaxLevel"						"4"
-		"AbilityCastPoint"				"0"
-		"AbilityCooldown"				"0"
-		"AbilityManaCost"				"0"
-		"AbilityValues"
-		{
-			"attack_speed_bonus"				"30 40 50 60"
-			"arc_lightning_damage_pct"		"50 60 70 80"
-			"arc_lightning_damage_illusion_pct"		"20 25 30 35"
 		}
 	}
 
@@ -1810,36 +1795,6 @@
 		}
 	}
 
-	"zuus_cloud"
-	{
-		"ReduxFlags"                    "summon | doNotRandom | upgradeable | wtfAutoBan"
-		"ReduxPerks"                    "lightning"
-		"ReduxBans"                     "tinker_rearm"
-
-		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityCooldown"				"45 40 35 30"
-		"MaxLevel"						"4"
-		"AbilityValues"
-		{
-			"cloud_duration"	"30"
-			"cloud_bolt_interval"	"2.5 2.2 1.9 1.6"
-			"cloud_radius"
-			{
-				"value"			"450"
-				"affected_by_aoe_increase"	"1"
-			}
-			"hits_to_kill_tooltip"		"8"
-			"creep_hits_to_kill_tooltip"		"16"
-			"cloud_bounty_tooltip"		"125"
-		}
-	}
-
-	"sniper_assassinate"
-	{
-		"ReduxFlags"                                                           "upgradeable"
-		"ReduxPerks"                                                           "scientific | explosive"
-	}
-
 	"beastmaster_primal_roar"
 	{
 		"ReduxFlags"                                                           "stun"
@@ -2018,12 +1973,6 @@
 		"ReduxPerks"                                                           "mobility | blink"
 	}
 
-	"sven_gods_strength"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | rage"
-		"ReduxCost"                                                            "20"
-	}
 	"techies_remote_mines"
 	{
 		"ReduxFlags"                                                           "upgradeable | doNotRandom"
@@ -2078,47 +2027,18 @@
 		"ReduxCost"                                                            "10"
 		"ReduxBans"                                                            "dazzle_bad_juju_redux"
 	}
-	"vengefulspirit_nether_swap"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | enemymoving"
-	}
-	"viper_viper_strike"
-	{
-		"ReduxFlags"                                                           "disarm_break"
-		"ReduxPerks"                                                           "dragon | poison"
-	}
+
 	"visage_summon_familiars"
 	{
 		"ReduxFlags"                                                           "summon"
 		"ReduxCost"                                                            "20"
 		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand"
 	}
-	"warlock_rain_of_chaos"
-	{
-		"ReduxFlags"                                                           "upgradeable | stun | summon | wtfAutoBan"
-		"ReduxPerks"                                                           "fire"
-		"ReduxCost"                                                            "20"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
-	}
+
 	"weaver_time_lapse"
 	{
 		"ReduxFlags"                                                           "upgradeable | mobility | support"
 		"ReduxPerks"                                                           "mobility | support"
-	}
-
-	"witch_doctor_death_ward"
-	{
-		"ReduxFlags"                                                           "summon | upgradeable"
-		"ReduxPerks"                                                           "channeled"
-	}
-
-	"zuus_thundergods_wrath"
-	{
-		"ReduxFlags"                                                           "wtfAutoBan"
-		"ReduxPerks"                                                           "lightning"
-		"ReduxCost"                                                            "20"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 
 	"disruptor_glimpse"
@@ -2134,12 +2054,6 @@
 		"ReduxPerks"                                                           "support | nature"
 	}
 
-	"witch_doctor_voodoo_restoration"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
-		"ReduxCost"                                                            "10"
-	}
 	"ogre_magi_bloodlust"
 	{
 		"ReduxFlags"                                                           "mobility | support"
@@ -2173,11 +2087,6 @@
 	{
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support | drain | undead"
-	}
-	"warlock_shadow_word"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
 	}
 
 	"legion_commander_press_the_attack"
@@ -2242,21 +2151,13 @@
 		"ReduxPerks"                                                           "support | undead"
 		"ReduxCost"                                                            "10"
 	}
-	"warlock_upheaval"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | channeled"
-	}
+
 	"riki_smoke_screen"
 	{
 		"ReduxFlags"                                                           "support | silence"
 		"ReduxPerks"                                                           "support | silence"
 	}
-	"sven_warcry"
-	{
-		"ReduxFlags"                                                           "support | tank"
-		"ReduxPerks"                                                           "support | rage"
-	}
+	
 	"furion_sprout"
 	{
 		"ReduxFlags"                                                           "support"
@@ -2323,12 +2224,6 @@
 		"ReduxPerks"                                                           "mobility"
 		"ReduxCost"                                                            "20"
 		"ReduxBans"                                                            "dazzle_bad_juju_redux"
-	}
-	"zuus_heavenly_jump"
-	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility | lightning"
-		"ReduxCost"                                                            "20"
 	}
 
 	"monkey_king_tree_dance"
@@ -2636,13 +2531,6 @@
 		"ReduxCost"                                                            "40"
 	}
 
-	"viper_corrosive_skin"
-	{
-		"ReduxFlags"                                                           "tank | upgradeable"
-		"ReduxPerks"                                                           "dragon | poison"
-		"ReduxCost"                                                            "20"
-	}
-
 	"medusa_mana_shield"
 	{
 		"ReduxFlags"                                                           "tank | mana"
@@ -2706,12 +2594,6 @@
 		"ReduxCost"                                                            "40"
 	}
 
-	"warlock_golem_flaming_fists"
-	{
-		"ReduxFlags"                                                           "aoe_attack | attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | fire"
-		"ReduxCost"                                                            "120"
-	}
 	"medusa_split_shot"
 	{
 		"ReduxFlags"                                                           "aoe_attack | attack_modifier | semi_passive"
@@ -2720,12 +2602,6 @@
 		"ReduxBans"                                                            "holdout_multishot"
 	}
 
-	"sven_great_cleave"
-	{
-		"ReduxFlags"                                                           "aoe_attack | attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | blades | physical"
-		"ReduxCost"                                                            "10"
-	}
 	"templar_assassin_psi_blades"
 	{
 		"ReduxFlags"                                                           "aoe_attack | attack_modifier"
@@ -2840,12 +2716,7 @@
 		"ReduxPerks"                                                           "attack_modifier | poison"
 		"ReduxCost"                                                            "10"
 	}
-	"viper_poison_attack"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | autocast_basic | dragon | poison"
-		"ReduxBans"                                                            "batrider_sticky_napalm"
-	}
+
 	"weaver_geminate_attack"
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"
@@ -2863,12 +2734,6 @@
 		"ReduxFlags"                                                           "attack_modifier | upgradeable"
 		"ReduxPerks"                                                           "attack_modifier | undead"
 		"ReduxCost"                                                            "120" // Made single player because its causes lag, needs more investigation
-	}
-	"sniper_headshot"
-	{
-		"ReduxFlags"                                                           "attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | physical"
-		"ReduxCost"                                                            "10"
 	}
 
 	"troll_warlord_fervor"
@@ -2909,20 +2774,10 @@
 		"ReduxPerks"                                                           "water | enemymoving"
 	}
 
-	"sven_storm_bolt"
-	{
-		"ReduxFlags"                                                           "stun | upgradeable"
-		"ReduxPerks"                                                           "lightning"
-	}
-
 	"slardar_slithereen_crush"
 	{
 		"ReduxFlags"                                                           "stun | physical | upgradeable"
 		"ReduxPerks"                                                           "water | physical"
-	}
-	"vengefulspirit_magic_missile"
-	{
-		"ReduxFlags"                                                           "stun"
 	}
 
 	"enigma_malefice"
@@ -2980,10 +2835,7 @@
 		"ReduxBans"                                                            "arc_warden_tempest_double"
 	}
 
-	"witch_doctor_paralyzing_cask"
-	{
-		"ReduxFlags"                                                           "stun"
-	}
+	
 
 	"tidehunter_ravage"
 	{
@@ -3164,13 +3016,6 @@
 		"ReduxPerks"                                                           "illusion | demon"
 	}
 
-	"warlock_golem_permanent_immolation"
-	{
-		"ReduxPerks"                                                           "fire | aura"
-		"ReduxCost"                                                            "120"
-		"ReduxBans"                                                            "batrider_sticky_napalm"
-	}
-
 	"nyx_assassin_mana_burn"
 	{
 		"ReduxFlags"                                                           "mana"
@@ -3259,10 +3104,7 @@
 		"ReduxPerks"                                                           "poison | skillshot | demon"
 		"ReduxFlags"                                                           "doNotRandom"
 	}
-	"viper_nethertoxin"
-	{
-		"ReduxPerks"                                                           "poison"
-	}
+
 	"disruptor_thunder_strike"
 	{
 		"ReduxPerks"                                                           "lightning"
@@ -3290,20 +3132,6 @@
 		"ReduxPerks"                                                           "lightning"
 	}
 
-	"zuus_arc_lightning"
-	{
-		"ReduxPerks"                                                           "lightning"
-	}
-	"zuus_lightning_bolt"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "lightning"
-	}
-	"zuus_static_field"
-	{
-		"ReduxPerks"                                                           "lightning"
-		"ReduxCost"                                                            "40"
-	}
 	"nyx_assassin_jolt"
 	{
 		"ReduxPerks"                                                           "lightning"
@@ -3553,13 +3381,6 @@
 		"ReduxBanCategory"		"ToggleSpells"
 	}
 
-	"vengefulspirit_command_aura"
-	{
-		"ReduxFlags"                                                           "support | upgradeable"
-		"ReduxPerks"                                                           "aura | support | undead"
-		"ReduxCost"                                                            "20"
-	}
-
 	"item_ancient_janggo"
 	{
 		"ReduxPerks"                                                           "aura | support"
@@ -3704,10 +3525,7 @@
 		"ReduxFlags"														   "upgradeable"
 		"ReduxPerks"                                                           "blades"
 	}
-	"vengefulspirit_wave_of_terror"
-	{
-		"ReduxPerks"                                                           "skillshot | undead"
-	}
+
 	"weaver_the_swarm"
 	{
 		"ReduxFlags"                                                           "physical"
@@ -4050,43 +3868,6 @@
 	{
 		"ReduxFlags"		"doNotRandom"
 		"ReduxPerks"        "skillshot"
-	}
-
-	"sniper_shrapnel"
-	{
-		"ReduxPerks"                                                           "explosive"
-	}
-
-	"sniper_concussive_grenade"
-	{
-		"ReduxFlags"                                                           "disarm_break"
-		"ReduxPerks"                                                           "scientific | explosive | enemymoving | mobility"
-
-		"MaxLevel"						"4"
-		"AbilityValues"
-		{
-			"damage"
-			{
-				"value"					"200 240 280 320"
-				"CalculateSpellDamageTooltip"	"1"
-			}
-			"AbilityCastRange"
-			{
-				"value"							"600"
-				"special_bonus_unique_sniper_grenade_range"		"+250"
-			}
-			"radius"		"375"
-			"slow"		"50 60 70 80"
-			"debuff_duration"		"3 3.5 4 4.5"
-			"knockback_height"		"100"
-			"knockback_distance"		"475"
-			"knockback_duration"		"0.4"
-			"self_push"
-			{
-				"value"			"1"
-				"special_bonus_unique_sniper_grenade_self_push"		"+1"
-			}
-		}
 	}
 
 	"snapfire_scatterblast"
@@ -4608,27 +4389,6 @@
 		}
 	}
 
-	"witch_doctor_voodoo_switcheroo"
-	{
-		"ReduxFlags"                                                           "doNotRandom"
-		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
-
-		"MaxLevel"                      "4"
-		"AbilityCooldown"               "50 40 30 20"
-		"AbilityManaCost"               "200"
-		"AbilityValues"
-		{
-			"duration"
-			{
-				"value" "3"
-			}
-			"attack_speed_reduction"
-			{
-				"value" "45 35 25 15"
-			}
-		}
-	}
-
 	"clinkz_burning_army"
 	{
 		"ReduxFlags"				"upgradeable | doNotRandom | summon"
@@ -4808,34 +4568,6 @@
 			"duration"				"7 9 11 13"
 			"explosion_damage"		"300 350 400 450"
 			"explosion_stun_duration"	"2 2.5 3.0 3.5"
-		}
-	}
-
-	"viper_nose_dive"
-	{
-		"ReduxFlags"					"mobility | upgradeable"
-		"ReduxPerks"					"dragon | mobility | poison"
-
-		"MaxLevel"						"4"
-		"AbilityCastPoint"				"0.1"
-		"AbilityCastRange"				"700 800 900 1000"
-		"AbilityCooldown"				"20.0 17.0 14.0 11.0"
-		"AbilityManaCost"				"75"
-		"AbilityValues"
-		{
-			"corrosive_radius"
-			{
-				"value"			"500 600 700 800"
-				"affected_by_aoe_increase"	"1"
-			}
-			"duration"							"0.1"
-			"effect_duration"						"4"
-			"dive_speed"
-			{
-				"value"			"700 800 900 1000"
-			}
-			"start_height"						"100"
-			"movespeed_slow"					"0"
 		}
 	}
 
@@ -6204,71 +5936,6 @@
 		"TalentRequiredAbility"                                                   "slark_shadow_dance"
 	}
 
-	"special_bonus_unique_sniper_1"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "sniper_assassinate"
-	}
-	"special_bonus_unique_sniper_2"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "sniper_shrapnel"
-	}
-	"special_bonus_unique_sniper_3"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "sniper_headshot"
-	}
-	"special_bonus_unique_sniper_4"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "sniper_take_aim"
-	}
-	"special_bonus_unique_sniper_5"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "sniper_take_aim"
-	}
-	"special_bonus_unique_sniper_6"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "sniper_take_aim"
-	}
-	"special_bonus_unique_sniper_headshot_damage"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "sniper_headshot"
-	}
-	"special_bonus_unique_sniper_shrapnel_damage"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "sniper_shrapnel"
-	}
-
 	"special_bonus_unique_spirit_breaker_1"
 	{
 		"TalentRequiredAbility"                                                   "spirit_breaker_greater_bash"
@@ -6289,41 +5956,6 @@
 	{
 		"TalentRequiredAbility"                                                   "spirit_breaker_bulldoze"
 	}
-
-	"special_bonus_unique_sven"
-	{
-		"TalentRequiredAbility"                                                   "sven_vanquisher"
-	}
-	"special_bonus_unique_sven_2"
-	{
-		"TalentRequiredAbility"                                                   "sven_gods_strength"
-	}
-	"special_bonus_unique_sven_3"
-	{
-		"TalentRequiredAbility"                                                   "sven_gods_strength"
-	}
-	"special_bonus_unique_sven_4"
-	{
-		"TalentRequiredAbility"                                                   "sven_storm_bolt"
-	}
-	"special_bonus_unique_sven_5"
-	{
-		"TalentRequiredAbility"                                                   "sven_warcry"
-	}
-	"special_bonus_unique_sven_7"
-	{
-		"TalentRequiredAbility"                                                   "sven_warcry"
-	}
-	"special_bonus_unique_sven_8"
-	{
-		"TalentRequiredAbility"                                                   "sven_great_cleave"
-	}
-	"special_bonus_unique_sven_gods_strength_slow_resist"
-	{
-		"TalentRequiredAbility"                                                   "sven_gods_strength"
-	}
-
-
 
 	"special_bonus_unique_techies"
 	{
@@ -6721,58 +6353,6 @@
 		"TalentRequiredAbility"                                                   "ursa_fury_swipes"
 	}
 
-
-	"special_bonus_unique_vengeful_spirit_1"
-	{
-		"TalentRequiredAbility"                                                   "vengefulspirit_magic_missile"
-	}
-	"special_bonus_unique_vengeful_spirit_2"
-	{
-		"TalentRequiredAbility"                                                   "vengefulspirit_command_aura"
-	}
-	"special_bonus_unique_vengeful_spirit_3"
-	{
-		"TalentRequiredAbility"                                                   "vengefulspirit_magic_missile"
-	}
-	"special_bonus_unique_vengeful_spirit_4"
-	{
-		"TalentRequiredAbility"                                                   "vengefulspirit_wave_of_terror"
-	}
-	"special_bonus_unique_vengeful_spirit_5"
-	{
-		"TalentRequiredAbility"                                                   "vengefulspirit_magic_missile"
-	}
-	"special_bonus_unique_vengeful_spirit_6"
-	{
-		"TalentRequiredAbility"                                                   "vengefulspirit_wave_of_terror"
-	}
-	"special_bonus_unique_vengeful_spirit_8"
-	{
-		"TalentRequiredAbility"                                                   "vengefulspirit_command_aura"
-	}
-	"special_bonus_unique_vengeful_spirit_9"
-	{
-		"TalentRequiredAbility"                                                   "vengefulspirit_nether_swap"
-	}
-	"special_bonus_unique_vengeful_spirit_swap_damage"
-	{
-		"TalentRequiredAbility"                                                   "vengefulspirit_nether_swap"
-	}
-	"special_bonus_unique_vengeful_spirit_missile_castrange"
-	{
-		"TalentRequiredAbility"                                                   "vengefulspirit_magic_missile"
-	}
-	"special_bonus_unique_vengeful_spirit_swap_damage_reduction"
-	{
-		"TalentRequiredAbility"                                                   "vengefulspirit_nether_swap"
-	}
-	"special_bonus_unique_vengeful_spirit_wave_of_terror_steal"
-	{
-		"TalentRequiredAbility"                                                   "vengefulspirit_wave_of_terror"
-	}
-
-
-
 	"special_bonus_unique_venomancer"
 	{
 		"TalentRequiredAbility"                                                   "venomancer_plague_ward"
@@ -6814,51 +6394,6 @@
 		"TalentRequiredAbility"                                                   "venomancer_plague_ward"
 	}
 
-
-
-	"special_bonus_unique_viper_1"
-	{
-		"TalentRequiredAbility"                                                   "viper_corrosive_skin"
-	}
-	"special_bonus_unique_viper_2"
-	{
-		"TalentRequiredAbility"                                                   "viper_viper_strike"
-	}
-	"special_bonus_unique_viper_3"
-	{
-		"TalentRequiredAbility"                                                   "viper_nethertoxin"
-	}
-	"special_bonus_unique_viper_4"
-	{
-		"TalentRequiredAbility"                                                   "viper_viper_strike"
-	}
-	"special_bonus_unique_viper_6"
-	{
-		"TalentRequiredAbility"                                                   "viper_corrosive_skin"
-	}
-	"special_bonus_unique_viper_7"
-	{
-		"TalentRequiredAbility"                                                   "viper_poison_attack"
-	}
-	"special_bonus_unique_viper_8"
-	{
-		"TalentRequiredAbility"                                                   "viper_viper_strike"
-	}
-	"special_bonus_unique_viper_predator_damage"
-	{
-		"TalentRequiredAbility"                                                   "viper_predator"
-	}
-	"special_bonus_unique_viper_nethertoxin_radius"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "viper_nethertoxin"
-	}
-
-
-
 	"special_bonus_unique_visage_1"
 	{
 		"TalentRequiredAbility"                                                   "visage_summon_familiars"
@@ -6895,55 +6430,6 @@
 
 		"TalentRequiredAbility"                                                   "visage_grave_chill"
 	}
-
-
-
-
-	"special_bonus_unique_warlock_1"
-	{
-		"TalentRequiredAbility"                                                   "warlock_rain_of_chaos"
-	}
-	"special_bonus_unique_warlock_2"
-	{
-		"TalentRequiredAbility"                                                   "warlock_rain_of_chaos"
-	}
-	"special_bonus_unique_warlock_3"
-	{
-		"TalentRequiredAbility"                                                   "warlock_upheaval"
-	}
-	"special_bonus_unique_warlock_4"
-	{
-		"TalentRequiredAbility"                                                   "warlock_rain_of_chaos"
-	}
-	"special_bonus_unique_warlock_5"
-	{
-		"TalentRequiredAbility"                                                   "warlock_fatal_bonds"
-	}
-	"special_bonus_unique_warlock_6"
-	{
-		"TalentRequiredAbility"                                                   "warlock_shadow_word"
-	}
-	"special_bonus_unique_warlock_7"
-	{
-		"TalentRequiredAbility"                                                   "warlock_shadow_word"
-	}
-	"special_bonus_unique_warlock_8"
-	{
-		"TalentRequiredAbility"                                                   "warlock_shadow_word"
-	}
-	"special_bonus_unique_warlock_9"
-	{
-		"TalentRequiredAbility"                                                   "warlock_fatal_bonds"
-	}
-	"special_bonus_unique_warlock_10"
-	{
-		"TalentRequiredAbility"                                                   "warlock_upheaval"
-	}
-	"special_bonus_unique_warlock_upheaval_aoe"
-	{
-		"TalentRequiredAbility"                                                   "warlock_upheaval"
-	}
-
 
 	"special_bonus_unique_weaver_1"
 	{
@@ -7005,68 +6491,6 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "wisp_overcharge"
-	}
-
-	"special_bonus_unique_witch_doctor_1"
-	{
-		"TalentRequiredAbility"                                                   "witch_doctor_death_ward"
-	}
-	"special_bonus_unique_witch_doctor_2"
-	{
-		"TalentRequiredAbility"                                                   "witch_doctor_voodoo_restoration"
-	}
-	"special_bonus_unique_witch_doctor_3"
-	{
-		"TalentRequiredAbility"                                                   "witch_doctor_paralyzing_cask"
-	}
-	"special_bonus_unique_witch_doctor_4"
-	{
-		"TalentRequiredAbility"                                                   "witch_doctor_voodoo_restoration"
-	}
-	"special_bonus_unique_witch_doctor_5"
-	{
-		"TalentRequiredAbility"                                                   "witch_doctor_death_ward"
-	}
-	"special_bonus_unique_witch_doctor_6"
-	{
-		"TalentRequiredAbility"                                                   "witch_doctor_maledict"
-	}
-	"special_bonus_unique_witch_doctor_7"
-	{
-		"TalentRequiredAbility"                                                   "witch_doctor_maledict"
-	}
-
-	"special_bonus_unique_zeus"
-	{
-		"TalentRequiredAbility"                                                   "zuus_heavenly_jump"
-	}
-	"special_bonus_unique_zeus_2"
-	{
-		"TalentRequiredAbility"                                                   "zuus_arc_lightning"
-	}
-	"special_bonus_unique_zeus_3"
-	{
-		"TalentRequiredAbility"                                                   "zuus_lightning_bolt"
-	}
-	"special_bonus_unique_zeus_4"
-	{
-		"TalentRequiredAbility"                                                   "zuus_thundergods_wrath"
-	}
-	"special_bonus_unique_zeus_5"
-	{
-		"TalentRequiredAbility"                                                   "zuus_lightning_bolt"
-	}
-	"special_bonus_unique_zeus_jump_cooldown"
-	{
-		"TalentRequiredAbility"                                                   "zuus_heavenly_jump"
-	}
-	"special_bonus_unique_zeus_jump_postjump_movespeed"
-	{
-		"TalentRequiredAbility"                                                   "zuus_heavenly_jump"
-	}
-	"special_bonus_unique_zeus_static_field_dmg"
-	{
-		"TalentRequiredAbility"                                                   "zuus_static_field"
 	}
 
 	"special_bonus_unique_doom_1"
@@ -7387,29 +6811,17 @@
 	{
 		"TalentRequiredAbility" 		"void_spirit_resonant_pulse"
 	}
-	"special_bonus_unique_void_spirit_5"
-	{
-		"TalentRequiredAbility" 		"void_spirit_dissimilate"
-	}
-	"special_bonus_unique_void_spirit_6"
-	{
-		"TalentRequiredAbility" 		"void_spirit_astral_step"
-	}
-	"special_bonus_unique_void_spirit_7"
-	{
-		"TalentRequiredAbility" 		"void_spirit_aether_remnant"
-	}
 	"special_bonus_unique_void_spirit_8"
-	{
-		"TalentRequiredAbility" 		"void_spirit_astral_step"
-	}
-	"special_bonus_unique_void_spirit_9"
 	{
 		"TalentRequiredAbility" 		"void_spirit_astral_step"
 	}
 	"special_bonus_unique_void_spirit_dissimilate_outerring"
 	{
 		"TalentRequiredAbility" 		"void_spirit_dissimilate"
+	}
+	"special_bonus_unique_void_spirit_resonant_pulse_barrier"
+	{
+		"TalentRequiredAbility" 		"void_spirit_resonant_pulse"
 	}
 
 

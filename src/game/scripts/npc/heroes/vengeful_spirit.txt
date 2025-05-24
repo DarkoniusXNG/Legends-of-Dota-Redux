@@ -1,0 +1,80 @@
+// Abilities for vengeful spirit
+"DOTAAbilities"
+{
+	"vengefulspirit_magic_missile"
+	{
+		"ReduxFlags"                                                           "stun"
+	}
+
+	"vengefulspirit_wave_of_terror"
+	{
+		"ReduxPerks"                                                           "skillshot | undead"
+	}
+
+	"vengefulspirit_command_aura"
+	{
+		"ReduxFlags"                                                           "illusion | support | upgradeable"
+		"ReduxPerks"                                                           "aura | illusion | support | undead"
+		"ReduxCost"                                                            "20"
+	}
+
+	"vengefulspirit_nether_swap"
+	{
+		"ReduxFlags"                                                           "stun | support | tank"
+		"ReduxPerks"                                                           "enemymoving | support"
+	}
+
+	//=================================================================================================================
+	// Soul Strike (Facet)
+	//=================================================================================================================
+	"vengefulspirit_soul_strike"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | undead"
+	}
+
+	//=================================================================================================================
+	// Retribution (Innate)
+	//=================================================================================================================
+	"vengefulspirit_retribution"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxPerks"                                                           "rage | undead"
+	}
+
+	"special_bonus_unique_vengeful_spirit_1"
+	{
+		"TalentRequiredAbility"                                                   "vengefulspirit_magic_missile"
+	}
+	"special_bonus_unique_vengeful_spirit_2"
+	{
+		"TalentRequiredAbility"                                                   "vengefulspirit_command_aura"
+	}
+	"special_bonus_unique_vengeful_spirit_4"
+	{
+		"TalentRequiredAbility"                                                   "vengefulspirit_wave_of_terror"
+	}
+	"special_bonus_unique_vengeful_spirit_5"
+	{
+		"TalentRequiredAbility"                                                   "vengefulspirit_magic_missile"
+	}
+	"special_bonus_unique_vengeful_spirit_9"
+	{
+		"TalentRequiredAbility"                                                   "vengefulspirit_nether_swap"
+	}
+	"special_bonus_unique_vengeful_spirit_swap_damage"
+	{
+		"TalentRequiredAbility"                                                   "vengefulspirit_nether_swap"
+	}
+	"special_bonus_unique_vengeful_spirit_missile_castrange"
+	{
+		"TalentRequiredAbility"                                                   "vengefulspirit_magic_missile"
+	}
+	"special_bonus_unique_vengeful_spirit_wave_of_terror_steal"
+	{
+		"TalentRequiredAbility"                                                   "vengefulspirit_wave_of_terror"
+	}
+}
