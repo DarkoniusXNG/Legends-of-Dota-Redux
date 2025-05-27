@@ -9,6 +9,7 @@ ListenToGameEvent("entity_killed",function(keys)
     if OptionManager:GetOption("convertableTowers")==0 then
         return
     end
+    --print("CONVERTABLE TOWERS ENGAGED!")
     local building = EntIndexToHScript(keys.entindex_killed);
     if building.IsTower and building:IsTower() then
         local buildingName = building:GetUnitName();
@@ -33,8 +34,7 @@ ListenToGameEvent("entity_killed",function(keys)
         building:EmitSound("Redux.PocketTower");
         Timers:CreateTimer(FrameTime(),function()
             ResolveNPCPositions(building:GetAbsOrigin(),144);
-        end
-);
+        end);
     end
 end
 ,nil);

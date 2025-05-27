@@ -43,7 +43,6 @@ function Starfall( keys )
     Timers:CreateTimer( 0.75, function()
 		for _,enemy in pairs(enemies) do
 			if enemy:IsAlive() and not enemy:IsNull() then
-				print("asdasd")
 				local star_pfx = ParticleManager:CreateParticle(hit_particle, PATTACH_ABSORIGIN_FOLLOW, enemy)
 				ParticleManager:SetParticleControl(star_pfx, 0, enemy:GetAbsOrigin())
 				ParticleManager:ReleaseParticleIndex(star_pfx)
