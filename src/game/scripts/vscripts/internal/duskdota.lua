@@ -101,7 +101,6 @@ function duskDota:_InitduskDota()
   ListenToGameEvent("dota_illusions_created", Dynamic_Wrap(duskDota, 'OnIllusionsCreated'), self)
   ListenToGameEvent("dota_item_combined", Dynamic_Wrap(duskDota, 'OnItemCombined'), self)
   ListenToGameEvent("dota_player_begin_cast", Dynamic_Wrap(duskDota, 'OnAbilityCastBegins'), self)
-  ListenToGameEvent("dota_tower_kill", Dynamic_Wrap(duskDota, 'OnTowerKill'), self)
   ListenToGameEvent("dota_player_selected_custom_team", Dynamic_Wrap(duskDota, 'OnPlayerSelectedCustomTeam'), self)
   ListenToGameEvent("dota_npc_goal_reached", Dynamic_Wrap(duskDota, 'OnNPCGoalReached'), self)
 
