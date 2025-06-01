@@ -1,0 +1,115 @@
+// Abilities for snapfire
+"DOTAAbilities"
+{
+	"snapfire_scatterblast"
+	{
+		"ReduxPerks"                                                           "explosive | skillshot"
+	}
+
+	"snapfire_firesnap_cookie"
+	{
+		"ReduxFlags"                                                           "mobility | support"
+		"ReduxPerks"                                                           "fire | mobility | support"
+	}
+
+	"snapfire_lil_shredder"
+	{
+		"ReduxFlags"                                                           "attack_modifier | physical"
+		"ReduxPerks"                                                           "attack_modifier | explosive | physical | scientific"
+	}
+
+	"snapfire_mortimer_kisses"
+	{
+		"ReduxPerks"                                                           "channeled | dragon | fire | skillshot"
+	}
+
+	//=================================================================================================================
+	// Buckshot (Innate)
+	//=================================================================================================================
+	"snapfire_buckshot"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | scientific"
+	}
+
+	"snapfire_gobble_up"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+		"ReduxFlags"                                                           "doNotRandom | support | stun | upgradeable"
+		"ReduxPerks"                                                           "dragon | fire | skillshot | support"
+	}
+
+	"snapfire_spit_creep"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "skillshot"
+	}
+
+	"special_bonus_unique_snapfire_1"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"snapfire_mortimer_kisses"
+	}
+	"special_bonus_unique_snapfire_2"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"snapfire_lil_shredder"
+	}
+	"special_bonus_unique_snapfire_3"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"snapfire_firesnap_cookie"
+	}
+	"special_bonus_unique_snapfire_5"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"snapfire_mortimer_kisses"
+	}
+	"special_bonus_unique_snapfire_6"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"snapfire_lil_shredder"
+	}
+	"special_bonus_unique_snapfire_7"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"snapfire_scatterblast"
+	}
+	"special_bonus_unique_snapfire_8"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"snapfire_lil_shredder"
+	}
+	"special_bonus_unique_snapfire_firesnap_cookie_additional_charge"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"snapfire_firesnap_cookie"
+	}
+}

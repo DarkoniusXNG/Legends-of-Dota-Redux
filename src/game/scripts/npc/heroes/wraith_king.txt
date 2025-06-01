@@ -43,6 +43,7 @@
 
 		"ReduxFlags"                                                           "attack_modifier | upgradeable"
 		"ReduxPerks"                                                           "attack_modifier | undead"
+		"ReduxCost"                                                            "10"
 	}
 
 	"special_bonus_unique_wraith_king_2"

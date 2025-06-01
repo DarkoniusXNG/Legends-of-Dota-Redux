@@ -44,7 +44,7 @@
 
 	"winter_wyvern_dragon_sight"
 	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" // not learnable because it requires Winters Curse
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires Winters Curse
 
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "dragon"
