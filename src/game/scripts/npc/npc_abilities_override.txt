@@ -2550,6 +2550,7 @@
 	{
 		"ReduxFlags"                                                           "bash | attack_modifier"
 		"ReduxPerks"                                                           "bash | attack_modifier"
+		"ReduxBans"                                                            "weaver_geminate_attack"
 		"ReduxCost"                                                            "120"
 	}
 	"troll_warlord_berserkers_rage"
@@ -2557,7 +2558,7 @@
 		"ReduxFlags"                                                           "attack_modifier | semi_passive"
 		"ReduxPerks"                                                           "attack_modifier | rage"
 		"ReduxCost"                                                            "30"
-		"ReduxBans"                                                            "lone_druid_true_form"
+		//"ReduxBans"                                                            "lone_druid_true_form"
 	}
 
 	"doom_bringer_infernal_blade"

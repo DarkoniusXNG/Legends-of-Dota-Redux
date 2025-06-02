@@ -439,7 +439,7 @@ function modifier_imba_swashbuckle_slashes:OnIntervalThink()
 				}
 
 				ApplyDamage(damageTable)
-				SendOverheadEventMessage(self:GetCaster(), OVERHEAD_ALERT_DAMAGE, enemy, self.damage, nil)
+				SendOverheadEventMessage(nil, OVERHEAD_ALERT_DAMAGE, enemy, self.damage, nil)
 
 				--Apply on-hit effects
 				self:GetCaster():PerformAttack(enemy, true, true, true, true, false, true, true)

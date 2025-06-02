@@ -165,11 +165,6 @@ function Ingame:OnHeroLeveledUp(keys)
     -- print(hero:GetUnitName(), level, hero:GetDeathXP(), GetXPForLevel( level ))
 end
 
-function Ingame:OnModifierEvent(keys)
-    print("MODIFIER EVENT")
-    for k, v in pairs(keys) do print(k, v) end
-end
-
 function Ingame:OnPlayerPurchasedItem(keys)
     -- Bots will get items auto-delievered to them
     self:checkIfRespawnRate()
@@ -288,9 +283,7 @@ function Ingame:OnPlayerPurchasedItem(keys)
                         local pID = PlayerResource:GetNthPlayerIDOnTeam(hero:GetTeamNumber(), x)
                         if PlayerResource:IsValidPlayerID(pID) then
                             local otherHero = PlayerResource:GetPlayer(pID):GetAssignedHero()
-
-                            otherHero:AddExperience(math.ceil(425 / util:GetActivePlayerCountForTeam(hero:GetTeamNumber())),
-                                0, false, false)
+                            otherHero:AddExperience(math.ceil(425 / util:GetActivePlayerCountForTeam(hero:GetTeamNumber())), 0, false, false)
                         end
                     end
                     break
@@ -303,7 +296,6 @@ end
 function Ingame:OnPlayerLearnedAbility(keys)
     local chargeTalents = {
         ["special_bonus_unique_ember_spirit_4"] = "ember_spirit_sleight_of_fist",
-        ["special_bonus_unique_morphling_6"] = "morphling_waveform",
     }
     local abilityName = chargeTalents[keys.abilityname]
     if abilityName then
@@ -322,8 +314,7 @@ function Ingame:OnPlayerLearnedAbility(keys)
         if util:IsTalent(abilityName) and string.find(abilityName, "redux") then
             local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
             if hero then
-                LinkLuaModifier("modifier_" .. abilityName, "abilities/talents" .. abilityName .. ".lua",
-                    LUA_MODIFIER_MOTION_NONE)
+                LinkLuaModifier("modifier_" .. abilityName, "abilities/talents" .. abilityName .. ".lua", LUA_MODIFIER_MOTION_NONE)
                 hero:AddNewModifier(hero, nil, "modifier_" .. abilityName, {})
             end
         end
@@ -500,7 +491,7 @@ function Ingame:FilterExecuteOrder(filterTable)
     return true
 end
 
-dc_table = {};
+local dc_table = {}
 
 -- Called when the game starts
 function Ingame:onStart()
@@ -746,37 +737,6 @@ end
         end
     end, nil)
 end]]
-      --
---[[
--- Upgrades bot neutral items over time
-function Ingame:botNeutralUpgrader()
-    for i=0,24 do
-        if PlayerResource:IsValidTeamPlayerID(i) and util:isPlayerBot(i) then
-            local hero = PlayerResource:GetSelectedHeroEntity(i)
-            if hero and IsValidEntity(hero) then
-                local item1 = hero:FindItemByNameEverywhere("item_vambrace")
-                        Destroy(item1)
-                        hero:AddItemByName("item_giants_ring")
-            end
-        end
-    end
-end]]
-      --
-
--- Upgrades bot neutral items over time
---[[function Ingame:botNeutralUpgrader()
-    for playerID=0,DOTA_MAX_TEAM_PLAYERS-1 do
-        local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-            if hero and util:isPlayerBot(playerID) then
-
-                FindItemInInventory("item_vambrace")
-                self:Destroy()
-                hero:AddItemByName("item_giants_ring")
-
-            end
-    end
-end]]
-      --
 
 -- Called every 0.1 second to check and convert consumable items into actual consumable items
 function Ingame:CheckConsumableItems()
@@ -958,8 +918,6 @@ function Ingame:balancePlayer(playerID, newTeam)
         --hero:SetPlayerID(playerID)
         --hero:SetOwner(PlayerResource:GetPlayer(playerID))
 
-
-
         -- Kill the hero
         hero:Kill(nil, nil)
         hero:SetGold(0, true)
@@ -971,7 +929,7 @@ function Ingame:balancePlayer(playerID, newTeam)
                 -- Set the time left until we respawn
                 hero:SetTimeUntilRespawn(1)
 
-                -- Check if we have any meepo clones
+                -- Check if we have any tempest doubles
                 if hero:HasAbility('arc_warden_tempest_double') then
                     local clones = Entities:FindAllByName(hero:GetClassname())
 
@@ -1182,21 +1140,23 @@ function Ingame:balanceGold()
     end
 
     if self.radiantBalanceMoney >= moneySize * 10 or self.direBalanceMoney >= moneySize * 10 then
-        for playerID = 0, 24 - 1 do
-            local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-            if hero and PlayerResource:IsValidPlayerID(playerID) and IsValidEntity(hero) then
-                local state = PlayerResource:GetConnectionState(playerID)
-                if state == 1 or state == 2 then
-                    if losingTeam == "goodGuys" and hero:GetTeam() == DOTA_TEAM_GOODGUYS and self.radiantBalanceMoney >= 1 then
-                        --hero:ModifyGold(moneySize, false, 0)
-                        SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, moneySize, nil)
-                        self.radiantBalanceMoney = self.radiantBalanceMoney - moneySize
-                        self.radiantTotalBalanceMoney = self.radiantTotalBalanceMoney + moneySize
-                    elseif losingTeam == "badGuys" and hero:GetTeam() == DOTA_TEAM_BADGUYS and self.direBalanceMoney >= 1 then
-                        --hero:ModifyGold(moneySize, false, 0)
-                        SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, moneySize, nil)
-                        self.direBalanceMoney = self.direBalanceMoney - moneySize
-                        self.direTotalBalanceMoney = self.direTotalBalanceMoney + moneySize
+        for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+            if PlayerResource:IsValidPlayerID(playerID) then
+                local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+                if hero and IsValidEntity(hero) then
+                    local state = PlayerResource:GetConnectionState(playerID)
+                    if state == DOTA_CONNECTION_STATE_CONNECTED then
+                        if losingTeam == "goodGuys" and hero:GetTeam() == DOTA_TEAM_GOODGUYS and self.radiantBalanceMoney >= 1 then
+                            --hero:ModifyGold(moneySize, false, 0)
+                            SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, moneySize, nil)
+                            self.radiantBalanceMoney = self.radiantBalanceMoney - moneySize
+                            self.radiantTotalBalanceMoney = self.radiantTotalBalanceMoney + moneySize
+                        elseif losingTeam == "badGuys" and hero:GetTeam() == DOTA_TEAM_BADGUYS and self.direBalanceMoney >= 1 then
+                            --hero:ModifyGold(moneySize, false, 0)
+                            SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, moneySize, nil)
+                            self.direBalanceMoney = self.direBalanceMoney - moneySize
+                            self.direTotalBalanceMoney = self.direTotalBalanceMoney + moneySize
+                        end
                     end
                 end
             end
@@ -1214,7 +1174,6 @@ function Ingame:balanceGold()
             "Dire Team has recieved the following total bonus gold due to team-imbalance: <font color=\'#FFDD2C\'>" ..
             self.direTotalBalanceMoney .. "</font>", 0, 0)
         end
-
 
         self.heard["balanceGold"] = true
 
@@ -1414,7 +1373,6 @@ function Ingame:handleRespawnModifier()
                             --------
                             -- Resurrect Mutator start
                             ---------
-
                             if OptionManager:GetOption('resurrectAllies') == 1 then
                                 local numb = math.min(60, math.max(1, math.ceil(timeLeft / 3)))
 
@@ -1423,20 +1381,18 @@ function Ingame:handleRespawnModifier()
                                     numb = numb - 2
                                 end
 
-                                local newItem = CreateItem("item_tombstone_" .. numb, hero:GetPlayerOwner(),
-                                    hero:GetPlayerOwner())
-
+                                local newItem = CreateItem("item_tombstone_" .. numb, hero:GetPlayerOwner(), hero)
                                 newItem:SetPurchaseTime(0)
                                 newItem:SetPurchaser(hero)
 
                                 local tombstone = SpawnEntityFromTableSynchronous("dota_item_tombstone_drop", {})
 
                                 tombstone:SetContainedItem(newItem)
-                                if hero:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+                                --if hero:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
                                     --tombstone:SetModel("models/heroes/phantom_assassin/arcana_tombstone2.vmdl")
-                                else
+                                --else
                                     --tombstone:SetModel("models/heroes/phantom_assassin/arcana_tombstone3.vmdl")
-                                end
+                                --end
                                 tombstone:SetAbsOrigin(hero:GetAbsOrigin())
                                 tombstone:SetAngles(0, 90, 0)
                             end
@@ -1486,85 +1442,12 @@ end
 
 -- Init gold balancer
 function Ingame:initGoldBalancer()
-    -- recalculate player team counts
-    self:recalculatePlayerCounts()
-
     local gamemode = GameRules:GetGameModeEntity()
 
     -- Filter event
     --gamemode:SetModifyGoldFilter(Dynamic_Wrap(Ingame, "FilterModifyGold"), self)
     gamemode:SetModifyExperienceFilter(Dynamic_Wrap(Ingame, "FilterModifyExperience"), self)
     gamemode:SetBountyRunePickupFilter(Dynamic_Wrap(Ingame, "BountyRunePickupFilter"), self)
-
-    local this = self
-
-    -- Hook recalculations
-    ListenToGameEvent('player_connect', function(keys)
-        gamemode:SetThink(function()
-            -- Recalculate the counts
-            this:recalculatePlayerCounts()
-        end, 'calcPlayerTotals', 1, nil)
-    end, nil)
-
-    ListenToGameEvent('player_connect_full', function(keys)
-        gamemode:SetThink(function()
-            -- Recalculate the counts
-            this:recalculatePlayerCounts()
-        end, 'calcPlayerTotals', 1, nil)
-    end, nil)
-
-    ListenToGameEvent('player_disconnect', function(keys)
-        gamemode:SetThink(function()
-            -- Recalculate the counts
-            this:recalculatePlayerCounts()
-        end, 'calcPlayerTotals', 1, nil)
-    end, nil)
-
-    ListenToGameEvent('game_rules_state_change', function(keys)
-        gamemode:SetThink(function()
-            -- Recalculate the counts
-            this:recalculatePlayerCounts()
-        end, 'calcPlayerTotals', 1, nil)
-    end, nil)
-end
-
--- Counts how many players on each team
-function Ingame:recalculatePlayerCounts()
-    local this = self
-
-    if not pcall(function()
-            -- Default to no players
-            this.playersOnTeam = {
-                radiant = 0,
-                dire = 0
-            }
-
-            -- Work it out
-            for i = 0, 9 do
-                local connectionState = PlayerResource:GetConnectionState(i)
-                if connectionState == 1 or connectionState == 2 then
-                    local teamID = PlayerResource:GetTeam(i)
-
-                    if teamID == DOTA_TEAM_GOODGUYS then
-                        this.playersOnTeam.radiant = this.playersOnTeam.radiant + 1
-                    elseif teamID == DOTA_TEAM_BADGUYS then
-                        this.playersOnTeam.dire = this.playersOnTeam.dire + 1
-                    end
-                end
-            end
-
-            -- Ensure never less than one
-            for k, v in pairs(this.playersOnTeam) do
-                if v <= 0 then
-                    this.playersOnTeam[k] = 1
-                end
-            end
-        end) then
-        this.playersOnTeam = {
-            radiant = 1,
-            dire = 1
-        }
-    end
 end
 
 -- Attempt to balance gold - gold filter does not trigger for half the gold stuff
@@ -1587,7 +1470,6 @@ function Ingame:FilterModifyExperience(filterTable)
         return true
     end
     --hotfix end
-
 
     if expModifier ~= 100 then
         filterTable.experience = math.ceil(filterTable.experience * expModifier / 100)

@@ -17,16 +17,14 @@
         "AbilityCastRange"              "1200"
         
         "ReduxFlags"                                                           "cooldown"
-        "ReduxCost"                                                            "50"
-        "ReduxBans"                                                            "storm_spirit_ball_lightning"
-        "ReduxBanCategory"                                                     "SpammableSpells"
+        "ReduxCost"                                                            "60"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
         {
             "cooldown_reduction"        "20 30 40"
-            "armor_reduction"           "1.5 2 2.5"
+            "armor_reduction"           "1 1.5 2"
             "duration"                  "8.0"
             "radius"                    "1200"
         }

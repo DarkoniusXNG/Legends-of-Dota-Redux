@@ -323,7 +323,7 @@ function GoldPickup(event)
 		local owner = EntIndexToHScript( event.HeroEntityIndex )
 		local gold_per_bag = item:GetCurrentCharges()
 		PlayerResource:ModifyGold( owner:GetPlayerID(), gold_per_bag, true, 0 )
-		SendOverheadEventMessage( owner, OVERHEAD_ALERT_GOLD, owner, gold_per_bag, nil )
+		SendOverheadEventMessage( owner:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, owner, gold_per_bag, nil )
 		UTIL_Remove( item ) -- otherwise it pollutes the player inventory
 	end
 end

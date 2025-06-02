@@ -31,10 +31,8 @@ function BashCooldown( filterTable )
             return false
         else
         	-- Unit bashed. Add cooldown modifier for 5s, so it won't be bashed again
-            parent:AddNewModifier(caster, nil, 'modifier_bash_cooldown', {
-                duration = 5
-            })
-           Timers:CreateTimer(function() trackModifier( filterTable ) end)
+            parent:AddNewModifier(caster, nil, 'modifier_bash_cooldown', {duration = 5})
+            Timers:CreateTimer(function() trackModifier( filterTable ) end)
         end
     end
     return true

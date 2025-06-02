@@ -208,7 +208,7 @@ function COverthrowGameMode:OnItemPickUp( event )
 	if event.itemname == "item_bag_of_gold" then
 		--print("Bag of gold picked up")
 		PlayerResource:ModifyGold( owner:GetPlayerID(), r, true, 0 )
-		SendOverheadEventMessage( owner, OVERHEAD_ALERT_GOLD, owner, r, nil )
+		SendOverheadEventMessage( owner:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, owner, r, nil )
 		UTIL_Remove( item ) -- otherwise it pollutes the player inventory
 	elseif event.itemname == "item_treasure_chest" then
 		--print("Special Item Picked Up")

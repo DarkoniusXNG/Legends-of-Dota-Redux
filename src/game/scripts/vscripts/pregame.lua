@@ -2342,10 +2342,6 @@ function Pregame:loadTrollCombos()
     -- Store no multicast
     SpellFixes:SetNoCasting(tempBanList.noMulticast, tempBanList.noWitchcraft)
 
-    --local noTower = tempBanList.noTower
-    --local noTowerAlways = tempBanList.noTowerAlways
-    --local noBear = tempBanList.noBear
-
     -- Create the stores
     self.banList = {}
     self.wtfAutoBan = self.flags.wtfautoban

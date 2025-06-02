@@ -846,13 +846,10 @@ end
 
 -- Abilities ignored for custom Essence Aura abilities
 function util:IsIgnoredForEssenceAura(ability)
-    local essence_aura_ignore_list = {
-        winter_wyvern_arctic_burn = true,
-        eat_tree_eldri = true,
-        storm_spirit_ball_lightning = true,
-        ability_wards = true,
-        ability_wards_op = true,
-    }
+	local essence_aura_ignore_list = { -- should contain 0s cd non-toggle spells that have mana cost
+		storm_spirit_ball_lightning = true,
+		winter_wyvern_arctic_burn = true,
+	}
 
 	if not ability or ability:IsNull() then
 		print("util:IsIgnoredForEssenceAura: Passed parameter does not exist!")
@@ -903,12 +900,13 @@ end
 
 -- Abilities ignored for custom Aftershock Redux
 function util:IsIgnoredForAftershock(ability)
-    local aftershock_ignore_list = {
-        winter_wyvern_arctic_burn = true,
-        eat_tree_eldri = true,
-        ability_wards = true,
-        ability_wards_op = true,
-    }
+	local aftershock_ignore_list = { -- should contain 0 mana cost spells with low cd that is not 0
+		shadow_demon_shadow_poison_release = true,
+		spectre_reality = true,
+		techies_focused_detonate = true,
+		winter_wyvern_arctic_burn = true,
+		--eat_tree_eldri = true, -- actually has mana cost that increases with each cast
+	}
 
 	if not ability or ability:IsNull() then
 		print("util:IsIgnoredForAftershock: Passed parameter does not exist!")

@@ -718,7 +718,7 @@ function modifier_imba_jinada_buff_crit:OnAttackLanded(keys)
 			if target:IsRealHero() then
 				target:ModifyGold(-self:GetAbility():GetSpecialValueFor("bonus_gold"), false, 0)
 				attacker:ModifyGold(self:GetAbility():GetSpecialValueFor("bonus_gold"), false, 0)
-				SendOverheadEventMessage(attacker, OVERHEAD_ALERT_GOLD, attacker, self:GetAbility():GetSpecialValueFor("bonus_gold"), nil)
+				SendOverheadEventMessage(attacker:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, attacker, self:GetAbility():GetSpecialValueFor("bonus_gold"), nil)
 			end
 
 			-- Remove the critical strike modifier from the caster
@@ -1306,7 +1306,7 @@ function modifier_imba_track_debuff_mark:OnHeroKilled(keys)
 
 			-- Give money to the track caster
 			self.caster:ModifyGold(self.bonus_gold_self, true, 0)
-			SendOverheadEventMessage(self.caster, OVERHEAD_ALERT_GOLD, self.caster, self.bonus_gold_self, nil)
+			SendOverheadEventMessage(self.caster:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, self.caster, self.bonus_gold_self, nil)
 
 			-- Find caster's allies nearby
 			local allies = FindUnitsInRadius(self.caster:GetTeamNumber(),
@@ -1323,7 +1323,7 @@ function modifier_imba_track_debuff_mark:OnHeroKilled(keys)
 				-- Give allies bonus allied gold, except caster
 				if ally ~= self.caster then
 					ally:ModifyGold(self.bonus_gold_allies, true, 0)
-					SendOverheadEventMessage(ally, OVERHEAD_ALERT_GOLD, ally, self.bonus_gold_allies, nil)
+					SendOverheadEventMessage(ally:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, ally, self.bonus_gold_allies, nil)
 				end
 			end
 
@@ -1676,7 +1676,7 @@ function modifier_imba_headhunter_debuff_handler:OnHeroKilled(keys)
 
 				-- Grant Bounty Hunter the gold for completing the contract
 				self.caster:ModifyGold(self.contract_gold, true, 0)
-				SendOverheadEventMessage(self.caster, OVERHEAD_ALERT_GOLD, self.caster, self.contract_gold, nil)
+				SendOverheadEventMessage(self.caster:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, self.caster, self.contract_gold, nil)
 
 				-- Remove the contract modifier from Bounty Hunter
 				if self.caster:HasModifier(self.modifier_contract_buff) then

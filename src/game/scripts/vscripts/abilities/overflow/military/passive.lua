@@ -12,14 +12,13 @@ end
 function military:GetIntrinsicModifierName() return "military_mod" end
 
 function military:OnHeroLevelUp() 
-	self:GetCaster():ModifyGold( self:GetSpecialValueFor("gold"), true, DOTA_ModifyGold_AbilityCost )
-
 	local caster = self:GetCaster()
-	local ply = caster:GetPlayerOwner()
+	local player = caster:GetPlayerOwner()
 	local gold = self:GetSpecialValueFor("gold")
 
-	if caster:IsRealHero() then
-		SendOverheadEventMessage( caster, OVERHEAD_ALERT_GOLD , caster, gold, nil )
-	end
+	caster:ModifyGold(gold, true, DOTA_ModifyGold_AbilityCost)
 
+	if caster:IsRealHero() then
+		SendOverheadEventMessage( player, OVERHEAD_ALERT_GOLD , caster, gold, nil )
+	end
 end

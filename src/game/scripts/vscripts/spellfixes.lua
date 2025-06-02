@@ -101,9 +101,7 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
                     local item = hero:GetItemInSlot(i)
                     if item then
                         if item:GetName() == "item_invis_sword" or item:GetName() == "item_silver_edge" or item:GetName() == "item_shadow_amulet" or item:GetName() == "item_glimmer_cape" then
-                            -- Punish gold is gold that they dont get refunded
-                            local punishAmount = 500
-                            hero:ModifyGold(item:GetCost() - punishAmount , false, 0)
+                            hero:ModifyGold(item:GetCost(), false, 0)
                             hero:RemoveItem(item)
                             util:DisplayError(keys.PlayerID, "invisbilityItemsAreBanned")
                             break

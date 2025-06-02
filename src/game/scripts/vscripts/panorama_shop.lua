@@ -571,7 +571,7 @@ function PanoramaShop:SellItem(unit, item)
 	UTIL_Remove(item)
 	PlayerResource:ModifyGold(playerID, cost, false, 0)
 	local player = PlayerResource:GetPlayer(playerID)
-	SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, unit, math.floor(gold), player)
+	SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, unit, math.floor(gold), nil)
 end
 
 function PanoramaShop:PushItem(playerID, unit, itemName, bOnlyStash)

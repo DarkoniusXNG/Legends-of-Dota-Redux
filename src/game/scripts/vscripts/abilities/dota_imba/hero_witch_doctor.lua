@@ -471,7 +471,7 @@ function modifier_imba_voodoo_restoration_heal:OnIntervalThink()
 	local heal = (self:GetAbility():GetSpecialValueFor("heal") + (self:GetCaster():GetIntellect(false) * self:GetAbility():GetSpecialValueFor("int_to_heal") * 0.01)) * heal_amp * self.interval
 
 	hParent:Heal(heal, self:GetCaster())
-	SendOverheadEventMessage(hParent, OVERHEAD_ALERT_HEAL, hParent, heal, hParent)
+	SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, hParent, heal, nil)
 end
 
 -------------------------------------------

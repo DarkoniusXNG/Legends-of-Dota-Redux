@@ -104,7 +104,7 @@ function spell_lab_survivor_base_modifier:CheckBattleThirst()
 					self.lastdeath = self.lastdeath + 1
 					if self.battleThirst > bt + 3 then
 						self.battleThirst = bt
-						SendOverheadEventMessage( hParent, OVERHEAD_ALERT_DENY , hParent, 1, nil )
+						SendOverheadEventMessage( hParent:GetPlayerOwner(), OVERHEAD_ALERT_DENY , hParent, 1, nil )
 					end
 				end
 			end
