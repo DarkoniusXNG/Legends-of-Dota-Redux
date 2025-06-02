@@ -6943,7 +6943,6 @@ function Pregame:generateBotBuilds(singleID)
         self.botPlayers.all[playerID].heroName = heroName
         self.botPlayers.all[playerID].skillID = skillID
         self.botPlayers.all[playerID].build = build
-
         self.botPlayers.all[playerID].ID = playerID
 
         if self.optionStore['lodOptionBotsRestrict'] > 0 then

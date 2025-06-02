@@ -643,9 +643,6 @@ function Ingame:onStart()
     gamemode:SetDamageFilter(Dynamic_Wrap(Ingame, 'FilterDamage'), self)
     --gamemode:SetAbilityTuningValueFilter(Dynamic_Wrap(Ingame,"FilterValueTuning"),self)
 
-
-    ListenToGameEvent('modifier_event', Dynamic_Wrap(Ingame, 'OnModifierEvent'), self)
-
     -- -- Listen if abilities are being used.
     --ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(Ingame, 'OnAbilityUsed'), self)
 
