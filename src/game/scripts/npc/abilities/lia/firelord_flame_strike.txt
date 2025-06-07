@@ -15,7 +15,7 @@
         "AbilityCooldown"                                                      "14 13 12 11"
         "AbilityManaCost"                                                      "100 110 120 130"
         "AbilityChannelTime"                                                   "0.15"
-        "AoERadius"                                                            "250 275 300 325"
+        "AoERadius"                                                            "%radius"
 
         "precache"
         {
@@ -26,7 +26,11 @@
 
         "AbilityValues"
         {
-            "radius" "275 300 325 350"
+            "radius"				
+				{
+					"value"			"325"
+					"affected_by_aoe_increase"	"1"
+				}
             "damage" "80 110 140 170"
             "duration" "5"
             "delay" "0.25"
