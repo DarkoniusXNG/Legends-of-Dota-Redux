@@ -38,7 +38,11 @@
 		"AbilityValues"
 		{
 			"armor_multiplier"				"2 3 4 5"
-			"radius"						"275"
+			"radius"					
+				{
+					"value"			"275"
+					"affected_by_aoe_increase"	"1"
+				}
 			"ablaze_multiplier"				"2"
 			"ablaze_duration"				"8"
 			"trigger_essence_aura"          "1"
@@ -78,7 +82,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "radius" "1300"
+            "radius"					
+				{
+					"value"			"1300"
+					"affected_by_aoe_increase"	"1"
+				}
             "delay" "0.2"
             "base_damage" "90 160 230 300"
             "mini_stun" "1.8"
@@ -280,7 +288,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "tooltip_radius" "550"
+            "tooltip_radius"					
+				{
+					"value"			"550"
+					"affected_by_aoe_increase"	"1"
+				}
             "speed" "1600"
             "armor_multiplier" "6 8 10"
             "radius_tree" "500"
