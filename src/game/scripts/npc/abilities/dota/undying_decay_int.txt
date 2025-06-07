@@ -25,7 +25,11 @@
             "int_steal_scepter" "18"
             "int_steal_enemy_scepter" "-18"
             "stat_scale_up" "2"
-            "radius" "400"
+            "radius"				
+				{
+					"value"	"400"
+					"affected_by_aoe_increase"	"1"
+				}
         }
 
         "precache"
