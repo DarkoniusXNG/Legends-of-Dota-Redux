@@ -35,11 +35,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "damage" "350 500 650"
+            "damage" "450 600 750"
             "ticks" "3"
-            "initial_damage" "100 150 200"
+            "initial_damage" "100"
             "tick_time" "1.00"
-            "radius" "700"
+            "radius"				
+				{
+					"value"	"700"
+					"affected_by_aoe_increase"	"1"
+				}
         }
 		
 		"precache"
