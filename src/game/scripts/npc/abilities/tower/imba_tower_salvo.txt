@@ -11,7 +11,11 @@
         {
             "as_slow" "-50"
             "salvo_dmg" "100 150 200"
-            "salvo_aoe" "250 300 350"
+            "salvo_aoe"
+			{
+					"value"			"250 300 350"
+					"affected_by_aoe_increase"	"1"
+			}
         }
         "Modifiers"
         {
