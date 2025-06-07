@@ -16,7 +16,11 @@
         "AbilityValues"
         {
             "damage" "20 40 60"
-            "radius" "900"
+            "radius"
+			{
+					"value"			"900"
+					"affected_by_aoe_increase"	"1"
+			}
         }
 
         "Modifiers"
