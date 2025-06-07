@@ -15,18 +15,27 @@
             "particle"                                                     "particles/underlord_expulsion_explosion.vpcf"
         }
         "AbilityCastRange"                                                     "900"
+		"AbilityManaCost"													   "100 125 150"
         "AbilityCooldown"                                                      "45"
         "AbilityValues"
         {
-            "search_radius" "900"
-            "damage_radius" "750"
+            "search_radius"		
+				{
+					"value"			"900"
+					"affected_by_aoe_increase"	"1"
+				}
+            "damage_radius"		
+				{
+					"value"			"900"
+					"affected_by_aoe_increase"	"1"
+				}
             "explosion_interval" "0.25"
             "damage_per_sec" "80 120 160"
             "heal_per_sec" "80 120 160"
             "base_duration" "6"
             "bonus_duration_per_aura_affected_scepter" "0.5"
-            "bonus_damage_per_aura_affected_scepter" "10 15 20"
-            "bonus_heal_per_aura_affected_scepter" "10 15 20"
+            "bonus_damage_per_aura_affected_scepter" "15 20 25"
+            "bonus_heal_per_aura_affected_scepter" "15 20 25"
         }
         "OnSpellStart"
         {
