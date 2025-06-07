@@ -26,8 +26,12 @@
         "AbilityValues"
         {
             "split_count" "1 2 3"
-            "search_radius" "375"
-            "damage_reduction" "50 40 30"
+            "search_radius"
+			{ 
+				"value"										"375"
+				"affected_by_aoe_increase"	"1"
+			}
+            "damage_reduction" "30"
         }
     }
 }
