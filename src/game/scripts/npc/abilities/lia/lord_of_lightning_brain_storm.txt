@@ -19,7 +19,11 @@
             "reduce_spell_damage_pct" "-40 -55 -70"
             "reduce_movement_speed" "-30 -45 -60"
             "duration" "8"
-            "radius" "500"
+            "radius"				
+				{
+					"value"			"600"
+					"affected_by_aoe_increase"	"1"
+				}
         }
         "precache"
         {
