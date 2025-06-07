@@ -16,7 +16,11 @@
         "AbilityManaCost"                                                      "100"
         "AbilityValues"
         {
-            "radius" "750 800 850"
+            "radius"				
+			{
+				"value"	"800"
+				"affected_by_aoe_increase"	"1"
+			}
             "duration" "4.0 5.5 7.0"
         }
         "OnSpellStart"
