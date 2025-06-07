@@ -37,19 +37,23 @@
 
         "AbilityCastPoint"              "0.12 0.12 0.12 0.12"
         "AbilityCooldown"               "21.0 19.0 17.0 15.0"
-        "AbilityManaCost"               "125"
+        "AbilityManaCost"               "125 130 135 140"
         "AbilityCastRange"              "750"
 
-        "AoERadius"                     "425 450 475 500"
+        "AoERadius"                     "450 500 550 600"
         "AbilityProcsMagicStick"        "1"
 
         "AbilityValues"
         {
-            "duration" "8"
+            "duration" "6"
             "eruption_duration" "2"
             "ministun_duration" "0.7"
-            "damage" "60 80 100 120"
-            "radius" "450 500 550 600"
+            "damage" "75 100 125 150"
+            "radius"				
+				{
+					"value"			"450 500 550 600"
+					"affected_by_aoe_increase"	"1"
+				}
             "slow_pct" "-20 -25 -30 -35"
             "duration_2" "6.5"
         }
@@ -342,10 +346,14 @@
             "particle"  "particles/sirocco_dessication_aura.vpcf"
         }
 
-        "AbilityCastRange"              "1200"
+        "AbilityCastRange"              "%aoe"
         "AbilityValues"
         {
-            "aoe" "1200"
+            "aoe"				
+				{
+					"value"			"1200"
+					"affected_by_aoe_increase"	"1"
+				}
             "resistance_loss" "-4 -5 -6 -7"
         }
         "Modifiers"
@@ -437,11 +445,15 @@
 
         "AbilityValues"
         {
-            "projectle_speed" "1200"
+            "projectle_speed" "1600"
             "mana_damage_lost" "50 75 100"
             "attack_lost" "-40 -60 -80"
             "damage_multiplier" "16 24 32"
-            "blast_radius" "600"
+            "blast_radius"				
+				{
+					"value"			"700"
+					"affected_by_aoe_increase"	"1"
+				}
             "duration" "8"
             "scepter_duration" "12"
             "ms_lost" "-10 -15 -20"
