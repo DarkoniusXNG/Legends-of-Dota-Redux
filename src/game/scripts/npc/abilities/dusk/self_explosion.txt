@@ -5,20 +5,20 @@
 		"AbilityBehavior"													  "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"															"ability_datadriven"
 		"AbilityTextureName"												   "custom/holdout_blade_fury"
-		"AbilityCastRange"													 "650"
+		"AbilityCastRange"													 "600"
 		"AbilityCastPoint"													 "0.0"
-		"AbilityCooldown"													  "10.0"
-		"AbilityChannelTime"												   "1.5"
+		"AbilityCooldown"													  "10"
+		"AbilityChannelTime"												   "1.25"
 		"AbilityUnitDamageType"												"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"												 "ACT_DOTA_DISABLED"
-		"AbilityDamage"														"200 300 400 500"
+		"AbilityDamage"														"150 230 310 390"
 
 		"precache"
 		{
 			"particle"													 "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
 		}
 
-		"AbilityManaCost"													  "125 150 175 200"
+		"AbilityManaCost"													  "125 135 145 155"
 		"SideShop"															 "1"
 		"OnSpellStart"
 		{
@@ -123,10 +123,14 @@
 		}
 		"AbilityValues"
         {
-            "duration" "1.0"
-            "damage" "200 300 400 500"
-            "radius" "650"
-            "distance" "150"
+            "duration" "1.5"
+            "damage" "150 230 310 390"
+            "radius"				
+				{
+					"value"	"600"
+					"affected_by_aoe_increase"	"1"
+				}
+            "distance" "250"
             "height" "400"
         }
 		"ReduxBans"															"spell_lab_symbiotic"
