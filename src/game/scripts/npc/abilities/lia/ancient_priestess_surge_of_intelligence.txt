@@ -14,7 +14,11 @@
 
 		"AbilityValues"
         {
-            "radius_damage" "500"
+            "radius_damage"				
+				{
+					"value"			"500"
+					"affected_by_aoe_increase"	"1"
+				}
             "koef_damage" "3 6 9 12"
         }
 
