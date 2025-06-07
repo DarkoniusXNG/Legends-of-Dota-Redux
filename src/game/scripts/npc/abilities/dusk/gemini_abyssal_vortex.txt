@@ -51,7 +51,11 @@
 		"AbilityValues"
         {
             "chargetime" "4.00"
-            "radius" "650"
+            "radius"				
+				{
+					"value"	"650"
+					"affected_by_aoe_increase"	"1"
+				}
             "pull_speed" "350 375 400"
             "scepter_stundur" "1.40"
         }
