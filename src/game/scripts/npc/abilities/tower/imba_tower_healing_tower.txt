@@ -32,9 +32,17 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
         {
-            "search_radius" "900"
+            "search_radius"
+			{
+					"value"			"900"
+					"affected_by_aoe_increase"	"1"
+			}
             "bounce_delay" "0.5"
-            "bounce_radius" "600"
+            "bounce_radius"
+			{
+					"value"			"600"
+					"affected_by_aoe_increase"	"1"
+			}
             "heal_amount" "150 250 350"
             "hp_threshold" "85"
         }
@@ -68,9 +76,17 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
         {
-            "search_radius" "900"
+            "search_radius"
+			{
+					"value"			"900"
+					"affected_by_aoe_increase"	"1"
+			}
             "bounce_delay" "0.5"
-            "bounce_radius" "600"
+            "bounce_radius"
+			{
+					"value"			"600"
+					"affected_by_aoe_increase"	"1"
+			}
             "heal_amount" "150 250 350"
             "hp_threshold" "85"
         }
