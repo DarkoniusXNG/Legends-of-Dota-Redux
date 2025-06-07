@@ -42,7 +42,11 @@
 		"AbilityValues"
         {
             "damage" "50 100 150"
-            "aoe_range" "750 900 1050"
+            "aoe_range"
+			{
+					"value"			"800 1000 1200"
+					"affected_by_aoe_increase"	"1"
+			}
             "damage_delay" "0.25"
             "chain_fade" "0.30"
             "magic_armor" "-5"
