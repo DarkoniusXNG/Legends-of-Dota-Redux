@@ -30,11 +30,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "explosions" "4 6 8 10"
+            "explosions" "10"
             "damage" "50 70 90 110"
             "interval" "0.1"
-            "slow" "-40"
-            "radius" "250"
+            "slow" "-60"
+            "radius"				
+				{
+					"value"	"250"
+					"affected_by_aoe_increase"	"1"
+				}
             "speed" "900"
             "duration" "3"
             "lightning_damage" "50 75 100 125"
