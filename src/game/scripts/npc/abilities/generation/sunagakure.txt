@@ -42,11 +42,15 @@
 
         "AbilityValues"
         {
-            "radius" "400"
+            "radius"				
+				{
+					"value"			"400"
+					"affected_by_aoe_increase"	"1"
+				}
             "movement_slow" "-2.0 -3.0 -4.0 -5.0"
             "movement_slow_display" "2 3 4 5"
             "armor_reduction" "-0.4 -0.5 -0.6 -0.7"
-            "duration" "8"
+            "duration" "10"
             "creep_damage" "5 7 9 11"
             "creep_duration" "18"
         }
