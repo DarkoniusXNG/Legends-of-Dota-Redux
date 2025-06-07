@@ -26,14 +26,14 @@
         "AbilityProcsMagicStick"        "0"
         "AbilityCastAnimation"          "ACT_DOTA_CHANNEL_ABILITY_1"
 
-        "AbilityChannelTime"            "1.25"
-        "AbilityCooldown"               "22 20 18 16"
+        "AbilityChannelTime"            "0.5"
+        "AbilityCooldown"               "20 18 16 14"
 
         "AbilityValues"
         {
-            "fade_time" "1.25"
+            "fade_time" "1.0"
             "duration" "8"
-            "channel_time" "2"
+            "channel_time" "0.5"
         }
         "precache"
         {
@@ -385,19 +385,19 @@
 
         // Time
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "27 24 21 18"
+        "AbilityCooldown"               "24 22 20 18"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "110 120 130 140"
+        "AbilityManaCost"               "100 110 120 130"
 
         "AbilityValues"
         {
             "range"                              "600 700 800 900"
-            "illusion_delay"                     "0.8"
+            "illusion_delay"                     "0.4"
             "illusion_count"                     "4"
             "incoming_damage"                    "500 400 300 200"
-            "outgoing_damage"                    "15 20 25 30"
+            "outgoing_damage"                    "25 30 35 40"
             "duration"                           "12"
         }
         "OnSpellStart"
