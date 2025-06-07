@@ -37,11 +37,15 @@
         {
             "damage" "90 160 230 300"
             "stun" "1.2 1.6 2.0 2.4"
-            "speed" "1500"
+            "speed" "2000"
             "width" "180"
             "range" "2000"
             "scepter_units" "6"
-            "scepter_radius" "180"
+            "scepter_radius"				
+				{
+					"value"	"180"
+					"affected_by_aoe_increase"	"1"
+				}
         }
 		
 		"precache"
