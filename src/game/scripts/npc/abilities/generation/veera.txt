@@ -163,7 +163,7 @@
         "ReduxFlags"                             "attack_modifier | physical | mobility"
 
         "AbilityCastRange"                       "150"
-        "AbilityCooldown"                        "4 3 2 1"
+        "AbilityCooldown"                        "1.0"
         "AbilityManaCost"                        "40"
 
         "AbilityValues"
@@ -172,7 +172,7 @@
             "movement_damage"                    "20 30 40 50"
             "movement_slow"                      "-40 -45 -50 -55"
             "duration"                           "4.0"
-            "creep_duration"                     "15.0"
+            "creep_duration"                     "8.0"
             "trigger_essence_aura"               "1"
         }
 
