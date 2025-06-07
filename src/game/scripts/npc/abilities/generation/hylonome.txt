@@ -54,7 +54,7 @@
             "cast_range" "600 700 800 900"
             "distance" "-350 -450 -550 -650"
             "move_slow" "-40"
-            "duration" "5"
+            "duration" "4"
             "damage" "70 140 210 280"
         }
         "precache"
@@ -186,7 +186,7 @@
         "AbilityCastRange"              "%cast_range"
         "AbilityProcsMagicStick"        "1"
 
-        "AbilityDamage"                 "180 270 360 450"
+        "AbilityDamage"                 "75 150 225 300"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -311,7 +311,7 @@
             "bonus_evasion" "5 7.5 10 12.5"
             "bonus_movement_speed" "5 6 7 8"
             "max_stacks" "7"
-            "duration" "12"
+            "duration" "15"
         }
 
         "precache"
@@ -520,11 +520,15 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
         {
-            "radius" "500"
+            "radius"		
+				{
+					"value"			"500"
+					"affected_by_aoe_increase"	"1"
+				}
             "heal_reduction" "15 30 45 60"
             "chance" "15 20 25 30"
             "bleed_damage" "7"
-            "duration" "6"
+            "duration" "2"
         }
     }
     //=================================================================================================================
@@ -564,9 +568,13 @@
             "movement_slow" "-15 -20 -25"
             "interval" "0.1"
             "lifesteal" "50"
-            "distance" "750"
+            "distance"	"750"
             "duration" "12.0"
-            "radius_scepter" "750"
+            "radius_scepter"		
+				{
+					"value"			"500"
+					"affected_by_aoe_increase"	"1"
+				}
         }
         "OnSpellStart"
         {
