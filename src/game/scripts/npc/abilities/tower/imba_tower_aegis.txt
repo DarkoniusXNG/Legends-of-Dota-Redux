@@ -13,7 +13,11 @@
             "bonus_armor" "4 8 12"
             "bonus_health" "400 800 1200"
             "bonus_armor_aura" "3 5 7"
-            "aura_radius" "1200"
+            "aura_radius"
+			{
+					"value"			"1200"
+					"affected_by_aoe_increase"	"1"
+			}
         }
         "OnUpgrade"
         {
