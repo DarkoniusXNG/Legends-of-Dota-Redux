@@ -23,7 +23,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
+		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.3"
 		
 		// Time		
@@ -39,11 +39,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "radius" "700"
+            "radius"				
+				{
+					"value"	"800"
+					"affected_by_aoe_increase"	"1"
+				}
             "bonus_hero_damage" "100 150 200"
             "attack_interval" "0.2"
             "creep_damage_penalty" "0"
-            "orb_damage" "100 140 180"
+            "orb_damage" "100 150 200"
         }
 		
 		"precache"
