@@ -17,8 +17,12 @@
 
         "AbilityValues"
         {
-            "radius" "220"
-            "damage" "2.0 2.6 3.2"
+            "radius"
+			{
+					"value"			"250"
+					"affected_by_aoe_increase"	"1"
+			}
+            "damage" "2.2 2.8 3.6"
             "interval" "0.25"
             "channel_time" "30.0"
         }
@@ -40,7 +44,11 @@
 		"AbilityTextureName"                                                   "custom/spell_lab_ggs"
 		"AbilityValues"
 		{
-			"radius" "225"
+			"radius"
+			{
+					"value"			"250"
+					"affected_by_aoe_increase"	"1"
+			}
 		}
 	}
 }
