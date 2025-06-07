@@ -9,7 +9,7 @@
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
         "AbilityTextureName"                                                   "custom/lich_cold_aura"
 
-        "AbilityCastRange"                                                     "700"
+        "AbilityCastRange"                                                     "%radius"
         "AbilityCastPoint"                                                     "0"
         "AbilityCooldown"                                                      "0"
         "AbilityManaCost"                                                      "0"
@@ -17,8 +17,12 @@
         {
             "slow" "-10 -15 -20"
             "damage" "2.0 3.5 5.0"
-            "armor_bonus" "5 10 15"
-            "radius" "700"
+            "armor_bonus" "0"
+            "radius"				
+				{
+					"value"			"600"
+					"affected_by_aoe_increase"	"1"
+				}
         }
         "Modifiers"
         {
@@ -58,8 +62,8 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "tank"
-        "ReduxPerks"                                                           "ice | aura"
+        "ReduxFlags"                                                           "tank | physical"
+        "ReduxPerks"                                                           "ice | aura | physical"
         "ReduxCost"                                                            "120"
     }
 }
