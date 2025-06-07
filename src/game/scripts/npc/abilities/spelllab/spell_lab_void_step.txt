@@ -14,9 +14,9 @@
         "HasScepterUpgrade"                                                    "1"
         "AbilityValues"
         {
-            "duration" "1.0 1.25 1.5"
-            "speed" "2.0"
-            "speed_scepter" "4.0"
+            "duration" "1.5"
+            "speed" "2.0 2.25 2.5"
+            "speed_scepter" "4.0 4.5 5.0"
         }
         "precache"
         {
