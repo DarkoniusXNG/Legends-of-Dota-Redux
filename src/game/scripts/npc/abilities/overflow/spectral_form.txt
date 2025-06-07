@@ -20,7 +20,7 @@
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"45.0"
-		"AbilityDuration"				"20.0"
+		"AbilityDuration"				"15.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -38,11 +38,15 @@
 		"AbilityValues"
         {
             "health_regen" "10 20 30"
-            "mana_regen" "30 45 60"
-            "evasion" "90"
-            "magic_weak" "-75"
-            "radius_scepter" "600"
-            "duration" "20"
+            "mana_regen" "15 30 45"
+            "evasion" "80"
+            "magic_weak" "-60"
+            "radius_scepter"
+			{
+					"value"			"700"
+					"affected_by_aoe_increase"	"1"
+			}
+            "duration" "15"
             "building_reduction" "40"
         }
 	}
