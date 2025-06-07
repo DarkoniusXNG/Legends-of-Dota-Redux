@@ -12,7 +12,11 @@
 		"AbilityValues"
         {
             "bonus_agility" "2 3 4 5"
-            "radius" "600"
+            "radius"				
+				{
+					"value"			"700"
+					"affected_by_aoe_increase"	"1"
+				}
         }
 	}
 }
