@@ -9,13 +9,17 @@
         "AbilityTextureName"                                                   "custom/zulf_jet_stream"
         "AbilityProcsMagicStick"                                               "1"
         "AbilityCastPoint"                                                     "0.2 0.2 0.2 0.2"
-        "AbilityCastRange"                                                     "1500 1750 2000 2250"
+        "AbilityCastRange"                                                     "1500 2000 2500 3000"
         "AbilityCooldown"                                                      "35 30 25 20"
         "AbilityManaCost"                                                      "140"
         "AbilityValues"
         {
-            "length" "1500 1750 2000 2250"
-            "width" "250"
+            "length" "1500 2000 2500 3000"
+            "width"				
+				{
+					"value"			"250"
+					"affected_by_aoe_increase"	"1"
+				}
             "duration" "20"
             "speed_buff" "15"
             "speed_debuff" "-15"
@@ -87,7 +91,8 @@
                 }
                 "States"
                 {
-                    "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY""MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT" "MODIFIER_STATE_VALUE_ENABLED"
                 }
                 "ThinkInterval"                                        "0.25"
                 "OnIntervalThink"
