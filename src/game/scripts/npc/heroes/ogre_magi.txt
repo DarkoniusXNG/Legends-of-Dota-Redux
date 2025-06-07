@@ -1,0 +1,141 @@
+// Abilities for ogre magi
+"DOTAAbilities"
+{
+	"ogre_magi_fireblast"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "fire"
+	}
+
+	"ogre_magi_ignite"
+	{
+		"ReduxPerks"                                                           "fire"
+	}
+
+	"ogre_magi_bloodlust"
+	{
+		"ReduxFlags"                                                           "mobility | support"
+		"ReduxPerks"                                                           "blood | rage | mobility | support"
+	}
+
+	"ogre_magi_multicast"
+	{
+		"ReduxCost"                                                            "10"
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	//=================================================================================================================
+	// Dumb Luck (Innate)
+	//=================================================================================================================
+	"ogre_magi_dumb_luck"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "doNotRandom | mana"
+	}
+
+	"ogre_magi_unrefined_fireblast"
+	{
+		"ReduxFlags"                                                           "stun | upgradeable"
+		"ReduxPerks"                                                           "fire | explosive"
+		"ReduxCost"                                                            "10"
+
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"AbilityCooldown"
+			{
+				"value"										"6"
+				"special_bonus_unique_ogre_magi_5"			"-1"
+			}
+			"stun_duration"		"1.2 1.4 1.6 1.8"
+			"multicast_delay"	"0.6"
+			"scepter_mana"		"35 30 25 20"
+			"base_damage"			"150 200 250 300"
+			"str_multiplier"			"1.5"
+		}
+	}
+
+	// ogre fire shield
+	"ogre_magi_smash"
+	{
+		"ReduxFlags"                                                           "support | tank"
+		"ReduxPerks"                                                           "fire | support"
+
+		"MaxLevel"                      "4"
+		"AbilityCooldown"               "15 14 13 12"
+		"AbilityManaCost"               "50"
+		"AbilityValues"
+		{
+			"damage"		"160 200 240 280"
+			"attacks"		"3 4 5 6"
+			"duration"		"25"
+			"multicast_fireshield_aoe"
+			{
+				"value"			"1000"
+				"affected_by_aoe_increase"	"1"
+			}
+			"projectile_speed"		"1400"
+			"damage_absorb_pct"
+			{
+				"value"				"85"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
+			}
+		}
+	}
+
+	"special_bonus_unique_ogre_magi"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "ogre_magi_bloodlust"
+	}
+	"special_bonus_unique_ogre_magi_2"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "ogre_magi_fireblast"
+	}
+	"special_bonus_unique_ogre_magi_3"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "ogre_magi_fireblast"
+	}
+	"special_bonus_unique_ogre_magi_4"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "ogre_magi_ignite"
+	}
+	"special_bonus_unique_ogre_magi_5"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"
+		{
+		  "1" "ogre_magi_fireblast"
+		  "2" "ogre_magi_unrefined_fireblast"
+		}
+	}
+	"special_bonus_unique_ogre_magi_dumb_luck_mana"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "ogre_magi_dumb_luck"
+	}
+}

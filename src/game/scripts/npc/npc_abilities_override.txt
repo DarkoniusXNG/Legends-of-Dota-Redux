@@ -13,6 +13,7 @@
 #base "heroes\chaos_knight.txt"
 #base "heroes\chen.txt"
 #base "heroes\crystal_maiden.txt"
+#base "heroes\dark_seer.txt"
 #base "heroes\dawnbreaker.txt"
 #base "heroes\dazzle.txt"
 #base "heroes\death_prophet.txt"
@@ -38,6 +39,7 @@
 #base "heroes\naga_siren.txt"
 #base "heroes\necrophos.txt"
 #base "heroes\night_stalker.txt"
+#base "heroes\ogre_magi.txt"
 #base "heroes\omniknight.txt"
 #base "heroes\oracle.txt"
 #base "heroes\phantom_assassin.txt"
@@ -46,6 +48,7 @@
 #base "heroes\sand_king.txt"
 #base "heroes\shadow_fiend.txt"
 #base "heroes\shadow_shaman.txt"
+#base "heroes\snapfire.txt"
 #base "heroes\skywrath_mage.txt"
 #base "heroes\sniper.txt"
 #base "heroes\spectre.txt"
@@ -107,11 +110,6 @@
 	}
 
 	"medusa_undulation"
-	{
-		"ReduxFlags"                                                           "doNotRandom"
-	}
-
-	"dark_seer_aggrandize"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
 	}
@@ -1802,30 +1800,6 @@
 		"ReduxCost"                                                            "10"
 	}
 
-	"ogre_magi_unrefined_fireblast"
-	{
-		"ReduxFlags"                                                           "stun | upgradeable"
-		"ReduxPerks"                                                           "fire | explosive"
-		"ReduxCost"                                                            "10"
-
-		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"MaxLevel"						"4"
-
-		"AbilityValues"
-		{
-			"AbilityCooldown"
-			{
-				"value"										"6"
-				"special_bonus_unique_ogre_magi_5"			"-1"
-			}
-			"stun_duration"		"1.2 1.4 1.6 1.8"
-			"multicast_delay"	"0.6"
-			"scepter_mana"		"35 30 25 20"
-			"base_damage"			"150 200 250 300"
-			"str_multiplier"			"1.5"
-		}
-	}
-
 	"beastmaster_primal_roar"
 	{
 		"ReduxFlags"                                                           "stun"
@@ -1859,13 +1833,6 @@
 	{
 		"ReduxFlags"                                                           "mobility | stun"
 		"ReduxPerks"                                                           "mobility | scientific | skillshot"
-	}
-
-	"dark_seer_wall_of_replica"
-	{
-		"ReduxFlags"                                                           "illusion"
-		"ReduxPerks"                                                           "illusion"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
 	}
 
 	"disruptor_static_storm"
@@ -2085,12 +2052,6 @@
 		"ReduxPerks"                                                           "support | nature"
 	}
 
-	"ogre_magi_bloodlust"
-	{
-		"ReduxFlags"                                                           "mobility | support"
-		"ReduxPerks"                                                           "mobility | support | rage | blood"
-	}
-
 	"rubick_null_field"
 	{
 		"ReduxFlags"                                                           "support"
@@ -2200,24 +2161,12 @@
 		"ReduxPerks"                                                           "support | fire | self_damage | light"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
-	"dark_seer_surge"
-	{
-		"ReduxFlags"                                                           "support | mobility"
-		"ReduxPerks"                                                           "support | mobility"
-		"ReduxCost"                                                            "10"
-	}
 
 	"slardar_amplify_damage"
 	{
 		"ReduxPerks"                                                           "water"
 	}
-	"dark_seer_ion_shell"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
-		"ReduxCost"                                                            "10"
-		"ReduxBans"                                                            "batrider_sticky_napalm"
-	}
+
 	"obsidian_destroyer_astral_imprisonment"
 	{
 		"ReduxFlags"                                                           "stun | support"
@@ -2823,11 +2772,6 @@
 		"ReduxPerks"                                                           "scientific | explosive"
 	}
 
-	"ogre_magi_fireblast"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "fire"
-	}
 	"rubick_telekinesis"
 	{
 		"ReduxFlags"                                                           "stun"
@@ -3064,10 +3008,7 @@
 		"ReduxPerks"                                                           "fire"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
-	"ogre_magi_ignite"
-	{
-		"ReduxPerks"                                                           "fire"
-	}
+
 	"phoenix_fire_spirits"
 	{
 		"ReduxPerks"                                                           "fire | self_damage | skillshot"
@@ -3567,12 +3508,6 @@
 		"ReduxPerks"                                                           "skillshot"
 	}
 
-	"dark_seer_vacuum"
-	{
-		"ReduxPerks"                                                           "enemymoving"
-		"ReduxCost"                                                            "10"
-	}
-
 	"item_force_staff"
 	{
 		"ReduxPerks"                                                           "enemymoving | support"
@@ -3703,11 +3638,7 @@
 		"ReduxPerks"                                                           "physical"
 		"ReduxCost"                                                            "20"
 	}
-	"ogre_magi_multicast"
-	{
-		"ReduxCost"                                                            "10"
-		"ReduxFlags"                                                           "doNotRandom"
-	}
+
 	"enchantress_enchant"
 	{
 		"ReduxCost"                                                            "10"
@@ -3880,42 +3811,6 @@
 			"building_dmg_pct"	"40 50 60 70"
 			"debuff_linger_duration"	"2.0"
 		}
-	}
-
-	"snapfire_mortimer_kisses"
-	{
-		"ReduxPerks"                                                           "channeled | dragon | fire | skillshot"
-	}
-
-	"snapfire_gobble_up"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-
-		"ReduxFlags"		"support | stun | doNotRandom | upgradeable"
-		"ReduxPerks"        "dragon | fire | skillshot | support"
-	}
-
-	"snapfire_spit_creep"
-	{
-		"ReduxFlags"		"doNotRandom"
-		"ReduxPerks"        "skillshot"
-	}
-
-	"snapfire_scatterblast"
-	{
-		"ReduxPerks"                                                           "explosive | skillshot"
-	}
-
-	"snapfire_lil_shredder"
-	{
-		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"                                                           "explosive | physical"
-	}
-
-	"snapfire_firesnap_cookie"
-	{
-		"ReduxFlags"                                                           "support | mobility"
-		"ReduxPerks"                                                           "fire | support | mobility"
 	}
 
 	"tinker_defense_matrix"
@@ -4149,34 +4044,6 @@
 		"ReduxPerks"                                                           "attack_modifier | fire"
 	}
 
-	// ogre fire shield
-	"ogre_magi_smash"
-	{
-		"ReduxFlags"                                                           "support | tank"
-		"ReduxPerks"                                                           "support | fire"
-
-		"MaxLevel"                      "4"
-		"AbilityCooldown"               "16 15 14 13"
-		"AbilityManaCost"               "50"
-		"AbilityValues"
-		{
-			"damage"		"160 200 240 280"
-			"attacks"		"3 4 5 6"
-			"duration"		"25"
-			"multicast_fireshield_aoe"
-			{
-				"value"			"1000"
-				"affected_by_aoe_increase"	"1"
-			}
-			"projectile_speed"		"1400"
-			"damage_absorb_pct"
-			{
-				"value"				"85"
-				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
-			}
-		}
-	}
-
 	"slark_depth_shroud"
 	{
 		"ReduxFlags"                                                           "invis | support | doNotRandom"
@@ -4242,25 +4109,6 @@
 				"value"		"900"
 				"affected_by_aoe_increase"	"1"
 			}
-		}
-	}
-
-	"dark_seer_normal_punch"
-	{
-		"ReduxFlags"		"bash | illusion | stun | upgradeable"
-		"ReduxPerks"		"bash | illusion | enemymoving"
-
-		"MaxLevel"                      "4"
-		"AbilityCooldown"               "9"
-		"AbilityValues"
-		{
-			"max_stun"					"1.25 1.35 1.45 1.55"
-			"recent_duration"			"3.0"
-			"max_distance"			"1100"
-			"knockback_distance"			"350"
-			"illusion_duration"			"6.0 7.0 8.0 9.0"
-			"max_damage"					"400"
-			"normal_punch_illusion_delay"   "0.25"
 		}
 	}
 
@@ -5437,38 +5285,6 @@
 		"TalentRequiredAbility"                                                   "nyx_assassin_jolt"
 	}
 
-
-
-
-	"special_bonus_unique_ogre_magi"
-	{
-		"TalentRequiredAbility"                                                   "ogre_magi_bloodlust"
-	}
-	"special_bonus_unique_ogre_magi_2"
-	{
-		"TalentRequiredAbility"                                                   "ogre_magi_fireblast"
-	}
-	"special_bonus_unique_ogre_magi_3"
-	{
-		"TalentRequiredAbility"                                                   "ogre_magi_fireblast"
-	}
-	"special_bonus_unique_ogre_magi_4"
-	{
-		"TalentRequiredAbility"                                                   "ogre_magi_ignite"
-	}
-	"special_bonus_unique_ogre_magi_5"
-	{
-		"TalentRequiredAbility"
-		{
-		  "1" "ogre_magi_fireblast"
-		  "2" "ogre_magi_unrefined_fireblast"
-		}
-	}
-	"special_bonus_unique_ogre_magi_dumb_luck_mana"
-	{
-		"TalentRequiredAbility"                                                   "ogre_magi_dumb_luck"
-	}
-
 	"special_bonus_unique_outworld_devourer"
 	{
 		"TalentRequiredAbility"                                                   "obsidian_destroyer_arcane_orb"
@@ -6625,68 +6441,6 @@
 		"TalentRequiredAbility"                                                   "disruptor_thunder_strike"
 	}
 
-	"special_bonus_unique_dark_seer"
-	{
-		"TalentRequiredAbility"                                                   "dark_seer_ion_shell"
-	}
-	"special_bonus_unique_dark_seer_2"
-	{
-		"TalentRequiredAbility"                                                   "dark_seer_vacuum"
-	}
-	"special_bonus_unique_dark_seer_3"
-	{
-		"TalentRequiredAbility"                                                   "dark_seer_surge"
-	}
-	"special_bonus_unique_dark_seer_4"
-	{
-		"TalentRequiredAbility"                                                   "dark_seer_wall_of_replica"
-	}
-	"special_bonus_unique_dark_seer_5"
-	{
-		"TalentRequiredAbility"                                                   "dark_seer_ion_shell"
-	}
-	"special_bonus_unique_dark_seer_6"
-	{
-		"TalentRequiredAbility"                                                   "dark_seer_ion_shell"
-	}
-	"special_bonus_unique_dark_seer_7"
-	{
-		"TalentRequiredAbility"                                                   "dark_seer_wall_of_replica"
-	}
-	"special_bonus_unique_dark_seer_8"
-	{
-		"TalentRequiredAbility"                                                   "dark_seer_vacuum"
-	}
-	"special_bonus_unique_dark_seer_9"
-	{
-		"TalentRequiredAbility"                                                   "dark_seer_surge"
-	}
-	"special_bonus_unique_dark_seer_10"
-	{
-		"TalentRequiredAbility"                                                   "dark_seer_wall_of_replica"
-	}
-	"special_bonus_unique_dark_seer_11"
-	{
-		"TalentRequiredAbility"                                                   "dark_seer_wall_of_replica"
-	}
-	"special_bonus_unique_dark_seer_12"
-	{
-		"TalentRequiredAbility"                                                   "dark_seer_wall_of_replica"
-	}
-	"special_bonus_unique_dark_seer_13"
-	{
-		"TalentRequiredAbility"                                                   "dark_seer_wall_of_replica"
-	}
-	"special_bonus_unique_dark_seer_14"
-	{
-		"TalentRequiredAbility"                                                   "dark_seer_ion_shell"
-	}
-	"special_bonus_unique_dark_seer_15"
-	{
-		"TalentRequiredAbility"                                                   "dark_seer_ion_shell"
-	}
-
-
 	"special_bonus_unique_clockwerk"
 	{
 		"TalentRequiredAbility"                                                   "rattletrap_battery_assault"
@@ -6854,41 +6608,6 @@
 	{
 		"TalentRequiredAbility" 		"void_spirit_resonant_pulse"
 	}
-
-
-	"special_bonus_unique_snapfire_1"
-	{
-		"TalentRequiredAbility" 		"snapfire_mortimer_kisses"
-	}
-	"special_bonus_unique_snapfire_2"
-	{
-		"TalentRequiredAbility" 		"snapfire_lil_shredder"
-	}
-	"special_bonus_unique_snapfire_3"
-	{
-		"TalentRequiredAbility" 		"snapfire_firesnap_cookie"
-	}
-	"special_bonus_unique_snapfire_5"
-	{
-		"TalentRequiredAbility" 		"snapfire_mortimer_kisses"
-	}
-	"special_bonus_unique_snapfire_6"
-	{
-		"TalentRequiredAbility" 		"snapfire_lil_shredder"
-	}
-	"special_bonus_unique_snapfire_7"
-	{
-		"TalentRequiredAbility" 		"snapfire_scatterblast"
-	}
-	"special_bonus_unique_snapfire_8"
-	{
-		"TalentRequiredAbility" 		"snapfire_lil_shredder"
-	}
-	"special_bonus_unique_snapfire_firesnap_cookie_additional_charge"
-	{
-		"TalentRequiredAbility" 		"snapfire_firesnap_cookie"
-	}
-
 
 	"special_bonus_unique_marci_grapple_damage"
 	{

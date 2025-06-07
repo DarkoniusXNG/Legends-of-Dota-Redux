@@ -61,7 +61,6 @@ function duskDota:StartEventTest()
 	ListenToGameEvent("dota_player_kill", Dynamic_Wrap(duskDota, 'On_dota_player_kill'), self)
 	ListenToGameEvent("dota_player_deny", Dynamic_Wrap(duskDota, 'On_dota_player_deny'), self)
 	ListenToGameEvent("dota_barracks_kill", Dynamic_Wrap(duskDota, 'On_dota_barracks_kill'), self)
-	ListenToGameEvent("dota_tower_kill", Dynamic_Wrap(duskDota, 'On_dota_tower_kill'), self)
 	ListenToGameEvent("dota_roshan_kill", Dynamic_Wrap(duskDota, 'On_dota_roshan_kill'), self)
 	ListenToGameEvent("dota_courier_lost", Dynamic_Wrap(duskDota, 'On_dota_courier_lost'), self)
 	ListenToGameEvent("dota_courier_respawned", Dynamic_Wrap(duskDota, 'On_dota_courier_respawned'), self)
@@ -642,12 +641,6 @@ end
 
 function duskDota:On_dota_barracks_kill(data)
   print("[DUSKDOTA] dota_barracks_kill")
-  PrintTable(data)
-end
-
-
-function duskDota:On_dota_tower_kill(data)
-  print("[DUSKDOTA] dota_tower_kill")
   PrintTable(data)
 end
 

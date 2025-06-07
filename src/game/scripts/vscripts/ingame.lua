@@ -1804,10 +1804,10 @@ function Ingame:giveAntiRatProtection()
     local radiantTowers = 0
     local direTowers = 0
     for k, v in pairs(towers) do
-        if not v:IsNull() and v:IsAlive() then
-            if v:GetTeamNumber() == 2 and not v:HasModifier("modifier_redux_tower_ability") then
+        if v and not v:IsNull() and v:IsAlive() then
+            if v:GetTeamNumber() == DOTA_TEAM_GOODGUYS and not v:HasModifier("modifier_redux_tower_ability") then
                 radiantTowers = radiantTowers + 1
-            elseif v:GetTeamNumber() == 3 and not v:HasModifier("modifier_redux_tower_ability") then
+            elseif v:GetTeamNumber() == DOTA_TEAM_BADGUYS and not v:HasModifier("modifier_redux_tower_ability") then
                 direTowers = direTowers + 1
             end
         end
@@ -1925,7 +1925,19 @@ function Ingame:addStrongTowers()
             end
         end
     end, nil)
-    ListenToGameEvent('dota_tower_kill', function(keys)
+    ListenToGameEvent('entity_killed', function(keys)
+        local killed_index = keys.entindex_killed
+        if not killed_index then
+            return
+        end
+        local killed = EntIndexToHScript(killed_index)
+        if not killed.IsTower then
+            return
+        end
+        if not killed:IsTower() then
+            return
+        end
+        print("Tower has fallen")
         -- If a tower is destroyed, there is a 2/3 chance for bots to switch/stay in lategame behaviour. There is a 1/3 chance they will switch back to early game behaviour (but only for 3 minutes).
         local switchAI = (RandomInt(1, 3))
         if switchAI == 1 then
@@ -1945,43 +1957,41 @@ function Ingame:addStrongTowers()
         if OptionManager:GetOption('antiRat') == 1 then
             local towers = Entities:FindAllByClassname('npc_dota_tower')
 
-            local direIsDead = 0
-            local radiantIsDead = 0
+            local direTowers = 0
+            local radiantTowers = 0
 
             for k, v in pairs(towers) do
-                if not v:IsNull() and v:IsAlive() and not v:HasModifier("modifier_redux_tower_permanent") then
-                    if v:GetTeamNumber() == 2 then
-                        radiantIsDead = radiantIsDead + 1
-                    else
-                        direIsDead = direIsDead + 1
+                if v and not v:IsNull() and v:IsAlive() and not v:HasModifier("modifier_redux_tower_permanent") then
+                    if v:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+                        radiantTowers = radiantTowers + 1
+                    elseif v:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+                        direTowers = direTowers + 1
                     end
                 end
             end
 
             for k, v in pairs(towers) do
-                if string.match(v:GetUnitName(), "3") then
-                    if radiantIsDead == 5 and v:GetTeamNumber() == 2 then
-                        v:RemoveAbility("tower_anti_rat")
-                        v:RemoveModifierByName("modifier_tower_anti_rat")
-                    elseif direIsDead == 5 and v:GetTeamNumber() == 3 then
-                        v:RemoveAbility("tower_anti_rat")
-                        v:RemoveModifierByName("modifier_tower_anti_rat")
-                    end
+                if radiantTowers <= 5 and v:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+                    v:RemoveAbility("tower_anti_rat")
+                    v:RemoveModifierByName("modifier_tower_anti_rat")
+                elseif direTowers <= 5 and v:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+                    v:RemoveAbility("tower_anti_rat")
+                    v:RemoveModifierByName("modifier_tower_anti_rat")
                 end
             end
         end
 
         if OptionManager:GetOption('strongTowers') then
-            local killer_team = keys.teamnumber -- team that killed the tower
+            local killed_team = killed:GetTeamNumber()
             local towers = Entities:FindAllByClassname('npc_dota_tower')
             for _, tower in pairs(towers) do
-                if tower:GetTeamNumber() ~= killer_team then
+                if tower:GetTeamNumber() == killed_team then
                     self:UpgradeTower(tower)
                 end
             end
 
             -- Display upgrade message and play ominous sound
-            if killer_team == DOTA_TEAM_BADGUYS then
+            if killed_team == DOTA_TEAM_GOODGUYS then
                 -- add notification
                 GameRules:SendCustomMessage('radiantTowersUpgraded', 0, 0)
                 -- Only has a 50% chance to play sound because its kind of annoying if you hear it too much
@@ -1989,12 +1999,14 @@ function Ingame:addStrongTowers()
                 if shouldPlaySound == 1 then
                     EmitGlobalSound("powerup_01")
                 end
-            else
+            elseif killed_team == DOTA_TEAM_BADGUYS then
                 GameRules:SendCustomMessage('direTowersUpgraded', 0, 0)
                 local shouldPlaySound = (RandomInt(1, 2))
                 if shouldPlaySound == 1 then
                     EmitGlobalSound("powerup_02")
                 end
+            else
+                GameRules:SendCustomMessage("Neutral tower killed? Valve didn't assign a team to this tower. Thanks Valve.", 0, 0)
             end
         end
     end, nil)

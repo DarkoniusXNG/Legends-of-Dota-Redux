@@ -1,0 +1,125 @@
+// Abilities for dark seer
+"DOTAAbilities"
+{
+	"dark_seer_vacuum"
+	{
+		"ReduxPerks"                                                           "enemymoving | scientific"
+		"ReduxCost"                                                            "10"
+	}
+
+	"dark_seer_ion_shell"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "light | lightning | support"
+		"ReduxCost"                                                            "10"
+		"ReduxBans"                                                            "batrider_sticky_napalm"
+	}
+
+	"dark_seer_surge"
+	{
+		"ReduxFlags"                                                           "mobility | support"
+		"ReduxPerks"                                                           "lightning | mobility | support"
+		"ReduxCost"                                                            "10"
+	}
+
+	"dark_seer_wall_of_replica"
+	{
+		"ReduxFlags"                                                           "illusion"
+		"ReduxPerks"                                                           "illusion"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
+	}
+
+	//=================================================================================================================
+	// Aggrandize (Innate)
+	//=================================================================================================================
+	"dark_seer_aggrandize"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"dark_seer_normal_punch"
+	{
+		"ReduxFlags"		"bash | illusion | stun | upgradeable"
+		"ReduxPerks"		"bash | illusion | enemymoving"
+
+		"MaxLevel"                      "4"
+		"AbilityCooldown"               "10 9 8 7"
+		"AbilityValues"
+		{
+			"max_stun"					"1.25 1.35 1.45 1.55"
+			"recent_duration"			"3.0"
+			"max_distance"			"1100"
+			"knockback_distance"			"350"
+			"illusion_duration"			"6.0 7.0 8.0 9.0"
+			"max_damage"					"400"
+			"normal_punch_illusion_delay"   "0.25"
+		}
+	}
+
+	"special_bonus_unique_dark_seer"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_seer_ion_shell"
+	}
+	"special_bonus_unique_dark_seer_2"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_seer_vacuum"
+	}
+	"special_bonus_unique_dark_seer_3"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_seer_surge"
+	}
+	"special_bonus_unique_dark_seer_5"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_seer_ion_shell"
+	}
+	"special_bonus_unique_dark_seer_6"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_seer_ion_shell"
+	}
+	"special_bonus_unique_dark_seer_7"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_seer_wall_of_replica"
+	}
+	"special_bonus_unique_dark_seer_13"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_seer_wall_of_replica"
+	}
+	"special_bonus_unique_dark_seer_14"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_seer_ion_shell"
+	}
+}

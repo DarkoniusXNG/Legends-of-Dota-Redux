@@ -51,7 +51,7 @@
 	//=================================================================================================================
 	"leshrac_chronoptic_nourishment"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" // not learnable because it requires Pulse Nova
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"ReduxFlags"                                                           "attack_modifier | mana | doNotRandom"
 		"ReduxPerks"                                                           "attack_modifier | light"

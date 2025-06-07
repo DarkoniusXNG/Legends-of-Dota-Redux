@@ -7,7 +7,7 @@
 		"ReduxPerks"                                                           "blades | dagger | physical"
 		"ReduxCost"                                                            "20"
 	}
-	
+
 	"phantom_assassin_phantom_strike"
 	{
 		"ReduxFlags"                                                           "mobility"
@@ -19,14 +19,14 @@
 	{
 		"ReduxFlags"                                                           "tank"
 	}
-	
+
 	"phantom_assassin_coup_de_grace"
 	{
 		"ReduxFlags"                                                           "attack_modifier | crit"
 		"ReduxPerks"                                                           "attack_modifier"
 		"ReduxCost"                                                            "80"
 	}
-	
+
 	//=================================================================================================================
 	// Blur (Innate but shown in UI)
 	//=================================================================================================================
@@ -35,7 +35,7 @@
 		"ReduxFlags"                                                           "cooldown | doNotRandom | upgradeable"
 		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
 	}
-	
+
 	"phantom_assassin_fan_of_knives"
 	{
 		"ReduxFlags"                                                           "disarm_break | physical | upgradeable"
@@ -59,45 +59,85 @@
 			"max_damage_initial"	"-1"
 		}
 	}
-	
+
 	"special_bonus_unique_phantom_assassin"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_assassin_stifling_dagger"
 	}
 	"special_bonus_unique_phantom_assassin_2"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_assassin_coup_de_grace"
 	}
 	"special_bonus_unique_phantom_assassin_3"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_assassin_immaterial"
 	}
 	"special_bonus_unique_phantom_assassin_4"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_assassin_phantom_strike"
 	}
 	"special_bonus_unique_phantom_assassin_5"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_assassin_stifling_dagger"
 	}
 	"special_bonus_unique_phantom_assassin_6"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_assassin_phantom_strike"
 	}
 	"special_bonus_unique_phantom_assassin_7"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_assassin_stifling_dagger"
 	}
 	"special_bonus_unique_phantom_assassin_8"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_assassin_stifling_dagger"
 	}
 	"special_bonus_unique_phantom_assassin_9"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_assassin_phantom_strike"
 	}
 	"special_bonus_unique_phantom_assassin_strike_aspd"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_assassin_phantom_strike"
 	}
 }
