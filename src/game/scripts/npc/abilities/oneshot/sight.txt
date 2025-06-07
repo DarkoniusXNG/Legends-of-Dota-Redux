@@ -9,7 +9,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"HotKeyOverride"	"F"
 		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"60"
+		"AbilityCooldown"	"60 45 30"
 		"AbilityManaCost"	"150"
 		"AbilityCastRange"	"1200"
 		"ReduxPerks"                                                           "nature"
@@ -62,9 +62,17 @@
 		}
 		"AbilityValues"
         {
-            "radius_d" "1200 1400 1600"
-            "radius_n" "800 900 1000"
-            "duration" "15 25 40"
+            "radius_d"
+			{
+					"value"			"1400 1600 1800"
+					"affected_by_aoe_increase"	"1"
+			}
+            "radius_n"
+			{
+					"value"			"1000 1200 1400"
+					"affected_by_aoe_increase"	"1"
+			}
+            "duration" "30 45 60"
         }
 	}
 }
