@@ -10,13 +10,17 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityTextureName"                                                   "custom/cherub_explosive_spore"
         "AbilityProcsMagicStick"                                               "1"
-        "AbilityCooldown"                                                      "5.0"
-        "AbilityManaCost"                                                      "90 100 110 120"
+        "AbilityCooldown"                                                      "6.0"
+        "AbilityManaCost"                                                      "90 105 120 135"
         "AbilityCastPoint"                                                     "0.1"
         "AbilityValues"
         {
             "spawn_distance" "250"
-            "radius" "350"
+            "radius"		
+				{
+					"value"			"350"
+					"affected_by_aoe_increase"	"1"
+				}
             "delay" "10.0"
             "damage" "125 200 275 350"
             "lifesteal_hero" "40"
