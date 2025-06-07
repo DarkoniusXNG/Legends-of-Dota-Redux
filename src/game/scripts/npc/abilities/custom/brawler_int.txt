@@ -10,7 +10,11 @@
         "AbilityValues"
         {
             "brawler_intellect_bonus" "40 60 80"
-            "radius" "400"
+            "radius"			
+			{
+				"value"	"400"
+				"affected_by_aoe_increase"	"1"
+			}
             "think_interval" "0.1"
         }
         "precache"
