@@ -25,7 +25,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900"
+		"AbilityCastRange"				"1300"
 		"AbilityCastPoint"				"0.1"
 		
 		// Time		
@@ -34,17 +34,17 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"30 40 50 60"
+		"AbilityManaCost"				"20 30 40 50"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "damage" "70 90 110 130"
-            "stun" "0.6 0.7 0.8 0.9" // per use on the same target
+            "damage" "70 100 130 160"
+            "stun" "0.7 0.8 0.9 1.0" // per use on the same target
             "max_mult" "6" // the number of times it can apply
-            "damage_bonus" "30 40 50 60"
-            "stun_bonus" "0.25 0.5 0.75 1.0"
+            "damage_bonus" "30 50 70 90"
+            "stun_bonus" "0.7 0.8 0.9 1.0"
             "duration" "60"
         }
 
