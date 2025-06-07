@@ -5,14 +5,22 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityTextureName"                                                   "custom/lord_of_lightning_holy_wrath_OP"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityCastRange"                                                     "1200"
+        "AbilityCastRange"                                                     "%radius"
         "AbilityCooldown"                                                      "0.0"
         "AbilityValues"
         {
             "chance_dmg" "25 30 35 40"
-            "radius" "1200"
-            "damage_per_int" ".5 .75 1 2"
-            "radius_dop_dmg" "300"
+            "radius"
+			{
+					"value"			"1200"
+					"affected_by_aoe_increase"	"1"
+			}
+            "damage_per_int" "0.6 0.8 1.0 1.2"
+            "radius_dop_dmg"
+			{
+					"value"			"300"
+					"affected_by_aoe_increase"	"1"
+			}
         }
 
         "precache"
