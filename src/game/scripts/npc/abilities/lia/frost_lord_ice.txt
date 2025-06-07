@@ -14,9 +14,9 @@
         }
 
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilityCastRange"                                                     "700"
+        "AbilityCastRange"                                                     "900"
         "AbilityCastPoint"                                                     "0.3"
-        "AbilityCooldown"                                                      "120 100 80"
+        "AbilityCooldown"                                                      "80 70 60"
         "AbilityManaCost"                                                      "225 275 325"
         "AbilityValues"
         {
@@ -24,8 +24,16 @@
             "movement_slow" "-50"
             "slow_duration" "3"
             "duration" "4 5 6"
-            "radius" "700"
-            "damage_radius" "225"
+            "radius"				
+				{
+					"value"			"800"
+					"affected_by_aoe_increase"	"1"
+				}
+            "damage_radius"				
+				{
+					"value"			"225"
+					"affected_by_aoe_increase"	"1"
+				}
         }
         "OnSpellStart"
         {
