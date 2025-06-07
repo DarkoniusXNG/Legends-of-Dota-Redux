@@ -15,7 +15,7 @@
 			// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
-		"AbilityCastRange"				"900"
+		"AbilityCastRange"				"1200"
 		"AbilityCooldown"				"1"
 		
 		// Cost
@@ -30,10 +30,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "duration" "1.5"
+            "duration" "5.0"
             "mark_slow" "-300"
             "mark_slow_duration" "1.75"
-            "mark_aoe" "350"
+            "mark_aoe"				
+				{
+					"value"	"350"
+					"affected_by_aoe_increase"	"1"
+				}
         }
 		
 		// Data driven
