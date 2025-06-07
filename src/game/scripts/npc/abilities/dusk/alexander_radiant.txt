@@ -15,7 +15,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"325"
+		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0"
 		
 		// Time		
@@ -31,9 +31,13 @@
 		"AbilityValues"
         {
             "duration" "8"
-            "regen" "5 8 11 13"
-            "miss" "40 45 50 55"
-            "radius" "400 425 450 475"
+            "regen" "3 4 5 6"
+            "miss" "40 50 60 70"
+            "radius"				
+				{
+					"value"	"500"
+					"affected_by_aoe_increase"	"1"
+				}
         }
 		
 		"precache"
