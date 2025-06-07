@@ -33,7 +33,7 @@
             "max_distance" "2000"
             "give_up_distance" "1200"
             "delay_between_locusts" "0.1"
-            "locust_damage" "20"
+            "locust_damage" "25"
             "locust_heal_threshold" "1000"
         }
         "OnSpellStart"
