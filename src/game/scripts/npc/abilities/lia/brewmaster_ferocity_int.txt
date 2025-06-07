@@ -5,14 +5,19 @@
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityTextureName" "custom/brewmaster_ferocity_int"
 		"AbilityUnitTargetFlags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"AoERadius" "600"
+		"AoERadius" "700"
 		"AbilityType" "DOTA_ABILITY_TYPE_BASIC"
-		"AbilityCastRange" "600"
+		"AbilityCastRange" "700"
 
 		"AbilityValues"
         {
             "bonus_intelligence" "2 3 4 5"
-            "radius" "600"
+            "radius"				
+				{
+					"value"			"700"
+					"affected_by_aoe_increase"	"1"
+				}
         }
+		"ReduxPerks" "rage"
 	}
 }
