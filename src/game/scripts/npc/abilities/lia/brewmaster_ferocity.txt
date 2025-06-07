@@ -13,8 +13,13 @@
         "AbilityValues"
         {
             "bonus_strength" "2 3 4 5"
-            "radius" "600"
+            "radius"				
+				{
+					"value"			"700"
+					"affected_by_aoe_increase"	"1"
+				}
         }
         "ReduxFlags"                                                           "tank"
+		"ReduxPerks"	"rage"
     }
 }
