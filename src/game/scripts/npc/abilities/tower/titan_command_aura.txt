@@ -15,7 +15,11 @@
 
         "AbilityValues"
         {
-            "radius" "1200"
+            "radius"
+			{
+					"value"			"1200"
+					"affected_by_aoe_increase"	"1"
+			}
             "bonus_armor" "5 10 15"
             "bonus_regen" "15 25 35"
             "bonus_damage" "5 8 11"
