@@ -1,3 +1,4 @@
+// Arcane Art
 "DOTAAbilities" {
 	"aabs_nightshadow"
 	{
@@ -17,7 +18,7 @@
 
 		"AbilityValues"
         {
-            "proc_chance" "16 24 32 40"
+            "proc_chance" "20 25 35 45"
             "cooldown_reduction" "1"
         }
 	}
@@ -41,25 +42,26 @@
 
 		"AbilityValues"
         {
-            "proc_chance" "20 30 40 50"
-            "cooldown_reduction" "2.5"
+            "proc_chance" "75"
+            "cooldown_reduction" "1.0 1.5 2.0 2.5"
         }
 	}
 
 	"aabs_thunder_musket"
 	{
+		"ReduxPerks"					"lightning"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/angel_arena_blackstar/thunder_musket.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/thunder_musket"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityCooldown"				"6 5 4 3"
+		"AbilityCooldown"				"3"
 
 		"AbilityValues"
         {
-            "thunderstruck_cooldown" "6 5 4 3"
+            "thunderstruck_cooldown" "3"
             "thunderstruck_bonus_attack_range" "250"
-            "thunderstruck_magical_damage" "110 140 170 200"
+            "thunderstruck_magical_damage" "80 130 180 230"
         }
 
 		"precache"
