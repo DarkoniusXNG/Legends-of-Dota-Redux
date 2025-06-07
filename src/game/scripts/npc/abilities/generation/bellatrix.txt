@@ -34,8 +34,8 @@
         "ReduxPerks"                    "support | demon | blood"
 
         // Casting
-        "AbilityCastPoint"              "0.5"
-        "AbilityCastRange"              "550 650 750 850"
+        "AbilityCastPoint"              "0.3"
+        "AbilityCastRange"              "750"
         "AnimationPlaybackRate"         "1.2"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
 
@@ -49,11 +49,15 @@
 
         "AbilityValues"
         {
-            "range" "550 650 750 850"
-            "radius" "550"
+            "range" "750"
+            "radius"		
+				{
+					"value"			"550"
+					"affected_by_aoe_increase"	"1"
+				}
             "delay" "1.5"
             "buff_duration" "2"
-            "lifesteal" "75"
+            "lifesteal" "50"
         }
         "precache"
         {
@@ -318,11 +322,15 @@
         "AbilityValues"
         {
             "cast_range" "750"
-            "start_radius" "150"
-            "end_radius" "400"
-            "torrent_speed" "1600"
-            "pullback_time" "0.8"
-            "returned_time" "0.8"
+            "start_radius" "200"
+            "end_radius"		
+				{
+					"value"			"400"
+					"affected_by_aoe_increase"	"1"
+				}
+            "torrent_speed" "1200"
+            "pullback_time" "1.0"
+            "returned_time" "1.0"
             "buff_duration" "1.0"
             "blood_range" "750"
             "vision_radius" "400"
@@ -447,7 +455,7 @@
         "ReduxPerks"                    "self_damage | mobility | blood"
 
         // Casting
-        "AbilityCastRange"              "1000 1500 2000"
+        "AbilityCastRange"              "1500"
         "AbilityCastPoint"              "0.3"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
         "AnimationPlaybackRate"         "0.6"
@@ -468,18 +476,30 @@
 
         "AbilityValues"
         {
-            "effect_radius" "200"
-            "effect_radius_scepter" "350"
+            "effect_radius"		
+				{
+					"value"			"200"
+					"affected_by_aoe_increase"	"1"
+				}
+            "effect_radius_scepter"		
+				{
+					"value"			"350"
+					"affected_by_aoe_increase"	"1"
+				}
             "buff_ms" "10 15 20"
             "PercentDamage" "3 4 5"
             "hp_cost" "30 40 50"
             "impact_heal" "60 80 100"
-            "vision_radius" "400"
-            "transfusion_speed" "2000"
-            "slow_ms" "-10 -15 -20"
+            "vision_radius"		
+				{
+					"value"			"400"
+					"affected_by_aoe_increase"	"1"
+				}
+            "transfusion_speed" "1700"
+            "slow_ms" "-15 -20 -25"
             "max_charges" "3"
             "charge_replenish_time" "30"
-            "range" "1200 1600 2000"
+            "range" "1500"
         }
         "OnUpgrade"
         {
@@ -689,7 +709,7 @@
 
         "AbilityValues"
         {
-            "damage_reduction" "-40"
+            "damage_reduction" "-75"
             "bonus_damage" "100 125 150 175"
             "damage_cap" "200 350 500 650"
             "buff_duration" "4"
