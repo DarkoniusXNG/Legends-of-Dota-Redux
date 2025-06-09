@@ -8,13 +8,12 @@
         "AbilityUnitTargetFlags"                                               "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"                                                   "custom/angel_arena_razor_power_OP"
-        "MaxLevel"                                                             "3"
 
         "AbilityValues"
         {
-            "radius"				
+            "radius"
 			{
-				"value"	"500 650 800"
+				"value"	"500 600 700"
 				"affected_by_aoe_increase"	"1"
 			}
             "damage_percent" "80 90 100"

@@ -27,11 +27,6 @@ function modifier_creep_power:OnIntervalThink()
 			parent:SetModelScale(parent:GetModelScale() + (parent:GetModelScale() * 0.01 * math.min(12, self.level)))
 
 			parent:AddNewModifier(self:GetCaster(), ability, "modifier_creep_power_hp", {duration = self:GetDuration()})
-			
-			--parent:AddAbility("lod_creep_power_hp")
-			--for i=1,math.floor(self.level/3) do
-			--	parent:FindAbilityByName("lod_creep_power_hp"):UpgradeAbility(false)
-			--end
 
 			self:StartIntervalThink(-1)
 		end

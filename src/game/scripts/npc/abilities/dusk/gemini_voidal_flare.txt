@@ -11,7 +11,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityTextureName"			"custom/gemini_voidal_bolt"
@@ -20,31 +20,31 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"particle"			"particles/units/heroes/hero_gemini/voidal_flare.vpcf"		
+			"particle"			"particles/units/heroes/hero_gemini/voidal_flare.vpcf"
 		}
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1300"
+		"AbilityCastRange"				"900 1000 1100 1200"
 		"AbilityCastPoint"				"0.1"
-		
-		// Time		
+
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"2.5"
+		"AbilityCooldown"				"5.5 4.5 3.5 2.5"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"20 30 40 50"
+		"AbilityManaCost"				"50"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "damage" "70 100 130 160"
-            "stun" "0.7 0.8 0.9 1.0" // per use on the same target
+            "damage" "70 100 130 160" // base/initial damage
+            "stun" "0.7 0.8 0.9 1.0" // base/initial stun duration
             "max_mult" "6" // the number of times it can apply
-            "damage_bonus" "30 50 70 90"
-            "stun_bonus" "0.7 0.8 0.9 1.0"
+            "damage_bonus" "30 50 70 90" // this is damage increase per stack (total max dmg: damage + damage_bonus x max_mult)
+            "stun_bonus" "0.25" // this is stun duration increase per stack, can permastun because of low cd (total max stun: stun + stun_bonus x max_mult)
             "duration" "60"
         }
 

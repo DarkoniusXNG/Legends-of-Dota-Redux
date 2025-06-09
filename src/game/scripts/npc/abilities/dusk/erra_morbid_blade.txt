@@ -39,10 +39,10 @@
         {
             "pure_threshold" "50"
             "radius"				
-				{
-					"value"	"400"
-					"affected_by_aoe_increase"	"1"
-				}
+			{
+				"value"	"400"
+				"affected_by_aoe_increase"	"1"
+			}
             "lifesteal" "6 9 12 15"
         }
 

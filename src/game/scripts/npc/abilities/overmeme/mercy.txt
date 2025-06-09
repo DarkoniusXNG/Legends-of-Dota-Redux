@@ -373,7 +373,7 @@
 
         // Casting
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "800"
+        "AbilityCastRange"              "%effect_radius"
         "AbilityCastPoint"              "0.1"
 
         // Time
@@ -390,8 +390,8 @@
         {
             "effect_radius"
 			{
-					"value"			"800"
-					"affected_by_aoe_increase"	"1"
+				"value"			"800"
+				"affected_by_aoe_increase"	"1"
 			}
             "initial_heal" "100"
             "heal_over_time" "10 15 20"

@@ -40,10 +40,10 @@
             "dps" "30 45 60 75"
             "reflect" "80"
             "radius"				
-				{
-					"value"			"1600"
-					"affected_by_aoe_increase"	"1"
-				}
+            {
+                "value"			"1600"
+                "affected_by_aoe_increase"	"1"
+            }
             "duration" "40"
             "maximum_reflections" "6 10 14 18" // Must be double attacks_to_destroy
             "attacks_to_destroy" "3 5 7 9"

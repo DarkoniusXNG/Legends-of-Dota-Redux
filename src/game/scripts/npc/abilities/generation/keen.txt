@@ -17,7 +17,7 @@
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
         "AbilityProcsMagicStick"        "1"
         "ReduxPerks"                                                           "explosive"
-    
+
         "precache"
         {
             "particle"      "particles/units/heroes/hero_gyrocopter/gyro_calldown_marker.vpcf"
@@ -26,11 +26,11 @@
             "particle"      "particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_calldown_first.vpcf"
             "particle"      "particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_calldown_second.vpcf"
         }
-    
+
         "AbilityValues"
         {
             "range" "1200"
-            "radius"		
+            "radius"
 				{
 					"value"			"325"
 					"affected_by_aoe_increase"	"1"
@@ -57,7 +57,7 @@
                 "Duration"      "%duration"
             }
         }
-    
+
         "Modifiers"
         {
             "modifier_mortar_shots"
@@ -66,7 +66,7 @@
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
                 "OverrideAnimation"     "ACT_DOTA_OVERRIDE_ABILITY_1"
-            
+
                 "OnCreated"
                 {
                     "RunScript"
@@ -94,10 +94,10 @@
         "AbilityCastRange"              "1600 2000 2400"
         "AbilityCastPoint"              "0.0"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
-    
+
         "AbilityValues"
         {
-            "radius"		
+            "radius"
 				{
 					"value"			"325"
 					"affected_by_aoe_increase"	"1"
@@ -105,21 +105,21 @@
             "duration" "18 20 22 24"
             "mortar_damage" "120"
         }
-    
+
         "precache"
         {
             "particle"  "particles/keen_mortar_shot_first_shot.vpcf"
         }
-    
+
         "OnSpellStart"
         {
             "CreateThinker"
             {
                 "ModifierName"  "modifier_mortar_shot_marker"
-                "Target"        "POINT" 
+                "Target"        "POINT"
             }
         }
-    
+
         "Modifiers"
         {
             "modifier_mortar_shot_marker"
@@ -128,7 +128,7 @@
                 "IsHidden"  "1"
                 "Duration"  "2.0"
                 "Attributes"        "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-                
+
                 "OnCreated"
                 {
                     "FireSound"
@@ -148,7 +148,7 @@
                             "01" "%radius %radius %radius"
                         }
                     }
-                    
+
                     "TrackingProjectile"
                     {
                         "Target"            "TARGET"
@@ -160,7 +160,7 @@
                         "TargetTypes"       "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
                     }
                 }
-                
+
                 "OnDestroy"
                 {
                     "FireSound"
@@ -168,7 +168,7 @@
                         "EffectName"    "Hero_Gyrocopter.HomingMissile.Destroy"
                         "Target"        "TARGET"
                     }
-                
+
                     "ActOnTargets"
                     {
                         "Target"
@@ -178,9 +178,9 @@
                             "Teams"                 "DOTA_UNIT_TARGET_TEAM_ENEMY"
                             "Types"                 "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
                         }
-        
+
                         "Action"
-                        {                   
+                        {
                             "Damage"
                             {
                                 "Target"  "TARGET"
@@ -210,17 +210,17 @@
         "AbilityCastPoint"              "0.3"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
         "AbilityProcsMagicStick"    "1"
-        "ReduxPerks"                                                           "trap"     
-        
+        "ReduxPerks"                                                           "trap"
+
         "precache"
         {
             "model"     "models/items/rattletrap/cog_tesla/cog_tesla.vmdl"
             "particle"  "particles/units/heroes/hero_shadowshaman/shadowshaman_ether_shock.vpcf"
         }
-    
+
         "AbilityValues"
         {
-            "shock_range"		
+            "shock_range"
 				{
 					"value"			"350"
 					"affected_by_aoe_increase"	"1"
@@ -246,7 +246,7 @@
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "ReduxBans"                     "ebf_clinkz_trickshot"
-    
+
         "precache"
         {
             "model"     "models/props_structures/tower_good4.vmdl"
@@ -255,21 +255,22 @@
         }
         "AbilityValues"
         {
-            "armor_bonus" "10 15 20"
-            "turn_rate_slow" "-40 -25 -10"
-            "splash_radius"		
-				{
-					"value"			"300 325 350"
-					"affected_by_aoe_increase"	"1"
-				}
-            "transform_time" "0.75 0.5 0.25"
-            "mortar_shot_range" "1600 2000 2400"
-            "missile_speed" "2500"
-            "attack_bonus" "50 100 150"
-            "attack_bonus_range" "1500 2250 3000"
-            "attack_min_range" "300"
-            "bat_increase" "1.0 0.8 0.6"
-            "seconds_per_attack" "2.5 2.2 1.9"
+            "armor_bonus"               "10 15 20"
+            "turn_rate_slow"            "-40 -25 -10"
+            "splash_radius"
+            {
+                "value"                 "300 325 350"
+                "affected_by_aoe_increase"	"1"
+            }
+            "transform_time"            "0.75 0.5 0.25"
+            "mortar_shot_range"         "1600 2000 2400" // important for other keen ability
+            "projectile_speed_bonus"    "1800"
+            "attack_bonus"              "50 100 150"          // attack damage bonus
+            "attack_bonus_range"        "1500 2250 3000"
+            "attack_min_range"          "300"
+            "seconds_per_attack"        "2.5 2.2 1.9"   // base attack time
+            "move_speed_slow"           "-100"            // mobility penalty
+            "attack_speed_slow"         "0"
         }
         "OnToggleOn"
         {
@@ -282,7 +283,7 @@
             "DelayedAction"
             {
                 "Delay"     "%transform_time"
-                "Action"    
+                "Action"
                 {
                     "ApplyModifier"
                     {
@@ -290,7 +291,7 @@
                         "Target"        "CASTER"
                     }
                 }
-            }   
+            }
         }
         "OnToggleOff"
         {
@@ -303,7 +304,7 @@
             "DelayedAction"
             {
                 "Delay"     "%transform_time"
-                "Action"    
+                "Action"
                 {
                     "RemoveModifier"
                     {
@@ -312,7 +313,7 @@
                     }
                 }
             }
-        }   
+        }
         "Modifiers"
         {
             "modifier_siege_silence"
@@ -320,7 +321,7 @@
                 "Passive"           "0"
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
-            
+
                 "States"
                 {
                     "MODIFIER_STATE_STUNNED"        "MODIFIER_STATE_VALUE_ENABLED"
@@ -333,24 +334,24 @@
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
                 "IsBuff"            "1"
-        
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"    "%armor_bonus"
                     "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"    "%turn_rate_slow"
                     "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"  "%attack_bonus"
                     "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"      "%attack_bonus_range"
-                    "MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"   "%bat_increase"
-                    "MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS"      "1800"
-                    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "0"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-100"
+                    "MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"   "%seconds_per_attack"
+                    "MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS"      "%projectile_speed_bonus"
+                    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%attack_speed_slow"
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%move_speed_slow"
                 }
                 "States"
                 {
                     // "MODIFIER_STATE_ROOTED" "MODIFIER_STATE_VALUE_ENABLED"
                     "MODIFIER_STATE_FLYING" "MODIFIER_STATE_VALUE_ENABLED"
                 }
-                    
+
                 "OnAttackStart"
                 // Triggers on Move/Casting/Hold/Stop
                 {
@@ -408,20 +409,20 @@
         "AbilityCastPoint"              "0.0"
         "AbilityManaCost"               "20"
         "HasScepterUpgrade"             "1"
-    
+
         "precache"
         {
             "particle"  "particles/keen_slag_armor_projectile.vpcf"
             "particle"  "particles/econ/events/coal/coal_projectile.vpcf"
         }
-    
+
         "AbilityValues"
         {
-			"AbilityCooldown"
-			{
-				"value"	"3"
-				"special_bonus_scepter"	"0"
-			}
+            "AbilityCooldown"
+            {
+                "value"	"3"
+                "special_bonus_scepter"	"=0"
+            }
             "damage_per_second"             "24 32 40 48"
             "duration"                      "7"
             "armor_reduction"               "-1.6 -2.4 -3.2 -4"

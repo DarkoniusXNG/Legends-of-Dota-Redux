@@ -8,8 +8,9 @@
 		"AbilityTextureName"            "custom/nightshadow"
 		"AbilityCooldown"				"0"
 
-		"ReduxCost"                                                            "10"
-		"ReduxFlags"														   "cooldown"
+		"ReduxCost"                     "10"
+		"ReduxFlags"                    "attack_modifier | cooldown"
+		"ReduxPerks"                    "attack_modifier"
 
 		"precache"
 		{
@@ -18,7 +19,7 @@
 
 		"AbilityValues"
         {
-            "proc_chance" "20 25 35 45"
+            "proc_chance" "20 25 35 40"
             "cooldown_reduction" "1"
         }
 	}
@@ -31,9 +32,10 @@
 		"AbilityTextureName"            "custom/nightshadow_op"
 		"AbilityCooldown"				"0.0"
 
-		"ReduxFlags"														   "cooldown"
-		"ReduxCost"                                                            "120"
-		"ReduxBans"                                                            "aabs_nightshadow"
+		"ReduxFlags"                    "attack_modifier | cooldown"
+		"ReduxPerks"                    "attack_modifier"
+		"ReduxCost"                     "120"
+		"ReduxBans"                     "aabs_nightshadow"
 
 		"precache"
 		{
@@ -49,13 +51,15 @@
 
 	"aabs_thunder_musket"
 	{
-		"ReduxPerks"					"lightning"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/angel_arena_blackstar/thunder_musket.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/thunder_musket"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCooldown"				"3"
+
+		"ReduxFlags"                    "attack_modifier"
+		"ReduxPerks"                    "attack_modifier | lightning"
 
 		"AbilityValues"
         {
@@ -89,7 +93,7 @@
             "speed" "0"
         }
 
-		"precache" 
+		"precache"
 		{
 			"particle"    "particles/units/heroes/hero_abaddon/abaddon_frost_slow.vpcf"
 			"particle"    "particles/blood_impact/blood_advisor_pierce_spray_c.vpcf"
@@ -98,7 +102,7 @@
 			"particle"	"particles/units/heroes/hero_omniknight/omniknight_guardian_angel_wings_buff.vpcf"
 			"soundfile"   "soundevents/soundevents_conquest.vsndevts"
 		}
-		
+
 		// Data driven
 		//-------------------------------------------------------------------------------------------------------------
 
@@ -110,7 +114,7 @@
 				"Function"	"Extinction"
 			}
 		}
-		
+
 		"Modifiers"
 		{
 			"modifier_darwin"
@@ -130,7 +134,7 @@
 					}
 
 				}
-					
+
 			}
 		}
 	}

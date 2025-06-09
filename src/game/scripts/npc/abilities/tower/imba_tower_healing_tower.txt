@@ -8,13 +8,13 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                             "ability_lua"
+        "ScriptFile"                            "abilities/healing_aura.lua"
         "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityTextureName"                    "custom/tower_healing_wave"
         "AbilitySharedWithTeammates"            "1"
-        "AbilityCastRange"                      "900"
+        "AbilityCastRange"                      "%search_radius"
         "AbilityCooldown"                       "6"
-        "ScriptFile"                            "abilities/healing_aura.lua"
 
         "ReduxPerks"                            "support | light"
         "ReduxFlags"                            "support"
@@ -34,14 +34,14 @@
         {
             "search_radius"
 			{
-					"value"			"900"
-					"affected_by_aoe_increase"	"1"
+				"value"			"900"
+				"affected_by_aoe_increase"	"1"
 			}
             "bounce_delay" "0.5"
             "bounce_radius"
 			{
-					"value"			"600"
-					"affected_by_aoe_increase"	"1"
+				"value"			"600"
+				"affected_by_aoe_increase"	"1"
 			}
             "heal_amount" "150 250 350"
             "hp_threshold" "85"
@@ -53,13 +53,14 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                             "ability_lua"
+        "ScriptFile"                            "abilities/healing_aura.lua"
         "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityTextureName"                    "custom/tower_healing_wave_hero"
         "AbilitySharedWithTeammates"            "1"
-        "AbilityCastRange"                      "900"
+        "AbilityCastRange"                      "%search_radius"
         "AbilityCooldown"                       "30 20 10"
-        "ScriptFile"                            "abilities/healing_aura.lua"
+
         "ReduxPerks"                            "support | light"
         "ReduxFlags"                            "support"
         "ReduxCost"                                                            "40"
@@ -78,14 +79,14 @@
         {
             "search_radius"
 			{
-					"value"			"900"
-					"affected_by_aoe_increase"	"1"
+				"value"			"900"
+				"affected_by_aoe_increase"	"1"
 			}
             "bounce_delay" "0.5"
             "bounce_radius"
 			{
-					"value"			"600"
-					"affected_by_aoe_increase"	"1"
+				"value"			"600"
+				"affected_by_aoe_increase"	"1"
 			}
             "heal_amount" "150 250 350"
             "hp_threshold" "85"

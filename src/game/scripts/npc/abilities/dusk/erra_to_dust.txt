@@ -10,13 +10,13 @@
 		"SpellImmunityType"			 "SPELL_IMMUNITY_ENEMIES_NO"
 		"AnimationPlaybackRate"		 "1"
 		"AbilityTextureName"			"custom/erra_to_dust"
-		
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"			  "900"
+		"AbilityCastRange"			  "%radius"
 		"AbilityCastPoint"			  "0.3"
 
-		// Time	 
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"			   "45 40 35 30"
 
@@ -28,14 +28,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "hp_to_bonus_damage" "7 8 9 10"
-            "creep_hp_to_bonus_damage" "2"
-            "duration" "15"
-            "radius"				
-				{
-					"value"	"900"
-					"affected_by_aoe_increase"	"1"
-				}
+            "hp_to_bonus_damage"        "7 8 9 10"
+            "creep_hp_to_bonus_damage"  "2"
+            "duration"                  "15"
+            "radius"
+			{
+				"value"                 "900"
+				"affected_by_aoe_increase"	"1"
+			}
         }
 
 		"precache"

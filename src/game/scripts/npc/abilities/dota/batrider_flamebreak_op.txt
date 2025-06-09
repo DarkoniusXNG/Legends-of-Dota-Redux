@@ -16,35 +16,35 @@
         "AbilityValues"
 		{
 
-			"damage_impact"		
+			"damage_impact"
 			{
 				"value"			"50 100 150 200"
 				"CalculateSpellDamageTooltip" "1"
 			}
-			"damage_per_second"		
+			"damage_per_second"
 			{
 				"value"			"25 40 55 70"
 				"CalculateSpellDamageTooltip" "1"
 			}
-			"damage_duration"		
+			"damage_duration"
 			{
 				"value"		"5"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 				"CalculateSpellDamageTooltip" "0"
 			}
-			"explosion_radius"		
+			"explosion_radius"
 			{
 				"value"		"450"
 				"affected_by_aoe_increase"	"1"
 			}
-			"collision_radius"		
+			"collision_radius"
 			{
 				"value"		"100 100 100 100"
 				"affected_by_aoe_increase"	"1"
 			}
 			"stun_duration"			"1.0"
 			"speed"					"4000"
-			"knockback_distance"	
+			"knockback_distance"
 			{
 				"value"				"450"
 				"special_bonus_unique_batrider_3"	"+500"
@@ -57,12 +57,12 @@
 				"value"				"6"
 				"special_bonus_unique_batrider_2"	"+4"
 			}
-			"AbilityCooldown"		
+			"AbilityCooldown"
 			{
 				"value"	 "22 19 16 13"
 				"special_bonus_unique_batrider_5"	"-6"
 			}
-			"slow"	"20 30 40 50"						
+			"slow"	"20 30 40 50"
 		}
 
 		"ReduxPerks"														   "fire | enemymoving | skillshot"

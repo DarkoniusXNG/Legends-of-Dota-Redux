@@ -68,6 +68,7 @@ function ToxicDartsApplyEndEffect( keys )
 	end
 end
 
+--[[
 function ToxicDartsStartCharge( keys )
 
 	-- Variables
@@ -127,11 +128,13 @@ function ToxicDartsStartCharge( keys )
 	end 
 	)
 end
+]]
 --[[
 	Author: kritth
 	Date: 6.1.2015.
 	Helper: Create timer to track cooldown
 ]]
+--[[ 
 function ToxicDartsStartCooldown( caster, charge_replenish_time )
 	caster.toxic_dart_cooldown = charge_replenish_time
 	Timers:CreateTimer( function()
@@ -145,7 +148,9 @@ function ToxicDartsStartCooldown( caster, charge_replenish_time )
 		end
 	)
 end
+]]
 
+--[[
 function ShootDart( keys )
 	local caster = keys.caster
 	local ability = keys.ability
@@ -181,6 +186,7 @@ function ShootDart( keys )
 		ability:EndCooldown()
 	end
 end
+]]
 
 --[[
 	Author: Noya, Pizzalol

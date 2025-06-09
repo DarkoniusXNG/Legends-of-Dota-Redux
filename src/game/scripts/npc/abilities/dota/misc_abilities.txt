@@ -120,8 +120,7 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
         "IsBreakable"					"1"
-        "MaxLevel"                      "15"
-        "LevelsBetweenUpgrades"     "2"
+
         "AbilityTextureName"            "custom/abyssal_underlord_atrophy_aura_op"
 
         "ReduxCost"                                                            "120"
@@ -130,10 +129,10 @@
 
 		"AbilityValues"
 		{
-			"radius"						
+			"radius"
 			{
-				"value"				"900"
-				"affected_by_aoe_increase"	"1"		
+				"value"				"900 1000 1100 1200"
+				"affected_by_aoe_increase"	"1"
 			}
 
 			"damage_reduction_pct"
@@ -169,29 +168,29 @@
 			"cleave_damage_pct"
 			{
 				"value"				"30 40 50 60"
-				"special_bonus_facet_abyssal_underlord_demons_reach"	"+35"				
+				"special_bonus_facet_abyssal_underlord_demons_reach"	"+35"
 			}
 			"cleave_starting_width"
 			{
 				"value"					"150"
-				"special_bonus_facet_abyssal_underlord_demons_reach"	"+150"				
+				"special_bonus_facet_abyssal_underlord_demons_reach"	"+150"
 					"affected_by_aoe_increase"	"1"
 			}
 			"cleave_angle"
 			{
 				"value"					"120"
-				"special_bonus_facet_abyssal_underlord_demons_reach"	"+75"				
+				"special_bonus_facet_abyssal_underlord_demons_reach"	"+75"
 			}
 			"cleave_distance_base"
 			{
 				"value"					"300"
-				"special_bonus_facet_abyssal_underlord_demons_reach"	"+100"				
+				"special_bonus_facet_abyssal_underlord_demons_reach"	"+100"
 					"affected_by_aoe_increase"	"1"
 			}
 			"cleave_distance_per_stack"
 			{
 				"value"					"10"
-				"special_bonus_facet_abyssal_underlord_demons_reach"	"+5"				
+				"special_bonus_facet_abyssal_underlord_demons_reach"	"+5"
 			}
 
 
@@ -217,18 +216,18 @@
         "AbilityManaCost"               "75 80 85 90"
         "AbilityValues"
 		{
-				"AbilityCooldown"				
-				{	
+				"AbilityCooldown"
+				{
 					"value"				"14 12 10 8"
 					"special_bonus_unique_pangolier_4"	"-4"
 				}
 				"dash_range"			"900"
-				"range"					
+				"range"
 				{
 					"value"			"900"
 					"special_bonus_unique_pangolier"	"+200"
 				}
-				"damage"				
+				"damage"
 				{
 					"value"		"15 25 35 45"
 					"CalculateSpellDamageTooltip"	"0"
@@ -243,16 +242,16 @@
 				"start_radius"
 				{
 					"value"		"155"
-					"affected_by_aoe_increase"	"1"		
+					"affected_by_aoe_increase"	"1"
 				}
 				"end_radius"
 				{
 					"value"			"300"
-					"affected_by_aoe_increase"	"1"		
+					"affected_by_aoe_increase"	"1"
 				}
-				"strikes"				
+				"strikes"
 				{
-					"value"			"4"				
+					"value"			"4"
 				}
 				"procs_onhit_effects"			"1"
 		}
@@ -775,7 +774,7 @@
 			"allied_reduction_pct"
 			{
 				"value"				"50"
-				"special_bonus_facet_mars_victory_feast"			"+50"				
+				"special_bonus_facet_mars_victory_feast"			"+50"
 			}
 		}
     }

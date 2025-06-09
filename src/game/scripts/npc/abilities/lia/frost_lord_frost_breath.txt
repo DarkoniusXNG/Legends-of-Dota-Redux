@@ -18,21 +18,24 @@
         "AbilityCastPoint"                                                     "0.0 0.0 0.0 0.0"
         "AbilityCooldown"                                                      "14 13 12 11"
         "AbilityManaCost"                                                      "90 100 110 120"
+
+        "ReduxPerks"                                                           "ice"
+
         "AbilityValues"
         {
             "damage" "70 140 210 280"
             "damage_per_second" "18 27 36 45"
-            "start_radius"				
-				{
-					"value"			"150"
-					"affected_by_aoe_increase"	"1"
-				}
-            "end_radius"				
-				{
-					"value"			"400"
-					"affected_by_aoe_increase"	"1"
-				}
-            "range" "800"
+            "start_radius"
+			{
+				"value"			"150"
+				"affected_by_aoe_increase"	"1"
+			}
+            "end_radius"
+			{
+				"value"			"350"
+				"affected_by_aoe_increase"	"1"
+			}
+            "range" "750"
             "speed" "950"
             "duration" "4 5 6 7"
         }
@@ -94,6 +97,5 @@
                 }
             }
         }
-        "ReduxPerks"                                                           "ice"
     }
 }

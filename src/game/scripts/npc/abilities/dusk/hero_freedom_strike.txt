@@ -22,7 +22,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"400"
+		"AbilityCastRange"				"%radius"
 		"AbilityCastPoint"				"0.01"
 
 		// Time
@@ -38,11 +38,11 @@
 		"AbilityValues"
         {
             "charge" "400"
-            "radius"				
-				{
-					"value"	"350"
-					"affected_by_aoe_increase"	"1"
-				}
+            "radius"
+			{
+				"value"	"350"
+				"affected_by_aoe_increase"	"1"
+			}
             "slow" "-25 -35 -45 -55"
             "duration" "4"
             "damage" "100 150 200 250"

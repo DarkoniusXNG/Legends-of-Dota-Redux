@@ -57,10 +57,10 @@ function lich_traveling_frost:IceProjectile(source,range,dir,speed,extradata)
 	if IsServer() then
 		local sourcepos = source:GetAbsOrigin()
 		local soundsource = source
-		local radius = 80
-		local scepter_radius = self:GetSpecialValueFor("scepter_radius")
+		local radius = self:GetSpecialValueFor("width")
+
 		if self:GetCaster():HasScepter() then
-			radius = scepter_radius
+			radius = self:GetSpecialValueFor("scepter_radius")
 		end
 		if extradata then
 			if extradata.loc then

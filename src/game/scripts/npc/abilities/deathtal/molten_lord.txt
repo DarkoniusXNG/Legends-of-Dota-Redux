@@ -38,7 +38,7 @@
 		"AbilityValues"
 		{
 			"armor_multiplier"				"2 3 4 5"
-			"radius"					
+			"radius"
 				{
 					"value"			"275"
 					"affected_by_aoe_increase"	"1"
@@ -82,7 +82,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "radius"					
+            "radius"
 				{
 					"value"			"1300"
 					"affected_by_aoe_increase"	"1"
@@ -288,14 +288,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "tooltip_radius"					
+            "tooltip_radius"
 				{
 					"value"			"550"
 					"affected_by_aoe_increase"	"1"
 				}
             "speed" "1600"
             "armor_multiplier" "6 8 10"
-            "radius_tree" "500"
+            "radius_tree"
+			{
+				"value"			"500"
+				"affected_by_aoe_increase"	"1"
+			}
             "width" "250"
             "break_distance" "600"
             "slow_duration" "3 4 5"

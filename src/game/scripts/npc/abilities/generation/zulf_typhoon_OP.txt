@@ -26,10 +26,10 @@
             "slow" "-100"
             "slow_duration" "5"
             "radius"				
-				{
-					"value"			"1500"
-					"affected_by_aoe_increase"	"1"
-				}
+            {
+                "value"			"1400"
+                "affected_by_aoe_increase"	"1"
+            }
         }
 
         "precache"

@@ -8,20 +8,23 @@
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
-        "AOERadius"                                                            "%radius"
-        "AbilityCastPoint"                                                     "0.5"
         "AbilityTextureName"                                                   "custom/paladin_impregnability"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityCooldown"                                                      "90.0 80.0 70.0"
         "AbilityManaCost"                                                      "150 200 250"
-        "AbilityCastRange"                                                     "1000"
-        "AbilityChannelTime"                                                   "5"
+        "AbilityCastPoint"                                                     "0.5"
+        "AbilityCastRange"                                                     "%radius"
+        "AbilityChannelTime"                                                   "%duration"
+
+        "ReduxFlags"                                                           "support"
+        "ReduxPerks"                                                           "support | channeled | light"
+
         "AbilityValues"
         {
             "radius"
 			{
-					"value"			"900"
-					"affected_by_aoe_increase"	"1"
+				"value"			"900"
+				"affected_by_aoe_increase"	"1"
 			}
             "damage_per_sec" "75 150 225"
             "tick" "0.5"
@@ -90,7 +93,7 @@
                     {
                         "ScriptFile"                           "abilities/life_in_arena/impregnability.lua"
                         "Function"                             "ApplyModifiersV2"
-                        "damage"                               "%damage_per_sec * %tick"
+                        "damage"                               "%damage_per_sec * %tick" // this probably has issues
                     }
                 }
                 "OnDestroy"
@@ -117,7 +120,5 @@
                 "EffectAttachType"                                     "follow_origin"
             }
         }
-        "ReduxFlags"                                                           "support"
-        "ReduxPerks"                                                           "support | channeled | light"
     }
 }

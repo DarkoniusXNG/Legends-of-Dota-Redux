@@ -6,15 +6,19 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
         "AbilityTextureName"                                                   "custom/angel_arena_rifle_op"
         "AbilityCastPoint"                                                     "0.1"
-        "MaxLevel"                                                             "7"
+
+        "ReduxFlags"                                                           "attack_modifier"
+        "ReduxPerks"                                                           "attack_modifier | scientific"
+        "ReduxCost"                                                            "120"
+
         "AbilityValues"
         {
-            "rifle_bonus_attack" "25 40 55 70"
             "gun_base_attack_time" "0.01"
             "gun_range" "-50"
             "gun_range_tooltip" "-50"
-            "gun_bonus_attack" "-85 -80 -75 -70"
+            "gun_bonus_attack" "-85 -80 -75 -70" // attack damage reduction
             "gun_bonus_movespeed" "-10"
+            "rifle_bonus_attack" "25 40 55 70"
             "rifle_base_attack_time" "1.4"
             "rifle_range" "100 200 300 400"
             "rifle_range_tooltip" "100 200 300 400"
@@ -151,9 +155,5 @@
                 }
             }
         }
-        
-        "ReduxFlags"                                                           "attack_modifier"
-        "ReduxPerks"                                                           "attack_modifier | scientific"
-        "ReduxCost"                                                            "120"
     }
 }

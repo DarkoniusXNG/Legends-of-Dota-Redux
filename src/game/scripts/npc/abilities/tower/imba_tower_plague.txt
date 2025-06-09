@@ -6,13 +6,17 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/tower_rot"
         "AbilitySharedWithTeammates"                                           "1"
-        "AbilityCastRange"                                                     "700"
+        "AbilityCastRange"                                                     "%area_of_effect"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
             "damage_per_second" "30 50 70"
             "slow" "-15 -25 -35"
-            "area_of_effect" "700"
+            "area_of_effect"
+			{
+				"value"			"700"
+				"affected_by_aoe_increase"	"1"
+			}
             "damage_per_tick" "15 25 35"
             "tick_rate" "0.5"
         }

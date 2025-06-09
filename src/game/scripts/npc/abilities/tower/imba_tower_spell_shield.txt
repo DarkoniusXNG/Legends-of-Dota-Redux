@@ -6,15 +6,15 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "antimage_spell_shield"
         "AbilitySharedWithTeammates"                                           "1"
-        "AbilityCastRange"                                                     "1200"
+        "AbilityCastRange"                                                     "%aura_radius"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
             "magic_resistance_aura" "30 45 60"
             "aura_radius"
 			{
-					"value"			"1200"
-					"affected_by_aoe_increase"	"1"
+				"value"			"1200"
+				"affected_by_aoe_increase"	"1"
 			}
         }
         "Modifiers"

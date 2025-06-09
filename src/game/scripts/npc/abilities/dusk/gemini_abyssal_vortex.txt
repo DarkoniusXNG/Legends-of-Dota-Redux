@@ -14,7 +14,6 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AoERadius"						"675"
 		"AbilityTextureName"			"enigma_black_hole"
 
 		// Precache
@@ -30,6 +29,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"
+		"AoERadius"						"%radius"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
 		
 		// Time		
@@ -52,10 +52,10 @@
         {
             "chargetime" "4.00"
             "radius"				
-				{
-					"value"	"650"
-					"affected_by_aoe_increase"	"1"
-				}
+			{
+				"value"	"675"
+				"affected_by_aoe_increase"	"1"
+			}
             "pull_speed" "350 375 400"
             "scepter_stundur" "1.40"
         }

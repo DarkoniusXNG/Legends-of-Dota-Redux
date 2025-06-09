@@ -15,25 +15,29 @@
 
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityCastRange"                                                     "900"
+        "AoERadius"                                                            "%radius"
         "AbilityCastPoint"                                                     "0.3"
         "AbilityCooldown"                                                      "80 70 60"
         "AbilityManaCost"                                                      "225 275 325"
+
+        "ReduxPerks"                                                           "ice"
+
         "AbilityValues"
         {
             "damage" "200 300 400"
             "movement_slow" "-50"
             "slow_duration" "3"
             "duration" "4 5 6"
-            "radius"				
-				{
-					"value"			"800"
-					"affected_by_aoe_increase"	"1"
-				}
-            "damage_radius"				
-				{
-					"value"			"225"
-					"affected_by_aoe_increase"	"1"
-				}
+            "radius"
+			{
+				"value"			"750"
+				"affected_by_aoe_increase"	"1"
+			}
+            "damage_radius"
+			{
+				"value"			"225"
+				"affected_by_aoe_increase"	"1"
+			}
         }
         "OnSpellStart"
         {
@@ -113,6 +117,5 @@
                 }
             }
         }
-        "ReduxPerks"                                                           "ice"
     }
 }
