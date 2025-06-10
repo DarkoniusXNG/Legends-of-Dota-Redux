@@ -81,10 +81,10 @@
             {
                 "Passive"       "1"
                 "IsHidden"      "1"
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_MOVESPEED_LIMIT" "%movespeed_limit"
-                }
+                //"Properties"
+                //{
+                    //"MODIFIER_PROPERTY_MOVESPEED_LIMIT" "%movespeed_limit" // does not work in datadriven
+                //}
                 "ThinkInterval"     "0.03"
                 "OnIntervalThink"
                 {

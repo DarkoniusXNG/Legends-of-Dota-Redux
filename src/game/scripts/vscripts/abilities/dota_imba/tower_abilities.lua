@@ -2781,9 +2781,15 @@ function modifier_imba_tower_grievous_wounds_aura_buff:OnAttackLanded(keys)
 				grievous_debuff_handler = target:FindModifierByName(self.grievous_debuff)
 				grievous_debuff_handler:ForceRefresh()
 			end
+			
+			local grievous_stacks
+			if not grievous_debuff_handler then
+				grievous_stacks = 1
+			else
+				grievous_stacks = grievous_debuff_handler:GetStackCount()
+			end
 
 			-- Calculate damage based on stacks
-			local grievous_stacks = grievous_debuff_handler:GetStackCount()
 			local damage = (self.damage_increase + self.damage_increase_per_hero * protective_instinct_stacks) * grievous_stacks
 
 			-- Apply damage
