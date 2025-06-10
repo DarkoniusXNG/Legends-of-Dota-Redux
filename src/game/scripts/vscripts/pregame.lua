@@ -8036,120 +8036,122 @@ function Pregame:fixSpawningIssues()
                     -- ILLUSION HAVING WRONG STATS FIX START --
                     Timers:CreateTimer(function()
                         local realHero
-                        if spawnedUnit.IsIllusion and spawnedUnit:IsIllusion() and spawnedUnit:IsHero() then
-                            -- local allEntities = Entities:FindAllInSphere(spawnedUnit:GetAbsOrigin(), FIND_UNITS_EVERYWHERE)
-                            -- local heroesWithSameName = {}
-                            -- for _, unit in pairs(allEntities) do
-                                -- if unit and not unit:IsNull() and unit.IsRealHero then
-                                    -- if unit:IsRealHero() and unit ~= spawnedUnit and unit:GetUnitName() == spawnedUnit:GetUnitName() then
-                                        -- table.insert(heroesWithSameName, unit) -- candidates
-                                    -- end
-                                -- end
-                            -- end
-                            -- if #heroesWithSameName > 1 then
-                                -- for _, unit in pairs(heroesWithSameName) do
-                                    -- if unit and unit.GetItemInSlot and unit:GetName() ~= "" and unit:GetLevel() == spawnedUnit:GetLevel() then
-                                        -- for j = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
-                                            -- if unit:GetItemInSlot(j) and spawnedUnit:GetItemInSlot(j) and unit:GetItemInSlot(j):GetAbilityName() == spawnedUnit:GetItemInSlot(j):GetAbilityName() then
-                                                -- realHero = unit
-                                                -- break
-                                            -- end
-                                        -- end
-                                    -- end
-                                -- end
-                            -- else
-                                -- realHero = heroesWithSameName[1]
-                            -- end
+						if IsValidEntity(spawnedUnit) then
+							if spawnedUnit.IsIllusion and spawnedUnit:IsIllusion() and spawnedUnit:IsHero() then
+								-- local allEntities = Entities:FindAllInSphere(spawnedUnit:GetAbsOrigin(), FIND_UNITS_EVERYWHERE)
+								-- local heroesWithSameName = {}
+								-- for _, unit in pairs(allEntities) do
+									-- if unit and not unit:IsNull() and unit.IsRealHero then
+										-- if unit:IsRealHero() and unit ~= spawnedUnit and unit:GetUnitName() == spawnedUnit:GetUnitName() then
+											-- table.insert(heroesWithSameName, unit) -- candidates
+										-- end
+									-- end
+								-- end
+								-- if #heroesWithSameName > 1 then
+									-- for _, unit in pairs(heroesWithSameName) do
+										-- if unit and unit.GetItemInSlot and unit:GetName() ~= "" and unit:GetLevel() == spawnedUnit:GetLevel() then
+											-- for j = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+												-- if unit:GetItemInSlot(j) and spawnedUnit:GetItemInSlot(j) and unit:GetItemInSlot(j):GetAbilityName() == spawnedUnit:GetItemInSlot(j):GetAbilityName() then
+													-- realHero = unit
+													-- break
+												-- end
+											-- end
+										-- end
+									-- end
+								-- else
+									-- realHero = heroesWithSameName[1]
+								-- end
 
-                            local candidates = {}
-                            local illusion_mod = spawnedUnit:FindModifierByName("modifier_illusion")
-                            if illusion_mod then
-                                local caster = illusion_mod:GetCaster()
-                                if caster then
-                                    if caster:GetUnitName() == spawnedUnit:GetUnitName() then
-                                        table.insert(candidates, caster)
-                                    end
-                                end
-                            end
+								local candidates = {}
+								local illusion_mod = spawnedUnit:FindModifierByName("modifier_illusion")
+								if illusion_mod then
+									local caster = illusion_mod:GetCaster()
+									if caster then
+										if caster:GetUnitName() == spawnedUnit:GetUnitName() then
+											table.insert(candidates, caster)
+										end
+									end
+								end
 
-                            local ally_heroes = FindUnitsInRadius(
-                                spawnedUnit:GetTeamNumber(),
-                                spawnedUnit:GetAbsOrigin(),
-                                spawnedUnit,
-                                FIND_UNITS_EVERYWHERE,
-                                DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-                                DOTA_UNIT_TARGET_HERO,
-                                DOTA_UNIT_TARGET_FLAG_DEAD + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD,
-                                FIND_ANY_ORDER,
-                                false
-                            )
-                            local enemy_heroes = FindUnitsInRadius(
-                                spawnedUnit:GetTeamNumber(),
-                                spawnedUnit:GetAbsOrigin(),
-                                nil,
-                                FIND_UNITS_EVERYWHERE,
-                                DOTA_UNIT_TARGET_TEAM_ENEMY,
-                                DOTA_UNIT_TARGET_HERO,
-                                DOTA_UNIT_TARGET_FLAG_DEAD + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD,
-                                FIND_ANY_ORDER,
-                                false
-                            )
+								local ally_heroes = FindUnitsInRadius(
+									spawnedUnit:GetTeamNumber(),
+									spawnedUnit:GetAbsOrigin(),
+									spawnedUnit,
+									FIND_UNITS_EVERYWHERE,
+									DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+									DOTA_UNIT_TARGET_HERO,
+									DOTA_UNIT_TARGET_FLAG_DEAD + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD,
+									FIND_ANY_ORDER,
+									false
+								)
+								local enemy_heroes = FindUnitsInRadius(
+									spawnedUnit:GetTeamNumber(),
+									spawnedUnit:GetAbsOrigin(),
+									nil,
+									FIND_UNITS_EVERYWHERE,
+									DOTA_UNIT_TARGET_TEAM_ENEMY,
+									DOTA_UNIT_TARGET_HERO,
+									DOTA_UNIT_TARGET_FLAG_DEAD + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD,
+									FIND_ANY_ORDER,
+									false
+								)
 
-                            -- Ally heroes
-                            for _, unit in pairs(ally_heroes) do
-                                if unit and not unit:IsNull() and unit.IsRealHero then
-                                    if unit:IsRealHero() and unit ~= spawnedUnit and unit:GetUnitName() == spawnedUnit:GetUnitName() and unit:GetLevel() == spawnedUnit:GetLevel() then
-                                        table.insert(candidates, unit)
-                                    end
-                                end
-                            end
+								-- Ally heroes
+								for _, unit in pairs(ally_heroes) do
+									if unit and not unit:IsNull() and unit.IsRealHero then
+										if unit:IsRealHero() and unit ~= spawnedUnit and unit:GetUnitName() == spawnedUnit:GetUnitName() and unit:GetLevel() == spawnedUnit:GetLevel() then
+											table.insert(candidates, unit)
+										end
+									end
+								end
 
-                            -- Enemy heroes
-                            for _, unit in pairs(enemy_heroes) do
-                                if unit and not unit:IsNull() and unit.IsRealHero then
-                                    if unit:IsRealHero() and unit:GetUnitName() == spawnedUnit:GetUnitName() and unit:GetLevel() == spawnedUnit:GetLevel() then
-                                        table.insert(candidates, unit)
-                                    end
-                                end
-                            end
+								-- Enemy heroes
+								for _, unit in pairs(enemy_heroes) do
+									if unit and not unit:IsNull() and unit.IsRealHero then
+										if unit:IsRealHero() and unit:GetUnitName() == spawnedUnit:GetUnitName() and unit:GetLevel() == spawnedUnit:GetLevel() then
+											table.insert(candidates, unit)
+										end
+									end
+								end
 
-                            -- Compare inventories of the illusion and hero candidates
-                            for _, unit in ipairs(candidates) do
-                                if unit.GetItemInSlot then
-                                    local same_inventory = true
-                                    for j = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
-                                        local illusion_item = spawnedUnit:GetItemInSlot(j)
-                                        local hero_item = unit:GetItemInSlot(j)
-                                        if not illusion_item then
-                                            if hero_item then
-                                                same_inventory = false
-                                                break
-                                            end
-                                        elseif hero_item then
-                                            if hero_item:GetAbilityName() ~= illusion_item:GetAbilityName() then
-                                                same_inventory = false
-                                                break
-                                            end
-                                        else
-                                            same_inventory = false
-                                            break
-                                        end
-                                    end
-                                    if same_inventory then
-                                        realHero = unit
-                                        break
-                                    end
-                                end
-                            end
+								-- Compare inventories of the illusion and hero candidates
+								for _, unit in ipairs(candidates) do
+									if unit.GetItemInSlot then
+										local same_inventory = true
+										for j = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+											local illusion_item = spawnedUnit:GetItemInSlot(j)
+											local hero_item = unit:GetItemInSlot(j)
+											if not illusion_item then
+												if hero_item then
+													same_inventory = false
+													break
+												end
+											elseif hero_item then
+												if hero_item:GetAbilityName() ~= illusion_item:GetAbilityName() then
+													same_inventory = false
+													break
+												end
+											else
+												same_inventory = false
+												break
+											end
+										end
+										if same_inventory then
+											realHero = unit
+											break
+										end
+									end
+								end
 
-                            -- If we found the real hero, make illusion have same stats as original
-                            if realHero then
-                                -- Modify illusions stats so that they are the same as the owning hero
-                                spawnedUnit:FixIllusion(realHero)
-                            else
-                                print("Cant find real hero, not changing a thing")
-                            end
-                        end
+								-- If we found the real hero, make illusion have same stats as original
+								if realHero then
+									-- Modify illusions stats so that they are the same as the owning hero
+									spawnedUnit:FixIllusion(realHero)
+								else
+									print("Cant find real hero, not changing a thing")
+								end
+							end
+						end
                     end, DoUniqueString('FixIllusionSkills'), 0.1)
 
                     Timers:CreateTimer(function()
