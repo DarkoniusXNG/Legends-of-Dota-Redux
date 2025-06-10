@@ -14,7 +14,7 @@
         "ReduxBans"                                                            "serpent_queen_ball_lightning"
 
         "AbilityCastAnimation"                                                 "ACT_DOTA_CAST_ABILITY_3"
-        "AbilityCastRange"                                                     "800"
+        "AbilityCastRange"                                                     "%radius"
         "AbilityCastPoint"                                                     "0.3"
         "AbilityCooldown"                                                      "20"
         "AbilityManaCost"                                                      "100 125 150 175"
@@ -28,7 +28,11 @@
         "AbilityValues"
         {
             "max_locusts_on_target" "18"
-            "radius" "800"
+            "radius"
+            {	
+                "value"	"900"
+                "affected_by_aoe_increase"	"1"
+            }
             "locusts" "9 12 15 18"
             "duration" "20"
             "locusts_speed" "600"

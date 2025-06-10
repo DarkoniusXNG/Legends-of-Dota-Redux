@@ -7,7 +7,7 @@
         "AbilityTextureName"                                                   "custom/imba_tower_forest"
         "MaxLevel"                                                             "1"
         "AbilitySharedWithTeammates"                                           "1"
-        "AbilityCastRange"                                                     "700"
+        "AbilityCastRange"                                                     "%tree_radius"
         "AbilityCooldown"                                                      "8"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "RequiredLevel"                                                        "1"

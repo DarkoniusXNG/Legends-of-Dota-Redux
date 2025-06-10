@@ -17,12 +17,16 @@
         "AbilityManaCost"                                                      "80 85 90 95"
         "AbilityValues"
         {
-            "launch_radius" "1600"
-            "slow_radius"				
-				{
-					"value"	"350"
-					"affected_by_aoe_increase"	"1"
-				}
+            "launch_radius"		
+            {
+                "value"	"1600"
+                "affected_by_aoe_increase"	"1"
+            }
+            "slow_radius"		
+            {
+                "value"			"250"
+                "affected_by_aoe_increase"	"1"
+            }
             "speed" "800"
             "duration" "4.0"
             "shot_vision" "400"

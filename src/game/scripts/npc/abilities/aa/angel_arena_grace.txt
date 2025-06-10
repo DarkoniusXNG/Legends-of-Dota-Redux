@@ -16,7 +16,6 @@
         "AbilityValues"
         {
             "heal" "500 750 1000"
-            "radius" "300 400 500"
             "damage_reduce" "-40 -50 -60"
             "duration" "4 5 6"
         }

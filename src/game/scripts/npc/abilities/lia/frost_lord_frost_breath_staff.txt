@@ -22,15 +22,15 @@
             "damage" "150 225 300 375"
             "damage_per_second" "15 30 45 60"
             "start_radius"				
-				{
-					"value"			"175"
-					"affected_by_aoe_increase"	"1"
-				}
+			{
+				"value"			"175"
+				"affected_by_aoe_increase"	"1"
+			}
             "end_radius"				
-				{
-					"value"			"175"
-					"affected_by_aoe_increase"	"1"
-				}
+			{
+				"value"			"175"
+				"affected_by_aoe_increase"	"1"
+			}
             "range" "850"
             "speed" "950"
             "duration" "7"

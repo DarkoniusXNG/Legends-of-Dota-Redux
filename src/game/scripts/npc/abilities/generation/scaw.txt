@@ -678,7 +678,11 @@
             "fire_bomb_delay" "3.5"
             "fire_bomb_delay_tt" "4.0"
             "fire_bomb_damage" "80 100 120"
-            "fire_bomb_radius" "600"
+            "fire_bomb_radius"
+            {
+                "value"	"600"
+                //"affected_by_aoe_increase"	"1"
+            }
             "spawn_delay" "0.25"
         }
         "OnUpgrade"

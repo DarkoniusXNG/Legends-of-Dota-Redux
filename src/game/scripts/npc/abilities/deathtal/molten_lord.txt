@@ -39,10 +39,10 @@
 		{
 			"armor_multiplier"				"2 3 4 5"
 			"radius"
-				{
-					"value"			"275"
-					"affected_by_aoe_increase"	"1"
-				}
+			{
+				"value"			"275"
+				"affected_by_aoe_increase"	"1"
+			}
 			"ablaze_multiplier"				"2"
 			"ablaze_duration"				"8"
 			"trigger_essence_aura"          "1"
@@ -83,10 +83,10 @@
 		"AbilityValues"
         {
             "radius"
-				{
-					"value"			"1300"
-					"affected_by_aoe_increase"	"1"
-				}
+			{
+				"value"			"1300"
+				"affected_by_aoe_increase"	"1"
+			}
             "delay" "0.2"
             "base_damage" "90 160 230 300"
             "mini_stun" "1.8"
@@ -281,6 +281,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.2"
 		"AbilityCastRange"				"1500 2000 2500"
+		"AOERadius"                     "%tooltip_radius"
 		"AbilityCooldown"				"80.0 70.0 60.0"
 		"AbilityManaCost"				"100.0 125.0 150.0"
 
@@ -289,10 +290,10 @@
 		"AbilityValues"
         {
             "tooltip_radius"
-				{
-					"value"			"550"
-					"affected_by_aoe_increase"	"1"
-				}
+			{
+				"value"			"550"
+				"affected_by_aoe_increase"	"1"
+			}
             "speed" "1600"
             "armor_multiplier" "6 8 10"
             "radius_tree"

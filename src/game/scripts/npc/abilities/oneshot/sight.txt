@@ -64,13 +64,13 @@
         {
             "radius_d"
 			{
-					"value"			"1400 1600 1800"
-					"affected_by_aoe_increase"	"1"
+				"value"			"1400 1600 1800"
+				"affected_by_aoe_increase"	"1"
 			}
             "radius_n"
 			{
-					"value"			"1000 1200 1400"
-					"affected_by_aoe_increase"	"1"
+				"value"			"1000 1200 1400"
+				"affected_by_aoe_increase"	"1"
 			}
             "duration" "30 45 60"
         }

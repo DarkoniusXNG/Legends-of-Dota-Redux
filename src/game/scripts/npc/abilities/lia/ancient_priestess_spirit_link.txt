@@ -22,10 +22,10 @@
         "AbilityValues"
         {
             "radius"				
-				{
-					"value"			"1200"
-					"affected_by_aoe_increase"	"1"
-				}
+            {
+                "value"			"1200"
+                "affected_by_aoe_increase"	"1"
+            }
             "distribution_factor" "0.5"
             "distribution_tooltip" "50"
             "max_unit" "6 8 10 12"

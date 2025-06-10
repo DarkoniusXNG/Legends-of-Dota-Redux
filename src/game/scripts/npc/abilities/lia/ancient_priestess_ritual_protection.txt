@@ -21,10 +21,10 @@
         {
             "damage_absorb" "300 600 900"
             "radius"				
-				{
-					"value"			"1200"
-					"affected_by_aoe_increase"	"1"
-				}
+            {
+                "value"			"1200"
+                "affected_by_aoe_increase"	"1"
+            }
             "duration" "20"
         }
 

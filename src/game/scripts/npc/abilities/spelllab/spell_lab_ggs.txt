@@ -19,8 +19,8 @@
         {
             "radius"
 			{
-					"value"			"250"
-					"affected_by_aoe_increase"	"1"
+				"value"			"250"
+				"affected_by_aoe_increase"	"1"
 			}
             "damage" "2.2 2.8 3.6"
             "interval" "0.25"
@@ -46,8 +46,8 @@
 		{
 			"radius"
 			{
-					"value"			"250"
-					"affected_by_aoe_increase"	"1"
+				"value"			"250"
+				"affected_by_aoe_increase"	"1"
 			}
 		}
 	}

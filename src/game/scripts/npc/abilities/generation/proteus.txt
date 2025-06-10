@@ -354,7 +354,7 @@
 
         // Casting
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "1200"
+        "AbilityCastRange"              "%radius"
         "AbilityCastPoint"              "0"
 
         // Time
@@ -374,10 +374,10 @@
             "cooldown_reduction" "6 9 12"
             "self_bonus_damage" "15"
             "radius"				
-				{
-					"value"			"1200"
-					"affected_by_aoe_increase"	"1"
-				}
+            {
+                "value"			"1200"
+                "affected_by_aoe_increase"	"1"
+            }
             "duration" "5"
         }
         "OnUpgrade"

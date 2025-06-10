@@ -20,7 +20,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.7"
-    "AbilityCastRange"                                    "450" // same as radius
+    "AbilityCastRange"                                    "%flurry_radius"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
     "AnimationPlaybackRate"                               "2.5"
 

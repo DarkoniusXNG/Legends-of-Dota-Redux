@@ -15,15 +15,18 @@
         "AbilityCooldown"                                                      "60 40 20"
         "AbilityManaCost"                                                      "100"
         "AbilityValues"
-		{
-
-			"radius"						"3000"
-			"teleport_delay"				"3 2 1"
-			"scepter_health_bonus" 
-			{
-				"special_bonus_scepter"	"+1000 +1500 +2000"
-			}			
-		}
+        {
+            "radius"
+            {
+                "value"                     "3000"
+                "affected_by_aoe_increase"	"1"
+            }
+            "teleport_delay"				"3 2 1"
+            "scepter_health_bonus" 
+            {
+                "special_bonus_scepter"	"+1000 +1500 +2000"
+            }			
+        }
 
         "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           "support"

@@ -70,7 +70,6 @@
 			{
 				"value" "1200"
 				"affected_by_aoe_increase"	"1"
-
 			}
 		}
         "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
@@ -277,26 +276,26 @@
         "AbilityManaCost"               "100 125 150"
         "AbilityValues"
 		{
-				"radius"
-				{
-					"value"		"30000"
-					"affected_by_aoe_increase"	"1"
-					"special_bonus_unique_faceless_void_2" "+140"
-				}
-				"duration"
-				{
-					"value"			"4 5 6"
-				}
-				"vision_radius"
-				{
-					"value"	"30000"
-					"affected_by_aoe_increase"	"1"
-				}
-				"bonus_attack_speed"
-				{
-					"value" "100"
-					"special_bonus_unique_faceless_void" "+80"
-				}
+			"radius"
+			{
+				"value"		"30000"
+				"affected_by_aoe_increase"	"1"
+				"special_bonus_unique_faceless_void_2" "+140"
+			}
+			"duration"
+			{
+				"value"			"4 5 6"
+			}
+			"vision_radius"
+			{
+				"value"	"30000"
+				"affected_by_aoe_increase"	"1"
+			}
+			"bonus_attack_speed"
+			{
+				"value" "100"
+				"special_bonus_unique_faceless_void" "+80"
+			}
 		}
     }
 

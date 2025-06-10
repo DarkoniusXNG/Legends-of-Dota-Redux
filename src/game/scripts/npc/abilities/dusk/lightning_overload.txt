@@ -33,10 +33,10 @@
         {
             "damage" "70 110 140 170"
             "radius"				
-				{
-					"value"	"325"
-					"affected_by_aoe_increase"	"1"
-				}
+			{
+				"value"	"325"
+				"affected_by_aoe_increase"	"1"
+			}
             "move_slow" "-100"
             "attack_slow" "-50"
             "duration" "1.25"

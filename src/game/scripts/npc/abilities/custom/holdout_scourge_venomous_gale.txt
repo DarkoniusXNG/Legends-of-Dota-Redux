@@ -81,10 +81,10 @@
             "duration" "9.0"
             "strike_damage" "25"
             "tick_damage" "0 15 30 45"
-            "tick_interval" "3.0 3.0 3.0 3.0"
+            "tick_interval" "3.0"
             "movement_slow" "-10"
-            "radius" "125 125 125 125"
-            "speed" "1200 1200 1200 1200"
+            "radius" "125"
+            "speed" "1200"
         }
 	}
 }

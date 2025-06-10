@@ -113,7 +113,7 @@
                     "DestroyTrees"
                     {
                         "Target"                               "TARGET"
-                        "Radius"                               "150"
+                        "Radius"                               "%width"
                     }
                 }
             }

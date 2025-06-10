@@ -17,10 +17,10 @@
         {
             "spawn_distance" "250"
             "radius"		
-				{
-					"value"			"350"
-					"affected_by_aoe_increase"	"1"
-				}
+            {
+                "value"			"350"
+                "affected_by_aoe_increase"	"1"
+            }
             "delay" "10.0"
             "damage" "125 200 275 350"
             "lifesteal_hero" "40"

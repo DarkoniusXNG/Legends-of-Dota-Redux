@@ -37,10 +37,10 @@
             "blades" "6"
             "projectile_speed" "2400"
             "radius"				
-				{
-					"value"	"200"
-					"affected_by_aoe_increase"	"1"
-				}
+			{
+				"value"	"200"
+				"affected_by_aoe_increase"	"1"
+			}
             "range" "1500"
             "vision_radius" "400"
         }

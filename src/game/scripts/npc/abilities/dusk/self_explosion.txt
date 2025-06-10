@@ -126,10 +126,10 @@
             "duration" "1.5"
             "damage" "150 230 310 390"
             "radius"				
-				{
-					"value"	"600"
-					"affected_by_aoe_increase"	"1"
-				}
+			{
+				"value"	"600"
+				"affected_by_aoe_increase"	"1"
+			}
             "distance" "250"
             "height" "400"
         }
