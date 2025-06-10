@@ -6,7 +6,7 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
         "AbilityTextureName"                                                   "custom/invoker_retro_invisibility_aura"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
-        "AbilityCastRange"                                                     "500"
+        "AbilityCastRange"                                                     "%radius"
 
         "precache"
         {
@@ -14,7 +14,11 @@
         }
         "AbilityValues"
         {
-            "radius" "500"
+            "radius"
+            {
+                "value"			"500"
+                "affected_by_aoe_increase"	"1"
+            }
             "fade_time" "4 3 2 1"
             "pip_current" "1"
         }
