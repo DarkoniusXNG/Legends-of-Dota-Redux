@@ -14,16 +14,24 @@
 
 		"AbilityCastRange" "%range"
 		"AbilityCastPoint" "0.0"
-		"AbilityCooldown" "14"
-		"AbilityManaCost" "130 160 190"
+		"AbilityCooldown" "14 13 12 11"
+		"AbilityManaCost" "125 135 145 155"
 
 		"AbilityValues"
         {
             "damage" "150 225 300 375"
             "damage_per_second" "15 30 45 60"
-            "start_radius" "150"
-            "end_radius" "150"
-            "range" "650 700 750 800"
+            "start_radius"				
+			{
+				"value"			"175"
+				"affected_by_aoe_increase"	"1"
+			}
+            "end_radius"				
+			{
+				"value"			"175"
+				"affected_by_aoe_increase"	"1"
+			}
+            "range" "850"
             "speed" "950"
             "duration" "7"
         }

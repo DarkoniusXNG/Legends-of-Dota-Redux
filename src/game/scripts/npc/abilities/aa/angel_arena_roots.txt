@@ -20,9 +20,13 @@
         "AbilityValues"
         {
             "duration" "4.0"
-            "radius" "675"
+            "radius"				
+			{
+				"value"	"675"
+				"affected_by_aoe_increase"	"1"
+			}
             "armor_reduction" "-5 -7 -9"
-            "damage" "50 75 100"
+            "damage" "40 60 80"
         }
         "OnSpellStart"
         {
@@ -106,6 +110,6 @@
             }
         }
         "ReduxFlags"                                                           "stun | physical"
-        "ReduxPerks"                                                           "earth | demon | physical"
+        "ReduxPerks"                                                           "earth | demon | physical | nature"
     }
 }

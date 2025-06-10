@@ -62,7 +62,8 @@ function ranged_punch.OnSpellStart(self)
     self.targets = {};
     self.range = 1000;
     self.returning = false;
-    local projectileTable = {Ability = self,EffectName = "",vSpawnOrigin = origin,fDistance = self.range,fStartRadius = 100,fEndRadius = 100,Source = caster,vVelocity = direction*self:GetSpecialValueFor("projectile_speed"),iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_BOTH,iUnitTargetType = DOTA_UNIT_TARGET_BASIC+DOTA_UNIT_TARGET_HERO};
+	local radius = self:GetSpecialValueFor("radius")
+    local projectileTable = {Ability = self,EffectName = "",vSpawnOrigin = origin,fDistance = self.range,fStartRadius = radius,fEndRadius = radius,Source = caster,vVelocity = direction*self:GetSpecialValueFor("projectile_speed"),iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_BOTH,iUnitTargetType = DOTA_UNIT_TARGET_BASIC+DOTA_UNIT_TARGET_HERO};
     self.projectile = ProjectileManager:CreateLinearProjectile(projectileTable);
     self.end_position = (caster:GetAbsOrigin()+(direction*self.range));
     self.particle = ParticleManager:CreateParticle("particles/abilities/punch/ranged_punch.vpcf",PATTACH_CUSTOMORIGIN,nil);
@@ -84,7 +85,8 @@ function ranged_punch.OnProjectileHit(self,target,location)
         direction[3] = 0;
         self.direction = direction;
         self.returning = true;
-        local projectileTable = {Ability = self,EffectName = "",vSpawnOrigin = location,fDistance = (origin-location):Length2D(),fStartRadius = 100,fEndRadius = 100,Source = caster,vVelocity = direction*self:GetSpecialValueFor("projectile_speed"),iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_BOTH,iUnitTargetType = DOTA_UNIT_TARGET_BASIC+DOTA_UNIT_TARGET_HERO};
+		local radius = self:GetSpecialValueFor("radius")
+        local projectileTable = {Ability = self,EffectName = "",vSpawnOrigin = location,fDistance = (origin-location):Length2D(),fStartRadius = radius,fEndRadius = radius,Source = caster,vVelocity = direction*self:GetSpecialValueFor("projectile_speed"),iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_BOTH,iUnitTargetType = DOTA_UNIT_TARGET_BASIC+DOTA_UNIT_TARGET_HERO};
         self.projectile = ProjectileManager:CreateLinearProjectile(projectileTable);
         ParticleManager:SetParticleControlEnt(self.particle,1,self:GetCaster(),PATTACH_POINT_FOLLOW,"attach_weapon_chain_rt",self:GetCaster():GetAbsOrigin(),true);
     else
@@ -106,7 +108,7 @@ function ranged_punch.OnProjectileHit(self,target,location)
                             knockbackDistance = (knockbackDistance*talent:GetSpecialValueFor("value"));
                         end
                     end
-                    local knockbackTable = {should_stun = false,knockback_duration = 0.5,duration = 0.5,knockback_distance = 400,knockback_height = 0,center_x = location.x,center_y = location.y,center_z = GetGroundHeight(location,nil)};
+                    local knockbackTable = {should_stun = false,knockback_duration = 0.5,duration = 0.5,knockback_distance = knockbackDistance,knockback_height = 0,center_x = location.x,center_y = location.y,center_z = GetGroundHeight(location,nil)};
                     target:AddNewModifier(caster,self,"modifier_knockback",knockbackTable);
                 end
             end

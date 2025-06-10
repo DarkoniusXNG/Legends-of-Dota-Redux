@@ -13,12 +13,17 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
         "HasScepterUpgrade"                                                    "1"
-    		"AbilityChannelTime"      "60.0"
-        "AoERadius"               "400"
+    	"AbilityChannelTime"      "60.0"
+        "AoERadius"               "%radius"
         "AbilityValues"
         {
-            "mana_pct" "0.5 1 1.5"
-            "mana_pct_scepter" "1 2 3"
+            "mana_pct" "1.0 1.5 2.0"
+            "mana_pct_scepter" "2.0 3.0 4.0"
+            "radius"
+            {
+                "value"			"500"
+                "affected_by_aoe_increase"	"1"
+            }
         }
         "precache"
         {

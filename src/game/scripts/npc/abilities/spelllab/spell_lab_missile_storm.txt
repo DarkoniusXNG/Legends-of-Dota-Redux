@@ -7,7 +7,7 @@
         "AbilityTextureName"                                                   "custom/spell_lab_missile_storm"
         "AbilityCooldown"                                                      "16 15 14 13"
         "AbilityManaCost"                                                      "100 110 120 130"
-        "AbilityCastRange"                                                     "750"
+        "AbilityCastRange"                                                     "900"
         "AbilityCastPoint"                                                     "0.1"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"

@@ -4,7 +4,7 @@
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityTextureName"                                                   "custom/paladin_blizzard"
-        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT |  DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
@@ -16,11 +16,15 @@
         "AOERadius"                                                            "%radius"
         "AbilityValues"
         {
-            "wave_damage" "80 140 180 220"
+            "wave_damage" "40 100 160 220"
             "stun" "0.45"
             "wave_interval" "1.0"
-            "wave_count" "6 8 10 12"
-            "radius" "350"
+            "wave_count" "12"
+            "radius"
+			{
+				"value"			"350"
+				"affected_by_aoe_increase"	"1"
+			}
             "max_targets" "16"
         }
 

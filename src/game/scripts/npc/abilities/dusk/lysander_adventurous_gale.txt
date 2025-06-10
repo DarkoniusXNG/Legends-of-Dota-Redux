@@ -35,7 +35,11 @@
         {
             "distance" "1200"
             "slow" "-50 -75 -100 -140"
-            "radius" "155"
+            "radius"
+            {
+                "value"			"155"
+                "affected_by_aoe_increase"	"1"
+            }
             "damage" "60 120 180 240"
             "duration" "6"
             "lingering_movespeed" "16"

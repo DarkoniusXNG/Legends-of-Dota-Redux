@@ -163,7 +163,7 @@
         "ReduxFlags"                             "attack_modifier | physical | mobility"
 
         "AbilityCastRange"                       "150"
-        "AbilityCooldown"                        "4 3 2 1"
+        "AbilityCooldown"                        "1.0"
         "AbilityManaCost"                        "40"
 
         "AbilityValues"
@@ -172,7 +172,7 @@
             "movement_damage"                    "20 30 40 50"
             "movement_slow"                      "-40 -45 -50 -55"
             "duration"                           "4.0"
-            "creep_duration"                     "15.0"
+            "creep_duration"                     "8.0"
             "trigger_essence_aura"               "1"
         }
 
@@ -342,25 +342,28 @@
         "ReduxFlags"            "physical | stun"
         "ReduxPerks"            "physical | poison | skillshot"
 
-        "AbilityCooldown"       "1.0"
-        "AbilityManaCost"       "20"
+        "AbilityCooldown"                                     "0"
+        "AbilityCharges"                                      "3 4 5 6"
+        "AbilityChargeRestoreTime"                            "4"
+
+        "AbilityManaCost"       "50"
 
         "AbilityCastPoint"              "0.1"
         "AbilityCastRange"              "1200"
 
         "AbilityValues"
         {
-            "maximum_charges" "3 4 5 6"
+            //"maximum_charges" "3 4 5 6"
             "damage" "75 100 125 150"
             "speed" "3000"
             "length" "1200"
             "width" "125"
-            "charge_replenish_time" "2.0"
+            //"charge_replenish_time" "2.0"
             "duration" "16"
             "duration_decrease" "2"
             "toxic_damage" "8 12 16 20"
             "armor_reduction_tt" "2.0"
-            "stun_duration" "0.8"
+            "stun_duration" "0.5"
             "armor_reduction" "-2.0"
         }
 
@@ -371,14 +374,14 @@
             "particle"          "particles/generic_gameplay/generic_stunned.vpcf"
         }
 
-        "OnUpgrade"
-        {
-            "RunScript"
-            {
-                "ScriptFile"            "abilities/nextgeneration/hero_veera/toxic_darts.lua"
-                "Function"              "ToxicDartsStartCharge"
-            }
-        }
+        // "OnUpgrade"
+        // {
+            // "RunScript"
+            // {
+                // "ScriptFile"            "abilities/nextgeneration/hero_veera/toxic_darts.lua"
+                // "Function"              "ToxicDartsStartCharge"
+            // }
+        // }
         "OnSpellStart"
         {
             "FireSound"
@@ -386,11 +389,11 @@
                 "EffectName"        "Hero_PhantomAssassin.Dagger.Cast"
                 "Target"            "CASTER"
             }
-            "RunScript"
-            {
-                "ScriptFile"            "abilities/nextgeneration/hero_veera/toxic_darts.lua"
-                "Function"              "ShootDart"
-            }
+            // "RunScript"
+            // {
+                // "ScriptFile"            "abilities/nextgeneration/hero_veera/toxic_darts.lua"
+                // "Function"              "ShootDart"
+            // }
             "LinearProjectile"
             {
                 "Target"            "POINT"
@@ -446,13 +449,13 @@
         }
         "Modifiers"
         {
-            "modifier_toxic_dart_stack_count"
-            {
-                "Passive"               "1"
-                "IsHidden"              "0"
-                "IsPurgable"            "0"
-                "IsDebuff"              "0"
-            }
+            // "modifier_toxic_dart_stack_count"
+            // {
+                // "Passive"               "1"
+                // "IsHidden"              "0"
+                // "IsPurgable"            "0"
+                // "IsDebuff"              "0"
+            // }
             "modifier_toxic_dart_effect"
             {
                 "Passive"           "0"

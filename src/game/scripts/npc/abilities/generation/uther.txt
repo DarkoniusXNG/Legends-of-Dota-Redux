@@ -170,20 +170,28 @@
         "AbilityManaCost"               "80 90 100 110"
 
         "AbilityDuration"               "8"
-        "AoERadius"                     "250"
+        "AoERadius"                     "%Hammer_Size"
 
         "ReduxBans"                                                            "spell_lab_symbiotic"
         "ReduxPerks"                                                           "light"
     
         "AbilityValues"
         {
-            "Hammer_Size" "250"
-            "scepter_Hammer_Size" "450"
+            "Hammer_Size"				
+			{
+				"value"			"275"
+				"affected_by_aoe_increase"	"1"
+			}
+            "scepter_Hammer_Size"			
+			{
+				"value"			"450"
+				"affected_by_aoe_increase"	"1"
+			}
             "stun_duration" "1.4 1.7 2.0 2.3"
             "Movement_Speed_Bonus" "15 20 25 30"
             "Automatic_Return" "3"
             "ministun_duration" "0.3"
-            "hammer_speed" "1600"
+            "hammer_speed" "2000"
             "scepter_damage" "120 200 280 360"
         }
         "precache"
@@ -554,7 +562,11 @@
             "bolt_speed" "900"
             "damage" "140 220 300 380"
             "attacks_needed" "2"
-            "explosion_radius" "350"
+            "explosion_radius"			
+				{
+					"value"			"350"
+					"affected_by_aoe_increase"	"1"
+				}
         }
     
         "OnSpellStart"

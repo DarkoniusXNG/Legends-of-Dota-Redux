@@ -12,10 +12,14 @@
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
         "HasScepterUpgrade"                                                    "0"
-        "AoERadius"               "250"
+        "AoERadius"               "%radius"
         "AbilityValues"
         {
-            "radius" "300"
+            "radius"
+            {
+                "value"			"300"
+                "affected_by_aoe_increase"	"1"
+            }
             "cast_range_tooltip" "1500 3000 4500 6000"
         }
         "precache"

@@ -15,16 +15,21 @@
 			"particle" "particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf"
 		}
 
-		"AbilityCastRange" "1200"
-		"AOERadius" "550"
-		"AbilityCastPoint" "0.1"
-		"AbilityCooldown" "60 50 40"
-		"AbilityManaCost" "150"
+		"AbilityCastRange"              "1200"
+		"AOERadius"                     "%radius"
+		"AbilityCastPoint"              "0.1"
+		"AbilityCooldown"               "60 50 40"
+		"AbilityManaCost"               "150"
+
 		"ReduxBans"              "furion_wrath_of_nature"
 
 		"AbilityValues"
         {
-            "radius" "550"
+            "radius"				
+			{
+				"value"	"600"
+				"affected_by_aoe_increase"	"1"
+			}
             "duration" "6 8 10"
         }
 	}

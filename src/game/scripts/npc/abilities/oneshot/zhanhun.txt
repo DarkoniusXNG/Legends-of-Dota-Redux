@@ -27,7 +27,7 @@
 		}
 		"AbilityValues"
         {
-            "reduce_per" "0.5 1.0 1.5 2.0"
+            "reduce_per" "1.0 1.5 2.0 2.5"
         }
 	}
 }

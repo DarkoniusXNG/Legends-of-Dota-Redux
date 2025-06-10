@@ -41,10 +41,14 @@
         {
             "damage" "35 50 65 80"
             "duration" "10"
-            "radius" "500"
+            "radius"				
+			{
+				"value"	"500"
+				"affected_by_aoe_increase"	"1"
+			}
             "slow" "-24 -36 -48 -60"
             "slow_duration" "1.0"
-            "distance" "600"
+            "distance" "450"
         }
 
 		"precache"

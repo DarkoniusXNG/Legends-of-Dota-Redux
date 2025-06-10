@@ -15,12 +15,15 @@
         {
             "projectile_speed" "1000 1200 1400 1600"
             "punch_damage" "50 100 150 200"
-            "radius" "200"
+            "radius"
+            {
+                "value" "150"
+                "affected_by_aoe_increase"	"1"
+            }
             "knockback_distance"
             {
                 "value" "350"
-                "LinkedSpecialBonus" "special_bonus_unique_ranged_punch_0"
-                "LinkedSpecialBonusOperation" "SPECIAL_BONUS_MULTIPLY"
+                "affected_by_aoe_increase"	"1"
             }
         }
     }

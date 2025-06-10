@@ -12,18 +12,21 @@
         "SpellDispellableType"                                                 "SPELL_DISPELLABLE_NO"
         "AbilityCastRange"                                                     "0"
         "AbilityCastPoint"                                                     "0.6"
-        "AbilityCooldown"                                                      "70 50 30"
-        "AbilityManaCost"                                                      "100 200 300"
+        "AbilityCooldown"                                                      "60 40 20"
+        "AbilityManaCost"                                                      "100"
         "AbilityValues"
-		{
-
-			"radius"						"3000 6000 9000"
-			"teleport_delay"				"3 2 1"
-			"scepter_health_bonus" 
-			{
-				"special_bonus_scepter"	"+1000 +1500 +2000"
-			}			
-		}
+        {
+            "radius"
+            {
+                "value"                     "3000"
+                "affected_by_aoe_increase"	"1"
+            }
+            "teleport_delay"				"3 2 1"
+            "scepter_health_bonus" 
+            {
+                "special_bonus_scepter"	"+1000 +1500 +2000"
+            }			
+        }
 
         "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           "support"

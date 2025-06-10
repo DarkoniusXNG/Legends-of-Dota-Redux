@@ -13,12 +13,20 @@
         "HasScepterUpgrade"                                                    "1"
         "AbilityCastPoint"                                                     "0.0"
         "AbilityCastRange"                                                     "1600"
-        "AbilityCooldown"                                                      "15 14 13 12"
+        "AbilityCooldown"                                                      "11 10 9 8"
         "AbilityManaCost"                                                      "80 85 90 95"
         "AbilityValues"
         {
-            "launch_radius" "1600"
-            "slow_radius" "350"
+            "launch_radius"		
+            {
+                "value"	"1600"
+                "affected_by_aoe_increase"	"1"
+            }
+            "slow_radius"		
+            {
+                "value"			"250"
+                "affected_by_aoe_increase"	"1"
+            }
             "speed" "800"
             "duration" "4.0"
             "shot_vision" "400"

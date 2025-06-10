@@ -21,12 +21,16 @@
         }
         "AbilityValues"
         {
-            "radius" "1200"
+            "radius"				
+            {
+                "value"			"1200"
+                "affected_by_aoe_increase"	"1"
+            }
             "distribution_factor" "0.5"
             "distribution_tooltip" "50"
             "max_unit" "6 8 10 12"
             "heal_value" "4 6 8 10"
-            "duration" "10 15 20 25"
+            "duration" "25"
         }
         "ReduxFlags"                                                           "support | tank"
         "ReduxPerks"                                                           "support"

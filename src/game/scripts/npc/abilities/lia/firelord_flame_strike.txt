@@ -15,7 +15,7 @@
         "AbilityCooldown"                                                      "14 13 12 11"
         "AbilityManaCost"                                                      "100 110 120 130"
         "AbilityChannelTime"                                                   "0.15"
-        "AoERadius"                                                            "250 275 300 325"
+        "AoERadius"                                                            "%radius"
 
         "precache"
         {
@@ -26,11 +26,15 @@
 
         "AbilityValues"
         {
-            "radius" "275 300 325 350"
-            "damage" "80 110 140 170"
+            "radius"				
+            {
+                "value"			"400"
+                "affected_by_aoe_increase"	"1"
+            }
+            "total_damage"  "300 450 600 750" // dps is this / duration
             "duration" "5"
-            "delay" "0.25"
-            "interval" "0.25"
+            "delay" "0.15" // total delay is AbilityChannelTime + this
+            "interval" "0.25" // damage interval
         }
         "ReduxPerks"                                                           "fire | skillshot"
     }

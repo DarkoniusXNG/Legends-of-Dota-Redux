@@ -11,7 +11,11 @@
         {
             "hero_lifesteal" "30 45 60 75"
             "creep_lifesteal" "5 10 15 20"
-            "radius" "1200"
+            "radius"
+            {
+                "value"			"1200"
+                "affected_by_aoe_increase"	"1"
+            }
         }
         "ReduxFlags"                                                           "support | tank"
         "ReduxPerks"                                                           "support | aura"

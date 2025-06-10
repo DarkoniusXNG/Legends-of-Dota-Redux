@@ -6,7 +6,7 @@
         "ScriptFile"                                                           "abilities/jingtong.lua"
         "AbilityValues"
         {
-            "reduce" "10 15 20 25"
+            "reduce" "15 20 25 30"
         }
         "ReduxCost"                                                            "20"
         "ReduxFlags"														    "cooldown"

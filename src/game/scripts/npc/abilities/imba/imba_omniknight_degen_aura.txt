@@ -7,7 +7,7 @@
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"                                                   "custom/imba_omniknight_degen_aura"
-        "AbilityCastRange"                                                     "400 500 600 700"
+        "AbilityCastRange"                                                     "%radius"
         "AbilityValues"
         {
             "radius" "400 500 600 700"
