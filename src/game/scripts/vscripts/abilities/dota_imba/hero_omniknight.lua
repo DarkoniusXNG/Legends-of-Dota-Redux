@@ -221,10 +221,10 @@ function modifier_imba_purification_buff:IsPurgable() return true end
 function modifier_imba_purification_buff:IsDebuff() return false end
 
 function modifier_imba_purification_buff:DeclareFunctions()
-    local decFuncs = {MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-                      MODIFIER_EVENT_ON_HEALTH_GAINED}
-                
-    return decFuncs
+    return {
+        --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+        MODIFIER_EVENT_ON_HEALTH_GAINED,
+    }
 end
 
 function modifier_imba_purification_buff:GetEffectName()
@@ -235,21 +235,46 @@ function modifier_imba_purification_buff:GetEffectAttachType()
     return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_imba_purification_buff:GetModifierHPRegenAmplify_Percentage(keys)            
-    local stacks = self:GetStackCount()
+--function modifier_imba_purification_buff:GetModifierHPRegenAmplify_Percentage(keys)
+    --local stacks = self:GetStackCount()
 
-    return self.purifiception_heal_amp_pct * stacks
-end
+    --return self.purifiception_heal_amp_pct * stacks
+--end
 
+if IsServer() then
+    function modifier_imba_purification_buff:OnHealthGained(event)
+        local parent = self:GetParent()
+        local unit_that_gained_hp = event.unit
 
-function modifier_imba_purification_buff:OnHealthGained(keys)    
-    if IsServer() then               
-        -- Only apply on the parent getting heals
-        if keys.unit == self.parent then            
-            -- Only apply if was healed over the threshold            
-            if keys.gain and keys.gain >= self.purifiception_stack_threshold then                
-                self:IncrementStackCount()
-            end
+        -- Check if unit has this modifier
+        if unit_that_gained_hp ~= parent then
+            return
+        end
+
+        local gained_hp = event.gain
+
+        -- Check if gained health is negative or 0
+        if gained_hp <= 0 then
+            return
+        end
+
+        -- Prevent looping
+        if self.flag then
+            return
+        end
+
+        local heal_amp = self.purifiception_heal_amp_pct * self:GetStackCount()
+        local extra_health = gained_hp * heal_amp / 100
+
+        -- Imitate heal amp and health restoration amp
+        self.flag = true
+        --parent:Heal(extra_health, nil)
+        parent:HealWithParams(extra_health, self:GetAbility(), false, false, self:GetCaster(), false)
+        self.flag = false
+
+        -- Only apply if was healed over the threshold
+        if gained_hp >= self.purifiception_stack_threshold or ((gained_hp + extra_health) >= self.purifiception_stack_threshold) then
+            self:IncrementStackCount()
         end
     end
 end

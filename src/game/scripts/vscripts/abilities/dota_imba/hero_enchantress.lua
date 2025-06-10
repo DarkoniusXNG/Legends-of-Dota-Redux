@@ -651,7 +651,7 @@ end
 function modifier_imba_enchantress_natures_attendants:DeclareFunctions()
     local decFuncs = {
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE, 	-- * Base: Reduces all incoming damage by 10%
-		MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,	-- * Green: Amplifies all sources of healing by 20%
+		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,	-- * Green: Amplifies all sources of healing by 20%
 		MODIFIER_PROPERTY_BONUS_DAY_VISION,				-- * Orange: Increase day/night vision by 250/750 respectively 
 		MODIFIER_PROPERTY_BONUS_NIGHT_VISION,			-- * Orange: Increase day/night vision by 250/750 respectively 
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE	-- * Pink: Increases move speed by 5% and grants flying movement
@@ -668,7 +668,7 @@ function modifier_imba_enchantress_natures_attendants:GetModifierIncomingDamage_
 	end
 end
 
-function modifier_imba_enchantress_natures_attendants:GetModifierHPRegenAmplify_Percentage()
+function modifier_imba_enchantress_natures_attendants:GetModifierHealAmplify_PercentageTarget()
 	if self:GetStackCount() == 3 then
 		return self.green_heal_amp
 	else

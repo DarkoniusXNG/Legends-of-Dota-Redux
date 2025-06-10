@@ -531,19 +531,51 @@ end
 function modifier_imba_ghost_shroud_buff:IsDebuff()	return false end
 
 function modifier_imba_ghost_shroud_buff:DeclareFunctions()
-	local decFuncs =
-		{
-			MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE
-		}
-	return decFuncs
+	return {
+		MODIFIER_EVENT_ON_HEALTH_GAINED,
+	}
 end
 
-function modifier_imba_ghost_shroud_buff:GetModifierHPRegenAmplify_Percentage()
-	local healing_amp_pct = self:GetAbility():GetSpecialValueFor("healing_amp_pct")
-	if self:GetCaster() ~= self:GetParent() then
-		healing_amp_pct = healing_amp_pct / 2
-	end
-	return healing_amp_pct
+if IsServer() then
+  function modifier_imba_ghost_shroud_buff:OnHealthGained(event)
+    local parent = self:GetParent()
+    local caster = self:GetCaster()
+    local ability = self:GetAbility()
+    local unit_that_gained_hp = event.unit
+
+    -- Check if unit has this modifier
+    if unit_that_gained_hp ~= parent then
+      return
+    end
+
+    local gained_hp = event.gain
+
+    -- Check if gained health is negative or 0
+    if gained_hp <= 0 then
+      return
+    end
+
+    if not ability or ability:IsNull() then
+      return
+    end
+
+    -- Prevent looping
+    if self.flag then
+      return
+    end
+
+    local healing_amp_pct = ability:GetSpecialValueFor("healing_amp_pct")
+    if caster ~= parent then
+      healing_amp_pct = healing_amp_pct / 2
+    end
+
+    local extra_health = gained_hp * healing_amp_pct / 100
+
+    -- Imitate heal amp and health restoration amp
+    self.flag = true
+    parent:HealWithParams(extra_health, ability, false, false, parent, false)
+    self.flag = false
+  end
 end
 
 ----------------------------------------
@@ -754,17 +786,48 @@ end
 
 
 function modifier_imba_heartstopper_aura_damage:DeclareFunctions()
-	local decFuncs =
-		{
-			MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-		}
-	return decFuncs
+	return {
+		MODIFIER_EVENT_ON_HEALTH_GAINED,
+	}
 end
 
-function modifier_imba_heartstopper_aura_damage:GetModifierHPRegenAmplify_Percentage()
-	if self:GetAbility() ~= nil then
-		return ( self:GetAbility():GetSpecialValueFor("heal_reduce_pct") * (-1) )
-	end
+if IsServer() then
+  function modifier_imba_heartstopper_aura_damage:OnHealthGained(event)
+    local caster = self:GetCaster()
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local unit_that_gained_hp = event.unit
+
+    -- Check if unit has this modifier
+    if unit_that_gained_hp ~= parent then
+      return
+    end
+
+    local gained_hp = event.gain
+
+    -- Check if gained health is negative or 0
+    if gained_hp <= 0 then
+      return
+    end
+
+    if not ability or ability:IsNull() then
+      return
+    end
+
+    -- Imitate heal reduction and health restoration reduction
+    local heal_to_damage = math.abs(ability:GetSpecialValueFor("heal_reduce_pct"))
+    local damage = gained_hp * heal_to_damage / 100
+    local damage_table = {
+      victim = unit_that_gained_hp,
+      attacker = caster,
+      damage = damage,
+      damage_type = DAMAGE_TYPE_PURE,
+      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_NON_LETHAL, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS),
+      ability = ability,
+    }
+
+    ApplyDamage(damage_table)
+  end
 end
 
 -------------------------------------------

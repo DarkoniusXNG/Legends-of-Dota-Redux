@@ -86,29 +86,30 @@ modifier_hylonome_anemic_aura_debuff.OnRefresh = modifier_hylonome_anemic_aura_d
 
 function modifier_hylonome_anemic_aura_debuff:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
+    MODIFIER_EVENT_ON_HEALTH_GAINED,
   }
 end
 
-function modifier_hylonome_anemic_aura_debuff:GetModifierHPRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_reduction)
-end
+--function modifier_hylonome_anemic_aura_debuff:GetModifierHPRegenAmplify_Percentage()
+  --return 0 - math.abs(self.heal_reduction)
+--end
 
-function modifier_hylonome_anemic_aura_debuff:GetModifierHealAmplify_PercentageTarget()
-  return 0 - math.abs(self.heal_reduction)
-end
+--function modifier_hylonome_anemic_aura_debuff:GetModifierHealAmplify_PercentageTarget()
+  --return 0 - math.abs(self.heal_reduction)
+--end
 
-function modifier_hylonome_anemic_aura_debuff:GetModifierLifestealRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_reduction)
-end
+--function modifier_hylonome_anemic_aura_debuff:GetModifierLifestealRegenAmplify_Percentage()
+  --return 0 - math.abs(self.heal_reduction)
+--end
 
-function modifier_hylonome_anemic_aura_debuff:GetModifierSpellLifestealRegenAmplify_Percentage()
-  return 0 - math.abs(self.heal_reduction)
-end
+--function modifier_hylonome_anemic_aura_debuff:GetModifierSpellLifestealRegenAmplify_Percentage()
+  --return 0 - math.abs(self.heal_reduction)
+--end
 
 if IsServer() then
   function modifier_hylonome_anemic_aura_debuff:OnTakeDamage(event)
@@ -154,9 +155,41 @@ if IsServer() then
       return
     end
 	
-    if RandomInt(1, 100) < self.bleed_chance then
+    if RandomInt(1, 100) <= self.bleed_chance then
       parent:AddNewModifier(caster, ability, "modifier_hylonome_anemic_aura_thinker", {duration = self.bleed_duration})
     end
+  end
+
+  function modifier_hylonome_anemic_aura_debuff:OnHealthGained(event)
+    local caster = self:GetCaster()
+    local parent = self:GetParent()
+    local unit_that_gained_hp = event.unit
+
+    -- Check if unit has this modifier
+    if unit_that_gained_hp ~= parent then
+      return
+    end
+
+    local gained_hp = event.gain
+
+    -- Check if gained health is negative or 0
+    if gained_hp <= 0 then
+      return
+    end
+
+    -- Imitate heal reduction and health restoration reduction
+    local heal_to_damage = math.abs(self.heal_reduction)
+    local damage = gained_hp * heal_to_damage / 100
+    local damage_table = {
+      victim = unit_that_gained_hp,
+      attacker = caster,
+      damage = damage,
+      damage_type = DAMAGE_TYPE_PURE,
+      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_NON_LETHAL, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS),
+      ability = self:GetAbility(),
+    }
+
+    ApplyDamage(damage_table)
   end
 end
 

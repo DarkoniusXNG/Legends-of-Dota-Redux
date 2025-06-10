@@ -35,10 +35,10 @@ function modifier_oracle_will_to_live:OnCreated()
 	local ability = self:GetAbility()
 	if ability and not ability:IsNull() then
 		self.delay = self:GetAbility():GetSpecialValueFor("damage_delay")
-		self.hp_regen_amp = ability:GetSpecialValueFor("heal_amp_pct")
-		self.lifesteal_amp = ability:GetSpecialValueFor("heal_amp_pct")
+		--self.hp_regen_amp = ability:GetSpecialValueFor("heal_amp_pct")
+		--self.lifesteal_amp = ability:GetSpecialValueFor("heal_amp_pct")
 		self.heal_amp = ability:GetSpecialValueFor("heal_amp_pct")
-		self.spell_lifesteal_amp = ability:GetSpecialValueFor("heal_amp_pct")
+		--self.spell_lifesteal_amp = ability:GetSpecialValueFor("heal_amp_pct")
 	end
 end
 
@@ -47,10 +47,10 @@ modifier_oracle_will_to_live.OnRefresh = modifier_oracle_will_to_live.OnCreated
 function modifier_oracle_will_to_live:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_AVOID_DAMAGE,
-		MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+		--MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
 		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-		MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-		MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+		--MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+		--MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
 	}
 end
 
@@ -124,21 +124,21 @@ if IsServer() then
 	end
 end
 
-function modifier_oracle_will_to_live:GetModifierHPRegenAmplify_Percentage()
-  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("heal_amp_pct")
-end
+--function modifier_oracle_will_to_live:GetModifierHPRegenAmplify_Percentage()
+  --return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("heal_amp_pct")
+--end
 
 function modifier_oracle_will_to_live:GetModifierHealAmplify_PercentageTarget()
   return self.heal_amp or self:GetAbility():GetSpecialValueFor("heal_amp_pct")
 end
 
-function modifier_oracle_will_to_live:GetModifierLifestealRegenAmplify_Percentage()
-  return self.lifesteal_amp or self:GetAbility():GetSpecialValueFor("heal_amp_pct")
-end
+--function modifier_oracle_will_to_live:GetModifierLifestealRegenAmplify_Percentage()
+  --return self.lifesteal_amp or self:GetAbility():GetSpecialValueFor("heal_amp_pct")
+--end
 
-function modifier_oracle_will_to_live:GetModifierSpellLifestealRegenAmplify_Percentage()
-  return self.spell_lifesteal_amp or self:GetAbility():GetSpecialValueFor("heal_amp_pct")
-end
+--function modifier_oracle_will_to_live:GetModifierSpellLifestealRegenAmplify_Percentage()
+  --return self.spell_lifesteal_amp or self:GetAbility():GetSpecialValueFor("heal_amp_pct")
+--end
 
 function modifier_oracle_will_to_live:GetEffectName()
 	return "particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf"

@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Necrolyte
---		Perk: HeartStopper Aura free level + hp regen amp for each level put in an Undead ability.
+--		Perk: HeartStopper Aura free level + hp regen for each level put in an Undead ability.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_necrolyte_perk = modifier_npc_dota_hero_necrolyte_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -25,7 +25,7 @@ function modifier_npc_dota_hero_necrolyte_perk:GetTexture()
 end
 
 function modifier_npc_dota_hero_necrolyte_perk:OnCreated()
-    self.bonusPerLevel = 1
+    self.bonusPerLevel = 3
 	if IsServer() then
         local caster = self:GetCaster()
         local bonus_ability = caster:FindAbilityByName("necrolyte_heartstopper_aura")
@@ -58,10 +58,15 @@ end
 
 function modifier_npc_dota_hero_necrolyte_perk:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+		--MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 	}
 end
 
-function modifier_npc_dota_hero_necrolyte_perk:GetModifierHPRegenAmplify_Percentage()
+--function modifier_npc_dota_hero_necrolyte_perk:GetModifierHPRegenAmplify_Percentage()
+	--return self:GetStackCount()
+--end
+
+function modifier_npc_dota_hero_necrolyte_perk:GetModifierConstantHealthRegen()
 	return self:GetStackCount()
 end
