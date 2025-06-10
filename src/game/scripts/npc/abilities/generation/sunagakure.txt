@@ -34,7 +34,7 @@
         "AnimationPlaybackRate"         "1.2"
         "AbilityProcsMagicStick"        "1"
 
-        "AOERadius"                     "400"
+        "AOERadius"                     "%radius"
 
         "AbilityCooldown"               "20 18 16 14"
         "AbilityManaCost"               "80 90 100 110"
@@ -43,10 +43,10 @@
         "AbilityValues"
         {
             "radius"				
-				{
-					"value"			"400"
-					"affected_by_aoe_increase"	"1"
-				}
+			{
+				"value"			"400"
+				"affected_by_aoe_increase"	"1"
+			}
             "movement_slow" "-2.0 -3.0 -4.0 -5.0"
             "movement_slow_display" "2 3 4 5"
             "armor_reduction" "-0.4 -0.5 -0.6 -0.7"

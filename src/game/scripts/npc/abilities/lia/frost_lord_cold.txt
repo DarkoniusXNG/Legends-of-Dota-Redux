@@ -14,7 +14,7 @@
             "particle"                                                     "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
         }
 
-        "AoERadius"                                                            "400"
+        "AoERadius"                                                            "%radius"
         "AbilityCastRange"                                                     "700"
         "AbilityCastPoint"                                                     "0.0"
         "AbilityCooldown"                                                      "14 13 12 11"
@@ -27,10 +27,10 @@
             "attack_speed_slow" "-20 -30 -40 -50"
             "duration" "8"
             "radius"				
-				{
-					"value"			"400"
-					"affected_by_aoe_increase"	"1"
-				}
+			{
+				"value"			"400"
+				"affected_by_aoe_increase"	"1"
+			}
         }
         "OnSpellStart"
         {

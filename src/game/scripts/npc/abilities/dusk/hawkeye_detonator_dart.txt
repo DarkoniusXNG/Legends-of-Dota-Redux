@@ -15,13 +15,14 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"AoERadius"						"375"
+		
 		"AbilityTextureName"			"custom/hawkeye_detonator_dart"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"900"
 		"AbilityCastPoint"				"0.2"
+		"AoERadius"						"%radius"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -40,10 +41,10 @@
             "initial_damage" "100"
             "tick_time" "1.00"
             "radius"				
-				{
-					"value"	"700"
-					"affected_by_aoe_increase"	"1"
-				}
+			{
+				"value"	"700"
+				"affected_by_aoe_increase"	"1"
+			}
         }
 		
 		"precache"

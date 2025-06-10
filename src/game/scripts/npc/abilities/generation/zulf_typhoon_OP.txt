@@ -14,7 +14,7 @@
         "AbilityProcsMagicStick"                                               "1"
         "HasScepterUpgrade"                                                    "1"
         "AbilityCastPoint"                                                     "0.1"
-        "AOERadius"                                                            "1500"
+        "AOERadius"                                                            "%radius"
         "AbilityCooldown"                                                      "40"
         "AbilityChannelTime"                                                   "4.0"
         "AbilityManaCost"                                                      "175 250 325"

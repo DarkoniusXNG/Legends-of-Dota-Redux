@@ -29,7 +29,7 @@
         "AbilityCastRange"              "1200"
         "AbilityCastPoint"              "0.3 0.3 0.3"
         "AbilityChannelTime"            "10.0"
-        "AoERadius"                     "1200"
+        "AoERadius"                     "%far_radius"
         "AnimationPlaybackRate"         "5.0"
 
         // Time     

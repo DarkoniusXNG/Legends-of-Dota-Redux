@@ -8,10 +8,10 @@
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityTextureName"                                                   "custom/lord_of_lightning_brain_storm"
-        "AoERadius"                                                            "500"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityCastRange"                                                     "800"
         "AbilityCastPoint"                                                     "0"
+        "AoERadius"                                                            "%radius"
         "AbilityCooldown"                                                      "50 40 30"
         "AbilityManaCost"                                                      "150"
         "AbilityValues"
@@ -20,10 +20,10 @@
             "reduce_movement_speed" "-30 -45 -60"
             "duration" "8"
             "radius"				
-				{
-					"value"			"600"
-					"affected_by_aoe_increase"	"1"
-				}
+			{
+				"value"			"600"
+				"affected_by_aoe_increase"	"1"
+			}
         }
         "precache"
         {

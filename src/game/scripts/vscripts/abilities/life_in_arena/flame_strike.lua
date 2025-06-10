@@ -32,8 +32,15 @@ modifier_flame_strike_thinker = class({
 	IsPurgable = function() return false end,
 
 	OnCreated = function(self)
-		self:StartIntervalThink(self:GetAbility():GetSpecialValueFor("delay"))
-		self.particleRadius = 250
+		local ab = self:GetAbility()
+		self:StartIntervalThink(ab:GetSpecialValueFor("delay"))
+		self.particleRadius = ab:GetSpecialValueFor("radius")
+		if ab:GetSpecialValueFor("duration") > 0 then
+			local dps = ab:GetSpecialValueFor("total_damage") / ab:GetSpecialValueFor("duration")
+			self.dmg = dps * ab:GetSpecialValueFor("interval")
+		else
+			self.dmg = 1
+		end
 	end,
 
 	OnIntervalThink = function(self)
@@ -52,7 +59,7 @@ modifier_flame_strike_thinker = class({
 
 		local units = FindUnitsInRadius(self:GetParent():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, self:GetAbility():GetSpecialValueFor("radius"), self:GetAbility():GetAbilityTargetTeam(), self:GetAbility():GetAbilityTargetType(), self:GetAbility():GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
 		for k,v in pairs(units) do
-			ApplyDamage({victim = v, attacker = self:GetCaster(), damage = self:GetAbility():GetSpecialValueFor("damage"), damage_type = self:GetAbility():GetAbilityDamageType()})
+			ApplyDamage({victim = v, attacker = self:GetCaster(), damage = self.dmg, damage_type = self:GetAbility():GetAbilityDamageType(), ability = self:GetAbility()})
 		end
 	end,
 })
