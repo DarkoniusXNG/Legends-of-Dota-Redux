@@ -7,7 +7,7 @@
 		"AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"HotKeyOverride"	"F"
+
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"60 45 30"
 		"AbilityManaCost"	"150"

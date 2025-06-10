@@ -88,7 +88,6 @@
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%speed_buff"
-                    "MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT"     "1" // idk if this works
                 }
                 "States"
                 {
@@ -150,6 +149,7 @@
                 "Passive"                                              "0"
                 "IsHidden"                                             "0"
                 "IsBuff"                                               "1"
+                "Duration"                                             "%duration"
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%speed_increase"
@@ -169,6 +169,7 @@
                 "Passive"                                              "0"
                 "IsHidden"                                             "0"
                 "IsDebuff"                                             "1"
+                "Duration"                                             "%duration"
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%speed_decrease"

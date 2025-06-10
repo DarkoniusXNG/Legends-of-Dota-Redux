@@ -1,18 +1,35 @@
 function huisu( keys )
 	local caster = keys.caster
 	if caster.p_hp and caster.p_origin then
-		local p = 'particles/econ/events/ti4/blink_dagger_start_ti4.vpcf'
-		local p_index = ParticleManager:CreateParticle(p,1,caster)
-		ParticleManager:SetParticleControl(p_index,0,caster:GetAbsOrigin())
+		local caster_ori = caster:GetAbsOrigin()
 
-		local p = 'particles/econ/events/ti4/blink_dagger_end_ti4.vpcf'
-		local p_index = ParticleManager:CreateParticle(p,1,caster)
-		ParticleManager:SetParticleControl(p_index,0,caster:GetAbsOrigin())
+		-- Particle that will follow the caster
+		-- local p = 'particles/econ/items/faceless_void/faceless_void_jewel_of_aeons/fv_time_walk_jewel.vpcf'
+		-- local p_index = ParticleManager:CreateParticle(p, 1, caster)
+		-- ParticleManager:SetParticleControlEnt(p_index, 0, caster, PATTACH_CUSTOMORIGIN_FOLLOW, "attach_hitloc", caster_ori, false)
 
+		-- Particle that will stay on cast location
+		local p2 = "particles/units/heroes/hero_faceless_void/faceless_void_timedialate.vpcf"
+		local p_index2 = ParticleManager:CreateParticle(p2, PATTACH_WORLDORIGIN, caster)
+		ParticleManager:SetParticleControl(p_index2, 0, caster_ori)
+		ParticleManager:SetParticleControl(p_index2, 1, Vector(250,0,0))
+		ParticleManager:ReleaseParticleIndex(p_index2)
+
+		-- Revert the caster health
 		caster:SetHealth(caster.p_hp[1])
+
+		-- Teleport the caster
 		FindClearSpaceForUnit(caster,caster.p_origin[1],false)
+
+		-- Interrupt the caster
 		caster:Stop()
 
+		-- Disjoint projectiles
+		ProjectileManager:ProjectileDodge(caster)
+
+		-- Remove the following particle
+		-- ParticleManager:DestroyParticle(p_index, false)
+		-- ParticleManager:ReleaseParticleIndex(p_index)
 	else
 		--Warning("#unknow_warning_time_huisu")
 		Notifications:Bottom(caster:GetPlayerOwner(),{text="#unknow_warning_time_huisu",style={color="red"},duration=5})
@@ -55,7 +72,7 @@ function chongci( keys )
 	local caster = keys.caster
 	local point = keys.target_points[1]
 	local ability = keys.ability
-	local caster_ori =caster:GetAbsOrigin()
+	local caster_ori = caster:GetAbsOrigin()
 	local distance = math.min((caster_ori-point):Length2D(),keys.maxdistance)
 	local radius = keys.radius
 	local dir = GetNorDir(point,caster_ori)

@@ -11,7 +11,7 @@
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
-            "root_radius" "800 1000 1200"
+            "root_radius" "800 900 1000"
             "root_duration" "2.0 2.5 3.0"
             "root_damage" "30 45 60"
             "min_creeps" "4"

@@ -17,6 +17,13 @@
             "projectile_speed" "1000"
             "min_creeps" "4"
         }
+
+        "precache"
+        {
+            "particle"  "particles/units/heroes/hero_tinker/tinker_laser.vpcf"
+            "particle"  "particles/units/heroes/hero_tinker/laser_cutter_sparks_k.vpcf"
+            "particle"  "particles/ambient/tower_laser_blind.vpcf"
+        }
         "OnProjectileHitUnit"
         {
             "DeleteOnHit"                                                  "1"
@@ -42,7 +49,7 @@
                     {
                         "ScriptFile"                           "abilities/tower_abilities.lua"
                         "Function"                             "Laser"
-                        "projectile_laser"                     "particles/units/heroes/hero_tinker/tinker_base_attack.vpcf"
+                        "projectile_laser"                     "particles/units/heroes/hero_tinker/tinker_laser.vpcf"
                         "sound_impact"                         "Hero_Tinker.LaserImpact"
                     }
                 }
