@@ -154,7 +154,7 @@
         "ReduxFlags"                    ""
         "ReduxPerks"                    "gold"
 
-        "AbilityCastRange"              "750"
+        "AbilityCastRange"              "900"
         "AbilityCastPoint"              "0.3"
 
         "AbilityCooldown"               "7"
@@ -163,8 +163,8 @@
 
         "AbilityValues"
         {
-            "gold_loss_pct" "20"
-            "damage_per_gold" "4 6 8 10"
+            "gold_loss_pct" "10 15 20 25"
+            "damage_per_gold" "10"
             "duration" "10.0"
             "movement_slow" "-30 -45 -60 -75"
             "movement_slow_interval" "-3.0 -4.5 -6.0 -7.5"
@@ -310,7 +310,7 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		
+
         "ReduxFlags"                    "summon"
         "ReduxPerks"                    "gold | summon_non_ult"
 
@@ -328,7 +328,11 @@
             "health" "450 600 750 900"
             "bounty" "300"
             "bonus_gold" "18 24 30 36"
-            "radius" "1200"
+            "radius"
+            {
+                "value"			"1200"
+                "affected_by_aoe_increase"	"1"
+            }
             "damage_reduction" "-10 -20 -30 -40"
             "debuff_duration" "8"
         }
@@ -522,9 +526,9 @@
 
         "AbilityValues"
         {
-            "proc_chance" "35"
+            "proc_chance" "40"
             "crit_damage" "150 180 210 240"
-            "stun_duration" "1.5"
+            "stun_duration" "1.25"
             "duration" "8.0"
             "bonus_movement_speed" "8 9 10 11"
         }
@@ -725,11 +729,23 @@
             "bonus_damage_pct" "60 80 100"
             "damage_reduction_pct" "-30"
             "duration" "25.0"
-            "day_vision" "700"
-            "night_vision" "700"
-            "break_radius" "700"
-            "day_vision_penalty" "-1100"
-            "night_vision_penalty" "-100"
+            "day_vision"
+			{
+				"value"			"800"
+				"affected_by_aoe_increase"	"1"
+			}
+            "night_vision"
+			{
+				"value"			"800"
+				"affected_by_aoe_increase"	"1"
+			}
+            "break_radius"
+			{
+				"value"			"800"
+				"affected_by_aoe_increase"	"1"
+			}
+            //"day_vision_penalty" "-1000"
+            //"night_vision_penalty" "0"
         }
 
         "precache"
@@ -825,8 +841,8 @@
                 {
                     "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"   "%bonus_damage_pct"
                     "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"  "%damage_reduction_pct"
-                    "MODIFIER_PROPERTY_BONUS_DAY_VISION"            "%day_vision_penalty"
-                    "MODIFIER_PROPERTY_BONUS_NIGHT_VISION"          "%night_vision_penalty"
+                    "MODIFIER_PROPERTY_FIXED_DAY_VISION"            "%day_vision" // idk if this works
+                    "MODIFIER_PROPERTY_FIXED_NIGHT_VISION"          "%night_vision" // idk if this works
                 }
             }
         }

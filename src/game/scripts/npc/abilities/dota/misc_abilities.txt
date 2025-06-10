@@ -70,7 +70,6 @@
 			{
 				"value" "1200"
 				"affected_by_aoe_increase"	"1"
-
 			}
 		}
         "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
@@ -120,60 +119,80 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
         "IsBreakable"					"1"
-        "MaxLevel"                      "15"
-        "LevelsBetweenUpgrades"     "2"
+
         "AbilityTextureName"            "custom/abyssal_underlord_atrophy_aura_op"
 
         "ReduxCost"                                                            "120"
 		"ReduxBans"                                                            "abyssal_underlord_atrophy_aura"
+        "ReduxPerks"                                                           "aura"
 
 		"AbilityValues"
 		{
 			"radius"
 			{
-				"value" "900 1800 2700 3600 4500 5400 6300 7200 8100 9000 9900 10800 11700 12600 13500"
+				"value"				"900 1000 1100 1200"
 				"affected_by_aoe_increase"	"1"
 			}
+
 			"damage_reduction_pct"
 			{
-				"value"		"10 15 20 25 30 35 40 45 50 55 60 65 70 75 80"
+				"value"		"20 25 30 35"
+				"special_bonus_unique_underlord_3"	"+15"
 				"CalculateSpellDamageTooltip"		"0"
 				"DamageTypeTooltip"					"DAMAGE_TYPE_NONE"
 			}
-			"bonus_damage_from_creep"		"2 4 6 8 10 12 14 16 18 20 22 24 26 28 30"
-			"bonus_damage_from_hero"		"30 35 40 45 50 55 60 65 70 75 80 85 90 95 100"
-			"bonus_damage_duration"			"30 40 50 60 70 80 90 100 110 120 130 140 150 160 170"
+			"bonus_damage_from_creep"
+			{
+				"value"							"2 4 6 8"
+				"special_bonus_unique_underlord_3"	"+10%"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"bonus_damage_from_hero"
+			{
+				"value"							"30 35 40 45"
+				"special_bonus_unique_underlord_3"	"+10%"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"bonus_damage_duration"
+			{
+				"value"							"60 120 180 240"
+				"CalculateSpellDamageTooltip"	"0"
+				"special_bonus_unique_underlord_8"	"+60"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
+			}
 			"bonus_shared_by_allies_pct"
 			{
-				"value"							"50"
+				"value"							"1"
 			}
 			"cleave_damage_pct"
 			{
-				"value"				"0"
+				"value"				"30 40 50 60"
 				"special_bonus_facet_abyssal_underlord_demons_reach"	"+35"
 			}
 			"cleave_starting_width"
 			{
-				"value"					"0"
+				"value"					"150"
 				"special_bonus_facet_abyssal_underlord_demons_reach"	"+150"
-				"affected_by_aoe_increase"	"1"
+					"affected_by_aoe_increase"	"1"
 			}
 			"cleave_angle"
 			{
-				"value"					"0"
+				"value"					"120"
 				"special_bonus_facet_abyssal_underlord_demons_reach"	"+75"
 			}
 			"cleave_distance_base"
 			{
-				"value"					"0"
+				"value"					"300"
 				"special_bonus_facet_abyssal_underlord_demons_reach"	"+100"
-				"affected_by_aoe_increase"	"1"
+					"affected_by_aoe_increase"	"1"
 			}
 			"cleave_distance_per_stack"
 			{
-				"value"					"0"
+				"value"					"10"
 				"special_bonus_facet_abyssal_underlord_demons_reach"	"+5"
 			}
+
+
 		}
         "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_3"
     }
@@ -192,46 +211,46 @@
         "ReduxPerks"                                                           "blades | mobility"
 
         "AbilityCastPoint"              "0.0"
-        "AbilityCastRange"              "1500"
+        "AbilityCastRange"              "900"
         "AbilityManaCost"               "75 80 85 90"
         "AbilityValues"
 		{
 				"AbilityCooldown"
 				{
-					"value"				"18 15 12 9"
+					"value"				"14 12 10 8"
 					"special_bonus_unique_pangolier_4"	"-4"
 				}
-				"dash_range"			"1500"
+				"dash_range"			"900"
 				"range"
 				{
-					"value"			"1000"
+					"value"			"900"
 					"special_bonus_unique_pangolier"	"+200"
 				}
 				"damage"
 				{
-					"value"		"30 60 90 120"
+					"value"		"15 25 35 45"
 					"CalculateSpellDamageTooltip"	"0"
 				}
 				"attack_damage"
 				{
-					"value"				"0"
-					"special_bonus_unique_pangolier_3"	"+15"
+					"value"				"33"
+					"special_bonus_unique_pangolier_3"	"+33"
 				}
 				"dash_speed"			"2000"
-				"attack_interval"		"0.1"
+				"attack_interval"		"0.08 0.08 0.08 0.08"
 				"start_radius"
 				{
-					"value"		"200"
+					"value"		"155"
 					"affected_by_aoe_increase"	"1"
 				}
 				"end_radius"
 				{
-					"value"			"200"
+					"value"			"300"
 					"affected_by_aoe_increase"	"1"
 				}
 				"strikes"
 				{
-					"value"			"3"
+					"value"			"4"
 				}
 				"procs_onhit_effects"			"1"
 		}
@@ -257,26 +276,26 @@
         "AbilityManaCost"               "100 125 150"
         "AbilityValues"
 		{
-				"radius"
-				{
-					"value"		"30000"
-					"affected_by_aoe_increase"	"1"
-					"special_bonus_unique_faceless_void_2" "+140"
-				}
-				"duration"
-				{
-					"value"			"4 5 6"
-				}
-				"vision_radius"
-				{
-					"value"	"30000"
-					"affected_by_aoe_increase"	"1"
-				}
-				"bonus_attack_speed"
-				{
-					"value" "100"
-					"special_bonus_unique_faceless_void" "+80"
-				}
+			"radius"
+			{
+				"value"		"30000"
+				"affected_by_aoe_increase"	"1"
+				"special_bonus_unique_faceless_void_2" "+140"
+			}
+			"duration"
+			{
+				"value"			"4 5 6"
+			}
+			"vision_radius"
+			{
+				"value"	"30000"
+				"affected_by_aoe_increase"	"1"
+			}
+			"bonus_attack_speed"
+			{
+				"value" "100"
+				"special_bonus_unique_faceless_void" "+80"
+			}
 		}
     }
 
@@ -376,7 +395,7 @@
 				"bonus_movement_speed"		"15 20 25"
 				"evasion"
 				{
-					"value"			"0"
+					"value"			"40"
 					"special_bonus_unique_mirana_5"		"+20"
 				}
 				"bonus_outgoing_damage_pct"				"12.0 15.0 18.0"
@@ -737,24 +756,24 @@
 			}
 			"arena_kill_buff_duration"
 			{
-				"value"				"0"
+				"value"				"20"
 				"special_bonus_facet_mars_victory_feast"			"+20"
 			}
 			"arena_kill_buff_damage_pct"
 			{
-				"value"				"0"
+				"value"				"40"
 				"special_bonus_facet_mars_victory_feast"			"+20"
 			}
 
 			"arena_kill_buff_heal_pct"
 			{
-				"value"				"0"
+				"value"				"40"
 				"special_bonus_facet_mars_victory_feast"			"+30"
 			}
 			"allied_reduction_pct"
 			{
-				"value"				"0"
-				"special_bonus_facet_mars_victory_feast"			"+50"				
+				"value"				"50"
+				"special_bonus_facet_mars_victory_feast"			"+50"
 			}
 		}
     }
@@ -799,7 +818,7 @@
 				}
 				"bonus_attack_speed"
 				{
-					"value" "0"
+					"value" "80"
 				    "special_bonus_unique_faceless_void" "+80"
 				}
 		}

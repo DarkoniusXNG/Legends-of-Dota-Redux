@@ -9,7 +9,7 @@
         "AbilityCooldown"                                                      "14"
         "AbilityCastRange"                                                     "0"
         "AbilityManaCost"                                                      "70 80 90 100"
-        "AoERadius"                                                            "400"
+        "AoERadius"                                                            "%radius"
         "AbilityCastPoint"                                                     "0.2"
 
         "precache"
@@ -19,7 +19,11 @@
 
         "AbilityValues"
         {
-            "radius" "400"
+            "radius"				
+			{
+				"value"			"400"
+				"affected_by_aoe_increase"	"1"
+			}
             "hp_prc_dmg" "14 16 18 20"
             "burn_damage" "20 40 60 80"
             "duration" "5"

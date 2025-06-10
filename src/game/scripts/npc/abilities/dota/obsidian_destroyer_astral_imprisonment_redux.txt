@@ -41,13 +41,17 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "prison_duration" "4.0"
-            "radius" "400"
-            "damage" "100 175 250 325"
-            "cast_range_tooltip" "225 300 375 450"
-            "max_charges_scepter" "2"
-            "charge_restore_time_scepter" "12"
-            "scepter_range_bonus" "300"
+			"prison_duration" "4.0"
+			"radius"
+			{
+				"value"			"400"
+				"affected_by_aoe_increase"	"1"
+			}
+			"damage" "100 175 250 325"
+			"cast_range_tooltip" "225 300 375 450"
+			"max_charges_scepter" "2"
+			"charge_restore_time_scepter" "12"
+			"scepter_range_bonus" "300"
         }
 
 		"OnSpellStart"

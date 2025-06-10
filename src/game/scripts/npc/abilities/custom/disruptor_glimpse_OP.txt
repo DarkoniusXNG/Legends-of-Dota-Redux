@@ -11,29 +11,34 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
 
         "AbilityCastPoint"                                                     "0.05 0.05 0.05 0.05"
-        "AbilityCooldown"                                                      "21 18 15 12"
-        "AbilityManaCost"                                                      "50"
-        "AbilityCastRange"                                                     "1000 2000 3000 4000"
+        "AbilityManaCost"                                                      "70"
+        "AbilityCastRange"                                                     "1200 2000 2800 3600"
         "AbilityValues"
 		{
-			"backtrack_time"			"4.0 4.0 4.0 4.0"
-			"cast_range"				"1000 2000 3000 4000"
-			"silence_duration"			"5"
+			"backtrack_time"			"4.0"
+			"cast_range"				"1200 2000 2800 3600"
+			"silence_duration"			"0"
 			"AbilityCooldown"
 			{
-				"value"									"21 18 15 12"
+				"value"									"18 16 14 12"
 				"special_bonus_unique_disruptor_4"		"-12"
 			}
-			"min_damage"				"100"
-			"max_damage"				
+			"min_damage"				"75 150 225 300"
+			"max_damage"
 			{
-				"value"											"200 400 600 800"
-				"special_bonus_unique_disruptor_9"				"400"
+				"value"											"200 300 400 500"
+				"special_bonus_unique_disruptor_9"				"+300"
 			}
-			"max_distance"					"1400"
+			"damage_to_distance_pct"
+			{
+				"value"					"30 45 60 75"
+				"special_bonus_unique_disruptor_9"				"+10"
+
+			}
 		}
+
         "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           "support | mobility"
-        "ReduxPerks"                                                           "support | mobility| lightning | enemymoving"
+        "ReduxPerks"                                                           "support | mobility | lightning | enemymoving"
     }
 }

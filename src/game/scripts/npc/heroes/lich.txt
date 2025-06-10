@@ -39,11 +39,16 @@
 		"AbilityCooldown"				"25 22 19 16"
 		"AbilityValues"
 		{
-			"bonus_movespeed"			"-30 -35 -40 -45"
-			"aura_radius"				"750"
-			"max_hero_attacks"			"2"
+			"bonus_movespeed"			"-25 -35 -45 -55"
+			"aura_radius"				
+			{
+				"value"						"550 600 650 700"
+				"affected_by_aoe_increase"	"1"
+			}
+			"max_hero_attacks"			"4"
+			"max_creep_attacks"			"8"
 			"duration"					"15.0"
-			"slow_duration"				"0.5"
+			"slow_duration"				"0.5"		
 		}
 	}
 
@@ -68,32 +73,12 @@
 	{
 		"ReduxFlags"                                                           "mana"
 		"ReduxPerks"                                                           "drain | self_damage | undead"
-
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"25 20 15 10"
-		"AbilityValues"
-		{
-			"mana_drain"		"5 6 7 8"
-			"attack_count"		"5"
-			"attack_speed"		"100 125 150 175"
-			"health_cost"		"20"
-			"duration"			"15"
-		}
 	}
 
 	"lich_frost_aura"
 	{
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support | ice | aura"
-
-		"MaxLevel"						"4"
-		"AbilityCastRange"				"1200"
-		"AbilityValues"
-		{
-			"movespeed_slow"	"7 14 21 28"
-			"aura_radius"		"1200"
-			"duration"		"1.0 1.5 2.0 2.5"
-		}
 	}
 
 	"special_bonus_unique_lich_1"

@@ -26,9 +26,17 @@
             "damage" "75 100 125 150"
             "projectile_count" "45"
             "stun_duration" "1"
-            "radius" "400"
+            "radius"
+            {
+                "value"	"400"
+                "affected_by_aoe_increase"	"1"
+            }
             "projectile_speed" "1000"
-            "projectile_radius" "135"
+            "projectile_radius"
+            {
+                "value"	"135"
+                "affected_by_aoe_increase"	"1"
+            }
             "projectile_interval" "0.02"
         }
         "OnSpellStart"

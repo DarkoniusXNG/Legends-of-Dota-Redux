@@ -12,7 +12,11 @@
         "AbilityValues"
         {
             "split_chance" "25 50 75"
-            "split_radius" "650"
+            "split_radius"
+            {	
+                "value"	"650"
+                "affected_by_aoe_increase"	"1"
+            }
             "split_amount" "2"
         }
 

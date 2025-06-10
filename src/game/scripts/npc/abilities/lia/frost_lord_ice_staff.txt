@@ -23,8 +23,16 @@
             "movement_slow" "-50"
             "slow_duration" "4"
             "duration" "4 5 6"
-            "radius" "500"
-            "damage_radius" "190"
+            "radius"
+            {
+              "value"			"500"
+              "affected_by_aoe_increase"	"1"
+            }
+            "damage_radius"
+            {
+              "value"			"200"
+              "affected_by_aoe_increase"	"1"
+            }
         }
 
 		"OnSpellStart" {

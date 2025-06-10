@@ -247,7 +247,9 @@ end
 function LightningDagger(keys)
 	local caster = keys.caster
 	local target = keys.target or keys.unit
+	local ability = keys.ability
 
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_lightning_dagger_mark_slow", {})
 end
 
 function lightningDaggerMarkOnAttack(keys)
@@ -257,6 +259,7 @@ function lightningDaggerMarkOnAttack(keys)
 
 	if attacker == caster then
 		LightningDagger(keys)
+		target:RemoveModifierByName("modifier_lightning_dagger_mark")
 	end
 end
 

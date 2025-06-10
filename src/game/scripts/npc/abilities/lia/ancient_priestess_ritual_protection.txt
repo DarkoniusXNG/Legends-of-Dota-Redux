@@ -8,8 +8,8 @@
         "AbilityTextureName"                                                   "custom/ancient_priestess_ritual_protection"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityCastPoint"                                                     "0"
-        "AbilityCooldown"                                                      "55 40 25"
-        "AbilityManaCost"                                                      "100 125 150"
+        "AbilityCooldown"                                                      "55 50 45"
+        "AbilityManaCost"                                                      "100"
 
         "precache"
         {
@@ -20,8 +20,12 @@
         "AbilityValues"
         {
             "damage_absorb" "300 600 900"
-            "radius" "1200"
-            "duration" "15"
+            "radius"				
+            {
+                "value"			"1200"
+                "affected_by_aoe_increase"	"1"
+            }
+            "duration" "20"
         }
 
         "ReduxFlags"                                                           "support"

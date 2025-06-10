@@ -21,7 +21,11 @@
 
 		"AbilityValues"
         {
-            "radius" "700"
+            "radius"				
+			{
+				"value"	"700"
+				"affected_by_aoe_increase"	"1"
+			}
             "heal" "300 450 600"
             "damage" "300 450 600"
             "heal_percent" "10.0 15.0 20.0"

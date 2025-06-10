@@ -6,7 +6,7 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/imba_tower_plasma_field"
         "AbilitySharedWithTeammates"                                           "1"
-        "AbilityCastRange"                                                     "700"
+        "AbilityCastRange"                                                     "%plasma_radius"
         "AbilityCooldown"                                                      "15 14 13"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
 

@@ -9,7 +9,7 @@
         "AbilityValues"
         {
             "bonus_agility" "1 2 3 4"
-            "prt_bonus" "15"
+            "prt_bonus" "20"
             "max_bonus" "200"
         }
         "Modifiers"

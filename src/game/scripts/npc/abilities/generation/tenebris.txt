@@ -39,11 +39,15 @@
         {
             "dps" "30 45 60 75"
             "reflect" "80"
-            "radius" "1600"
+            "radius"				
+            {
+                "value"			"1600"
+                "affected_by_aoe_increase"	"1"
+            }
             "duration" "40"
             "maximum_reflections" "6 10 14 18" // Must be double attacks_to_destroy
             "attacks_to_destroy" "3 5 7 9"
-            "hero_value" "4"
+            "hero_value" "2"
         }
 
         "precache"
@@ -368,7 +372,11 @@
         "AbilityValues"
         {
             "ias" "1.1 1.3 1.5 1.7"
-            "radius" "600 700 800 900"
+            "radius"				
+			{
+				"value"			"900"
+				"affected_by_aoe_increase"	"1"
+			}
             "duration_max" "1.0 1.2 1.4 1.6"
         }
 

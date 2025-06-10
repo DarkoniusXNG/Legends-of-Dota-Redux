@@ -19,8 +19,16 @@
 
         "AbilityValues"
         {
-            "radius" "600"
-            "spot_radius" "200"
+            "radius"
+			{	
+				"value"	"600"
+				"affected_by_aoe_increase"	"1"
+			}	
+            "spot_radius"
+			{	
+				"value"	"200"
+				"affected_by_aoe_increase"	"1"
+			}
             "damage" "65 80 95 110"
             "stun_duration" "1.0"
             "think_interval" "0.1"

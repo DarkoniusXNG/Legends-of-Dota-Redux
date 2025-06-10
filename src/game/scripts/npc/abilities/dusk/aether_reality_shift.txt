@@ -35,7 +35,11 @@
 		"AbilityValues"
         {
             "duration" "3"
-            "radius" "300"
+            "radius"
+			{
+				"value"			"300"
+				"affected_by_aoe_increase"	"1"
+			}
             "stun" "2 3 4"
             "damage" "400 550 700"
             "predamage" "400 550 700"

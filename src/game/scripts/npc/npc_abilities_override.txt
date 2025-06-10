@@ -291,7 +291,11 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityValues"
 		{
-			"aura_radius"			"1200"
+			"aura_radius"
+			{
+				"value"             "1200"
+				"affected_by_aoe_increase"	"1"
+			}
 			"aura_damage"			"30 40 50 60"
 			"aura_interval"			"0.2"
 		}

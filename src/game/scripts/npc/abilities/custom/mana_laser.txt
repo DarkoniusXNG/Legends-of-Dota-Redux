@@ -10,7 +10,11 @@
         "HasScepterUpgrade"              "1"
         "AbilityValues"
         {
-            "search_radius" "900"
+            "search_radius"
+            {
+                "value"	"900"
+                "affected_by_aoe_increase"	"1"
+            }
             "gold_cost" "2500"
             "laser_damage" "140 180 220 260"
             "max_bounces" "4"

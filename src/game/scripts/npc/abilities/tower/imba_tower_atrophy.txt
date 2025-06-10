@@ -6,12 +6,16 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "bane_enfeeble"
         "AbilitySharedWithTeammates"                                           "1"
-        "AbilityCastRange"                                                     "1200"
+        "AbilityCastRange"                                                     "%aura_radius"
         "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
             "damage_reduction" "-30 -45 -60"
-            "aura_radius" "1200"
+            "aura_radius"
+			{
+				"value"			"1200"
+				"affected_by_aoe_increase"	"1"
+			}
         }
         "Modifiers"
         {

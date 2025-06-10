@@ -37,14 +37,15 @@ function spell_lab_bfg:OnChannelFinish (bInterrupt)
 	local extra = {id = self.proid, dmg = self.damage}
 	self.capture[self.proid] = {}
 	local fCastRange = self:GetCastRange(self:GetCursorPosition(),hCaster)
+	local radius = self:GetSpecialValueFor("radius")
   local info =
   {
     Ability = self,
     EffectName = "particles/spell_lab/bfg_linear.vpcf",
     vSpawnOrigin = hCaster:GetAbsOrigin(),
     fDistance = fCastRange,
-    fStartRadius = 500,
-    fEndRadius = 500,
+    fStartRadius = radius,
+    fEndRadius = radius,
     Source = hCaster,
     bHasFrontalCone = false,
     bReplaceExisting = false,
@@ -55,7 +56,7 @@ function spell_lab_bfg:OnChannelFinish (bInterrupt)
     bDeleteOnHit = false,
     vVelocity = hCaster:GetForwardVector() * fCastRange * 0.75,
     bProvidesVision = true,
-    iVisionRadius = 1000,
+    iVisionRadius = radius,
     iVisionTeamNumber = hCaster:GetTeamNumber(),
 		ExtraData = extra
   }
@@ -92,7 +93,7 @@ function spell_lab_bfg:Explosion(vPosition, tExtra)
 			end
 		end
 	local particleName = "particles/spell_lab/bfg_aoe.vpcf"
- local aoe = 500
+	local aoe = self:GetSpecialValueFor("radius")
 
 	--silly field of view
 	AddFOWViewer(hCaster:GetTeamNumber(), vPosition, 350, 1.0, false)

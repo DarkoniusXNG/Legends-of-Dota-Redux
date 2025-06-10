@@ -1,5 +1,5 @@
 "DOTAAbilities" {
-	"lightning_lightning_dagger2"
+	"lightning_lightning_dagger2" // non-bouncing mark datadriven
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -11,31 +11,31 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"custom/lightning_lightning_dagger"
-		
-			// Casting
+
+		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
-		"AbilityCastRange"				"900"
-		"AbilityCooldown"				"1"
-		
+		"AbilityCastRange"				"900 1000 1100 1200"
+		"AbilityCooldown"				"4.5"
+
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"30"
-		
+
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"50 100 150 200"
+		"AbilityDamage"					"60 110 160 210"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "duration" "1.5"
-            "mark_slow" "-300"
-            "mark_slow_duration" "1.75"
-            "mark_aoe" "350"
+            "duration"                  "3" // mark duration and base slow duration
+            "base_slow"                 "-50"
+            "mark_slow"                 "-250"
+            "mark_slow_duration"        "2"
         }
-		
+
 		// Data driven
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
@@ -44,7 +44,7 @@
 			"particle"							"particles/units/heroes/hero_lightning/lightning_dagger_mark_main.vpcf"
 			"particle" 							"particles/units/heroes/hero_stormspirit/stormspirit_overload_discharge.vpcf"
 		}
-		
+
 		"OnSpellStart"
 		{
 			"TrackingProjectile"
@@ -70,7 +70,7 @@
 				"Function"		"blinding_speed_increase_stack"
 			}
 		}
-		
+
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"						"1"
@@ -89,7 +89,18 @@
 
 			"ApplyModifier"
 			{
-				"ModifierName"	"modifier_lightning_dagger_slow"
+				"ModifierName"	"modifier_lightning_dagger_slow_datadriven"
+				"Target"
+				{
+					"Center"  	"TARGET"
+					"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				}
+			}
+
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_lightning_dagger_mark"
 				"Target"
 				{
 					"Center"  	"TARGET"
@@ -103,25 +114,18 @@
 				"EffectName"		"Hero_PhantomAssassin.Dagger.Target"
 				"Target"			"TARGET"
 			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"abilities/dusk/lightning_abilities.lua"
-				"Function"		"LightningDagger"
-			}
-
 		}
-		
+
 		"Modifiers"
 		{
-			"modifier_lightning_dagger_slow"
+			"modifier_lightning_dagger_slow_datadriven"
 			{
 				"IsDebuff"	"1"
 				"Duration"	"%duration"
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"-300"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%base_slow"
 				}
 			}
 
@@ -156,8 +160,8 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-				"Duration"			"5"
-			
+				"Duration"			"%duration"
+
 				"EffectName"		"particles/units/heroes/hero_lightning/lightning_dagger_mark_main.vpcf"
 				"EffectAttachType"	"follow_overhead"
 

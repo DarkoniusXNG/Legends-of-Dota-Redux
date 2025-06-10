@@ -12,10 +12,18 @@
 
 		"AbilityValues"
         {
-            "radius" "300"
-            "mana_percentage" "25"
-            "coil_radius" "240"
-            "duration" "5"
+            "radius"				
+			{
+				"value"			"300"
+				"affected_by_aoe_increase"	"1"
+			}
+            "mana_percentage" "15"
+            "coil_radius"				
+			{
+				"value"			"240"
+				"affected_by_aoe_increase"	"1"
+			}
+            "duration" "8"
         }
 
 		"precache"

@@ -13,16 +13,24 @@
 		"AbilityCastPoint"              "0.2"
 		"AbilityCooldown"               "40 35 30 25"
 		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-		"AbilityManaCost"               "120"
+		"AbilityManaCost"               "100 110 120 130"
 		"AbilityChannelTime"      "15"
 
 		"ReduxPerks"                                                           "channeled | earth"
 
 		"AbilityValues"
         {
-            "radius" "300"
-            "spot_radius" "110"
-            "damage" "70"
+            "radius"
+			{	
+				"value"	"300"
+				"affected_by_aoe_increase"	"1"
+			}	
+            "spot_radius"
+			{	
+				"value"	"110"
+				"affected_by_aoe_increase"	"1"
+			}
+            "damage" "70 75 80 85"
             "stun_duration" "0.8"
             "think_interval" "0.40 0.35 0.30 0.25"
             "tooltip_channel" "15"

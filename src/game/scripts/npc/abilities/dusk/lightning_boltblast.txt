@@ -37,7 +37,11 @@
             "movespeed_slow" "-70"
             "attack_slow" "-70"
             "slow_duration" "1.6 2.0 2.4 2.6"
-            "radius" "350"
+            "radius"				
+			{
+				"value"	"350"
+				"affected_by_aoe_increase"	"1"
+			}
         }
 		
 		"precache"

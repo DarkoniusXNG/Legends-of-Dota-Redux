@@ -12,7 +12,11 @@
         }
         "AbilityValues"
         {
-            "heal_radius" "600"
+            "heal_radius"
+            {	
+                "value"	"600"
+                "affected_by_aoe_increase"	"1"
+            }
             "hero_max_hp_heal" "20 40 60 80"
             "non_hero_max_hp_heal" "15 20 25 30"
         }

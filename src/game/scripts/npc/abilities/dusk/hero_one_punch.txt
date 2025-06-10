@@ -40,7 +40,11 @@
         {
             "crit" "150 175 200"
             "landing_delay" "1.0"
-            "landing_aoe" "500"
+            "landing_aoe"				
+				{
+					"value"	"500"
+					"affected_by_aoe_increase"	"1"
+				}
             "landing_damage" "200 250 300"
             "landing_stun" "1.5 1.75 2.0"
             "scepter_crit" "175 200 225"

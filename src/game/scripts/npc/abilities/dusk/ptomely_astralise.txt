@@ -16,8 +16,8 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"AoERadius"						"400"
 		"AbilityTextureName"			"custom/ptomely_astralise"
+
 		"ReduxPerks"					"support"
 		"ReduxFlags"					"stun | support"
 
@@ -25,6 +25,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.30"
+		"AoERadius"						"%radius"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -39,12 +40,16 @@
 		"AbilityValues"
         {
             "damage" "70 140 210 270"
-            "radius" "500"
-            "pulse_damage" "50 75 100 125"
+            "radius"				
+			{
+				"value"	"500"
+				"affected_by_aoe_increase"	"1"
+			}
+            "pulse_damage" "60 80 100 120"
             "interval" "0.5"
             "duration" "2.5"
             "pulse_duration" "4.0"
-            "ally_heal" "50"
+            "ally_heal" "75"
         }
 		
 		"precache"

@@ -26,7 +26,11 @@
             "cooldown_reduction"        "20 30 40"
             "armor_reduction"           "1 1.5 2"
             "duration"                  "8.0"
-            "radius"                    "1200"
+            "radius"
+            {
+                "value"                 "1200"
+                "affected_by_aoe_increase"	"1"
+            }
         }
 
         "precache"

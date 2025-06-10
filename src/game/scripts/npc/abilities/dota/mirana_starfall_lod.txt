@@ -21,8 +21,16 @@
         "AbilityCastAnimation"                                                 "ACT_DOTA_CAST_ABILITY_1"
         "AbilityValues"
         {
-            "starfall_radius" "625"
-            "starfall_secondary_radius" "175"
+            "starfall_radius"	
+            {
+                "value"			"675"		
+                "affected_by_aoe_increase"	"1"
+            }
+            "starfall_secondary_radius"
+            {
+                "value"			"400"
+                "affected_by_aoe_increase"	"1"
+            }
             "starfall_delay" "0.57"
             "starfall_secondary_damage_pct" "0.75"
             "starfall_secondary_targets" "1"

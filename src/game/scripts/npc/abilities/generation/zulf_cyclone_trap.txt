@@ -10,7 +10,7 @@
         "AbilityProcsMagicStick"                                               "1"
         "AbilityCastPoint"                                                     "0.4 0.4 0.4 0.4"
         "AbilityCastRange"                                                     "750 1000 1250 1500"
-        "AOERadius"                                                            "100"
+        "AOERadius"                                                            "%radius"
         "AbilityCooldown"                                                      "16 13 10 7"
         "AbilityManaCost"                                                      "55 60 65 70"
         "AbilityValues"

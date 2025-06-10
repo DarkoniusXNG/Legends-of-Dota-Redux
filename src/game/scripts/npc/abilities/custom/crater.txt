@@ -16,7 +16,11 @@
         "AbilityValues"
         {
             "projectile_speed" "10000"
-            "crater_radius" "450"
+            "crater_radius"		
+			{
+				"value"	"450"
+				"affected_by_aoe_increase"	"1"
+			}
             "crater_damage" "120 180 240 300"
             "crater_duration" "3.5 4 4.5 5"
             "marker_speed" "2000"

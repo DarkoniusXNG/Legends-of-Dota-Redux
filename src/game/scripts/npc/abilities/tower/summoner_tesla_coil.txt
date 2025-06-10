@@ -13,7 +13,6 @@
         "SpellDispellableType"                                                 "SPELL_DISPELLABLE_YES"
         "IsBreakable"                                                          "1"
 
-        "AbilityCastPoint"                                                     "0"
         "AbilityCooldown"                                                      "0"
         "AbilityManaCost"                                                      "0"
 

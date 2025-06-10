@@ -10,6 +10,7 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"custom/lightning_blinding_speed"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -30,7 +31,11 @@
         {
             "speed" "1400 1500 1600"
             "damage" "110 190 270"
-            "radius" "150"
+            "radius"				
+			{
+				"value"	"150"
+				"affected_by_aoe_increase"	"1"
+			}
             "duration" "6"
             "scepter_speed" "1750 2000 2375"
         }

@@ -6,6 +6,10 @@
 		"AbilityTextureName" "custom/ancient_priestess_surge_of_intelligence"
 		"AbilityCastPoint" "0.3"
 
+		"AbilityCooldown"                                                      "8" // min cooldown
+
+		"ReduxPerks"                                                           "lightning"
+
 		"precache"
 		{
 			"particle" "particles/leshrac_diabolic_edict_custom.vpcf"
@@ -14,7 +18,11 @@
 
 		"AbilityValues"
         {
-            "radius_damage" "500"
+            "radius_damage"
+			{
+				"value"			"500"
+				"affected_by_aoe_increase"	"1"
+			}
             "koef_damage" "3 6 9 12"
         }
 

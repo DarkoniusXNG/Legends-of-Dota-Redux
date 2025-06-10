@@ -20,8 +20,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000"
 		"AbilityCastPoint"				"0.4"
-		
-		// Time		
+
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"13 12 11 10"
 
@@ -37,13 +37,21 @@
         {
             "damage" "90 160 230 300"
             "stun" "1.2 1.6 2.0 2.4"
-            "speed" "1500"
-            "width" "180"
+            "speed" "1800" // 200 less than range is optimal
+            "width"
+            {
+                "value"	"100"
+                "affected_by_aoe_increase"	"1"
+            }
             "range" "2000"
             "scepter_units" "6"
-            "scepter_radius" "180"
+            "scepter_radius"
+            {
+                "value"	"180"
+                "affected_by_aoe_increase"	"1"
+            }
         }
-		
+
 		"precache"
 		{
 			"particle" "particles/units/heroes/hero_tusk/tusk_ice_shards_projectile.vpcf"
