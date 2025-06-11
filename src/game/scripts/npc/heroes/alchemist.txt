@@ -73,7 +73,7 @@
 	"alchemist_chemical_rage"
 	{
 		"ReduxFlags"                    "tank"
-		"ReduxPerks"                    "scientific | rage"
+		"ReduxPerks"                    "rage | scientific | transformation"
 		"ReduxCost"                     "80"
 	}
 

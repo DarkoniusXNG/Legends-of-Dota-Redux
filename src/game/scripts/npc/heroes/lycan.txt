@@ -21,8 +21,8 @@
 
 	"lycan_shapeshift"
 	{
-		"ReduxFlags"                                                           "mobility | crit | attack_modifier"
-		"ReduxPerks"                                                           "mobility | attack_modifier | rage"
+		"ReduxFlags"                                                           "attack_modifier | crit | mobility"
+		"ReduxPerks"                                                           "attack_modifier | mobility | rage | transformation"
 	}
 
 	"lycan_wolf_bite"

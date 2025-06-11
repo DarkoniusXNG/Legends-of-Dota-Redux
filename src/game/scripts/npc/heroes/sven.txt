@@ -23,7 +23,7 @@
 	"sven_gods_strength"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | rage"
+		"ReduxPerks"                                                           "attack_modifier | rage | transformation"
 		"ReduxCost"                                                            "20"
 	}
 

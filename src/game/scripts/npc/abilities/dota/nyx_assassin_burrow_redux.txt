@@ -11,7 +11,7 @@
 		"AbilityCastPoint"				"1.5"
 		
 		"ReduxFlags"                    "mana | cooldown | dota_custom | tank"
-		"ReduxPerks"                    "earth"
+		"ReduxPerks"                    "earth | transformation"
 
 		"precache"
 		{

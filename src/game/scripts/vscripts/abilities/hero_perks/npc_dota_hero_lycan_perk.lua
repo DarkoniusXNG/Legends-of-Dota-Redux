@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Lycan
---		Perk: 
+--		Perk: Bonus night vision + while transformed: Phased, reduced cds and mana costs
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_lycan_perk = modifier_npc_dota_hero_lycan_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -22,4 +22,43 @@ end
 
 function modifier_npc_dota_hero_lycan_perk:GetTexture()
 	return "custom/npc_dota_hero_lycan_perk"
+end
+
+function modifier_npc_dota_hero_lycan_perk:CheckState()
+  local state = {}
+
+  -- Check for transformation
+  if not self:GetParent():IsTransformedCustom() then
+    state[MODIFIER_STATE_NO_UNIT_COLLISION] = true
+  end
+
+  return state
+end
+
+function modifier_npc_dota_hero_lycan_perk:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
+		MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
+	}
+end
+
+function modifier_npc_dota_hero_lycan_perk:GetModifierPercentageCooldown(keys)
+	local parent = self:GetParent()
+	if parent:IsTransformedCustom() then
+		return 25
+	end
+	return 0
+end
+
+function modifier_npc_dota_hero_lycan_perk:GetModifierPercentageManacostStacking(keys)
+	local parent = self:GetParent()
+	if parent:IsTransformedCustom() then
+		return 25
+	end
+	return 0
+end
+
+function modifier_npc_dota_hero_lycan_perk:GetBonusNightVision()
+	return 1000
 end

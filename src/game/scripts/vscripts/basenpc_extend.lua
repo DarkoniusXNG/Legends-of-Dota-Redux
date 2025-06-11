@@ -456,6 +456,59 @@ if CDOTA_BaseNPC then
 		end
 		return 0
 	end
+
+	function CDOTA_BaseNPC:IsTransformedCustom()
+		local transformations = {
+			"modifier_abaddon_borrowed_time",                 -- transformation modifier and an ultimate
+			"modifier_abaddon_borrowed_time_damage_redirect", -- transformation modifier and an ultimate
+			"modifier_alchemist_chemical_rage",               -- transformation modifier and an ultimate
+			"modifier_brewmaster_primal_split_duration",
+			"modifier_dragon_knight_dragon_form",             -- transformation modifier and an ultimate,
+			"modifier_earthspirit_petrify",
+			"modifier_lone_druid_true_form",                  -- transformation modifier and an ultimate
+			"modifier_lycan_shapeshift",                      -- transformation modifier and an ultimate
+			"modifier_lycan_shapeshift_speed",                -- transformation modifier and an ultimate
+			"modifier_monkey_king_transform",
+			"modifier_morphling_replicate_manager",
+			"modifier_morphling_replicate_timer",
+			"modifier_muerta_pierce_the_veil_buff",
+			"modifier_night_stalker_darkness",                -- Nightstalker Dark Ascension (transformation modifier and an ultimate)
+			"modifier_nyx_assassin_burrow",
+			"modifier_pangolier_gyroshell",                   -- transformation modifier and an ultimate
+			"modifier_phoenix_sun",
+			"modifier_shadow_shaman_fowl_play_damage_reduction",
+			"modifier_skeleton_king_reincarnation_scepter_active", -- Wraith King Wraith Form
+			"modifier_sven_gods_strength",                    -- transformation modifier and an ultimate
+			"modifier_sven_gods_strength_child",              -- transformation modifier and an ultimate
+			"modifier_terrorblade_metamorphosis",             -- transformation modifier
+			"modifier_terrorblade_metamorphosis_transform_aura_applier",  -- transformation modifier
+			"modifier_troll_warlord_battle_trance",           -- transformation modifier and an ultimate
+			"modifier_undying_flesh_golem",                   -- transformation modifier and an ultimate
+			"modifier_undying_flesh_golem_plague_aura",       -- transformation modifier and an ultimate
+			--"modifier_batrider_firefly",
+			--"modifier_death_prophet_exorcism",
+			--"modifier_sand_king_epicenter",
+			--"modifier_winter_wyvern_arctic_burn_flight",
+			-- custom:
+			"metamorphosis_mod",
+			"modifier_demonic",
+			"modifier_siege_mode",
+			"night_wolf_mod",
+			"spectral_form_mod",
+		}
+
+		for _, v in pairs(transformations) do
+			if self:HasModifier(v) then
+				return true
+			end
+		end
+
+		if self:IsHexed() then
+			return true
+		end
+
+		return false
+	end
 end
 
 if C_DOTA_BaseNPC then
@@ -518,5 +571,58 @@ if C_DOTA_BaseNPC then
 			return self:FindAbilityByName(talentName):GetSpecialValueFor(value_name)
 		end
 		return 0
+	end
+
+	function C_DOTA_BaseNPC:IsTransformedCustom()
+		local transformations = {
+			"modifier_abaddon_borrowed_time",                 -- transformation modifier and an ultimate
+			"modifier_abaddon_borrowed_time_damage_redirect", -- transformation modifier and an ultimate
+			"modifier_alchemist_chemical_rage",               -- transformation modifier and an ultimate
+			"modifier_brewmaster_primal_split_duration",
+			"modifier_dragon_knight_dragon_form",             -- transformation modifier and an ultimate,
+			"modifier_earthspirit_petrify",
+			"modifier_lone_druid_true_form",                  -- transformation modifier and an ultimate
+			"modifier_lycan_shapeshift",                      -- transformation modifier and an ultimate
+			"modifier_lycan_shapeshift_speed",                -- transformation modifier and an ultimate
+			"modifier_monkey_king_transform",
+			"modifier_morphling_replicate_manager",
+			"modifier_morphling_replicate_timer",
+			"modifier_muerta_pierce_the_veil_buff",
+			"modifier_night_stalker_darkness",                -- Nightstalker Dark Ascension (transformation modifier and an ultimate)
+			"modifier_nyx_assassin_burrow",
+			"modifier_pangolier_gyroshell",                   -- transformation modifier and an ultimate
+			"modifier_phoenix_sun",
+			"modifier_shadow_shaman_fowl_play_damage_reduction",
+			"modifier_skeleton_king_reincarnation_scepter_active", -- Wraith King Wraith Form
+			"modifier_sven_gods_strength",                    -- transformation modifier and an ultimate
+			"modifier_sven_gods_strength_child",              -- transformation modifier and an ultimate
+			"modifier_terrorblade_metamorphosis",             -- transformation modifier
+			"modifier_terrorblade_metamorphosis_transform_aura_applier",  -- transformation modifier
+			"modifier_troll_warlord_battle_trance",           -- transformation modifier and an ultimate
+			"modifier_undying_flesh_golem",                   -- transformation modifier and an ultimate
+			"modifier_undying_flesh_golem_plague_aura",       -- transformation modifier and an ultimate
+			--"modifier_batrider_firefly",
+			--"modifier_death_prophet_exorcism",
+			--"modifier_sand_king_epicenter",
+			--"modifier_winter_wyvern_arctic_burn_flight",
+			-- custom:
+			"metamorphosis_mod",
+			"modifier_demonic",
+			"modifier_siege_mode",
+			"night_wolf_mod",
+			"spectral_form_mod",
+		}
+
+		for _, v in pairs(transformations) do
+			if self:HasModifier(v) then
+				return true
+			end
+		end
+
+		if self:IsHexed() then
+			return true
+		end
+
+		return false
 	end
 end
