@@ -261,18 +261,16 @@ function modifier_imba_chen_divine_favor:OnCreated()
 end
 
 function modifier_imba_chen_divine_favor:DeclareFunctions()
-	local decFuncs = {
-		MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+	return {
+		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 		
 		MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE -- IMBAfication: Pure Devotion
     }
-
-    return decFuncs
 end
 
-function modifier_imba_chen_divine_favor:GetModifierHPRegenAmplify_Percentage()
+function modifier_imba_chen_divine_favor:GetModifierHealAmplify_PercentageTarget()
 	return self.heal_amp
 end
 
@@ -326,18 +324,16 @@ function modifier_imba_chen_divine_favor_aura_buff:OnCreated()
 end
 
 function modifier_imba_chen_divine_favor_aura_buff:DeclareFunctions()
-	local decFuncs = {
-		MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+	return {
+		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 		
 		MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE -- IMBAfication: Pure Devotion
     }
-
-    return decFuncs
 end
 
-function modifier_imba_chen_divine_favor_aura_buff:GetModifierHPRegenAmplify_Percentage()
+function modifier_imba_chen_divine_favor_aura_buff:GetModifierHealAmplify_PercentageTarget()
 	return self.heal_amp_aura
 end
 
@@ -597,8 +593,8 @@ function imba_chen_holy_persuasion:OnSpellStart()
 		self:GetCaster():AddExperience(commonwealth_xp_self, 2, true, true)
 		self:GetCaster():ModifyGold(commonwealth_gold_self, false, 13)
 		
-		SendOverheadEventMessage(nil, OVERHEAD_ALERT_XP, self:GetCaster(), commonwealth_xp_self, nil)
-		SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, self:GetCaster(), commonwealth_gold_self, nil)
+		SendOverheadEventMessage(self:GetCaster():GetPlayerOwner(), OVERHEAD_ALERT_XP, self:GetCaster(), commonwealth_xp_self, nil)
+		SendOverheadEventMessage(self:GetCaster():GetPlayerOwner(), OVERHEAD_ALERT_GOLD, self:GetCaster(), commonwealth_gold_self, nil)
 		
 		-- Give the rest to everyone else
 		local ally_num = PlayerResource:GetPlayerCountForTeam(self:GetCaster():GetTeamNumber())
@@ -614,8 +610,8 @@ function imba_chen_holy_persuasion:OnSpellStart()
 				hero:AddExperience(commonwealth_xp_others, 2, true, true)
 				hero:ModifyGold(commonwealth_gold_others, false, 13)
 				
-				SendOverheadEventMessage(nil, OVERHEAD_ALERT_XP, hero, commonwealth_xp_self, nil)
-				SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, hero, commonwealth_gold_self, nil)
+				SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_XP, hero, commonwealth_xp_self, nil)
+				SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, commonwealth_gold_self, nil)
 			end
 		end	
 	else -- Same-team logic

@@ -86,8 +86,7 @@ function PlainsRunnerAgility( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local agi_bonus = ability:GetLevelSpecialValueFor("agility_bonus", ability:GetLevel() - 1) / 100
-	local extra_movespeed = caster:GetMoveSpeedModifier(caster:GetBaseMoveSpeed()) - caster:GetBaseMoveSpeed()
-			-- extra_movespeed = caster:GetModifierMoveSpeedBonus_Constant() - caster:GetBaseMoveSpeed()
+	local extra_movespeed = caster:GetMoveSpeedModifier(caster:GetBaseMoveSpeed(), false) - caster:GetBaseMoveSpeed()
 
 	local total_bonus = math.floor(extra_movespeed * agi_bonus)
 

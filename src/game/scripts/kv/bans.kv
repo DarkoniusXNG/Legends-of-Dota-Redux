@@ -14,88 +14,97 @@
             // Ban ToggleSpells
             "ToggleSpells"                      "2"
 
-            // Ban skillz
-            "abaddon_aphotic_shield"            "1"
-            "abaddon_death_coil"                "1"
-            "ancient_apparition_ice_vortex"     "1"
-            "antimage_blink"                    "1"
-            "arc_warden_spark_wraith"           "1"
-            "axe_battle_hunger"                 "1"
-            "batrider_sticky_napalm"            "1"
-            "bloodseeker_blood_rage"            "1"
-            "bounty_hunter_track"               "1"
-            "bristleback_quill_spray"           "1"
-            "bristleback_viscous_nasal_goo"     "1"
-            "chaos_knight_reality_rift"         "1"
-            "dazzle_shadow_wave"                "1"
-            "earthshaker_enchant_totem"         "1"
-            //"elder_titan_ancestral_spirit"      "1"
-            "gyrocopter_rocket_barrage"         "1"
-            "leshrac_lightning_storm"           "1"
-            "lich_frost_armor"                  "1"
-            "lion_mana_drain"                   "1"
-            "luna_lucent_beam"                  "1"
-            "necrolyte_death_pulse"             "1"
-            "oracle_purifying_flames"           "1"
-            "phantom_assassin_phantom_strike"   "1"
-            "puck_phase_shift"                  "1"
-            "pugna_nether_blast"                "1"
-            "queenofpain_blink"                 "1"
-            "shadow_demon_shadow_poison"        "1"
-            "shredder_timber_chain"             "1"
-            "skywrath_mage_arcane_bolt"         "1"
-            "slark_dark_pact"                   "1"
-            "storm_spirit_static_remnant"       "1"
-            "templar_assassin_meld"             "1"
-            "tidehunter_anchor_smash"           "1"
-            "tinker_rearm"                      "1"
-            //"treant_natures_guise"              "1" // it's a passive now
-            "undying_decay"                     "1"
-            "venomancer_plague_ward"            "1"
-            "weaver_shukuchi"                   "1"
-            "zuus_arc_lightning"                "1"
+			// Ban spells with low cd and near 0 mana cost
+			"abaddon_aphotic_shield"            "1"
+			"abaddon_death_coil"                "1"
+			"abyssal_underlord_dark_rift_oaa"   "1" // because of the sub-ability, 0 mana cost but has cd
+			"ancient_apparition_ice_vortex"     "1"
+			"antimage_blink"                    "1"
+			"arc_warden_spark_wraith"           "1"
+			"axe_battle_hunger"                 "1"
+			"batrider_sticky_napalm"            "1"
+			"bloodseeker_blood_rage"            "1"
+			"bounty_hunter_track"               "1"
+			"bristleback_quill_spray"           "1"
+			"bristleback_viscous_nasal_goo"     "1"
+			"chaos_knight_reality_rift"         "1"
+			"dazzle_shadow_wave"                "1"
+			"earthshaker_enchant_totem"         "1"
+			"eat_tree_eldri"                    "1"
+			"forest_troll_high_priest_heal"     "1"
+			"gyrocopter_rocket_barrage"         "1"
+			"harpy_storm_chain_lightning"       "1"
+			"leshrac_lightning_storm"           "1"
+			"lich_frost_armor"                  "1"
+			"lion_mana_drain"                   "1"
+			"luna_lucent_beam"                  "1"
+			"necrolyte_death_pulse"             "1"
+			"oracle_purifying_flames"           "1"
+			"phantom_assassin_phantom_strike"   "1"
+			"phantom_assassin_stifling_dagger"  "1"
+			"phoenix_sun_ray"                   "1" // because of sub-abilities
+			"proteus_jet"                       "1"
+			"puck_phase_shift"                  "1"
+			"pugna_nether_blast"                "1"
+			"queenofpain_blink"                 "1"
+			"shadow_demon_shadow_poison"        "1"
+			"shredder_timber_chain"             "1"
+			"skywrath_mage_arcane_bolt"         "1"
+			"slark_dark_pact"                   "1"
+			"spectre_reality"                   "1" // 0 mana cost but has cd
+			"storm_spirit_static_remnant"       "1"
+			"techies_focused_detonate"          "1" // 0 mana cost but has cd
+			"techies_remote_mines"              "1" // because of sub-ability, 0 mana cost but has cd
+			"templar_assassin_meld"             "1"
+			"tidehunter_anchor_smash"           "1"
+			"tinker_rearm"                      "1"
+			"undying_decay"                     "1"
+			"venomancer_plague_ward"            "1"
+			"weaver_shukuchi"                   "1"
+			"zuus_arc_lightning"                "1"
+			//"furion_teleportation"              "1" // needs lvl 25 talent for 0 cd
+			//"meepo_poof"                        "1" // long cast time
+			//"spectre_haunt"                     "1" // sub-ability not active while on cd
+			//"spectre_haunt_single"              "1" // sub-ability not active while on cd
+			//"treant_natures_guise"              "1" // it's a passive now
         }
 
-        // Toggle spells
+        // Toggle spells and spells with 0 cd and 0 mana cost
         "ToggleSpells" {
-            "ability_wards"                     "1"
-            "ability_wards_op"                  "1"
-            "cherub_synthesis"                  "1"
-            "courier_go_to_secretshop"          "1"
-            "courier_return_stash_items"        "1"
-            "courier_return_to_base"            "1"
-            "courier_take_stash_items"          "1"
-            "courier_transfer_items"            "1"
-            "elder_titan_return_spirit"         "1"
-            "forest_troll_high_priest_heal"     "1"
-            //"furion_teleportation"              "1" // not a toggle
-            //"harpy_storm_chain_lightning"       "1" // not a toggle
-            "holdout_multishot"                 "1"
-            "leshrac_pulse_nova"                "1"
-            "life_stealer_assimilate"           "1"
-            "life_stealer_consume"              "1"
-            "life_stealer_infest"               "1" // You get consume, which can be spammmmed
-            "lod_item_power_treads"             "1" // Amazing when toggling aftershock!
-            //"medusa_mana_shield"                "1" // it's a passive
-            "medusa_split_shot"                 "1"
-            //"meepo_poof"                        "1" // not a toggle
-            "morph_agi_int_redux"               "1"
-            "morph_int_agi_redux"               "1"
-            "morph_int_str_redux"               "1"
-            "morph_str_int_redux"               "1"
-            "morphling_morph_agi"               "1"
-            "morphling_morph_str"               "1"
-            "nyx_assassin_burrow"               "1" // Why you do this, valve?
-            "nyx_assassin_burrow_redux"         "1"
-            "proteus_jet"                       "1"
-            "pudge_rot"                         "1"
-            //"riki_blink_strike"                 "1" // not a toggle, charge based though
-            //"shredder_chakram"                  "1" // not a toggle
-            "spectre_reality"                   "1" // Can be used over and over
-            "techies_focused_detonate"          "1"
-            "troll_warlord_berserkers_rage"     "1"
-            //"wisp_overcharge"                   "1" // not a toggle anymore
-            "witch_doctor_voodoo_restoration"   "1"
+			"ability_wards"                     "1"
+			"ability_wards_op"                  "1"
+			"butcher_zombie"                    "1" // toggle
+			"cherub_synthesis"                  "1" // toggle
+			"elder_titan_ancestral_spirit"      "1" // because of sub-abilities
+			"elder_titan_move_spirit"           "1"
+			"elder_titan_return_spirit"         "1"
+			"keen_commander_siege_mode"         "1"
+			"leshrac_pulse_nova"                "1"
+			"life_stealer_consume"              "1"
+			"life_stealer_infest"               "1" // because of sub-abilities
+			"mars_bulwark"                      "1" // toggle
+			"medusa_split_shot"                 "1" // toggle
+			"morph_agi_int_redux"               "1" // toggle
+			"morph_int_agi_redux"               "1" // toggle
+			"morph_int_str_redux"               "1" // toggle
+			"morph_str_int_redux"               "1" // toggle
+			"morphling_morph_agi"               "1" // toggle
+			"morphling_morph_str"               "1" // toggle
+			"muerta_gunslinger"                 "1" // toggle
+			"nyx_assassin_burrow"               "1"
+			"nyx_assassin_burrow_redux"         "1" 
+			"nyx_assassin_unburrow"             "1"
+			"pudge_rot"                         "1" // toggle
+			"troll_warlord_switch_stance"       "1" // toggle
+			"uther_Argent_Smite"                "1" // toggle
+			"warp_beast_warp"                   "1" // toggle
+			"witch_doctor_voodoo_restoration"   "1" // toggle
+			"zuus_lightning_hands"              "1" // toggle
+			//"harpy_scout_take_off"              "1"// toggle but has cd
+			//"medusa_mana_shield"                "1" // it's a passive
+			//"phantom_lancer_phantom_edge"       "1"// toggle but has cd
+			//"riki_blink_strike"                 "1" // not a toggle, charge based though
+			//"wisp_overcharge"                   "1" // not a toggle anymore
         }
     }
 
@@ -129,29 +138,19 @@
             "winter_wyvern_arctic_burn"         "1"
         }
 
-        // Chemical Rages
-        "3" {
-            "alchemist_chemical_rage"            "1"
-            "custom_bot_chemical_rage"           "1"
-        }
-
-        // Shadow Dances
-        "4" {
-            "custom_bot_shadow_dance"            "1"
-            "slark_shadow_dance"                 "1"
-        }
-
         // Bash
-        "5" {
-            "faceless_void_time_lock"               "1"
-            "imba_tower_permabash"                  "1"
-            "roshan_bash"                           "1"
-            "slardar_bash"                          "1"
-            "spirit_breaker_greater_bash"           "1"
-            //"troll_warlord_berserkers_rage"         "1" // not a bash anymore
+        "3" {
+			"faceless_void_time_lock"               "1"
+			"imba_tower_permabash"                  "1"
+			"roshan_bash"                           "1"
+			"slardar_bash"                          "1"
+			"spirit_breaker_greater_bash"           "1"
+			"kez_shodo_sai"                         "1"
+			//"troll_warlord_berserkers_rage"         "1" // not a bash anymore
+			"zeros_blade_of_malice"                 "1"
         }
         // Flesh heaps
-        "6" {
+        "4" {
             "angel_arena_tome_agi"                  "1"
             "angel_arena_tome_gods"                 "1"
             "angel_arena_tome_int"                  "1"
@@ -160,26 +159,29 @@
             "lina_banana_redux"                     "1"
             "lina_coconut_redux"                    "1"
             "lina_grapefruit_redux"                 "1"
-            "pudge_flesh_heap"                      "1"
-            "pudge_flesh_heap_agility"              "1"
-            "pudge_flesh_heap_agility"              "1"
-            "pudge_flesh_heap_armor"                "1"
-            "pudge_flesh_heap_attack_range"         "1"
-            "pudge_flesh_heap_cast_range"           "1"
-            "pudge_flesh_heap_cooldown_reduction"   "1"
-            "pudge_flesh_heap_int"                  "1"
-            "pudge_flesh_heap_lifesteal"            "1"
-            "pudge_flesh_heap_magic_resistance"     "1"
-            "pudge_flesh_heap_move_speed"           "1"
-            "pudge_flesh_heap_spell_amp"            "1"
-            "pudge_flesh_heap_spell_lifesteal"      "1"
+			"pudge_flesh_heap_agility"              "1"
+			"pudge_flesh_heap_armor"                "1"
+			"pudge_flesh_heap_attack_range"         "1"
+			"pudge_flesh_heap_attack_speed"         "1"
+			"pudge_flesh_heap_bonus_vision"         "1"
+			"pudge_flesh_heap_cast_range"           "1"
+			"pudge_flesh_heap_cooldown_reduction"   "1"
+			"pudge_flesh_heap_evasion"              "1"
+			"pudge_flesh_heap_health_regeneration"  "1"
+			"pudge_flesh_heap_int"                  "1"
+			"pudge_flesh_heap_magic_resistance"     "1"
+			"pudge_flesh_heap_mana_regeneration"    "1"
+			"pudge_flesh_heap_minion_damage"        "1"
+			"pudge_flesh_heap_move_speed"           "1"
+			"pudge_flesh_heap_spell_amp"            "1"
+			"pudge_flesh_heap_str"                  "1"
+			"pudge_flesh_heap_willpower"            "1"
             "spell_lab_souls_agi"                   "1"
             "spell_lab_souls_armor"                 "1"
             "spell_lab_souls_attack_range"          "1"
             "spell_lab_souls_attack_speed"          "1"
             "spell_lab_souls_cast_range"            "1"
             "spell_lab_souls_cooldown"              "1"
-            "spell_lab_souls_damage"                "1"
             "spell_lab_souls_damage"                "1"
             "spell_lab_souls_evasion"               "1"
             "spell_lab_souls_health_regen"          "1"
@@ -211,11 +213,9 @@
             "spell_lab_survivor_spell_vamp"         "1"
             "spell_lab_survivor_str_survival"       "1"
             "spell_lab_survivor_vision"             "1"
-            //"pudge_flesh_heap_bonus_vision"       "1"
-            //"pudge_flesh_heap_evasion"            "1"
         }
         // Cooldown manipulation abilities
-        "7" {
+        "5" {
             "death_prophet_witchcraft"                  "1"
             "dazzle_bad_juju_redux"                     "1"
             "jingtong"                                  "1"
@@ -234,7 +234,7 @@
             //"holdout_gods_strength"                   "1"
             //"proteus_rarefaction"                     "1"
         }
-        "8" {
+        "6" {
             "spell_lab_void_step"                   "1"
             "spirit_breaker_greater_bash"           "1"
         }
@@ -423,51 +423,5 @@
     // Abiltiies that won't have their cooldowns lowered by our patch
     "noWitchcraft" {
         "chi_strike"                    "1"
-        "death_prophet_carrion_swarm"   "1"
-        "death_prophet_silence"         "1"
-    }
-
-    // Skills that are never allowed on a tower
-    "noTowerAlways" {
-        "pudge_flesh_heap"              "1"
-        "riki_permanent_invisibility"   "1" //Towers become unclickable
-        "troll_warlord_berserkers_rage" "1"
-        "vengefulspirit_command_aura"   "1"
-    }
-
-    // Stop tower from getting these abilities
-    "noTower" {
-        "brewmaster_drunken_brawler"    "#noTowerOP"
-        "dragon_knight_dragon_blood"    "#noTowerLongGame"
-        "faceless_void_backtrack"       "#noTowerOP"
-        "life_stealer_feast"            "#noTowerOP"
-        "lod_item_heart"                "#noTowerLongGame"
-        "lod_item_helm_of_the_dominator""#noTowerLongGame"
-        "lod_item_lifesteal"            "#noTowerLongGame"
-        "lod_item_mask_of_madness"      "#noTowerLongGame"
-        "lod_item_satanic"              "#noTowerLongGame"
-        "medusa_split_shot"             "#noTowerActivate"
-        "necrolyte_sadist"              "#noTowerOP"
-        "phantom_assassin_blur"         "#noTowerOP"
-        "pudge_flesh_heap"              "#noTowerCrash"
-        "riki_permanent_invisibility"   "#noTowerNoAttack"
-        "shredder_reactive_armor"       "#noTowerLongGame"
-        "slark_shadow_dance"            "#noTowerLongGame"
-        "troll_warlord_berserkers_rage" "#noTowerCrash"
-        "ursa_fury_swipes"              "#noTowerOP"
-        "vengefulspirit_command_aura"   "#noTowerCrash"
-    }
-
-    // Skills that can not be used on bears
-    "noBear" {
-        "pudge_flesh_heap"                  "1"
-        "troll_warlord_berserkers_rage"     "1"
-        "vengefulspirit_command_aura"       "1"
-    }
-
-    // timelock geminate attack
-    "timelockgemi" {
-        "faceless_void_time_lock"  "1"
-        "weaver_geminate_attack" "1"
     }
 }

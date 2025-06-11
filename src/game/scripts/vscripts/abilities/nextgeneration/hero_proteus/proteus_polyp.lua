@@ -96,6 +96,6 @@ function PolypBonusDamage(keys)
 			damage_type = DAMAGE_TYPE_PHYSICAL,
 			ability = ability,
 		})
-		SendOverheadEventMessage( owner:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, owner.bonusDamage, nil )
+		SendOverheadEventMessage( nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, owner.bonusDamage, nil )
 	end
 end

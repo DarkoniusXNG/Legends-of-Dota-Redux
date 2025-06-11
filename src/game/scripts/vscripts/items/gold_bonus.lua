@@ -3,8 +3,7 @@ if IsServer() then
   function gold_bonus:OnSpellStart()
     local caster = self:GetCaster()
     local gold = math.floor(self:GetGold())
-    
-    -- SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, caster, gold, nil)
+
     if caster:HasModifier("gold_bonus_modifier") then
       local d = caster:FindModifierByName("gold_bonus_modifier"):GetRemainingTime()
       caster:FindModifierByName("gold_bonus_modifier"):SetDuration(d + gold, true)

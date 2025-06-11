@@ -2033,14 +2033,14 @@
 		"AbilityTextureName"					"treant_overgrowth"
 		"MaxLevel"								"3"
 		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
+		"AbilityCastRange"						"%root_radius"
 		"AbilityCooldown"						"10 9 8"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "root_radius" "900"
+            "root_radius" "800 900 1000"
             "root_duration" "2.0 2.5 3.0"
             "root_damage" "30 50 70"
             "min_creeps" "4"

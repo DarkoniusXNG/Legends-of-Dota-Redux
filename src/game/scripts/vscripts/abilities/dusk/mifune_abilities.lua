@@ -39,7 +39,7 @@ function ouichi(keys)
 	DealDamage(target,caster,fd,DAMAGE_TYPE_PURE)
 
 	local tp,cp = PlayerResource:GetPlayer(target:GetPlayerOwnerID()),PlayerResource:GetPlayer(caster:GetPlayerOwnerID())
-	SendOverheadEventMessage(tp or cp, OVERHEAD_ALERT_CRITICAL, target, math.ceil(fd), cp)
+	SendOverheadEventMessage(tp or cp, OVERHEAD_ALERT_CRITICAL, target, math.ceil(fd), nil)
 
 	ParticleManager:CreateParticle("particles/units/heroes/hero_skeletonking/skeleton_king_weapon_blur_critical.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster) --[[Returns:int
 	Creates a new particle effect

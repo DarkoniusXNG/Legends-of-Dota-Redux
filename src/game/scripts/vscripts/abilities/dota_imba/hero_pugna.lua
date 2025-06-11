@@ -481,7 +481,7 @@ function modifier_imba_decrepify:OnDestroy()
 					-- If the unit is an ally, heal it
 					if unit:GetTeamNumber() == self.caster:GetTeamNumber() then
 						unit:Heal(heal, self.caster)
-						SendOverheadEventMessage(unit, OVERHEAD_ALERT_HEAL, unit, heal, unit)
+						SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, unit, heal, nil)
 					else
 						-- If the unit is an enemy, damage it
 						local damageTable = {victim = unit,

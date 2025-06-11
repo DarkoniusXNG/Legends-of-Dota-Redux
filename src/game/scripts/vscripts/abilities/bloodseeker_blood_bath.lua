@@ -41,7 +41,6 @@ function modifier_bloodseeker_blood_bath_t:OnDeath(keys)
       return 
     end
 
-
     local healRadius = self:GetAbility():GetSpecialValueFor("heal_radius")
     local heal
     if unit:GetRangeToUnit(victim) <= healRadius or attacker == unit then
@@ -53,7 +52,7 @@ function modifier_bloodseeker_blood_bath_t:OnDeath(keys)
         heal = percentOfMaxHealth * victim:GetMaxHealth()
       end
       unit:Heal(heal,unit)
-      SendOverheadEventMessage(unit,OVERHEAD_ALERT_HEAL,unit,heal,nil)
+      SendOverheadEventMessage(unit:GetPlayerOwner(),OVERHEAD_ALERT_HEAL,unit,heal,nil)
       local healParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_bloodbath.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
       ParticleManager:SetParticleControl(healParticle, 1, Vector(radius, radius, radius))
       ParticleManager:ReleaseParticleIndex(healParticle)

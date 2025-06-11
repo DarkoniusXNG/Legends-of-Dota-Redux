@@ -10,7 +10,7 @@
 	"dragon_knight_elder_dragon_form"
 	{
 		"ReduxFlags"                                                           "attack_modifier | upgradeable"
-		"ReduxPerks"                                                           "attack_modifier | dragon"
+		"ReduxPerks"                                                           "attack_modifier | dragon | transformation"
 		"ReduxCost"                                                            "10"
 	}
 

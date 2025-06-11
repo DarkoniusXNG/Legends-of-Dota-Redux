@@ -5,14 +5,21 @@
 		"AbilityTextureName"	"faceless_void_backtrack"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"HotKeyOverride"	"D"
+
 		"AbilityCastPoint"	"0.0"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate"	"4"
 		"AbilityCooldown"	"14 12 10 8"
+
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | teleport"
+
 		"precache"
 		{
+			"particle"  "particles/econ/items/faceless_void/faceless_void_jewel_of_aeons/fv_time_walk_jewel.vpcf"
+			"particle"  "particles/units/heroes/hero_faceless_void/faceless_void_timedialate.vpcf"
 		}
+
 		"OnSpellStart"
 		{
 			"RunScript"

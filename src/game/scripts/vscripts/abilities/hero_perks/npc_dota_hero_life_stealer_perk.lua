@@ -68,7 +68,7 @@ if IsServer() then
       return
     end
 
-	-- Don't heal while dead
+    -- Don't heal while dead
     if not attacker:IsAlive() then
       return
     end
@@ -98,7 +98,7 @@ if IsServer() then
       return
     end
 
-	-- Normal lifesteal should not work for spells and magic damage attacks
+    -- Normal lifesteal should not work for spells and magic damage attacks
     if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK or event.damage_type ~= DAMAGE_TYPE_PHYSICAL or event.inflictor then
       return
     end

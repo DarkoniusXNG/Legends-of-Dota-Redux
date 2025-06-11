@@ -10,7 +10,7 @@
 		"AbilityTextureName"			"custom/spectral_form"
 		"HasScepterUpgrade"			"1"
 
-		"ReduxPerks"                                                           "undead"
+		"ReduxPerks"                                                           "transformation | undead"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

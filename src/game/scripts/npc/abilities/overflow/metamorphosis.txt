@@ -29,5 +29,6 @@
             "base_damage_scepter" "120 160 240"
         }
         "ReduxCost"                                                            "40"
+        "ReduxPerks"                                                           "transformation"
     }
 }

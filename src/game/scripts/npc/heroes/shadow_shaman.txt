@@ -61,7 +61,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 
 		"ReduxFlags"                                                           "upgradeable | wtfAutoBan"
-		"ReduxPerks"                                                           "hex | illusion"
+		"ReduxPerks"                                                           "hex | illusion | transformation"
 	}
 
 	"special_bonus_unique_shadow_shaman_1"

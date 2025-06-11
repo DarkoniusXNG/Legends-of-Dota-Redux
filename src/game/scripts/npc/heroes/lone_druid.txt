@@ -128,7 +128,7 @@
 	"lone_druid_true_form"
 	{
 		"ReduxFlags"                                                           "tank"
-		"ReduxPerks"                                                           "nature"
+		"ReduxPerks"                                                           "nature | transformation"
 	}
 
 	"special_bonus_unique_lone_druid_1"

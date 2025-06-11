@@ -32,7 +32,7 @@
 	//=================================================================================================================
 	"night_stalker_darkness"
 	{
-		"ReduxPerks"                                                           "demon | mobility"
+		"ReduxPerks"                                                           "demon | mobility | transformation"
 		"ReduxFlags"                                                           "mobility"
 	}
 

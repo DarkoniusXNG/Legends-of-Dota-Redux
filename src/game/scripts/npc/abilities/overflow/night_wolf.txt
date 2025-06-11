@@ -27,5 +27,6 @@
         }
 
         "ReduxCost"                                                            "20"
+        "ReduxPerks"                                                           "transformation"
     }
 }

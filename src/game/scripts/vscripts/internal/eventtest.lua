@@ -57,7 +57,6 @@ function duskDota:StartEventTest()
 	ListenToGameEvent("item_schema_initialized", Dynamic_Wrap(duskDota, 'On_item_schema_initialized'), self)
 	ListenToGameEvent("drop_rate_modified", Dynamic_Wrap(duskDota, 'On_drop_rate_modified'), self)
 	ListenToGameEvent("event_ticket_modified", Dynamic_Wrap(duskDota, 'On_event_ticket_modified'), self)
-	ListenToGameEvent("modifier_event", Dynamic_Wrap(duskDota, 'On_modifier_event'), self)
 	ListenToGameEvent("dota_player_kill", Dynamic_Wrap(duskDota, 'On_dota_player_kill'), self)
 	ListenToGameEvent("dota_player_deny", Dynamic_Wrap(duskDota, 'On_dota_player_deny'), self)
 	ListenToGameEvent("dota_barracks_kill", Dynamic_Wrap(duskDota, 'On_dota_barracks_kill'), self)
@@ -617,12 +616,6 @@ end
 
 function duskDota:On_event_ticket_modified(data)
   print("[DUSKDOTA] event_ticket_modified")
-  PrintTable(data)
-end
-
-
-function duskDota:On_modifier_event(data)
-  print("[DUSKDOTA] modifier_event")
   PrintTable(data)
 end
 

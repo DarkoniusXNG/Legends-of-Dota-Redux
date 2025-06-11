@@ -37,7 +37,7 @@ function modifier_medical_tractate:OnCreated(event)
 	self.health_bonus = 40
 	self.mana_bonus = 20
 
-	SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, self:GetCaster(), self:GetCaster().medical_tractates, nil)
+	SendOverheadEventMessage(nil, OVERHEAD_ALERT_MANA_ADD, self:GetCaster(), self:GetCaster().medical_tractates, nil)
 end
 
 function modifier_medical_tractate:GetModifierManaBonus(event)

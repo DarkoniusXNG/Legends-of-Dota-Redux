@@ -145,7 +145,7 @@ if IsServer() then
 			end
 
 			local heal = params.unit:GetMaxHealth() * self:GetAbility():GetSpecialValueFor("health_bonus_pct") / 100
-			SendOverheadEventMessage( self:GetCaster():GetOwner(), OVERHEAD_ALERT_HEAL , self:GetParent(), heal, self:GetCaster() )
+			SendOverheadEventMessage( self:GetParent():GetPlayerOwner(), OVERHEAD_ALERT_HEAL , self:GetParent(), heal, nil )
 			params.attacker:Heal(heal, self:GetCaster())
 			local healFX = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 			ParticleManager:ReleaseParticleIndex(healFX)

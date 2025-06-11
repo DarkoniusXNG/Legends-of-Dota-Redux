@@ -1222,7 +1222,7 @@
 		{
 			"bonus_strength"        "40"
 			"bonus_health"          "0"
-			"health_regen_pct"      "1.6"
+			"health_regen_pct"      "1.4"
 		}
 	}
     

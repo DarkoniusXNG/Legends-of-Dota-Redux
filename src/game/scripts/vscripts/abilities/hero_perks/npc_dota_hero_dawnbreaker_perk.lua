@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Dawnbreaker
---		Perk: Dawnbreaker gains hp regen amplification and lifesteal amplification for every level of Light spells she has.
+--		Perk: Dawnbreaker gains all health restoration amp for every level of Light spells she has.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_dawnbreaker_perk = modifier_npc_dota_hero_dawnbreaker_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -47,15 +47,48 @@ end
 
 function modifier_npc_dota_hero_dawnbreaker_perk:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-		MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+		--MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+		--MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+		MODIFIER_EVENT_ON_HEALTH_GAINED,
 	}
 end
 
-function modifier_npc_dota_hero_dawnbreaker_perk:GetModifierHPRegenAmplify_Percentage()
-	return self:GetStackCount()
-end
+--function modifier_npc_dota_hero_dawnbreaker_perk:GetModifierHPRegenAmplify_Percentage()
+	--return self:GetStackCount()
+--end
 
-function modifier_npc_dota_hero_dawnbreaker_perk:GetModifierLifestealRegenAmplify_Percentage()
-	return self:GetStackCount()
+--function modifier_npc_dota_hero_dawnbreaker_perk:GetModifierLifestealRegenAmplify_Percentage()
+	--return self:GetStackCount()
+--end
+
+if IsServer() then
+  function modifier_npc_dota_hero_dawnbreaker_perk:OnHealthGained(event)
+    local parent = self:GetParent()
+    local unit_that_gained_hp = event.unit
+
+    -- Check if unit has this modifier
+    if unit_that_gained_hp ~= parent then
+      return
+    end
+
+    local gained_hp = event.gain
+
+    -- Check if gained health is negative or 0
+    if gained_hp <= 0 then
+      return
+    end
+
+    -- Prevent looping
+    if self.flag then
+      return
+    end
+
+    local extra_health = gained_hp * self:GetStackCount() / 100
+
+    -- Imitate heal amp and health restoration amp
+    self.flag = true
+    --parent:Heal(extra_health, nil)
+    parent:HealWithParams(extra_health, nil, false, false, parent, false)
+    self.flag = false
+  end
 end

@@ -177,7 +177,7 @@ function modifier_imba_juggernaut_blade_fury:OnIntervalThink()
 				
 				self:GetParent():EmitSound("Hero_Juggernaut.PreAttack")
 				damage = damage * crit
-				SendOverheadEventMessage(self:GetCaster(), OVERHEAD_ALERT_CRITICAL, enemy, damage, self:GetCaster())
+				SendOverheadEventMessage(nil, OVERHEAD_ALERT_CRITICAL, enemy, damage, nil)
 			else
 				self.prng = self.prng + 1
 			end

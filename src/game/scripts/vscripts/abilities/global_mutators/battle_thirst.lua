@@ -87,7 +87,7 @@ function modifier_battle_thirst_aura:OnIntervalThink(keys)
 			-- Little alert above players to indicate they are losing gold
 			parent.alertTicker = parent.alertTicker or 3
 			if parent.alertTicker == 3 then
-				SendOverheadEventMessage( parent, OVERHEAD_ALERT_DENY , parent, 1, nil )
+				SendOverheadEventMessage( parent:GetPlayerOwner(), OVERHEAD_ALERT_DENY , parent, 1, nil )
 				parent.alertTicker = 0
 			else
 				parent.alertTicker = parent.alertTicker + 1

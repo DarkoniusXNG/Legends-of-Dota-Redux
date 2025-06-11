@@ -173,7 +173,7 @@
 
 	"undying_flesh_golem"
 	{
-		"ReduxPerks"                                                           "undead"
+		"ReduxPerks"                                                           "transformation | undead"
 	}
 
 	"clinkz_bone_and_arrow"
@@ -193,7 +193,7 @@
 
 	"muerta_pierce_the_veil"
 	{
-		"ReduxPerks"                                                           "undead"
+		"ReduxPerks"                                                           "transformation | undead"
 	}
 
 	"muerta_ofrenda"
@@ -318,6 +318,7 @@
 			"duration"          "12"
 			"damage_growth"		"10"
 			"disarm_duration"	"2 3 4 5"
+			"windup_time"		"0.5"
 		}
 	}
 
@@ -1922,7 +1923,7 @@
 	"phoenix_supernova"
 	{
 		"ReduxFlags"                                                           "upgradeable | stun | cooldown"
-		"ReduxPerks"                                                           "fire"
+		"ReduxPerks"                                                           "fire | transformation"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 	"puck_dream_coil"
@@ -2185,7 +2186,7 @@
 	}
 	"troll_warlord_battle_trance"
 	{
-		"ReduxPerks"                                                           "rage"
+		"ReduxPerks"                                                           "rage | transformation"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 
@@ -2332,7 +2333,7 @@
 	"nyx_assassin_burrow"
 	{
 		"ReduxFlags"                    "invis | mana | tank | upgradeable | cooldown"
-		"ReduxPerks"                    "earth | invis"
+		"ReduxPerks"                    "earth | invis | transformation"
 		"ReduxCost"                     "100"
 		"ReduxBans"                     "nyx_assassin_burrow_redux"
 
@@ -2554,6 +2555,7 @@
 	{
 		"ReduxFlags"                                                           "bash | attack_modifier"
 		"ReduxPerks"                                                           "bash | attack_modifier"
+		"ReduxBans"                                                            "weaver_geminate_attack"
 		"ReduxCost"                                                            "120"
 	}
 	"troll_warlord_berserkers_rage"
@@ -2561,7 +2563,7 @@
 		"ReduxFlags"                                                           "attack_modifier | semi_passive"
 		"ReduxPerks"                                                           "attack_modifier | rage"
 		"ReduxCost"                                                            "30"
-		"ReduxBans"                                                            "lone_druid_true_form"
+		//"ReduxBans"                                                            "lone_druid_true_form"
 	}
 
 	"doom_bringer_infernal_blade"
@@ -2903,7 +2905,7 @@
 	"pangolier_gyroshell"
 	{
 		"ReduxFlags"                                                           "mobility | stun | physical | aoe_attack"
-		"ReduxPerks"                                                           "mobility | enemymoving | physical"
+		"ReduxPerks"                                                           "mobility | enemymoving | physical | transformation"
 	}
 
 	"dark_willow_bramble_maze"
@@ -2970,7 +2972,7 @@
 	"morphling_replicate"
 	{
 		"ReduxFlags"                                                           "illusion | upgradeable"
-		"ReduxPerks"                                                           "water | illusion"
+		"ReduxPerks"                                                           "illusion | transformation | water"
 		"ReduxCost"                                                            "120"
 	}
 	"morphling_hybrid"
@@ -3121,7 +3123,7 @@
 	"morphling_morph_replicate"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
-		"ReduxPerks"                                                           "water"
+		"ReduxPerks"                                                           "transformation | water"
 	}
 	"slark_dark_pact"
 	{
@@ -3605,14 +3607,14 @@
 	"terrorblade_metamorphosis"
 	{
 		"ReduxCost"                                                            "30"
-		"ReduxPerks"                                                           "demon"
+		"ReduxPerks"                                                           "demon | transformation"
 	}
 
 	"earth_spirit_petrify"
 	{
 		"ReduxCost"                     "20"
 		"ReduxFlags"                    "stun | doNotRandom | support | upgradeable"
-		"ReduxPerks"					"earth | support"
+		"ReduxPerks"					"earth | support | transformation"
 		"ReduxBans"                     "tinker_rearm | dazzle_bad_juju_redux"
 		"MaxLevel"						"4"
 		"AbilityCastRange"				"175"
@@ -3699,6 +3701,7 @@
 	"monkey_king_mischief"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "transformation"
 	}
 	"monkey_king_wukongs_command"
 	{
