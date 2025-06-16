@@ -71,6 +71,8 @@
 	"tiny_rocksteady"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_tiny_perk"
+
 		"Innate"                                                               "0"
 
 		"ReduxPerks"                                                           "earth"
@@ -82,6 +84,8 @@
 	"tiny_insurmountable"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_tiny_perk"
+
 		"Innate"                                                               "0"
 
 		"ReduxPerks"                                                           "earth"

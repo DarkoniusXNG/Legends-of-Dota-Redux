@@ -69,7 +69,8 @@
 	//=================================================================================================================
 	"warlock_black_grimoire"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_warlock_perk"
 
 		"ReduxFlags"                                                           "doNotRandom | support"
 		"ReduxPerks"                                                           "demon | support"

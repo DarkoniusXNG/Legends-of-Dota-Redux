@@ -43,6 +43,8 @@
 	"axe_one_man_army"
 	{
 		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                "custom/npc_dota_hero_axe_perk"
+
 		"ReduxFlags"                        "tank"
 	}
 

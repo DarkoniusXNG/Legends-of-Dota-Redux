@@ -51,7 +51,8 @@
 	//=================================================================================================================
 	"leshrac_chronoptic_nourishment"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_leshrac_perk"
 
 		"ReduxFlags"                                                           "attack_modifier | mana | doNotRandom"
 		"ReduxPerks"                                                           "attack_modifier | light"

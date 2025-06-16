@@ -74,7 +74,8 @@
 	//=================================================================================================================
 	"elder_titan_momentum"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_elder_titan_perk"
 	}
 
 	//=================================================================================================================

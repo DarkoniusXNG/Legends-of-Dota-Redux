@@ -26,7 +26,8 @@
 	//=================================================================================================================
 	"batrider_stoked"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires Flaming Lasso
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires Flaming Lasso
+		"AbilityTextureName"            "custom/npc_dota_hero_batrider_perk"
 
 		"ReduxFlags"                    "mobility | doNotRandom"
 		"ReduxPerks"                    "enemymoving | mobility"

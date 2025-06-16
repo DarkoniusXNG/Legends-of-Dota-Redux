@@ -49,7 +49,8 @@
 	//=================================================================================================================
 	"omniknight_healing_hammer"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_omniknight_perk"
 
 		"ReduxFlags"                                                           "doNotRandom | support"
 		"ReduxPerks"                                                           "light | support"

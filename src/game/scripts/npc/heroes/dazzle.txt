@@ -97,7 +97,8 @@
 	//=================================================================================================================
 	"dazzle_nothl_boon"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_dazzle_perk"
 
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support"

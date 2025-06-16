@@ -47,7 +47,8 @@
 	//=================================================================================================================
 	"lina_slow_burn"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_lina_perk"
 
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "fire"

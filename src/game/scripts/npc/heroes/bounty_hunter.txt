@@ -38,7 +38,8 @@
 	//=================================================================================================================
 	"bounty_hunter_cutpurse"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires Track
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires Track
+		"AbilityTextureName"            "custom/npc_dota_hero_bounty_hunter_perk"
 
 		"Innate"                                                               "0"
 

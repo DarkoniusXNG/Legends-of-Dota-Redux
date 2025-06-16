@@ -53,7 +53,8 @@
 	//=================================================================================================================
 	"witch_doctor_innate_maledict_heal_reduction"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_witch_doctor_perk"
 
 		"ReduxFlags"                                                           "doNotRandom"
 	}

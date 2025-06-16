@@ -30,7 +30,8 @@
 	//=================================================================================================================
 	"chaos_knight_phantasmagoria"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_chaos_knight_perk"
 
 		"ReduxFlags"                                                           "illusion"
 		"ReduxPerks"                                                           "illusion"
@@ -52,7 +53,8 @@
 	//=================================================================================================================
 	"chaos_knight_fundamental_forging"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_chaos_knight_perk"
 
 		"ReduxFlags"                                                           "doNotRandom"
 	}

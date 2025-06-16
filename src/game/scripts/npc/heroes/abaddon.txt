@@ -25,7 +25,8 @@
 	//=================================================================================================================
 	"abaddon_the_quickening"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_abaddon_perk"
 
 		"ReduxFlags"                    "cooldown"
 	}
