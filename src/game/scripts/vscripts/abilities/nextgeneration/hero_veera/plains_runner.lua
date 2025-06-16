@@ -12,7 +12,10 @@ function PlainsRunnerInitialize( keys )
 	local level = ability:GetLevel() - 1
 	caster.movespeed_max = ability:GetLevelSpecialValueFor("movespeed_limit", level)
 
-	caster:AddNewModifier(caster, ability, 'modifier_movespeed_cap', {})
+	-- Removes the move speed cap
+	if not caster:HasModifier("modifier_movespeed_cap") then
+		caster:AddNewModifier(caster, ability, "modifier_movespeed_cap", {})
+	end
 end
 
 function PlainsRunnerDistanceCheck( keys )
