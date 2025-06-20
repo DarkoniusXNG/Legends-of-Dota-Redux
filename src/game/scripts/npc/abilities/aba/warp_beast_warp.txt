@@ -6,7 +6,7 @@
     "ScriptFile"                                          "abilities/aba/warp_beast_warp.lua"
     "AbilityTextureName"                                  "custom/warp_beast_warp"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
 	
     "ReduxFlags"                                          "mana | semi_passive"
 

@@ -5,9 +5,8 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/spell_lab/survivor/cleave.lua"
         "AbilityTextureName"                                                   "custom/survivor_icon_wip"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "HasScepterUpgrade"                                                    "0"
+
         "AbilityValues"
         {
             "bonus" "2.0 4.0 6.0 8.0" // cleave percent

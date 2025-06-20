@@ -1,7 +1,7 @@
 "DOTAAbilities" {
 	"holdout_gladiators_unite" {
 		"AbilityTextureName" "custom/holdout_gladiators_unite_lod"
-		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType" "ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange" "1200"

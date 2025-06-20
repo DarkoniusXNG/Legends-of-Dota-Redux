@@ -5,7 +5,7 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityCastPoint"                                                     "0.3"
         "AbilityTextureName"                                                   "custom/angel_arena_roots"

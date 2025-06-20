@@ -5,7 +5,7 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/epic_boss_fight/ebf_clinkz_trickshot.lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityTextureName"                                                   "custom/ebf_clinkz_trickshot_passive"
 
         "HasScepterUpgrade"                                                    "1"

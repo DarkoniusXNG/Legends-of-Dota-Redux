@@ -5,9 +5,8 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/spell_lab/survivor/mana_regen.lua"
         "AbilityTextureName"                                                   "custom/survivor_mana_regen"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "HasScepterUpgrade"                                                    "0"
+
         "AbilityValues"
         {
             "bonus" "1 2 3 4"

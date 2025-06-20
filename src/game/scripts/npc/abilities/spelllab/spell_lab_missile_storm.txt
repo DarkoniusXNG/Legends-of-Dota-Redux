@@ -9,9 +9,8 @@
         "AbilityManaCost"                                                      "100 110 120 130"
         "AbilityCastRange"                                                     "900"
         "AbilityCastPoint"                                                     "0.1"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-        "HasScepterUpgrade"                                                    "0"
+
         "AbilityValues"
         {
             "damage" "100 150 200 250"
@@ -22,7 +21,7 @@
             "soundfile"                                                    "soundevents/spell_lab_sounds.vsndevts"
             "particle"                                                     "particles/spell_lab/storm_missile.vpcf"
         }
-        "ReduxFlags"                                                           ""
+        //"ReduxFlags"                                                           ""
         "ReduxBans"                                                            "blink_support"
         //"ReduxPerks"                                                           "support | mobility"
         "ReduxCost"                                                            "40"

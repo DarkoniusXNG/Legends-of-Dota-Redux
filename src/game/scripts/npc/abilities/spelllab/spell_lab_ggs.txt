@@ -5,7 +5,7 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/spell_lab/ggs/ggs.lua"
         "AbilityTextureName"                                                   "custom/spell_lab_ggs"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityCooldown"                                                      "50 45 40"
         "AbilityManaCost"                                                      "25"
         "AbilityCastRange"                                                     "2000"

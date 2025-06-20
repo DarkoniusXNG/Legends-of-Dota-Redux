@@ -7,7 +7,7 @@
         "AbilityTextureName"                                                   "custom/imba_tower_permabash"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCooldown"                                                      "4 3 2"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
             "bash_damage" "50 100 150"

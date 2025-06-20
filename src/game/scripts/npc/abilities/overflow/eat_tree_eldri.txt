@@ -6,7 +6,7 @@
 		"BaseClass"                     "ability_lua"
 		"ScriptFile"                    "abilities/overflow/eat_tree_eldri/ability.lua"
 		"AbilityTextureName"            "custom/eat_tree_eldri"
-		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"                   "ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_TREE"

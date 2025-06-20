@@ -9,7 +9,7 @@
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityTextureName"                                                   "custom/paladin_impregnability"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityCooldown"                                                      "90.0 80.0 70.0"
         "AbilityManaCost"                                                      "150 200 250"
         "AbilityCastPoint"                                                     "0.5"

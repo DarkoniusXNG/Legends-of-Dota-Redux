@@ -5,7 +5,6 @@
 		"ReduxFlags"					"stun | support"
 		"ReduxPerks"                    "support | neutral" // not enemymoving because the caster and the target are not moving
 
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"MaxLevel"					"4"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCastRange"				"200 250 300 350"
@@ -27,7 +26,7 @@
 		"ReduxFlags"														   "doNotRandom"
 		"ReduxPerks"                                                           "rage"
 
-		"AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"				"45.0 40.0 35.0"
 		"AbilityValues"
@@ -65,9 +64,6 @@
 	{
 		"ReduxFlags"                    "stun"
 		"ReduxPerks"                    "nature"
-
-		"MaxLevel"                      "4"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 
 	"lone_druid_spirit_bear_demolish"
@@ -154,49 +150,49 @@
 
 	"special_bonus_unique_lone_druid_1"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
 	}
 	"special_bonus_unique_lone_druid_2"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
 	}
 	"special_bonus_unique_lone_druid_3"
 	{
-	   "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	   "AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 	   "TalentRequiredAbility"                                                    "lone_druid_spirit_bear_demolish"
 	}
 	"special_bonus_unique_lone_druid_4"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "lone_druid_savage_roar"
 	}
 	"special_bonus_unique_lone_druid_5"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
 	}
 	"special_bonus_unique_lone_druid_6"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "lone_druid_spirit_link"
 	}
 	"special_bonus_unique_lone_druid_7"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"
@@ -207,14 +203,14 @@
 	}
 	"special_bonus_unique_lone_druid_8"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "lone_druid_true_form"
 	}
 	"special_bonus_unique_lone_druid_9"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"
@@ -225,21 +221,21 @@
 	}
 	"special_bonus_unique_lone_druid_10"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
 	}
 	"special_bonus_unique_lone_druid_11"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
 	}
 	"special_bonus_unique_lone_druid_12"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"
@@ -250,7 +246,7 @@
 	}
 	"special_bonus_unique_lone_druid_entangle_dps"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"
@@ -261,14 +257,14 @@
 	}
 	"special_bonus_unique_lone_druid_spirit_link_attack_speed"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "lone_druid_spirit_link"
 	}
 	"special_bonus_unique_lone_druid_savage_roar_aoe"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "lone_druid_savage_roar"

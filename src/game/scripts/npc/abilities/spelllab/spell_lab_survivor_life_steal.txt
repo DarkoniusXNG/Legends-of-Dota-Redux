@@ -5,13 +5,8 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/spell_lab/survivor/life_steal.lua"
         "AbilityTextureName"                                                   "custom/survival_life_steal"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "HasScepterUpgrade"                                                    "0"
-    		"precache"
-    		{
-          "particle"    "particles/generic_gameplay/generic_lifesteal.vpcf"
-        }
+
         "AbilityValues"
         {
             "bonus" "2 5 8 11"

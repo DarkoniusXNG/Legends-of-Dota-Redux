@@ -6,7 +6,7 @@
         "ScriptFile"                                                           "abilities/life_in_arena/ancient_priestess_ritual_protection.lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityTextureName"                                                   "custom/ancient_priestess_ritual_protection"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityCastPoint"                                                     "0"
         "AbilityCooldown"                                                      "55 50 45"
         "AbilityManaCost"                                                      "100"

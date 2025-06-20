@@ -100,7 +100,7 @@
 
 	"special_bonus_unique_kez_falcon_rush_duration"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
@@ -109,7 +109,7 @@
 
 	"special_bonus_unique_kez_raptor_dance_radius"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
@@ -118,7 +118,7 @@
 
 	"special_bonus_unique_kez_kazura_katana_bleed_damage"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
@@ -127,7 +127,7 @@
 
 	"special_bonus_unique_kez_mark_damage"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
@@ -136,7 +136,7 @@
 
 	"special_bonus_unique_kez_echo_slash_strike_count"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
@@ -145,7 +145,7 @@
 
 	// "special_bonus_unique_kez_ultimate_cooldown"
 	// {
-		// "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		// "AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		// "BaseClass"						"special_bonus_base"
 
@@ -158,7 +158,7 @@
 
 	"special_bonus_unique_kez_raptor_dance_strikes"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
@@ -167,7 +167,7 @@
 
 	"special_bonus_unique_kez_talon_toss_attack_factor"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 

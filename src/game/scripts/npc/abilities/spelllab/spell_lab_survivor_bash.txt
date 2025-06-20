@@ -5,10 +5,9 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/spell_lab/survivor/bash.lua"
         "AbilityTextureName"                                                   "custom/survival_bash"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "HasScepterUpgrade"                                                    "0"
         "AbilityCooldown"                                                      "1.25"
+
         "AbilityValues"
         {
             "bonus" "2.5 5.0 6.5 8.0" // chance

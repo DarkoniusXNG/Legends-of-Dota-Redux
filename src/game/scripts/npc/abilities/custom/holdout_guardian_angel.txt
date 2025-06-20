@@ -4,7 +4,7 @@
 		"AbilityTextureName" "custom/omniknight_guardian_angel"
 		"ItemBaseLevel" "0"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType" "ABILITY_TYPE_ULTIMATE"
 		"AbilityCooldown" "120.0"
 		"AbilityCastPoint" "0.5"
 		"AbilityManaCost" "250 350 450"

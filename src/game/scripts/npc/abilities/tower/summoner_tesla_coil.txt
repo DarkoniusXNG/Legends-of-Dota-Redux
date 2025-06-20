@@ -5,7 +5,7 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/dusk/summoner_tesla_coil.lua"
         "AbilityTextureName"                                                   "custom/summoner_tesla"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"

@@ -5,9 +5,8 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/spell_lab/survivor/cast_range.lua"
         "AbilityTextureName"                                                   "custom/survival_cast_range"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "HasScepterUpgrade"                                                    "0"
+
         "AbilityValues"
         {
             "bonus" "25.0 50.0 75.0 100.0"

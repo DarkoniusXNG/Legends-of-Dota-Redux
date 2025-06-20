@@ -9,7 +9,7 @@
         "AbilityUnitTargetFlags"                                               "DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityTextureName"                                                   "custom/illusionist_mastery_of_illusions"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityCastRange"                                                     "700"
         "AbilityCastPoint"                                                     "0.0"
         "AbilityCooldown"                                                      "30.0"

@@ -5,9 +5,8 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/spell_lab/souls/tenacity.lua"
         "AbilityTextureName"                                                   "custom/souls/evasion"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "HasScepterUpgrade"                                                    "0"
+
         "precache"
         {
             "particle"                                                     "particles/spell_lab/soul_remnant.vpcf"
@@ -18,8 +17,8 @@
             "per_soul" "0.5"
             "max" "100 150 200 250"
         }
-        "ReduxFlags"                                                           ""
-        "ReduxBans"                                                            ""
+        //"ReduxFlags"                                                           ""
+        //"ReduxBans"                                                            ""
         //"ReduxPerks"                                                           ""
         "ReduxCost"                                                            "40"
     }

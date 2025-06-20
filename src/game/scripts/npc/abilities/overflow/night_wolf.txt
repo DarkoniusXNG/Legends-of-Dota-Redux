@@ -5,7 +5,7 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/overflow/night_wolf/ultimate.lua"
         "AbilityTextureName"                                                   "custom/night_wolf"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityCooldown"                                                      "0.0"
         "AbilityManaCost"                                                      "0"
         "HasScepterUpgrade"                                                    "1"

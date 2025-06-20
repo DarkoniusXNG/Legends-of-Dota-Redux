@@ -3,7 +3,7 @@
     "abyssal_underlord_dark_rift_op"
     {
         "BaseClass"                                                            "abyssal_underlord_dark_rift"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP"

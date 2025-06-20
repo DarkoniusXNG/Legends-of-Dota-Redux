@@ -7,7 +7,7 @@
         "AbilityTextureName"                                                   "modifier_invulnerable"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%aura_radius"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
             "bonus_armor" "4 8 12"
@@ -68,7 +68,7 @@
         "AbilityTextureName"                                                   "custom/imba_tower_aegis_OP"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%aura_radius"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
             "bonus_armor" "8 16 24"

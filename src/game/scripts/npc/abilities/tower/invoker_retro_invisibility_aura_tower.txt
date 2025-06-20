@@ -7,7 +7,7 @@
 		"SpellImmunityType" "SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastRange" "%radius"
 
-		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType" "ABILITY_TYPE_ULTIMATE"
 
 		"ReduxFlags"                                                           "invis"
 		"ReduxCost"                                                            "120"

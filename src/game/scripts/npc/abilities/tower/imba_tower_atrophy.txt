@@ -7,7 +7,7 @@
         "AbilityTextureName"                                                   "bane_enfeeble"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%aura_radius"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
             "damage_reduction" "-30 -45 -60"

@@ -7,7 +7,7 @@
         "AbilityTextureName"                                                   "custom/imba_tower_self_repair"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%aura_radius"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
             "hp_regen" "8 14 20"

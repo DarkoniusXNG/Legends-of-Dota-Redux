@@ -8,7 +8,7 @@
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%plasma_radius"
         "AbilityCooldown"                                                      "15 14 13"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
 
         "AbilityValues"
         {

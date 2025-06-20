@@ -3,7 +3,7 @@
 	{
 		"BaseClass"                                                            "ability_lua"
 		"ScriptFile"                                                           "abilities/imba_tower_multishot.lua"
-		"AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "sniper_shrapnel_muh_keen_gun"
 		"AbilitySharedWithTeammates"                                           "1"

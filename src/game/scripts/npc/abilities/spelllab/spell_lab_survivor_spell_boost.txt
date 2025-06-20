@@ -5,9 +5,8 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/spell_lab/survivor/spell_boost.lua"
         "AbilityTextureName"                                                   "custom/survivor_spell_boost"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "HasScepterUpgrade"                                                    "0"
+
         "AbilityValues"
         {
             "bonus" "3.0 4.0 5.0 6.0"
@@ -22,9 +21,8 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/spell_lab/survivor/spell_boost.lua"
         "AbilityTextureName"                                                   "custom/survivor_spell_boost_op"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "HasScepterUpgrade"                                                    "0"
+
         "AbilityValues"
         {
             "bonus" "6.0 8.0 10.0 12.0"

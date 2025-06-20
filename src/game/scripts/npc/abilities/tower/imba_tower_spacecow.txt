@@ -7,7 +7,7 @@
         "AbilityTextureName"                                                   "custom/imba_tower_spacecow"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCooldown"                                                      "5 4 3"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
             "knockback_damage" "50 75 100"
