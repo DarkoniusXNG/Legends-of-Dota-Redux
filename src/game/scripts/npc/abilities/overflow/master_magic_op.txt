@@ -8,7 +8,7 @@
         "AbilityCooldown"                                                      "20"
         "AbilityManaCost"                                                      "50"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "HasScepterUpgrade"                                                    "1"
 
         "AbilityValues"

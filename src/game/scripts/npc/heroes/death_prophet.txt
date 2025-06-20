@@ -23,6 +23,9 @@
 		"ReduxPerks"                                                           "physical | undead"
 	}
 
+	//=================================================================================================================
+	// Witchcraft (Innate)
+	//=================================================================================================================
 	"death_prophet_witchcraft"
 	{
 		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
@@ -31,26 +34,39 @@
 		"ReduxPerks"                                                           "mobility | undead"
 	}
 
+	//=================================================================================================================
+	// Mourning Ritual (Facet)
+	//=================================================================================================================
 	"death_prophet_mourning_ritual"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires Exorcism
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_death_prophet_perk"
+
 		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "tank | doNotRandom"
 		"ReduxPerks"                                                           "undead"
 	}
 
+	//=================================================================================================================
+	// Spirit Collector (Facet)
+	//=================================================================================================================
 	"death_prophet_spirit_collector"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_death_prophet_perk"
 
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "undead"
 	}
 
+	//=================================================================================================================
+	// Unknown
+	//=================================================================================================================
 	"death_prophet_innate_healing_mastery"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_death_prophet_perk"
 
 		"ReduxFlags"                                                           "doNotRandom | support"
 		"ReduxPerks"                                                           "support | undead"

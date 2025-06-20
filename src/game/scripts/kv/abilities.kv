@@ -26,6 +26,7 @@
             "techies_custom_stasis_trap"          "1" // custom
             "techies_custom_suicide"              "1" // custom
             "pangolier_heartpiercer_old"          "1" // custom
+            "doom_bringer_lvl_death_old"          "1" // custom
 
             "abaddon_aphotic_shield"            "1"
             "abaddon_borrowed_time"            "1"
@@ -830,7 +831,7 @@
 			//"chaos_knight_innate_spell_refund"		"1" // does not exist
 			"chaos_knight_phantasmagoria"		"1"
 			"chaos_knight_reins_of_chaos"		"1"
-			"chen_innate_check_for_team_change"		"1"
+			//"chen_innate_check_for_team_change"		"1" // does nothing
 			"chen_summon_convert"		"1"
 			"clinkz_bone_and_arrow"		"1"
 			"crystal_maiden_blueheart_floe"		"1"
@@ -993,7 +994,7 @@
 			"tusk_bitter_chill"		"1"
 			"tusk_drinking_buddies"		"1"
 			"undying_ceaseless_dirge"		"1"
-			"undying_zombie_master"		"1"
+			//"undying_zombie_master"		"1" // does not exist
 			"ursa_bear_down"		"1"
 			"ursa_maul"		"1"
 			"vengefulspirit_retribution"		"1"
@@ -2673,8 +2674,8 @@
         }
 
 		"npc_dota_hero_bounty_hunter" {
-			"1"      "bounty_hunter_cutpurse"
-        }
+			"1"  "bounty_hunter_cutpurse"
+		}
 
 		"npc_dota_hero_brewmaster" {
 			"1"           "brewmaster_drunken_haze"
@@ -2754,18 +2755,20 @@
 		"npc_dota_hero_death_prophet" {
 			"1"            "death_prophet_spirit_collector"
 			"2"            "death_prophet_mourning_ritual"
-			// "3"            "death_prophet_innate_healing_mastery"
+			"3"            "death_prophet_innate_healing_mastery"
         }
 
 		"npc_dota_hero_disruptor" {
-			"1"		"disruptor_kinetic_field"
-			"2"		"disruptor_kinetic_fence"
+			"1"  "disruptor_kinetic_field"
+			"2"  "disruptor_kinetic_fence"
+			"3"  "disruptor_innate_kinetic_circle"
 		}
 
 		"npc_dota_hero_doom_bringer" {
-            "1"            "doom_bringer_devour_lod"
+			"1"            "doom_bringer_devour_lod"
 			"2"            "doom_bringer_devils_bargain"
-        }
+			"3"            "doom_bringer_lvl_death_old"
+		}
 
 		// "npc_dota_hero_dragon_knight" {
             // "Ability1"  "dragon_knight_breathe_fire"
@@ -2783,9 +2786,9 @@
 		}
 
 		"npc_dota_hero_earthshaker" {
-            "1"      "earthshaker_aftershock_lod"
-            "2"      "earthshaker_slugger"
-        }
+			"1"      "earthshaker_aftershock_lod"
+			"2"      "earthshaker_spirit_cairn"
+		}
 
 		"npc_dota_hero_elder_titan" {
             "1"		"elder_titan_echo_stomp_spirit"
@@ -2810,6 +2813,7 @@
 			"3"     "furion_hedgerow"
 			"4"     "furion_summon_fey"
 			"5"     "furion_natures_profit"
+			"6"     "furion_fecundity"
         }
 
 		"npc_dota_hero_grimstroke" {
@@ -2817,9 +2821,10 @@
         }
 
 		"npc_dota_hero_gyrocopter"
-        {
-            "1"  "side_gunner_redux"
-        }
+		{
+			"1"  "side_gunner_redux"
+			"2"  "gyrocopter_lock_on"
+		}
 
 		"npc_dota_hero_huskar" {
             "1"            "huskar_berserkers_blood_lod"
@@ -2846,17 +2851,23 @@
 		// }
 
 		"npc_dota_hero_juggernaut" {
-			"1"            "juggernaut_bladeform"
-        }
+			"1"  "juggernaut_bladeform"
+			"2"  "juggernaut_innate_mask_crit_lifesteal"
+			"3"  "juggernaut_innate_mask_spin_crit"
+		}
 
 		"npc_dota_hero_keeper_of_the_light" {
-            "1"  "keeper_of_the_light_chakra_magic_cooldown"
-            "2"  "keeper_of_the_light_mana_leak"
-            "3"  "keeper_of_the_light_recall"
-            "4"  "keeper_of_the_light_innate_redux"
-			"5"	 "keeper_of_the_light_radiant_bind"
+			"1"  "keeper_of_the_light_chakra_magic_cooldown"
+			"2"  "keeper_of_the_light_mana_leak"
+			"3"  "keeper_of_the_light_recall"
+			"4"  "keeper_of_the_light_innate_redux"
+			"5"  "keeper_of_the_light_radiant_bind"
 			"6"  "keeper_of_the_light_mana_magnifier"
-        }
+		}
+		
+		"npc_dota_hero_kez" {
+			"1"  "kez_shadowhawk_passive"
+		}
 
 		"npc_dota_hero_kunkka" {
 			"1"   "kunkka_torrent_storm"
@@ -2902,8 +2913,9 @@
 		}
 
 		"npc_dota_hero_magnataur" {
-			"1"			  "magnus_strength_of_joelrak"
-        }
+			"1"  "magnus_strength_of_joelrak"
+			"2"  "magnus_magnetic_horn"
+		}
 
 		"npc_dota_hero_marci" {
 			"1"		"marci_guardian"
@@ -2923,6 +2935,11 @@
 			"1"			  "mirana_starfall_lod"
 			"2"           "mirana_solar_flare"
         }
+		
+		"npc_dota_hero_monkey_king"
+		{
+			"1"  "monkey_king_transfiguration"
+		}
 
 		"npc_dota_hero_morphling"
         {
@@ -2937,6 +2954,7 @@
 		"npc_dota_hero_muerta" {
 			"1"  "muerta_ofrenda"
 			"2"  "muerta_parting_shot"
+			"3"  "muerta_grave_tracker"
 		}
 
 		"npc_dota_hero_naga_siren" {
@@ -2992,6 +3010,11 @@
 
 		"npc_dota_hero_phoenix" {
 			"1"   "phoenix_dying_light"
+		}
+		
+		"npc_dota_hero_primal_beast" {
+			"1"  "primal_beast_innate_slow_resistance_per_time"
+			"2"  "primal_beast_innate_status_resistance_per_time"
 		}
 
 		"npc_dota_hero_queenofpain" {
@@ -3095,6 +3118,12 @@
 			"3"            "tiny_insurmountable"
 			"4"            "tiny_rocksteady"
         }
+		
+		"npc_dota_hero_treant"
+		{
+			"1"  "treant_innate_attack_damage"
+			"2"  "treant_lifebomb_explode"
+		}
 
 		"npc_dota_hero_troll_warlord" {
 			"1"		"troll_warlord_rampage"
@@ -3145,7 +3174,7 @@
 		}
 		
 		"npc_dota_hero_wisp" {
-			"1"           "wisp_essence_conduction"
+			"1"           "wisp_sight_seer"
 		}
 
 		
@@ -3189,14 +3218,6 @@
             // "Ability4"            "pudge_dismember"
         // }
 
-        // "npc_dota_hero_monkey_king"
-        // {
-            // "Ability1" "monkey_king_boundless_strike"
-            // "Ability2"  "monkey_king_tree_dance"
-            // "Ability3"  "monkey_king_primal_spring"
-            // "Ability4"  "monkey_king_jingu_mastery"
-            // "Ability5"  "monkey_king_wukongs_command"
-        // }
         // "npc_dota_hero_mars"
         // {
             // "Ability1" "mars_spear"
@@ -3238,24 +3259,6 @@
             // "Ability4"  "hoodwink_sharpshooter"
 			// "Ability5"	"hoodwink_decoy"
 			// "Ability6"	"hoodwink_hunters_boomerang"
-        // }
-
-         // "npc_dota_hero_treant"
-        // {
-            // "Ability1"  "treant_natures_grasp"
-            // "Ability2"  "treant_leech_seed"
-            // "Ability3"  "treant_living_armor"
-            // "Ability4"  "treant_eyes_in_the_forest"
-            // "Ability5"  "treant_natures_guise"
-            // "Ability6"  "treant_overgrowth"
-        // }
-
-		// "npc_dota_hero_primal_beast" {
-            // "Ability1"  "primal_beast_onslaught"
-            // "Ability2"  "primal_beast_trample"
-            // "Ability3"  "primal_beast_uproar"
-            // "Ability4"  "primal_beast_rock_throw"
-            // "Ability5"  "primal_beast_pulverize"
         // }
 
 		// "npc_dota_hero_nevermore" {

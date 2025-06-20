@@ -39,6 +39,40 @@
 		"ReduxFlags"                                                           "doNotRandom"
 	}
 
+	//=================================================================================================================
+	// Quick Wit (Facet)
+	//=================================================================================================================
+	"dark_seer_quick_wit"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_dark_seer_perk"
+	}
+
+	//=================================================================================================================
+	// Heart of Battle (Facet)
+	//=================================================================================================================
+	"dark_seer_heart_of_battle"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_dark_seer_perk"
+
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility"
+	}
+
+	//=================================================================================================================
+	// Mental Fortitude (old Innate)
+	//=================================================================================================================
+	"dark_seer_mental_fortitude"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_dark_seer_perk"
+
+		"Innate"						"0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
 	"dark_seer_normal_punch"
 	{
 		"ReduxFlags"		"bash | illusion | stun | upgradeable"
@@ -60,7 +94,7 @@
 
 	"special_bonus_unique_dark_seer"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
@@ -68,7 +102,7 @@
 	}
 	"special_bonus_unique_dark_seer_2"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
@@ -76,7 +110,7 @@
 	}
 	"special_bonus_unique_dark_seer_3"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
@@ -84,7 +118,7 @@
 	}
 	"special_bonus_unique_dark_seer_5"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
@@ -92,7 +126,7 @@
 	}
 	"special_bonus_unique_dark_seer_6"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
@@ -100,7 +134,7 @@
 	}
 	"special_bonus_unique_dark_seer_7"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
@@ -108,7 +142,7 @@
 	}
 	"special_bonus_unique_dark_seer_13"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
@@ -116,7 +150,7 @@
 	}
 	"special_bonus_unique_dark_seer_14"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 

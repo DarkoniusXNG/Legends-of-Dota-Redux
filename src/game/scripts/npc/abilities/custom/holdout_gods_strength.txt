@@ -2,7 +2,7 @@
 	"holdout_gods_strength" {
 		"AbilityTextureName" "custom/sven_gods_strength_lod"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType" "ABILITY_TYPE_ULTIMATE"
 		"AbilityCastPoint" "0.3"
 		"AbilityCooldown" "60.0"
 		"AbilityDuration" "25.0"

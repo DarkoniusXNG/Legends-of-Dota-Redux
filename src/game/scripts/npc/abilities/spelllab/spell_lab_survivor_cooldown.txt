@@ -5,9 +5,8 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/spell_lab/survivor/cooldown.lua"
         "AbilityTextureName"                                                   "custom/survival_cooldown"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "HasScepterUpgrade"                                                    "0"
+
         "AbilityValues"
         {
             "bonus" "1 2 3 4"
@@ -24,9 +23,8 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/spell_lab/survivor/cooldown.lua"
         "AbilityTextureName"                                                   "custom/survival_cooldown_op"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "HasScepterUpgrade"                                                    "0"
+
         "AbilityValues"
         {
             "bonus" "4.0 5.0 6.0 7.0"

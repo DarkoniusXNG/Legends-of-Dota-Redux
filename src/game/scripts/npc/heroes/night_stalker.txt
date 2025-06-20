@@ -43,7 +43,7 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
-		"ReduxFlags"                    "doNotRandom"
+		"ReduxFlags"                                                           "doNotRandom"
 	}
 
 	//=================================================================================================================
@@ -51,9 +51,10 @@
 	//=================================================================================================================
 	"night_stalker_night_reign"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_night_stalker_perk"
 
-		"ReduxFlags"                    "doNotRandom"
+		"ReduxFlags"                                                           "doNotRandom"
 	}
 
 	//=================================================================================================================

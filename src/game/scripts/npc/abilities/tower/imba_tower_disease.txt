@@ -7,7 +7,7 @@
         "AbilityTextureName"                                                   "custom/disease_aura"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%aura_radius"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
 
         "ReduxPerks"                                                           "aura | undead"
         "ReduxCost"                                                            "120"

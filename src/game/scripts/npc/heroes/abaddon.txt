@@ -25,7 +25,8 @@
 	//=================================================================================================================
 	"abaddon_the_quickening"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_abaddon_perk"
 
 		"ReduxFlags"                    "cooldown"
 	}
@@ -62,7 +63,7 @@
 
 	"special_bonus_unique_abaddon"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "abaddon_aphotic_shield"
@@ -70,7 +71,7 @@
 
 	"special_bonus_unique_abaddon_2"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "abaddon_death_coil"
@@ -78,7 +79,7 @@
 
 	"special_bonus_unique_abaddon_3"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "abaddon_frostmourne"
@@ -86,7 +87,7 @@
 
 	"special_bonus_unique_abaddon_4"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "abaddon_death_coil"
@@ -94,7 +95,7 @@
 
 	"special_bonus_unique_abaddon_5"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "abaddon_frostmourne"
@@ -102,7 +103,7 @@
 
 	"special_bonus_unique_abaddon_6"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "abaddon_withering_mist"
@@ -110,7 +111,7 @@
 
 	"special_bonus_unique_abaddon_7"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "abaddon_aphotic_shield"
@@ -118,7 +119,7 @@
 
 	"special_bonus_unique_abaddon_immolation"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "abaddon_borrowed_time"

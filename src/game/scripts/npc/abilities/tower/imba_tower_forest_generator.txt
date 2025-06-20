@@ -9,8 +9,7 @@
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "3000"
         "AbilityCooldown"                                                      "30"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
-        "RequiredLevel"                                                        "1"
+
         "AbilityValues"
         {
             "tree_radius" " 3000"

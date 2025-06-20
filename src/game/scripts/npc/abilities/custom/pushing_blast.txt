@@ -31,7 +31,7 @@
         "BaseClass"               "special_bonus_unique_brewmaster_7"
         "TalentRank"              "3"
         "TalentRequiredAbility" "pushing_blast"
-        "AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"                   "ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityValues"
         {

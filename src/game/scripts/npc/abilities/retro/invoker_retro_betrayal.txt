@@ -9,7 +9,7 @@
         "AbilityTextureName"                                                   "custom/invoker_retro_betrayal"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityCastAnimation"                                                 "ACT_DOTA_CAST_COLD_SNAP"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityProcsMagicStick"                                               "1"
         "AbilityCooldown"                                                      "30 25 20"
         "AbilityManaCost"                                                      "100"

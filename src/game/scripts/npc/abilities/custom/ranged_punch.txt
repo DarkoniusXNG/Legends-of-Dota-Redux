@@ -33,7 +33,7 @@
         "BaseClass"               "special_bonus_unique_antimage_3"
         "TalentRank"              "3"
         "TalentRequiredAbility" "ranged_punch"
-        "AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"                   "ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityValues"
         {

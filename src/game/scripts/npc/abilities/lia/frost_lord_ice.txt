@@ -13,7 +13,7 @@
             "particle"                                                     "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
         }
 
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityCastRange"                                                     "900"
         "AoERadius"                                                            "%radius"
         "AbilityCastPoint"                                                     "0.3"

@@ -115,7 +115,7 @@
 
 	"special_bonus_unique_antimage"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"			"antimage_blink"
@@ -123,7 +123,7 @@
 
 	"special_bonus_unique_antimage_2"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"			"antimage_mana_void"
@@ -131,7 +131,7 @@
 
 	"special_bonus_unique_antimage_3"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"			"antimage_blink"
@@ -139,7 +139,7 @@
 
 	"special_bonus_unique_antimage_4"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"			"antimage_counterspell"
@@ -147,7 +147,7 @@
 
 	"special_bonus_unique_antimage_5"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"			"antimage_persectur"
@@ -155,7 +155,7 @@
 
 	"special_bonus_unique_antimage_6"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"			"antimage_mana_void"
@@ -163,7 +163,7 @@
 
 	"special_bonus_unique_antimage_7"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"			"antimage_mana_break"
@@ -171,7 +171,7 @@
 
 	"special_bonus_unique_antimage_8"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"			"antimage_mana_void"
@@ -179,7 +179,7 @@
 
 	"special_bonus_unique_antimage_manavoid_aoe"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"			"antimage_mana_void"

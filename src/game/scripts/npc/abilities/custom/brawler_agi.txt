@@ -4,7 +4,7 @@
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityTextureName"                                                   "custom/brawler_agi"
         "AbilityCastRange"                                                     "%radius"
         "AbilityValues"

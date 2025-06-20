@@ -73,7 +73,7 @@
 
 	"special_bonus_unique_ancient_apparition_1"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "ancient_apparition_cold_feet"
@@ -81,7 +81,7 @@
 
 	"special_bonus_unique_ancient_apparition_2"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "ancient_apparition_chilling_touch"
@@ -89,7 +89,7 @@
 
 	"special_bonus_unique_ancient_apparition_3"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "ancient_apparition_ice_vortex"
@@ -97,7 +97,7 @@
 
 	"special_bonus_unique_ancient_apparition_4"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "ancient_apparition_ice_vortex"
@@ -105,7 +105,7 @@
 
 	"special_bonus_unique_ancient_apparition_5"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "ancient_apparition_ice_blast"
@@ -113,7 +113,7 @@
 
 	"special_bonus_unique_ancient_apparition_6"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "ancient_apparition_death_rime"
@@ -121,7 +121,7 @@
 
 	"special_bonus_unique_ancient_apparition_7"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "ancient_apparition_chilling_touch"
@@ -129,7 +129,7 @@
 
 	"special_bonus_unique_ancient_apparition_8"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "ancient_apparition_cold_feet"
@@ -137,7 +137,7 @@
 
 	"special_bonus_unique_ancient_apparition_ice_vortex_duration"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"TalentRequiredAbility"                                                   "ancient_apparition_ice_blast"

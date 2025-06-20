@@ -75,6 +75,7 @@
 	"drow_ranger_vantage_point"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_drow_ranger_perk"
 
 		"ReduxPerks"                                                           "ranger"
 	}
@@ -82,6 +83,7 @@
 	"drow_ranger_creep_rally"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_drow_ranger_perk"
 
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "ranger"

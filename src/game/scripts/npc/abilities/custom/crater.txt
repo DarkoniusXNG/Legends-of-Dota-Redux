@@ -34,7 +34,7 @@
         "BaseClass"               "special_bonus_unique_antimage_3"
         "TalentRank"              "2"
         "TalentRequiredAbility" "crater"
-        "AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"                   "ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityValues"
         {

@@ -4,7 +4,7 @@
     {
         "BaseClass"                                                            "arc_warden_tempest_double"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityTextureName"                                                   "custom/arc_warden_tempest_double_op"
         "AbilityCastPoint"                                                     "0.0"
         "AbilityCastRange"                                                     "1800"

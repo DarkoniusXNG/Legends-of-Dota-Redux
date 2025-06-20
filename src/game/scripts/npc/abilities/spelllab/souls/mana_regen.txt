@@ -5,9 +5,8 @@
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/spell_lab/souls/mana_regen.lua"
         "AbilityTextureName"                                                   "custom/souls/mana_regen"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_BASIC"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "HasScepterUpgrade"                                                    "0"
+
         "precache"
         {
             "particle"                                                     "particles/spell_lab/soul_remnant.vpcf"

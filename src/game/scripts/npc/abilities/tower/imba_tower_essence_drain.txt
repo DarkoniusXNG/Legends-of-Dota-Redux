@@ -6,7 +6,7 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "slark_essence_shift"
         "AbilitySharedWithTeammates"                                           "1"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
 
         "ReduxFlags"                                                           "attack_modifier"
         "ReduxPerks"                                                           "attack_modifier | drain"

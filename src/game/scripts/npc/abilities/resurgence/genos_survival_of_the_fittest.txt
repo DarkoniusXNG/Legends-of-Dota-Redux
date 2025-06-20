@@ -7,8 +7,6 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		// "AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_NONE"
 		"AbilityTextureName"			"custom\genos_survival_of_the_fittest"
-		"AbilityType"                    	"DOTA_ABILITY_TYPE_BASIC"
-
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------

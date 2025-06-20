@@ -8,7 +8,7 @@
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "800"
         "AbilityCooldown"                                                      "4"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
             "force_aoe" "800"

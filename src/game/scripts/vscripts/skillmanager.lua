@@ -837,7 +837,7 @@ function SkillManager:isUlt(name)
         -- If ability type is ommited it's usually a basic ability
         return false
     end
-    return string.find(ability_type, "DOTA_ABILITY_TYPE_ULTIMATE")
+    return string.find(ability_type, "ABILITY_TYPE_ULTIMATE")
 end
 
 -- Returns true if a skill is valid and not an ultimate
@@ -858,7 +858,7 @@ function SkillManager:isValidBasic(name)
         -- If ability type is ommited it's usually a basic ability
         return true
     end
-    return string.find(ability_type, "DOTA_ABILITY_TYPE_BASIC")
+    return string.find(ability_type, "ABILITY_TYPE_BASIC")
 end
 
 -- Returns true if a skill is a passive

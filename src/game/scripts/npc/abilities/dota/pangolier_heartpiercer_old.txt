@@ -13,6 +13,12 @@
 		"ReduxFlags"                                       "attack_modifier | dota_custom"
 		"ReduxPerks"                                       "attack_modifier | blades"
 		
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_pangolier/pangolier_heartpiercer_delay.vpcf"
+			"particle"			"particles/units/heroes/hero_pangolier/pangolier_heartpiercer_debuff.vpcf"
+		}
+		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"

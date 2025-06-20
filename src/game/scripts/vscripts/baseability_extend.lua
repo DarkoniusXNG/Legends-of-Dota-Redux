@@ -242,6 +242,6 @@ if C_DOTABaseAbility then
 			-- If ability type is ommited it's usually a basic ability
 			return false
 		end
-		return string.find(ability_type, "DOTA_ABILITY_TYPE_ULTIMATE")
+		return string.find(ability_type, "ABILITY_TYPE_ULTIMATE")
 	end
 end

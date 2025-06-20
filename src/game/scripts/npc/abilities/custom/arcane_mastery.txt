@@ -8,7 +8,7 @@
         "AbilityCastPoint"                                                     "0.3"
         "AbilityCooldown"                                                      "60"
         "AbilityManaCost"                                                      "150"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityProcsMagicStick"                                               "1"
 
         "precache"

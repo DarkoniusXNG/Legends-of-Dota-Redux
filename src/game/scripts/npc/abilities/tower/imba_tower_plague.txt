@@ -7,7 +7,7 @@
         "AbilityTextureName"                                                   "custom/tower_rot"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%area_of_effect"
-        "AbilityType"                                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
             "damage_per_second" "30 50 70"

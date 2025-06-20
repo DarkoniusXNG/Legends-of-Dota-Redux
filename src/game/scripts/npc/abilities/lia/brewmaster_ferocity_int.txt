@@ -5,7 +5,7 @@
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityTextureName" "custom/brewmaster_ferocity_int"
 		"AbilityUnitTargetFlags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"AbilityType" "DOTA_ABILITY_TYPE_BASIC"
+
 		"AbilityCastRange"                                                     "%radius"
 		"AoERadius"                                                            "%radius"
 

@@ -97,7 +97,8 @@
 	//=================================================================================================================
 	"dazzle_nothl_boon"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_dazzle_perk"
 
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support"
@@ -125,7 +126,7 @@
 	}
 	"special_bonus_unique_dazzle_shallow_grave_cooldown"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 

@@ -43,7 +43,8 @@
 	//=================================================================================================================
 	"sven_wrath_of_god"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires God's Strength
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires God's Strength
+		"AbilityTextureName"            "custom/npc_dota_hero_sven_perk"
 
 		"ReduxFlags"                                                           "attack_modifier | doNotRandom"
 		"ReduxPerks"                                                           "attack_modifier | rage"
@@ -51,7 +52,7 @@
 
 	"special_bonus_unique_sven"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 

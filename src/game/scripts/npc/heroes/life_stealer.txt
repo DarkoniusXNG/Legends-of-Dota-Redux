@@ -130,11 +130,12 @@
 	}
 
 	//=================================================================================================================
-	// Life Stealer: Corpse Eater (Facet)
+	// Life Stealer: Corpse Eater (old Facet)
 	//=================================================================================================================
 	"life_stealer_corpse_eater"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_life_stealer_perk"
 
 		"ReduxPerks"		"undead"
 	}

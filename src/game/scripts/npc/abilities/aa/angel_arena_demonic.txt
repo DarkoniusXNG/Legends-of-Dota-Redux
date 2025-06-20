@@ -3,7 +3,7 @@
 		"BaseClass" "ability_datadriven"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityTextureName" "custom/angel_arena_demonic"
-		"AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType" "ABILITY_TYPE_ULTIMATE"
 		"AbilityCastPoint" "0.0"
 		"AbilityCooldown" "100.0"
 		"AbilityManaCost" "100 125 150"
