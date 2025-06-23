@@ -1,0 +1,115 @@
+// Abilities for Silencer
+"DOTAAbilities"
+{
+	"silencer_curse_of_the_silent"
+	{
+		"ReduxFlags"                                                           "wtfAutoBan"
+		"ReduxPerks"                                                           "skillshot"
+	}
+
+	"silencer_glaives_of_wisdom"
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | drain"
+		"ReduxCost"                                                            "30"
+	}
+
+	"silencer_last_word"
+	{
+		"ReduxFlags"                                                           "silence"
+		"ReduxPerks"                                                           "silence"
+	}
+
+	"silencer_global_silence"
+	{
+		"ReduxFlags"                                                           "support | silence | wtfAutoBan | upgradeable"
+		"ReduxPerks"                                                           "support | silence"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	//=================================================================================================================
+	// Brain Drain (Innate)
+	//=================================================================================================================
+	"silencer_brain_drain"
+	{
+		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxPerks"                                                           "drain"
+		"ReduxCost"                                                            "30"
+	}
+
+	//=================================================================================================================
+	// Oppressive Silence (Facet)
+	//=================================================================================================================
+	"silencer_oppressive_silence"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires Global Silence
+		"AbilityTextureName"            "custom/npc_dota_hero_silencer_perk"
+	}
+
+	//=================================================================================================================
+	// Irrepressible (old Facet)
+	//=================================================================================================================
+	"silencer_irrepressible"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_silencer_perk"
+	}
+
+	"special_bonus_unique_silencer"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "silencer_curse_of_the_silent"
+	}
+	"special_bonus_unique_silencer_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "silencer_glaives_of_wisdom"
+	}
+	"special_bonus_unique_silencer_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "silencer_last_word"
+	}
+	"special_bonus_unique_silencer_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "silencer_glaives_of_wisdom"
+	}
+	"special_bonus_unique_silencer_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "silencer_global_silence"
+	}
+	"special_bonus_unique_silencer_arcane_curse_charges"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "silencer_curse_of_the_silent"
+	}
+	"special_bonus_unique_silencer_arcane_curse_duration"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "silencer_curse_of_the_silent"
+	}
+}

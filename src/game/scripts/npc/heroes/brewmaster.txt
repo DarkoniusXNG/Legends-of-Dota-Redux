@@ -144,30 +144,58 @@
 
 	"special_bonus_unique_brewmaster"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                "brewmaster_primal_split"
 	}
 	"special_bonus_unique_brewmaster_2"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                "brewmaster_primal_split"
 	}
 	"special_bonus_unique_brewmaster_4"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                "brewmaster_cinder_brew"
 	}
 	"special_bonus_unique_brewmaster_5"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                "brewmaster_cinder_brew"
 	}
 	"special_bonus_unique_brewmaster_6"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                "brewmaster_primal_split"
 	}
 	"special_bonus_unique_brewmaster_7"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                "brewmaster_thunder_clap"
 	}
 	"special_bonus_unique_brewmaster_8"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                "brewmaster_drunken_brawler"
 	}
 }

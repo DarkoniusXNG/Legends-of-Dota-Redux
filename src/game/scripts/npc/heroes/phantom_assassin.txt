@@ -116,22 +116,6 @@
 
 		"TalentRequiredAbility"                                                   "phantom_assassin_stifling_dagger"
 	}
-	"special_bonus_unique_phantom_assassin_8"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "phantom_assassin_stifling_dagger"
-	}
-	"special_bonus_unique_phantom_assassin_9"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "phantom_assassin_phantom_strike"
-	}
 	"special_bonus_unique_phantom_assassin_strike_aspd"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"

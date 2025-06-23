@@ -91,30 +91,58 @@
 
 	"special_bonus_unique_drow_ranger_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                "drow_ranger_multishot"
 	}
 	"special_bonus_unique_drow_ranger_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                "drow_ranger_multishot"
 	}
 	"special_bonus_unique_drow_ranger_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                "drow_ranger_marksmanship"
 	}
 	"special_bonus_unique_drow_ranger_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                "drow_ranger_multishot"
 	}
 	"special_bonus_unique_drow_ranger_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                "drow_ranger_wave_of_silence"
 	}
 	"special_bonus_unique_drow_ranger_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                "drow_ranger_multishot"
 	}
 	"special_bonus_unique_drow_ranger_gust_selfmovespeed"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                "drow_ranger_wave_of_silence"
 	}
 }

@@ -43,14 +43,26 @@
 
 	"special_bonus_unique_jakiro"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "jakiro_ice_path"
 	}
 	"special_bonus_unique_jakiro_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "jakiro_dual_breath"
 	}
 	"special_bonus_unique_jakiro_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1" "jakiro_liquid_fire"
@@ -59,14 +71,26 @@
 	}
 	"special_bonus_unique_jakiro_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "jakiro_liquid_fire"
 	}
 	"special_bonus_unique_jakiro_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "jakiro_ice_path"
 	}
 	"special_bonus_unique_jakiro_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "jakiro_macropyre"
 	}
 	"special_bonus_unique_jakiro_dualbreath_cooldown"

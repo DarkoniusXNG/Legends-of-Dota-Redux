@@ -7,7 +7,6 @@ function EatCreep ( keys )
 		local health = target:GetHealth()
 		target:Kill(ability, caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_creep_eaten", {duration = health / 20})
-		-- TODO: special_bonus_unique_doom_3 magic resist
 	end
 end
 

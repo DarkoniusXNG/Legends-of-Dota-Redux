@@ -52,30 +52,58 @@
 
 	"special_bonus_unique_winter_wyvern_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "winter_wyvern_arctic_burn"
 	}
 	"special_bonus_unique_winter_wyvern_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "winter_wyvern_splinter_blast"
 	}
 	"special_bonus_unique_winter_wyvern_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "winter_wyvern_winters_curse"
 	}
 	"special_bonus_unique_winter_wyvern_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "winter_wyvern_splinter_blast"
 	}
 	"special_bonus_unique_winter_wyvern_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "winter_wyvern_cold_embrace"
 	}
 	"special_bonus_unique_winter_wyvern_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "winter_wyvern_arctic_burn"
 	}
 	"special_bonus_unique_winter_wyvern_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "winter_wyvern_splinter_blast"
 	}
 }

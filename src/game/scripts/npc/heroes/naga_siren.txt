@@ -117,11 +117,19 @@
 
 	"special_bonus_unique_naga_siren"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "naga_siren_mirror_image"
 	}
 
 	"special_bonus_unique_naga_siren_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1"			"naga_siren_rip_tide"
@@ -131,21 +139,37 @@
 
 	"special_bonus_unique_naga_siren_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "naga_siren_mirror_image"
 	}
 
 	"special_bonus_unique_naga_siren_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "naga_siren_mirror_image"
 	}
 
 	"special_bonus_unique_naga_siren_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "naga_siren_song_of_the_siren"
 	}
 
 	"special_bonus_unique_naga_siren_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "naga_siren_mirror_image"
 	}
 

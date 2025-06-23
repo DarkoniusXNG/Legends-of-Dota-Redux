@@ -86,42 +86,66 @@
 
 	"special_bonus_unique_oracle"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "oracle_false_promise"
 	}
 	"special_bonus_unique_oracle_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "oracle_fortunes_end"
-	}
-	"special_bonus_unique_oracle_3"
-	{
-		"TalentRequiredAbility"                                                   "oracle_fates_edict"
-	}
-	"special_bonus_unique_oracle_4"
-	{
-		"TalentRequiredAbility"                                                   "oracle_false_promise"
 	}
 	"special_bonus_unique_oracle_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "oracle_purifying_flames"
 	}
 	"special_bonus_unique_oracle_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "oracle_false_promise"
 	}
 	"special_bonus_unique_oracle_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "oracle_fortunes_end"
 	}
 	"special_bonus_unique_oracle_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "oracle_purifying_flames"
 	}
-	"special_bonus_unique_oracle_fortunes_end_damage"
+	"special_bonus_unique_oracle_9"
 	{
-		"TalentRequiredAbility"                                                   "oracle_fortunes_end"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "oracle_false_promise"
 	}
 	"special_bonus_unique_oracle_damage_per_purge"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "oracle_fortunes_end"
 	}
 }

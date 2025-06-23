@@ -1,0 +1,111 @@
+// Abilities for Doom
+"DOTAAbilities"
+{
+	"doom_bringer_scorched_earth"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | demon | fire"
+	}
+
+	"doom_bringer_infernal_blade"
+	{
+		"ReduxFlags"                                                           "attack_modifier | bash"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | bash | blades | demon | fire"
+		"ReduxCost"                                                            "20"
+	}
+
+	"doom_bringer_doom"
+	{
+		"ReduxFlags"                                                           "upgradeable | silence"
+		"ReduxPerks"                                                           "demon | fire | silence"
+		"ReduxCost"                                                            "10"
+	}
+
+	//=================================================================================================================
+	// Level ? Pain (Innate)
+	//=================================================================================================================
+	"doom_bringer_lvl_pain"
+	{
+		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | demon"
+	}
+
+	//=================================================================================================================
+	// Devil's Bargain (Facet)
+	//=================================================================================================================
+	"doom_bringer_devils_bargain"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_doom_bringer_perk"
+
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "demon | gold"
+	}
+
+	"special_bonus_unique_doom_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "doom_bringer_infernal_blade"
+	}
+	"special_bonus_unique_doom_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "doom_bringer_devour"
+	}
+	"special_bonus_unique_doom_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "doom_bringer_devour"
+	}
+	"special_bonus_unique_doom_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "doom_bringer_infernal_blade"
+	}
+	"special_bonus_unique_doom_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "doom_bringer_scorched_earth"
+	}
+	"special_bonus_unique_doom_9"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "doom_bringer_scorched_earth"
+	}
+	"special_bonus_unique_doom_10"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "doom_bringer_doom"
+	}
+	"special_bonus_unique_doom_11"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "doom_bringer_doom"
+	}
+}

@@ -48,10 +48,18 @@
 
 	"special_bonus_unique_wraith_king_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "skeleton_king_vampiric_spirit"
 	}
 	"special_bonus_unique_wraith_king_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1" "skeleton_king_reincarnation"
@@ -60,17 +68,25 @@
 	}
 	"special_bonus_unique_wraith_king_10"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "skeleton_king_mortal_strike"
 	}
 	"special_bonus_unique_wraith_king_11"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "skeleton_king_hellfire_blast"
 	}
 	"special_bonus_unique_wraith_king_facet_1"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"
 		{
@@ -82,7 +98,7 @@
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"
 		{

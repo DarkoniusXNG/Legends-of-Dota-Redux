@@ -1,0 +1,153 @@
+// Abilities for Clockwerk
+"DOTAAbilities"
+{
+	"rattletrap_battery_assault"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "scientific | explosive"
+	}
+
+	"rattletrap_power_cogs"
+	{
+		"ReduxPerks"                                                           "enemymoving | lightning | scientific | trap"
+	}
+
+	"rattletrap_rocket_flare"
+	{
+		"ReduxPerks"                                                           "explosive | scientific | skillshot"
+		"ReduxFlags"                                                           "wtfAutoBan"
+	}
+
+	"rattletrap_hookshot"
+	{
+		"ReduxFlags"                                                           "mobility | stun"
+		"ReduxPerks"                                                           "mobility | scientific | skillshot"
+	}
+
+	"rattletrap_overclocking"
+	{
+		"ReduxFlags"                                                           "upgradeable | doNotRandom"
+		"ReduxPerks"                                                           "explosive | scientific"
+
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"50 45 40 35"
+		"AbilityValues"
+		{
+			"buff_duration"					"13"
+			"bonus_movement_speed"			"0"
+			"bonus_attack_speed"			"250 275 300 325"
+			"debuff_duration"				"3.0 2.5 2.0 1.5"
+			"hookshot_damage_bonus_pct"		"0"
+			"hookshot_radius_bonus_pct"		"50 60 70 80"
+			"hookshot_duration_bonus_pct"	"50 60 70 80"
+			"rocket_flare_interval"				"0.15"
+			"rocket_flare_offset_pct"		"125 110 95 80"
+			"rocket_flare_rockets"				"2 3 4 5"
+			"rocket_flare_cooldown"				"3"
+			"jetpack_bonus_speed"			"40"
+			"jetpack_turn_rate"				"75 100 125 150"
+		}
+	}
+
+	"rattletrap_jetpack"
+	{
+		"ReduxFlags"	"mobility | doNotRandom"
+		"ReduxPerks"	"mobility"
+
+		"MaxLevel"                      "4"
+		"AbilityCooldown"               "16 14 12 10"
+		"AbilityManaCost"               "75"
+		"AbilityValues"
+		{
+			"bonus_speed"
+			{
+				"value" "20 25 30 35"
+			}
+			"turn_rate"
+			{
+				"value" "75 100 125 150"
+			}
+			"height"
+			{
+				"value" "250"
+			}
+			"duration"
+			{
+				"value" "6"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Armor Power (Innate)
+	//=================================================================================================================
+	"rattletrap_armor_power"
+	{
+		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+	}
+
+	"special_bonus_unique_clockwerk"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rattletrap_battery_assault"
+	}
+	"special_bonus_unique_clockwerk_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rattletrap_power_cogs"
+	}
+	"special_bonus_unique_clockwerk_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rattletrap_battery_assault"
+	}
+	"special_bonus_unique_clockwerk_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rattletrap_rocket_flare"
+	}
+	"special_bonus_unique_clockwerk_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rattletrap_power_cogs"
+	}
+	"special_bonus_unique_clockwerk_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rattletrap_power_cogs"
+	}
+	"special_bonus_unique_clockwerk_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rattletrap_rocket_flare"
+	}
+	"special_bonus_unique_clockwerk_hookshot_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rattletrap_hookshot"
+	}
+}

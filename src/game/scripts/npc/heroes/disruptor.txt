@@ -1,0 +1,113 @@
+// Abilities for Disruptor
+"DOTAAbilities"
+{
+	"disruptor_thunder_strike"
+	{
+		"ReduxPerks"                                                           "lightning"
+	}
+
+	"disruptor_glimpse"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "enemymoving | lightning | support"
+		"ReduxCost"                                                            "10"
+	}
+
+	"disruptor_kinetic_field"
+	{
+		"ReduxPerks"                                                           "lightning | skillshot"
+	}
+
+	"disruptor_kinetic_fence"
+	{
+		"ReduxPerks"                                                           "lightning | skillshot"
+	}
+
+	"disruptor_static_storm"
+	{
+		"ReduxFlags"                                                           "upgradeable | silence"
+		"ReduxPerks"                                                           "lightning | silence"
+	}
+
+	//=================================================================================================================
+	// Electromagnetic Repulsion (Innate but shown in UI)
+	//=================================================================================================================
+	"disruptor_electromagnetic_repulsion"
+	{
+		"ReduxFlags"                                                           "semi_passive"
+		"ReduxPerks"                                                           "enemymoving | explosive | lightning"
+	}
+
+	//=================================================================================================================
+	// Unknown
+	//=================================================================================================================
+	"disruptor_innate_kinetic_circle"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_disruptor_perk"
+
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "lightning"
+	}
+
+	"special_bonus_unique_disruptor"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "disruptor_static_storm"
+	}
+	"special_bonus_unique_disruptor_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "disruptor_glimpse"
+	}
+	"special_bonus_unique_disruptor_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"
+		{
+			"1"                                                                   "disruptor_kinetic_field"
+			"2"                                                                   "disruptor_kinetic_fence"
+		}
+	}
+	"special_bonus_unique_disruptor_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "disruptor_electromagnetic_repulsion"
+	}
+	"special_bonus_unique_disruptor_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "disruptor_static_storm"
+	}
+	"special_bonus_unique_disruptor_9"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "disruptor_glimpse"
+	}
+	"special_bonus_unique_disruptor_consecutive_strike_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "disruptor_thunder_strike"
+	}
+}

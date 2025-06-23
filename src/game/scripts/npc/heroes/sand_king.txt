@@ -40,34 +40,21 @@
 
 	"special_bonus_unique_sand_king"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "sandking_epicenter"
 	}
 	"special_bonus_unique_sand_king_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "sandking_sand_storm"
 	}
 	"special_bonus_unique_sand_king_3"
-	{
-		"TalentRequiredAbility"                                                   "sandking_scorpion_strike"
-	}
-	"special_bonus_unique_sand_king_4"
-	{
-		"TalentRequiredAbility"                                                   "sandking_sand_storm"
-	}
-	"special_bonus_unique_sand_king_5"
-	{
-		"TalentRequiredAbility"                                                   "sandking_epicenter"
-	}
-	"special_bonus_unique_sand_king_7"
-	{
-		"TalentRequiredAbility"                                                   "sandking_burrowstrike"
-	}
-	"special_bonus_unique_sand_king_8"
-	{
-		"TalentRequiredAbility"                                                   "sandking_burrowstrike"
-	}
-
-	"special_bonus_unique_sand_king_scorpion_strike_damage"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -75,7 +62,38 @@
 
 		"TalentRequiredAbility"                                                   "sandking_scorpion_strike"
 	}
+	"special_bonus_unique_sand_king_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
+		"TalentRequiredAbility"                                                   "sandking_sand_storm"
+	}
+	"special_bonus_unique_sand_king_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sandking_epicenter"
+	}
+	"special_bonus_unique_sand_king_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sandking_burrowstrike"
+	}
+	"special_bonus_unique_sand_king_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "sandking_burrowstrike"
+	}
 	"special_bonus_unique_sand_king_caustic_finale_radius"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"

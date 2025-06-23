@@ -4150,7 +4150,6 @@
             "stack_limit"
             {
                 "value" "4 5 6 7"
-                "LinkedSpecialBonus" "special_bonus_unique_bristleback"
             }
             "goo_duration_creep" "10.0"
             "radius_scepter" "900"
@@ -4204,7 +4203,6 @@
             "quill_stack_damage"
             {
                 "value" "35.0 40.0 45.0 50.0"
-                "LinkedSpecialBonus" "special_bonus_unique_bristleback_2"
             }
             "quill_stack_duration" "14.0"
             "max_damage" "700.0"
@@ -4869,7 +4867,6 @@
             "damage_bonus_aura"
             {
                 "value" "4 8 12 16"
-                "LinkedSpecialBonus" "special_bonus_unique_chen_5"
             }
             "army_damage_multiplier" "2"
             "aura_radius" "1200"
@@ -4923,7 +4920,6 @@
             "health_min"
             {
                 "value" "1000 2000 3000 4000"
-                "LinkedSpecialBonus" "special_bonus_unique_chen_4"
             }
             "teleport_delay" "6.0 5.0 4.0 3.0"
             "teleport_distance" "120"
@@ -4973,7 +4969,6 @@
             "heal_amount"
             {
                 "value" "400 1100 1800"
-                "LinkedSpecialBonus" "special_bonus_unique_chen_2"
             }
             "ancient_creeps_scepter" "2 3 4"
             "overheal_loss_per_tick" "5"
@@ -5729,7 +5724,6 @@
             "radius"
             {
                 "value" "450 550 650 750"
-                "LinkedSpecialBonus" "special_bonus_unique_dark_seer_2"
             }
             "duration"
             {
@@ -5783,7 +5777,6 @@
             "radius"
             {
                 "value" "450 550 650 750"
-                "LinkedSpecialBonus" "special_bonus_unique_dark_seer_2"
             }
             "duration"
             {
@@ -5840,7 +5833,6 @@
             "damage_per_second"
             {
                 "value" "40 70 100 130"
-                "LinkedSpecialBonus" "special_bonus_unique_dark_seer"
             }
             "duration" "36 39 42 45"
             "proton_explosion_radius" "800"
@@ -8900,12 +8892,10 @@
             "blade_fury_damage"
             {
                 "value" "1000"
-                "LinkedSpecialBonus" "special_bonus_unique_juggernaut_3"
             }
             "duration"
             {
                 "value" "10.0"
-                "LinkedSpecialBonus" "special_bonus_unique_juggernaut"
             }
         }
 	}
@@ -11775,7 +11765,6 @@
             "armor_reduction"
             {
                 "value" "-1 -5 -8 -10"
-                "LinkedSpecialBonus" "special_bonus_unique_chaos_knight_2"
             }
             "armor_duration" "8"
         }
@@ -11870,7 +11859,6 @@
             "damage"
             {
                 "value" "30 70 110"
-                "LinkedSpecialBonus" "special_bonus_unique_doom_5"
             }
             "deniable_pct" "25"
             "aura_radius" "450"
@@ -14842,7 +14830,6 @@
             "bonus_damage"
             {
                 "value" "40 60 80 100"
-                "LinkedSpecialBonus" "special_bonus_unique_faceless_void_3"
             }
             "moment_cd_increase" "0.3 0.7 1.1 1.5"
         }
@@ -15283,7 +15270,6 @@
             "burn_damage"
             {
                 "value" "9 14 19 24"
-                "LinkedSpecialBonus" "special_bonus_unique_huskar_2"
             }
             "pain_reflection_per_stack" "1"
         }
@@ -15292,7 +15278,6 @@
 	
 	//=================================================================================================================
 	// Huskar: Berserker's Blood
-	//e
 	//=================================================================================================================
 	"imba_huskar_berserkers_blood"
 	{
@@ -15442,7 +15427,6 @@
             "damage_per_sec"
             {
                 "value" "100 140 180 220"
-                "LinkedSpecialBonus" "special_bonus_unique_juggernaut_3"
             }
             "damage_tick" "0.2"
             "succ_tick" "0.2"
@@ -15891,20 +15875,17 @@
             "illusion_duration" "30 32 34 36"
             "outgoing_damage"
             {
-                "value" "-60 -60 -50 -50"
-                "LinkedSpecialBonus" "special_bonus_unique_naga_siren_4"
+                "value" "-60 -55 -50 -45"
             }
             "outgoing_damage_tooltip"
             {
-                "value" "40 40 50 50"
-                "LinkedSpecialBonus" "special_bonus_unique_naga_siren_4"
+                "value" "40 45 50 55"
             }
             "incoming_damage" "225 175 175 175"
             "tooltip_incoming_damage_total_pct" "325 275 275 275"
             "images_count"
             {
                 "value" "2 3 3 4"
-                "LinkedSpecialBonus" "special_bonus_unique_naga_siren"
             }
             "invuln_duration" "0.3"
         }
@@ -15933,7 +15914,6 @@
             "armor_reduction"
             {
                 "value" "-2 -3 -4 -5"
-                "LinkedSpecialBonus" "special_bonus_unique_naga_siren_3"
             }
             "radius" "320 350 380 410"
             "duration" "8"

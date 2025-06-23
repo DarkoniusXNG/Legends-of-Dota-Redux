@@ -12,11 +12,14 @@
 #base "heroes\bristleback.txt"
 #base "heroes\chaos_knight.txt"
 #base "heroes\chen.txt"
+#base "heroes\clockwerk.txt"
 #base "heroes\crystal_maiden.txt"
 #base "heroes\dark_seer.txt"
 #base "heroes\dawnbreaker.txt"
 #base "heroes\dazzle.txt"
 #base "heroes\death_prophet.txt"
+#base "heroes\disruptor.txt"
+#base "heroes\doom.txt"
 #base "heroes\dragon_knight.txt"
 #base "heroes\drow_ranger.txt"
 #base "heroes\earthshaker.txt"
@@ -36,6 +39,7 @@
 #base "heroes\lone_druid.txt"
 #base "heroes\luna.txt"
 #base "heroes\lycan.txt"
+#base "heroes\muerta.txt"
 #base "heroes\naga_siren.txt"
 #base "heroes\necrophos.txt"
 #base "heroes\night_stalker.txt"
@@ -48,6 +52,7 @@
 #base "heroes\sand_king.txt"
 #base "heroes\shadow_fiend.txt"
 #base "heroes\shadow_shaman.txt"
+#base "heroes\silencer.txt"
 #base "heroes\snapfire.txt"
 #base "heroes\skywrath_mage.txt"
 #base "heroes\sniper.txt"
@@ -67,6 +72,14 @@
 
 "DOTAAbilities"
 {
+	"razor_dynamo"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_razor_perk"
+
+		"ReduxBans"                     "rubick_might_and_magus" // because it crashes the game
+	}
+
 	"frogmen_riverborn_aura"
 	{
 		"ReduxFlags"                                                           "mobility"
@@ -183,23 +196,6 @@
 
 	"clinkz_death_pact"
 	{
-		"ReduxPerks"                                                           "undead"
-	}
-
-	"muerta_supernatural"
-	{
-		"ReduxPerks"                                                           "undead"
-	}
-
-	"muerta_pierce_the_veil"
-	{
-		"ReduxPerks"                                                           "transformation | undead"
-	}
-
-	"muerta_ofrenda"
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
-
 		"ReduxPerks"                                                           "undead"
 	}
 
@@ -398,32 +394,6 @@
 			"magic_resist"				"-20 -25 -30 -35"
 			"speed"						"550"
 			"trigger_cd"				"10 8 6 4"
-		}
-	}
-
-	"muerta_parting_shot"
-	{
-		"ReduxFlags"                                                           "stun | support | doNotRandom"
-		"ReduxPerks"                                                           "support | enemymoving | undead"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-		"MaxLevel"						"4"
-		"AbilityCastRange"				"750 800 850 900"
-		"AbilityCastPoint"				"0.3"
-		"AbilityCooldown"				"45 35 25 15"
-		"AbilityDamage"					"300 325 350 375"
-		"AbilityManaCost"				"250 225 200 175"
-		"AbilityValues"
-		{
-			"projectile_speed"			"2500"
-			"knockback_duration"		"0.2"
-			"knockback_distance"		"150"
-			"debuff_duration"			"4"
-			"ethereal_damage_bonus"		"0"
-			"movement_slow"				"0"
-			"soul_return_time"			"0.75"
-			"soul_return_min_speed"		"500"
-			"damage_reduction_percent"	"35"
 		}
 	}
 
@@ -1811,11 +1781,6 @@
 		"ReduxPerks"                                                           "enemymoving | rage"
 	}
 
-	"muerta_dead_shot"
-	{
-		"ReduxPerks"                                                           "enemymoving | skillshot | undead"
-	}
-
 	"beastmaster_mark_of_the_beast"
 	{
 		"MaxLevel"						"4"
@@ -1832,25 +1797,6 @@
 	{
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility | earth | rage"
-	}
-
-	"rattletrap_hookshot"
-	{
-		"ReduxFlags"                                                           "mobility | stun"
-		"ReduxPerks"                                                           "mobility | scientific | skillshot"
-	}
-
-	"disruptor_static_storm"
-	{
-		"ReduxFlags"                                                           "upgradeable | silence"
-		"ReduxPerks"                                                           "lightning | silence"
-	}
-
-	"doom_bringer_doom"
-	{
-		"ReduxFlags"                                                           "upgradeable | silence"
-		"ReduxPerks"                                                           "demon | fire | silence"
-		"ReduxCost"                                                            "10"
 	}
 
 	"earth_spirit_geomagnetic_grip"
@@ -1964,13 +1910,6 @@
 		"ReduxPerks"                                                           "demon"
 	}
 
-	"silencer_global_silence"
-	{
-		"ReduxFlags"                                                           "support | silence | wtfAutoBan | upgradeable"
-		"ReduxPerks"                                                           "support | silence"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
-	}
-
 	"spirit_breaker_nether_strike"
 	{
 		"ReduxPerks"                                                           "mobility | blink"
@@ -2044,13 +1983,6 @@
 		"ReduxPerks"                                                           "mobility | support"
 	}
 
-	"disruptor_glimpse"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | lightning | enemymoving"
-		"ReduxCost"                                                            "10"
-	}
-
 	"enchantress_natures_attendants"
 	{
 		"ReduxFlags"                                                           "support"
@@ -2097,10 +2029,6 @@
 		"ReduxPerks"                                                           "support"
 	}
 
-	"disruptor_kinetic_field"
-	{
-		"ReduxPerks"                                                           "lightning | skillshot"
-	}
 	"tusk_ice_shards"
 	{
 		"ReduxPerks"                                                           "ice | skillshot"
@@ -2566,13 +2494,6 @@
 		//"ReduxBans"                                                            "lone_druid_true_form"
 	}
 
-	"doom_bringer_infernal_blade"
-	{
-		"ReduxFlags"                                                           "attack_modifier | bash"
-		"ReduxPerks"                                                           "attack_modifier | autocast_basic | bash | blades | demon | fire"
-		"ReduxCost"                                                            "20"
-	}
-
 	"tusk_walrus_punch"
 	{
 		"ReduxFlags"                                                           "crit | attack_modifier | bash"
@@ -2679,12 +2600,6 @@
 		"ReduxCost"                                                            "80"
 	}
 
-	"silencer_glaives_of_wisdom"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | autocast_basic"
-		"ReduxCost"                                                            "30"
-	}
 	"broodmother_incapacitating_bite"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
@@ -2952,17 +2867,6 @@
 		"ReduxBans"                                                            "tinker_rearm"
 	}
 
-	"muerta_the_calling"
-	{
-		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "silence | undead"
-	}
-	"silencer_last_word"
-	{
-		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "silence"
-	}
-
 	"puck_waning_rift"
 	{
 		"ReduxFlags"                                                           "silence | mobility"
@@ -3025,11 +2929,6 @@
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "skillshot"
 	}
-	"doom_bringer_scorched_earth"
-	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility | demon | fire"
-	}
 
 	"tusk_frozen_sigil"
 	{
@@ -3081,15 +2980,6 @@
 	{
 		"ReduxPerks"                                                           "poison | skillshot | demon"
 		"ReduxFlags"                                                           "doNotRandom"
-	}
-
-	"disruptor_thunder_strike"
-	{
-		"ReduxPerks"                                                           "lightning"
-	}
-	"rattletrap_power_cogs"
-	{
-		"ReduxPerks"                                                           "lightning | scientific | enemymoving | trap"
 	}
 
 	"razor_plasma_field"
@@ -3171,40 +3061,6 @@
 	{
 		"ReduxPerks"                                                           "scientific | explosive"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
-	}
-	"rattletrap_battery_assault"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "scientific | explosive"
-	}
-	"rattletrap_rocket_flare"
-	{
-		"ReduxPerks"                                                           "scientific | skillshot | explosive"
-		"ReduxFlags"                                                           "wtfAutoBan"
-	}
-
-	"rattletrap_overclocking"
-	{
-		"ReduxFlags"                                                           "upgradeable | doNotRandom"
-		"ReduxPerks"                                                           "scientific | explosive"
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"50 45 40 35"
-		"AbilityValues"
-		{
-			"buff_duration"					"13"
-			"bonus_movement_speed"			"0"
-			"bonus_attack_speed"			"250 275 300 325"
-			"debuff_duration"				"3.0 2.5 2.0 1.5"
-			"hookshot_damage_bonus_pct"		"0"
-			"hookshot_radius_bonus_pct"		"50 60 70 80"
-			"hookshot_duration_bonus_pct"	"50 60 70 80"
-			"rocket_flare_interval"				"0.15"
-			"rocket_flare_offset_pct"		"125 110 95 80"
-			"rocket_flare_rockets"				"2 3 4 5"
-			"rocket_flare_cooldown"				"3"
-			"jetpack_bonus_speed"			"40"
-			"jetpack_turn_rate"				"75 100 125 150"
-		}
 	}
 
 	"shredder_chakram"
@@ -4196,35 +4052,6 @@
 		}
 	}
 
-	"rattletrap_jetpack"
-	{
-		"ReduxFlags"	"mobility | doNotRandom"
-		"ReduxPerks"	"mobility"
-
-		"MaxLevel"                      "4"
-		"AbilityCooldown"               "16 14 12 10"
-		"AbilityManaCost"               "75"
-		"AbilityValues"
-		{
-			"bonus_speed"
-			{
-				"value" "20 25 30 35"
-			}
-			"turn_rate"
-			{
-				"value" "75 150 225 300"
-			}
-			"height"
-			{
-				"value" "250"
-			}
-			"duration"
-			{
-				"value" "6"
-			}
-		}
-	}
-
 	"terrorblade_demon_zeal"
 	{
 		"ReduxPerks"					"demon | self_damage | rage"
@@ -4500,37 +4327,65 @@
 
 	"special_bonus_unique_mars_spear_bonus_damage"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "mars_spear"
 	}
 	"special_bonus_unique_mars_gods_rebuke_extra_crit"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "mars_gods_rebuke"
 	}
 	"special_bonus_unique_mars_rebuke_cooldown"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "mars_gods_rebuke"
 	}
 	"special_bonus_unique_mars_spear_stun_duration"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "mars_spear"
 	}
 	"special_bonus_unique_mars_arena_of_blood_hp_regen"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "mars_arena_of_blood"
 	}
 	"special_bonus_unique_mars_rebuke_radius"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "mars_gods_rebuke"
 	}
 	"special_bonus_unique_mars_arena_cooldown"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "mars_arena_of_blood"
 	}
 	"special_bonus_unique_mars_dauntless_hpregen"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "mars_dauntless"
 	}
@@ -4539,10 +4394,18 @@
 	// Beastmaster
 	"special_bonus_unique_beastmaster_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "beastmaster_inner_beast"
 	}
 	"special_bonus_unique_beastmaster_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1"                                                                   "beastmaster_call_of_the_wild_boar"
@@ -4551,26 +4414,42 @@
 	}
 	"special_bonus_unique_beastmaster_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "beastmaster_inner_beast"
 	}
-	"special_bonus_unique_beastmaster_5"
+	"special_bonus_unique_beastmaster_5" // still exists
 	{
 		"TalentRequiredAbility"                                                   "beastmaster_inner_beast"
 	}
-	"special_bonus_unique_beastmaster_6"
+	"special_bonus_unique_beastmaster_6" // still exists
 	{
 		"TalentRequiredAbility"                                                   "beastmaster_inner_beast"
 	}
 	"special_bonus_unique_beastmaster_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "beastmaster_primal_roar"
 	}
 	"special_bonus_unique_beastmaster_9"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "beastmaster_wild_axes"
 	}
 	"special_bonus_unique_beastmaster_wild_axe_cooldown"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "beastmaster_wild_axes"
 	}
 
@@ -4635,149 +4514,259 @@
 	// Earth Spirit
 	"special_bonus_unique_earth_spirit"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "earth_spirit_rolling_boulder"
 	}
 	"special_bonus_unique_earth_spirit_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "earth_spirit_magnetize"
 	}
 	"special_bonus_unique_earth_spirit_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "earth_spirit_rolling_boulder"
 	}
 	"special_bonus_unique_earth_spirit_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "earth_spirit_rolling_boulder"
 	}
 	"special_bonus_unique_earth_spirit_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "earth_spirit_geomagnetic_grip"
 	}
 	"special_bonus_unique_earth_spirit_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "earth_spirit_boulder_smash"
 	}
 	"special_bonus_unique_earth_spirit_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "earth_spirit_boulder_smash"
 	}
 	"special_bonus_unique_earth_spirit_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "earth_spirit_magnetize"
 	}
 
 	// Ember Spirit
 	"special_bonus_unique_ember_spirit_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "ember_spirit_flame_guard"
 	}
 	"special_bonus_unique_ember_spirit_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "ember_spirit_searing_chains"
 	}
 	"special_bonus_unique_ember_spirit_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "ember_spirit_flame_guard"
 	}
 	"special_bonus_unique_ember_spirit_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "ember_spirit_sleight_of_fist"
 	}
 	"special_bonus_unique_ember_spirit_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "ember_spirit_fire_remnant"
 	}
 	"special_bonus_unique_ember_spirit_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "ember_spirit_sleight_of_fist"
 	}
-	"special_bonus_unique_ember_spirit_7"
+	"special_bonus_unique_ember_spirit_chains_dps"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "ember_spirit_searing_chains"
 	}
 
 
 	// Enchantress
-	"special_bonus_unique_enchantress_1"
-	{
-		"TalentRequiredAbility"                                                   "enchantress_enchant"
-	}
 	"special_bonus_unique_enchantress_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "enchantress_natures_attendants"
 	}
 	"special_bonus_unique_enchantress_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "enchantress_untouchable"
 	}
 	"special_bonus_unique_enchantress_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "enchantress_impetus"
 	}
 	"special_bonus_unique_enchantress_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "enchantress_natures_attendants"
 	}
 	"special_bonus_unique_enchantress_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "enchantress_natures_attendants"
 	}
 	"special_bonus_unique_enchantress_enchant_health_damage"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "enchantress_enchant"
 	}
 	"special_bonus_unique_enchantress_enchant_armor"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "enchantress_enchant"
 	}
 	"special_bonus_unique_enchantress_enchant_attackspeed"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "enchantress_enchant"
 	}
-
 
 	// Enigma
 	"special_bonus_unique_enigma"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "enigma_demonic_conversion"
 	}
 	"special_bonus_unique_enigma_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "enigma_malefice"
 	}
 	"special_bonus_unique_enigma_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "enigma_demonic_conversion"
 	}
 	"special_bonus_unique_enigma_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "enigma_demonic_conversion"
 	}
 	"special_bonus_unique_enigma_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "enigma_malefice"
 	}
 	"special_bonus_unique_enigma_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "enigma_black_hole"
-	}
-	"special_bonus_unique_enigma_7"
-	{
-		"TalentRequiredAbility"                                                   "enigma_demonic_conversion"
-	}
-	"special_bonus_unique_enigma_8"
-	{
-		"TalentRequiredAbility"                                                   "enigma_midnight_pulse"
 	}
 	"special_bonus_unique_enigma_9"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "enigma_midnight_pulse"
 	}
-
 
 	// Faceless Void
 	"special_bonus_unique_faceless_void"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1"	"faceless_void_chronosphere"
@@ -4786,6 +4775,10 @@
 	}
 	"special_bonus_unique_faceless_void_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1"	"faceless_void_chronosphere"
@@ -4794,34 +4787,56 @@
 	}
 	"special_bonus_unique_faceless_void_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "faceless_void_time_lock"
 	}
-	"special_bonus_unique_faceless_void_4"   // Backtrack talent; crashes talent picker
+	"special_bonus_unique_faceless_void_4"   // Backtrack talent, still exists
 	{
-		// "TalentRequiredAbility"                                                   "special_bonus_inherent"
 		"TalentRequiredAbility"                                                   "faceless_void_chronosphere"
 	}
 	"special_bonus_unique_faceless_void_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "faceless_void_time_walk"
 	}
 	"special_bonus_unique_faceless_void_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "faceless_void_time_dilation"
 	}
 	"special_bonus_unique_faceless_void_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "faceless_void_time_walk"
 	}
 	"special_bonus_unique_faceless_void_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "faceless_void_time_dilation"
 	}
 
-
-	// Furion
+	// Nature's Prophet
 	"special_bonus_unique_furion"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1" "furion_force_of_nature"
@@ -4830,30 +4845,58 @@
 	}
 	"special_bonus_unique_furion_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "furion_force_of_nature"
 	}
 	"special_bonus_unique_furion_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "furion_teleportation"
 	}
 	"special_bonus_unique_furion_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "furion_sprout"
 	}
 	"special_bonus_unique_furion_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "furion_wrath_of_nature"
 	}
 	"special_bonus_unique_furion_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "furion_force_of_nature"
 	}
 	"special_bonus_unique_furion_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "furion_wrath_of_nature"
 	}
 	"special_bonus_unique_furion_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1" "furion_sprout"
@@ -4864,37 +4907,67 @@
 	// Gyrocopter
 	"special_bonus_unique_gyrocopter_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "gyrocopter_flak_cannon"
 	}
 	"special_bonus_unique_gyrocopter_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "gyrocopter_flak_cannon"
 	}
 	"special_bonus_unique_gyrocopter_3"
 	{
-		"TalentRequiredAbility"                                                   "gyrocopter_rocket_barrage"
-	}
-	"special_bonus_unique_gyrocopter_4"
-	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "gyrocopter_rocket_barrage"
 	}
 	"special_bonus_unique_gyrocopter_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "gyrocopter_call_down"
 	}
 	"special_bonus_unique_gyrocopter_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "gyrocopter_homing_missile"
 	}
 	"special_bonus_unique_gyrocopter_flak_cannon_bonus_damage"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "gyrocopter_flak_cannon"
 	}
+	"special_bonus_unique_gyrocopter_homing_missile_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
+		"TalentRequiredAbility"                                                   "gyrocopter_homing_missile"
+	}
+
+	// KOTL
 	"special_bonus_unique_keeper_of_the_light"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "keeper_of_the_light_illuminate"
 	}
@@ -4902,41 +4975,23 @@
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "keeper_of_the_light_chakra_magic"
-	}
-	"special_bonus_unique_keeper_of_the_light_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_will_o_wisp"
-	}
-	"special_bonus_unique_keeper_of_the_light_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_will_o_wisp"
 	}
 	"special_bonus_unique_keeper_of_the_light_5"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "keeper_of_the_light_blinding_light"
-	}
-	"special_bonus_unique_keeper_of_the_light_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_will_o_wisp"
 	}
 	"special_bonus_unique_keeper_of_the_light_7"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "keeper_of_the_light_chakra_magic"
 	}
@@ -4944,48 +4999,23 @@
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "keeper_of_the_light_blinding_light"
-	}
-	"special_bonus_unique_keeper_of_the_light_9"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_illuminate"
-	}
-	"special_bonus_unique_keeper_of_the_light_10"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_radiant_bind"
 	}
 	"special_bonus_unique_keeper_of_the_light_11"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "keeper_of_the_light_spirit_form"
-	}
-	"special_bonus_unique_keeper_of_the_light_12"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_blinding_light"
-	}
-	"special_bonus_unique_keeper_of_the_light_13"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_radiant_bind"
 	}
 	"special_bonus_unique_keeper_of_the_light_14"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "keeper_of_the_light_chakra_magic"
 	}
@@ -4993,69 +5023,116 @@
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "keeper_of_the_light_illuminate"
 	}
 
-	"special_bonus_unique_legion_commander"
-	{
-		"TalentRequiredAbility"                                                   "legion_commander_duel"
-	}
-	"special_bonus_unique_legion_commander_2"
-	{
-		"TalentRequiredAbility"                                                   "legion_commander_overwhelming_odds"
-	}
+	// LC
 	"special_bonus_unique_legion_commander_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "legion_commander_moment_of_courage"
 	}
 	"special_bonus_unique_legion_commander_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "legion_commander_overwhelming_odds"
 	}
 	"special_bonus_unique_legion_commander_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "legion_commander_press_the_attack"
 	}
 	"special_bonus_unique_legion_commander_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "legion_commander_press_the_attack"
 	}
 	"special_bonus_unique_legion_commander_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "legion_commander_moment_of_courage"
 	}
 	"special_bonus_unique_legion_commander_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "legion_commander_press_the_attack"
 	}
 	"special_bonus_unique_legion_commander_9"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "legion_commander_overwhelming_odds"
 	}
 	"special_bonus_unique_legion_commander_pta_movespeed"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "legion_commander_press_the_attack"
 	}
 
+	// Magnus
 	"special_bonus_unique_magnus"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "magnataur_shockwave"
 	}
 	"special_bonus_unique_magnus_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "magnataur_empower"
 	}
 	"special_bonus_unique_magnus_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "magnataur_reverse_polarity"
 	}
 	"special_bonus_unique_magnus_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "magnataur_skewer"
 	}
 	"special_bonus_unique_magnus_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "magnataur_skewer"
 	}
 	"special_bonus_unique_magnus_reverse_polarity_stats"
@@ -5075,27 +5152,45 @@
 		"TalentRequiredAbility"                                                   "magnataur_skewer"
 	}
 
-
-
-
+	// Medusa
 	"special_bonus_unique_medusa"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "medusa_stone_gaze"
 	}
 	"special_bonus_unique_medusa_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "medusa_split_shot"
 	}
 	"special_bonus_unique_medusa_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "medusa_mystic_snake"
 	}
 	"special_bonus_unique_medusa_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "medusa_mystic_snake"
 	}
 	"special_bonus_unique_medusa_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "medusa_stone_gaze"
 	}
 	"special_bonus_unique_medusa_gorgons_grasp_volleys"
@@ -5115,53 +5210,79 @@
 		"TalentRequiredAbility"                                                   "medusa_gorgon_grasp"
 	}
 
-
-
-	"special_bonus_unique_meepo"
-	{
-		"TalentRequiredAbility"                                                   "meepo_poof"
-	}
+	// Meepo
 	"special_bonus_unique_meepo_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "meepo_poof"
 	}
 	"special_bonus_unique_meepo_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "meepo_earthbind"
 	}
 	"special_bonus_unique_meepo_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "meepo_earthbind"
-	}
-	"special_bonus_unique_meepo_5"
-	{
-		"TalentRequiredAbility"                                                   "meepo_divided_we_stand"
 	}
 	"special_bonus_unique_meepo_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "meepo_ransack"
 	}
-	"special_bonus_unique_meepo_7"
+	"special_bonus_unique_meepo_poof_cast_point"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "meepo_poof"
 	}
 
-
-
+	// Mirana
 	"special_bonus_unique_mirana_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "mirana_leap"
 	}
 	"special_bonus_unique_mirana_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "mirana_arrow"
 	}
 	"special_bonus_unique_mirana_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "mirana_starfall"
 	}
 	"special_bonus_unique_mirana_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1" "mirana_invis"
@@ -5170,6 +5291,10 @@
 	}
 	"special_bonus_unique_mirana_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1" "mirana_invis"
@@ -5178,101 +5303,160 @@
 	}
 	"special_bonus_unique_mirana_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "mirana_leap"
 	}
 	"special_bonus_unique_mirana_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "mirana_starfall"
 	}
 
-
-
-	"special_bonus_unique_monkey_king"
-	{
-		"TalentRequiredAbility"                                                   "monkey_king_boundless_strike"
-	}
+	// Monkey King
 	"special_bonus_unique_monkey_king_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "monkey_king_jingu_mastery"
 	}
 	"special_bonus_unique_monkey_king_3"
 	{
-		"TalentRequiredAbility"                                                   "monkey_king_tree_dance"
-	}
-	"special_bonus_unique_monkey_king_4"
-	{
-		"TalentRequiredAbility"                                                   "monkey_king_wukongs_command"
-	}
-	"special_bonus_unique_monkey_king_5"
-	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "monkey_king_tree_dance"
 	}
 	"special_bonus_unique_monkey_king_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "monkey_king_wukongs_command"
 	}
 	"special_bonus_unique_monkey_king_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "monkey_king_tree_dance"
 	}
 	"special_bonus_unique_monkey_king_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "monkey_king_tree_dance"
 	}
 	"special_bonus_unique_monkey_king_9"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "monkey_king_boundless_strike"
 	}
 	"special_bonus_unique_monkey_king_10"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "monkey_king_boundless_strike"
 	}
 	"special_bonus_unique_monkey_king_11"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "monkey_king_jingu_mastery"
 	}
-	"special_bonus_unique_monkey_king_12"
-	{
-		"TalentRequiredAbility"                                                   "monkey_king_mischief"
-	}
 
-
-
+	// Morphling
 	"special_bonus_unique_morphling_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "morphling_waveform"
 	}
 	"special_bonus_unique_morphling_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "morphling_adaptive_strike_agi"
 	}
 	"special_bonus_unique_morphling_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "morphling_replicate"
 	}
 	"special_bonus_unique_morphling_waveform_cooldown"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "morphling_waveform"
 	}
 
+	// Nyx Assassin
 	"special_bonus_unique_nyx"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "nyx_assassin_jolt"
 	}
 	"special_bonus_unique_nyx_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "nyx_assassin_impale"
 	}
 	"special_bonus_unique_nyx_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "nyx_assassin_impale"
 	}
 	"special_bonus_unique_nyx_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "nyx_assassin_spiked_carapace"
 	}
 	"special_bonus_unique_nyx_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "nyx_assassin_spiked_carapace"
 	}
 	"special_bonus_unique_nyx_vendetta_damage"
@@ -5292,54 +5476,103 @@
 		"TalentRequiredAbility"                                                   "nyx_assassin_jolt"
 	}
 
+	// OD
 	"special_bonus_unique_outworld_devourer"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "obsidian_destroyer_arcane_orb"
 	}
 	"special_bonus_unique_outworld_devourer_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "obsidian_destroyer_astral_imprisonment"
 	}
 	"special_bonus_unique_outworld_devourer_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "obsidian_destroyer_equilibrium"
 	}
 	"special_bonus_unique_outworld_devourer_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "obsidian_destroyer_sanity_eclipse"
 	}
 	"special_bonus_unique_outworld_devourer_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "obsidian_destroyer_sanity_eclipse"
 	}
 	"special_bonus_unique_outworld_devourer_astral_castrange"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "obsidian_destroyer_astral_imprisonment"
 	}
 
-
+	// Phantom Lancer
 	"special_bonus_unique_phantom_lancer_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_lancer_phantom_edge"
 	}
 	"special_bonus_unique_phantom_lancer_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_lancer_doppelwalk"
 	}
 	"special_bonus_unique_phantom_lancer_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_lancer_spirit_lance"
 	}
 	"special_bonus_unique_phantom_lancer_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_lancer_juxtapose"
 	}
 	"special_bonus_unique_phantom_lancer_phantom_rush_agility"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_lancer_phantom_edge"
 	}
 	"special_bonus_unique_phantom_lancer_illusory_armaments_dmg"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phantom_lancer_illusory_armaments"
 	}
 	"special_bonus_unique_phantom_lancer_lance_slow_duration"
@@ -5359,29 +5592,53 @@
 		"TalentRequiredAbility"                                                   "phantom_lancer_spirit_lance"
 	}
 
-
+	// Phoenix
 	"special_bonus_unique_phoenix_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phoenix_supernova"
 	}
 	"special_bonus_unique_phoenix_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phoenix_supernova"
 	}
 	"special_bonus_unique_phoenix_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phoenix_fire_spirits"
 	}
 	"special_bonus_unique_phoenix_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phoenix_icarus_dive"
 	}
 	"special_bonus_unique_phoenix_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phoenix_sun_ray"
 	}
 	"special_bonus_unique_phoenix_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "phoenix_icarus_dive"
 	}
 	"special_bonus_unique_phoenix_blinding_sun_misschance"
@@ -5393,360 +5650,575 @@
 		"TalentRequiredAbility"                                                   "phoenix_blinding_sun"
 	}
 
-
-
-
+	// Puck
 	"special_bonus_unique_puck"
-	{
-		"TalentRequiredAbility"                                                   "puck_dream_coil"
-	}
-	"special_bonus_unique_puck_2"
-	{
-		"TalentRequiredAbility"                                                   "puck_waning_rift"
-	}
-	"special_bonus_unique_puck_3"
-	{
-		"TalentRequiredAbility"                                                   "puck_dream_coil"
-	}
-	"special_bonus_unique_puck_5"
-	{
-		"TalentRequiredAbility"                                                   "puck_dream_coil"
-	}
-	"special_bonus_unique_puck_6"
-	{
-		"TalentRequiredAbility"                                                   "puck_waning_rift"
-	}
-	"special_bonus_unique_puck_7"
-	{
-		"TalentRequiredAbility"                                                   "puck_waning_rift"
-	}
-	"special_bonus_unique_puck_8"
-	{
-		"TalentRequiredAbility"                                                   "puck_illusory_orb"
-	}
-	"special_bonus_unique_puck_orb_damage"
-	{
-		"TalentRequiredAbility"                                                   "puck_illusory_orb"
-	}
-	"special_bonus_unique_puck_coil_damage"
-	{
-		"TalentRequiredAbility"                                                   "puck_dream_coil"
-	}
-
-	"special_bonus_unique_pugna_1"
-	{
-		"TalentRequiredAbility"                                                   "pugna_life_drain"
-	}
-	"special_bonus_unique_pugna_2"
-	{
-		"TalentRequiredAbility"                                                   "pugna_nether_blast"
-	}
-	"special_bonus_unique_pugna_3"
-	{
-		"TalentRequiredAbility"                                                   "pugna_nether_ward"
-	}
-	"special_bonus_unique_pugna_4"
-	{
-		"TalentRequiredAbility"                                                   "pugna_nether_blast"
-	}
-	"special_bonus_unique_pugna_5"
-	{
-		"TalentRequiredAbility"                                                   "pugna_decrepify"
-	}
-	"special_bonus_unique_pugna_6"
-	{
-		"TalentRequiredAbility"                                                   "pugna_nether_ward"
-	}
-	"special_bonus_unique_pugna_decrepify_ally_movespeed"
-	{
-		"TalentRequiredAbility"                                                   "pugna_decrepify"
-	}
-
-
-
-	"special_bonus_unique_queen_of_pain"
-	{
-		"TalentRequiredAbility"                                                   "queenofpain_shadow_strike"
-	}
-	"special_bonus_unique_queen_of_pain_1"
-	{
-		"TalentRequiredAbility"                                                   "queenofpain_shadow_strike"
-	}
-	"special_bonus_unique_queen_of_pain_2"
-	{
-		"TalentRequiredAbility"                                                   "queenofpain_scream_of_pain"
-	}
-	"special_bonus_unique_queen_of_pain_3"
-	{
-		"TalentRequiredAbility"                                                   "queenofpain_sonic_wave"
-	}
-	"special_bonus_unique_queen_of_pain_4"
-	{
-		"TalentRequiredAbility"                                                   "queenofpain_shadow_strike"
-	}
-	"special_bonus_unique_queen_of_pain_5"
-	{
-		"TalentRequiredAbility"                                                   "queenofpain_sonic_wave"
-	}
-	"special_bonus_unique_queen_of_pain_6"
-	{
-		"TalentRequiredAbility"                                                   "queenofpain_blink"
-	}
-	"special_bonus_unique_queen_of_pain_7"
-	{
-		"TalentRequiredAbility"                                                   "queenofpain_sonic_wave"
-	}
-	"special_bonus_unique_queen_of_pain_strike_heal"
-	{
-		"TalentRequiredAbility"                                                   "queenofpain_shadow_strike"
-	}
-
-
-
-	"special_bonus_unique_razor"
-	{
-		"TalentRequiredAbility"                                                   "razor_static_link"
-	}
-	"special_bonus_unique_razor_2"
-	{
-		"TalentRequiredAbility"                                                   "razor_eye_of_the_storm"
-	}
-	"special_bonus_unique_razor_4"
-	{
-		"TalentRequiredAbility"                                                   "razor_plasma_field"
-	}
-	"special_bonus_unique_razor_plasmafield_second_ring"
-	{
-		"TalentRequiredAbility"                                                   "razor_plasma_field"
-	}
-	"special_bonus_unique_razor_static_link_aspd"
-	{
-		"TalentRequiredAbility"                                                   "razor_static_link"
-	}
-	"special_bonus_unique_razor_storm_surge_damage_and_slow"
-	{
-		"TalentRequiredAbility"                                                   "razor_storm_surge"
-	}
-
-
-
-	"special_bonus_unique_riki_1"
-	{
-		"TalentRequiredAbility"                                                   "riki_innate_backstab"
-	}
-	"special_bonus_unique_riki_2"
-	{
-		"TalentRequiredAbility"                                                   "riki_tricks_of_the_trade"
-	}
-	"special_bonus_unique_riki_3"
-	{
-		"TalentRequiredAbility"                                                   "riki_smoke_screen"
-	}
-	"special_bonus_unique_riki_5"
-	{
-		"TalentRequiredAbility"                                                   "riki_tricks_of_the_trade"
-	}
-	"special_bonus_unique_riki_6"
-	{
-		"TalentRequiredAbility"                                                   "riki_backstab"
-	}
-	"special_bonus_unique_riki_7"
-	{
-		"TalentRequiredAbility"                                                   "riki_smoke_screen"
-	}
-	"special_bonus_unique_riki_8"
-	{
-		"TalentRequiredAbility"                                                   "riki_backstab"
-	}
-	"special_bonus_unique_riki_9"
-	{
-		"TalentRequiredAbility"                                                   "riki_blink_strike"
-	}
-
-	"special_bonus_unique_rubick"
-	{
-		"TalentRequiredAbility"                                                   "rubick_telekinesis"
-	}
-	"special_bonus_unique_rubick_2"
-	{
-		"TalentRequiredAbility"                                                   "rubick_might_and_magus"
-	}
-	"special_bonus_unique_rubick_3"
-	{
-		"TalentRequiredAbility"                                                   "rubick_fade_bolt"
-	}
-	"special_bonus_unique_rubick_4"
-	{
-		"TalentRequiredAbility"                                                   "rubick_telekinesis"
-	}
-	"special_bonus_unique_rubick_5"
-	{
-		"TalentRequiredAbility"                                                   "rubick_spell_steal"
-	}
-	"special_bonus_unique_rubick_6"
-	{
-		"TalentRequiredAbility"                                                   "rubick_spell_steal"
-	}
-	"special_bonus_unique_rubick_7"
-	{
-		"TalentRequiredAbility"                                                   "rubick_telekinesis"
-	}
-	"special_bonus_unique_rubick_8"
-	{
-		"TalentRequiredAbility"                                                   "rubick_telekinesis"
-	}
-
-	"special_bonus_unique_dark_willow_1"
-	{
-		"TalentRequiredAbility"                                                   "dark_willow_shadow_realm"
-	}
-	"special_bonus_unique_dark_willow_2"
-	{
-		"TalentRequiredAbility"                                                   "dark_willow_terrorize"
-	}
-	"special_bonus_unique_dark_willow_3"
-	{
-		"TalentRequiredAbility"                                                   "dark_willow_bramble_maze"
-	}
-	"special_bonus_unique_dark_willow_4"
-	{
-		"TalentRequiredAbility"                                                   "dark_willow_bedlam"
-	}
-	"special_bonus_unique_dark_willow_6"
-	{
-		"TalentRequiredAbility"                                                   "dark_willow_bedlam"
-	}
-	"special_bonus_unique_dark_willow_7"
-	{
-		"TalentRequiredAbility"                                                   "dark_willow_cursed_crown"
-	}
-	"special_bonus_unique_dark_willow_bedlam_targets"
-	{
-		"TalentRequiredAbility"                                                   "dark_willow_bedlam"
-	}
-
-
-
-	"special_bonus_unique_pangolier"
-	{
-		"TalentRequiredAbility"                                                   "pangolier_swashbuckle"
-	}
-	"special_bonus_unique_pangolier_2"
-	{
-		"TalentRequiredAbility"                                                   "pangolier_shield_crash"
-	}
-	"special_bonus_unique_pangolier_3"
-	{
-		"TalentRequiredAbility"                                                   "pangolier_swashbuckle"
-	}
-	"special_bonus_unique_pangolier_4"
-	{
-		"TalentRequiredAbility"                                                   "pangolier_swashbuckle"
-	}
-	"special_bonus_unique_pangolier_5"
-	{
-		"TalentRequiredAbility"                                                   "pangolier_gyroshell"
-	}
-	"special_bonus_unique_pangolier_6"
-	{
-		"TalentRequiredAbility"                                                   "pangolier_gyroshell"
-	}
-	"special_bonus_unique_pangolier_7"
-	{
-		"TalentRequiredAbility"                                                   "pangolier_swashbuckle"
-	}
-	"special_bonus_unique_pangolier_luckyshot_armor"
-	{
-		"TalentRequiredAbility"                                                   "pangolier_lucky_shot"
-	}
-	"special_bonus_unique_pangolier_shield_crash_herostacks"
-	{
-		"TalentRequiredAbility"                                                   "pangolier_shield_crash"
-	}
-	"special_bonus_unique_pangolier_shield_crash_radius"
-	{
-		"TalentRequiredAbility"                                                   "pangolier_shield_crash"
-	}
-
-
-
-	"special_bonus_unique_shadow_demon_1"
-	{
-		"TalentRequiredAbility"                                                   "shadow_demon_demonic_purge"
-	}
-	"special_bonus_unique_shadow_demon_3"
-	{
-		"TalentRequiredAbility"                                                   "shadow_demon_shadow_poison"
-	}
-	"special_bonus_unique_shadow_demon_4"
-	{
-		"TalentRequiredAbility"                                                   "shadow_demon_shadow_poison"
-	}
-	"special_bonus_unique_shadow_demon_7"
-	{
-		"TalentRequiredAbility"                                                   "shadow_demon_disruption"
-	}
-	"special_bonus_unique_shadow_demon_9"
-	{
-		"TalentRequiredAbility"                                                   "shadow_demon_demonic_purge"
-	}
-	"special_bonus_unique_shadow_demon_disseminate_damage"
-	{
-		"TalentRequiredAbility"                                                   "shadow_demon_disseminate"
-	}
-
-	"special_bonus_unique_silencer"
-	{
-		"TalentRequiredAbility"                                                   "silencer_curse_of_the_silent"
-	}
-	"special_bonus_unique_silencer_3"
-	{
-		"TalentRequiredAbility"                                                   "silencer_glaives_of_wisdom"
-	}
-	"special_bonus_unique_silencer_4"
-	{
-		"TalentRequiredAbility"                                                   "silencer_last_word"
-	}
-	"special_bonus_unique_silencer_5"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "silencer_glaives_of_wisdom"
+		"TalentRequiredAbility"                                                   "puck_dream_coil"
 	}
-	"special_bonus_unique_silencer_7"
+	"special_bonus_unique_puck_2"
 	{
-		"TalentRequiredAbility"                                                   "silencer_global_silence"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "puck_waning_rift"
 	}
-	"special_bonus_unique_silencer_arcane_curse_charges"
+	"special_bonus_unique_puck_5"
 	{
-		"TalentRequiredAbility"                                                   "silencer_curse_of_the_silent"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "puck_dream_coil"
 	}
-	"special_bonus_unique_silencer_arcane_curse_duration"
+	"special_bonus_unique_puck_6"
 	{
-		"TalentRequiredAbility"                                                   "silencer_curse_of_the_silent"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "puck_waning_rift"
+	}
+	"special_bonus_unique_puck_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "puck_waning_rift"
+	}
+	"special_bonus_unique_puck_rift_radius"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "puck_waning_rift"
+	}
+	"special_bonus_unique_puck_orb_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "puck_illusory_orb"
+	}
+	"special_bonus_unique_puck_coil_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "puck_dream_coil"
 	}
 
+	// Pugna
+	"special_bonus_unique_pugna_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
+		"TalentRequiredAbility"                                                   "pugna_life_drain"
+	}
+	"special_bonus_unique_pugna_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "pugna_nether_blast"
+	}
+	"special_bonus_unique_pugna_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "pugna_nether_ward"
+	}
+	"special_bonus_unique_pugna_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "pugna_nether_blast"
+	}
+	"special_bonus_unique_pugna_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "pugna_decrepify"
+	}
+	"special_bonus_unique_pugna_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "pugna_nether_ward"
+	}
+	"special_bonus_unique_pugna_decrepify_ally_movespeed"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "pugna_decrepify"
+	}
+
+	// QoP
+	"special_bonus_unique_queen_of_pain_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "queenofpain_shadow_strike"
+	}
+	"special_bonus_unique_queen_of_pain_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "queenofpain_scream_of_pain"
+	}
+	"special_bonus_unique_queen_of_pain_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "queenofpain_sonic_wave"
+	}
+	"special_bonus_unique_queen_of_pain_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "queenofpain_shadow_strike"
+	}
+	"special_bonus_unique_queen_of_pain_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "queenofpain_blink"
+	}
+	"special_bonus_unique_queen_of_pain_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "queenofpain_sonic_wave"
+	}
+
+	// Razor
+	"special_bonus_unique_razor"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "razor_static_link"
+	}
+	"special_bonus_unique_razor_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "razor_eye_of_the_storm"
+	}
+	"special_bonus_unique_razor_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "razor_plasma_field"
+	}
+	"special_bonus_unique_razor_plasmafield_second_ring"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "razor_plasma_field"
+	}
+	"special_bonus_unique_razor_static_link_aspd"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "razor_static_link"
+	}
+	"special_bonus_unique_razor_storm_surge_damage_and_slow"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "razor_storm_surge"
+	}
+
+	// Riki
+	"special_bonus_unique_riki_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_innate_backstab"
+	}
+	"special_bonus_unique_riki_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_tricks_of_the_trade"
+	}
+	"special_bonus_unique_riki_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_smoke_screen"
+	}
+	"special_bonus_unique_riki_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_tricks_of_the_trade"
+	}
+	"special_bonus_unique_riki_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_backstab"
+	}
+	"special_bonus_unique_riki_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_smoke_screen"
+	}
+	"special_bonus_unique_riki_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_backstab"
+	}
+	"special_bonus_unique_riki_9"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_blink_strike"
+	}
+
+	// Rubick
+	"special_bonus_unique_rubick"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rubick_telekinesis"
+	}
+	"special_bonus_unique_rubick_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rubick_might_and_magus"
+	}
+	"special_bonus_unique_rubick_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rubick_fade_bolt"
+	}
+	"special_bonus_unique_rubick_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rubick_telekinesis"
+	}
+	"special_bonus_unique_rubick_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rubick_spell_steal"
+	}
+	"special_bonus_unique_rubick_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rubick_spell_steal"
+	}
+	"special_bonus_unique_rubick_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rubick_telekinesis"
+	}
+	"special_bonus_unique_rubick_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rubick_telekinesis"
+	}
+
+	// Dark Willow
+	"special_bonus_unique_dark_willow_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_willow_shadow_realm"
+	}
+	"special_bonus_unique_dark_willow_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_willow_terrorize"
+	}
+	"special_bonus_unique_dark_willow_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_willow_bramble_maze"
+	}
+	"special_bonus_unique_dark_willow_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_willow_bedlam"
+	}
+	"special_bonus_unique_dark_willow_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_willow_bedlam"
+	}
+	"special_bonus_unique_dark_willow_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_willow_cursed_crown"
+	}
+	"special_bonus_unique_dark_willow_bedlam_targets"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_willow_bedlam"
+	}
+
+	// Pangolier
+	"special_bonus_unique_pangolier"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "pangolier_swashbuckle"
+	}
+	"special_bonus_unique_pangolier_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "pangolier_swashbuckle"
+	}
+	"special_bonus_unique_pangolier_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "pangolier_swashbuckle"
+	}
+	"special_bonus_unique_pangolier_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "pangolier_gyroshell"
+	}
+	"special_bonus_unique_pangolier_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "pangolier_gyroshell"
+	}
+	"special_bonus_unique_pangolier_luckyshot_armor"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "pangolier_lucky_shot"
+	}
+	"special_bonus_unique_pangolier_shield_crash_herostacks"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "pangolier_shield_crash"
+	}
+	"special_bonus_unique_pangolier_shield_crash_radius"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "pangolier_shield_crash"
+	}
+
+	// Shadow Demon
+	"special_bonus_unique_shadow_demon_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "shadow_demon_demonic_purge"
+	}
+	"special_bonus_unique_shadow_demon_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "shadow_demon_shadow_poison"
+	}
+	"special_bonus_unique_shadow_demon_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "shadow_demon_shadow_poison"
+	}
+	"special_bonus_unique_shadow_demon_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "shadow_demon_disruption"
+	}
+	"special_bonus_unique_shadow_demon_9"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "shadow_demon_demonic_purge"
+	}
+	"special_bonus_unique_shadow_demon_disseminate_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "shadow_demon_disseminate"
+	}
+
+	// Slardar
 	"special_bonus_unique_slardar"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "slardar_slithereen_crush"
 	}
 	"special_bonus_unique_slardar_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "slardar_bash"
 	}
 	"special_bonus_unique_slardar_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "slardar_amplify_damage"
 	}
 	"special_bonus_unique_slardar_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "slardar_slithereen_crush"
 	}
 	"special_bonus_unique_slardar_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "slardar_amplify_damage"
 	}
 	"special_bonus_unique_slardar_6"
@@ -5759,112 +6231,218 @@
 	}
 	"special_bonus_unique_slardar_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "slardar_sprint"
 	}
 
-
-
+	// Slark
 	"special_bonus_unique_slark"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "slark_pounce"
 	}
 	"special_bonus_unique_slark_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "slark_dark_pact"
 	}
 	"special_bonus_unique_slark_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "slark_shadow_dance"
 	}
 	"special_bonus_unique_slark_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "slark_essence_shift"
 	}
 	"special_bonus_unique_slark_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "slark_essence_shift"
 	}
 	"special_bonus_unique_slark_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "slark_dark_pact"
 	}
 	"special_bonus_unique_slark_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "slark_shadow_dance"
 	}
 	"special_bonus_unique_slark_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "slark_shadow_dance"
 	}
 
+	// Spirit Breaker
 	"special_bonus_unique_spirit_breaker_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "spirit_breaker_greater_bash"
 	}
 	"special_bonus_unique_spirit_breaker_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "spirit_breaker_bulldoze"
 	}
 	"special_bonus_unique_spirit_breaker_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "spirit_breaker_greater_bash"
 	}
 	"special_bonus_unique_spirit_breaker_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "spirit_breaker_charge_of_darkness"
 	}
 	"special_bonus_unique_spirit_breaker_shield"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "spirit_breaker_bulldoze"
 	}
 
+	// Techies
 	"special_bonus_unique_techies"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "techies_suicide"
 	}
 	"special_bonus_unique_techies_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "techies_sticky_bomb"
 	}
 	"special_bonus_unique_techies_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "techies_land_mines"
 	}
 	"special_bonus_unique_techies_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "techies_land_mines"
 	}
 	"special_bonus_unique_techies_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "techies_suicide"
 	}
 
+	// Templar Assassin
 	"special_bonus_unique_templar_assassin"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "templar_assassin_refraction"
 	}
 	"special_bonus_unique_templar_assassin_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "templar_assassin_psionic_trap"
 	}
 	"special_bonus_unique_templar_assassin_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "templar_assassin_refraction"
 	}
 	"special_bonus_unique_templar_assassin_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "templar_assassin_meld"
 	}
 	"special_bonus_unique_templar_assassin_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "templar_assassin_meld"
 	}
 	"special_bonus_unique_templar_assassin_refraction_damage"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "templar_assassin_refraction"
 	}
 	"special_bonus_unique_templar_assassin_refraction_disable_cast"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "templar_assassin_refraction"
 	}
 	"special_bonus_unique_templar_assassin_meld_duration"
@@ -5876,93 +6454,161 @@
 		"TalentRequiredAbility"                                                   "templar_assassin_meld"
 	}
 
+	// Terrorblade
 	"special_bonus_unique_terrorblade"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "terrorblade_sunder"
 	}
 	"special_bonus_unique_terrorblade_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "terrorblade_reflection"
 	}
 	"special_bonus_unique_terrorblade_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "terrorblade_metamorphosis"
 	}
 	"special_bonus_unique_terrorblade_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "terrorblade_conjure_image"
 	}
 	"special_bonus_unique_terrorblade_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "terrorblade_conjure_image"
 	}
 	"special_bonus_unique_terrorblade_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "terrorblade_reflection"
 	}
 	"special_bonus_unique_terrorblade_metamorphosis_cooldown"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "terrorblade_metamorphosis"
 	}
 
-
+	// Tidehunter
 	"special_bonus_unique_tidehunter"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tidehunter_gush"
 	}
 	"special_bonus_unique_tidehunter_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tidehunter_gush"
 	}
 	"special_bonus_unique_tidehunter_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tidehunter_anchor_smash"
-	}
-	"special_bonus_unique_tidehunter_4"
-	{
-		"TalentRequiredAbility"                                                   "tidehunter_kraken_shell"
 	}
 	"special_bonus_unique_tidehunter_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tidehunter_gush"
-	}
-	"special_bonus_unique_tidehunter_6"
-	{
-		"TalentRequiredAbility"                                                   "tidehunter_kraken_shell"
 	}
 	"special_bonus_unique_tidehunter_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tidehunter_ravage"
 	}
 	"special_bonus_unique_tidehunter_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tidehunter_anchor_smash"
 	}
 	"special_bonus_unique_tidehunter_9"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tidehunter_anchor_smash"
 	}
 	"special_bonus_unique_tidehunter_10"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tidehunter_anchor_smash"
 	}
 
-
-
+	// Timbersaw
 	"special_bonus_unique_timbersaw"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "shredder_whirling_death"
 	}
 	"special_bonus_unique_timbersaw_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "shredder_reactive_armor"
 	}
 	"special_bonus_unique_timbersaw_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "shredder_timber_chain"
 	}
 	"special_bonus_unique_timbersaw_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1"		"shredder_chakram"
@@ -5971,10 +6617,18 @@
 	}
 	"special_bonus_unique_timbersaw_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "shredder_whirling_death"
 	}
 	"special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "shredder_reactive_armor"
 	}
 	"special_bonus_unique_timbersaw_exposure_therapy_health"
@@ -5986,83 +6640,153 @@
 		"TalentRequiredAbility"                                                   "shredder_exposure_therapy"
 	}
 
-
-
+	// Tinker
 	"special_bonus_unique_tinker"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tinker_laser"
 	}
 	"special_bonus_unique_tinker_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tinker_defense_matrix"
 	}
 	"special_bonus_unique_tinker_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tinker_laser"
 	}
 	"special_bonus_unique_tinker_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tinker_keen_teleport"
 	}
 	"special_bonus_unique_tinker_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tinker_defense_matrix"
 	}
 	"special_bonus_unique_tinker_march_duration"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tinker_march_of_the_machines"
 	}
 	"special_bonus_unique_tinker_defense_matrix_status_resistance"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tinker_defense_matrix"
 	}
 
+	// Treant Protector
 	"special_bonus_unique_treant_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "treant_leech_seed"
 	}
 	"special_bonus_unique_treant_3"
 	{
+	   "AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 	   "TalentRequiredAbility"                                                    "treant_leech_seed"
 	}
 	"special_bonus_unique_treant_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "treant_living_armor"
 	}
 	"special_bonus_unique_treant_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "treant_living_armor"
 	}
 	"special_bonus_unique_treant_9"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "treant_natures_grasp"
 	}
 	"special_bonus_unique_treant_12"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "treant_natures_guise"
 	}
 	"special_bonus_unique_treant_13"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "treant_living_armor"
 	}
 	"special_bonus_unique_treant_14"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "treant_overgrowth"
 	}
 
-
-
-
+	// Troll Warlord
 	"special_bonus_unique_troll_warlord"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "troll_warlord_berserkers_rage"
 	}
 	"special_bonus_unique_troll_warlord_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "troll_warlord_berserkers_rage"
 	}
 	"special_bonus_unique_troll_warlord_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1" "troll_warlord_whirling_axes_ranged"
@@ -6071,22 +6795,34 @@
 	}
 	"special_bonus_unique_troll_warlord_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "troll_warlord_battle_trance"
 	}
 	"special_bonus_unique_troll_warlord_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "troll_warlord_fervor"
 	}
 	"special_bonus_unique_troll_warlord_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "troll_warlord_whirling_axes_ranged"
-	}
-	"special_bonus_unique_troll_warlord_7"
-	{
-		"TalentRequiredAbility"                                                   "troll_warlord_battle_trance"
 	}
 	"special_bonus_unique_troll_warlord_whirling_axes_debuff_duration"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1" "troll_warlord_whirling_axes_ranged"
@@ -6095,21 +6831,36 @@
 	}
 	"special_bonus_unique_troll_warlord_battle_trance_movespeed"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "troll_warlord_battle_trance"
 	}
 
-
-
+	// Tusk
 	"special_bonus_unique_tusk"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tusk_walrus_punch"
 	}
 	"special_bonus_unique_tusk_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tusk_snowball"
 	}
 	"special_bonus_unique_tusk_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1"		"tusk_tag_team"
@@ -6118,161 +6869,270 @@
 	}
 	"special_bonus_unique_tusk_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tusk_walrus_punch"
 	}
 	"special_bonus_unique_tusk_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tusk_ice_shards"
 	}
 	"special_bonus_unique_tusk_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tusk_snowball"
 	}
 	"special_bonus_unique_tusk_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "tusk_walrus_punch"
 	}
 
+	// Undying
 	"special_bonus_unique_undying"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "undying_tombstone"
 	}
 	"special_bonus_unique_undying_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "undying_decay"
 	}
-	"special_bonus_unique_undying_3"
+	"special_bonus_unique_undying_3" // still exists
 	{
 		"TalentRequiredAbility"                                                   "undying_tombstone"
 	}
 	"special_bonus_unique_undying_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "undying_flesh_golem"
 	}
 	"special_bonus_unique_undying_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "undying_tombstone"
 	}
 	"special_bonus_unique_undying_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "undying_soul_rip"
 	}
 	"special_bonus_unique_undying_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "undying_tombstone"
 	}
 	"special_bonus_unique_undying_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "undying_decay"
 	}
 
-
-
-
+	// Ursa
 	"special_bonus_unique_ursa"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "ursa_fury_swipes"
 	}
 	"special_bonus_unique_ursa_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "ursa_earthshock"
 	}
 	"special_bonus_unique_ursa_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "ursa_earthshock"
 	}
 	"special_bonus_unique_ursa_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "ursa_fury_swipes"
-	}
-	"special_bonus_unique_ursa_5"
-	{
-		"TalentRequiredAbility"                                                   "ursa_earthshock"
-	}
-	"special_bonus_unique_ursa_6"
-	{
-		"TalentRequiredAbility"                                                   "ursa_enrage"
 	}
 	"special_bonus_unique_ursa_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "ursa_overpower"
 	}
 	"special_bonus_unique_ursa_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "ursa_enrage"
 	}
 	"special_bonus_unique_ursa_earthshock_furyswipes"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "ursa_earthshock"
 	}
-	"special_bonus_unique_ursa_enrage_radius"
-	{
-		"TalentRequiredAbility"                                                   "ursa_enrage"
-	}
-	"special_bonus_unique_ursa_furyswipes_stun"
-	{
-		"TalentRequiredAbility"                                                   "ursa_fury_swipes"
-	}
 
+	// Venomancer
 	"special_bonus_unique_venomancer"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "venomancer_plague_ward"
 	}
 	"special_bonus_unique_venomancer_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "venomancer_poison_sting"
 	}
 	"special_bonus_unique_venomancer_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "venomancer_venomous_gale"
 	}
 	"special_bonus_unique_venomancer_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "venomancer_noxious_plague"
 	}
 	"special_bonus_unique_venomancer_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "venomancer_noxious_plague"
-	}
-	"special_bonus_unique_venomancer_7"
-	{
-		"TalentRequiredAbility"                                                   "venomancer_plague_ward"
 	}
 	"special_bonus_unique_venomancer_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "venomancer_plague_ward"
 	}
 	"special_bonus_unique_venomancer_poisonsting_regen_reduction"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "venomancer_poison_sting"
 	}
 
+	// Visage
 	"special_bonus_unique_visage_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "visage_summon_familiars"
 	}
 	"special_bonus_unique_visage_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "visage_soul_assumption"
 	}
 	"special_bonus_unique_visage_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "visage_soul_assumption"
 	}
 	"special_bonus_unique_visage_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "visage_gravekeepers_cloak"
 	}
 	"special_bonus_unique_visage_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "visage_summon_familiars"
 	}
 	"special_bonus_unique_visage_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "visage_summon_familiars"
 	}
 	"special_bonus_unique_visage_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "visage_lurker"
 	}
 	"special_bonus_unique_visage_grave_chill_duration"
@@ -6284,57 +7144,111 @@
 		"TalentRequiredAbility"                                                   "visage_grave_chill"
 	}
 
+	// Weaver
 	"special_bonus_unique_weaver_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "weaver_shukuchi"
 	}
 	"special_bonus_unique_weaver_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "weaver_geminate_attack"
 	}
 	"special_bonus_unique_weaver_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "weaver_the_swarm"
 	}
 	"special_bonus_unique_weaver_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "weaver_the_swarm"
 	}
 	"special_bonus_unique_weaver_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "weaver_geminate_attack"
 	}
 	"special_bonus_unique_weaver_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "weaver_shukuchi"
 	}
 
+	// Io
 	"special_bonus_unique_wisp"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "wisp_spirits"
 	}
 	"special_bonus_unique_wisp_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "wisp_tether"
 	}
 	"special_bonus_unique_wisp_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "wisp_tether"
 	}
 	"special_bonus_unique_wisp_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "wisp_relocate"
 	}
 	"special_bonus_unique_wisp_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "wisp_tether"
 	}
 	"special_bonus_unique_wisp_9"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "wisp_overcharge"
 	}
 	"special_bonus_unique_wisp_10"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "wisp_overcharge"
 	}
 	"special_bonus_unique_wisp_overcharge_duration"
@@ -6346,290 +7260,277 @@
 		"TalentRequiredAbility"                                                   "wisp_overcharge"
 	}
 
-	"special_bonus_unique_doom_1"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "doom_bringer_infernal_blade"
-	}
-	"special_bonus_unique_doom_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "doom_bringer_devour"
-	}
-	"special_bonus_unique_doom_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "doom_bringer_devour"
-	}
-	"special_bonus_unique_doom_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "doom_bringer_infernal_blade"
-	}
-	"special_bonus_unique_doom_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "doom_bringer_scorched_earth"
-	}
-	"special_bonus_unique_doom_9"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "doom_bringer_scorched_earth"
-	}
-	"special_bonus_unique_doom_10"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "doom_bringer_doom"
-	}
-	"special_bonus_unique_doom_11"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "doom_bringer_doom"
-	}
-
-	"special_bonus_unique_disruptor"
-	{
-		"TalentRequiredAbility"                                                   "disruptor_static_storm"
-	}
-	"special_bonus_unique_disruptor_4"
-	{
-		"TalentRequiredAbility"                                                   "disruptor_glimpse"
-	}
-	"special_bonus_unique_disruptor_5"
-	{
-		"TalentRequiredAbility"
-		{
-			"1"                                                                   "disruptor_kinetic_field"
-			"2"                                                                   "disruptor_kinetic_fence"
-		}
-	}
-	"special_bonus_unique_disruptor_7"
-	{
-		"TalentRequiredAbility"                                                   "disruptor_electromagnetic_repulsion"
-	}
-	"special_bonus_unique_disruptor_8"
-	{
-		"TalentRequiredAbility"                                                   "disruptor_static_storm"
-	}
-	"special_bonus_unique_disruptor_9"
-	{
-		"TalentRequiredAbility"                                                   "disruptor_glimpse"
-	}
-	"special_bonus_unique_disruptor_consecutive_strike_damage"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "disruptor_thunder_strike"
-	}
-
-	"special_bonus_unique_clockwerk"
-	{
-		"TalentRequiredAbility"                                                   "rattletrap_battery_assault"
-	}
-	"special_bonus_unique_clockwerk_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "rattletrap_power_cogs"
-	}
-	"special_bonus_unique_clockwerk_3"
-	{
-		"TalentRequiredAbility"                                                   "rattletrap_battery_assault"
-	}
-	"special_bonus_unique_clockwerk_4"
-	{
-		"TalentRequiredAbility"                                                   "rattletrap_rocket_flare"
-	}
-	"special_bonus_unique_clockwerk_5"
-	{
-		"TalentRequiredAbility"                                                   "rattletrap_power_cogs"
-	}
-	"special_bonus_unique_clockwerk_6"
-	{
-		"TalentRequiredAbility"                                                   "rattletrap_power_cogs"
-	}
-	"special_bonus_unique_clockwerk_7"
-	{
-		"TalentRequiredAbility"                                                   "rattletrap_rocket_flare"
-	}
-	"special_bonus_unique_clockwerk_hookshot_damage"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "rattletrap_hookshot"
-	}
-
+	// Clinkz
 	"special_bonus_unique_clinkz_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "clinkz_strafe"
 	}
 	"special_bonus_unique_clinkz_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "clinkz_tar_bomb"
 	}
 	"special_bonus_unique_clinkz_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "clinkz_strafe"
 	}
 	"special_bonus_unique_clinkz_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "clinkz_strafe"
 	}
 	"special_bonus_unique_clinkz_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "clinkz_death_pact"
 	}
 	"special_bonus_unique_clinkz_9"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "clinkz_death_pact"
 	}
 	"special_bonus_unique_clinkz_10"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "clinkz_wind_walk"
 	}
 
+	// Broodmother
 	"special_bonus_unique_broodmother_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "broodmother_insatiable_hunger"
 	}
 	"special_bonus_unique_broodmother_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "broodmother_incapacitating_bite"
 	}
 	"special_bonus_unique_broodmother_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "broodmother_spawn_spiderlings"
 	}
 	"special_bonus_unique_broodmother_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "broodmother_incapacitating_bite"
 	}
 	"special_bonus_unique_broodmother_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "broodmother_spin_web"
 	}
 	"special_bonus_unique_broodmother_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "broodmother_spiders_milk"
 	}
 	"special_bonus_unique_broodmother_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "broodmother_spawn_spiderlings"
 	}
 
+	// Grimstroke
 	"special_bonus_unique_grimstroke_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 					"grimstroke_spirit_walk"
 	}
 	"special_bonus_unique_grimstroke_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 					"grimstroke_dark_artistry"
 	}
 	"special_bonus_unique_grimstroke_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 					"grimstroke_dark_artistry"
 	}
 	"special_bonus_unique_grimstroke_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 					"grimstroke_ink_creature"
-	}
-	"special_bonus_unique_grimstroke_5"
-	{
-		"TalentRequiredAbility" 					"grimstroke_spirit_walk"
 	}
 	"special_bonus_unique_grimstroke_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 					"grimstroke_spirit_walk"
 	}
 	"special_bonus_unique_grimstroke_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 					"grimstroke_spirit_walk"
 	}
 	"special_bonus_unique_grimstroke_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 					"grimstroke_ink_creature"
 	}
 	"special_bonus_unique_grimstroke_soul_chain_reflect_damage"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 					"grimstroke_soul_chain"
 	}
 
-
-
-
+	// Void Spirit
 	"special_bonus_unique_void_spirit_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"void_spirit_astral_step"
 	}
 	"special_bonus_unique_void_spirit_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"void_spirit_aether_remnant"
 	}
 	"special_bonus_unique_void_spirit_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"void_spirit_dissimilate"
 	}
 	"special_bonus_unique_void_spirit_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"void_spirit_resonant_pulse"
 	}
 	"special_bonus_unique_void_spirit_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"void_spirit_astral_step"
 	}
 	"special_bonus_unique_void_spirit_dissimilate_outerring"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"void_spirit_dissimilate"
 	}
 	"special_bonus_unique_void_spirit_resonant_pulse_barrier"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"void_spirit_resonant_pulse"
 	}
 
+	// Marci
 	"special_bonus_unique_marci_grapple_damage"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"marci_grapple"
 	}
 	"special_bonus_unique_marci_unleash_speed"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"marci_unleash"
 	}
 	"special_bonus_unique_marci_grapple_stun_duration"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"marci_companion_run"
 	}
 	"special_bonus_unique_marci_guardian_damage"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1"		"marci_guardian"
@@ -6638,13 +7539,17 @@
 	}
 	"special_bonus_unique_marci_unleash_extend_duration"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"marci_unleash"
 	}
 	"special_bonus_unique_marci_dispose_slow"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility" 		"marci_grapple"
 	}
@@ -6652,7 +7557,7 @@
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility" 		"marci_companion_run"
 	}
@@ -6660,80 +7565,67 @@
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility" 		"marci_companion_run"
 	}
 
+	// Primal Beast
 	"special_bonus_unique_primal_beast_trample_attack_damage"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"primal_beast_trample"
 	}
 	"special_bonus_unique_primal_beast_uproar_armor"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"primal_beast_uproar"
 	}
 	"special_bonus_unique_primal_beast_roar_dispells"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"primal_beast_uproar"
 	}
 	"special_bonus_unique_primal_beast_pulverize_duration"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"primal_beast_pulverize"
 	}
 	"special_bonus_unique_primal_beast_trample_magic_resist"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"primal_beast_trample"
 	}
 	"special_bonus_unique_primal_beast_trample_cooldown"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"primal_beast_trample"
 	}
 	"special_bonus_unique_primal_beast_trample_unslowable"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility" 		"primal_beast_trample"
-	}
-
-
-	"special_bonus_unique_muerta_dead_shot_range"
-	{
-		"TalentRequiredAbility"                                                   "muerta_dead_shot"
-	}
-	"special_bonus_unique_muerta_the_calling_num_revenants"
-	{
-		"TalentRequiredAbility"                                                   "muerta_the_calling"
-	}
-	"special_bonus_unique_muerta_gunslinger_double_shot_chance"
-	{
-		"TalentRequiredAbility"                                                   "muerta_gunslinger"
-	}
-	"special_bonus_unique_muerta_dead_shot_charges"
-	{
-		"TalentRequiredAbility"                                                   "muerta_dead_shot"
-	}
-	"special_bonus_unique_muerta_calling_hp_regen"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "muerta_the_calling"
-	}
-	"special_bonus_unique_muerta_gunslinger_bonus_damage"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "muerta_gunslinger"
-	}
-	"special_bonus_unique_muerta_pierce_the_veil_duration"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "muerta_pierce_the_veil"
 	}
 
 	//=================================================================================================================
@@ -7437,5 +8329,4 @@
 		"ItemCost"                      "1400"
 		"ItemInitialStockTime"			"480.0"
 	}
-
 }

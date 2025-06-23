@@ -72,26 +72,50 @@
 
 	"special_bonus_unique_bloodseeker_2"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                          	   "bloodseeker_blood_bath"
 	}
 	"special_bonus_unique_bloodseeker_3"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                "bloodseeker_rupture"
 	}
 	"special_bonus_unique_bloodseeker_4"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                "bloodseeker_thirst"
 	}
 	"special_bonus_unique_bloodseeker_6"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                "bloodseeker_bloodrage"
 	}
 	"special_bonus_unique_bloodseeker_7"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                "bloodseeker_rupture"
 	}
 	"special_bonus_unique_bloodseeker_rupture_charges"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                "bloodseeker_rupture"
 	}
 }

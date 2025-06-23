@@ -148,106 +148,43 @@
 		"ReduxFlags"                                                           "doNotRandom"
 	}
 
-	"special_bonus_unique_lone_druid_1"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
-	}
 	"special_bonus_unique_lone_druid_2"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
-	}
-	"special_bonus_unique_lone_druid_3"
-	{
-	   "AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-	   "TalentRequiredAbility"                                                    "lone_druid_spirit_bear_demolish"
 	}
 	"special_bonus_unique_lone_druid_4"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "lone_druid_savage_roar"
-	}
-	"special_bonus_unique_lone_druid_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
-	}
-	"special_bonus_unique_lone_druid_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"TalentRequiredAbility"                                                   "lone_druid_spirit_link"
-	}
-	"special_bonus_unique_lone_druid_7"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"TalentRequiredAbility"
-		{
-			"1" "lone_druid_true_form"
-			"2" "lone_druid_spirit_bear"
-		}
 	}
 	"special_bonus_unique_lone_druid_8"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "lone_druid_true_form"
-	}
-	"special_bonus_unique_lone_druid_9"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"TalentRequiredAbility"
-		{
-			"1" "lone_druid_spirit_bear"
-			"2" "lone_druid_spirit_bear_entangle"
-		}
-	}
-	"special_bonus_unique_lone_druid_10"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
 	}
 	"special_bonus_unique_lone_druid_11"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
-	}
-	"special_bonus_unique_lone_druid_12"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"TalentRequiredAbility"
-		{
-			"1" "lone_druid_spirit_bear"
-			"2" "lone_druid_spirit_bear_entangle"
-		}
 	}
 	"special_bonus_unique_lone_druid_entangle_dps"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"
 		{
@@ -259,6 +196,7 @@
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "lone_druid_spirit_link"
 	}
@@ -266,6 +204,7 @@
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "lone_druid_savage_roar"
 	}

@@ -40,7 +40,7 @@
 		"AbilityValues"
 		{
 			"bonus_movespeed"			"-25 -35 -45 -55"
-			"aura_radius"				
+			"aura_radius"
 			{
 				"value"						"550 600 650 700"
 				"affected_by_aoe_increase"	"1"
@@ -48,7 +48,7 @@
 			"max_hero_attacks"			"4"
 			"max_creep_attacks"			"8"
 			"duration"					"15.0"
-			"slow_duration"				"0.5"		
+			"slow_duration"				"0.5"
 		}
 	}
 
@@ -83,30 +83,58 @@
 
 	"special_bonus_unique_lich_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "lich_frost_shield"
 	}
 	"special_bonus_unique_lich_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "lich_sinister_gaze"
 	}
 	"special_bonus_unique_lich_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "lich_frost_nova"
 	}
 	"special_bonus_unique_lich_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "lich_frost_shield"
 	}
 	"special_bonus_unique_lich_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "lich_frost_nova"
 	}
 	"special_bonus_unique_lich_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "lich_chain_frost"
 	}
 	"special_bonus_unique_lich_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "lich_frost_shield"
 	}
 	"special_bonus_unique_lich_jump_damage"

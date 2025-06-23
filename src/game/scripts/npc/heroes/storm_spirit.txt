@@ -59,18 +59,18 @@
 
 	"special_bonus_unique_storm_spirit"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "storm_spirit_electric_vortex"
 	}
-	// "special_bonus_unique_storm_spirit_2"
-	// {
-		// "TalentRequiredAbility"                                                   "storm_spirit_ball_lightning"
-	// }
-	// "special_bonus_unique_storm_spirit_3"
-	// {
-		// "TalentRequiredAbility"                                                   "storm_spirit_overload"
-	// }
 	"special_bonus_unique_storm_spirit_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1" "storm_spirit_ball_lightning"
@@ -79,22 +79,34 @@
 	}
 	"special_bonus_unique_storm_spirit_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "storm_spirit_static_remnant"
 	}
-	// "special_bonus_unique_storm_spirit_6"
-	// {
-		// "TalentRequiredAbility"                                                   "storm_spirit_overload"
-	// }
 	"special_bonus_unique_storm_spirit_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "storm_spirit_overload"
 	}
 	"special_bonus_unique_storm_spirit_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "storm_spirit_static_remnant"
 	}
 	"special_bonus_unique_storm_spirit_overload_aspd"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "storm_spirit_overload"
 	}
 }

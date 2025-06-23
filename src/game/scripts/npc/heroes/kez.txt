@@ -143,19 +143,6 @@
 		"TalentRequiredAbility"                                                   "kez_echo_slash"
 	}
 
-	// "special_bonus_unique_kez_ultimate_cooldown"
-	// {
-		// "AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		// "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		// "BaseClass"						"special_bonus_base"
-
-		// "TalentRequiredAbility"
-		// {
-			// "1" "kez_raptor_dance"
-			// "2" "kez_ravens_veil"
-		// }
-	// }
-
 	"special_bonus_unique_kez_raptor_dance_strikes"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"

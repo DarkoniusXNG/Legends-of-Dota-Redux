@@ -66,46 +66,65 @@
 
 	"special_bonus_unique_luna_1"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"		"luna_lucent_beam"
 	}
 
 	"special_bonus_unique_luna_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"		"luna_lucent_beam"
 	}
 
 	"special_bonus_unique_luna_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"		"luna_lunar_blessing"
 	}
 
 	"special_bonus_unique_luna_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"		"luna_lucent_beam"
 	}
 
 	"special_bonus_unique_luna_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"		"luna_lucent_beam"
 	}
 
 	"special_bonus_unique_luna_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"		"luna_eclipse"
 	}
 
 	"special_bonus_unique_luna_7"
 	{
-		"TalentRequiredAbility"		"luna_moon_glaive"
-	}
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
-	"special_bonus_unique_luna_8"
-	{
-		"TalentRequiredAbility"
-		{
-			"1"	"luna_lucent_beam"
-			"2"	"luna_moon_glaive"
-		}
+		"TalentRequiredAbility"		"luna_moon_glaive"
 	}
 
 	"special_bonus_unique_luna_lunar_orbit_glaive_count"

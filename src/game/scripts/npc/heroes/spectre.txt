@@ -120,6 +120,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_spectre"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+		
 		"TalentRequiredAbility"                                                   "spectre_spectral_dagger"
 	}
 
@@ -128,6 +132,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_spectre_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+		
 		"TalentRequiredAbility"                                                   "spectre_desolate"
 	}
 
@@ -136,6 +144,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_spectre_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+		
 		"TalentRequiredAbility"                                                   "spectre_spectral_dagger"
 	}
 
@@ -144,6 +156,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_spectre_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+		
 		"TalentRequiredAbility"
 		{
 		  "1" "spectre_haunt"
@@ -156,6 +172,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_spectre_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+		
 		"TalentRequiredAbility"                                                   "spectre_dispersion"
 	}
 
@@ -164,6 +184,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_spectre_6"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+		
 		"TalentRequiredAbility"                                                   "spectre_spectral_dagger"
 	}
 }

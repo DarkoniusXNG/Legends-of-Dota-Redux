@@ -46,58 +46,66 @@
 		"ReduxPerks"                                "demon"
 	}
 
-	"special_bonus_unique_bane_1"
-	{
-		"TalentRequiredAbility"         "bane_enfeeble"
-	}
-
 	"special_bonus_unique_bane_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"         "bane_brain_sap"
 	}
 
 	"special_bonus_unique_bane_3"
 	{
-		"TalentRequiredAbility"         "bane_fiends_grip"
-	}
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 
-	"special_bonus_unique_bane_4"
-	{
-		"TalentRequiredAbility"         "bane_enfeeble"
+		"TalentRequiredAbility"         "bane_fiends_grip"
 	}
 
 	"special_bonus_unique_bane_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"         "bane_nightmare"
-	}
-
-	"special_bonus_unique_bane_6"
-	{
-		"TalentRequiredAbility"         "bane_enfeeble"
-	}
-
-	"special_bonus_unique_bane_7"
-	{
-		"TalentRequiredAbility"         "bane_brain_sap"
 	}
 
 	"special_bonus_unique_bane_8"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"         "bane_brain_sap"
 	}
 
 	"special_bonus_unique_bane_9"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"         "bane_fiends_grip"
 	}
 
 	"special_bonus_unique_bane_10"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"         "bane_enfeeble"
 	}
 
 	"special_bonus_unique_bane_11"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"         "bane_enfeeble"
 	}
 }

@@ -127,6 +127,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_kunkka_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "kunkka_tidebringer"
 	}
 
@@ -135,6 +139,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_kunkka_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "kunkka_admirals_rum"
 	}
 
@@ -143,6 +151,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_kunkka_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "kunkka_tidebringer"
 	}
 
@@ -151,6 +163,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_kunkka_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "kunkka_torrent"
 	}
 
@@ -159,6 +175,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_kunkka_tidebringer_slow"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "kunkka_tidebringer"
 	}
 
@@ -167,6 +187,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_kunkka_torrent_cooldown"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "kunkka_torrent"
 	}
 
@@ -175,6 +199,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_kunkka_rum"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"
 		{
 			"1" "kunkka_x_marks_the_spot"

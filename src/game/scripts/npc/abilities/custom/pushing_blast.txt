@@ -25,17 +25,4 @@
         "ReduxFlags"                                                           "stun"
         "ReduxPerks"                                                           "enemymoving | light"
     }
-
-    "special_bonus_unique_pushing_blast_0"
-    {
-        "BaseClass"               "special_bonus_unique_brewmaster_7"
-        "TalentRank"              "3"
-        "TalentRequiredAbility" "pushing_blast"
-        "AbilityType"                   "ABILITY_TYPE_ATTRIBUTES"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityValues"
-        {
-            "value" "250"
-        }
-    }
 }

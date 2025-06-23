@@ -74,34 +74,42 @@
 
 	"special_bonus_unique_death_prophet"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                "death_prophet_exorcism"
 	}
 	"special_bonus_unique_death_prophet_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                "death_prophet_carrion_swarm"
 	}
 	"special_bonus_unique_death_prophet_3"
 	{
-		"TalentRequiredAbility"                                                "death_prophet_spirit_siphon"
-	}
-	"special_bonus_unique_death_prophet_4"
-	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                "death_prophet_spirit_siphon"
 	}
 	"special_bonus_unique_death_prophet_5"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                "death_prophet_spirit_siphon"
-	}
-	"special_bonus_unique_death_prophet_crypt_swarm_slow"
-	{
-		"TalentRequiredAbility"                                                "death_prophet_carrion_swarm"
-	}
-	"special_bonus_unique_death_prophet_silence_slow"
-	{
-		"TalentRequiredAbility"                                                "death_prophet_silence"
 	}
 	"special_bonus_unique_death_prophet_silence_aoe"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                "death_prophet_silence"
 	}
 }

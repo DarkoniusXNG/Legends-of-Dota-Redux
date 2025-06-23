@@ -1,0 +1,113 @@
+// Abilities for Muerta
+"DOTAAbilities"
+{
+	"muerta_dead_shot"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "enemymoving | skillshot | undead"
+	}
+
+	"muerta_the_calling"
+	{
+		"ReduxFlags"                                                           "silence"
+		"ReduxPerks"                                                           "silence | undead"
+	}
+
+	"muerta_gunslinger"
+	{
+		"ReduxFlags"                                                           "attack_modifier | semi_passive"
+		"ReduxPerks"                                                           "attack_modifier"
+	}
+
+	"muerta_pierce_the_veil"
+	{
+		"ReduxPerks"                                                           "transformation | undead"
+	}
+
+	"muerta_parting_shot"
+	{
+		"ReduxFlags"                                                           "stun | support | doNotRandom"
+		"ReduxPerks"                                                           "support | enemymoving | undead"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"750 800 850 900"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"45 35 25 15"
+		"AbilityDamage"					"300 325 350 375"
+		"AbilityManaCost"				"250 225 200 175"
+		"AbilityValues"
+		{
+			"projectile_speed"			"2500"
+			"knockback_duration"		"0.2"
+			"knockback_distance"		"150"
+			"debuff_duration"			"4"
+			"ethereal_damage_bonus"		"0"
+			"movement_slow"				"0"
+			"soul_return_time"			"0.75"
+			"soul_return_min_speed"		"500"
+			"damage_reduction_percent"	"35"
+		}
+	}
+
+	//=================================================================================================================
+	// Supernatural (Innate)
+	//=================================================================================================================
+	"muerta_supernatural"
+	{
+		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxPerks"                                                           "undead"
+	}
+
+	//=================================================================================================================
+	// Ofrenda (old Facet)
+	//=================================================================================================================
+	"muerta_ofrenda"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"ReduxPerks"                                                           "undead"
+	}
+
+	"special_bonus_unique_muerta_dead_shot_range"
+	{
+		"TalentRequiredAbility"                                                   "muerta_dead_shot"
+	}
+	"special_bonus_unique_muerta_the_calling_num_revenants"
+	{
+		"TalentRequiredAbility"                                                   "muerta_the_calling"
+	}
+	"special_bonus_unique_muerta_gunslinger_double_shot_chance"
+	{
+		"TalentRequiredAbility"                                                   "muerta_gunslinger"
+	}
+	"special_bonus_unique_muerta_dead_shot_charges"
+	{
+		"TalentRequiredAbility"                                                   "muerta_dead_shot"
+	}
+	"special_bonus_unique_muerta_calling_hp_regen"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "muerta_the_calling"
+	}
+	"special_bonus_unique_muerta_gunslinger_bonus_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "muerta_gunslinger"
+	}
+	"special_bonus_unique_muerta_pierce_the_veil_duration"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "muerta_pierce_the_veil"
+	}
+}

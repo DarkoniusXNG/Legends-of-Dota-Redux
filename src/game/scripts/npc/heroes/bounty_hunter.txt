@@ -60,30 +60,58 @@
 
 	"special_bonus_unique_bounty_hunter"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "bounty_hunter_jinada"
 	}
 	"special_bonus_unique_bounty_hunter_2"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "bounty_hunter_shuriken_toss"
 	}
 	"special_bonus_unique_bounty_hunter_3"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "bounty_hunter_track"
 	}
 	"special_bonus_unique_bounty_hunter_5"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "bounty_hunter_shuriken_toss"
 	}
 	"special_bonus_unique_bounty_hunter_8"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "bounty_hunter_track"
 	}
 	"special_bonus_unique_bounty_hunter_9"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "bounty_hunter_wind_walk"
 	}
 	"special_bonus_unique_bounty_hunter_jinada_no_cooldown"
 	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "bounty_hunter_jinada"
 	}
 }

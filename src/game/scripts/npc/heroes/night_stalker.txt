@@ -62,6 +62,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_night_stalker"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "night_stalker_darkness"
 	}
 
@@ -70,6 +74,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_night_stalker_2"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "night_stalker_hunter_in_the_night"
 	}
 
@@ -78,6 +86,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_night_stalker_3"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "night_stalker_darkness"
 	}
 
@@ -86,6 +98,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_night_stalker_4"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "night_stalker_void"
 	}
 
@@ -94,6 +110,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_night_stalker_7"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "night_stalker_darkness"
 	}
 
@@ -102,6 +122,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_night_stalker_hunter_status_resist"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "night_stalker_hunter_in_the_night"
 	}
 
@@ -110,6 +134,10 @@
 	//=================================================================================================================
 	"special_bonus_unique_night_stalker_crippling_fear_damage"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
 		"TalentRequiredAbility"                                                   "night_stalker_crippling_fear"
 	}
 }
