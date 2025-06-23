@@ -59,6 +59,6 @@ function TryAftershock(keys)
 
 	-- Fire effects
 	local prt = ParticleManager:CreateParticle('particles/units/heroes/hero_earthshaker/earthshaker_aftershock.vpcf', PATTACH_ABSORIGIN_FOLLOW, target)
-	ParticleManager:SetParticleControl(prt, 1, Vector(100, 0, 0))
+	ParticleManager:SetParticleControl(prt, 1, Vector(abRange, abRange, abRange))
 	ParticleManager:ReleaseParticleIndex(prt)
 end

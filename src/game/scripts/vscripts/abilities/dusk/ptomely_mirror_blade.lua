@@ -25,7 +25,7 @@ function ptomely_mirror_blade:OnSpellStart()
 		  Ability = self,
 		  EffectName = "particles/units/heroes/hero_ptomely/mirror_blade.vpcf",
 		  vSpawnOrigin = origin,
-		  fDistance = range,
+		  fDistance = range + caster:GetCastRangeBonus(),
 		  fStartRadius = radius,
 		  fEndRadius = radius,
 		  Source = caster,
