@@ -1751,7 +1751,7 @@ function imba_wisp_relocate:OnSpellStart()
 end
 
 function imba_wisp_relocate:InterruptRelocate(caster, ability, tether_ability)
-	if not caster:IsAlive() or caster:IsStunned() or caster:IsHexed() or caster:IsNightmared() or caster:IsOutOfGame() or caster:IsRooted() then
+	if not caster:IsAlive() or caster:IsStunned() or caster:IsHexed() or caster:IsNightmared() or caster:IsOutOfGame() or caster:IsRooted() or caster:IsLeashedCustom() then
 		return true
 	end
 

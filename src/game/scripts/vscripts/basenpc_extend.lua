@@ -34,11 +34,14 @@ if CDOTA_BaseNPC then
 			end
 
 			-- Puck Dream Coil pierce debuff immunity with the talent
-			local dream_coil = self:FindModifierByName("modifier_puck_coiled")
-			if dream_coil then
-				local pierce = dream_coil:GetSpecialValueFor("pierces_debuff_immunity") == 1
-				if pierce then
-					return true
+			local dream_coil_mod = self:FindModifierByName("modifier_puck_coiled")
+			if dream_coil_mod then
+				local dream_coil_ab = dream_coil_mod:GetAbility()
+				if dream_coil_ab then
+					local pierce = dream_coil_ab:GetSpecialValueFor("pierces_debuff_immunity") == 1
+					if pierce then
+						return true
+					end
 				end
 			end
 
@@ -51,11 +54,14 @@ if CDOTA_BaseNPC then
 			end
 		end
 
-		local power_cogs = self:FindModifierByName("modifier_rattletrap_cog_marker")
-		if power_cogs then
-			local check = power_cogs:GetSpecialValueFor("leash") == 1
-			if check then
-				return true
+		local power_cogs_mod = self:FindModifierByName("modifier_rattletrap_cog_marker")
+		if power_cogs_mod then
+			local power_cogs_ab = power_cogs_mod:GetAbility()
+			if power_cogs_ab then
+				local check = power_cogs_ab:GetSpecialValueFor("leash") == 1
+				if check then
+					return true
+				end
 			end
 		end
 		return false
@@ -69,7 +75,6 @@ if CDOTA_BaseNPC then
 			"modifier_item_skadi_slow",
 			"modifier_silver_edge_debuff",                   -- Silver Edge debuff
 			-- custom:
-
 		}
 
 		local undispellable_ability_debuffs = {

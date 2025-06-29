@@ -310,7 +310,7 @@ function modifier_imba_spirit_breaker_charge_of_darkness:UpdateHorizontalMotion(
 			self:Destroy()
 		end
 		return
-	elseif me:IsStunned() or me:IsOutOfGame() or me:IsHexed() or me:IsRooted() then
+	elseif me:IsStunned() or me:IsOutOfGame() or me:IsHexed() or me:IsRooted() or me:IsLeashedCustom() then
 		self:Destroy()
 		return
 	end
@@ -570,7 +570,7 @@ function modifier_imba_spirit_breaker_charge_of_darkness_taxi:UpdateHorizontalMo
 	if not IsServer() then return end
 	
 	-- "The charge is cancelled when Spirit Breaker gets stunned, cycloned, hexed, rooted, slept, hidden, feared, hypnotized or hit by Forced Movement."
-	if not self:GetCaster():HasModifier("modifier_imba_spirit_breaker_charge_of_darkness") or me:IsStunned() or me:IsOutOfGame() or me:IsHexed() or me:IsRooted() then
+	if not self:GetCaster():HasModifier("modifier_imba_spirit_breaker_charge_of_darkness") or me:IsStunned() or me:IsOutOfGame() or me:IsHexed() or me:IsRooted() or me:IsLeashedCustom() then
 		self:Destroy()
 		return
 	end

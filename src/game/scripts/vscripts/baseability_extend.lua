@@ -134,9 +134,11 @@ if CDOTABaseAbility then
 
 	function CDOTABaseAbility:IsValidToggleAbilityForIllusions()
 		local black_list = {
+			bloodseeker_blood_mist = true,
 			butcher_zombie = true,
 			cherub_synthesis = true,
 			imba_pudge_rot = true,
+			leshrac_pulse_nova = true,
 			mars_bulwark = true,
 			morph_agi_int_redux = true,
 			morph_int_agi_redux = true,
@@ -146,6 +148,7 @@ if CDOTABaseAbility then
 			morphling_morph_str = true,
 			pudge_rot = true,
 			winter_wyvern_arctic_burn = true,
+			witch_doctor_voodoo_restoration = true,
 			zuus_lightning_hands = true,
 		}
 
