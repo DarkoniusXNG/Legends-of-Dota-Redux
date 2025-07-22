@@ -1007,6 +1007,19 @@ function StringToArray(inputString, seperator)
   return array
 end
 
+-- Checks if a unit is near units of a certain class on the same team
+function IsNearFriendlyClass(unit, radius, class)
+	local class_units = Entities:FindAllByClassnameWithin(class, unit:GetAbsOrigin(), radius)
+
+	for _,found_unit in pairs(class_units) do
+		if found_unit:GetTeam() == unit:GetTeam() then
+			return true
+		end
+	end
+	
+	return false
+end
+
 (function()
     util.abilityKVs = LoadKeyValues('scripts/npc/npc_abilities.txt')
     local absOverride = LoadKeyValues('scripts/npc/npc_abilities_override.txt')

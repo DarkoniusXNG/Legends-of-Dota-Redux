@@ -219,7 +219,7 @@ function Ingame:OnPlayerPurchasedItem(keys)
             end
         end
 
-        -- Check if there is any remaining items in slot, if there is, it means their inventory is full
+        -- Check if there is any remaining items in stash, if there is, it means their inventory is full
         local isFull = false
         for slot = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
             local item = hero:GetItemInSlot(slot)

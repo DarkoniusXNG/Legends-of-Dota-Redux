@@ -1736,19 +1736,6 @@ function IsNearEnemyClass(unit, radius, class)
 	return false
 end
 
--- Checks if a unit is near units of a certain class on the same team
-function IsNearFriendlyClass(unit, radius, class)
-	local class_units = Entities:FindAllByClassnameWithin(class, unit:GetAbsOrigin(), radius)
-
-	for _,found_unit in pairs(class_units) do
-		if found_unit:GetTeam() == unit:GetTeam() then
-			return true
-		end
-	end
-	
-	return false
-end
-
 -- Returns if this unit is a fountain or not
 function IsFountain( unit )
 	if unit:GetName() == "ent_dota_fountain_bad" or unit:GetName() == "ent_dota_fountain_good" then

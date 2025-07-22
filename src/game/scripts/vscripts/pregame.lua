@@ -36,6 +36,7 @@ LinkLuaModifier( "modifier_easybot", "abilities/botAI/modifier_easybot.lua", LUA
 LinkLuaModifier( "modifier_mediumbot", "abilities/botAI/modifier_mediumbot.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_hardbot", "abilities/botAI/modifier_hardbot.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_unfairbot", "abilities/botAI/modifier_unfairbot.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_bot_lod_redux", "abilities/botAI/modifier_bot_lod_redux.lua", LUA_MODIFIER_MOTION_NONE )
 --LinkLuaModifier( "modifier_rattletrap_rocket_flare_ai", "abilities/botAI/modifier_rattletrap_rocket_flare_ai.lua" ,LUA_MODIFIER_MOTION_NONE )
 
 -- Creep power modifier
@@ -6578,9 +6579,7 @@ function Pregame:darkMoonDrops()
                                 print("tried to remove")
                             end, DoUniqueString('removeitem'), 30)
 
-
                             local dropTarget = ent:GetAbsOrigin() + RandomVector( RandomFloat( 50, 350 ) )
-
 
                             newItem:LaunchLoot( false, 300, 0.75, dropTarget, nil )
                         end
@@ -7714,8 +7713,10 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     -- Various Fixes
     Timers:CreateTimer(function()
         if IsValidEntity(spawnedUnit) then
-            -- Apply Bot Difficulty
             if util:isPlayerBot(playerID) then
+                -- Apply fix for bots not buying items
+                spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_bot_lod_redux", {})
+                -- Apply Bot Difficulty
                 if spawnedUnit:GetTeam() == DOTA_TEAM_GOODGUYS then
                     if OptionManager:GetOption('radiantBotDiff') == 5 then -- If its random individual, give the bot a difficulty between easy and unfair
                         local difficulty = math.random(1, 4)

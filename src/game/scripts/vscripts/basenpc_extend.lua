@@ -371,7 +371,7 @@ if CDOTA_BaseNPC then
 	end
 
 	function CDOTA_BaseNPC:FindItemByName(item_name)
-		for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+		for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
 			local item = self:GetItemInSlot(i)
 			if item and item:GetAbilityName() == item_name then
 				return item
@@ -379,6 +379,16 @@ if CDOTA_BaseNPC then
 		end
 		return nil
 	end
+	
+	function CDOTA_BaseNPC:RemoveItemByName(item_name)
+		for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+			local item = self:GetItemInSlot(i)
+			if item and item:GetAbilityName() == item_name then
+				self:RemoveItem(item)
+				return
+			end
+		end
+    end
 
 	function CDOTA_BaseNPC:FindItemByNameEverywhere(item_name)
 		for i = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do

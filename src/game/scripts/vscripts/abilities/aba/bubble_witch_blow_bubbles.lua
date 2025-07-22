@@ -37,35 +37,6 @@ function modifier_bubble_witch_blow_bubbles_caster:IsPurgable()
   return false
 end
 
--- function modifier_bubble_witch_blow_bubbles_caster:FindUnitsInCone(teamNumber, vDirection, vPosition, startRadius, endRadius, flLength, hCacheUnit, targetTeam, targetUnit, targetFlags, findOrder, bCache)
-	-- local vDirectionCone = Vector( vDirection.y, -vDirection.x, 0.0 )
-	-- local enemies = FindUnitsInRadius(teamNumber, vPosition, hCacheUnit, endRadius + flLength, targetTeam, targetUnit, targetFlags, findOrder, bCache )
-	-- local unitTable = {}
-	-- if #enemies > 0 then
-		-- for _, enemy in pairs(enemies) do
-			-- if enemy and not enemy:IsNull() then
-				-- local vToPotentialTarget = enemy:GetOrigin() - vPosition
-				-- local flSideAmount = math.abs( vToPotentialTarget.x * vDirectionCone.x + vToPotentialTarget.y * vDirectionCone.y + vToPotentialTarget.z * vDirectionCone.z )
-				-- local enemy_distance_from_caster = ( vToPotentialTarget.x * vDirection.x + vToPotentialTarget.y * vDirection.y + vToPotentialTarget.z * vDirection.z )
-
-				-- -- Calculate how much the width of the check can be higher than the starting point
-				-- local max_increased_radius_from_distance = endRadius - startRadius
-
-				-- -- Calculate how close the enemy is to the caster, in comparison to the total distance
-				-- local pct_distance = enemy_distance_from_caster / flLength
-
-				-- -- Calculate how much the width should be higher due to the distance of the enemy to the caster.
-				-- local radius_increase_from_distance = max_increased_radius_from_distance * pct_distance
-
-				-- if ( flSideAmount < startRadius + radius_increase_from_distance ) and ( enemy_distance_from_caster > 0.0 ) and ( enemy_distance_from_caster < flLength ) then
-					-- table.insert(unitTable, enemy)
-				-- end
-			-- end
-		-- end
-	-- end
-	-- return unitTable
--- end
-
 function  modifier_bubble_witch_blow_bubbles_caster:FindUnitsinTrapezoid(team_number, vDirection, start_position, start_radius, end_radius, distance, cache_unit, target_team, target_type, target_flags, order, cache)
 	if cache == nil then
 		cache = false
@@ -139,7 +110,7 @@ function modifier_bubble_witch_blow_bubbles_caster:OnIntervalThink()
   local start_radius = ability:GetSpecialValueFor("cone_starting_width")
   local end_radius = ability:GetSpecialValueFor("cone_ending_width")
   local extend_duration = ability:GetSpecialValueFor("extend_duration_per_hit")
-  local speed = distance-end_radius
+  local speed = distance
   local direction = parent:GetForwardVector()
   direction.z = 0
   direction = direction:Normalized()
