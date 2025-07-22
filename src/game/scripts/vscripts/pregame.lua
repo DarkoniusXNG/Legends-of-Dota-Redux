@@ -7305,8 +7305,33 @@ end
 -- Use free ability points
 function Pregame:levelUpAbilities(hero)
     local points = hero:GetAbilityPoints()
+    local lvl = hero:GetLevel()
 
     local upgrades = 0
+    local talent_10_1
+    local talent_10_2
+    local talent_15_1
+    local talent_15_2
+    local talent_20_1
+    local talent_20_2
+    local talent_25_1
+    local talent_25_2
+    for i = 0, hero:GetAbilityCount() - 1 do
+        local ability = hero:GetAbilityByIndex(i)
+        if ability then
+            if util:IsTalent(ability) then
+                talent_10_1 = ability
+                talent_10_2 = hero:GetAbilityByIndex(i+1)
+                talent_15_1 = hero:GetAbilityByIndex(i+2)
+                talent_15_2 = hero:GetAbilityByIndex(i+3)
+                talent_20_1 = hero:GetAbilityByIndex(i+4)
+                talent_20_2 = hero:GetAbilityByIndex(i+5)
+                talent_25_1 = hero:GetAbilityByIndex(i+6)
+                talent_25_2 = hero:GetAbilityByIndex(i+7)
+                break
+            end
+        end
+    end
 
     if points >= 1 then
         for p=1,points do
@@ -7318,13 +7343,96 @@ function Pregame:levelUpAbilities(hero)
                 local ability = hero:GetAbilityByIndex(i)
                 if ability then
                     local function attemptUpgrade( ability )
-                        if ability and ability:GetLevel() < ability:GetMaxLevel() and not ability:IsHidden() and not string.match(ability:GetName(), "special") and upgrades < points then
+                        if ability and ability:GetLevel() < ability:GetMaxLevel() and not ability:IsHidden() and not util:IsTalent(ability) and upgrades < points then
                             ability:UpgradeAbility(false)
                             upgrades = upgrades + 1
                             attemptUpgrade( ability )
                         end
                     end
                     attemptUpgrade( ability )
+
+                    -- Leveling the talents for bots
+                    local random = RandomInt(0, 1)
+                    if (ability == talent_10_1 or ability == talent_10_2) then
+                        if lvl >= 10 and talent_10_1:GetLevel() == 0 and talent_10_2:GetLevel() == 0 then
+                            if random == 0 then
+                                talent_10_1:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            else
+                                talent_10_2:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            end
+                        end
+                        if lvl >= 27 then
+                            if talent_10_1:GetLevel() == 0 then
+                                talent_10_1:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            elseif talent_10_2:GetLevel() == 0 then
+                                talent_10_2:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            end
+                        end
+                    end
+                    if (ability == talent_15_1 or ability == talent_15_2) then
+                        if lvl >= 15 and talent_15_1:GetLevel() == 0 and talent_15_2:GetLevel() == 0 then
+                            if random == 0 then
+                                talent_15_1:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            else
+                                talent_15_2:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            end
+                        end
+                        if lvl >= 28 then
+                            if talent_15_1:GetLevel() == 0 then
+                                talent_15_1:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            elseif talent_15_2:GetLevel() == 0 then
+                                talent_15_2:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            end
+                        end
+                    end
+                    if (ability == talent_20_1 or ability == talent_20_2) then
+                        if lvl >= 20 and talent_20_1:GetLevel() == 0 and talent_20_2:GetLevel() == 0 then
+                            if random == 0 then
+                                talent_20_1:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            else
+                                talent_20_2:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            end
+                        end
+                        if lvl >= 29 then
+                            if talent_20_1:GetLevel() == 0 then
+                                talent_20_1:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            elseif talent_20_2:GetLevel() == 0 then
+                                talent_20_2:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            end
+                        end
+                    end
+                    if (ability == talent_25_1 or ability == talent_25_2) then
+                        if lvl >= 25 and talent_25_1:GetLevel() == 0 and talent_25_2:GetLevel() == 0 then
+                            if random == 0 then
+                                talent_25_1:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            else
+                                talent_25_2:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            end
+                        end
+                        if lvl >= 30 then
+                            if talent_25_1:GetLevel() == 0 then
+                                talent_25_1:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            elseif talent_25_2:GetLevel() == 0 then
+                                talent_25_2:UpgradeAbility(false)
+                                upgrades = upgrades + 1
+                            end
+                        end
+                    end
                 end
             end
         end
@@ -7346,11 +7454,11 @@ function Pregame:hookBotStuff()
 
     -- Auto level bot skills (bots will get 2 ability points per level)
     ListenToGameEvent('dota_player_gained_level', function(keys)
-        local playerID = keys.player - 1
+        local playerID = keys.player_id
         local level = keys.level
 
         -- Is this player a bot?
-        if PlayerResource:GetConnectionState(playerID) == 1 then
+        if util:isPlayerBot(playerID) then
             Timers:CreateTimer(function ()
                 local hero = PlayerResource:GetSelectedHeroEntity(playerID)
                 if IsValidEntity(hero) then
@@ -7378,7 +7486,7 @@ function Pregame:hookBotStuff()
                                         -- Work out what level we need to be to legally skill this ability
                                         local nextUpgrade = abLevel * 2 + 1
                                         if SkillManager:isUlt(abilityName) then
-                                            nextUpgrade = 6 + 5 * abLevel
+                                            nextUpgrade = 6 + 6 * abLevel
                                         end
 
                                         -- Can we legally skill this ability?
@@ -7398,59 +7506,6 @@ function Pregame:hookBotStuff()
                     -- Apply the point
                     if lowestAb ~= nil then
                         lowestAb:SetLevel(lowestLevel + 1)
-                    end
-
-                    -- Leveling the talents for bots
-                    if keys.level == 10 then
-                        for i = 1, hero:GetAbilityCount() - 1 do
-                            local ab = hero:GetAbilityByIndex(i)
-                            if ab and util:IsTalent(ab) then
-                                local random = RandomInt(0,1)
-                                local talent_random = hero:GetAbilityByIndex(i+random)
-                                if talent_random then
-                                    talent_random:UpgradeAbility(true)
-                                    break
-                                end
-                            end
-                        end
-                    elseif keys.level == 15 then
-                        for i = 1, hero:GetAbilityCount() - 1 do
-                            local ab = hero:GetAbilityByIndex(i)
-                            if ab and util:IsTalent(ab) then
-                                local random = RandomInt(2,3)
-                                local talent_random = hero:GetAbilityByIndex(i+random)
-                                if talent_random then
-                                    talent_random:UpgradeAbility(true)
-                                    break
-                                end
-                            end
-                        end
-
-                    elseif keys.level == 20 then
-                        for i = 1, hero:GetAbilityCount() - 1 do
-                            local ab = hero:GetAbilityByIndex(i)
-                            if ab and util:IsTalent(ab) then
-                                local random = RandomInt(4,5)
-                                local talent_random = hero:GetAbilityByIndex(i+random)
-                                if talent_random then
-                                    talent_random:UpgradeAbility(true)
-                                    break
-                                end
-                            end
-                        end
-
-                    elseif keys.level == 25 then
-                        for i = 1, hero:GetAbilityCount() - 1 do
-                            local ab = hero:GetAbilityByIndex(i)
-                            if ab and util:IsTalent(ab) then
-                                local random = RandomInt(6,7)
-                                local talent_random = hero:GetAbilityByIndex(i+random)
-                                if talent_random then
-                                    talent_random:UpgradeAbility(true)
-                                    break
-                                end
-                            end
-                        end
                     end
 
                     self:levelUpAbilities(hero)
@@ -7745,40 +7800,40 @@ function Pregame:fixSpawnedHero( spawnedUnit )
             end
 
             -- 'No Charges' fix for Tiny Toss
-            if spawnedUnit:HasAbility('tiny_toss') then
-                Timers:CreateTimer(function()
-                    local toss = spawnedUnit:FindAbilityByName('tiny_toss')
-                    local tossTalent = spawnedUnit:FindAbilityByName('special_bonus_unique_tiny_2')
-                    if tossTalent and tossTalent:GetLevel() > 0 then
-                        if not spawnedUnit:HasModifier("modifier_tiny_toss_charge_counter") then
-                            spawnedUnit:AddNewModifier(spawnedUnit, toss, "modifier_tiny_toss_charge_counter", {})
-                        end
-                    else
-                        if spawnedUnit:HasModifier("modifier_tiny_toss_charge_counter") then
-                            spawnedUnit:RemoveModifierByName("modifier_tiny_toss_charge_counter")
-                        end
-                    end
-                end, DoUniqueString('tossFix'), 1)
-            end
+            -- if spawnedUnit:HasAbility('tiny_toss') then
+            --     Timers:CreateTimer(function()
+            --         local toss = spawnedUnit:FindAbilityByName('tiny_toss')
+            --         local tossTalent = spawnedUnit:FindAbilityByName('special_bonus_unique_tiny_2')
+            --         if tossTalent and tossTalent:GetLevel() > 0 then
+            --             if not spawnedUnit:HasModifier("modifier_tiny_toss_charge_counter") then
+            --                 spawnedUnit:AddNewModifier(spawnedUnit, toss, "modifier_tiny_toss_charge_counter", {})
+            --             end
+            --         else
+            --             if spawnedUnit:HasModifier("modifier_tiny_toss_charge_counter") then
+            --                 spawnedUnit:RemoveModifierByName("modifier_tiny_toss_charge_counter")
+            --             end
+            --         end
+            --     end, DoUniqueString('tossFix'), 1)
+            -- end
 
             -- 'No Charges' fix for Shadow demon Disruption
-            if spawnedUnit:HasAbility('shadow_demon_disruption') then
-                Timers:CreateTimer(function()
-                    -- If the hero has the charges perk, and they have a level in it, check if they have modifier, if not, add it
-                    local disruption = spawnedUnit:FindAbilityByName('shadow_demon_disruption')
-                    local chargesTalent = spawnedUnit:FindAbilityByName("special_bonus_unique_shadow_demon_7")
-                    if chargesTalent and chargesTalent:GetLevel() > 0 then
-                        if not spawnedUnit:HasModifier("modifier_shadow_demon_disruption_charge_counter") then
-                            spawnedUnit:AddNewModifier(spawnedUnit, disruption, "modifier_shadow_demon_disruption_charge_counter",{})
-                        end
-                    else
-                        -- If Hero has homing missle ability, it doesnt have the talent or doesnt have a level in it, and it has the modifier, remove modifier
-                        if spawnedUnit:HasModifier("modifier_shadow_demon_disruption_charge_counter") then
-                            spawnedUnit:RemoveModifierByName("modifier_shadow_demon_disruption_charge_counter")
-                        end
-                    end
-                end, DoUniqueString('disruptfix'), 1)
-            end
+            -- if spawnedUnit:HasAbility('shadow_demon_disruption') then
+            --     Timers:CreateTimer(function()
+            --         -- If the hero has the charges perk, and they have a level in it, check if they have modifier, if not, add it
+            --         local disruption = spawnedUnit:FindAbilityByName('shadow_demon_disruption')
+            --         local chargesTalent = spawnedUnit:FindAbilityByName("special_bonus_unique_shadow_demon_7")
+            --         if chargesTalent and chargesTalent:GetLevel() > 0 then
+            --             if not spawnedUnit:HasModifier("modifier_shadow_demon_disruption_charge_counter") then
+            --                 spawnedUnit:AddNewModifier(spawnedUnit, disruption, "modifier_shadow_demon_disruption_charge_counter",{})
+            --             end
+            --         else
+            --             -- If Hero has homing missle ability, it doesnt have the talent or doesnt have a level in it, and it has the modifier, remove modifier
+            --             if spawnedUnit:HasModifier("modifier_shadow_demon_disruption_charge_counter") then
+            --                 spawnedUnit:RemoveModifierByName("modifier_shadow_demon_disruption_charge_counter")
+            --             end
+            --         end
+            --     end, DoUniqueString('disruptfix'), 1)
+            -- end
 
             -- Add mutator modifiers
             if OptionManager:GetOption('vampirism') == 1 then
@@ -7845,11 +7900,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                     -- ab:SetHidden(false)
                 -- end
             -- end
-
-            -- Give bots a free neutral item
-            -- local item = CreateItem("item_vambrace", spawnedUnit, nil)
-            -- spawnedUnit:AddItem(item)
-
         end
     end, DoUniqueString('addBotAI'), 1.0)
 
@@ -7888,17 +7938,11 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     -- Give out the global cast range ability
     if OptionManager:GetOption('globalCastRange') == 1 then
         Timers:CreateTimer(function()
-                if IsValidEntity(spawnedUnit) then
-                    -- If hero is not earthshaker or pudge, give ability, or if the hero is not a bot, give the ability.
-                    --if util:isPlayerBot(playerID) == false then
-                        local globalCastRangeAbility = spawnedUnit:AddAbility("aether_range_lod_global")
-                        globalCastRangeAbility:UpgradeAbility(true)
-                    --elseif spawnedUnit:GetUnitName() ~= "npc_dota_hero_earthshaker" and spawnedUnit:GetUnitName() ~= "npc_dota_hero_pudge" then
-                    --    local globalCastRangeAbility = spawnedUnit:AddAbility("aether_range_lod_global")
-                    --    globalCastRangeAbility:UpgradeAbility(true)
-                    --end
-                end
-            end, DoUniqueString('giveGlobalCastRange'), 1)
+            if IsValidEntity(spawnedUnit) then
+                local globalCastRangeAbility = spawnedUnit:AddAbility("aether_range_lod_global")
+                globalCastRangeAbility:UpgradeAbility(true)
+            end
+        end, DoUniqueString('giveGlobalCastRange'), 1)
     end
 
     -- Give out the free extra abilities
@@ -7910,8 +7954,8 @@ function Pregame:fixSpawnedHero( spawnedUnit )
 
     -- Remove talent modifiers
 	Timers:CreateTimer(function()
-        if IsValidEntity(spawnedUnit) then
-            for _,modifier in pairs(spawnedUnit:FindAllModifiers()) do
+        if IsValidEntity(spawnedUnit) and not util:isPlayerBot(playerID) then
+            for _, modifier in pairs(spawnedUnit:FindAllModifiers()) do
                 if string.find(modifier:GetName(), "modifier_special_bonus") then
                     modifier:Destroy()
                 end

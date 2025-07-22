@@ -15,7 +15,7 @@
         "AbilityValues"
         {
             "double_interval" "2.0 1.5 1.0"
-            "targets_scepter" "3"
+            "targets_scepter" "2"
         }
 
         "ReduxFlags"                                                           "aoe_attack | upgradeable"

@@ -117,7 +117,7 @@ if IsServer() then
 				counter = counter - 1
 				-- End the 'for' loop when counter reaches 0
 				if counter <= 0 then
-					return
+					break
 				end
 			end
 		end
@@ -223,7 +223,7 @@ if IsServer() then
 						parent:AddNewModifier(parent, nil, "modifier_ebf_clinkz_trickshot_passive_cd", {duration = interval})
 					end
 
-					return
+					break
 				end
 			end
 		end

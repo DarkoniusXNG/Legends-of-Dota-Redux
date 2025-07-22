@@ -487,7 +487,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
   
   if GameRules:GetGameTime() > 4*60 and not self:HasRoomForItemCustom() then
     for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
-      local item = hero:GetItemInSlot(slot)
+      local item = parent:GetItemInSlot(slot)
       if item then
         local item_name = item:GetAbilityName()
         if items_to_sell[item_name] then
