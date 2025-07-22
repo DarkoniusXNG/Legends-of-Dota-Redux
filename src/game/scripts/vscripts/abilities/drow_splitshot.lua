@@ -15,19 +15,26 @@ end
 function drow_splitshot:OnProjectileHit( hTarget, vLocation )
 	if not IsServer() or not hTarget or hTarget:IsNull() then return end
 
+	local caster = self:GetCaster()
+	if not caster or caster:IsNull() then
+		return
+	end
+
 	local bUseCastAttackOrb = true
 	local bProcessProcs = true
 	local bSkipCooldown = true
 	local bIgnoreInvis = true
 	local bUseProjectile = false
 	local bFakeAttack = false
-	local bNeverMiss = false
+	local bNeverMiss = not parent:IsRangedAttacker()
 
 	self.mod.reduceAttackDamage = true
 
-		self:GetCaster():PerformAttack(hTarget, bUseCastAttackOrb, bProcessProcs, bSkipCooldown, bIgnoreInvis, bUseProjectile, bFakeAttack, bNeverMiss)
+	caster:PerformAttack(hTarget, bUseCastAttackOrb, bProcessProcs, bSkipCooldown, bIgnoreInvis, bUseProjectile, bFakeAttack, bNeverMiss)
 
 	self.mod.reduceAttackDamage = false
+
+	return true
 end
 
 

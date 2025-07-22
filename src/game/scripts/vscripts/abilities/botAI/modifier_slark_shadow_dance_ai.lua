@@ -44,7 +44,7 @@ if IsServer() then
 			return
 		end
 
-		if caster:GetHealth() < 400 and ability and ability:IsFullyCastable() and caster:IsRealHero() and not (caster:IsStunned() or caster:IsSilenced() or caster:IsChanneling())  then
+		if caster:GetHealthPercent() <= 25 and ability and ability:IsFullyCastable() and caster:IsRealHero() and not (caster:IsStunned() or caster:IsSilenced() or caster:IsChanneling())  then
 			local cooldown = ability:GetCooldown(ability:GetLevel() - 1)
 			local duration = ability:GetSpecialValueFor("duration")
 			if duration == 0 then

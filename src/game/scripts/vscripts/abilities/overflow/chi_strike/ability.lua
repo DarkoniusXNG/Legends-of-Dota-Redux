@@ -14,7 +14,7 @@ function chi_strike:GetIntrinsicModifierName() return "chi_strike_mod" end
 function chi_strike:OnProjectileHit(hTarget, vLocation)
 	if hTarget == nil then return end
 	if self.original_target and self.original_target == hTarget then
-	return false
+		return false
 	end
 	self.chi_on = true
 	local cap = self:GetCaster():GetAttackCapability()
@@ -23,8 +23,7 @@ function chi_strike:OnProjectileHit(hTarget, vLocation)
 	self:GetCaster():SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
 	self:GetCaster():SetAcquisitionRange(99999)
 	self:GetCaster():SetAbsOrigin(hTarget:GetAbsOrigin())
-  self:GetCaster():PerformAttack(hTarget, true, true, true, true, false, false, true)
-	--self:GetCaster():PerformAttack(hTarget, true, true, true, true,false)
+	self:GetCaster():PerformAttack(hTarget, true, true, true, true, false, false, true)
 	self:GetCaster():SetAbsOrigin(pos)
 	self:GetCaster():SetAcquisitionRange(acq)
 	self:GetCaster():SetAttackCapability(cap)
