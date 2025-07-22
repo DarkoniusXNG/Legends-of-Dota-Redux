@@ -26,7 +26,7 @@ function drow_splitshot:OnProjectileHit( hTarget, vLocation )
 	local bIgnoreInvis = true
 	local bUseProjectile = false
 	local bFakeAttack = false
-	local bNeverMiss = not parent:IsRangedAttacker()
+	local bNeverMiss = not caster:IsRangedAttacker()
 
 	self.mod.reduceAttackDamage = true
 
