@@ -964,7 +964,7 @@
 "DOTA_Tooltip_ability_basic_movespeed_bonus_Description" "Grants extra movement speed.<br><br><font color='#7D7D7D'>Credits: Wouterz90 | github.com/Wouterz90</font><br>"
 "DOTA_Tooltip_ability_basic_movespeed_bonus_Lore" "Silky smooth materials makes running long distances a breeze."
 "DOTA_Tooltip_ability_basic_movespeed_bonus_op" "Fabric of Movement OP"
-"DOTA_Tooltip_ability_basic_movespeed_bonus_op_Description" "Grants extra movement speed. <font color='#70EA72'>Gives more movement speed</font>.,Grants extra movement speed. <font color='#70EA72'>Gives more movement speed</font>.<br><br><font color='#7D7D7D'>Credits: Wouterz90 | github.com/Wouterz90</font><br>"
+"DOTA_Tooltip_ability_basic_movespeed_bonus_op_Description" "Grants extra movement speed. <font color='#70EA72'>Gives more movement speed</font>.<br><br><font color='#7D7D7D'>Credits: Wouterz90 | github.com/Wouterz90</font><br>"
 "DOTA_Tooltip_ability_basic_movespeed_bonus_op_Lore" "Silky smooth materials makes running long distances a breeze."
 "DOTA_Tooltip_ability_basic_movespeed_bonus_op_speed_bonus" "BONUS MOVE SPEED:"
 "DOTA_Tooltip_ability_basic_movespeed_bonus_speed_bonus" "BONUS MOVE SPEED:"

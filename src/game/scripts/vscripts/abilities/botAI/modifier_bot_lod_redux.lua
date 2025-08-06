@@ -118,7 +118,7 @@ local item_builds = {
 		"item_black_king_bar",
 		"item_ultimate_scepter",
 		"item_veil_of_discord",
-		"item_hyperstone",
+		--"item_hyperstone",
 		"item_pipe",
 	},
 	npc_dota_hero_dragon_knight = {
@@ -222,7 +222,6 @@ local item_builds = {
 	},
 	npc_dota_hero_necrolyte = {
 		"item_null_talisman",
-		"item_magic_stick",
 		"item_arcane_boots",
 		"item_reaver",
 		"item_relic",
@@ -372,7 +371,6 @@ local item_builds = {
 	},
 	npc_dota_hero_windrunner = {
 		"item_wraith_band",
-		"item_magic_stick",
 		"item_power_treads",
 		"item_maelstrom",
 		"item_black_king_bar",
@@ -448,7 +446,6 @@ local sell_first = {
 
 local early_game_items = {
 	item_bracer = 1,
-	item_magic_stick = 1,
 	item_null_talisman = 1,
 	item_orb_of_corrosion = 1,
 	item_soul_ring = 1,
@@ -456,12 +453,15 @@ local early_game_items = {
 }
 
 local items_to_sell = {
+	item_blood_grenade = 1,
+	item_boots = 1,
 	item_branches = 1,
 	item_circlet = 1,
 	item_clarity = 1,
 	item_flask = 1,
 	item_gauntlets = 1,
 	item_mantle = 1,
+	item_magic_stick = 1,
 	item_quelling_blade = 1,
 	item_ring_of_protection = 1,
 	item_slippers = 1,
@@ -481,6 +481,12 @@ function modifier_bot_lod_redux:OnIntervalThink()
     return
   end
   
+  if (self.difficulty == 1 or (self.difficulty == 5 and parent:HasModifier("modifier_easybot"))) then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+  
   if (self.difficulty <= 3 or (self.difficulty == 5 and not parent:HasModifier("modifier_unfairbot"))) and not IsNearFriendlyClass(parent, 1800, "ent_dota_fountain") then
     return
   end
@@ -494,6 +500,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
           local gold_value = math.floor(GetItemCost(item_name) / 2)
           parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
           item:RemoveSelf()
+          break
         end
       end
     end
@@ -535,11 +542,11 @@ function modifier_bot_lod_redux:OnIntervalThink()
         parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
         parent:RemoveItemByName(item_name)
       end
-      if item_name == "item_magic_wand" and parent:FindItemByName("item_magic_stick") then
-        local gold_value = math.floor(GetItemCost("item_magic_stick") / 2)
-        parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
-        parent:RemoveItemByName("item_magic_stick")
-      end
+      -- if item_name == "item_magic_wand" and parent:FindItemByName("item_magic_stick") then
+        -- local gold_value = math.floor(GetItemCost("item_magic_stick") / 2)
+        -- parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
+        -- parent:RemoveItemByName("item_magic_stick")
+      -- end
       if item_name == "item_ultimate_scepter" and (GameRules:GetGameTime() > 25*60 or not self:HasRoomForItemCustom()) then
         -- Consume aghs if possible after 25 min
         local recipe_name = "item_recipe_ultimate_scepter_2"
@@ -578,7 +585,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
       end
     end
     if purchased then
-      break
+      --break
     end
   end
 end
@@ -592,6 +599,7 @@ function modifier_bot_lod_redux:HasRoomForItemCustom()
     local item = parent:GetItemInSlot(i)
     if not item then
       bHasRoom = true
+      break
     end
   end
 

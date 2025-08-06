@@ -7664,12 +7664,12 @@
 		"ItemPurchasable"               "1"
 		"ItemSellable"                  "1"
 	}
-	"item_faded_broach"
-	{
-		"ItemCost"                      "500"
-		"ItemPurchasable"               "1"
-		"ItemSellable"                  "1"
-	}
+	//"item_faded_broach"
+	//{
+		//"ItemCost"                      "500"
+		//"ItemPurchasable"               "1"
+		//"ItemSellable"                  "1"
+	//}
 	"item_arcane_ring"
 	{
 		"ItemCost"                      "500"
@@ -7765,37 +7765,37 @@
 		"ItemPurchasable"               "1"
 		"ItemSellable"                  "1"
 	}
-	"item_nether_shawl"
-	{
-		"ItemCost"                      "750"
-		"ItemPurchasable"               "1"
-		"ItemSellable"                  "1"
-		"IsObsolete"					"0"
-	}
+	//"item_nether_shawl"
+	//{
+		//"ItemCost"                      "750"
+		//"ItemPurchasable"               "1"
+		//"ItemSellable"                  "1"
+		//"IsObsolete"					"0"
+	//}
 	"item_dragon_scale"
 	{
 		"ItemCost"                      "750"
 		"ItemPurchasable"               "1"
 		"ItemSellable"                  "1"
 	}
-	"item_pupils_gift"
-	{
-		"ItemCost"                      "750"
-		"ItemPurchasable"               "1"
-		"ItemSellable"                  "1"
-	}
+	//"item_pupils_gift"
+	//{
+		//"ItemCost"                      "750"
+		//"ItemPurchasable"               "1"
+		//"ItemSellable"                  "1"
+	//}
 	"item_grove_bow"
 	{
 		"ItemCost"                      "1000"
 		"ItemPurchasable"               "1"
 		"ItemSellable"                  "1"
 	}
-	"item_philosophers_stone"
-	{
-		"ItemCost"                      "750"
-		"ItemPurchasable"               "1"
-		"ItemSellable"                  "1"
-	}
+	//"item_philosophers_stone"
+	//{
+		//"ItemCost"                      "750"
+		//"ItemPurchasable"               "1"
+		//"ItemSellable"                  "1"
+	//}
 	"item_essence_ring"
 	{
 		"ItemCost"                      "750"
@@ -7895,12 +7895,12 @@
 		"ItemPurchasable"               "1"
 		"ItemSellable"                  "1"
 	}
-	"item_paladin_sword"
-	{
-		"ItemCost"                      "1000"
-		"ItemPurchasable"               "1"
-		"ItemSellable"                  "1"
-	}
+	//"item_paladin_sword"
+	//{
+		//"ItemCost"                      "1000"
+		//"ItemPurchasable"               "1"
+		//"ItemSellable"                  "1"
+	//}
 	"item_titan_sliver"
 	{
 		"ItemCost"                      "1000"
@@ -7925,12 +7925,12 @@
 		"ItemPurchasable"               "1"
 		"ItemSellable"                  "1"
 	}
-	"item_ceremonial_robe"
-	{
-		"ItemCost"                      "1000"
-		"ItemPurchasable"               "1"
-		"ItemSellable"                  "1"
-	}
+	//"item_ceremonial_robe"
+	//{
+		//"ItemCost"                      "1000"
+		//"ItemPurchasable"               "1"
+		//"ItemSellable"                  "1"
+	//}
 	"item_psychic_headband"
 	{
 		"ItemCost"                      "1000"
@@ -7955,12 +7955,12 @@
 		"ItemPurchasable"               "1"
 		"ItemSellable"                  "1"
 	}
-	"item_defiant_shell"
-	{
-		"ItemCost"                      "1000"
-		"ItemPurchasable"               "1"
-		"ItemSellable"                  "1"
-	}
+	//"item_defiant_shell"
+	//{
+		//"ItemCost"                      "1000"
+		//"ItemPurchasable"               "1"
+		//"ItemSellable"                  "1"
+	//}
 	"item_vindicators_axe"
 	{
 		"ItemCost"                      "1000"
@@ -7994,12 +7994,12 @@
 
 	// Tier 4
 
-	"item_timeless_relic"
-	{
-		"ItemCost"                      "2000"
-		"ItemPurchasable"               "1"
-		"ItemSellable"                  "1"
-	}
+	//"item_timeless_relic"
+	//{
+		//"ItemCost"                      "2000"
+		//"ItemPurchasable"               "1"
+		//"ItemSellable"                  "1"
+	//}
 	"item_spell_prism"
 	{
 		"ItemCost"                      "2000"
@@ -8172,12 +8172,12 @@
 		"ItemPurchasable"               "1"
 		"ItemSellable"                  "1"
 	}
-	"item_apex"
-	{
-		"ItemCost"                      "5000"
-		"ItemPurchasable"               "1"
-		"ItemSellable"                  "1"
-	}
+	//"item_apex"
+	//{
+		//"ItemCost"                      "5000"
+		//"ItemPurchasable"               "1"
+		//"ItemSellable"                  "1"
+	//}
 	"item_ballista"
 	{
 		"ItemCost"                      "7500"
@@ -8196,12 +8196,12 @@
 		"ItemPurchasable"               "1"
 		"ItemSellable"                  "1"
 	}
-	"item_pirate_hat"
-	{
-		"ItemCost"                      "5000"
-		"ItemPurchasable"               "1"
-		"ItemSellable"                  "1"
-	}
+	//"item_pirate_hat"
+	//{
+		//"ItemCost"                      "5000"
+		//"ItemPurchasable"               "1"
+		//"ItemSellable"                  "1"
+	//}
 	"item_ex_machina"
 	{
 		"ItemCost"                      "7500"
@@ -8278,12 +8278,12 @@
 		"ItemPurchasable"               "1"
 		"ItemSellable"                  "1"
 	}
-	"item_witless_shako"
-	{
-		"ItemCost"                      "2750"
-		"ItemPurchasable"               "1"
-		"ItemSellable"                  "1"
-	}
+	//"item_witless_shako"
+	//{
+		//"ItemCost"                      "2750"
+		//"ItemPurchasable"               "1"
+		//"ItemSellable"                  "1"
+	//}
 	"item_phoenix_ash"
 	{
 		"ItemCost"                      "4000"
