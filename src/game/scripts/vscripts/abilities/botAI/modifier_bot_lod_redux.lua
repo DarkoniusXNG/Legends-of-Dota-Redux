@@ -45,7 +45,7 @@ local item_builds = {
 	npc_dota_hero_bane = {
 		"item_wraith_band",
 		"item_arcane_boots",
-		"item_glimmer_cape",
+		--"item_glimmer_cape",
 		"item_aether_lens",
 		"item_phylactery",
 		"item_ultimate_scepter",
@@ -94,7 +94,7 @@ local item_builds = {
 	npc_dota_hero_crystal_maiden = {
 		"item_bracer",
 		"item_tranquil_boots",
-		"item_glimmer_cape",
+		--"item_glimmer_cape",
 		"item_ghost",
 		"item_black_king_bar",
 		"item_ultimate_scepter",
@@ -104,7 +104,7 @@ local item_builds = {
 	npc_dota_hero_dazzle = {
 		"item_bracer",
 		"item_arcane_boots",
-		"item_glimmer_cape",
+		--"item_glimmer_cape",
 		"item_aether_lens",
 		"item_magic_wand",
 		"item_force_staff",
@@ -155,7 +155,7 @@ local item_builds = {
 	npc_dota_hero_jakiro = {
 		"item_bracer",
 		"item_arcane_boots",
-		"item_glimmer_cape",
+		--"item_glimmer_cape",
 		"item_aether_lens",
 		"item_cyclone",
 		"item_ultimate_scepter",
@@ -185,7 +185,7 @@ local item_builds = {
 	npc_dota_hero_lich = {
 		"item_bracer",
 		"item_tranquil_boots",
-		"item_glimmer_cape",
+		--"item_glimmer_cape",
 		"item_aether_lens",
 		"item_force_staff",
 		"item_blink",
@@ -205,7 +205,7 @@ local item_builds = {
 		"item_tranquil_boots",
 		"item_blink",
 		"item_aether_lens",
-		"item_glimmer_cape",
+		--"item_glimmer_cape",
 		"item_force_staff",
 		"item_ultimate_scepter",
 		"item_lotus_orb",
@@ -253,7 +253,7 @@ local item_builds = {
 	npc_dota_hero_oracle = {
 		"item_null_talisman",
 		"item_arcane_boots",
-		"item_glimmer_cape",
+		--"item_glimmer_cape",
 		"item_aether_lens",
 		"item_magic_wand",
 		"item_aeon_disk",
@@ -362,7 +362,7 @@ local item_builds = {
 	},
 	npc_dota_hero_warlock = {
 		"item_arcane_boots",
-		"item_glimmer_cape",
+		--"item_glimmer_cape",
 		"item_aether_lens",
 		"item_magic_wand",
 		"item_ultimate_scepter",
@@ -382,7 +382,7 @@ local item_builds = {
 	npc_dota_hero_witch_doctor = {
 		"item_magic_wand",
 		"item_arcane_boots",
-		"item_glimmer_cape",
+		--"item_glimmer_cape",
 		"item_ultimate_scepter",
 		"item_black_king_bar",
 		"item_platemail",
