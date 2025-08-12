@@ -66,6 +66,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "extend_duration_per_hit"                           "0.5"
+      "shield_multiplier_in_bubble_of_protection"         "2"
     }
   }
 }

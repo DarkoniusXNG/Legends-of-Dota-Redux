@@ -106,7 +106,7 @@ function modifier_bubble_witch_blow_bubbles_caster:OnIntervalThink()
   local parent_loc = parent:GetAbsOrigin()
 
   local projectile_name = "particles/units/heroes/hero_puck/puck_illusory_orb_linear_projectile.vpcf"
-  local distance = ability:GetSpecialValueFor("cone_distance")
+  local distance = ability:GetSpecialValueFor("cone_distance") + parent:GetCastRangeBonus()
   local start_radius = ability:GetSpecialValueFor("cone_starting_width")
   local end_radius = ability:GetSpecialValueFor("cone_ending_width")
   local extend_duration = ability:GetSpecialValueFor("extend_duration_per_hit")
@@ -276,30 +276,41 @@ end
 
 function modifier_bubble_witch_blow_bubbles_ally:OnCreated()
   local ability = self:GetAbility()
+  local parent = self:GetParent()
   if ability and not ability:IsNull() then
     self.move_speed_bonus_per_stack = ability:GetSpecialValueFor("move_speed_increase_per_second")
     self.shield_increase_per_stack = ability:GetSpecialValueFor("shield_per_second")
-    self.max_shield_hp = self.shield_increase_per_stack * (ability:GetSpecialValueFor("duration") + 1)
+    self.multiplier = ability:GetSpecialValueFor("shield_multiplier_in_bubble_of_protection")
+    self.max_shield_hp = self.shield_increase_per_stack * (ability:GetSpecialValueFor("duration") + 1) * self.multiplier
   end
 
   if IsServer() then
     self:SetStackCount(1)
     self.current_shield = self.shield_increase_per_stack
+    if parent:HasModifier("modifier_bubble_witch_bubble_of_protection_buff") then
+      self.current_shield = self.shield_increase_per_stack * self.multiplier
+    end
     self:SetHasCustomTransmitterData(true)
   end
 end
 
 function modifier_bubble_witch_blow_bubbles_ally:OnRefresh()
   local ability = self:GetAbility()
+  local parent = self:GetParent()
   if ability and not ability:IsNull() then
     self.move_speed_bonus_per_stack = ability:GetSpecialValueFor("move_speed_increase_per_second")
     self.shield_increase_per_stack = ability:GetSpecialValueFor("shield_per_second")
-    self.max_shield_hp = self.shield_increase_per_stack * (ability:GetSpecialValueFor("duration") + 1)
+    self.multiplier = ability:GetSpecialValueFor("shield_multiplier_in_bubble_of_protection")
+    self.max_shield_hp = self.shield_increase_per_stack * (ability:GetSpecialValueFor("duration") + 1) * self.multiplier
   end
 
   if IsServer() then
     self:IncrementStackCount()
-    self.current_shield = self.shield_increase_per_stack * self:GetStackCount()
+    if parent:HasModifier("modifier_bubble_witch_bubble_of_protection_buff") then
+      self.current_shield = self.current_shield + self.shield_increase_per_stack * self.multiplier
+    else
+      self.current_shield = math.max(self.current_shield + self.shield_increase_per_stack, self.shield_increase_per_stack * self:GetStackCount())
+    end
     self:SendBuffRefreshToClients()
   end
 end
