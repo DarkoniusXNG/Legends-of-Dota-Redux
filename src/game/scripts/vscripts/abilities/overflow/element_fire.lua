@@ -5,14 +5,11 @@ end
 function element_fire:OnCreated( kv )
 	if IsServer() then
 		if kv.stacks ~= nil then
-		self:SetStackCount(kv.stacks)
-	else
-		self:SetStackCount(1)
-	end
-		self.nFXIndex = ParticleManager:CreateParticle( "particles/econ/generic/generic_buff_1/generic_buff_1.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
-		ParticleManager:SetParticleControl( self.nFXIndex, 14, Vector( 1, 1, 1 ) )
-		ParticleManager:SetParticleControl( self.nFXIndex, 15, Vector( 255, 50, 0 ) )
-		self:AddParticle( self.nFXIndex, false, false, -1, false, false )
+			self:SetStackCount(kv.stacks)
+		else
+			self:SetStackCount(1)
+		end
+
 		self:CalculateDuration()
 		self:StartIntervalThink(0.5)
 	end
@@ -43,21 +40,19 @@ function element_fire:OnIntervalThink()
 			attacker = self:GetCaster(),
 			damage = nDamageCalc,
 			damage_type = DAMAGE_TYPE_MAGICAL,
+			ability = self:GetAbility(),
 		}
-		--print("Fire Damage: " .. 2*self:GetStackCount())
-		local hAbility = self:GetAbility()
-		if hAbility and hAbility.DamageReport then
-		hAbility.DamageReport = hAbility.DamageReport + nDamageCalc
+
+		if not self:GetParent():HasModifier("element_water") then
+			ApplyDamage(damageTable)
 		end
 
-		if not self:GetParent():HasModifier("element_water") then ApplyDamage(damageTable) end
-
 		self:DecrementStackCount()
-		if self:GetParent():HasModifier("element_water") and self:GetStackCount() > 0 then self:DecrementStackCount() end
+		if self:GetParent():HasModifier("element_water") and self:GetStackCount() > 0 then
+			self:DecrementStackCount()
+		end
 		if self:GetStackCount() < 1 then
-			if hAbility and hAbility.DamageReport then
-			print("Damage report: " .. hAbility.DamageReport)
-			end
+			self:StartIntervalThink(-1)
 			self:Destroy()
 		end
 	end
@@ -71,6 +66,14 @@ function element_fire:IsPurgable()
 	return true
 end
 
-function element_fire:DestroyOnExpire()
-	return false
+function element_fire:RemoveOnDeath()
+	return true
+end
+
+function element_fire:GetEffectName()
+	return "particles/units/heroes/hero_phoenix/phoenix_fire_spirit_burn_creep.vpcf"
+end
+
+function element_fire:GetEffectAttachType()
+	return PATTACH_ABSORIGIN_FOLLOW
 end

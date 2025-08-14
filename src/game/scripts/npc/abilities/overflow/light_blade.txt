@@ -23,16 +23,17 @@
 
         "precache"
         {
-            "particle"                                                     "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf"
+            "particle"                                                         "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf"
+            "particle"                                                         "particles/units/heroes/hero_phoenix/phoenix_fire_spirit_burn_creep.vpcf"
         }
 
         "AbilityValues"
         {
-            "damage" "5 10 15"
+            "damage" "5 10 15" // dps is 2x this, dps also increases with each bounce
             "aoe_range"
 			{
-					"value"			"800 1000 1200"
-					"affected_by_aoe_increase"	"1"
+				"value"			"800 1000 1200"
+				"affected_by_aoe_increase"	"1"
 			}
             "damage_delay" "0.25"
             "chain_fade" "0.35"
