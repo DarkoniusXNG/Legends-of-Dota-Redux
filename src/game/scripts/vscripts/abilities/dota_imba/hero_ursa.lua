@@ -67,8 +67,6 @@ function imba_ursa_earthshock:OnSpellStart()
 		local enrage_bonus_radius = 0
 		if enrage_ability then
 			enrage_bonus_radius = enrage_ability:GetSpecialValueFor("bonus_radius_skills")
-		else
-			enrage_bonus_radius = 0
 		end
 		local enrage_bonus_dmg_pct = ability:GetSpecialValueFor("enrage_bonus_dmg_pct")
 
@@ -807,7 +805,10 @@ function modifier_imba_fury_swipes:GetModifierProcAttack_BonusDamage_Physical( k
 		local roshan_stack_duration = ability:GetSpecialValueFor("roshan_stack_duration")
 		local deep_stack_multiplier = ability:GetSpecialValueFor("deep_stack_multiplier")
 		local deep_stack_attacks = ability:GetSpecialValueFor("deep_stack_attacks")
-		local enrage_swipes_multiplier = enrage_ability:GetSpecialValueFor("fury_swipes_multiplier")
+		local enrage_swipes_multiplier = 1
+		if enrage_ability then
+		  enrage_swipes_multiplier = enrage_ability:GetSpecialValueFor("fury_swipes_multiplier")
+		end
 
 		-- If the caster is broken, do nothing
 		if caster:PassivesDisabled() then

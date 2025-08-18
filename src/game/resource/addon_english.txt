@@ -8656,6 +8656,8 @@
 "DOTA_Tooltip_modifier_frostmourne_debuff_Description" "Slowed and granting bonus attack speed to attackers"
 "DOTA_Tooltip_modifier_fury_swipes_target_lod" "Fury Swipes"
 "DOTA_Tooltip_modifier_fury_swipes_target_lod_Description" "Taking extra damage per stack."
+"DOTA_Tooltip_modifier_imba_fury_swipes_debuff" "Fury Swipes IMBA"
+"DOTA_Tooltip_modifier_imba_fury_swipes_debuff_Description" "Taking extra damage per stack."
 "DOTA_Tooltip_Modifier_gale_force" "Disarm"
 "DOTA_Tooltip_Modifier_gale_force_Description" "Disarms and damages based on your agility to nearby enemies in a radius around you."
 "DOTA_Tooltip_Modifier_gale_force_disarm" "Disarmed."
