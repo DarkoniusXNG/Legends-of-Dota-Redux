@@ -3463,38 +3463,44 @@ end
 
 -- Multiply neutral creep camps
 function Pregame:MultiplyNeutralUnit( unit, mult )
-    local unitName = unit:GetUnitName()
+	if mult < 2 then
+		return
+	end
 
-    if unitName == "npc_dota_roshan" or unitName == "npc_dota_miniboss" or unitName == "npc_dota_neutral_mud_golem_split" or unitName == "npc_dota_dark_troll_warlord_skeleton_warrior" then
-        return
-    end
+	local unitName = unit:GetUnitName()
 
-    if mult < 2 then
-        return
-    end
+	if unitName == "npc_dota_roshan" or unitName == "npc_dota_miniboss" or unitName == "npc_dota_neutral_mud_golem_split" or unitName == "npc_dota_dark_troll_warlord_skeleton_warrior" then
+		return
+	end
 
-    local loc = unit:GetAbsOrigin()
+	local loc = unit:GetAbsOrigin()
 
-    for i = 1, mult - 1 do
-        local clone = CreateUnitByName( unitName, loc, true, nil, nil, DOTA_TEAM_NEUTRALS )
-        clone:AddNewModifier(clone, nil, "modifier_kill", {duration = 120})
-        clone:AddAbility("clone_token_ability")
-    end
+	for i = 1, mult - 1 do
+		local clone = CreateUnitByName( unitName, loc, true, nil, nil, DOTA_TEAM_NEUTRALS )
+		clone:AddNewModifier(clone, nil, "modifier_kill", {duration = 120})
+		clone:AddAbility("clone_token_ability")
+	end
 end
 
 -- Multiply lane creeps
 function Pregame:MultiplyLaneUnit( unit, mult )
-        local unitName = unit:GetUnitName()
+	if mult < 2 then
+		return
+	end
+	local unitName = unit:GetUnitName()
+	local loc = unit:GetAbsOrigin()
+	local team = unit:GetTeam()
 
-        local loc = unit:GetAbsOrigin()
+	if team == DOTA_TEAM_NEUTRALS or unit:IsControllableByAnyPlayer() then
+		return
+	end
 
-        for i = 2, mult do
-            local clone = CreateUnitByName( unitName, loc, true, nil, nil, unit:GetTeam() )
-            clone:AddAbility("clone_token_ability")
-            --Clones die after 120 seconds, this is a safety measure to prevent too many units being alive
-            clone:AddNewModifier(clone, nil, "modifier_kill", {duration = 30})
-            clone:SetInitialGoalEntity(unit:GetInitialGoalEntity())
-        end
+	for i = 1, mult - 1 do
+		local clone = CreateUnitByName( unitName, loc, true, nil, nil, team )
+		clone:AddAbility("clone_token_ability")
+		clone:AddNewModifier(clone, nil, "modifier_kill", {duration = 30})
+		clone:SetInitialGoalEntity(unit:GetInitialGoalEntity())
+	end
 end
 
 
@@ -6508,8 +6514,7 @@ end
 
 function Pregame:multiplyLaneCreeps()
         ListenToGameEvent('entity_hurt', function(keys)
-            local this = self
-            if this.optionStore['lodOptionLaneMultiply'] == 0 then return end
+            if Pregame.optionStore['lodOptionLaneMultiply'] == 0 then return end
             -- Grab the entity that was hurt
             local ent = EntIndexToHScript(keys.entindex_killed)
             local attacker
@@ -6520,16 +6525,12 @@ function Pregame:multiplyLaneCreeps()
             -- Neutral Multiplier: Checks if hurt npc is neutral, dead, and if it doesnt have the clone token ability, and their is a valid attacker
             if IsValidEntity(ent) and IsValidEntity(attacker) then
                 if ent:GetName() == "npc_dota_creep_lane" and ent:FindAbilityByName("clone_token_ability") == nil then
-
                     ent:AddAbility("clone_token_ability")
-                    self:MultiplyLaneUnit( ent, (this.optionStore['lodOptionLaneMultiply'] + 1) ) -- Plus one, because 0 is the starting value
-
+                    Pregame:MultiplyLaneUnit( ent, (Pregame.optionStore['lodOptionLaneMultiply'] + 1) ) -- Plus one, because 0 is the starting value
                 end
                 if attacker:GetName() == "npc_dota_creep_lane" and attacker:FindAbilityByName("clone_token_ability") == nil then
-
                     attacker:AddAbility("clone_token_ability")
-                    self:MultiplyLaneUnit( attacker, (this.optionStore['lodOptionLaneMultiply'] + 1) )
-
+                    Pregame:MultiplyLaneUnit( attacker, (Pregame.optionStore['lodOptionLaneMultiply'] + 1) )
                 end
             end
 
@@ -8368,7 +8369,7 @@ function Pregame:fixSpawningIssues()
             end
 
             if spawnedUnit:GetTeam() == DOTA_TEAM_NEUTRALS then
-                if OptionManager:GetOption('stacking') == 1 and spawnedUnit:GetUnitName() ~= "npc_dota_roshan" then
+                if OptionManager:GetOption('stacking') == 1 and spawnedUnit:GetUnitName() ~= "npc_dota_roshan" and spawnedUnit:GetUnitName() ~= "npc_dota_miniboss" then
                     if IsValidEntity(spawnedUnit) then
                         -- Have to delete creeps after time or game will crash because of too many creeps
                         spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_kill", {duration = 150})
