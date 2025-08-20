@@ -35,7 +35,7 @@ function heroPerksModifierFilter(filterTable)
   perkAncientApparition(filterTable)
   -- Perk for Doom
   perkDoom(filterTable)
-   -- Perk for Outworld Devourer
+  -- Perk for Outworld Devourer
   perkOD(filterTable)
   -- Perk for Venomancer
   perkVenomancer(filterTable)

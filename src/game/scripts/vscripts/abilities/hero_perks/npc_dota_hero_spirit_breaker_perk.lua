@@ -58,7 +58,7 @@ function modifier_npc_dota_hero_spirit_breaker_perk_break:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
 end
 --------------------------------------------------------------------------------------------------------
-function perkSpaceCow(filterTable)  --ModifierGainedFilter
+function perkSpaceCow(filterTable)
   local parent_index = filterTable["entindex_parent_const"]
   local caster_index = filterTable["entindex_caster_const"]
   local ability_index = filterTable["entindex_ability_const"]
@@ -69,9 +69,9 @@ function perkSpaceCow(filterTable)  --ModifierGainedFilter
   local caster = EntIndexToHScript( caster_index )
   local ability = EntIndexToHScript( ability_index )
   if ability then
-    if caster:HasModifier("modifier_npc_dota_hero_spirit_breaker_perk") and ability:HasAbilityFlag("bash") and parent:GetTeamNumber() ~= caster:GetTeamNumber() then
-        local modifierDuration = filterTable["duration"]
-        parent:AddNewModifier(caster, nil,"modifier_npc_dota_hero_spirit_breaker_perk_break",{duration = modifierDuration})
+    if caster:HasModifier("modifier_npc_dota_hero_spirit_breaker_perk") and ability:HasAbilityFlag("bash") and parent:GetTeamNumber() ~= caster:GetTeamNumber() and filterTable["duration"] ~= -1 then
+      local modifierDuration = filterTable["duration"]
+      parent:AddNewModifier(caster, nil,"modifier_npc_dota_hero_spirit_breaker_perk_break",{duration = modifierDuration})
     end
   end
 end

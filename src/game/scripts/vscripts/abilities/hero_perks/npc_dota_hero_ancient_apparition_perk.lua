@@ -85,11 +85,11 @@ function perkAncientApparition(filterTable)
   local ability = EntIndexToHScript( ability_index )
   if ability then
     if caster:HasModifier("modifier_npc_dota_hero_ancient_apparition_perk") and ability:HasAbilityFlag("ice") then
-        local modifierDuration = filterTable["duration"]
-        if modifierDuration == -1 then
-          modifierDuration = 3
-        end
-        parent:AddNewModifier(caster, nil, "modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze", {duration = modifierDuration, linkedmod = modifier_name})
+      local modifierDuration = filterTable["duration"]
+      if modifierDuration == -1 then
+        modifierDuration = 3
+      end
+      parent:AddNewModifier(caster, nil, "modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze", {duration = modifierDuration, linkedmod = modifier_name})
     end
   end
 end

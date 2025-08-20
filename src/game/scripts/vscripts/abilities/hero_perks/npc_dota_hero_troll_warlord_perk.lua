@@ -45,9 +45,9 @@ function perkTrollWarlord(filterTable)
   local ability = EntIndexToHScript( ability_index )
   if ability then
     if caster:HasModifier("modifier_npc_dota_hero_troll_warlord_perk") and ability:HasAbilityFlag("rage") and filterTable["duration"] ~= -1 then
-        local modifierDuration = filterTable["duration"]
-        local newDuration = modifierDuration + (modifierDuration * caster.rageDurationBonus)
-        filterTable["duration"] = newDuration
+      local modifierDuration = filterTable["duration"]
+      local newDuration = modifierDuration + (modifierDuration * caster.rageDurationBonus)
+      filterTable["duration"] = newDuration
     end
   end
 end

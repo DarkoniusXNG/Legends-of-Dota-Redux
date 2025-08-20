@@ -29,14 +29,7 @@ require('abilities/angel_arena_reborn/duels')
 
 require('abilities/mutators/convertable_tower_mutator')
 
--- Custom AI script modifiers
-LinkLuaModifier( "modifier_slark_shadow_dance_ai", "abilities/botAI/modifier_slark_shadow_dance_ai.lua" ,LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_alchemist_chemical_rage_ai", "abilities/botAI/modifier_alchemist_chemical_rage_ai.lua" ,LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_easybot", "abilities/botAI/modifier_easybot.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_mediumbot", "abilities/botAI/modifier_mediumbot.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hardbot", "abilities/botAI/modifier_hardbot.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_unfairbot", "abilities/botAI/modifier_unfairbot.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_bot_lod_redux", "abilities/botAI/modifier_bot_lod_redux.lua", LUA_MODIFIER_MOTION_NONE )
+
 --LinkLuaModifier( "modifier_rattletrap_rocket_flare_ai", "abilities/botAI/modifier_rattletrap_rocket_flare_ai.lua" ,LUA_MODIFIER_MOTION_NONE )
 
 -- Creep power modifier
@@ -3469,19 +3462,20 @@ function Pregame:isAllowed( abilityName )
 end
 
 -- Multiply neutral creep camps
-function Pregame:MultiplyNeutralUnit( unit, killer, mult, lastHits )
+function Pregame:MultiplyNeutralUnit( unit, mult )
     local unitName = unit:GetUnitName()
 
-    if unitName == "npc_dota_roshan" or unitName == "npc_dota_neutral_mud_golem_split" or unitName == "npc_dota_dark_troll_warlord_skeleton_warrior" then
+    if unitName == "npc_dota_roshan" or unitName == "npc_dota_miniboss" or unitName == "npc_dota_neutral_mud_golem_split" or unitName == "npc_dota_dark_troll_warlord_skeleton_warrior" then
+        return
+    end
+
+    if mult < 2 then
         return
     end
 
     local loc = unit:GetAbsOrigin()
 
-    -- Don't spawn too many special units per split, it overwhelms players easily
-    local alreadySpawned = false
-
-    for i = 2, mult do
+    for i = 1, mult - 1 do
         local clone = CreateUnitByName( unitName, loc, true, nil, nil, DOTA_TEAM_NEUTRALS )
         clone:AddNewModifier(clone, nil, "modifier_kill", {duration = 120})
         clone:AddAbility("clone_token_ability")
@@ -6474,30 +6468,41 @@ function Pregame:addExtraTowers()
 end
 
 function Pregame:multiplyNeutrals()
-        ListenToGameEvent('entity_hurt', function(keys)
-            local this = self
-            --print(OptionManager:GetOption('neutralMultiply'))
-            --print(this.optionStore['lodOptionNeutralMultiply'])
+        if OptionManager:GetOption('neutralMultiply') == 1 then return end
+        ListenToGameEvent('entity_killed', function(keys)
             if OptionManager:GetOption('neutralMultiply') == 1 then return end
-            --GameRules:SendCustomMessage("multiplyneutrals", 0, 0)
-            -- Grab the entity that was hurt
-            local ent = EntIndexToHScript(keys.entindex_killed)
-            local attacker
-            if keys.entindex_attacker ~= nil then
-                attacker = EntIndexToHScript( keys.entindex_attacker )
+
+            local killed_index = keys.entindex_killed
+            if not killed_index then
+                return
             end
 
-           if not attacker or attacker:IsNull() then return end
-           if not attacker:IsRealHero() then return end
-
-            -- Neutral Multiplier: Checks if hurt npc is neutral, dead, and if it doesnt have the clone token ability, and their is a valid attacker
-            if IsValidEntity(attacker) then
-                if ent:GetTeamNumber() == DOTA_TEAM_NEUTRALS and (ent:GetHealth() <= 0  or not ent:IsAlive())and ent:GetName() == "npc_dota_creep_neutral" and ent:FindAbilityByName("clone_token_ability") == nil then
-                    local lastHits = math.max(PlayerResource:GetLastHits(attacker:GetOwner():GetPlayerID()), 1)
-                    self:MultiplyNeutralUnit( ent, attacker, OptionManager:GetOption('neutralMultiply'), lastHits )
-                end
+            local killer_index = keys.entindex_attacker
+            if not killer_index then
+                return
             end
 
+            local killed = EntIndexToHScript(killed_index)
+            if not killed.GetTeamNumber or not killed.HasAbility then
+                return
+            end
+
+            local killer = EntIndexToHScript(killer_index)
+            if not killer or killer:IsNull() then
+                return
+            end
+
+            if not killer.IsHero then
+                return
+            end
+
+            if killer == killed then
+                return
+            end
+
+            if killed:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not killed:HasAbility("clone_token_ability") and (killer:IsHero() or killer:IsControllableByAnyPlayer()) then
+                Pregame:MultiplyNeutralUnit( killed, OptionManager:GetOption('neutralMultiply') )
+            end
         end, nil)
 end
 
@@ -6505,7 +6510,6 @@ function Pregame:multiplyLaneCreeps()
         ListenToGameEvent('entity_hurt', function(keys)
             local this = self
             if this.optionStore['lodOptionLaneMultiply'] == 0 then return end
-            --GameRules:SendCustomMessage("multiplylanecreeps", 0, 0)
             -- Grab the entity that was hurt
             local ent = EntIndexToHScript(keys.entindex_killed)
             local attacker

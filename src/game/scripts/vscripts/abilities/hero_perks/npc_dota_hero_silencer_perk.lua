@@ -45,9 +45,9 @@ function perkSilencer(filterTable)
   local ability = EntIndexToHScript( ability_index )
   if ability then
     if caster:HasModifier("modifier_npc_dota_hero_silencer_perk") and ability:HasAbilityFlag("silence") and filterTable["duration"] ~= -1 then
-        local modifierDuration = filterTable["duration"]
-        local newDuration = modifierDuration + (modifierDuration * caster.silenceDurationBonus)
-        filterTable["duration"] = newDuration
+      local modifierDuration = filterTable["duration"]
+      local newDuration = modifierDuration + (modifierDuration * caster.silenceDurationBonus)
+      filterTable["duration"] = newDuration
     end
   end
 end

@@ -31,7 +31,6 @@ function duskDota:StartEventTest()
 	--ListenToGameEvent("npc_spawned", Dynamic_Wrap(duskDota, 'On_npc_spawned'), self)
 	ListenToGameEvent("npc_replaced", Dynamic_Wrap(duskDota, 'On_npc_replaced'), self)
 	--ListenToGameEvent("entity_killed", Dynamic_Wrap(duskDota, 'On_entity_killed'), self)
-	--ListenToGameEvent("entity_hurt", Dynamic_Wrap(duskDota, 'On_entity_hurt'), self)
 	ListenToGameEvent("bonus_updated", Dynamic_Wrap(duskDota, 'On_bonus_updated'), self)
 	ListenToGameEvent("player_stats_updated", Dynamic_Wrap(duskDota, 'On_player_stats_updated'), self)
 	ListenToGameEvent("achievement_event", Dynamic_Wrap(duskDota, 'On_achievement_event'), self)
@@ -460,12 +459,6 @@ end
 
 function duskDota:On_entity_killed(data)
   print("[DUSKDOTA] entity_killed")
-  PrintTable(data)
-end
-
-
-function duskDota:On_entity_hurt(data)
-  print("[DUSKDOTA] entity_hurt")
   PrintTable(data)
 end
 

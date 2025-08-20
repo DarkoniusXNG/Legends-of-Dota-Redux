@@ -82,8 +82,8 @@ function perkDoom(filterTable)  --ModifierGainedFilter
   local ability = EntIndexToHScript( ability_index )
   if ability then
     if caster:HasModifier("modifier_npc_dota_hero_doom_bringer_perk") and caster ~= parent and ability:HasAbilityFlag("silence") then
-        --local modifierDuration = filterTable["duration"]
-        parent:AddNewModifier(caster, ability, "modifier_npc_dota_hero_doom_perk_mute", {duration = 2})
+      --local modifierDuration = filterTable["duration"]
+      parent:AddNewModifier(caster, ability, "modifier_npc_dota_hero_doom_perk_mute", {duration = 2})
     end
   end
 end
