@@ -10,21 +10,21 @@ local hero_names = {
 	"batrider", -- ok
 	"beastmaster", -- ok
 	"bloodseeker", -- ok, bot
-	"bounty_hunter", -- ok, bot
+	"bounty_hunter", -- NEEDS REPLACEMENT, bot
 	"brewmaster", -- ok, A tier
-	"bristleback", -- kinda bad, bot
+	"bristleback", -- NEEDS REPLACEMENT, bot
 	"broodmother", -- ok
 	"centaur", -- ok, S tier
 	"chaos_knight", -- ok, bot
 	"chen", -- ok, S tier
-	"clinkz", -- ok, D tier
+	"clinkz", -- NEEDS REPLACEMENT, D tier
 	"crystal_maiden", -- ok, D tier, bot
-	"dark_seer", -- kinda bad
-	"dark_willow", -- ok
+	"dark_seer", -- NEEDS REPLACEMENT
+	"dark_willow", -- NEEDS REPLACEMENT
 	"dawnbreaker", -- ok, missing icon, A tier
 	"dazzle", -- ok, bot
 	"death_prophet", -- ok, S tier, bot
-	"disruptor", -- terrible
+	"disruptor", -- ok
 	"doom_bringer", -- ok
 	"dragon_knight", -- ok, A tier, bot
 	"drow_ranger", -- ok, A tier, bot
@@ -32,7 +32,7 @@ local hero_names = {
 	"earthshaker", -- ok, A tier, bot
 	"elder_titan", -- ok
 	"ember_spirit", -- ok
-	"enchantress", -- badly coded idea not bad
+	"enchantress", -- NEEDS REPLACEMENT
 	"enigma", -- ok
 	"faceless_void", -- ok
 	"furion", -- ok, S tier
@@ -40,7 +40,7 @@ local hero_names = {
 	"gyrocopter", -- ok, A tier
 	"hoodwink", -- ok, missing icon
 	"huskar", -- ok, D tier
-	"invoker", -- kinda bad, A tier
+	"invoker", -- NEEDS REPLACEMENT, A tier
 	"jakiro", -- ok, bot
 	"juggernaut", -- ok, A tier, bot
 	"keeper_of_the_light", -- ok, A tier
@@ -51,7 +51,7 @@ local hero_names = {
 	"lich", -- ok, bot
 	"life_stealer", -- ok, S tier
 	"lina", -- ok, S tier, bot
-	"lion", -- maybe op, bot
+	"lion", -- NEEDS REPLACEMENT, bot
 	"lone_druid", -- ok, D tier
 	"luna", -- ok, bot
 	"lycan", -- ok
@@ -62,26 +62,26 @@ local hero_names = {
 	"meepo", -- ok
 	"mirana", -- ok
 	"monkey_king", -- ok, S tier
-	"morphling", -- ok, A tier
+	"morphling", -- NEEDS REPLACEMENT, A tier
 	"muerta", -- ok, S tier
 	"naga_siren", -- ok, A tier
 	"necrolyte", -- ok, D tier, bot
 	"nevermore", -- ok, S tier, bot
 	"night_stalker", -- ok, A tier
-	"nyx_assassin", -- kinda bad, D tier
-	"obsidian_destroyer", -- ok, kinda bad, A tier
+	"nyx_assassin", -- NEEDS REPLACEMENT, D tier
+	"obsidian_destroyer", -- NEEDS REPLACEMENT, A tier
 	"ogre_magi", -- ok, S tier
 	"omniknight", -- ok, bot
 	"oracle", -- ok, A tier, bot
-	"pangolier", -- ok, D tier
+	"pangolier", -- NEEDS IMPROVEMENT, D tier
 	"phantom_assassin", -- ok, bot
-	"phantom_lancer", -- kinda bad, C tier
+	"phantom_lancer", -- ok, C tier
 	"phoenix", -- ok, D tier
 	"primal_beast", -- ok, S tier
 	"puck", -- ok
 	"pudge", -- ok, bot
 	"pugna", -- ok, S tier
-	"queenofpain", -- kinda bad, A tier
+	"queenofpain", -- NEEDS REPLACEMENT, A tier
 	"rattletrap", -- ok, missing icon, A tier
 	"razor", -- ok
 	"riki", -- ok, D tier
@@ -95,11 +95,11 @@ local hero_names = {
 	"skeleton_king", -- ok, bot
 	"skywrath_mage", -- ok, bot
 	"slardar", -- ok, A tier
-	"slark", -- ok, D tier
+	"slark", -- NEEDS IMPROVEMENT, D tier
 	"snapfire", -- ok, missing icon, A tier
-	"sniper", -- ok, A tier, bot
-	"spectre", -- ok, D tier
-	"spirit_breaker", -- ok, kinda bad
+	"sniper", -- NEEDS REPLACEMENT, A tier, bot
+	"spectre", -- NEEDS IMPROVEMENT, D tier
+	"spirit_breaker", -- NEEDS IMPROVEMENT
 	"storm_spirit", -- ok
 	"sven", -- ok, bot
 	"techies", -- ok, S tier
@@ -111,17 +111,17 @@ local hero_names = {
 	"treant", -- ok
 	"troll_warlord", -- ok
 	"tusk", -- ok, S tier
-	"undying", -- bad
-	"ursa", -- ok, kinda bad
+	"undying", -- NEEDS REPLACEMENT
+	"ursa", -- NEEDS REPLACEMENT
 	"vengefulspirit", -- ok, bot
 	"venomancer" , -- ok, C tier
 	"viper", -- ok, bot
 	"visage", -- ok
-	"void_spirit", -- ok, kinda bad, D tier
-	"warlock", -- too strong idea not bad, A tier, bot
+	"void_spirit", -- NEEDS REPLACEMENT, D tier
+	"warlock", -- NEEDS REPLACEMENT, A tier, bot
 	"weaver", -- ok, D tier
 	"windrunner", -- ok, bot
-	"winter_wyvern", -- ok, D tier
+	"winter_wyvern", -- NEEDS IMPROVEMENT, D tier
 	"wisp", -- ok, D tier
 	"witch_doctor", -- ok, bot
 	"zuus", -- ok, C tier, bot
@@ -131,3 +131,11 @@ for _, name in pairs (hero_names) do
 end
 
 LinkLuaModifier("modifier_pudge_custom_flesh_heap_kill_tracker", "abilities/modifiers/modifier_pudge_custom_flesh_heap_kill_tracker.lua", LUA_MODIFIER_MOTION_NONE)
+-- Custom AI script modifiers
+LinkLuaModifier( "modifier_slark_shadow_dance_ai", "abilities/botAI/modifier_slark_shadow_dance_ai.lua" , LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_alchemist_chemical_rage_ai", "abilities/botAI/modifier_alchemist_chemical_rage_ai.lua" , LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_easybot", "abilities/botAI/modifier_easybot.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_mediumbot", "abilities/botAI/modifier_mediumbot.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_hardbot", "abilities/botAI/modifier_hardbot.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_unfairbot", "abilities/botAI/modifier_unfairbot.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_bot_lod_redux", "abilities/botAI/modifier_bot_lod_redux.lua", LUA_MODIFIER_MOTION_NONE )
