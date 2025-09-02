@@ -17,7 +17,7 @@ local hero_names = {
 	"centaur", -- ok, S tier
 	"chaos_knight", -- ok, bot
 	"chen", -- ok, S tier
-	"clinkz", -- NEEDS REPLACEMENT, D tier
+	"clinkz", -- ok, D tier
 	"crystal_maiden", -- ok, D tier, bot
 	"dark_seer", -- NEEDS REPLACEMENT
 	"dark_willow", -- NEEDS REPLACEMENT

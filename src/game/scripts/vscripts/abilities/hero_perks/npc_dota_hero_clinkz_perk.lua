@@ -1,10 +1,8 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Clinkz
---		Perk: Clinkz will receive a free level in his first non-ultimate Autocast ability at the start of the game. 
---
+--		Perk: Clinkz gains +3 attack damage and +3 attack range for each level put in a Fire or Ranger ability.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_clinkz_perk ~= "" then modifier_npc_dota_hero_clinkz_perk = class({}) end
+modifier_npc_dota_hero_clinkz_perk = modifier_npc_dota_hero_clinkz_perk or class({})
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_clinkz_perk:IsPassive()
 	return true
@@ -21,20 +19,43 @@ end
 function modifier_npc_dota_hero_clinkz_perk:RemoveOnDeath()
     return false
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_clinkz_perk:OnCreated(keys)
-	if IsServer() then
-		local caster = self:GetCaster()
-		
-		for i = 0, caster:GetAbilityCount() - 1 do 
-			local ability = caster:GetAbilityByIndex(i)
-			if ability and ability:HasAbilityFlag("autocast_basic") then
-				ability:UpgradeAbility(true)
-				break
-			end
-		end
-	end
+
+function modifier_npc_dota_hero_clinkz_perk:GetTexture()
+	return "custom/npc_dota_hero_clinkz_perk"
 end
 --------------------------------------------------------------------------------------------------------
+function modifier_npc_dota_hero_clinkz_perk:OnCreated()
+	self.bonusPerLevel = 3
+	if IsServer() then
+		self:StartIntervalThink(0.1)
+	end
+end
+
+function modifier_npc_dota_hero_clinkz_perk:OnIntervalThink()
+	if IsServer() then
+		local caster = self:GetParent()
+		local stacks = 0
+		for i = 0, caster:GetAbilityCount() - 1 do
+			local skill = caster:GetAbilityByIndex(i)
+			if skill and (skill:HasAbilityFlag("fire") or skill:HasAbilityFlag("ranger")) then
+				stacks = stacks + skill:GetLevel() * self.bonusPerLevel
+			end
+		end
+		self:SetStackCount(stacks)
+	end
+end
+
+function modifier_npc_dota_hero_clinkz_perk:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
+	}
+end
+
+function modifier_npc_dota_hero_clinkz_perk:GetModifierPreAttack_BonusDamage()
+	return self:GetStackCount()
+end
+
+function modifier_npc_dota_hero_clinkz_perk:GetModifierAttackRangeBonus()
+	return self:GetStackCount()
+end
