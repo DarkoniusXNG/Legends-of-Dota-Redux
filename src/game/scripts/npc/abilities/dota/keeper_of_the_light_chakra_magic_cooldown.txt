@@ -22,9 +22,13 @@
 			"AbilityCooldown"
 			{
 				"value"			"28 24 20 16"
-				"special_bonus_unique_keeper_of_the_light_7"	"-3"
+				"special_bonus_unique_keeper_of_the_light_7"	"-2"
 			}	
-			"self_bonus"				"25"
+			"self_bonus"				"30"
+            "strong_dispel"
+			{
+				"special_bonus_unique_keeper_of_the_light_14"	"1"
+			}
 		}
         "ReduxFlags"                                                           "support | dota_custom | cooldown"
         "ReduxPerks"                                                           "support"

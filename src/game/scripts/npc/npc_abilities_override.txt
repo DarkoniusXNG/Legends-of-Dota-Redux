@@ -4795,7 +4795,11 @@
 	}
 	"special_bonus_unique_faceless_void_4"   // Backtrack talent, still exists
 	{
-		"TalentRequiredAbility"                                                   "faceless_void_chronosphere"
+		"TalentRequiredAbility"
+		{
+			"1"	"faceless_void_chronosphere"
+			"2" "faceless_void_time_zone"
+		}
 	}
 	"special_bonus_unique_faceless_void_5"
 	{
