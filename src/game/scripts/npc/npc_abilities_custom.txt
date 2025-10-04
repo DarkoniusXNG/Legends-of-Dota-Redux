@@ -203,7 +203,6 @@
 #base "abilities\dota\pudge_flesh_heap_str.txt"
 #base "abilities\dota\pudge_flesh_heap_tenacity.txt"
 #base "abilities\dota\pudge_flesh_heap_willpower.txt"
-#base "abilities\dota\pudge_meat_hook_perk.txt"
 #base "abilities\dota\riki_backstab_lod.txt"
 #base "abilities\dota\riki_permanent_invisibility_lod.txt"
 #base "abilities\dota\roshan_spell_block_cheat.txt"

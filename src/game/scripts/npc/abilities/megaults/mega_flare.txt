@@ -3,7 +3,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                            "skywrath_mage_mystic_flare"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"                            "skywrath_mage_mystic_flare"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
@@ -18,17 +18,17 @@
 
         // Casting
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "1500"
+        "AbilityCastRange"              "1200"
         "AbilityCastPoint"              "0.1"
-        
-        // Time     
+
+        // Time
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "30.0"
+        "AbilityCooldown"               "20"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
         "AbilityManaCost"               "800"
-            
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
@@ -39,16 +39,15 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"duration"				"2.0"
-			"damage"				
+			"damage"
 			{
 				"value"			"3200"
 				"special_bonus_unique_skywrath_5" "+400"
 			}
 			"damage_interval"		"0.1"
-			"scepter_radius"		
+			"scepter_radius"
 			{
-				"value"		"2100"
-				"RequiresScepter"	"1"
+				"special_bonus_scepter"		"500"
 				"affected_by_aoe_increase"	"1"
 			}
         }

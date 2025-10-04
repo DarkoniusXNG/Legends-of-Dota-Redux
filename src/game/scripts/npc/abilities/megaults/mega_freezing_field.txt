@@ -3,10 +3,10 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                    "crystal_maiden_freezing_field"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"                    "crystal_maiden_freezing_field"
         "AbilityType"                   "ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
 
         "MaxLevel"                      "1"
@@ -24,42 +24,55 @@
 			"AbilityCooldown"				"90"
 			"AbilityDuration"				"10.0"
 			"AbilityManaCost"				"600"
-			"radius"						"2100"
-			"explosion_radius"				"300"
-			"bonus_armor"					"40"
-			"explosion_interval"			"0.02"
-			"movespeed_slow"				"-80"
-			"attack_slow"					"-80"
+			"radius" // this should be improved
+			{
+				"value"		"1800"
+				"affected_by_aoe_increase"	"1"
+			}
+			"explosion_radius"
+			{
+				"value"		"320"
+				"affected_by_aoe_increase"	"1"
+			}
+			"explosion_interval"			"0.02" // this should be improved (affects number of explosions)
+			"movespeed_slow"				"-40"
+			"attack_slow"					"-160"
 			"slow_duration"					"1.0"
 			"explosion_min_dist"			"195"
-			"explosion_max_dist"			"2000"
+			"explosion_max_dist" // this should be improved, same or less than radius
+			{
+				"value"	"1800"
+				"affected_by_aoe_increase"	"1"
+			}
 			"damage"
 			{
 				"value"										"250"
 				"special_bonus_unique_crystal_maiden_3"		"+50"
 			}
-			"frostbite_delay" // negative means don't apply.
+			"frostbite_delay"
 			{
 				"value"						"-1"
-				"special_bonus_scepter"		"+2.75"
-				"RequiresScepter"			"1"
+				"special_bonus_scepter"		"+3"
 			}
 			"shard_bonus_explosion"
 			{
-				"shard_bonus_explosion"		"0"
-				"special_bonus_shard"		"+20"
-				"RequiresShard"				"1"
+				"special_bonus_scepter"		"+20"
 			}
 			"shard_self_movement_speed_slow_pct"
 			{
-				"value"						"0"
-				"special_bonus_shard"		"-0"
-				"RequiresShard"				"1"
+				"special_bonus_scepter"		"-75"
 			}
 			"can_move"
 			{
-				"value"						"0"
-				"special_bonus_shard"		"+1"
+				"special_bonus_scepter"		"+1"
+			}
+			"self_cast_range_bonus"
+			{
+				"special_bonus_facet_crystal_maiden_frozen_expanse"		"75 100 125"
+			}
+			"aoe_bonus"
+			{
+				"special_bonus_facet_crystal_maiden_frozen_expanse"		"6 8 10"
 			}
 		}
     }

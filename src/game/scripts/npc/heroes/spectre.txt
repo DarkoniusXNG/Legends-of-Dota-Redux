@@ -50,8 +50,6 @@
 			"tooltip_illusion_total_damage_incoming"
 			{
 				"value"					"200"
-
-				// "damage" in attribute name but it's a percentage-based effect
 				"CalculateSpellDamageTooltip"	"0"
 				"DamageTypeTooltip"	"DAMAGE_TYPE_NONE"
 			}
@@ -105,7 +103,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "spectre_spectral_dagger"
 	}
 
@@ -117,7 +115,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "spectre_desolate"
 	}
 
@@ -129,7 +127,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "spectre_spectral_dagger"
 	}
 
@@ -141,7 +139,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"
 		{
 		  "1" "spectre_haunt"
@@ -157,7 +155,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "spectre_dispersion"
 	}
 
@@ -169,7 +167,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "spectre_spectral_dagger"
 	}
 }

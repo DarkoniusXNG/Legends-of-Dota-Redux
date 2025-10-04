@@ -10,35 +10,30 @@
         "SpellImmunityType"             "SPELL_IMMUNITY_ALLIES_YES"
         "AbilityTextureName"            "custom/ogre_magi_bloodlust_op"
         "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
-        "AbilityCastRange"              "900"
+        "AbilityCastRange"              "600"
         "AbilityCastPoint"              "0.1"
-        "AbilityCooldown"               "10"
-        "AbilityManaCost"               "40"
+        "AbilityCooldown"               "17 16 15 14"
+        "AbilityManaCost"               "40 50 60 70"
 
         "AbilityValues"
 		{
-			"modelscale"				"35.0"
-			"bonus_movement_speed"		"15 20 25 30"
-			"bonus_attack_speed"
+			"modelscale"				"35.0" // this needs to be improved
+			"bonus_movement_speed"		"15 20 25 30" // this needs to be improved
+			"bonus_attack_speed" // this needs to be improved
 			{
-				"value"					"30 60 90 120"
-				"special_bonus_unique_ogre_magi" "+50"
+				"value"					"40 70 100 130"
+				"special_bonus_unique_ogre_magi" "+30"
 			}
-			"self_bonus"
+			"self_bonus" // this needs to be improved
 			{
 				"value"					"60 90 120 150"
-				"special_bonus_unique_ogre_magi" "+90"
+				"special_bonus_unique_ogre_magi" "+30"
 			}
-			"duration"					"90"
+			"duration"					"90" // this needs to be improved
 			"multicast_bloodlust_aoe"
 			{
 				"value"						"700"
 				"affected_by_aoe_increase"	"1"
-			}
-			"required_level"
-			{
-				"value"						"1"
-				"special_bonus_facet_ogre_magi_learning_curve"	"-1"
 			}
 		}
 

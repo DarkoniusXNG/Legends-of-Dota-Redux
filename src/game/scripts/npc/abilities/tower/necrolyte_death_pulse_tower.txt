@@ -3,23 +3,19 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"					"necrolyte_death_pulse"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"					"necrolyte_death_pulse"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 
 		"MaxLevel"		"3"
 		"ReduxCost"                                                            "120"
 		"ReduxFlags"                                                           ""
-		
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0.0 0.0 0.0"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1"
+		"AbilityCastPoint"				"0.0"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -33,9 +29,17 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "area_of_effect" "900"
+			"area_of_effect"
+			{
+				"value"		"900"
+				"affected_by_aoe_increase"	"1"
+			}
             "heal" "100 200 300"
             "projectile_speed" "400"
+			"AbilityCooldown"
+			{
+				"value"								"1"
+			}
         }
 	}
 }

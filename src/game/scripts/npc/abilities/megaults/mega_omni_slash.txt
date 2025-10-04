@@ -3,7 +3,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                    "juggernaut_omni_slash"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"                    "juggernaut_omni_slash"
         "AbilityType"                   "ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -19,15 +19,15 @@
         "ReduxFlags"                    "physical"
         "ReduxPerks"                    "blades | physical"
         "ReduxCost"                     "120"
-        
+
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"              "0.3"
-        
-        // Time     
+
+        // Time
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "120"
-    
+        "AbilityCooldown"               "60" // this needs to be improved
+
         // Cost
         //-------------------------------------------------------------------------------------------------------------
         "AbilityManaCost"               "350"
@@ -36,22 +36,22 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
         {
-			"attack_rate_multiplier"	"3"
-			"bonus_damage"				"0"
-			"bonus_attack_speed"				"100"
+			"attack_rate_multiplier"	"7" // this needs to be improved
+			"bonus_damage"				"35"
+			"bonus_attack_speed"				"40"
 			"duration"
 			{
-				"value"					"7"
+				"value"					"3.5"
 				"special_bonus_unique_juggernaut_omnislash_duration"			"+1"
 			}
-			"omni_slash_radius"			
+			"omni_slash_radius" // this needs to be global
 			{
+				"value"		"30000"
 				"affected_by_aoe_increase"	"1"
-				"value"		"20000"
 			}
-			"AbilityCastRange"				
+			"AbilityCastRange"
 			{
-				"value"					"700"
+				"value"					"450"
 			}
 			"dispel"
 			{

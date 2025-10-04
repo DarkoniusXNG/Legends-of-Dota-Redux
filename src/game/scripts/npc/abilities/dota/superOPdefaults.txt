@@ -8,33 +8,37 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"   
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityTextureName"            "custom/zuus_arc_lightning_op"
 
         "ReduxPerks"                    "lightning"
         "ReduxCost"                     "120"
 
-        "AbilityCastRange"              "850"
+        "AbilityCastRange"              "800"
         "AbilityCastPoint"              "0.2"
-        "AbilityCooldown"               "1.6"
-        "AbilityManaCost"               "75 80 85 90"
+        "AbilityManaCost"               "75 85 95 105"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 
         "AbilityValues"
 		{
-			"arc_damage"
+			"AbilityCooldown"
+			{
+				"value"							"1.6"
+				"special_bonus_unique_zeus_6"	"-0.4"
+			}
+			"arc_damage" // this needs to be improved
 			{
 				"value"			"100 140 180 220"
-				"special_bonus_unique_zeus_2"	"+80"
+				"special_bonus_unique_zeus_2"	"+60"
 			}
-			"radius"				
+			"radius" // this needs to be improved
 			{
-				"value"			"7777"
+				"value"			"8000"
 				"affected_by_aoe_increase"	"1"
 			}
-			"jump_count"			"10 20 30 40"
-			"jump_delay"			"0.25 0.2 0.15 0.1"
+			"jump_count"			"10 20 30 40" // this needs to be improved
+			"jump_delay"			"0.25"
 		}
     }
 
@@ -61,64 +65,64 @@
             "particle"  "particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
             "particle"  "particles/units/heroes/hero_lich/lich_slowed_cold.vpcf"
         }
-        
-        "AbilityCastRange"              "750"
+
+        "AbilityCastRange"              "850" // this needs to be improved
         "AbilityCastPoint"              "0.3"
-        "AbilityCooldown"               "60.0 40.0 30.0"
+        "AbilityCooldown"               "60 50 40" // this needs to be improved
         "AbilityManaCost"               "180 300 420"
 
         "AbilityValues"
 		{
-			"damage"
+			"damage" // this needs to be improved
 			{
-				"value"		"250 400 550"
+				"value"		"300 450 600"
 			}
-			"bonus_jump_damage"		
+			"bonus_jump_damage" // this needs to be improved
 			{
 				"value"			"20 30 40"
+				"special_bonus_unique_lich_jump_damage"	"+100"
 				"CalculateSpellDamageTooltip" "1"
 			}
-			"jumps"					"15 30 45"
-			"jump_range"			
+			"jumps"					"15 25 35" // this needs to be improved
+			"jump_range" // this needs to be improved
 			{
-				"value"			"1200"
+				"value"			"850"
 				"affected_by_aoe_increase"	"1"
 			}
-			"slow_movement_speed"	"-65 -85 -105"
-			"slow_attack_speed"		"-65 -85 -105"
+			"slow_movement_speed"	"-65"
+			"slow_attack_speed"		"-65"
 			"slow_duration"			"2.5"
-			"initial_projectile_speed"		"1050"
-			"projectile_speed"		"1050"
-			"vision_radius"			
+			"initial_projectile_speed"		"1200" // this needs to be improved
+			"projectile_speed"		"1200" // this needs to be improved
+			"vision_radius" // this needs to be improved
 			{
-				"value"				"1200"
+				"value"				"850"
 				"affected_by_aoe_increase"		"1"
 			}
 			"has_unlimited_jumps"
 			{
-				"special_bonus_unique_lich_5"	"+1"
+				"value"							"0"
 			}
 			"should_fire_chain_frost_on_death"
 			{
-				"value"		"1"
 				"special_bonus_unique_lich_7" "+1"
 			}
 			"bonus_jumps_per_hero_killed"
 			{
-				"value"					"3"
-				"special_bonus_facet_lich_growing_cold"			"+3"				
+				"value"					"0"
+				"special_bonus_facet_lich_growing_cold"			"+3"
 			}
 			"bonus_jumps_per_creep_killed"
 			{
-				"value"											"1"
-				"special_bonus_facet_lich_growing_cold"			"+1"				
+				"value"											"0"
+				"special_bonus_facet_lich_growing_cold"			"+1"
 			}
-			"frostbound_duration"						
+			"frostbound_duration"
 			{
-				"value"							"10"
-				"special_bonus_facet_lich_frostbound"			"+10"				
+				"value"							"2"
+				"special_bonus_facet_lich_frostbound"			"=2 =2.75 =3.5"
 			}
-		}			
+		}
     }
 
 }

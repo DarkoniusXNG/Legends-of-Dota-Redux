@@ -3,7 +3,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                     "techies_suicide"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"                     "techies_suicide"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
@@ -19,30 +19,31 @@
         "AbilityCastRange"              "2000"
         "AbilityCastPoint"              "1.0"
 
-        // Time     
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "150"
-
         // Cost
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "600"
+        "AbilityManaCost"               "175"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
         {
-			"radius"				
+			"AbilityCooldown"
+			{
+				"value"			"25"
+				"special_bonus_unique_techies_5"	"-15"
+			}
+			"radius" // this should be improved
 			{
 				"value"		"800"
-				"affected_by_aoe_increase"	"1"	
+				"affected_by_aoe_increase"	"1"
 			}
-			"damage"
+			"damage" // this should be improved
 			{
-				"value"			"1500"
+				"value"			"1800"
 				"special_bonus_unique_techies" "+200"
 			}
-			"stun_duration"				"6"
-			"hp_cost"			
+			"stun_duration"				"1.4"
+			"hp_cost" // this should be increased
 			{
 				"value" 			"200"
 				"DamageTypeTooltip"									"DAMAGE_TYPE_PURE"
