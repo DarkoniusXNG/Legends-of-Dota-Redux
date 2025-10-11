@@ -11,6 +11,7 @@
         "ReduxCost"                                                            "500"
         "ReduxFlags"                                                           "tank"
         "ReduxPerks"                                                           "rage"
+        "ReduxBans"                                                            "axe_berserkers_call"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -18,7 +19,7 @@
  		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_1"
 		"AbilityCastGestureSlot"		"DEFAULT"
 
-		// Time		
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"17 15 13 11"
 
@@ -28,8 +29,8 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 90 100 110"	
-		
+		"AbilityManaCost"				"80 90 100 110"
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -40,13 +41,13 @@
 				"special_bonus_unique_axe_2"	"+85"
 				"affected_by_aoe_increase"	"1"
 			}
-			"bonus_armor"	
+			"bonus_armor"
 			{
 				"value"							"100"
 				"special_bonus_facet_axe_call_out"			"+6"
 				"special_bonus_unique_axe_7"	"+10"
 			}
-			
+
 			"duration"				"2.0 3.0 4.0 5.0"
 			"applies_battle_hunger"
 			{

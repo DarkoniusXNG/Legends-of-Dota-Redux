@@ -40,7 +40,11 @@
         "AbilityValues"
         {
             "delay" "1.7"
-            "area_of_effect" "175"
+            "area_of_effect"
+            {
+              "value"		"175"
+              "affected_by_aoe_increase"	"1"
+            }
             "damage" "9999999"
             "vision_distance" "400"
             "vision_duration" "4.0"

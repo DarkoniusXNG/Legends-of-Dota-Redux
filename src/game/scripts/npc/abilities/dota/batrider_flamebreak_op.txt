@@ -66,5 +66,6 @@
 
 		"ReduxPerks"														   "fire | enemymoving | skillshot"
 		"ReduxCost"                                                            "120"
+		"ReduxBans"                                                            "batrider_flamebreak"
     }
 }

@@ -11,8 +11,8 @@
 
         "AbilityValues"
 		{
-			"AbilityCooldown"				
-			{	
+			"AbilityCooldown"
+			{
 				"value"			"30"
 			}
 			"bounty"				"0"
@@ -49,7 +49,8 @@
 				"special_bonus_facet_arc_warden_runed_replica"	"=0 =0 =1"
 			}
 		}
-        "ReduxPerks"                                                           "lightning" 
+        "ReduxPerks"                                                           "lightning"
         "ReduxCost"                                                            "120"
+        "ReduxBans"                                                            "arc_warden_tempest_double"
     }
 }

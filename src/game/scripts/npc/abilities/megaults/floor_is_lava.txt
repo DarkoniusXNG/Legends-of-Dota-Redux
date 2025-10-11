@@ -20,11 +20,6 @@
         "AbilityCastRange"              "3000"
         "AbilityCastPoint"              "0.4"
 
-        "precache"
-        {
-            "particle"                                                     "particles/units/heroes/hero_invoker/invoker_chaos_meteor.vpcf"
-        }
-
         "AbilityValues"
         {
             "lines" "25"

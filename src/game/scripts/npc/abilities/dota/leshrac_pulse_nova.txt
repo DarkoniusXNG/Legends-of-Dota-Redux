@@ -10,7 +10,7 @@
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityType"         "ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
 
@@ -22,15 +22,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"        "0"
     "AbilityCooldown"       "1.0"
-  
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "70 90 110"
     "AbilityValues"
-        {
-            "mana_cost_per_second" "20 40 60"
-            "radius" "450"
-            "damage" "100 140 180"
-        }
+    {
+        "mana_cost_per_second" "20 40 60"
+        "radius" "450"
+        "damage" "100 140 180"
     }
+  }
 }

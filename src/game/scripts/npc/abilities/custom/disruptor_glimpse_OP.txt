@@ -39,5 +39,6 @@
         "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           "support | mobility"
         "ReduxPerks"                                                           "support | mobility | lightning | enemymoving"
+        "ReduxBans"                                                            "disruptor_glimpse"
     }
 }

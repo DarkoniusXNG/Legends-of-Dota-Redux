@@ -35,46 +35,6 @@
         }
     }
 
-    "undying_tombstone_zombie_deathstrike_zombie"
-    {
-        "BaseClass"                            "undying_tombstone_zombie_deathstrike"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
-        "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
-
-    	"MaxLevel"							"4"
-
-        "AbilityValues"
-		{
-			"slow"
-			{
-				"value" "-5 -7 -9 -11"
-			}
-			"health_threshold_pct"
-			{
-				"value" "40 45 50 55"
-			}
-			"duration"
-			{
-				"value" "2.5"
-			}
-			"bonus_move_speed"
-			{
-				"value" "35 40 45 50"
-			}
-			"bonus_attack_speed"
-			{
-				"value" "50 60 70 80"
-			}
-			"radius"
-			{
-				"value" "1200"
-				"affected_by_aoe_increase"	"1"
-			}
-		}
-        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
-    }
-
     "tinker_heat_seeking_missile_redux"
     {
         "BaseClass"                     "tinker_heat_seeking_missile"
@@ -90,24 +50,26 @@
         "ReduxFlags"                                                           "upgradeable"
         "ReduxPerks"                                                           "scientific | explosive"
         "ReduxCost"                                                            "150"
+
         "AbilityCastPoint"              "0"
+        "AbilityCastRange"				"5000"
         "AbilityCooldown"               "18 17 16 15"
         "AbilityManaCost"               "100"
         "AbilityValues"
 		{
-				"damage"			"120 240 360 480"
-				"radius"
-				{
-					"value"	"5000"
-					"affected_by_aoe_increase"	"1"
-				}
-				"targets"
-				{
-					"value"	"4 8 12 16"
-				}
-				"speed"				"900"
-				"radius_explosion"	"300"
-				"splash_pct"		"50"
+			"damage"			"120 240 360 480"
+			"radius"
+			{
+				"value"	"5000"
+				"affected_by_aoe_increase"	"1"
+			}
+			"targets"
+			{
+				"value"	"4 8 12 16"
+			}
+			"speed"				"900"
+			"radius_explosion"	"300"
+			"splash_pct"		"50"
 		}
         "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
     }
@@ -123,8 +85,9 @@
         "AbilityTextureName"            "custom/abyssal_underlord_atrophy_aura_op"
 
         "ReduxCost"                                                            "120"
-		"ReduxBans"                                                            "abyssal_underlord_atrophy_aura"
+        "ReduxBans"                                                            "abyssal_underlord_atrophy_aura"
         "ReduxPerks"                                                           "aura"
+        "ReduxFlags"                                                           "aoe_attack"
 
 		"AbilityValues"
 		{
@@ -266,6 +229,7 @@
 
         "ReduxFlags"                                                           "upgradeable | wtfAutoBan"
         "ReduxCost"                                                            "120"
+        "ReduxBans"                                                            "faceless_void_chronosphere"
 
         "AbilityCastRange"              "600"
         "AbilityCastPoint"              "0.35"
@@ -626,11 +590,12 @@
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"						"4"
-
         "AbilityTextureName"            "custom/clinkz_burning_army_op"
+
         "ReduxFlags"                                                           "upgradeable | doNotRandom | summon"
         "ReduxPerks"                                                           "fire | summon_non_ult | undead"
         "ReduxCost"                                                            "120"
+        "ReduxBans"                                                            "clinkz_burning_army"
 
         "AbilityCastRange"              "3000"
         "AbilityCastPoint"              "0"
@@ -700,6 +665,7 @@
         "AbilityTextureName"            "custom/grimstroke_soul_chain_op"
 
         "ReduxCost"                                                            "120"
+        "ReduxBans"                                                            "grimstroke_soul_chain"
 
         "AbilityCastAnimation"          "ACT_DOTA_GS_SOUL_CHAIN"
         "AbilityCastGestureSlot"        "DEFAULT"

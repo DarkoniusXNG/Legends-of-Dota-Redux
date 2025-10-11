@@ -17,28 +17,28 @@
 
         "AbilityValues"
         {
-            "true_sight_radius"		
+            "true_sight_radius"
             {
                 "value"		"1500"
                 "affected_by_aoe_increase"	"1"
             }
-            "sight_radius_day"		
+            "sight_radius_day"
             {
                 "value"		"1500"
                 "affected_by_aoe_increase"	"1"
             }
-            "sight_radius_night"	
+            "sight_radius_night"
             {
                 "value"			"1500"
                 "affected_by_aoe_increase"	"1"
             }
             "sight_duration"		"5"
-            "spread_aoe"	
+            "spread_aoe"
             {
                 "value"			"500"
                 "affected_by_aoe_increase"	"1"
             }
-            "ministun_duration"		
+            "ministun_duration"
             {
                 "value"			"0.5 0.7 0.9 1.1"
                 "special_bonus_unique_zeus_3" "+0.5"

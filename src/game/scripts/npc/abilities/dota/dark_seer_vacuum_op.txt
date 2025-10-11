@@ -15,7 +15,7 @@
 
         "AbilityValues"
 		{
-            "radius"				
+            "radius"
             {
                 "value"		"1000 2000 3000 4000"
                 "affected_by_aoe_increase"	"1"
@@ -28,5 +28,6 @@
 
         "ReduxPerks"                                                           "enemymoving"
         "ReduxCost"                                                            "120"
+        "ReduxBans"                                                            "dark_seer_vacuum"
     }
 }
