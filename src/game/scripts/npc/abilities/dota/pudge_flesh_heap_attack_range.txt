@@ -6,7 +6,7 @@
         "AbilityTextureName"                                                   "custom/flesh_heap_attack_range"
         "ScriptFile"                                                           "abilities/pudge_flesh_heap_attack_range.lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityCastRange"                                                     "450"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_pudge/pudge_fleshheap_count.vpcf"
@@ -14,7 +14,11 @@
         "AbilityValues"
         {
             "flesh_heap_attack_range_buff_amount" "6 9 12 15"
-            "flesh_heap_range" "450"
+            "flesh_heap_range"
+            {
+              "value"		"450"
+              "affected_by_aoe_increase"	"1"
+            }
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "40"

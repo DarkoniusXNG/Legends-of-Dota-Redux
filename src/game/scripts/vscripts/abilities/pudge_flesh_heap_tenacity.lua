@@ -7,6 +7,10 @@ function pudge_flesh_heap_tenacity:GetIntrinsicModifierName()
   return "modifier_flesh_heap_tenacity"
 end
 
+function pudge_flesh_heap_tenacity:GetCastRange(location, target)
+  return self:GetSpecialValueFor("flesh_heap_range")
+end
+
 --------------------------------------------------------------------------------
 
 --[[function pudge_flesh_heap_move_speed:OnHeroDiedNearby( hVictim, hKiller, kv )

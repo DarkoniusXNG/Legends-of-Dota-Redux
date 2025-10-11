@@ -16,6 +16,10 @@ function pudge_flesh_heap_evasion:GetIntrinsicModifierName()
   return "modifier_flesh_heap_evasion"
 end
 
+function pudge_flesh_heap_evasion:GetCastRange(location, target)
+  return self:GetSpecialValueFor("flesh_heap_range")
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_flesh_heap_evasion = class({})

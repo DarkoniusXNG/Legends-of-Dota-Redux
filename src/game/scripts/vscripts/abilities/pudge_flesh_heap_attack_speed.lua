@@ -16,6 +16,10 @@ function pudge_flesh_heap_attack_speed:GetIntrinsicModifierName()
   return "modifier_flesh_heap_attack_speed"
 end
 
+function pudge_flesh_heap_attack_speed:GetCastRange(location, target)
+  return self:GetSpecialValueFor("flesh_heap_range")
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_flesh_heap_attack_speed = class({})

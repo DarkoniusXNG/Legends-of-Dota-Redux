@@ -16,6 +16,10 @@ function pudge_flesh_heap_magic_resistance:GetIntrinsicModifierName()
   return "modifier_flesh_heap_magic_resistance"
 end
 
+function pudge_flesh_heap_magic_resistance:GetCastRange(location, target)
+  return self:GetSpecialValueFor("flesh_heap_range")
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_flesh_heap_magic_resistance = class({})
