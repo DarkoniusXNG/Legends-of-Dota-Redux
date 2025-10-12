@@ -68,11 +68,11 @@
 			}
 			"self_cast_range_bonus"
 			{
-				"special_bonus_facet_crystal_maiden_frozen_expanse"		"75 100 125"
+				"special_bonus_facet_crystal_maiden_frozen_expanse"		"75"
 			}
 			"aoe_bonus"
 			{
-				"special_bonus_facet_crystal_maiden_frozen_expanse"		"6 8 10"
+				"special_bonus_facet_crystal_maiden_frozen_expanse"		"6"
 			}
 		}
     }

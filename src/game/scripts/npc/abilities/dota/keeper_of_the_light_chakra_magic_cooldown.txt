@@ -30,6 +30,7 @@
 				"special_bonus_unique_keeper_of_the_light_14"	"1"
 			}
 		}
+
         "ReduxFlags"                                                           "support | dota_custom | cooldown"
         "ReduxPerks"                                                           "support"
     }

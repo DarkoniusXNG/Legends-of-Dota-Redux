@@ -6,19 +6,21 @@ function bloodseeker_blood_bath2:GetIntrinsicModifierName()
   return "modifier_bloodseeker_blood_bath_t"
 end
 
-
+function bloodseeker_blood_bath2:GetCastRange(location, target)
+  return self:GetSpecialValueFor("heal_radius")
+end
 
 ------------------------------------------------------------------------
 modifier_bloodseeker_blood_bath_t = class({})
 
 function modifier_bloodseeker_blood_bath_t:IsHidden()
-    return true
+  return true
 end
 function modifier_bloodseeker_blood_bath_t:IsPurgable()
-    return false
+  return false
 end
 function modifier_bloodseeker_blood_bath_t:RemoveOnDeath()
-    return false
+  return false
 end
 function modifier_bloodseeker_blood_bath_t:IsPassive()
   return true

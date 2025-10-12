@@ -33,7 +33,6 @@
 			"beams" // this needs to be improved
 			{
 				"value"					"100"
-				"special_bonus_scepter"	"+0 +3 +6"
 			}
 			"beam_interval" // this needs to be improved
 			{
@@ -49,7 +48,6 @@
 			"hit_count" // this needs to be improved, same as beams
 			{
 				"value"					"100"
-				"special_bonus_scepter"	"+1 +7 +13"
 			}
 			"AbilityCastRange"
 			{

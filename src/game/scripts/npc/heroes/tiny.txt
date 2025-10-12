@@ -23,7 +23,6 @@
 	{
 		"ReduxFlags"                                                           "tank"
 		"ReduxPerks"                                                           "earth | nature"
-		"ReduxBans"                                                            "tiny_grow_lod_redux"
 	}
 
 	"tiny_tree_channel"

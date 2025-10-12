@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --      Hero: Medusa
---      Perk: Medusa gains mana every time her attacks land. Mana gained is equal to 10% of the attack damage she dealt.
+--      Perk: Medusa gains mana every time her attacks land. Mana gained is equal to percentage of the attack damage she dealt.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_medusa_perk = modifier_npc_dota_hero_medusa_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -34,6 +34,7 @@ function modifier_npc_dota_hero_medusa_perk:OnCreated()
 		self.bonus_str_base = 10
 		self.bonus_str_per_lvl = 1
 	end
+	self.mana_gained_per_dmg = 8
 end
 
 function modifier_npc_dota_hero_medusa_perk:DeclareFunctions()
@@ -46,7 +47,7 @@ end
 
 function modifier_npc_dota_hero_medusa_perk:OnAttackLanded(params)
     if self:GetParent() == params.attacker then
-       self:GetParent():GiveMana(params.damage * 0.1)
+       self:GetParent():GiveMana(params.damage * self.mana_gained_per_dmg / 100)
     end
 end
 

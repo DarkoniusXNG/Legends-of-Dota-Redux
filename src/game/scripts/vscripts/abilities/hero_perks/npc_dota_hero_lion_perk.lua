@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Lion
---		Perk: For Lion, killing a hero with a spell refunds the mana cost of that spell and lowers its cooldown by 75%.
+--		Perk: For Lion, killing a hero with a spell refunds the mana cost of that spell and lowers its cooldown by 50%.
 --
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_lion_perk = modifier_npc_dota_hero_lion_perk or class({})
@@ -64,8 +64,8 @@ function modifier_npc_dota_hero_lion_perk:OnHeroKilled(keys)
 				ParticleManager:ReleaseParticleIndex(prt)
 				-- Refunds manacost
 				ability:RefundManaCost()
-				-- Reduces remaining cooldown by 75%
-				local cooldownReduction = 0.75
+				-- Reduces remaining cooldown by 50%
+				local cooldownReduction = 0.5
 				local cooldown = ability:GetCooldownTimeRemaining() * (1-cooldownReduction)
 				if cooldown > 0 then
 					ability:EndCooldown()

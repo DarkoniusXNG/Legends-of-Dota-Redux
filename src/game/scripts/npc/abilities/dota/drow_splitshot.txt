@@ -2,22 +2,24 @@
 {
     "drow_splitshot"
     {
-        "BaseClass"             		"ability_lua"
-        "ScriptFile"				"abilities/drow_splitshot.lua"
-        "AbilityTextureName"			"custom/drow_splitshot"
-        "ReduxFlags"                    "aoe_attack | attack_modifier"
-        "ReduxPerks"                    "ranger"
-
-        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/drow_splitshot.lua"
+        "AbilityTextureName"            "custom/drow_splitshot"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityType"                   "ABILITY_TYPE_ULTIMATE"
-        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        "AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+        //"IsBreakable"                   "1" // not disabled with break
+
+        "ReduxFlags"                    "aoe_attack | attack_modifier | dota_custom"
+        "ReduxPerks"                    "attack_modifier | ranger"
 
         //cooldown and mana cost are supported if this needs a nerf
         //"AbilityCooldown"				"0.0"
         //"AbilityManaCost"				"0"
-        
+
         "precache"
 	    {
 	       "particle"  "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
@@ -25,13 +27,13 @@
 
         "AbilityValues"
         {
-            "split_count" "1 2 3"
+            "split_count"               "1 2 3"
             "search_radius"
-			{ 
-				"value"										"375"
-				"affected_by_aoe_increase"	"1"
-			}
-            "damage_reduction" "30"
+            {
+              "value"                   "375"
+              "affected_by_aoe_increase"  "1"
+            }
+            "damage_reduction"          "50 40 30"
         }
     }
 }

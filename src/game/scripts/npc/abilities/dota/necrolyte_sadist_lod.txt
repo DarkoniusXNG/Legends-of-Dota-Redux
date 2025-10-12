@@ -5,7 +5,7 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/necrolyte_sadist_lod"
-        "AbilityCastRange"                                                     "1200"
+
         "AbilityValues"
         {
             "mana_regen" "4 8 12 16"
@@ -81,6 +81,7 @@
                 }
             }
         }
+
         "ReduxFlags"                                                           "dota_custom | doNotRandom"
         "ReduxPerks"                                                           "undead"
     }

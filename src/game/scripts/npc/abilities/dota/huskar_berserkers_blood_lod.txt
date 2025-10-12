@@ -5,15 +5,19 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/huskar_berserkers_blood_lod"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
             "attack_speed_bonus_per_stack" "3 6 9 12"
             "damage_per_stack" "2 4 6 8"
         }
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_huskar/huskar_berserkers_blood_glow.vpcf"
         }
+
         "OnOwnerSpawned"
         {
             "RunScript"

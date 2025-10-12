@@ -5,7 +5,7 @@ local hero_names = {
 	"ancient_apparition", -- ok
 	"antimage", -- ok, D tier
 	"arc_warden", -- ok, S tier
-	"axe", -- ok, bot
+	"axe", -- NEEDS REPLACEMENT, bot
 	"bane", -- ok, bot
 	"batrider", -- ok
 	"beastmaster", -- ok
@@ -72,7 +72,7 @@ local hero_names = {
 	"obsidian_destroyer", -- NEEDS REPLACEMENT, A tier
 	"ogre_magi", -- ok, S tier
 	"omniknight", -- ok, bot
-	"oracle", -- ok, A tier, bot
+	"oracle", -- NEEDS IMPROVEMENT, A tier, bot
 	"pangolier", -- NEEDS IMPROVEMENT, D tier
 	"phantom_assassin", -- ok, bot
 	"phantom_lancer", -- ok, C tier

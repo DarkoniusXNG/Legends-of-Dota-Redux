@@ -7,6 +7,10 @@ function dazzle_bad_juju_redux:GetIntrinsicModifierName()
 	return "modifier_dazzle_bad_juju_redux_passive"
 end
 
+function dazzle_bad_juju_redux:GetCastRange(location, target)
+  return self:GetSpecialValueFor("radius")
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_dazzle_bad_juju_redux_passive = modifier_dazzle_bad_juju_redux_passive or class({})

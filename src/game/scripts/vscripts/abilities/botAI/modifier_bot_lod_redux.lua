@@ -480,6 +480,7 @@ local items_to_sell = {
 	item_ring_of_protection = 1,
 	item_slippers = 1,
 	item_tango = 1,
+	item_ring_of_basilius = 1,
 }
 function modifier_bot_lod_redux:OnIntervalThink()
   local parent = self:GetParent()

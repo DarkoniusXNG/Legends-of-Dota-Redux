@@ -26,5 +26,6 @@
         "ReduxFlags"                                                           "aoe_attack | attack_modifier | dota_custom | underpowered | upgradeable"
         "ReduxPerks"                                                           "attack_modifier | earth | nature"
         "ReduxCost"                                                            "20"
+        "ReduxBans"                                                            "tiny_grow"
     }
 }

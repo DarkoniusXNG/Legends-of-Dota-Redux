@@ -7,6 +7,8 @@
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"                                                   "custom/ursa_fury_swipes_lod"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
             "bonus_reset_time" "20"
@@ -14,10 +16,12 @@
             "damage_per_stack" "15 20 25 30"
             "damage_per_stack_ranged" "7.5 10 12.5 15"
         }
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_ursa/ursa_fury_swipes_debuff.vpcf"
         }
+
         "Modifiers"
         {
             "modifier_fury_swipes_caster_lod"
@@ -60,6 +64,7 @@
                 }
             }
         }
+
         "ReduxFlags"                                                           "attack_modifier | dota_custom | underpowered"
         "ReduxPerks"                                                           "attack_modifier"
         "ReduxCost"                                                            "40"
