@@ -37,7 +37,7 @@ function modifier_expunge:OnCreated(kv)
 
 		local radius = self:GetAbility():GetSpecialValueFor("radius")
 
-		local mana = self:GetParent():GetMana()
+		local mana = target:GetMana()
 		local drain = self:GetAbility():GetSpecialValueFor("mana_drain") / 100
 		local base_drain = self:GetAbility():GetSpecialValueFor("base_drain")
 
@@ -54,55 +54,50 @@ function modifier_expunge:OnCreated(kv)
 		self,
 		"modifier_truesight",{Duration=self:GetDuration()+0.2}, target:GetAbsOrigin(), caster:GetTeamNumber(), false )
 
-		local p = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, unit) --[[Returns:int
-		Creates a new particle effect
-		]]
-
 		unit:EmitSound("Ptomely.ExpungeCharge")
 
-		ParticleManager:SetParticleControl(p, 1, unit:GetAbsOrigin()+Vector(0,0,350)) --[[Returns:void
-		Set the control point data for a control on a particle effect
-		]]
+		local p = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, unit)
+		ParticleManager:SetParticleControl(p, 1, unit:GetAbsOrigin()+Vector(0,0,350))
+		ParticleManager:SetParticleControl(p, 2, Vector(radius,0,0))
 
-		ParticleManager:SetParticleControl(p, 2, Vector(radius,0,0)) --[[Returns:void
-		Set the control point data for a control on a particle effect
-		]]
-
-		local p2 = ParticleManager:CreateParticle(particle_trail, PATTACH_ABSORIGIN_FOLLOW, target) --[[Returns:int
-		Creates a new particle effect
-		]]
-
-		ParticleManager:SetParticleControl(p2, 1, unit:GetAbsOrigin()+Vector(0,0,350)) --[[Returns:void
-		Set the control point data for a control on a particle effect
-		]]
+		local p2 = ParticleManager:CreateParticle(particle_trail, PATTACH_ABSORIGIN_FOLLOW, target)
+		ParticleManager:SetParticleControl(p2, 1, unit:GetAbsOrigin()+Vector(0,0,350))
 
 		Timers:CreateTimer(self:GetDuration()-0.1,function()
-			local enemy_found = FindUnitsInRadius( caster:GetTeamNumber(),
-                          unit:GetCenter(),
-                          nil,
-                            radius,
-                            DOTA_UNIT_TARGET_TEAM_ENEMY,
-                            DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_CREEP,
-                            DOTA_UNIT_TARGET_FLAG_NONE,
-                            FIND_CLOSEST,
-                            false)
+			local enemy_found = FindUnitsInRadius(
+				caster:GetTeamNumber(),
+                unit:GetCenter(),
+                nil,
+                radius,
+                DOTA_UNIT_TARGET_TEAM_ENEMY,
+                DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
+                DOTA_UNIT_TARGET_FLAG_NONE,
+                FIND_CLOSEST,
+                false
+			)
 
-			local ally_found = FindUnitsInRadius( caster:GetTeamNumber(),
-                          unit:GetCenter(),
-                          nil,
-                            radius,
-                            DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-                            DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_CREEP,
-                            DOTA_UNIT_TARGET_FLAG_NONE,
-                            FIND_CLOSEST,
-                            false)
+			local ally_found = FindUnitsInRadius(
+				caster:GetTeamNumber(),
+                unit:GetCenter(),
+                nil,
+                radius,
+                DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+                DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
+                DOTA_UNIT_TARGET_FLAG_NONE,
+                FIND_CLOSEST,
+                false
+			)
 
 			ScreenShake(unit:GetAbsOrigin(), 1200, 170, 0.4, 1200, 0, true)
 
-			self:GetParent():EmitSound("Ptomely.ExpungeBoom")
+			if target and not target:IsNull() then
+				target:EmitSound("Ptomely.ExpungeBoom")
+			end
 
-			ParticleManager:DestroyParticle(p,false)
-			ParticleManager:DestroyParticle(p2,false)
+			ParticleManager:DestroyParticle(p, false)
+			ParticleManager:ReleaseParticleIndex(p)
+			ParticleManager:DestroyParticle(p2, false)
+			ParticleManager:ReleaseParticleIndex(p2)
 
 			for k,v in pairs(enemy_found) do
 				InflictDamage(v,caster,self:GetAbility(),drain,DAMAGE_TYPE_MAGICAL)
