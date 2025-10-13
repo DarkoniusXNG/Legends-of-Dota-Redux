@@ -1,0 +1,2035 @@
+// Dota Heroes File
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	// HERO: Axe
+	//=================================================================================================================
+	"npc_dota_hero_axe"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE | ITEM_SELLABLE"
+			}
+			"Build"
+			{
+				"1"			"axe_counter_helix"
+				"2"			"axe_berserkers_call"
+				"3"			"axe_counter_helix"
+				"4"			"axe_berserkers_call"
+				"5"			"axe_counter_helix"
+				"6"			"axe_culling_blade"
+				"7"			"axe_counter_helix"
+				"8"			"axe_berserkers_call"
+				"9"			"axe_berserkers_call"
+				"10"		"special_bonus_unique_axe_8"
+				"11"		"axe_battle_hunger"
+				"12"		"axe_culling_blade"
+				"13"		"axe_battle_hunger"
+				"14"		"axe_battle_hunger"
+				"15"		"special_bonus_unique_axe_4"
+				"16"		"axe_battle_hunger"
+				"17"		""
+				"18"		"axe_culling_blade"
+				"19"		""
+				"20"		"special_bonus_unique_axe_5"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_axe"
+			}
+			"HeroType"		"DOTA_BOT_TANK | DOTA_BOT_STUN_SUPPORT"
+			"LaningInfo"
+			{
+				"SoloDesire"		"1"
+				"RequiresBabysit"	"0"
+				"ProvidesBabysit"	"1"
+				"SurvivalRating"	"2"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"0"
+				"RequiresSetup"		"1"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// HERO: Bane
+	//=================================================================================================================
+	"npc_dota_hero_bane"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_mantle"		"ITEM_CORE | ITEM_SELLABLE"
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_magic_stick"		"ITEM_CORE | ITEM_SELLABLE"
+			}
+			"Build"
+			{
+				"1"		"bane_nightmare"
+				"2"		"bane_brain_sap"
+				"3"		"bane_brain_sap"
+				"4"		"bane_nightmare"
+				"5"		"bane_brain_sap"
+				"6"		"bane_fiends_grip"
+				"7"		"bane_brain_sap"
+				"8"		"bane_nightmare"
+				"9"		"bane_nightmare"
+				"10"		"special_bonus_unique_bane_11"
+				"11"		"bane_enfeeble"
+				"12"		"bane_fiends_grip"
+				"13"		"bane_enfeeble"
+				"14"		"bane_enfeeble"
+				"15"		"special_bonus_unique_bane_8"
+				"16"		"bane_enfeeble"
+				"17"		""
+				"18"		"bane_fiends_grip"
+				"19"		""
+				"20"		"special_bonus_movement_speed_30"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_bane_3"
+			}
+			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_STUN_SUPPORT"
+			"LaningInfo"
+			{
+				"SoloDesire"		"1"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"2"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"1"
+				"RequiresSetup"		"0"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// HERO: Bloodseeker
+	//=================================================================================================================
+	"npc_dota_hero_bloodseeker"
+	{
+		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_quelling_blade"		"ITEM_CORE | ITEM_SELLABLE"
+			}
+			"Build"
+			{
+				"1"		"bloodseeker_bloodrage"
+				"2"		"bloodseeker_thirst"
+				"3"		"bloodseeker_blood_bath"
+				"4"		"bloodseeker_bloodrage"
+				"5"		"bloodseeker_thirst"
+				"6"		"bloodseeker_rupture"
+				"7"		"bloodseeker_thirst"
+				"8"		"bloodseeker_blood_bath"
+				"9"		"bloodseeker_blood_bath"
+				"10"		"special_bonus_unique_bloodseeker_5"
+				"11"		"bloodseeker_thirst"
+				"12"		"bloodseeker_rupture"
+				"13"		"bloodseeker_blood_bath"
+				"14"		"bloodseeker_bloodrage"
+				"15"		"special_bonus_unique_bloodseeker_5"
+				"16"		"bloodseeker_bloodrage"
+				"17"		""
+				"18"		"bloodseeker_rupture"
+				"19"		""
+				"20"		"special_bonus_unique_bloodseeker"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_bloodseeker_rupture_charges"
+			}
+			"HeroType"		"DOTA_BOT_SEMI_CARRY | DOTA_BOT_GANKER"
+			"LaningInfo"
+			{
+				"SoloDesire"		"2"
+				"RequiresBabysit"		"1"
+				"ProvidesBabysit"		"0"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"2"
+				"ProvidesSetup"		"0"
+				"RequiresSetup"		"1"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// HERO: Crystal Maiden
+	//=================================================================================================================
+	"npc_dota_hero_crystal_maiden"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_magic_stick"		"ITEM_CORE | ITEM_SELLABLE"
+			}
+			"Build"
+			{
+				"1"		"crystal_maiden_frostbite"
+				"2"		"crystal_maiden_brilliance_aura"
+				"3"		"crystal_maiden_frostbite"
+				"4"		"crystal_maiden_brilliance_aura"
+				"5"		"crystal_maiden_frostbite"
+				"6"		"crystal_maiden_freezing_field"
+				"7"		"crystal_maiden_frostbite"
+				"8"		"crystal_maiden_brilliance_aura"
+				"9"		"crystal_maiden_brilliance_aura"
+				"10"		"special_bonus_intelligence_12"
+				"11"		"crystal_maiden_crystal_nova"
+				"12"		"crystal_maiden_freezing_field"
+				"13"		"crystal_maiden_crystal_nova"
+				"14"		"crystal_maiden_crystal_nova"
+				"15"		"special_bonus_unique_crystal_maiden_frostbite_castrange"
+				"16"		"crystal_maiden_crystal_nova"
+				"17"		""
+				"18"		"crystal_maiden_freezing_field"
+				"19"		""
+				"20"		"special_bonus_unique_crystal_maiden_3"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_crystal_maiden_1"
+			}
+			"HeroType"		"DOTA_BOT_PURE_SUPPORT"
+			"AggressionFactor"		"0.800000"
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"1"
+				"RequiresSetup"		"0"
+			}
+		}
+	}
+
+	"npc_dota_hero_drow_ranger"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+				"item_tango"				"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"				"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"				"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"			"drow_ranger_multishot"
+				"2"			"drow_ranger_frost_arrows"
+				"3"			"drow_ranger_multishot"
+				"4"			"drow_ranger_wave_of_silence"
+				"5"			"drow_ranger_multishot"
+				"6"			"drow_ranger_marksmanship"
+				"7"			"drow_ranger_multishot"
+				"8"			"drow_ranger_frost_arrows"
+				"9"			"drow_ranger_frost_arrows"
+				"10"		"special_bonus_unique_drow_ranger_2"
+				"11"		"drow_ranger_frost_arrows"
+				"12"		"drow_ranger_marksmanship"
+				"13"		"drow_ranger_wave_of_silence"
+				"14"		"drow_ranger_wave_of_silence"
+				"15"		"special_bonus_unique_drow_ranger_6"
+				"16"		"drow_ranger_wave_of_silence"
+				"17"		""
+				"18"		"drow_ranger_marksmanship"
+				"19"		""
+				"20"		"special_bonus_unique_drow_ranger_3"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_drow_ranger_8"
+			}
+			"HeroType"		"DOTA_BOT_HARD_CARRY"
+			"LaningInfo"
+			{
+				"SoloDesire"		"1"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"2"
+				"ProvidesSetup"		"1"
+				"RequiresSetup"		"1"
+			}
+		}
+	}
+
+	"npc_dota_hero_earthshaker"
+	{
+		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+			}
+			"Build"
+			{
+				"1"		"earthshaker_fissure"
+				"2"		"earthshaker_aftershock"
+				"3"		"earthshaker_fissure"
+				"4"		"earthshaker_enchant_totem"
+				"5"		"earthshaker_fissure"
+				"6"		"earthshaker_echo_slam"
+				"7"		"earthshaker_fissure"
+				"8"		"earthshaker_aftershock"
+				"9"		"earthshaker_aftershock"
+				"10"		"special_bonus_unique_earthshaker_4"
+				"11"		"earthshaker_aftershock"
+				"12"		"earthshaker_echo_slam"
+				"13"		"earthshaker_enchant_totem"
+				"14"		"earthshaker_enchant_totem"
+				"15"		"special_bonus_unique_earthshaker_totem_damage"
+				"16"		"earthshaker_enchant_totem"
+				"17"		""
+				"18"		"earthshaker_echo_slam"
+				"19"		""
+				"20"		"special_bonus_unique_earthshaker_2"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_earthshaker"
+			}
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"1"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"0"
+				"ProvidesSetup"		"2"
+				"RequiresSetup"		"0"
+			}
+			"HeroType"		"DOTA_BOT_STUN_SUPPORT"
+		}
+	}
+
+	"npc_dota_hero_juggernaut"
+	{
+		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+				"item_tango"			"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"			"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_quelling_blade"		"ITEM_CORE | ITEM_SELLABLE"
+			}
+			"Build"
+			{
+				"1"		"juggernaut_blade_fury"
+				"2"		"juggernaut_blade_dance"
+				"3"		"juggernaut_blade_fury"
+				"4"		"juggernaut_blade_dance"
+				"5"		"juggernaut_blade_fury"
+				"6"		"juggernaut_omni_slash"
+				"7"		"juggernaut_blade_fury"
+				"8"		"juggernaut_blade_dance"
+				"9"		"juggernaut_blade_dance"
+				"10"		"special_bonus_unique_juggernaut_5"
+				"11"		"juggernaut_healing_ward"
+				"12"		"juggernaut_omni_slash"
+				"13"		"juggernaut_healing_ward"
+				"14"		"juggernaut_healing_ward"
+				"15"		"special_bonus_unique_juggernaut_5"
+				"16"		"juggernaut_healing_ward"
+				"17"		""
+				"18"		"juggernaut_omni_slash"
+				"19"		""
+				"20"		"special_bonus_unique_juggernaut_3"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_juggernaut_omnislash_duration"
+			}
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"2"
+				"ProvidesBabysit"		"0"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"2"
+				"ProvidesSetup"		"0"
+				"RequiresSetup"		"2"
+			}
+			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_SEMI_CARRY"
+		}
+	}
+
+	"npc_dota_hero_nevermore"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+			}
+			"Build" // modified
+			{
+				"1"		"nevermore_shadowraze1"
+				"2"		"nevermore_dark_lord"
+				"3"		"nevermore_shadowraze1"
+				"4"		"nevermore_dark_lord"
+				"5"		"nevermore_shadowraze1"
+				"6"		"nevermore_requiem"
+				"7"		"nevermore_shadowraze1"
+				"8"		"nevermore_dark_lord"
+				"9"		"nevermore_dark_lord"
+				"10"		"special_bonus_unique_nevermore_7"
+				"11"		"nevermore_frenzy"
+				"12"		"nevermore_requiem"
+				"13"		"nevermore_frenzy"
+				"14"		"nevermore_frenzy"
+				"15"		"special_bonus_unique_nevermore_3"
+				"16"		"nevermore_frenzy"
+				"17"		""
+				"18"		"nevermore_requiem"
+				"19"		""
+				"20"		"special_bonus_unique_nevermore_2"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_nevermore_raze_procsattacks"
+			}
+			"HeroType"		"DOTA_BOT_HARD_CARRY"
+			"LaningInfo"
+			{
+				"SoloDesire"		"2"
+				"RequiresBabysit"		"1"
+				"ProvidesBabysit"		"1"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"2"
+				"ProvidesSetup"		"0"
+				"RequiresSetup"		"1"
+			}
+		}
+	}
+
+	"npc_dota_hero_pudge"
+	{
+		"BotImplemented"		"1"
+
+		"ProjectileSpeed"		"900"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+			}
+			"Build"
+			{
+				"1"		"pudge_meat_hook"
+				"2"		"pudge_rot"
+				"3"		"pudge_meat_hook"
+				"4"		"pudge_rot"
+				"5"		"pudge_meat_hook"
+				"6"		"pudge_dismember"
+				"7"		"pudge_meat_hook"
+				"8"		"pudge_rot"
+				"9"		"pudge_rot"
+				"10"		"special_bonus_unique_pudge_4"
+				"11"		"pudge_flesh_heap"
+				"12"		"pudge_dismember"
+				"13"		"pudge_flesh_heap"
+				"14"		"pudge_flesh_heap"
+				"15"		"special_bonus_spell_lifesteal_8"
+				"16"		"pudge_flesh_heap"
+				"17"		""
+				"18"		"pudge_dismember"
+				"19"		""
+				"20"		"special_bonus_unique_pudge_5"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_pudge_1"
+			}
+			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_TANK"
+			"LaningInfo"
+			{
+				"SoloDesire"		"2"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"1"
+				"SurvivalRating"		"2"
+				"RequiresFarm"		"2"
+				"ProvidesSetup"		"2"
+				"RequiresSetup"		"1"
+			}
+		}
+	}
+
+	"npc_dota_hero_sand_king"
+	{
+		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+			}
+			"Build" // modified
+			{
+				"1"		"sandking_burrowstrike"
+				"2"		"sandking_sand_storm"
+				"3"		"sandking_burrowstrike"
+				"4"		"sandking_sand_storm"
+				"5"		"sandking_burrowstrike"
+				"6"		"sandking_epicenter"
+				"7"		"sandking_burrowstrike"
+				"8"		"sandking_sand_storm"
+				"9"		"sandking_sand_storm"
+				"10"		"special_bonus_unique_sand_king_caustic_finale_radius"
+				"11"		"sandking_scorpion_strike"
+				"12"		"sandking_epicenter"
+				"13"		"sandking_scorpion_strike"
+				"14"		"sandking_scorpion_strike"
+				"15"		"special_bonus_unique_sand_king_2"
+				"16"		"sandking_scorpion_strike"
+				"17"		""
+				"18"		"sandking_epicenter"
+				"19"		""
+				"20"		"special_bonus_unique_sand_king_7"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_sand_king_4"
+			}
+			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_STUN_SUPPORT"
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"0"
+				"SurvivalRating"		"2"
+				"RequiresFarm"		"0"
+				"ProvidesSetup"		"2"
+				"RequiresSetup"		"0"
+			}
+		}
+	}
+
+	"npc_dota_hero_sven"
+	{
+		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+				"item_tango"			"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"			"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_quelling_blade"	"ITEM_CORE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"sven_storm_bolt"
+				"2"		"sven_warcry"
+				"3"		"sven_warcry"
+				"4"		"sven_great_cleave"
+				"5"		"sven_great_cleave"
+				"6"		"sven_gods_strength"
+				"7"		"sven_great_cleave"
+				"8"		"sven_great_cleave"
+				"9"		"sven_warcry"
+				"10"		"special_bonus_unique_sven_5"
+				"11"		"sven_warcry"
+				"12"		"sven_gods_strength"
+				"13"		"sven_storm_bolt"
+				"14"		"sven_storm_bolt"
+				"15"		"special_bonus_unique_sven_3"
+				"16"		"sven_storm_bolt"
+				"17"		""
+				"18"		"sven_gods_strength"
+				"19"		""
+				"20"		"special_bonus_unique_sven_7"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_sven_2"
+			}
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"1"
+				"ProvidesBabysit"		"0"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"2"
+				"RequiresSetup"		"0"
+			}
+			"HeroType"		"DOTA_BOT_TANK | DOTA_BOT_SEMI_CARRY | DOTA_BOT_STUN_SUPPORT"
+		}
+	}
+
+	"npc_dota_hero_tiny"
+	{
+		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"tiny_avalanche"
+				"2"		"tiny_toss"
+				"3"		"tiny_avalanche"
+				"4"		"tiny_toss"
+				"5"		"tiny_toss"
+				"6"		"tiny_grow"
+				"7"		"tiny_toss"
+				"8"		"tiny_avalanche"
+				"9"		"tiny_avalanche"
+				"10"		"special_bonus_strength_8"
+				"11"		"tiny_tree_grab"
+				"12"		"tiny_grow"
+				"13"		"tiny_tree_grab"
+				"14"		"tiny_tree_grab"
+				"15"		"special_bonus_unique_tiny"
+				"16"		"tiny_tree_grab"
+				"17"		""
+				"18"		"tiny_grow"
+				"19"		""
+				"20"		"special_bonus_unique_tiny_5"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_tiny_3"
+			}
+			"LaningInfo"
+			{
+				"SoloDesire"		"1"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"1"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"2"
+				"RequiresSetup"		"0"
+			}
+			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_TANK | DOTA_BOT_STUN_SUPPORT"
+		}
+	}
+
+	"npc_dota_hero_windrunner"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"windrunner_windrun"
+				"2"		"windrunner_powershot"
+				"3"		"windrunner_powershot"
+				"4"		"windrunner_shackleshot"
+				"5"		"windrunner_powershot"
+				"6"		"windrunner_focusfire"
+				"7"		"windrunner_powershot"
+				"8"		"windrunner_shackleshot"
+				"9"		"windrunner_shackleshot"
+				"10"		"special_bonus_unique_windranger_3"
+				"11"		"windrunner_shackleshot"
+				"12"		"windrunner_focusfire"
+				"13"		"windrunner_windrun"
+				"14"		"windrunner_windrun"
+				"15"		"special_bonus_unique_windranger_4"
+				"16"		"windrunner_windrun"
+				"17"		""
+				"18"		"windrunner_focusfire"
+				"19"		""
+				"20"		"special_bonus_unique_windranger_8"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_windranger_2"
+			}
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"1"
+				"RequiresSetup"		"0"
+			}
+			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_STUN_SUPPORT"
+		}
+	}
+
+	"npc_dota_hero_zuus"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"zuus_arc_lightning"
+				"2"		"zuus_heavenly_jump"
+				"3"		"zuus_lightning_bolt"
+				"4"		"zuus_lightning_bolt"
+				"5"		"zuus_lightning_bolt"
+				"6"		"zuus_thundergods_wrath"
+				"7"		"zuus_lightning_bolt"
+				"8"		"zuus_arc_lightning"
+				"9"		"zuus_arc_lightning"
+				"10"		"special_bonus_mp_regen_175"
+				"11"		"zuus_arc_lightning"
+				"12"		"zuus_thundergods_wrath"
+				"13"		"zuus_heavenly_jump"
+				"14"		"zuus_heavenly_jump"
+				"15"		"special_bonus_unique_zeus"
+				"16"		"zuus_heavenly_jump"
+				"17"		""
+				"18"		"zuus_thundergods_wrath"
+				"19"		""
+				"20"		"special_bonus_unique_zeus_4"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_zeus_2"
+			}
+			"LaningInfo"
+			{
+				"SoloDesire"		"1"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"1"
+				"SurvivalRating"		"0"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"0"
+				"RequiresSetup"		"1"
+			}
+			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_NUKER"
+		}
+	}
+
+	"npc_dota_hero_kunkka"
+	{
+		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"kunkka_tidebringer"
+				"2"		"kunkka_torrent"
+				"3"		"kunkka_tidebringer"
+				"4"		"kunkka_torrent"
+				"5"		"kunkka_tidebringer"
+				"6"		"kunkka_ghostship"
+				"7"		"kunkka_tidebringer"
+				"8"		"kunkka_torrent"
+				"9"		"kunkka_torrent"
+				"10"		"special_bonus_unique_kunkka_tidebringer_slow"
+				"11"		"kunkka_x_marks_the_spot"
+				"12"		"kunkka_ghostship"
+				"13"		"kunkka_x_marks_the_spot"
+				"14"		"kunkka_x_marks_the_spot"
+				"15"		"special_bonus_unique_kunkka_7"
+				"16"		"kunkka_x_marks_the_spot"
+				"17"		""
+				"18"		"kunkka_ghostship"
+				"19"		""
+				"20"		"special_bonus_unique_kunkka_torrent_cooldown"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_kunkka_3"
+			}
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"1"
+				"SurvivalRating"		"2"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"1"
+				"RequiresSetup"		"0"
+			}
+			"HeroType"		"DOTA_BOT_TANK | DOTA_BOT_SEMI_CARRY | DOTA_BOT_PUSH_SUPPORT"
+		}
+	}
+
+	"npc_dota_hero_lina"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"lina_light_strike_array"
+				"2"		"lina_dragon_slave"
+				"3"		"lina_dragon_slave"
+				"4"		"lina_fiery_soul"
+				"5"		"lina_dragon_slave"
+				"6"		"lina_laguna_blade"
+				"7"		"lina_dragon_slave"
+				"8"		"lina_light_strike_array"
+				"9"		"lina_light_strike_array"
+				"10"		"special_bonus_unique_lina_6"
+				"11"		"lina_light_strike_array"
+				"12"		"lina_laguna_blade"
+				"13"		"lina_fiery_soul"
+				"14"		"lina_fiery_soul"
+				"15"		"special_bonus_unique_lina_3"
+				"16"		"lina_fiery_soul"
+				"17"		""
+				"18"		"lina_laguna_blade"
+				"19"		""
+				"20"		"special_bonus_unique_lina_2"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_lina_1"
+			}
+			"LaningInfo"
+			{
+				"SoloDesire"		"1"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"1"
+				"SurvivalRating"		"0"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"0"
+				"RequiresSetup"		"2"
+			}
+			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_NUKER"
+		}
+	}
+
+	"npc_dota_hero_lich"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"lich_frost_shield"
+				"2"		"lich_frost_nova"
+				"3"		"lich_frost_shield"
+				"4"		"lich_frost_nova"
+				"5"		"lich_sinister_gaze"
+				"6"		"lich_chain_frost"
+				"7"		"lich_frost_shield"
+				"8"		"lich_frost_nova"
+				"9"		"lich_frost_nova"
+				"10"		"special_bonus_unique_lich_8"
+				"11"		"lich_frost_shield"
+				"12"		"lich_chain_frost"
+				"13"		"lich_sinister_gaze"
+				"14"		"lich_sinister_gaze"
+				"15"		"special_bonus_unique_lich_3"
+				"16"		"lich_sinister_gaze"
+				"17"		""
+				"18"		"lich_chain_frost"
+				"19"		""
+				"20"		"special_bonus_unique_lich_3"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_lich_jump_damage"
+			}
+			"HeroType"		"DOTA_BOT_PURE_SUPPORT"
+			"LaningInfo"
+			{
+				"SoloDesire"		"1"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"0"
+				"ProvidesSetup"		"0"
+				"RequiresSetup"		"1"
+			}
+		}
+	}
+
+	"npc_dota_hero_lion"
+	{
+		"BotImplemented"		"1"
+		"MovementTurnRate"			"0.8"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"lion_impale"
+				"2"		"lion_voodoo"
+				"3"		"lion_impale"
+				"4"		"lion_mana_drain"
+				"5"		"lion_impale"
+				"6"		"lion_finger_of_death"
+				"7"		"lion_impale"
+				"8"		"lion_mana_drain"
+				"9"		"lion_mana_drain"
+				"10"		"special_bonus_movement_speed_20"
+				"11"		"lion_mana_drain"
+				"12"		"lion_finger_of_death"
+				"13"		"lion_voodoo"
+				"14"		"lion_voodoo"
+				"15"		"special_bonus_unique_lion_10"
+				"16"		"lion_voodoo"
+				"17"		""
+				"18"		"lion_finger_of_death"
+				"19"		""
+				"20"		"special_bonus_unique_lion_8"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_lion_2"
+			}
+			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_STUN_SUPPORT | DOTA_BOT_NUKER"
+			"LaningInfo"
+			{
+				"SoloDesire"		"1"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"2"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"2"
+				"RequiresSetup"		"0"
+			}
+		}
+	}
+
+	"npc_dota_hero_witch_doctor"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"witch_doctor_paralyzing_cask"
+				"2"		"witch_doctor_maledict"
+				"3"		"witch_doctor_paralyzing_cask"
+				"4"		"witch_doctor_maledict"
+				"5"		"witch_doctor_paralyzing_cask"
+				"6"		"witch_doctor_death_ward"
+				"7"		"witch_doctor_paralyzing_cask"
+				"8"		"witch_doctor_maledict"
+				"9"		"witch_doctor_maledict"
+				"10"		"special_bonus_unique_witch_doctor_4"
+				"11"		"witch_doctor_voodoo_restoration"
+				"12"		"witch_doctor_death_ward"
+				"13"		"witch_doctor_voodoo_restoration"
+				"14"		"witch_doctor_voodoo_restoration"
+				"15"		"special_bonus_unique_witch_doctor_3"
+				"16"		"witch_doctor_voodoo_restoration"
+				"17"		""
+				"18"		"witch_doctor_death_ward"
+				"19"		""
+				"20"		"special_bonus_unique_witch_doctor_1"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_witch_doctor_5"
+			}
+			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_STUN_SUPPORT"
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"2"
+				"RequiresSetup"		"0"
+			}
+		}
+	}
+
+	"npc_dota_hero_sniper"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+			}
+			"Build" // modified
+			{
+				"1"		"sniper_shrapnel"
+				"2"		"sniper_headshot"
+				"3"		"sniper_take_aim"
+				"4"		"sniper_headshot"
+				"5"		"sniper_shrapnel"
+				"6"		"sniper_assassinate"
+				"7"		"sniper_shrapnel"
+				"8"		"sniper_headshot"
+				"9"		"sniper_headshot"
+				"10"		"special_bonus_unique_sniper_headshot_damage"
+				"11"		"sniper_shrapnel"
+				"12"		"sniper_assassinate"
+				"13"		"sniper_take_aim"
+				"14"		"sniper_take_aim"
+				"15"		"special_bonus_unique_sniper_5"
+				"16"		"sniper_take_aim"
+				"17"		""
+				"18"		"sniper_assassinate"
+				"19"		""
+				"20"		"special_bonus_unique_sniper_3"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_sniper_2"
+			}
+			"LaningInfo"
+			{
+				"SoloDesire"		"1"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"1"
+				"SurvivalRating"		"0"
+				"RequiresFarm"		"2"
+				"ProvidesSetup"		"0"
+				"RequiresSetup"		"1"
+			}
+			"HeroType"		"DOTA_BOT_HARD_CARRY"
+		}
+	}
+
+	"npc_dota_hero_necrolyte"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build" // modified
+			{
+				"1"		"necrolyte_death_pulse"
+				"2"		"necrolyte_heartstopper_aura"
+				"3"		"necrolyte_death_pulse"
+				"4"		"necrolyte_ghost_shroud"
+				"5"		"necrolyte_death_pulse"
+				"6"		"necrolyte_reapers_scythe"
+				"7"		"necrolyte_death_pulse"
+				"8"		"necrolyte_ghost_shroud"
+				"9"		"necrolyte_ghost_shroud"
+				"10"		"special_bonus_unique_necrophos_heartstopper_regen_duration"
+				"11"		"necrolyte_ghost_shroud"
+				"12"		"necrolyte_reapers_scythe"
+				"13"		"necrolyte_heartstopper_aura"
+				"14"		"necrolyte_heartstopper_aura"
+				"15"		"special_bonus_unique_necrophos_4"
+				"16"		"necrolyte_heartstopper_aura"
+				"17"		""
+				"18"		"necrolyte_reapers_scythe"
+				"19"		""
+				"20"		"special_bonus_unique_necrophos_sadist_heal_bonus"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_necrophos"
+			}
+			"HeroType"		"DOTA_BOT_TANK | DOTA_BOT_SEMI_CARRY | DOTA_BOT_PUSH_SUPPORT"
+			"LaningInfo"
+			{
+				"SoloDesire"		"1"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"2"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"0"
+				"RequiresSetup"		"1"
+			}
+		}
+	}
+
+	"npc_dota_hero_warlock"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+
+			"Build"
+			{
+				"1"		"warlock_shadow_word"
+				"2"		"warlock_fatal_bonds"
+				"3"		"warlock_shadow_word"
+				"4"		"warlock_fatal_bonds"
+				"5"		"warlock_shadow_word"
+				"6"		"warlock_rain_of_chaos"
+				"7"		"warlock_shadow_word"
+				"8"		"warlock_fatal_bonds"
+				"9"		"warlock_fatal_bonds"
+				"10"		"special_bonus_unique_warlock_5"
+				"11"		"warlock_upheaval"
+				"12"		"warlock_rain_of_chaos"
+				"13"		"warlock_upheaval"
+				"14"		"warlock_upheaval"
+				"15"		"special_bonus_unique_warlock_3"
+				"16"		"warlock_upheaval"
+				"17"		""
+				"18"		"warlock_rain_of_chaos"
+				"19"		""
+				"20"		"special_bonus_unique_warlock_4"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_warlock_1"
+			}
+			"HeroType"		"DOTA_BOT_PURE_SUPPORT | DOTA_BOT_PUSH_SUPPORT"
+			"AggressionFactor"		"0.800000"
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"0"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"0"
+				"RequiresSetup"		"1"
+			}
+		}
+	}
+
+	"npc_dota_hero_skeleton_king"
+	{
+		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"skeleton_king_hellfire_blast"
+				"2"		""
+				"3"		"skeleton_king_hellfire_blast"
+				"4"		"skeleton_king_mortal_strike"
+				"5"		"skeleton_king_hellfire_blast"
+				"6"		"skeleton_king_reincarnation"
+				"7"		"skeleton_king_hellfire_blast"
+				"8"		"skeleton_king_mortal_strike"
+				"9"		"skeleton_king_mortal_strike"
+				"10"		"special_bonus_unique_wraith_king_2"
+				"11"		"skeleton_king_mortal_strike"
+				"12"		"skeleton_king_reincarnation"
+				"13"		""
+				"14"		""
+				"15"		"special_bonus_hp_400"
+				"16"		""
+				"17"		""
+				"18"		"skeleton_king_reincarnation"
+				"19"		""
+				"20"		"special_bonus_attack_speed_60"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_wraith_king_4"
+			}
+			"HeroType"		"DOTA_BOT_TANK | DOTA_BOT_SEMI_CARRY"
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"1"
+				"ProvidesBabysit"		"0"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"2"
+				"ProvidesSetup"		"2"
+				"RequiresSetup"		"0"
+			}
+		}
+	}
+
+	"npc_dota_hero_death_prophet"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"death_prophet_spirit_siphon"
+				"2"		"death_prophet_carrion_swarm"
+				"3"		"death_prophet_spirit_siphon"
+				"4"		"death_prophet_carrion_swarm"
+				"5"		"death_prophet_spirit_siphon"
+				"6"		"death_prophet_exorcism"
+				"7"		"death_prophet_spirit_siphon"
+				"8"		"death_prophet_carrion_swarm"
+				"9"		"death_prophet_carrion_swarm"
+				"10"		"special_bonus_magic_resistance_12"
+				"11"		"death_prophet_silence"
+				"12"		"death_prophet_exorcism"
+				"13"		"death_prophet_silence"
+				"14"		"death_prophet_silence"
+				"15"		"special_bonus_unique_death_prophet_silence_aoe"
+				"16"		"death_prophet_silence"
+				"17"		""
+				"18"		"death_prophet_exorcism"
+				"19"		""
+				"20"		"special_bonus_hp_400"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_death_prophet"
+			}
+			"HeroType"		"DOTA_BOT_PUSH_SUPPORT"
+			"LaningInfo"
+			{
+				"SoloDesire"		"2"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"0"
+				"RequiresFarm"		"2"
+				"ProvidesSetup"		"0"
+				"RequiresSetup"		"0"
+			}
+		}
+	}
+
+	"npc_dota_hero_phantom_assassin"
+	{
+		"BotImplemented"		"1"
+
+		"ProjectileSpeed"		"900"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"			"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"			"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build" // modified
+			{
+				"1"		"phantom_assassin_stifling_dagger"
+				"2"		"phantom_assassin_phantom_strike"
+				"3"		"phantom_assassin_stifling_dagger"
+				"4"		"phantom_assassin_immaterial"
+				"5"		"phantom_assassin_stifling_dagger"
+				"6"		"phantom_assassin_coup_de_grace"
+				"7"		"phantom_assassin_stifling_dagger"
+				"8"		"phantom_assassin_phantom_strike"
+				"9"		"phantom_assassin_phantom_strike"
+				"10"		"special_bonus_unique_phantom_assassin_7"
+				"11"		"phantom_assassin_phantom_strike"
+				"12"		"phantom_assassin_coup_de_grace"
+				"13"		"phantom_assassin_immaterial"
+				"14"		"phantom_assassin_immaterial"
+				"15"		"special_bonus_unique_phantom_assassin_6"
+				"16"		"phantom_assassin_immaterial"
+				"17"		""
+				"18"		"phantom_assassin_coup_de_grace"
+				"19"		""
+				"20"		"special_bonus_unique_phantom_assassin_3"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_phantom_assassin"
+			}
+			"HeroType"		"DOTA_BOT_HARD_CARRY"
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"2"
+				"ProvidesBabysit"		"0"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"2"
+				"ProvidesSetup"		"0"
+				"RequiresSetup"		"2"
+			}
+		}
+	}
+
+	"npc_dota_hero_viper"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+			}
+			"Build"
+			{
+				"1"		"viper_poison_attack"
+				"2"		"viper_nethertoxin"
+				"3"		"viper_poison_attack"
+				"4"		"viper_corrosive_skin"
+				"5"		"viper_corrosive_skin"
+				"6"		"viper_viper_strike"
+				"7"		"viper_corrosive_skin"
+				"8"		"viper_corrosive_skin"
+				"9"		"viper_poison_attack"
+				"10"		"special_bonus_unique_viper_4"
+				"11"		"viper_nethertoxin"
+				"12"		"viper_viper_strike"
+				"13"		"viper_poison_attack"
+				"14"		"viper_nethertoxin"
+				"15"		"special_bonus_unique_viper_2"
+				"16"		"viper_nethertoxin"
+				"17"		""
+				"18"		"viper_viper_strike"
+				"19"		""
+				"20"		"special_bonus_unique_viper_4"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_viper_nethertoxin_radius"
+			}
+			"HeroType"		"DOTA_BOT_HARD_CARRY"
+			"LaningInfo"
+			{
+				"SoloDesire"		"2"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"0"
+				"RequiresFarm"		"2"
+				"ProvidesSetup"		"2"
+				"RequiresSetup"		"1"
+			}
+		}
+	}
+
+	"npc_dota_hero_luna"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build" // modified
+			{
+				"1"		"luna_lucent_beam"
+				"2"		"luna_lunar_orbit"
+				"3"		"luna_lucent_beam"
+				"4"		"luna_moon_glaive"
+				"5"		"luna_lucent_beam"
+				"6"		"luna_eclipse"
+				"7"		"luna_lucent_beam"
+				"8"		"luna_moon_glaive"
+				"9"		"luna_moon_glaive"
+				"10"		"special_bonus_unique_luna_7"
+				"11"		"luna_moon_glaive"
+				"12"		"luna_eclipse"
+				"13"		"luna_lunar_orbit"
+				"14"		"luna_lunar_orbit"
+				"15"		"special_bonus_unique_luna_2"
+				"16"		"luna_lunar_orbit"
+				"17"		""
+				"18"		"luna_eclipse"
+				"19"		""
+				"20"		"special_bonus_unique_luna_2"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_luna_5"
+			}
+			"HeroType"		"DOTA_BOT_HARD_CARRY"
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"1"
+				"SurvivalRating"		"0"
+				"RequiresFarm"		"2"
+				"ProvidesSetup"		"0"
+				"RequiresSetup"		"2"
+			}
+		}
+	}
+
+	"npc_dota_hero_dragon_knight"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"SupportsEasyMode"	"1"
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CORE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CORE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"dragon_knight_breathe_fire"
+				"2"		"dragon_knight_dragon_blood"
+				"3"		"dragon_knight_breathe_fire"
+				"4"		"dragon_knight_dragon_tail"
+				"5"		"dragon_knight_breathe_fire"
+				"6"		"dragon_knight_elder_dragon_form"
+				"7"		"dragon_knight_breathe_fire"
+				"8"		"dragon_knight_dragon_blood"
+				"9"		"dragon_knight_dragon_blood"
+				"10"		"special_bonus_attack_damage_15"
+				"11"		"dragon_knight_dragon_blood"
+				"12"		"dragon_knight_elder_dragon_form"
+				"13"		"dragon_knight_dragon_tail"
+				"14"		"dragon_knight_dragon_tail"
+				"15"		"special_bonus_hp_300"
+				"16"		"dragon_knight_dragon_tail"
+				"17"		""
+				"18"		"dragon_knight_elder_dragon_form"
+				"19"		""
+				"20"		"special_bonus_unique_dragon_knight_7"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_dragon_knight"
+			}
+			"HeroType"		"DOTA_BOT_TANK | DOTA_BOT_SEMI_CARRY | DOTA_BOT_STUN_SUPPORT"
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"1"
+				"ProvidesBabysit"		"1"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"2"
+				"ProvidesSetup"		"2"
+				"RequiresSetup"		"1"
+			}
+		}
+	}
+
+	"npc_dota_hero_dazzle"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"dazzle_poison_touch"
+				"2"		"dazzle_shadow_wave"
+				"3"		"dazzle_shadow_wave"
+				"4"		"dazzle_shallow_grave"
+				"5"		"dazzle_shadow_wave"
+				"6"		"dazzle_nothl_projection"
+				"7"		"dazzle_shadow_wave"
+				"8"		"dazzle_shallow_grave"
+				"9"		"dazzle_shallow_grave"
+				"10"		"special_bonus_unique_dazzle_poison_touch_attack_range_bonus"
+				"11"		"dazzle_shallow_grave"
+				"12"		"dazzle_nothl_projection"
+				"13"		"dazzle_poison_touch"
+				"14"		"dazzle_poison_touch"
+				"15"		"special_bonus_unique_dazzle_2"
+				"16"		"dazzle_poison_touch"
+				"17"		""
+				"18"		"dazzle_nothl_projection"
+				"19"		""
+				"20"		"special_bonus_unique_dazzle_3"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_dazzle_4"
+			}
+			"HeroType"		"DOTA_BOT_PURE_SUPPORT"
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"2"
+				"RequiresFarm"		"0"
+				"ProvidesSetup"		"1"
+				"RequiresSetup"		"0"
+			}
+		}
+	}
+
+	"npc_dota_hero_omniknight"
+	{
+		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"omniknight_purification"
+				"2"		"omniknight_martyr"
+				"3"		"omniknight_purification"
+				"4"		"omniknight_hammer_of_purity"
+				"5"		"omniknight_purification"
+				"6"		"omniknight_guardian_angel"
+				"7"		"omniknight_purification"
+				"8"		"omniknight_martyr"
+				"9"		"omniknight_martyr"
+				"10"		"special_bonus_unique_omniknight_5"
+				"11"		"omniknight_martyr"
+				"12"		"omniknight_guardian_angel"
+				"13"		"omniknight_hammer_of_purity"
+				"14"		"omniknight_hammer_of_purity"
+				"15"		"special_bonus_unique_omniknight_5"
+				"16"		"omniknight_hammer_of_purity"
+				"17"		""
+				"18"		"omniknight_guardian_angel"
+				"19"		""
+				"20"		"special_bonus_unique_omniknight_2"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_omniknight_1"
+			}
+			"HeroType"		"DOTA_BOT_PURE_SUPPORT"
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"2"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"0"
+				"RequiresSetup"		"0"
+			}
+		}
+	}
+
+	"npc_dota_hero_bounty_hunter"
+	{
+		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+
+			}
+			"Build"
+			{
+				"1"		"bounty_hunter_wind_walk"
+				"2"		"bounty_hunter_jinada"
+				"3"		"bounty_hunter_shuriken_toss"
+				"4"		"bounty_hunter_shuriken_toss"
+				"5"		"bounty_hunter_shuriken_toss"
+				"6"		"bounty_hunter_track"
+				"7"		"bounty_hunter_shuriken_toss"
+				"8"		"bounty_hunter_wind_walk"
+				"9"		"bounty_hunter_wind_walk"
+				"10"		"special_bonus_unique_bounty_hunter_5"
+				"11"		"bounty_hunter_wind_walk"
+				"12"		"bounty_hunter_track"
+				"13"		"bounty_hunter_jinada"
+				"14"		"bounty_hunter_jinada"
+				"15"		"special_bonus_unique_bounty_hunter_3"
+				"16"		"bounty_hunter_jinada"
+				"17"		""
+				"18"		"bounty_hunter_track"
+				"19"		""
+				"20"		"special_bonus_unique_bounty_hunter"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_bounty_hunter_jinada_no_cooldown"
+			}
+			"HeroType"		"DOTA_BOT_SEMI_CARRY | DOTA_BOT_GANKER"
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"1"
+				"SurvivalRating"		"2"
+				"RequiresFarm"		"2"
+				"ProvidesSetup"		"0"
+				"RequiresSetup"		"2"
+			}
+		}
+	}
+
+	"npc_dota_hero_jakiro"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"jakiro_dual_breath"
+				"2"		"jakiro_liquid_fire"
+				"3"		"jakiro_ice_path"
+				"4"		"jakiro_liquid_fire"
+				"5"		"jakiro_liquid_fire"
+				"6"		"jakiro_macropyre"
+				"7"		"jakiro_liquid_fire"
+				"8"		"jakiro_dual_breath"
+				"9"		"jakiro_dual_breath"
+				"10"		"special_bonus_unique_jakiro_dualbreath_cooldown"
+				"11"		"jakiro_dual_breath"
+				"12"		"jakiro_macropyre"
+				"13"		"jakiro_ice_path"
+				"14"		"jakiro_ice_path"
+				"15"		"special_bonus_unique_jakiro_2"
+				"16"		"jakiro_ice_path"
+				"17"		""
+				"18"		"jakiro_macropyre"
+				"19"		""
+				"20"		"special_bonus_unique_jakiro_4"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_jakiro"
+			}
+			"HeroType"		"DOTA_BOT_PUSH_SUPPORT | DOTA_BOT_STUN_SUPPORT"
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"2"
+				"RequiresSetup"		"0"
+			}
+		}
+	}
+
+	"npc_dota_hero_chaos_knight"
+	{
+		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build" // modified
+			{
+				"1"		"chaos_knight_chaos_bolt"
+				"2"		"chaos_knight_reality_rift"
+				"3"		"chaos_knight_chaos_strike"
+				"4"		"chaos_knight_reality_rift"
+				"5"		"chaos_knight_chaos_bolt"
+				"6"		"chaos_knight_phantasm"
+				"7"		"chaos_knight_chaos_bolt"
+				"8"		"chaos_knight_reality_rift"
+				"9"		"chaos_knight_chaos_bolt"
+				"10"		"special_bonus_unique_chaos_knight_6"
+				"11"		"chaos_knight_reality_rift"
+				"12"		"chaos_knight_phantasm"
+				"13"		"chaos_knight_chaos_strike"
+				"14"		"chaos_knight_chaos_strike"
+				"15"		"special_bonus_unique_chaos_knight_8"
+				"16"		"chaos_knight_chaos_strike"
+				"17"		""
+				"18"		"chaos_knight_phantasm"
+				"19"		""
+				"20"		"special_bonus_unique_chaos_knight"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_chaos_knight_3"
+			}
+			"HeroType"		"DOTA_BOT_SEMI_CARRY | DOTA_BOT_GANKER | DOTA_BOT_TANK"
+			"LaningInfo"
+			{
+				"SoloDesire"		"1"
+				"RequiresBabysit"		"2"
+				"ProvidesBabysit"		"0"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"2"
+				"ProvidesSetup"		"2"
+				"RequiresSetup"		"0"
+			}
+		}
+	}
+
+	"npc_dota_hero_bristleback"
+	{
+		"BotImplemented"		"1"
+		"ProjectileSpeed"		"900"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+				"item_ring_of_basilius"		"ITEM_DERIVED | ITEM_SELLABLE"
+			}
+			"Build"
+			{
+				"1"		"bristleback_quill_spray"
+				"2"		"bristleback_bristleback"
+				"3"		"bristleback_quill_spray"
+				"4"		"bristleback_viscous_nasal_goo"
+				"5"		"bristleback_quill_spray"
+				"6"		"bristleback_warpath"
+				"7"		"bristleback_quill_spray"
+				"8"		"bristleback_bristleback"
+				"9"		"bristleback_bristleback"
+				"10"		"special_bonus_mp_regen_150"
+				"11"		"bristleback_bristleback"
+				"12"		"bristleback_warpath"
+				"13"		"bristleback_viscous_nasal_goo"
+				"14"		"bristleback_viscous_nasal_goo"
+				"15"		"special_bonus_unique_bristleback_5"
+				"16"		"bristleback_viscous_nasal_goo"
+				"17"		""
+				"18"		"bristleback_warpath"
+				"19"		""
+				"20"		"special_bonus_hp_regen_25"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_bristleback_3"
+			}
+			"HeroType"		"DOTA_BOT_TANK | DOTA_BOT_SEMI_CARRY"
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"1"
+				"ProvidesBabysit"		"0"
+				"SurvivalRating"		"2"
+				"RequiresFarm"		"1"
+				"ProvidesSetup"		"1"
+				"RequiresSetup"		"1"
+			}
+		}
+	}
+
+	"npc_dota_hero_skywrath_mage"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_flask"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"skywrath_mage_arcane_bolt"
+				"2"		"skywrath_mage_concussive_shot"
+				"3"		"skywrath_mage_arcane_bolt"
+				"4"		"skywrath_mage_ancient_seal"
+				"5"		"skywrath_mage_arcane_bolt"
+				"6"		"skywrath_mage_mystic_flare"
+				"7"		"skywrath_mage_arcane_bolt"
+				"8"		"skywrath_mage_ancient_seal"
+				"9"		"skywrath_mage_ancient_seal"
+				"10"		"special_bonus_mp_regen_150"
+				"11"		"skywrath_mage_ancient_seal"
+				"12"		"skywrath_mage_mystic_flare"
+				"13"		"skywrath_mage_concussive_shot"
+				"14"		"skywrath_mage_concussive_shot"
+				"15"		"special_bonus_unique_skywrath_concussive_shot_slow"
+				"16"		"skywrath_mage_concussive_shot"
+				"17"		""
+				"18"		"skywrath_mage_mystic_flare"
+				"19"		""
+				"20"		"special_bonus_unique_skywrath_3"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_skywrath_5"
+			}
+			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_NUKER"
+			"LaningInfo"
+			{
+				"SoloDesire"		"1"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"0"
+				"ProvidesSetup"		"1"
+				"RequiresSetup"		"0"
+			}
+		}
+	}
+
+	"npc_dota_hero_oracle"
+	{
+		"BotImplemented"		"1"
+
+		"Bot"
+		{
+			"Loadout"
+			{
+				"item_tango"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_clarity"		"ITEM_CONSUMABLE | ITEM_SELLABLE"
+				"item_branches"		"ITEM_CORE"
+				"item_branches"		"ITEM_CORE"
+			}
+			"Build"
+			{
+				"1"		"oracle_fortunes_end"
+				"2"		"oracle_purifying_flames"
+				"3"		"oracle_purifying_flames"
+				"4"		"oracle_fates_edict"
+				"5"		"oracle_purifying_flames"
+				"6"		"oracle_false_promise"
+				"7"		"oracle_purifying_flames"
+				"8"		"oracle_fortunes_end"
+				"9"		"oracle_fortunes_end"
+				"10"		"special_bonus_unique_oracle_9"
+				"11"		"oracle_fortunes_end"
+				"12"		"oracle_false_promise"
+				"13"		"oracle_fates_edict"
+				"14"		"oracle_fates_edict"
+				"15"		"special_bonus_unique_oracle_5"
+				"16"		"oracle_fates_edict"
+				"17"		""
+				"18"		"oracle_false_promise"
+				"19"		""
+				"20"		"special_bonus_unique_oracle_6"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_oracle"
+			}
+			"HeroType"		"DOTA_BOT_PURE_SUPPORT | DOTA_BOT_NUKER"
+			"LaningInfo"
+			{
+				"SoloDesire"		"0"
+				"RequiresBabysit"		"0"
+				"ProvidesBabysit"		"2"
+				"SurvivalRating"		"1"
+				"RequiresFarm"		"0"
+				"ProvidesSetup"		"1"
+				"RequiresSetup"		"0"
+			}
+		}
+	}
+
+}
+
