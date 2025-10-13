@@ -1,0 +1,35 @@
+"DOTAAbilities"
+{
+	"wisp_overcharge_old"
+	{
+		"BaseClass"                                        "ability_lua"
+		"ScriptFile"                                       "abilities/wisp_overcharge_old.lua"
+		"AbilityBehavior"                                  "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"                               "wisp_overcharge"
+		"SpellDispellableType"                             "SPELL_DISPELLABLE_NO"
+
+		"ReduxFlags"                                       "dota_custom | tank"
+		"ReduxPerks"                                       "light | lightning | self_damage"
+		"ReduxCost"                                        "20"
+
+		"AbilityCastPoint"                                 "0"
+		"AbilityCooldown"                                  "2.0"
+		"AbilityProcsMagicStick"                           "0"
+		
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_attack_speed"                           "40 50 60 70"
+			"dmg_reduction"                                "5 10 15 20"
+			"drain_interval"                               "0.2"
+			"current_mana_cost_per_second_pct"             "6"
+			"current_health_cost_per_second_pct"           "6"
+		}
+	}
+}

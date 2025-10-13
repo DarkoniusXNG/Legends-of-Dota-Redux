@@ -31,7 +31,7 @@ function Starfall( keys )
 	ParticleManager:ReleaseParticleIndex(ambient_pfx)
 
 	-- Find nearby enemies and apply the particle, damage, debuff, and hit sound
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster_pos, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster_pos, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
 	local secondary_enemies = {}
 	for _, enemy in pairs(enemies) do
 		if not enemy:IsNull() then
