@@ -1,23 +1,33 @@
 "DOTAAbilities" {
-  "alchemist_transmuted_scepter" 
+  "alchemist_transmuted_scepter"
   {
     "BaseClass"               "ability_lua"
     "ScriptFile"              "abilities/alchemist_transmuted_scepter"
-    "AbilityBehavior"            "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"        
-    "AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"          "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_NONE"
-    "MaxLevel"                                            "1"
+    "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"   "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"   "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"  "DOTA_UNIT_TARGET_FLAG_NONE"
+    "MaxLevel"                "1"
 
-    "AbilityTextureName"           "custom/alchemist_transmuted_scepter"    
-    "AbilityCastRange"            "200"
-    "AbilityGoldCost"            "2100"
-    "AbilityCooldown"            "5"
-    "AbilityCastPoint"            "0.3"    
+    "ReduxFlags"              "dota_custom | support"
+    "ReduxPerks"              "gold | support"
+
+    "AbilityTextureName"      "custom/alchemist_transmuted_scepter"
+    "AbilityCastRange"        "0" // global
+    "AbilityGoldCost"         "4200"
+    "AbilityCooldown"         "1"
+    "AbilityCastPoint"        "0"
 
     "precache"
-    {	
+    {
       "particle" 			  "particles/econ/items/alchemist/alchemist_midas_knuckles/alch_hand_of_midas.vpcf"
+    }
+
+    "AbilityValues"
+    {
+      "bonus_all_stats"       "10"
+      "bonus_health"          "175"
+      "bonus_mana"            "175"
     }
   }
 }

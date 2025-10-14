@@ -6,20 +6,24 @@
         "ScriptFile"                                                           "abilities/bloodseeker_blood_bath"
         "AbilityTextureName"                                                   "custom/bloodbath_two"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "IsBreakable"                                                          "1"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_bloodseeker/bloodseeker_bloodbath.vpcf"
         }
+
         "AbilityValues"
         {
             "heal_radius"
-            {	
+            {
                 "value"	"600"
                 "affected_by_aoe_increase"	"1"
             }
             "hero_max_hp_heal" "20 40 60 80"
             "non_hero_max_hp_heal" "15 20 25 30"
         }
+
         "ReduxFlags"                                                           "dota_custom"
         "ReduxPerks"                                                           "blood"
         "ReduxCost"                                                            "80"

@@ -31,7 +31,7 @@
             "particle"  "particles/ui/ui_godrays.vpcf"
             "particle"  "particles/uther/argent_smite.vpcf"
         }
-    
+
         "AbilityValues"
         {
             "Cooldown_Factor" "3.5 3.0 2.5 2.0"
@@ -50,14 +50,14 @@
       "AbilityUnitTargetTeam"       "DOTA_UNIT_TARGET_TEAM_ENEMY"
       "AbilityUnitTargetType"       "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
       "AbilityType"                 "ABILITY_TYPE_ULTIMATE"
-    
+
       "AbilityCooldown"        "180 150 120"
       "AbilityManaCost"        "145 205 265"
-         
+
       "AbilityCastRange"        "1200"
       "AbilityCastPoint"        "0.6"
       "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
-    
+
       "AbilityValues"
       {
         "duration" "15"
@@ -69,7 +69,7 @@
       {
         "particle"    "particles/units/heroes/hero_disruptor/disruptor_kineticfield.vpcf"
       }
-    
+
       "OnSpellStart"
       {
         "RunScript"
@@ -86,7 +86,7 @@
           "IsHidden"      "1"
           "IsDebuff"      "1"
           "ThinkInterval"  "0.04"
-          
+
           "OnIntervalThink"
           {
             "RunScript"
@@ -113,7 +113,7 @@
           "Aura_Types"      "DOTA_UNIT_TARGET_HERO"
           "Aura_Flags"      "DOTA_UNIT_TARGET_FLAG_NONE"
           "Aura_ApplyToCaster" "0"
-    
+
         }
         "modifier_uther_compass_halo2" // Something like a wall or kinetic field
         {
@@ -142,7 +142,7 @@
         "BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "custom/uther_hail_back"
         "MaxLevel"                      "1"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"    
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
         "AbilityCooldown"        "0.1"
 
         "OnSpellStart"
@@ -174,15 +174,15 @@
 
         "ReduxBans"                                                            "spell_lab_symbiotic"
         "ReduxPerks"                                                           "light"
-    
+
         "AbilityValues"
         {
-            "Hammer_Size"				
+            "Hammer_Size"
 			{
 				"value"			"275"
 				"affected_by_aoe_increase"	"1"
 			}
-            "scepter_Hammer_Size"			
+            "scepter_Hammer_Size"
 			{
 				"value"			"450"
 				"affected_by_aoe_increase"	"1"
@@ -262,10 +262,10 @@
                         "Function"      "ReturnHammer"
                     }
                 }
-        
+
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%Movement_Speed_Bonus" 
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%Movement_Speed_Bonus"
                 }
             }
             "modifier_hammer_moving_dummy"
@@ -313,8 +313,8 @@
                             "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
                             "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
                         }
-                    
-                        "Action"    
+
+                        "Action"
                         {
                             "ApplyModifier"
                             {
@@ -388,7 +388,7 @@
                             "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
                             "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
                         }
-                    
+
                         "Action"
                         {
                             "ApplyModifier"
@@ -425,21 +425,21 @@
                 "IsDebuff"          "1"
                 "IsStunDebuff"      "1"
                 "OverrideAnimation"     "ACT_DOTA_DISABLED"
-            
+
                 "EffectName"        "particles/generic_gameplay/generic_stunned.vpcf"
                 "EffectAttachType"  "follow_overhead"
-            
+
                 "States"
                 {
                     "MODIFIER_STATE_STUNNED"        "MODIFIER_STATE_VALUE_ENABLED"
                 }
             }
             "modifier_hammer_stationary_dummy"
-            {   
+            {
                 "Passive"           "0"
                 "IsHidden"          "1"
                 "IsDebuff"          "0"
-            
+
                 "ThinkInterval"  "0.1"
                 "OnIntervalThink"
                 {
@@ -499,10 +499,10 @@
                 "Passive"           "1"
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
-    
+
                 "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT"
-                
-    
+
+
                 "OnOrder"
                 // OnSpellStart as a Modifier Event, you can Apply it on a target to trigger any Actions.
                 {
@@ -518,8 +518,8 @@
                 "Passive"           "0"
                 "IsHidden"          "1"
                 "IsDebuff"          "0"
-            
-            
+
+
                 "OnDestroy"
                 {
                     "RunScript"
@@ -539,8 +539,8 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+
         "AbilityCooldown"               "7"
-        "AbilityDuration"               "5"
         "AbilityCastRange"              "2000"
         "AbilityCastPoint"              "0.1"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
@@ -548,7 +548,7 @@
         "AbilityProcsMagicStick"        "1"
 
         "ReduxPerks"                                                           "light"
-    
+
         "precache"
         {
             "model"     "models/heroes/vengeful/vengeful_terror_head.vmdl"
@@ -556,19 +556,20 @@
             "particle"  "particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
             "particle"  "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_recall_source.vpcf"
         }
-    
+
         "AbilityValues"
         {
-            "bolt_speed" "900"
+            "bolt_speed" "900" // need to change move speed of npc_bolt_unit if you change this
             "damage" "140 220 300 380"
-            "attacks_needed" "2"
-            "explosion_radius"			
-				{
-					"value"			"350"
-					"affected_by_aoe_increase"	"1"
-				}
+            "attacks_needed" "2" // need to change health of npc_bolt_unit if you change this
+            "explosion_radius"
+            {
+                "value"			"350"
+                "affected_by_aoe_increase"	"1"
+            }
+            "bolt_duration"  "5"
         }
-    
+
         "OnSpellStart"
         {
             "RunScript"
@@ -585,16 +586,11 @@
                 "Passive"           "0"
                 "IsHidden"          "1"
                 "IsDebuff"          "0"
-        
+
                 "EffectName"        "particles/econ/courier/courier_trail_spirit/courier_trail_spirit.vpcf"
                 "EffectAttachType"  "follow_origin"
-    
-                "Properties"
-                {
-                   "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-50%" 
-                }
-        
-                "ThinkInterval"  "0.03"
+
+                "ThinkInterval"  "0.1"
                 "OnIntervalThink"
                 {
                     "RunScript"
@@ -604,7 +600,6 @@
                     }
                 }
                 "OnAttacked"
-                // "%attack_damage" is set to the damage value after mitigation
                 {
                     "RunScript"
                     {
@@ -643,13 +638,13 @@
         "AbilityCastPoint"              "0.01 0.01 0.01"
         "AbilityCastRange"              "25000"
 
-        // Time     
+        // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "35.0 25.0 15.0"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "100 75 50"   
+        "AbilityManaCost"               "100 75 50"
         "AbilityValues"
         {
             "blast_final_radius" "25000"
@@ -663,7 +658,7 @@
             "particle"  "particles/units/heroes/hero_brewmaster/brewmaster_dispel_magic.vpcf"
             "particle"  "particles/uther_omniscience_waveactive.vpcf"
         }
-        
+
         "OnSpellStart"
         {
             "FireSound"

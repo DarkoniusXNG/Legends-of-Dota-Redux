@@ -14,9 +14,11 @@ function Starfall( keys )
 	-- Parameters
 	local radius = ability:GetLevelSpecialValueFor("starfall_radius", ability_level)
 	local hit_delay = ability:GetLevelSpecialValueFor("starfall_delay", ability_level)
+	local secondary_hit_delay = ability:GetLevelSpecialValueFor("secondary_starfall_delay", ability_level)
+	local secondary_hit_dmg = ability:GetLevelSpecialValueFor("starfall_secondary_damage_pct", ability_level)
+	local secondary_radius = ability:GetLevelSpecialValueFor("starfall_secondary_radius", ability_level)
 	local damage = ability:GetAbilityDamage()
 
-	-- Grant vision of the area for the duration
 	local caster_pos = caster:GetAbsOrigin()
 
 	-- Emit sound
@@ -29,26 +31,37 @@ function Starfall( keys )
 	ParticleManager:ReleaseParticleIndex(ambient_pfx)
 
 	-- Find nearby enemies and apply the particle, damage, debuff, and hit sound
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster_pos, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
-	for _,enemy in pairs(enemies) do
-		local star_pfx = ParticleManager:CreateParticle(hit_particle, PATTACH_ABSORIGIN_FOLLOW, enemy)
-		ParticleManager:SetParticleControl(star_pfx, 0, enemy:GetAbsOrigin())
-		ParticleManager:ReleaseParticleIndex(star_pfx)
-		Timers:CreateTimer(hit_delay, function()
-			enemy:EmitSound(hit_sound)
-			ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
-		end)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster_pos, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
+	local secondary_enemies = {}
+	for _, enemy in pairs(enemies) do
+		if not enemy:IsNull() then
+			local star_pfx = ParticleManager:CreateParticle(hit_particle, PATTACH_ABSORIGIN_FOLLOW, enemy)
+			ParticleManager:SetParticleControl(star_pfx, 0, enemy:GetAbsOrigin())
+			ParticleManager:ReleaseParticleIndex(star_pfx)
+			if (enemy:GetAbsOrigin() - caster_pos):Length2D() <= secondary_radius then
+				table.insert(secondary_enemies, enemy)
+			end
+		end
 	end
 
-    Timers:CreateTimer( 0.75, function()
-		for _,enemy in pairs(enemies) do
-			if enemy:IsAlive() and not enemy:IsNull() then
+	Timers:CreateTimer(hit_delay, function()
+		for _, enemy in pairs(enemies) do
+			if not enemy:IsNull() and enemy:IsAlive() then
+				enemy:EmitSound(hit_sound)
+				ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+			end
+		end
+	end)
+
+    Timers:CreateTimer(secondary_hit_delay, function()
+		for _, enemy in pairs(secondary_enemies) do
+			if not enemy:IsNull() and enemy:IsAlive() then
 				local star_pfx = ParticleManager:CreateParticle(hit_particle, PATTACH_ABSORIGIN_FOLLOW, enemy)
 				ParticleManager:SetParticleControl(star_pfx, 0, enemy:GetAbsOrigin())
 				ParticleManager:ReleaseParticleIndex(star_pfx)
 				Timers:CreateTimer(hit_delay, function()
 					enemy:EmitSound(hit_sound)
-					ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
+					ApplyDamage({victim = enemy, attacker = caster, damage = damage * secondary_hit_dmg, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 				end)
 				break
 			end

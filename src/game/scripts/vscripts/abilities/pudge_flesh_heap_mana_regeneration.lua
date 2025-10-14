@@ -16,6 +16,10 @@ function pudge_flesh_heap_mana_regeneration:GetIntrinsicModifierName()
   return "modifier_flesh_heap_mana_regeneration"
 end
 
+function pudge_flesh_heap_mana_regeneration:GetCastRange(location, target)
+  return self:GetSpecialValueFor("flesh_heap_range")
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_flesh_heap_mana_regeneration = class({})

@@ -7530,7 +7530,7 @@ function Pregame:applyExtraAbility( spawnedUnit )
         -- Random Flesh Heaps
         if OptionManager:GetOption('extraAbility') == 6 then
 
-            local random = RandomInt(1,16)
+            local random = RandomInt(1,17)
             local givenAbility = false
             -- Randomly choose which flesh heap to give them
             if random == 1 and not spawnedUnit:HasAbility('pudge_flesh_heap_str') then fleshHeapToGive = "pudge_flesh_heap_str" ; givenAbility = true
@@ -7544,11 +7544,12 @@ function Pregame:applyExtraAbility( spawnedUnit )
             elseif random == 9 and not spawnedUnit:HasAbility('pudge_flesh_heap_magic_resistance') then fleshHeapToGive = "pudge_flesh_heap_evasion" ; givenAbility = true
             elseif random == 10 and not spawnedUnit:HasAbility('pudge_flesh_heap_evasion') then fleshHeapToGive = "pudge_flesh_heap_evasion" ; givenAbility = true
             elseif random == 11 and not spawnedUnit:HasAbility('pudge_flesh_heap_cast_range') then fleshHeapToGive = "pudge_flesh_heap_cast_range" ; givenAbility = true
-            elseif random == 12 and not spawnedUnit:HasAbility('pudge_flesh_heap_attack_speed ') then fleshHeapToGive = "pudge_flesh_heap_attack_speed " ; givenAbility = true
+            elseif random == 12 and not spawnedUnit:HasAbility('pudge_flesh_heap_attack_speed ') then fleshHeapToGive = "pudge_flesh_heap_attack_speed" ; givenAbility = true
             elseif random == 13 and not spawnedUnit:HasAbility('pudge_flesh_heap_willpower') then fleshHeapToGive = "pudge_flesh_heap_willpower" ; givenAbility = true
             elseif random == 14 and not spawnedUnit:HasAbility('pudge_flesh_heap_armor') then fleshHeapToGive = "pudge_flesh_heap_armor" ; givenAbility = true
             elseif random == 15 and not spawnedUnit:HasAbility('pudge_flesh_heap_health_regeneration') then fleshHeapToGive = "pudge_flesh_heap_health_regeneration" ; givenAbility = true
             elseif random == 16 and not spawnedUnit:HasAbility('pudge_flesh_heap_mana_regeneration') then fleshHeapToGive = "pudge_flesh_heap_mana_regeneration" ; givenAbility = true
+            elseif random == 17 and not spawnedUnit:HasAbility('pudge_flesh_heap_aoe') then fleshHeapToGive = "pudge_flesh_heap_aoe" ; givenAbility = true
             end
 
             -- If they randomly picked a flesh heap they already had, go through this list and try to give them one until they get one
@@ -7563,7 +7564,7 @@ function Pregame:applyExtraAbility( spawnedUnit )
                 elseif not spawnedUnit:HasAbility('pudge_flesh_heap_cooldown_reduction') then fleshHeapToGive = "pudge_flesh_heap_cooldown_reduction"
                 elseif not spawnedUnit:HasAbility('pudge_flesh_heap_magic_resistance') then fleshHeapToGive = "pudge_flesh_heap_magic_resistance"
                 elseif not spawnedUnit:HasAbility('pudge_flesh_heap_evasion') then fleshHeapToGive = "pudge_flesh_heap_evasion"
-                -- We dont need to add any more to this list because they will defintely get one of the above because of the max ability slots
+                -- We dont need to add any more to this list because they will definitely get one of the above because of the max ability slots
                 end
             end
         end

@@ -11,81 +11,67 @@
 
         "AbilityValues"
 		{
-			"bonus_armor"						"0.6 1.2 1.8 2.4"
-			"bonus_hp_regen"					
+			"bonus_armor"						"0.4 0.5 0.6 0.7"
+			"bonus_hp_regen"
 			{
-				"value"																	"0.6 1.2 1.8 2.4"
-				"special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"			"+0.6"
-
+				"value"																	"0.4 0.5 0.6 0.7"
+				"special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"			"+0.25"
 			}
-			
-			"stack_limit"						
+			"stack_limit" // we simulate unlimited stacks
 			{
-				"value"			"60"
-				"special_bonus_unique_timbersaw_2"			"+30"
+				"value"			"9999"
+				"special_bonus_unique_timbersaw_2"			"+6"
 			}
-			"stack_duration"					
+			"stack_duration" // this needs to be improved
 			{
-				"value"				"30"		
+				"value"				"16 18 20 22"
 			}
 			"stacks_per_hero_attack"
 			{
-				"value"				"3"
-				"special_bonus_unique_timbersaw_2"		"+3"
-			}	
-
-			"AbilityManaCost"				
-			{
-				"value"						"0"
-				"special_bonus_scepter"				"+200"
+				"value"				"4"
+				"special_bonus_unique_timbersaw_2"		"+1"
 			}
-			"AbilityCooldown"				
+			"AbilityManaCost"
 			{
-				"value"  		"45"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"			"+200"
+			}
+			"AbilityCooldown"
+			{
+				"special_bonus_scepter"  		"45"
 			}
 			"initial_shield"
 			{
-				"value"  		"200"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"  		"200"
 			}
 			"shield_per_sec"
 			{
-				"value"  		"150"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"  		"100"
 			}
 			"shield_per_sec_per_enemy"
 			{
-				"value"  		"150"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"  		"75"
 			}
 			"max_shield"
 			{
-				"value"		"2400"
-				"RequiresScepter"				"1"
-
+				"special_bonus_scepter"			"800"
 			}
 			"duration"
 			{
-				"value"	"8"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"	"8"
 			}
 			"radius"
 			{
-				"value"	"1500"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"	"600"
 				"affected_by_aoe_increase"	"1"
 			}
 			"explosion_radius"
 			{
-				"value"	"1500"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"	"600"
 				"affected_by_aoe_increase"	"1"
 			}
 			"base_explosion"
 			{
-				"value"	"300"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"	"200"
 			}
 		}
         "ReduxCost"                                                            "120"

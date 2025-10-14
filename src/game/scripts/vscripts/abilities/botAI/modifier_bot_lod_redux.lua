@@ -467,19 +467,25 @@ local early_game_items = {
 }
 
 local items_to_sell = {
+	item_blades_of_attack = 1,
 	item_blood_grenade = 1,
 	item_boots = 1,
 	item_branches = 1,
+	item_chainmail = 1,
 	item_circlet = 1,
 	item_clarity = 1,
+	item_crown = 1,
 	item_flask = 1,
 	item_gauntlets = 1,
-	item_mantle = 1,
 	item_magic_stick = 1,
+	item_mantle = 1,
 	item_quelling_blade = 1,
+	item_recipe_magic_wand = 1,
+	item_ring_of_basilius = 1,
 	item_ring_of_protection = 1,
 	item_slippers = 1,
 	item_tango = 1,
+	item_tiara_of_selemene = 1,
 }
 function modifier_bot_lod_redux:OnIntervalThink()
   local parent = self:GetParent()
@@ -490,10 +496,10 @@ function modifier_bot_lod_redux:OnIntervalThink()
     -- playerID = parent:GetPlayerOwnerID()
   -- end
   --local gold2 = PlayerResource:GetGold(playerID)
-  if parent:GetGold() < 200 then
+  --if parent:GetGold() < 200 then
     -- Bots are actually spending their gold then
-    return
-  end
+    --return
+  --end
 
   if (self.difficulty == 1 or (self.difficulty == 5 and parent:HasModifier("modifier_easybot"))) then
     self:StartIntervalThink(-1)
@@ -640,7 +646,7 @@ if IsServer() then
       return
     end
     if self.difficulty == 4 or (self.difficulty == 5 and parent:HasModifier("modifier_unfairbot")) then
-      parent:ModifyGold(500, true, DOTA_ModifyGold_SellItem)
+      parent:ModifyGold(1000, true, DOTA_ModifyGold_SellItem)
     end
     self:OnIntervalThink()
   end

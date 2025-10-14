@@ -17,6 +17,10 @@ function pudge_flesh_heap_minion_damage:GetIntrinsicModifierName()
 	return "modifier_flesh_heap_minion_damage"
 end
 
+function pudge_flesh_heap_minion_damage:GetCastRange(location, target)
+  return self:GetSpecialValueFor("flesh_heap_range")
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_flesh_heap_minion_damage = class({})

@@ -27,6 +27,8 @@
             "techies_custom_suicide"              "1" // custom
             "pangolier_heartpiercer_old"          "1" // custom
             "doom_bringer_lvl_death_old"          "1" // custom
+            "wisp_overcharge_old"                 "1" // custom
+            "zeus_static_field_old"               "1" // custom
 
             "abaddon_aphotic_shield"            "1"
             "abaddon_borrowed_time"            "1"
@@ -1074,7 +1076,7 @@
 			"keeper_of_the_light_special_reserve"  "1"
 			"medusa_undulation"                    "1"
 			"kez_shadowhawk_passive"               "1"
-			
+
 			// 7.39
 			"templar_assassin_hidden_gates"        "1"
 			"furion_summon_fey"                    "1"
@@ -1230,7 +1232,7 @@
                   "pudge_flesh_heap_move_speed"     "1"
                   "pudge_flesh_heap_spell_amp"       "1"
                   "pudge_flesh_heap_attack_range"   "1"
-                  "pudge_flesh_heap_attack_speed"   "1"        
+                  "pudge_flesh_heap_attack_speed"   "1"
                   "pudge_flesh_heap_cast_range"   "1"
                   "pudge_flesh_heap_bonus_vision" "1"
                   "pudge_flesh_heap_cooldown_reduction" "1"
@@ -1244,6 +1246,8 @@
                   "pudge_flesh_heap_minion_damage" "1"
                   //"pudge_flesh_heap_tenacity" "1"                 // script errors when levelling up but does work ok
                   "pudge_flesh_heap_willpower" "1"
+                  "pudge_flesh_heap_aoe" "1"
+                  "pudge_flesh_heap_heal_amp" "1"
             }
 
             "survivor"
@@ -2868,7 +2872,7 @@
 			"5"  "keeper_of_the_light_radiant_bind"
 			"6"  "keeper_of_the_light_mana_magnifier"
 		}
-		
+
 		"npc_dota_hero_kez" {
 			"1"  "kez_shadowhawk_passive"
 		}
@@ -2939,7 +2943,7 @@
 			"1"			  "mirana_starfall_lod"
 			"2"           "mirana_solar_flare"
         }
-		
+
 		"npc_dota_hero_monkey_king"
 		{
 			"1"  "monkey_king_transfiguration"
@@ -3015,7 +3019,7 @@
 		"npc_dota_hero_phoenix" {
 			"1"   "phoenix_dying_light"
 		}
-		
+
 		"npc_dota_hero_primal_beast" {
 			"1"  "primal_beast_innate_slow_resistance_per_time"
 			"2"  "primal_beast_innate_status_resistance_per_time"
@@ -3103,7 +3107,7 @@
 			"6"     "techies_custom_stasis_trap"
 			"7"     "techies_custom_suicide"
         }
-		
+
         "npc_dota_hero_templar_assassin" {
             "1"     "templar_assassin_hidden_gates"
         }
@@ -3123,7 +3127,7 @@
 			"3"            "tiny_insurmountable"
 			"4"            "tiny_rocksteady"
         }
-		
+
 		"npc_dota_hero_treant"
 		{
 			"1"  "treant_innate_attack_damage"
@@ -3177,12 +3181,15 @@
 			"1"           "winter_wyvern_dragon_sight"
 			"2"           "winter_wyvern_essence_of_the_blueheart"
 		}
-		
+
 		"npc_dota_hero_wisp" {
 			"1"           "wisp_sight_seer"
+			"2"           "wisp_overcharge_old"
 		}
 
-		
+		"npc_dota_hero_zuus" {
+			"1"           "zeus_static_field_old"
+		}
 
         // "npc_dota_hero_snapfire" {
             // "Ability1"        "snapfire_scatterblast"
@@ -3192,15 +3199,7 @@
             // "Ability5"        "snapfire_mortimer_kisses"
         // }
 
-        // "npc_dota_hero_zuus" {
-            // "Ability1"            "zuus_arc_lightning"
-            // "Ability2"            "zuus_lightning_bolt"
-            // "Ability3"            "zuus_static_field"
-            // "Ability4"            "zuus_cloud"
-            // "Ability5"            "zuus_thundergods_wrath"
-			// "Ability6"			  "zuus_heavenly_jump"
-			// "Ability7"			  "zuus_lightning_hands"
-        // }
+
 
         // "npc_dota_hero_legion_commander" {
             // "Ability1"            "legion_commander_overwhelming_odds"

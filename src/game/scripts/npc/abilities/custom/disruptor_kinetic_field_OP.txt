@@ -7,34 +7,35 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
 
         "AbilityTextureName"                                                   "custom/disruptor_kinetic_field_OP"
-        "AbilityCastPoint"                                                     "0.05 0.05 0.05 0.05"
+        "AbilityCastPoint"                                                     "0.05"
         "AbilityManaCost"                                                      "70"
         "AbilityCastRange"                                                     "99999"
 		"AbilityValues"
 		{
-				"AbilityCooldown"				
-				{
-					"value"	"16 14 12 10"
-					"special_bonus_unique_disruptor_2"				"-3"			
-				}
-				"radius"					
-				{
-					"value"			"350"
-					"affected_by_aoe_increase"	"1"
-				}
-				"formation_time"			
-				{
-					"value"				"0.1"					
-				}
-				"duration"					
-				{
-					"value"				"3 3.5 4 4.5"
-					"special_bonus_unique_disruptor_5" "+1.5"
-				}
-				"damage_per_second"			"40 60 80 100"
+			"AbilityCooldown"
+			{
+				"value"	"16 14 12 10"
+				"special_bonus_unique_disruptor_2"				"-3"
+			}
+			"radius"
+			{
+				"value"			"350"
+				"affected_by_aoe_increase"	"1"
+			}
+			"formation_time"
+			{
+				"value"				"0.1"
+			}
+			"duration"
+			{
+				"value"				"3 3.5 4 4.5"
+				"special_bonus_unique_disruptor_5" "+1"
+			}
+			"damage_per_second"			"40 60 80 100"
 		}
         "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           "support"
         "ReduxPerks"                                                           "support | lightning | skillshot"
+        "ReduxBans"                                                            "disruptor_kinetic_field"
     }
 }

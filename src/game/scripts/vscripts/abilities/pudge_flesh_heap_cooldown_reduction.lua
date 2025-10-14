@@ -16,6 +16,10 @@ function pudge_flesh_heap_cooldown_reduction:GetIntrinsicModifierName()
   return "modifier_flesh_heap_cooldown_reduction"
 end
 
+function pudge_flesh_heap_cooldown_reduction:GetCastRange(location, target)
+  return self:GetSpecialValueFor("flesh_heap_range")
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_flesh_heap_cooldown_reduction = class({})

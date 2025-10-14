@@ -4,11 +4,13 @@
 		"ScriptFile"                                                           "abilities/side_gunner_redux.lua"
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/side_gunner_redux"
+		"IsBreakable"                                                          "1"
+
 		"HasScepterUpgrade"                                                    "1"
 
-        "ReduxFlags"                                                           "aoe_attack | dota_custom"
-        "ReduxPerks"                                                           "scientific"
-        "ReduxCost"                                                            "20"
+		"ReduxFlags"                                                           "aoe_attack | dota_custom"
+		"ReduxPerks"                                                           "scientific"
+		"ReduxCost"                                                            "20"
 
 		"precache"
 		{
@@ -19,11 +21,11 @@
         {
             "interval" "4.6 3.5 2.4 1.3"
             "interval_scepter" "4.0 3.0 2.0 1.0"
-            "range"				
-				{
-					"value"	"700"
-					"affected_by_aoe_increase"	"1"
-				}
+            "range"
+			{
+				"value"	"700"
+				"affected_by_aoe_increase"	"1"
+			}
         }
 	}
 }

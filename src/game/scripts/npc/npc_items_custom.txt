@@ -1153,7 +1153,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                            "item_necronomicon"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"                            "item_necronomicon"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
         // Stats

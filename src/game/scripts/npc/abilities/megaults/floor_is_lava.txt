@@ -20,11 +20,6 @@
         "AbilityCastRange"              "3000"
         "AbilityCastPoint"              "0.4"
 
-        "precache"
-        {
-            "particle"                                                     "particles/units/heroes/hero_invoker/invoker_chaos_meteor.vpcf"
-        }
-
         "AbilityValues"
         {
             "lines" "25"
@@ -47,7 +42,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                    "jakiro_macropyre"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"                    "jakiro_macropyre"
         "AbilityType"                   "ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -62,13 +57,13 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"              "0"
 
-        // Time     
+        // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "60"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "300 400 500"       
+        "AbilityManaCost"               "300 400 500"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -77,9 +72,8 @@
 			"damage"
 			{
 				"value"								"150 200 250"
-				"special_bonus_unique_jakiro_7"		"+20"
 			}
-			"path_width"				
+			"path_width"
 			{
 				"value"	"500"
 				"special_bonus_scepter"			"+70"
@@ -90,7 +84,7 @@
 				"value"							"10.0"
 				"special_bonus_scepter"			"+5.0"
 			}
-			"AbilityCastRange"				
+			"AbilityCastRange"
 			{
 				"value"						"3500"
 			}
@@ -121,6 +115,6 @@
 				"value"							"0"
 				"special_bonus_scepter"			"60"
 			}
-        }	
+        }
     }
 }

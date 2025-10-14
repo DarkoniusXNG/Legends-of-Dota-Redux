@@ -1,5 +1,6 @@
 local flesh_heap_modifiers = {
 	"modifier_flesh_heap_agi",
+	"modifier_flesh_heap_aoe",
 	"modifier_flesh_heap_armor",
 	"modifier_flesh_heap_attack_range",
 	"modifier_flesh_heap_attack_speed",
@@ -7,6 +8,7 @@ local flesh_heap_modifiers = {
 	"modifier_flesh_heap_cast_range",
 	"modifier_flesh_heap_cooldown_reduction",
 	"modifier_flesh_heap_evasion",
+	"modifier_flesh_heap_heal_amp",
 	"modifier_flesh_heap_health_regeneration",
 	"modifier_flesh_heap_int",
 	"modifier_flesh_heap_lifesteal",

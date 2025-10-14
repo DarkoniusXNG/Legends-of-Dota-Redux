@@ -37,19 +37,22 @@
 		"MaxLevel"						"4"
 		"AbilityValues"
 		{
-			"duration"					"7.0 8.0 9.0 10.0"
+			"duration"					"6.0 7.0 8.0 9.0"
 			"illusion_damage_outgoing"
 			{
 				"value" "-20 -15 -10 -5"
-				"special_bonus_unique_spectre_4" "+30"
 			}
 			"tooltip_outgoing"
 			{
 				"value" "80 85 90 95"
-				"special_bonus_unique_spectre_4" "+30"
 			}
 			"illusion_damage_incoming"	"100"
-			"tooltip_illusion_total_damage_incoming"	"200"
+			"tooltip_illusion_total_damage_incoming"
+			{
+				"value"					"200"
+				"CalculateSpellDamageTooltip"	"0"
+				"DamageTypeTooltip"	"DAMAGE_TYPE_NONE"
+			}
 			"attack_delay"				"0"
 			"destroy_if_target_is_dead"
 			{
@@ -68,29 +71,6 @@
 	//=================================================================================================================
 	"spectre_haunt_single"
 	{
-		"AbilityValues"
-		{
-			"duration"					"5.0 6.0 7.0"
-			"illusion_damage_outgoing"
-			{
-				"value" "-60 -40 -20"
-				"special_bonus_unique_spectre_4" "+30"
-			}
-			"tooltip_outgoing"
-			{
-				"value" "40 60 80"
-				"special_bonus_unique_spectre_4" "+30"
-			}
-			"illusion_damage_incoming"	"100"
-			"tooltip_illusion_total_damage_incoming"	"200"
-			"attack_delay"				"0"
-			"destroy_if_target_is_dead"
-			{
-				"value"										"1"
-				"special_bonus_facet_spectre_twist_the_knife"	"=0"
-			}
-		}
-
 		"ReduxFlags"                                                           "illusion"
 		"ReduxPerks"                                                           "illusion"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
@@ -123,7 +103,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "spectre_spectral_dagger"
 	}
 
@@ -135,7 +115,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "spectre_desolate"
 	}
 
@@ -147,7 +127,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "spectre_spectral_dagger"
 	}
 
@@ -159,7 +139,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"
 		{
 		  "1" "spectre_haunt"
@@ -175,7 +155,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "spectre_dispersion"
 	}
 
@@ -187,7 +167,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "spectre_spectral_dagger"
 	}
 }

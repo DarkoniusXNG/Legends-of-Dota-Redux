@@ -22,14 +22,15 @@
                 "affected_by_aoe_increase"	"1"
             }
             "teleport_delay"				"3 2 1"
-            "scepter_health_bonus" 
+            "scepter_health_bonus"
             {
                 "special_bonus_scepter"	"+1000 +1500 +2000"
-            }			
+            }
         }
 
         "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           "support"
         "ReduxPerks"                                                           "teleport | support"
+        "ReduxBans"                                                            "abyssal_underlord_dark_rift"
     }
 }

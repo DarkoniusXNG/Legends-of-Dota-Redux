@@ -6,7 +6,10 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/ogre_magi_multicast_lod"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        //"IsBreakable"                                                          "1" // not disabled with break
+
         "AbilityCooldown"                                                      "30 15 10"
+
         "AbilityValues"
         {
             "multicast_2_times" "70 70 70"

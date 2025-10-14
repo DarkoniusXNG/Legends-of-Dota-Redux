@@ -4942,7 +4942,7 @@
 		"AttackAcquisitionRange" "800" // Range within a target can be acquired.
 		"AttackRange" "500" // Range within a target can be attacked.
 		"ProjectileModel" "" // Particle system model for projectile.
-		"ProjectileSpeed" "900" // Speed of projectile.
+		"ProjectileSpeed" "0" // Speed of projectile.
 		// Attributes
 		//----------------------------------------------------------------
 		"AttributePrimary" "DOTA_ATTRIBUTE_STRENGTH"
@@ -4963,12 +4963,12 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities" "DOTA_UNIT_CAP_MOVE_FLY" // Type of locomotion - ground, air
-		"MovementSpeed" "0" // Speed
+		"MovementSpeed" "900" // Speed
 		"MovementTurnRate" "1.0" // Turning rate.
 		"FollowRange" "-10" // Distance to keep when following
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth" "3" // Base health.
+		"StatusHealth" "2" // Base health.
 		"StatusHealthRegen" "0" // Health regeneration rate.
 		"StatusMana" "0" // Base mana.
 		"StatusManaRegen" "0" // Mana regeneration rate.

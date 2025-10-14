@@ -7,6 +7,7 @@
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"                                                   "custom/riki_backstab_lod"
+        "IsBreakable"                                                          "1"
 
         "precache"
         {

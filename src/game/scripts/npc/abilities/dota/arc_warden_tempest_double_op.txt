@@ -11,8 +11,8 @@
 
         "AbilityValues"
 		{
-			"AbilityCooldown"				
-			{	
+			"AbilityCooldown"
+			{
 				"value"			"30"
 			}
 			"bounty"				"0"
@@ -28,19 +28,19 @@
 			"rune_duration"
 			{
 				"value"											"0"
-				"special_bonus_facet_arc_warden_runed_replica"	"=10"
+				"special_bonus_facet_arc_warden_runed_replica"	"=12"
 			}
 
 			"invis_rune"
 			{
 				"value"											"0 0 0"
-				"special_bonus_facet_arc_warden_runed_replica"	"=1 =1 =1"
+				"special_bonus_facet_arc_warden_runed_replica"	"=0 =1 =1"
 			}
 
 			"arcane_rune"
 			{
 				"value"											"0 0 0"
-				"special_bonus_facet_arc_warden_runed_replica"	"=0 =1 =1"
+				"special_bonus_facet_arc_warden_runed_replica"	"=1 =1 =1"
 			}
 
 			"haste_rune"
@@ -49,7 +49,8 @@
 				"special_bonus_facet_arc_warden_runed_replica"	"=0 =0 =1"
 			}
 		}
-        "ReduxPerks"                                                           "lightning" 
+        "ReduxPerks"                                                           "lightning"
         "ReduxCost"                                                            "120"
+        "ReduxBans"                                                            "arc_warden_tempest_double"
     }
 }

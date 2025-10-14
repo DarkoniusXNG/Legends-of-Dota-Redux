@@ -3,19 +3,19 @@
 	"windrunner_gale_force_op"
 	{
         "BaseClass"                                                            "windrunner_gale_force"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT |  DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 
 		"MaxLevel"						"4"
 		"AbilityCastPoint"				"0.2"
-		"AbilityCastRange"				"0"
+		"AbilityCastRange"				"0" // global
 		"AbilityCooldown"				"20 18 16 14"
 		"AbilityManaCost"				"150"
 		"AbilityValues"
 		{
 			"duration"			"4 6 8 10"
 			"wind_strength"		"400"
-			"radius"			
+			"radius"
 			{
 				"value"		"3000 6000 9000 12000"
 				"affected_by_aoe_increase"	"1"
@@ -25,6 +25,7 @@
 
         "ReduxPerks"                                                           "enemymoving | ranger | nature"
         "ReduxCost"                                                            "120"
+        "ReduxBans"                                                            "windrunner_gale_force"
 	}
 
 }

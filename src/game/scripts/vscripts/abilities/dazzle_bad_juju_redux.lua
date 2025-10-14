@@ -7,6 +7,10 @@ function dazzle_bad_juju_redux:GetIntrinsicModifierName()
 	return "modifier_dazzle_bad_juju_redux_passive"
 end
 
+function dazzle_bad_juju_redux:GetCastRange(location, target)
+  return self:GetSpecialValueFor("radius")
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_dazzle_bad_juju_redux_passive = modifier_dazzle_bad_juju_redux_passive or class({})
@@ -23,12 +27,14 @@ function modifier_dazzle_bad_juju_redux_passive:IsPurgable()
 	return false
 end
 
-function modifier_dazzle_bad_juju_redux_passive:OnRefresh()
+function modifier_dazzle_bad_juju_redux_passive:OnCreated()
 	local ability = self:GetAbility()
 	if ability and not ability:IsNull() then
 		self.cdr = ability:GetSpecialValueFor("cooldown_reduction")
 	end
 end
+
+modifier_dazzle_bad_juju_redux_passive.OnRefresh = modifier_dazzle_bad_juju_redux_passive.OnCreated
 
 function modifier_dazzle_bad_juju_redux_passive:DeclareFunctions()
 	return {

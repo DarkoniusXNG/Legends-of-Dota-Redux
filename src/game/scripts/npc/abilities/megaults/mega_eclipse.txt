@@ -3,12 +3,12 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                    "luna_eclipse"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"                    "luna_eclipse"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityType"                   "ABILITY_TYPE_ULTIMATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
 
@@ -21,58 +21,51 @@
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"              "0.5"
-        "AbilityCastRange"              "0"
-
-        // Time     
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "140.0"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
         "AbilityManaCost"               "250"
-        
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			
-			"beams"
+			"beams" // this needs to be improved
 			{
 				"value"					"100"
-				"special_bonus_scepter"	"+0 +3 +6"
 			}
-			"beam_interval"
+			"beam_interval" // this needs to be improved
 			{
 				"value"					"0.15"
 				"special_bonus_scepter"	"-0.1"
 			}
-			"beam_interval_scepter"		"0.1" // purely for the tooltip Note, since the scepter tooltip doesn't show this.
-			"radius"					"6000"
-			"hit_count"
+			"beam_interval_scepter"		"0.05" // purely for the tooltip Note, since the scepter tooltip doesn't show this.
+			"radius" // this needs to be improved
 			{
-				"value"					"20"
-				"special_bonus_scepter"	"+30"
+				"value"	"1800"
+				"affected_by_aoe_increase"	"1"
+			}
+			"hit_count" // this needs to be improved, same as beams
+			{
+				"value"					"100"
 			}
 			"AbilityCastRange"
 			{
 				"value"					"0"
-				"special_bonus_scepter"	"+5000"
+				"special_bonus_scepter"	"+2500"
 			}
-			"AbilityDuration"
+			"AbilityDuration" // this needs to be improved, beams * beam_interval
 			{
-				"value"					"15"
-				"special_bonus_scepter"	"-5.0"
+				"value"					"6"
 			}
-			"night_duration"	"15.0"
-			"stun_duration"
+			"night_duration"
 			{
-				"value"							"0.0"
-				"special_bonus_unique_luna_5"	"+0.4"
+				"value"	"10.0"
 			}
 			"AbilityCooldown"
 			{
-				"value"							"140.0"
-				"special_bonus_unique_luna_6"	"-70.0"
+				"value"							"105"
+				"special_bonus_unique_luna_6"	"-40"
 			}
 		}
     }

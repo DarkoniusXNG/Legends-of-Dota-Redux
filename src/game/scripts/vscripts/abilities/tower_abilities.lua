@@ -965,23 +965,6 @@ function DeathPulse( keys )
 	if #heroes >= 1 or #creeps >= 1 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_imba_tower_death_pulse_cast", {})
 		ability:UseResources(true, false, false, true)
-
-	--[[	local pulse = caster:FindAbilityByName("necrolyte_death_pulse_tower")
-		if not pulse then
-			caster:AddAbility("necrolyte_death_pulse_tower")
-			pulse = caster:FindAbilityByName("necrolyte_death_pulse_tower")
-			pulse:SetHidden(true)
-			pulse:SetLevel(ability_level)
-		end
-		pulse:SetLevel(ability_level)
-		print(pulse:GetLevel())
-		--Below doesnt work, I dont know how to make it play the sound
-		--caster:EmitSound("Ability.PlasmaField")
-		pulse:OnSpellStart()
-
-		-- Put the ability on cooldown
-		ability:StartCooldown(ability:GetCooldown(ability_level))
-	]]
 	end
 end
 

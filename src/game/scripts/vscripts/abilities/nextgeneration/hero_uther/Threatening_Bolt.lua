@@ -2,50 +2,35 @@ function Launch_Bolt (keys) -- KV OnSpellStart
 	local caster = keys.caster
 	local ability = keys.ability
 	local target_point = keys.target_points[1]
-	local duration = ability:GetDuration()
-	local attacksneeded = ability:GetLevelSpecialValueFor("attacks_needed",ability:GetLevel() -1)
-	
-	local caster_loc = caster:GetOrigin()
-	utherbolts = {}
+	local duration = ability:GetLevelSpecialValueFor("bolt_duration", ability:GetLevel() -1)
+	local attacksneeded = ability:GetLevelSpecialValueFor("attacks_needed", ability:GetLevel() -1)
 
-	for i=1,100 do --Allow for up to 100 utherbolts to be used, creating them below
-		if utherbolts[i] == nil or utherbolts[i]:IsNull() then
-			local bolt_direction = (target_point - caster_loc):Normalized()
-			utherbolts[i] = CreateUnitByName("npc_bolt_unit",caster_loc, true, caster, caster, caster:GetTeamNumber())
-			utherbolts[i]:SetControllableByPlayer(caster:GetPlayerID(), false)
-			utherbolts[i]:SetOwner(caster)
-			utherbolts[i]:SetForwardVector(bolt_direction)
-			utherbolts[i]:EmitSound("Hero_Chen.HolyPersuasionCast")
-			ability:ApplyDataDrivenModifier(caster,utherbolts[i],"modifier_bolt_dummy",{duration = duration})
-			utherbolts[i]:SetHealth(attacksneeded)
-			break
-		end 
-	end 
+	local caster_loc = caster:GetOrigin()
+	local bolt_direction = (target_point - caster_loc):Normalized()
+	local bolt = CreateUnitByName("npc_bolt_unit", caster_loc, true, caster, caster, caster:GetTeamNumber())
+	bolt:SetControllableByPlayer(caster:GetPlayerID(), false)
+	bolt:SetOwner(caster)
+	bolt:SetForwardVector(bolt_direction)
+	bolt:EmitSound("Hero_Chen.HolyPersuasionCast")
+	ability:ApplyDataDrivenModifier(caster, bolt, "modifier_bolt_dummy",{duration = duration})
+	bolt:SetHealth(attacksneeded)
+	bolt.initial_destination = target_point
 end
 
 function Direct_Bolt (keys) -- KV OnIntervalThink
 	local target = keys.target
 	local caster = keys.caster
-	local ability = keys.ability
-	local target_location = GetGroundPosition(target:GetAbsOrigin(), target)
-	local bolt_speed = ability:GetLevelSpecialValueFor("bolt_speed",ability:GetLevel()-1) * 0.03
-	local hammersize = caster:FindAbilityByName("uther_Hurl_Hammer"):GetSpecialValueFor("Hammer_Size")
+	--local hammersize = caster:FindAbilityByName("uther_Hurl_Hammer"):GetSpecialValueFor("Hammer_Size")
 
-	-- Get the direction so we can push it forward in this direction. The user can turn the unit.
-
-	local bolt_direction = target:GetForwardVector()
-	--[[ I dont think this is still relevant
-	if target.bolt_direction == nil then
-		target.bolt_direction = bolt_direction
+	if target.initial_destination then
+		target:MoveToPosition(target.initial_destination)
+		target.initial_destination = nil
 	end
-	]]
 
-
-	target:SetOrigin(target_location + bolt_direction * bolt_speed)
-	
+	-- Check if it's near the hammer
 	if caster.utherhammer and not caster.utherhammer:IsNull() then
 		local distance = (caster.utherhammer:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
-		if distance <= 100 then 
+		if distance <= 100 then
 			target:RemoveModifierByName("modifier_bolt_dummy")
 		end
 	end
@@ -53,19 +38,20 @@ end
 
 function LoseHP (keys) -- KV OnAttacked
 	local caster = keys.caster
-	local ability = keys.ability
 	local attacker = keys.attacker
 	local target = keys.target
 	target.attacksneeded = target:GetHealth()
 
 	--If uther himself attacks then destroy else remove 1 hp
 
-	if caster:GetTeamNumber() == attacker:GetTeamNumber() then	
+	if caster:GetTeamNumber() == attacker:GetTeamNumber() then
 		target:RemoveModifierByName("modifier_bolt_dummy")
 	elseif caster:GetTeamNumber() ~= attacker:GetTeamNumber() then
 		target.attacksneeded = target.attacksneeded - 1
-		target:SetHealth(target.attacksneeded)
-		if target.attacksneeded == 0 then
+		if target.attacksneeded > 0 then
+			target:SetHealth(target.attacksneeded)
+		end
+		if target.attacksneeded <= 0 then
 			target:RemoveModifierByName("modifier_bolt_dummy")
 		end
 	end
@@ -81,13 +67,14 @@ function destroy (keys) -- KV OnDestroy
 	--Damage every unit around
 
 	local targets =  FindUnitsInRadius(caster:GetTeamNumber(), target:GetOrigin(), nil, explosionRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-	for _,unit in pairs(targets) do
+	for _, unit in pairs(targets) do
 		local DamageTable =
 		{
 			victim = unit,
 			attacker = caster,
 			damage = ability:GetLevelSpecialValueFor("damage",ability:GetLevel()-1),
 			damage_type = DAMAGE_TYPE_MAGICAL,
+			ability = ability,
 		}
 		ApplyDamage(DamageTable)
 	end
@@ -95,16 +82,18 @@ function destroy (keys) -- KV OnDestroy
 	target:EmitSound("Hero_KeeperOfTheLight.BlindingLight")
 	--Reset values
 	target.attacksneeded = nil
-	bolt_direction = nil
-	
+
 	--Explosing effect
 	local effect = ParticleManager:CreateParticle("particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf",PATTACH_ABSORIGIN,caster)
 	ParticleManager:SetParticleControl(effect,0,target:GetOrigin())
 	ParticleManager:SetParticleControl(effect,1,target:GetOrigin())
 	ParticleManager:SetParticleControl(effect,2,target:GetOrigin())
 	ParticleManager:SetParticleControl(effect,3,target:GetOrigin())
+	ParticleManager:ReleaseParticleIndex(effect)
 
 	local effect2 = ParticleManager:CreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_recall_source.vpcf",PATTACH_ABSORIGIN,caster)
+	ParticleManager:SetParticleControl(effect2,0,target:GetOrigin())
+	ParticleManager:ReleaseParticleIndex(effect2)
 	-- Remove the unit from the game
 	target:RemoveSelf()
 end

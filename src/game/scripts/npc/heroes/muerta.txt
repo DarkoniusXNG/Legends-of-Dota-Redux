@@ -72,18 +72,34 @@
 
 	"special_bonus_unique_muerta_dead_shot_range"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+		
 		"TalentRequiredAbility"                                                   "muerta_dead_shot"
 	}
 	"special_bonus_unique_muerta_the_calling_num_revenants"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+		
 		"TalentRequiredAbility"                                                   "muerta_the_calling"
 	}
 	"special_bonus_unique_muerta_gunslinger_double_shot_chance"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+		
 		"TalentRequiredAbility"                                                   "muerta_gunslinger"
 	}
 	"special_bonus_unique_muerta_dead_shot_charges"
 	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+		
 		"TalentRequiredAbility"                                                   "muerta_dead_shot"
 	}
 	"special_bonus_unique_muerta_calling_hp_regen"

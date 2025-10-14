@@ -1,60 +1,62 @@
 --------------------------------------------------------------------------------------------------------
---
 --    Hero: Disruptor
---    Perk: Reduces the cooldown of Movement-Blocking abilities by 30% when cast by Disruptor.
---
+--    Perk: Disruptor gains +10 cast range and +1% Mana Regen Amp for each level put in a Lightning ability.
 --------------------------------------------------------------------------------------------------------
-if modifier_npc_dota_hero_disruptor_perk ~= "" then modifier_npc_dota_hero_disruptor_perk = class({}) end
---------------------------------------------------------------------------------------------------------
-if IsServer() then
-    function modifier_npc_dota_hero_disruptor_perk:OnCreated()
-        self:StartIntervalThink(1.0)
-        self:OnIntervalThink()
-    end
+modifier_npc_dota_hero_disruptor_perk = modifier_npc_dota_hero_disruptor_perk or class({})
 
-    function modifier_npc_dota_hero_disruptor_perk:OnIntervalThink()
-        local hero = self:GetParent()
-        local maxMana = hero:GetMaxMana()
-        local mana = hero:GetMana()
-
-        local stacks = 10 - math.floor((mana / maxMana) * 10)
-
-        self:SetStackCount(stacks)
-    end
-end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_disruptor_perk:DeclareFunctions()
-    local funcs = {
-        MODIFIER_PROPERTY_MANA_REGEN_CONSTANT
-    }
-
-    return funcs
-end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_disruptor_perk:GetModifierConstantManaRegen()
-    return 1.5 * self:GetStackCount()
-end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_disruptor_perk:IsPurgable()
-  return false
-end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_disruptor_perk:GetAttributes()
-  return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
---------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_disruptor_perk:IsPassive()
-  return true
+	return true
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_disruptor_perk:IsHidden()
-  return false
+	return false
+end
+--------------------------------------------------------------------------------------------------------
+function modifier_npc_dota_hero_disruptor_perk:IsPurgable()
+	return false
 end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_disruptor_perk:RemoveOnDeath()
-  return false
+	return false
+end
+
+function modifier_npc_dota_hero_disruptor_perk:GetTexture()
+	return "custom/npc_dota_hero_disruptor_perk"
 end
 --------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+function modifier_npc_dota_hero_disruptor_perk:OnCreated()
+	self.bonusPerLevel = 1
+	self.castRangePerLevel = 10
+	if IsServer() then
+		self:StartIntervalThink(0.1)
+	end
+end
 
+function modifier_npc_dota_hero_disruptor_perk:OnIntervalThink()
+	if IsServer() then
+		local caster = self:GetParent()
+		local stacks = 0
+		for i = 0, caster:GetAbilityCount() - 1 do
+			local skill = caster:GetAbilityByIndex(i)
+			if skill and skill:HasAbilityFlag("lightning") then
+				stacks = stacks + skill:GetLevel() * self.bonusPerLevel
+			end
+		end
+		self:SetStackCount(stacks)
+	end
+end
+
+function modifier_npc_dota_hero_disruptor_perk:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
+		MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
+	}
+end
+
+function modifier_npc_dota_hero_disruptor_perk:GetModifierCastRangeBonusStacking()
+	return self:GetStackCount() * self.castRangePerLevel
+end
+
+function modifier_npc_dota_hero_disruptor_perk:GetModifierMPRegenAmplify_Percentage()
+	return self:GetStackCount()
+end

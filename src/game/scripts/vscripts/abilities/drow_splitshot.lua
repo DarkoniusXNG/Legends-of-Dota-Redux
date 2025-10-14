@@ -117,6 +117,6 @@ end
 --not sure if this is the correct modifier property for this
 function modifier_drow_splitshot:GetModifierBaseDamageOutgoing_Percentage()
 	if IsServer() and self.reduceAttackDamage then
-		return self.damageReduction
+		return 0 - math.abs(self.damageReduction)
 	end
 end

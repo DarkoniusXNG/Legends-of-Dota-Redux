@@ -7,6 +7,10 @@ function pudge_flesh_heap_lifesteal:GetIntrinsicModifierName()
   return "modifier_flesh_heap_lifesteal"
 end
 
+function pudge_flesh_heap_lifesteal:GetCastRange(location, target)
+  return self:GetSpecialValueFor("flesh_heap_range")
+end
+
 --------------------------------------------------------------------------------
 
 --[[function pudge_flesh_heap_lifesteal:OnHeroDiedNearby( hVictim, hKiller, kv )

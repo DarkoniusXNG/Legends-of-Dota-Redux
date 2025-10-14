@@ -7,10 +7,13 @@
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO"
         "AbilityTextureName"                                                   "obsidian_destroyer_essence_aura"
+        "IsBreakable"                                                          "1"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_essence_effect.vpcf"
         }
+
         "AbilityValues"
         {
             "radius"
@@ -59,7 +62,8 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "support"
+
+        "ReduxFlags"                                                           "dota_custom | mana | support"
         "ReduxPerks"                                                           "support | aura"
         "ReduxCost"                                                            "120"
     }

@@ -15,7 +15,6 @@
 
         "AbilityValues"
 		{
-
 			"damage_impact"
 			{
 				"value"			"50 100 150 200"
@@ -39,27 +38,27 @@
 			}
 			"collision_radius"
 			{
-				"value"		"100 100 100 100"
+				"value"		"100"
 				"affected_by_aoe_increase"	"1"
 			}
 			"stun_duration"			"1.0"
-			"speed"					"4000"
-			"knockback_distance"
+			"speed"					"3000"
+			"knockback_distance" // 50 less than explosion_radius
 			{
-				"value"				"450"
-				"special_bonus_unique_batrider_3"	"+500"
+				"value"				"400"
+				"special_bonus_unique_batrider_3"	"+50"
 				"affected_by_aoe_increase"	"1"
 			}
-			"knockback_height"		"500"
+			"knockback_height"		"100"
 			"knockback_duration"	"1.0"
 			"napalm_stacks"
 			{
-				"value"				"6"
+				"value"				"0" // dont change this, it might crash
 				"special_bonus_unique_batrider_2"	"+4"
 			}
 			"AbilityCooldown"
 			{
-				"value"	 "22 19 16 13"
+				"value"	 "16 15 14 13"
 				"special_bonus_unique_batrider_5"	"-6"
 			}
 			"slow"	"20 30 40 50"
@@ -67,5 +66,6 @@
 
 		"ReduxPerks"														   "fire | enemymoving | skillshot"
 		"ReduxCost"                                                            "120"
+		"ReduxBans"                                                            "batrider_flamebreak"
     }
 }

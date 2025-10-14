@@ -10,7 +10,7 @@
         "AbilityUnitTargetFlags"                                               "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
 
-        "AbilityCastPoint"                                                     "0.05 0.05 0.05 0.05"
+        "AbilityCastPoint"                                                     "0.05"
         "AbilityManaCost"                                                      "70"
         "AbilityCastRange"                                                     "1200 2000 2800 3600"
         "AbilityValues"
@@ -33,12 +33,12 @@
 			{
 				"value"					"30 45 60 75"
 				"special_bonus_unique_disruptor_9"				"+10"
-
 			}
 		}
 
         "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           "support | mobility"
         "ReduxPerks"                                                           "support | mobility | lightning | enemymoving"
+        "ReduxBans"                                                            "disruptor_glimpse"
     }
 }

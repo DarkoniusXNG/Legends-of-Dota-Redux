@@ -11,13 +11,10 @@
         "AbilityType"                   "ABILITY_TYPE_ULTIMATE"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+        "IsBreakable"                   "1"
 
-        // Casting
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "1200"
-        
-        "ReduxFlags"                                                           "cooldown"
-        "ReduxCost"                                                            "60"
+        "ReduxFlags"                    "cooldown | dota_custom"
+        "ReduxCost"                     "60"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
