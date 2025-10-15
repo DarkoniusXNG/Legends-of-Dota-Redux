@@ -73,7 +73,7 @@ function modifier_flesh_heap_aoe:ReEquipAllItems()
     local item = parent:GetItemInSlot(i)
     if item then
       local name = item:GetAbilityName()
-      if not string.find(name, "ultimate_scepter") then
+      if not string.find(name, "ultimate_scepter") and not string.find(name, "gungir") then
         item:OnUnequip()
         item:OnEquip()
       end
@@ -94,9 +94,20 @@ function modifier_flesh_heap_aoe:DeclareFunctions()
   }
 end
 
+local ignored_abilities = {
+  --arc_warden_flux = true,
+  --phantom_assassin_blur = true,
+  --spectre_desolate = true,
+  item_gungir = true,
+  --item_dezun_bloodrite = true,
+}
+
 function modifier_flesh_heap_aoe:GetModifierOverrideAbilitySpecial(keys)
   local ability = keys.ability
   if not ability or not keys.ability_special_value then
+    return 0
+  end
+  if ignored_abilities and ignored_abilities[ability:GetAbilityName()] then
     return 0
   end
   local ability_kvs = GetAbilityKeyValuesByName(ability:GetAbilityName())
@@ -126,6 +137,9 @@ function modifier_flesh_heap_aoe:GetModifierOverrideAbilitySpecialValue(keys)
   local ability = keys.ability
   if not ability or not keys.ability_special_value then
     return
+  end
+  if ignored_abilities and ignored_abilities[ability:GetAbilityName()] then
+    return value
   end
   local value = ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
   local ability_kvs = GetAbilityKeyValuesByName(ability:GetAbilityName())
