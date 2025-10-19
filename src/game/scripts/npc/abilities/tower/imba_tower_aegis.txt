@@ -1,65 +1,32 @@
 "DOTAAbilities"
 {
-    "imba_tower_aegis"
-    {
-        "BaseClass"                                                            "ability_datadriven"
-        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                                   "modifier_invulnerable"
-        "AbilitySharedWithTeammates"                                           "1"
-        "AbilityCastRange"                                                     "%aura_radius"
-        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
-        "AbilityValues"
-        {
-            "bonus_armor" "4 8 12"
-            "bonus_health" "400 800 1200"
-            "bonus_armor_aura" "3 5 7"
-            "aura_radius"
+	"imba_tower_aegis"
+	{
+		"BaseClass"                                                            "ability_lua"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "modifier_invulnerable"
+		"AbilitySharedWithTeammates"                                           "1"
+		"AbilityCastRange"                                                     "%aura_radius"
+		"AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+		"ScriptFile"							"abilities/dota_imba/tower_abilities"
+
+		"AbilityValues"
+		{
+			"bonus_armor" "4 8 12"
+			"bonus_health" "400 800 1200"
+			"aura_radius"
 			{
 				"value"			"1200"
 				"affected_by_aoe_increase"	"1"
 			}
-        }
-        "OnUpgrade"
-        {
-            "RunScript"
-            {
-                "ScriptFile"                                           "abilities/tower_abilities.lua"
-                "Function"                                             "AegisUpdate"
-            }
-        }
-        "Modifiers"
-        {
-            "modifier_imba_tower_aegis"
-            {
-                "Passive"                                              "1"
-                "IsHidden"                                             "1"
-                "Aura"                                                 "modifier_imba_tower_aegis_aura"
-                "Aura_Radius"                                          "%aura_radius"
-                "Aura_Teams"                                           "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-                "Aura_Types"                                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-                "Aura_ApplyToCaster"                                   "0"
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"       "%bonus_armor"
-                    "MODIFIER_PROPERTY_HEALTH_BONUS"               "%bonus_health"
-                }
-            }
-            "modifier_imba_tower_aegis_aura"
-            {
-                "Passive"                                              "0"
-                "IsHidden"                                             "0"
-                "IsBuff"                                               "1"
-                "IsPurgable"                                           "0"
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"       "%bonus_armor_aura"
-                }
-            }
-        }
-        "ReduxFlags"                                                           "support | tank"
-        "ReduxPerks"                                                           "support | aura"
-        "ReduxCost"                                                            "30"
-    }
+			"aura_stickyness" "0.5"
+			"armor_per_protective" "3 5 7"
+		}
+
+		"ReduxFlags"                                                           "support | tank"
+		"ReduxPerks"                                                           "support | aura"
+		"ReduxCost"                                                            "120"
+	}
 
     "imba_tower_aegis_OP"
     {
@@ -72,7 +39,7 @@
         "AbilityValues"
         {
             "bonus_armor" "8 16 24"
-            "bonus_health" "800 1600 2400"
+            "bonus_health" "800 1600 2400" // lvls 2 and 3 must be the multiplier of lvl 1
             "bonus_armor_aura" "6 10 14"
             "aura_radius"
 			{
@@ -90,7 +57,7 @@
         }
         "Modifiers"
         {
-            "modifier_imba_tower_aegis"
+            "modifier_imba_tower_aegis_op_aura"
             {
                 "Passive"                                              "1"
                 "IsHidden"                                             "1"
@@ -105,7 +72,7 @@
                     "MODIFIER_PROPERTY_HEALTH_BONUS"               "%bonus_health"
                 }
             }
-            "modifier_imba_tower_aegis_aura"
+            "modifier_imba_tower_aegis_op_aura_buff"
             {
                 "Passive"                                              "0"
                 "IsHidden"                                             "0"

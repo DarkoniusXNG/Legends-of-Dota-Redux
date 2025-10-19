@@ -1158,32 +1158,6 @@
 	}
 
 	//=================================================================================================================
-	// Tower ability: Aegis (Tier 1)
-	//=================================================================================================================
-	"imba_tower_aegis"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_lua"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"modifier_invulnerable"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-        {
-            "bonus_armor" "6 10 14"
-            "aura_radius" "900"
-            "aura_stickyness" "0.5"
-            "armor_per_protective" "3"
-        }
-	}
-
-	//=================================================================================================================
 	// Tower ability: Toughness (Tier 1)
 	//=================================================================================================================
 	"imba_tower_toughness"
@@ -1425,32 +1399,6 @@
             "aura_stickyness" "0.5"
             "crit_chance_per_protective" "5"
         }
-	}
-
-	//=================================================================================================================
-	// Tower ability: Atrophy (Tier 2)
-	//=================================================================================================================
-	"imba_tower_atrophy"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_lua"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"custom/tower_atrophy"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-        {
-            "damage_reduction" "-25 -35 -45"
-            "aura_radius" "900"
-            "additional_dr_per_protective" "-3"
-        }
-
 	}
 
 	//=================================================================================================================

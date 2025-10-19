@@ -72,7 +72,8 @@
 			}
 		}
 
-		"ReduxFlags"	"tank"
-		"ReduxCost"	"120"
+		"ReduxFlags"                    "tank"
+		"ReduxPerks"                    "aura"
+		"ReduxCost"                     "120"
 	}
 }

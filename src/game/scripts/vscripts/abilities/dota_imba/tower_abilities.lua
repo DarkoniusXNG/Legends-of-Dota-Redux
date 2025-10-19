@@ -411,13 +411,11 @@ function modifier_imba_tower_protective_instinct:OnCreated()
 		-- Ability properties
 		self.caster = self:GetCaster()
 		self.ability = self:GetAbility()
-		if not self.ability then
-			self:Destroy()
-			return nil
+		if self.ability then
+			self.radius = self.ability:GetSpecialValueFor("radius")
+		else
+			self.radius = 1200
 		end
-
-		-- Ability specials
-		self.radius = self.ability:GetSpecialValueFor("radius")
 
 		-- Set stack count as 0 and start counting heroes
 		self.stacks = 0
@@ -733,6 +731,14 @@ imba_tower_aegis = imba_tower_aegis or class({})
 LinkLuaModifier("modifier_imba_tower_aegis_aura", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_tower_aegis_aura_buff", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 
+function imba_tower_aegis:Spawn()
+	if not IsServer() then return end
+	local caster = self:GetCaster()
+	if not caster:HasModifier("modifier_imba_tower_protective_instinct") then
+		caster:AddNewModifier(caster, nil, "modifier_imba_tower_protective_instinct", {})
+	end
+end
+
 function imba_tower_aegis:GetAbilityTextureName()
 	return "modifier_invulnerable"
 end
@@ -754,12 +760,29 @@ function modifier_imba_tower_aegis_aura:OnCreated()
 	end
 
 	-- Ability specials
+	self.bonus_armor = self.ability:GetSpecialValueFor("bonus_armor")
+	self.bonus_health = self.ability:GetSpecialValueFor("bonus_health")
 	self.aura_radius = self.ability:GetSpecialValueFor("aura_radius")
 	self.aura_stickyness = self.ability:GetSpecialValueFor("aura_stickyness")
 end
 
 function modifier_imba_tower_aegis_aura:OnRefresh()
 	self:OnCreated()
+end
+
+function modifier_imba_tower_aegis_aura:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+		MODIFIER_PROPERTY_HEALTH_BONUS,
+	}
+end
+
+function modifier_imba_tower_aegis_aura:GetModifierPhysicalArmorBonus()
+	return self.bonus_armor
+end
+
+function modifier_imba_tower_aegis_aura:GetModifierHealthBonus()
+	return self.bonus_health
 end
 
 function modifier_imba_tower_aegis_aura:GetAuraDuration()
@@ -811,9 +834,7 @@ function modifier_imba_tower_aegis_aura_buff:OnCreated()
 	end
 
 	-- Ability specials
-	self.bonus_armor = self.ability:GetSpecialValueFor("bonus_armor")
 	self.armor_per_protective = self.ability:GetSpecialValueFor("armor_per_protective")
-
 end
 
 function modifier_imba_tower_aegis_aura_buff:OnRefresh()
@@ -825,15 +846,15 @@ function modifier_imba_tower_aegis_aura_buff:IsHidden()
 end
 
 function modifier_imba_tower_aegis_aura_buff:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS}
-
-	return decFuncs
+	return {
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+	}
 end
 
 function modifier_imba_tower_aegis_aura_buff:GetModifierPhysicalArmorBonus()
 	local protective_instinct_stacks = self.caster:GetModifierStackCount("modifier_imba_tower_protective_instinct", self.caster)
 
-	return self.bonus_armor + self.armor_per_protective * protective_instinct_stacks
+	return self.armor_per_protective * protective_instinct_stacks
 end
 
 
