@@ -56,35 +56,10 @@ function modifier_flesh_heap_aoe:OnCreated()
 		self:SetStackCount(stacks)
 		parent:CalculateStatBonus(true)
 	end
-	self:ReEquipAllItems()
 end
 
 function modifier_flesh_heap_aoe:OnRefresh()
 	self:OnCreated()
-end
-
-function modifier_flesh_heap_aoe:ReEquipAllItems()
-  if not IsServer() then
-    return
-  end
-
-  local parent = self:GetParent()
-  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-    local item = parent:GetItemInSlot(i)
-    if item then
-      local name = item:GetAbilityName()
-      if not string.find(name, "ultimate_scepter") and not string.find(name, "gungir") then
-        item:OnUnequip()
-        item:OnEquip()
-      end
-    end
-  end
-
-  local tp_scroll = parent:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
-  if tp_scroll and tp_scroll:GetAbilityName() == "item_tpscroll" then
-    tp_scroll:OnUnequip()
-    tp_scroll:OnEquip()
-  end
 end
 
 function modifier_flesh_heap_aoe:DeclareFunctions()
@@ -99,7 +74,10 @@ local ignored_abilities = {
   --phantom_assassin_blur = true,
   --spectre_desolate = true,
   item_gungir = true,
-  --item_dezun_bloodrite = true,
+}
+
+local forbidden_kvs = {
+  --magnataur_reverse_polarity = {pull_radius = true, max_knockback_distance = true,},
 }
 
 function modifier_flesh_heap_aoe:GetModifierOverrideAbilitySpecial(keys)
@@ -109,6 +87,12 @@ function modifier_flesh_heap_aoe:GetModifierOverrideAbilitySpecial(keys)
   end
   if ignored_abilities and ignored_abilities[ability:GetAbilityName()] then
     return 0
+  end
+  if forbidden_kvs and forbidden_kvs[ability:GetAbilityName()] then
+    local t = forbidden_kvs[ability:GetAbilityName()]
+    if t[keys.ability_special_value] then
+      return 0
+    end
   end
   local ability_kvs = GetAbilityKeyValuesByName(ability:GetAbilityName())
   if ability_kvs.AbilityValues and ability_kvs.AbilityValues[keys.ability_special_value] then
@@ -136,12 +120,21 @@ function modifier_flesh_heap_aoe:GetModifierOverrideAbilitySpecialValue(keys)
   local parent = self:GetParent()
   local ability = keys.ability
   if not ability or not keys.ability_special_value then
-    return
+    return 0
   end
   if ignored_abilities and ignored_abilities[ability:GetAbilityName()] then
     return value
   end
+  if forbidden_kvs and forbidden_kvs[ability:GetAbilityName()] then
+    local t = forbidden_kvs[ability:GetAbilityName()]
+    if t[keys.ability_special_value] then
+      return value
+    end
+  end
   local value = ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
+  if not value or value == 0 then
+    return value
+  end
   local ability_kvs = GetAbilityKeyValuesByName(ability:GetAbilityName())
   if ability_kvs.AbilityValues and ability_kvs.AbilityValues[keys.ability_special_value] then
     if type(ability_kvs.AbilityValues[keys.ability_special_value]) == "table" then
