@@ -9,12 +9,19 @@
         "AbilityCastRange"                                                     "%stun_radius"
         "AbilityCooldown"                                                      "10 9 8"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+
         "AbilityValues"
         {
-            "stun_radius" "800 1000 1200"
+            "stun_radius" "800 900 1000"
             "stun_duration" "1.0 1.25 1.5"
             "min_creeps" "4"
         }
+
+        "precache"
+        {
+            "particle"                                         "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+        }
+
         "Modifiers"
         {
             "modifier_imba_tower_chrono"
@@ -48,6 +55,7 @@
                 }
             }
         }
+
         "ReduxFlags"                                                           "stun"
         "ReduxCost"                                                            "120"
     }
