@@ -780,6 +780,7 @@ function Force( keys )
 	local force_distance = ability:GetLevelSpecialValueFor("force_distance", ability_level)
 	local force_duration = ability:GetLevelSpecialValueFor("force_duration", ability_level)
 	local min_creeps = ability:GetLevelSpecialValueFor("min_creeps", ability_level)
+	local stun_duration = ability:GetLevelSpecialValueFor("stun_duration", ability_level)
 	local tower_loc = caster:GetAbsOrigin()
 
 	-- Find nearby enemies
@@ -804,14 +805,33 @@ function Force( keys )
 			center_z = tower_loc.z
 		}
 
-		-- Knockback enemies
-		for _,enemy in pairs(creeps) do
+		-- Knockback creeps OUT
+		for _, enemy in pairs(creeps) do
 			enemy:RemoveModifierByName("modifier_knockback")
 			enemy:AddNewModifier(caster, nil, "modifier_knockback", knockback_param)
 		end
-		for _,enemy in pairs(heroes) do
+		-- Pull heroes IN
+		for _, enemy in pairs(heroes) do
+			-- Calculate distance from tower
+			local distance = (enemy:GetAbsOrigin() - tower_loc):Length2D()
+			local direction = (enemy:GetAbsOrigin() - tower_loc):Normalized()
+			local knockback_source_loc = enemy:GetAbsOrigin() + direction * 150
+
+			-- Set up knockback parameters
+			knockback_param =
+			{	should_stun = 0,
+				knockback_duration = force_duration,
+				duration = force_duration,
+				knockback_distance = distance-180,
+				knockback_height = 0,
+				center_x = knockback_source_loc.x,
+				center_y = knockback_source_loc.y,
+				center_z = knockback_source_loc.z
+			}
+
 			enemy:RemoveModifierByName("modifier_knockback")
 			enemy:AddNewModifier(caster, nil, "modifier_knockback", knockback_param)
+			enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
 		end
 
 		-- Put the ability on cooldown
