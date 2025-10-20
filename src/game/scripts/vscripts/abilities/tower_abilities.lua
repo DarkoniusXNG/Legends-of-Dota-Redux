@@ -404,45 +404,6 @@ function Chronotower( keys )
 	end
 end
 
-function GrievousWounds( keys )
-	local caster = keys.caster
-	local target = keys.target
-	local ability = keys.ability
-	local ability_level = ability:GetLevel() - 1
-	local modifier_debuff = keys.modifier_debuff
-	local particle_hit = keys.particle_hit
-	
-	if caster:PassivesDisabled() then return end
-
-	if not caster:IsRealHero() and not caster:IsBuilding() and target:IsBuilding() then return nil end
-
-
-	-- Parameters
-	local damage_increase = ability:GetLevelSpecialValueFor("damage_increase", ability_level)
-
-	-- Play hit particle
-	local hit_pfx = ParticleManager:CreateParticle(particle_hit, PATTACH_ABSORIGIN, target)
-	ParticleManager:SetParticleControl(hit_pfx, 0, target:GetAbsOrigin())
-
-	-- Calculate bonus damage
-	local base_damage = caster:GetAttackDamage()
-	local current_stacks = target:GetModifierStackCount(modifier_debuff, caster)
-	local total_damage = base_damage * ( 1 + current_stacks * damage_increase / 100 )
-
-	-- Apply damage
-	ApplyDamage({
-		attacker = caster,
-		victim = target,
-		ability = ability,
-		damage = total_damage,
-		damage_type = DAMAGE_TYPE_PHYSICAL,
-		damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
-	})
-
-	-- Apply bonus damage modifier
-	AddStacks(ability, caster, target, modifier_debuff, 1, true)
-end
-
 function EssenceDrain( keys )
 	local caster = keys.caster
 	local target = keys.target

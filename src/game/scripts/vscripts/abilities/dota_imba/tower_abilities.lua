@@ -392,7 +392,7 @@ function modifier_imba_tower_thorns_aura:GetModifierAura()
 end
 
 function modifier_imba_tower_thorns_aura:IsAura()
-	return true
+	return not self:GetCaster():PassivesDisabled()
 end
 
 function modifier_imba_tower_thorns_aura:IsDebuff()
@@ -536,11 +536,15 @@ function modifier_imba_tower_aegis_aura:DeclareFunctions()
 end
 
 function modifier_imba_tower_aegis_aura:GetModifierPhysicalArmorBonus()
-	return self.bonus_armor
+	if not self:GetCaster():PassivesDisabled() then
+		return self.bonus_armor
+	end
 end
 
 function modifier_imba_tower_aegis_aura:GetModifierHealthBonus()
-	return self.bonus_health
+	if not self:GetCaster():PassivesDisabled() then
+		return self.bonus_health
+	end
 end
 
 function modifier_imba_tower_aegis_aura:GetAuraDuration()
@@ -568,7 +572,7 @@ function modifier_imba_tower_aegis_aura:GetModifierAura()
 end
 
 function modifier_imba_tower_aegis_aura:IsAura()
-	return true
+	return not self:GetCaster():PassivesDisabled()
 end
 
 function modifier_imba_tower_aegis_aura:IsDebuff()
@@ -740,119 +744,6 @@ function modifier_imba_tower_toughness_aura_buff:GetModifierHealthBonus()
 	local protective_instinct_stacks = self.caster:GetModifierStackCount("modifier_imba_tower_protective_instinct", self.caster)
 	return self.bonus_health + self.health_per_protective * protective_instinct_stacks
 end
-
-
----------------------------------------------------
----------------------------------------------------
----------------------------------------------------
---			Tower's Sniper Aura
----------------------------------------------------
----------------------------------------------------
----------------------------------------------------
-imba_tower_sniper = imba_tower_sniper or class({})
-LinkLuaModifier("modifier_imba_tower_sniper_aura", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_imba_tower_sniper_aura_buff", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
-
-function imba_tower_sniper:GetAbilityTextureName()
-	return "sniper_assassinate"
-end
-
-function imba_tower_sniper:GetIntrinsicModifierName()
-	return "modifier_imba_tower_sniper_aura"
-end
-
--- Tower Aura
-modifier_imba_tower_sniper_aura = modifier_imba_tower_sniper_aura or class({})
-
-function modifier_imba_tower_sniper_aura:OnCreated()
-	-- Ability properties
-	self.caster = self:GetCaster()
-	self.ability = self:GetAbility()
-	if not self.ability then
-		self:Destroy()
-		return nil
-	end
-
-	-- Ability specials
-	self.aura_radius = self.ability:GetSpecialValueFor("aura_radius")
-	self.aura_stickyness = self.ability:GetSpecialValueFor("aura_stickyness")
-end
-
-function modifier_imba_tower_sniper_aura:OnRefresh()
-	self:OnCreated()
-end
-
-function modifier_imba_tower_sniper_aura:GetAuraDuration()
-	return self.aura_stickyness
-end
-
-function modifier_imba_tower_sniper_aura:GetAuraRadius()
-	return self.aura_radius
-end
-
-function modifier_imba_tower_sniper_aura:GetAuraSearchFlags()
-	return DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED
-end
-
-function modifier_imba_tower_sniper_aura:GetAuraSearchTeam()
-	return DOTA_UNIT_TARGET_TEAM_FRIENDLY
-end
-
-function modifier_imba_tower_sniper_aura:GetAuraSearchType()
-	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
-end
-
-function modifier_imba_tower_sniper_aura:GetModifierAura()
-	return "modifier_imba_tower_sniper_aura_buff"
-end
-
-function modifier_imba_tower_sniper_aura:IsAura()
-	return true
-end
-
-function modifier_imba_tower_sniper_aura:IsDebuff()
-	return false
-end
-
-function modifier_imba_tower_sniper_aura:IsHidden()
-	return true
-end
-
--- Attack range Modifier
-modifier_imba_tower_sniper_aura_buff = modifier_imba_tower_sniper_aura_buff or class({})
-
-function modifier_imba_tower_sniper_aura_buff:OnCreated()
-	-- Ability properties
-	self.caster = self:GetCaster()
-	self.ability = self:GetAbility()
-	if not self.ability then
-		self:Destroy()
-		return nil
-	end
-	-- Ability specials
-	self.bonus_range = self.ability:GetSpecialValueFor("bonus_range")
-	self.range_per_protective = self.ability:GetSpecialValueFor("range_per_protective")
-end
-
-function modifier_imba_tower_sniper_aura_buff:OnRefresh()
-	self:OnCreated()
-end
-
-function modifier_imba_tower_sniper_aura_buff:IsHidden()
-	return false
-end
-
-function modifier_imba_tower_sniper_aura_buff:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_ATTACK_RANGE_BONUS}
-
-	return decFuncs
-end
-
-function modifier_imba_tower_sniper_aura_buff:GetModifierAttackRangeBonus()
-	local protective_instinct_stacks = self.caster:GetModifierStackCount("modifier_imba_tower_protective_instinct", self.caster)
-	return self.bonus_range + self.range_per_protective * protective_instinct_stacks
-end
-
 
 ---------------------------------------------------
 ---------------------------------------------------
@@ -1263,7 +1154,7 @@ function modifier_imba_tower_spell_shield_aura:GetModifierAura()
 end
 
 function modifier_imba_tower_spell_shield_aura:IsAura()
-	return true
+	return not self:GetCaster():PassivesDisabled()
 end
 
 function modifier_imba_tower_spell_shield_aura:IsDebuff()
@@ -1384,7 +1275,7 @@ function modifier_imba_tower_vicious_aura:GetModifierAura()
 end
 
 function modifier_imba_tower_vicious_aura:IsAura()
-	return true
+	return not self:GetCaster():PassivesDisabled()
 end
 
 function modifier_imba_tower_vicious_aura:IsDebuff()
@@ -1798,7 +1689,7 @@ function modifier_imba_tower_atrophy_aura:GetModifierAura()
 end
 
 function modifier_imba_tower_atrophy_aura:IsAura()
-	return true
+	return not self:GetCaster():PassivesDisabled()
 end
 
 function modifier_imba_tower_atrophy_aura:IsDebuff()
@@ -1835,9 +1726,9 @@ function modifier_imba_tower_atrophy_aura_debuff:IsHidden()
 end
 
 function modifier_imba_tower_atrophy_aura_debuff:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE}
-
-	return decFuncs
+	return {
+		MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE
+	}
 end
 
 function modifier_imba_tower_atrophy_aura_debuff:GetModifierBaseDamageOutgoing_Percentage()
@@ -1914,7 +1805,7 @@ function modifier_imba_tower_regeneration_aura:GetModifierAura()
 end
 
 function modifier_imba_tower_regeneration_aura:IsAura()
-	return true
+	return not self:GetCaster():PassivesDisabled()
 end
 
 function modifier_imba_tower_regeneration_aura:IsDebuff()
@@ -1952,9 +1843,9 @@ function modifier_imba_tower_regeneration_aura_buff:IsHidden()
 end
 
 function modifier_imba_tower_regeneration_aura_buff:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE}
-
-	return decFuncs
+	return {
+		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE
+	}
 end
 
 function modifier_imba_tower_regeneration_aura_buff:GetModifierHealthRegenPercentage()
@@ -2170,6 +2061,14 @@ LinkLuaModifier("modifier_imba_tower_grievous_wounds_aura", "abilities/dota_imba
 LinkLuaModifier("modifier_imba_tower_grievous_wounds_aura_buff", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_tower_grievous_wounds_debuff", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 
+function imba_tower_grievous_wounds:Spawn()
+	if not IsServer() then return end
+	local caster = self:GetCaster()
+	if not caster:HasModifier("modifier_imba_tower_protective_instinct") then
+		caster:AddNewModifier(caster, nil, "modifier_imba_tower_protective_instinct", {})
+	end
+end
+
 function imba_tower_grievous_wounds:GetAbilityTextureName()
 	return "ursa_fury_swipes"
 end
@@ -2224,7 +2123,7 @@ function modifier_imba_tower_grievous_wounds_aura:GetModifierAura()
 end
 
 function modifier_imba_tower_grievous_wounds_aura:IsAura()
-	return true
+	return not self:GetCaster():PassivesDisabled()
 end
 
 function modifier_imba_tower_grievous_wounds_aura:IsDebuff()
@@ -2264,9 +2163,9 @@ function modifier_imba_tower_grievous_wounds_aura_buff:IsHidden()
 end
 
 function modifier_imba_tower_grievous_wounds_aura_buff:DeclareFunctions()
-	local decFuncs = {MODIFIER_EVENT_ON_ATTACK_LANDED}
-
-	return decFuncs
+	return {
+		MODIFIER_EVENT_ON_ATTACK_LANDED
+	}
 end
 
 function modifier_imba_tower_grievous_wounds_aura_buff:OnAttackLanded(keys)
@@ -2303,6 +2202,7 @@ function modifier_imba_tower_grievous_wounds_aura_buff:OnAttackLanded(keys)
 				attacker = self.parent,
 				damage = damage,
 				damage_type = DAMAGE_TYPE_PHYSICAL,
+				damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
 				ability = self.ability
 			}
 

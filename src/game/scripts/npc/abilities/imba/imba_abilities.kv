@@ -645,70 +645,6 @@
 	}
 
 	//=================================================================================================================
-	// Fountain ability: Grievous Wounds
-	//=================================================================================================================
-	"imba_fountain_grievous_wounds"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_datadriven"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"ursa_fury_swipes"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage_increase"				"10 15 20"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"debuff_duration"				"5"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_imba_fountain_grievous_wounds"
-			{
-				"Passive"						"1"
-				"IsHidden"						"1"
-
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"			"abilities/dota_imba/fountain_abilities.lua"
-						"Function"				"GrievousWounds"
-
-						"modifier_debuff"		"modifier_imba_fountain_grievous_wounds_debuff"
-						"particle_hit"			"particles/units/heroes/hero_ursa/ursa_fury_swipes.vpcf"
-					}
-				}
-			}
-
-			"modifier_imba_fountain_grievous_wounds_debuff"
-			{
-				"Passive"						"0"
-				"IsHidden"						"0"
-				"IsDebuff"						"1"
-				"IsPurgable"					"1"
-
-				"Duration"						"%debuff_duration"
-
-				"EffectName"					"particles/units/heroes/hero_ursa/ursa_fury_swipes_debuff.vpcf"
-				"EffectAttachType"				"follow_overhead"
-			}
-		}
-	}
-
-	//=================================================================================================================
 	// Fountain ability: Relief Aura
 	//=================================================================================================================
 	"imba_fountain_relief"
@@ -1349,51 +1285,6 @@
 	}
 
 	//=================================================================================================================
-	// Tower ability: Sniper (Tier 1)
-	//=================================================================================================================
-	"imba_tower_sniper"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_lua"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"sniper_assassinate"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_range"					"125 150 175"
-			}
-
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"aura_radius"					"900"
-			}
-
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"aura_stickyness"				"0.5"
-			}
-
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"range_per_protective"			"25"
-			}
-		}
-	}
-
-	//=================================================================================================================
 	// Tower ability: Explosion Tower (Tier 1)
 	//=================================================================================================================
 	"imba_tower_splash_fire"
@@ -1743,58 +1634,6 @@
 		}
 
 	}
-
-	//=================================================================================================================
-	// Tower ability: Grievous Wounds (Tier 3)
-	//=================================================================================================================
-	"imba_tower_grievous_wounds"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_lua"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"ursa_fury_swipes"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage_increase"				"10 20 30"
-			}
-
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"aura_radius"					"900"
-			}
-
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"aura_stickyness"				"0.5"
-			}
-
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage_increase_per_hero"		"2"
-			}
-
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"debuff_duration"				"6"
-			}
-		}
-	}
-
 
 	//=================================================================================================================
 	// Tower ability: Essence Drain (Tier 3)
