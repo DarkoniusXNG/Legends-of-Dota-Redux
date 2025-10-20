@@ -1645,6 +1645,14 @@ imba_tower_plague = imba_tower_plague or class({})
 LinkLuaModifier("modifier_imba_tower_plague_aura", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_tower_plague_aura_debuff", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 
+function imba_tower_plague:Spawn()
+	if not IsServer() then return end
+	local caster = self:GetCaster()
+	if not caster:HasModifier("modifier_imba_tower_protective_instinct") then
+		caster:AddNewModifier(caster, nil, "modifier_imba_tower_protective_instinct", {})
+	end
+end
+
 function imba_tower_plague:GetAbilityTextureName()
 	return "custom/tower_rot"
 end
@@ -1665,7 +1673,7 @@ function modifier_imba_tower_plague_aura:OnCreated()
 		self:Destroy()
 		return nil
 	end
-	self.particle_rot = "particles/hero/tower/plague_tower_aura.vpcf"
+	self.particle_rot = "particles/units/heroes/hero_pudge/pudge_rot_radius.vpcf" --"particles/hero/tower/plague_tower_aura.vpcf"
 
 	-- Ability specials
 	self.aura_radius = self.ability:GetSpecialValueFor("aura_radius")
@@ -1719,6 +1727,13 @@ end
 modifier_imba_tower_plague_aura_debuff = modifier_imba_tower_plague_aura_debuff or class({})
 
 function modifier_imba_tower_plague_aura_debuff:OnCreated()
+	self:OnRefresh()
+	if IsServer() then
+		self:StartIntervalThink(self.interval)
+	end
+end
+
+function modifier_imba_tower_plague_aura_debuff:OnRefresh()
 	-- Ability properties
 	self.caster = self:GetCaster()
 	self.ability = self:GetAbility()
@@ -1731,21 +1746,37 @@ function modifier_imba_tower_plague_aura_debuff:OnCreated()
 	self.ms_slow = self.ability:GetSpecialValueFor("ms_slow")
 	self.additional_slow_per_protective = self.ability:GetSpecialValueFor("additional_slow_per_protective")
 	self.as_slow = self.ability:GetSpecialValueFor("as_slow")
-end
-
-function modifier_imba_tower_plague_aura_debuff:OnRefresh()
-	self:OnCreated()
+	self.dps = self.ability:GetSpecialValueFor("damage_per_second")
+	self.interval = self.ability:GetSpecialValueFor("tick_rate")
 end
 
 function modifier_imba_tower_plague_aura_debuff:IsHidden()
 	return false
 end
 
-function modifier_imba_tower_plague_aura_debuff:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT}
+function modifier_imba_tower_plague_aura_debuff:OnIntervalThink()
+	local parent = self:GetParent()
+	if not parent or parent:IsNull() or not self.caster or self.caster:IsNull() or not self.ability then
+		self:StartIntervalThink(-1)
+		self:Destroy()
+		return
+	end
+	local dmg_per_interval = self.dps * self.interval
+	local dmg_table = {
+		victim = parent,
+		attacker = self.caster,
+		damage = dmg_per_interval,
+		damage_type = DAMAGE_TYPE_MAGICAL,
+		ability = self.ability,
+	}
+	ApplyDamage(dmg_table)
+end
 
-	return decFuncs
+function modifier_imba_tower_plague_aura_debuff:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
+	}
 end
 
 function modifier_imba_tower_plague_aura_debuff:GetModifierMoveSpeedBonus_Percentage()

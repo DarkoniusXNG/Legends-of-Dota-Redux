@@ -2,70 +2,34 @@
 {
     "imba_tower_plague"
     {
-        "BaseClass"                                                            "ability_datadriven"
+        "BaseClass"                                                            "ability_lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/tower_rot"
         "AbilitySharedWithTeammates"                                           "1"
-        "AbilityCastRange"                                                     "%area_of_effect"
+        "AbilityCastRange"                                                     "%aura_radius"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "ScriptFile"							"abilities/dota_imba/tower_abilities"
+
         "AbilityValues"
         {
             "damage_per_second" "30 50 70"
-            "slow" "-15 -25 -35"
-            "area_of_effect"
+            "ms_slow" "-20 -25 -30"
+            "as_slow" "-20 -25 -30"
+            "aura_radius"
 			{
 				"value"			"700"
 				"affected_by_aoe_increase"	"1"
 			}
-            "damage_per_tick" "15 25 35"
             "tick_rate" "0.5"
+            "additional_slow_per_protective" "-3"
         }
-        "Modifiers"
+
+        "precache"
         {
-            "modifier_imba_tower_plague"
-            {
-                "Passive"                                              "1"
-                "IsHidden"                                             "1"
-                "Aura"                                                 "modifier_imba_tower_plague_aura"
-                "Aura_Radius"                                          "%area_of_effect"
-                "Aura_Teams"                                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-                "Aura_Types"                                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-                "Aura_ApplyToCaster"                                   "0"
-                "OnCreated"
-                {
-                    "RunScript"
-                    {
-                        "ScriptFile"                           "abilities/tower_abilities.lua"
-                        "Function"                             "PlagueParticle"
-                        "particle_plague"                      "particles/units/heroes/hero_pudge/pudge_rot_radius.vpcf"
-                    }
-                }
-            }
-            "modifier_imba_tower_plague_aura"
-            {
-                "Passive"                                              "0"
-                "IsHidden"                                             "0"
-                "IsDebuff"                                             "1"
-                "IsPurgable"                                           "1"
-                "ThinkInterval"                                        "%tick_rate"
-                "OnIntervalThink"
-                {
-                    "Damage"
-                    {
-                        "Target"                               "TARGET"
-                        "Type"                                 "DAMAGE_TYPE_PHYSICAL"
-                        "Damage"                               "%damage_per_tick"
-                    }
-                }
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%slow"
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow"
-                }
-            }
+            "particle"                                      "particles/units/heroes/hero_pudge/pudge_rot_radius.vpcf"
         }
+
         "ReduxPerks"                                                           "aura"
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
     }
 }

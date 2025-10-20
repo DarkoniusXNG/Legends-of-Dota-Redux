@@ -1896,51 +1896,6 @@
 	}
 
 	//=================================================================================================================
-	// Tower ability: Plague (Tier 2)
-	//=================================================================================================================
-	"imba_tower_plague"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_lua"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"custom/tower_rot"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"700"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"ms_slow"							"-25 -30 -35"
-			}
-
-			"02"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"as_slow"							"-25 -30 -35"
-			}
-
-			"03"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"aura_radius"						"700"
-			}
-
-			"04"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"additional_slow_per_protective"	"-3"
-			}
-		}
-	}
-
-	//=================================================================================================================
 	// Tower ability: Grievous Wounds (Tier 3)
 	//=================================================================================================================
 	"imba_tower_grievous_wounds"
