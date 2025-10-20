@@ -9,8 +9,10 @@
         "AbilityCastRange"                                                     "%area_of_effect"
         "AbilityCooldown"                                                      "6"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
 
-        "ReduxPerks"                                                           "undead"
+        "ReduxFlags"                                                           "support"
+        "ReduxPerks"                                                           "support | undead"
         "ReduxCost"                                                            "120"
 
         "precache"

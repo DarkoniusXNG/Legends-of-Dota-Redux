@@ -981,7 +981,7 @@ function DeathPulse( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local ability_level = ability:GetLevel()
-	--local sound_silence = keys.sound_silence
+
 	if not ability:IsCooldownReady() then
 		return nil
 	end
@@ -991,27 +991,30 @@ function DeathPulse( keys )
 	if not caster:IsRealHero() and not caster:IsBuilding() then return nil end
 	
 	-- Parameters
-	local plasma_radius = ability:GetLevelSpecialValueFor("area_of_effect", ability_level-1)
+	local radius = ability:GetLevelSpecialValueFor("area_of_effect", ability_level-1)
 	local tower_loc = caster:GetAbsOrigin()
 
 	-- Find nearby enemies
-	local heroes = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
-	local creeps = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
 
 	-- Check if the ability should be cast
-	if #heroes >= 1 or #creeps >= 1 then
+	if #enemies >= 1 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_imba_tower_death_pulse_cast", {})
 		ability:UseResources(true, false, false, true)
 	end
 end
 
 function DeathPulseHit( keys )
-	if keys.target and keys.ability and keys.caster then
-		local damageHeal = keys.ability:GetSpecialValueFor("healdamage")
-		if keys.target:GetTeam() ~= keys.caster:GetTeam() then
-			ApplyDamage({victim = keys.target, attacker = keys.caster, ability = keys.ability, damage = damageHeal, damage_type = DAMAGE_TYPE_MAGICAL})
+	local ability = keys.ability
+	local caster = keys.caster
+	local target = keys.target
+	if target and not target:IsNull() and ability and caster and not caster:IsNull() then
+		local ability_level = ability:GetLevel()
+		local damageHeal = ability:GetLevelSpecialValueFor("healdamage", ability_level-1)
+		if target:GetTeam() ~= caster:GetTeam() then
+			ApplyDamage({victim = target, attacker = caster, ability = ability, damage = damageHeal, damage_type = DAMAGE_TYPE_MAGICAL})
 		else
-			keys.target:Heal(damageHeal, keys.caster)
+			target:Heal(damageHeal, ability)
 		end
 	end
 end

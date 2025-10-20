@@ -30,7 +30,7 @@
             "particle"                                      "particles/units/heroes/hero_pudge/pudge_rot_radius.vpcf"
         }
 
-        "ReduxPerks"                                                           "aura"
+        "ReduxPerks"                                                           "aura | undead"
         "ReduxCost"                                                            "120"
     }
 }
