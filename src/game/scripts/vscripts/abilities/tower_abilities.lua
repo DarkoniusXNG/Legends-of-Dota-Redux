@@ -297,18 +297,26 @@ function ManaFlare( keys )
 		caster:EmitSound(sound_burn)
 
 		-- Iterate through enemies
-		for _,enemy in pairs(heroes) do
-			
-			-- Burn mana
-			local mana_to_burn = enemy:GetMaxMana() * burn_pct / 100
-			local current_mana = enemy:GetMana()
-			local real_mana_to_burn = math.min(mana_to_burn, current_mana)
-			enemy:Script_ReduceMana(real_mana_to_burn, ability)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, burn_aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
+		for _, enemy in pairs(enemies) do
+			if enemy and not enemy:IsNull() then
+				if enemy.GetMana ~= nil and enemy.GetMaxMana ~= nil then
+					local max_mana = enemy:GetMaxMana()
+					-- Check if enemy even has mana
+					if max_mana ~= 0 then
+						-- Burn mana
+						local mana_to_burn = max_mana * burn_pct / 100
+						local current_mana = enemy:GetMana()
+						local real_mana_to_burn = math.min(mana_to_burn, current_mana)
+						enemy:Script_ReduceMana(real_mana_to_burn, ability)
 
-			-- Play mana burn particle
-			local mana_burn_pfx = ParticleManager:CreateParticle(particle_burn, PATTACH_ABSORIGIN, enemy)
-			ParticleManager:SetParticleControl(mana_burn_pfx, 0, enemy:GetAbsOrigin())
-			ParticleManager:ReleaseParticleIndex(mana_burn_pfx)
+						-- Play mana burn particle
+						local mana_burn_pfx = ParticleManager:CreateParticle(particle_burn, PATTACH_ABSORIGIN, enemy)
+						ParticleManager:SetParticleControl(mana_burn_pfx, 0, enemy:GetAbsOrigin())
+						ParticleManager:ReleaseParticleIndex(mana_burn_pfx)
+					end
+				end
+			end
 		end
 
 		-- Put the ability on cooldown

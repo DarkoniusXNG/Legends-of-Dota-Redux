@@ -2599,61 +2599,6 @@
 	}
 
 	//=================================================================================================================
-	// Tower ability: Mana Flare (Actives)
-	//=================================================================================================================
-	"imba_tower_mana_flare"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_datadriven"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"custom/mana_flare"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
-		"AbilityCooldown"						"6"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"burn_aoe"						"900"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"burn_pct"						"15 30 45"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_imba_tower_mana_flare"
-			{
-				"Passive"						"1"
-				"IsHidden"						"1"
-
-				"ThinkInterval"					"0.5"
-
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"			"abilities/dota_imba/tower_abilities.lua"
-						"Function"				"ManaFlare"
-
-						"particle_burn"			"particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn.vpcf"
-						"sound_burn"			"Hero_NyxAssassin.ManaBurn.Target"
-					}
-				}
-			}
-		}
-	}
-
-	//=================================================================================================================
 	// Tower ability: Reality (Actives)
 	//=================================================================================================================
 	"imba_tower_reality"

@@ -70,49 +70,6 @@ function HexAura( keys )
 	end
 end
 
-function ManaFlare( keys )
-	local caster = keys.caster
-	local ability = keys.ability
-	local ability_level = ability:GetLevel() - 1
-	local particle_burn = keys.particle_burn
-	local sound_burn = keys.sound_burn
-
-	-- If the ability is on cooldown, do nothing
-	if not ability:IsCooldownReady() then
-		return nil
-	end
-
-	-- Parameters
-	local burn_aoe = ability:GetLevelSpecialValueFor("burn_aoe", ability_level)
-	local burn_pct = ability:GetLevelSpecialValueFor("burn_pct", ability_level)
-	local tower_loc = caster:GetAbsOrigin()
-
-	-- Find nearby enemies
-	local heroes = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, burn_aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
-
-	-- Check if the ability should be cast
-	if #heroes >= 1 then
-
-		-- Play sound
-		caster:EmitSound(sound_burn)
-
-		-- Iterate through enemies
-		for _,enemy in pairs(heroes) do
-
-			-- Burn mana
-			local mana_to_burn = enemy:GetMaxMana() * burn_pct / 100
-			enemy:Script_ReduceMana(mana_to_burn, ability)
-
-			-- Play mana burn particle
-			local mana_burn_pfx = ParticleManager:CreateParticle(particle_burn, PATTACH_ABSORIGIN, enemy)
-			ParticleManager:SetParticleControl(mana_burn_pfx, 0, enemy:GetAbsOrigin())
-		end
-
-		-- Put the ability on cooldown
-		ability:StartCooldown(ability:GetCooldown(ability_level))
-	end
-end
-
 function Chronotower( keys )
 	local caster = keys.caster
 	local ability = keys.ability

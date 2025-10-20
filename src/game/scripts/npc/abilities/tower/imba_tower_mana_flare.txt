@@ -6,14 +6,24 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/mana_flare"
         "AbilitySharedWithTeammates"                                           "1"
-        "AbilityCastRange"                                                     "1200"
+        "AbilityCastRange"                                                     "%burn_aoe"
         "AbilityCooldown"                                                      "6 5 4"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
-            "burn_aoe" "1200"
-            "burn_pct" "30"
+            "burn_aoe"
+            {
+                "value"			"900"
+                "affected_by_aoe_increase"	"1"
+            }
+            "burn_pct" "20 25 30"
         }
+
+        "precache"
+        {
+            "particle"                                                     "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn.vpcf"
+        }
+
         "Modifiers"
         {
             "modifier_imba_tower_mana_flare"
@@ -34,6 +44,6 @@
             }
         }
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
+        "ReduxFlags"                                                           "mana"
     }
 }

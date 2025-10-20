@@ -2,7 +2,7 @@
 {
     "imba_tower_mana_burn"
     {
-        "BaseClass"                                                            "ability_lua"
+        "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/imba_tower_mana_burn" // "custom/tower_mana_burn"
         "AbilitySharedWithTeammates"                                           "1"
