@@ -915,6 +915,7 @@ function Mindblast( keys )
 	
 	-- Parameters
 	local silence_radius = ability:GetLevelSpecialValueFor("silence_radius", ability_level)
+	local silence_duration = ability:GetLevelSpecialValueFor("silence_duration", ability_level)
 	local tower_loc = caster:GetAbsOrigin()
 
 	-- Find nearby enemies
@@ -927,8 +928,11 @@ function Mindblast( keys )
 		caster:EmitSound(sound_silence)
 
 		-- Silence enemies
-		for _,enemy in pairs(heroes) do
-			ability:ApplyDataDrivenModifier(caster, enemy, modifier_silence, {})
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, silence_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
+		for _, enemy in pairs(enemies) do
+			if enemy and not enemy:IsNull() then
+				ability:ApplyDataDrivenModifier(caster, enemy, modifier_silence, {duration = silence_duration})
+			end
 		end
 
 		-- Put the ability on cooldown

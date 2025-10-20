@@ -14,7 +14,7 @@
 		"SpellImmunityType"			 "SPELL_IMMUNITY_ALLIES_YES"
 		"AbilityCastAnimation"		  "ACT_DOTA_ATTACK"
 		"AbilityTextureName"			"custom/vassal_shield"
-		
+
 		"AbilityCastRange"			"%radius"
 		"AbilityCastPoint"			"0.45"
 		"AbilityCooldown"			"0"
@@ -32,12 +32,12 @@
 			}
             "block" "8 12 16"
         }
-		
+
 		"precache"
 		{
 			"particle" "particles/units/heroes/hero_summoner/vassal_shield.vpcf"
 		}
-		
+
 		"Modifiers"
 		{
 			"modifier_vassal_shield"
@@ -62,7 +62,7 @@
 				"Passive"			"1"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-			
+
 				"Aura"			  "modifier_vassal_shield"
 				"Aura_Radius"		"%radius"
 				"Aura_Teams"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"

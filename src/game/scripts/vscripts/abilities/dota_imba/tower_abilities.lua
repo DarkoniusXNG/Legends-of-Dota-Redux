@@ -192,41 +192,6 @@ function Nature( keys )
 	end
 end
 
-function Mindblast( keys )
-	local caster = keys.caster
-	local ability = keys.ability
-	local ability_level = ability:GetLevel() - 1
-	local sound_silence = keys.sound_silence
-	local modifier_silence = keys.modifier_silence
-
-	-- If the ability is on cooldown, do nothing
-	if not ability:IsCooldownReady() then
-		return nil
-	end
-
-	-- Parameters
-	local silence_radius = ability:GetLevelSpecialValueFor("silence_radius", ability_level)
-	local tower_loc = caster:GetAbsOrigin()
-
-	-- Find nearby enemies
-	local heroes = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, silence_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
-
-	-- Check if the ability should be cast
-	if #heroes >= 1 then
-
-		-- Play sound
-		caster:EmitSound(sound_silence)
-
-		-- Silence enemies
-		for _,enemy in pairs(heroes) do
-			ability:ApplyDataDrivenModifier(caster, enemy, modifier_silence, {})
-		end
-
-		-- Put the ability on cooldown
-		ability:StartCooldown(ability:GetCooldown(ability_level))
-	end
-end
-
 -- Fountain's Grievous Wounds
 function GrievousWounds( keys )
 	local caster = keys.caster
