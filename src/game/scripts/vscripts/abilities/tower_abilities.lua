@@ -582,8 +582,11 @@ function Multihit( keys )
 
 	if not caster:IsRealHero() and not caster:IsBuilding() then return nil end
 
-	local cooldown = caster:GetSecondsPerAttack(false)
-	
+	local cooldown = 0
+	if caster.GetSecondsPerAttack ~= nil then
+		cooldown = caster:GetSecondsPerAttack(false)
+	end
+
 	-- Parameters
 	local bonus_attacks = ability:GetLevelSpecialValueFor("bonus_attacks", ability_level)
 	local delay = ability:GetLevelSpecialValueFor("delay", ability_level)
@@ -596,16 +599,20 @@ function Multihit( keys )
 	local fakeAttack = false
 	local neverMiss = not caster:IsRangedAttacker()
 
+	if cooldown > 0 then
+		--cooldown = cooldown * (bonus_attacks + 1)
+	else
+		cooldown = delay * (bonus_attacks + 1)
+	end
+
 	-- Perform bonus attacks
 	for i = 1, bonus_attacks do
 		Timers:CreateTimer(delay * i, function()
 			caster:PerformAttack(target, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
 		end)
 	end
-	
-	if caster:IsHero() then
-		ability:StartCooldown(cooldown)
-	end
+
+	ability:StartCooldown(cooldown)
 end
 
 function PlagueParticle( keys )
