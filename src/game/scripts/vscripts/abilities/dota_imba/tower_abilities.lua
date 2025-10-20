@@ -2265,6 +2265,14 @@ imba_tower_atrophy = imba_tower_atrophy or class({})
 LinkLuaModifier("modifier_imba_tower_atrophy_aura", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_tower_atrophy_aura_debuff", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 
+function imba_tower_atrophy:Spawn()
+	if not IsServer() then return end
+	local caster = self:GetCaster()
+	if not caster:HasModifier("modifier_imba_tower_protective_instinct") then
+		caster:AddNewModifier(caster, nil, "modifier_imba_tower_protective_instinct", {})
+	end
+end
+
 function imba_tower_atrophy:GetAbilityTextureName()
 	return "custom/tower_atrophy"
 end
