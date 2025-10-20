@@ -1285,6 +1285,14 @@ imba_tower_spell_shield = imba_tower_spell_shield or class({})
 LinkLuaModifier("modifier_imba_tower_spell_shield_aura", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_tower_spell_shield_aura_buff", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 
+function imba_tower_spell_shield:Spawn()
+	if not IsServer() then return end
+	local caster = self:GetCaster()
+	if not caster:HasModifier("modifier_imba_tower_protective_instinct") then
+		caster:AddNewModifier(caster, nil, "modifier_imba_tower_protective_instinct", {})
+	end
+end
+
 function imba_tower_spell_shield:GetAbilityTextureName()
 	return "custom/tower_spellshield"
 end
@@ -1331,7 +1339,7 @@ function modifier_imba_tower_spell_shield_aura:GetAuraSearchTeam()
 end
 
 function modifier_imba_tower_spell_shield_aura:GetAuraSearchType()
-	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING
 end
 
 function modifier_imba_tower_spell_shield_aura:GetModifierAura()
@@ -1353,7 +1361,7 @@ end
 -- Attack range Modifier
 modifier_imba_tower_spell_shield_aura_buff = modifier_imba_tower_spell_shield_aura_buff or class({})
 
-function modifier_imba_tower_spell_shield_aura_buff:OnCreated( ... )
+function modifier_imba_tower_spell_shield_aura_buff:OnCreated()
 	-- Ability properties
 	self.caster = self:GetCaster()
 	self.ability = self:GetAbility()
@@ -1376,9 +1384,9 @@ function modifier_imba_tower_spell_shield_aura_buff:IsHidden()
 end
 
 function modifier_imba_tower_spell_shield_aura_buff:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS}
-
-	return decFuncs
+	return {
+		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS
+	}
 end
 
 function modifier_imba_tower_spell_shield_aura_buff:GetModifierMagicalResistanceBonus()

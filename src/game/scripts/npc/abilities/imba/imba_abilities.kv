@@ -1605,52 +1605,6 @@
 	}
 
 	//=================================================================================================================
-	// Tower ability: Spell Shield (Tier 1)
-	//=================================================================================================================
-	"imba_tower_spell_shield"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_lua"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"custom/tower_spellshield"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"magic_resistance"				"30 40 50"
-			}
-
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"aura_radius"					"900"
-			}
-
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"aura_stickyness"				"0.5"
-			}
-
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mr_per_protective"		"3"
-			}
-		}
-
-	}
-
-	//=================================================================================================================
 	// Tower ability: Tenacity Aura (Tier 2)
 	//=================================================================================================================
 	"imba_tower_tenacity"
