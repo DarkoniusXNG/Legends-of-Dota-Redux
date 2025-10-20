@@ -1331,7 +1331,7 @@ function modifier_imba_tower_spell_shield_aura:GetAuraRadius()
 end
 
 function modifier_imba_tower_spell_shield_aura:GetAuraSearchFlags()
-	return DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED
+	return DOTA_UNIT_TARGET_FLAG_NONE --DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED
 end
 
 function modifier_imba_tower_spell_shield_aura:GetAuraSearchTeam()
@@ -1406,6 +1406,14 @@ imba_tower_vicious = imba_tower_vicious or class({})
 LinkLuaModifier("modifier_imba_tower_vicious_aura", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_tower_vicious_aura_buff", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 
+function imba_tower_vicious:Spawn()
+	if not IsServer() then return end
+	local caster = self:GetCaster()
+	if not caster:HasModifier("modifier_imba_tower_protective_instinct") then
+		caster:AddNewModifier(caster, nil, "modifier_imba_tower_protective_instinct", {})
+	end
+end
+
 function imba_tower_vicious:GetAbilityTextureName()
 	return "custom/tower_vicious"
 end
@@ -1444,7 +1452,7 @@ function modifier_imba_tower_vicious_aura:GetAuraRadius()
 end
 
 function modifier_imba_tower_vicious_aura:GetAuraSearchFlags()
-	return DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED
+	return DOTA_UNIT_TARGET_FLAG_NONE --DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED
 end
 
 function modifier_imba_tower_vicious_aura:GetAuraSearchTeam()
@@ -1452,7 +1460,7 @@ function modifier_imba_tower_vicious_aura:GetAuraSearchTeam()
 end
 
 function modifier_imba_tower_vicious_aura:GetAuraSearchType()
-	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING
 end
 
 function modifier_imba_tower_vicious_aura:GetModifierAura()
@@ -1499,9 +1507,9 @@ function modifier_imba_tower_vicious_aura_buff:IsHidden()
 end
 
 function modifier_imba_tower_vicious_aura_buff:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE}
-
-	return decFuncs
+	return {
+		MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE
+	}
 end
 
 function modifier_imba_tower_vicious_aura_buff:GetModifierPreAttack_CriticalStrike()
