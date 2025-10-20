@@ -672,9 +672,10 @@ function SelfRepairParticle( keys )
 
 	-- Create particle
 	if not caster:IsHero() then
-		caster.self_regen_pfx = ParticleManager:CreateParticle(particle_regen, PATTACH_ABSORIGIN, caster)
-		ParticleManager:SetParticleControl(caster.self_regen_pfx, 0, caster:GetAbsOrigin())
-		ParticleManager:SetParticleControl(caster.self_regen_pfx, 1, caster:GetAbsOrigin())
+		local self_regen_pfx = ParticleManager:CreateParticle(particle_regen, PATTACH_ABSORIGIN, caster)
+		ParticleManager:SetParticleControl(self_regen_pfx, 0, caster:GetAbsOrigin())
+		ParticleManager:SetParticleControl(self_regen_pfx, 1, caster:GetAbsOrigin())
+		ParticleManager:ReleaseParticleIndex(self_regen_pfx)
 	end
 end
 

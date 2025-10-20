@@ -11,13 +11,19 @@
         "AbilityValues"
         {
             "hp_regen" "8 14 20"
-            "hp_regen_aura" "0.5 1.0 1.5"
+            "hp_regen_aura" "0.5 1.0 1.5" // percent hp regen for allies only
             "aura_radius"
 			{
 				"value"			"1200"
 				"affected_by_aoe_increase"	"1"
 			}
         }
+
+        "precache"
+        {
+            "particle"                                                 "particles/units/heroes/hero_treant/treant_livingarmor.vpcf"
+        }
+
         "Modifiers"
         {
             "modifier_imba_tower_self_repair"
@@ -55,6 +61,7 @@
                 }
             }
         }
+
         "ReduxFlags"                                                           "support | tank"
         "ReduxPerks"                                                           "support | aura"
         "ReduxCost"                                                            "30"

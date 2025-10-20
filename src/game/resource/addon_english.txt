@@ -5482,7 +5482,7 @@
 "DOTA_Tooltip_ability_imba_tower_salvo_salvo_aoe" "DAMAGE RADIUS:"
 "DOTA_Tooltip_ability_imba_tower_salvo_salvo_dmg" "BONUS DAMAGE:"
 "DOTA_Tooltip_ability_imba_tower_self_repair" "Regeneration Tower"
-"DOTA_Tooltip_ability_imba_tower_self_repair_aura_radius" "AREA OF EFFECT:"
+"DOTA_Tooltip_ability_imba_tower_self_repair_aura_radius" "AURA RADIUS:"
 "DOTA_Tooltip_ability_imba_tower_self_repair_Description" "This tower slowly repairs itself, and increases nearby allies' health regeneration.<br><br><font color='#7D7D7D'>Imported from <font color='#FF7800'>Dota IMBA.</font></font><br>"
 "DOTA_Tooltip_ability_imba_tower_self_repair_hp_regen" "REPAIR RATE (HP/SEC):"
 "DOTA_Tooltip_ability_imba_tower_self_repair_hp_regen_aura" "%AURA HEALTH PER SECOND:"
