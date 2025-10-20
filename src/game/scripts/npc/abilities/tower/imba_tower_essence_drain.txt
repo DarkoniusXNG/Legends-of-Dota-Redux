@@ -2,94 +2,36 @@
 {
     "imba_tower_essence_drain"
     {
-        "BaseClass"                                                            "ability_datadriven"
+        "BaseClass"                                                            "ability_lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "slark_essence_shift"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "AbilityCastRange"                                                     "%aura_radius"
+        "ScriptFile"                                                           "abilities/dota_imba/tower_abilities"
+        "SpellDispellableType"                                                 "SPELL_DISPELLABLE_YES"
 
         "ReduxFlags"                                                           "attack_modifier"
-        "ReduxPerks"                                                           "attack_modifier | drain"
+        "ReduxPerks"                                                           "attack_modifier | aura | drain"
         "ReduxCost"                                                            "120"
 
         "AbilityValues"
         {
-            "drain_per_hit" "1 2 3"
-            "drain_duration" "8"
-            "armor_per_stack" "0.25"
-            "as_per_stack" "1 2 3"
-            "dmg_per_stack" "1 2 3"
-            "max_stacks" "100"
+            "all_attributes_drain_per_stack" "1"
+            "all_attributes_gain_per_stack" "1 2 3"
+            "aura_radius"
+            {
+                "value"			"1200"
+                "affected_by_aoe_increase"	"1"
+            }
+            "aura_stickyness" "0.5"
+            "duration" "20"
+            "duration_per_protective" "10"
         }
-        "Modifiers"
+
+        "precache"
         {
-            "modifier_imba_tower_essence_drain"
-            {
-                "Passive"                                              "1"
-                "IsHidden"                                             "1"
-                "OnAttackLanded"
-                {
-                    "RunScript"
-                    {
-                        "ScriptFile"                           "abilities/tower_abilities.lua"
-                        "Function"                             "EssenceDrain"
-                        "modifier_str"                         "modifier_imba_tower_essence_drain_str_stacks"
-                        "modifier_agi"                         "modifier_imba_tower_essence_drain_agi_stacks"
-                        "modifier_int"                         "modifier_imba_tower_essence_drain_int_stacks"
-                        "modifier_stacks"                      "modifier_imba_tower_essence_drain_tower_stacks"
-                    }
-                }
-            }
-            "modifier_imba_tower_essence_drain_tower_stacks"
-            {
-                "Passive"                                              "0"
-                "IsHidden"                                             "0"
-                "IsBuff"                                               "1"
-                "IsPurgable"                                           "0"
-                "Duration"                                             "%drain_duration"
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"       "%armor_per_stack"
-                    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_per_stack"
-                    "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"     "%dmg_per_stack"
-                }
-            }
-            "modifier_imba_tower_essence_drain_str_stacks"
-            {
-                "Passive"                                              "0"
-                "IsHidden"                                             "1"
-                "IsDebuff"                                             "1"
-                "IsPurgable"                                           "1"
-                "Duration"                                             "%drain_duration"
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"       "-1"
-                }
-            }
-            "modifier_imba_tower_essence_drain_agi_stacks"
-            {
-                "Passive"                                              "0"
-                "IsHidden"                                             "0"
-                "IsDebuff"                                             "1"
-                "IsPurgable"                                           "1"
-                "Duration"                                             "%drain_duration"
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"        "-1"
-                }
-            }
-            "modifier_imba_tower_essence_drain_int_stacks"
-            {
-                "Passive"                                              "0"
-                "IsHidden"                                             "1"
-                "IsDebuff"                                             "1"
-                "IsPurgable"                                           "1"
-                "Duration"                                             "%drain_duration"
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"      "-1"
-                }
-            }
+            "particle"                                                         "particles/econ/items/slark/slark_ti6_blade/slark_ti6_blade_essence_shift.vpcf"
         }
     }
 }

@@ -1288,36 +1288,6 @@
 	}
 
 	//=================================================================================================================
-	// Tower ability: Essence Drain (Tier 3)
-	//=================================================================================================================
-	"imba_tower_essence_drain"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_lua"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"slark_essence_shift"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-        {
-            "stat_drain_amount_enemy" "-1"
-            "aura_radius" "900"
-            "aura_stickyness" "0.5"
-            "stat_drain_amount_ally" "3"
-            "duration" "20 40 60"
-            "duration_per_protective" "15"
-        }
-	}
-
-
-
-	//=================================================================================================================
 	// Tower ability: Starlight (Tier 3)
 	//=================================================================================================================
 	"imba_tower_starlight"

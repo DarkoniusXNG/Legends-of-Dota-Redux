@@ -2262,6 +2262,14 @@ LinkLuaModifier("modifier_imba_tower_essence_drain_aura_buff", "abilities/dota_i
 LinkLuaModifier("modifier_imba_tower_essence_drain_debuff", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_tower_essence_drain_buff", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 
+function imba_tower_essence_drain:Spawn()
+	if not IsServer() then return end
+	local caster = self:GetCaster()
+	if not caster:HasModifier("modifier_imba_tower_protective_instinct") then
+		caster:AddNewModifier(caster, nil, "modifier_imba_tower_protective_instinct", {})
+	end
+end
+
 function imba_tower_essence_drain:GetAbilityTextureName()
 	return "slark_essence_shift"
 end
@@ -2316,7 +2324,7 @@ function modifier_imba_tower_essence_drain_aura:GetModifierAura()
 end
 
 function modifier_imba_tower_essence_drain_aura:IsAura()
-	return true
+	return not self:GetCaster():PassivesDisabled()
 end
 
 function modifier_imba_tower_essence_drain_aura:IsDebuff()
@@ -2358,9 +2366,9 @@ function modifier_imba_tower_essence_drain_aura_buff:IsHidden()
 end
 
 function modifier_imba_tower_essence_drain_aura_buff:DeclareFunctions()
-	local decFuncs = {MODIFIER_EVENT_ON_ATTACK_LANDED}
-
-	return decFuncs
+	return {
+		MODIFIER_EVENT_ON_ATTACK_LANDED
+	}
 end
 
 function modifier_imba_tower_essence_drain_aura_buff:OnAttackLanded( keys )
@@ -2371,7 +2379,7 @@ function modifier_imba_tower_essence_drain_aura_buff:OnAttackLanded( keys )
 		local protective_instinct_stacks = self.caster:GetModifierStackCount("modifier_imba_tower_protective_instinct", self.caster)
 
 		-- Only apply if the parent is the attacker and the victim is on the opposite team
-		if (self.parent == attacker) and (attacker:GetTeamNumber() ~= target:GetTeamNumber()) and target:IsHero() then
+		if (self.parent == attacker) and (attacker:GetTeamNumber() ~= target:GetTeamNumber()) and target:IsRealHero() then
 
 			-- Apply effect
 			local particle_drain_fx = ParticleManager:CreateParticle(self.particle_drain, PATTACH_ABSORIGIN, target)
@@ -2415,63 +2423,14 @@ modifier_imba_tower_essence_drain_debuff = modifier_imba_tower_essence_drain_deb
 function modifier_imba_tower_essence_drain_debuff:OnCreated()
 	if IsServer() then
 		-- Ability properties
-		self.caster = self:GetCaster()
 		self.ability = self:GetAbility()
 		if not self.ability then
 			self:Destroy()
 			return nil
 		end
-		self.parent = self:GetParent()
 
 		-- Ability specials
-		self.stat_drain_amount_enemy = self.ability:GetSpecialValueFor("stat_drain_amount_enemy")
-
-		-- Get the duration
-		self.duration = self:GetDuration()
-
-		-- Initialize table
-		self.stacks_table = {}
-
-		-- Start thinking
-		self:StartIntervalThink(0.1)
-	end
-end
-
-function modifier_imba_tower_essence_drain_debuff:OnIntervalThink()
-	if IsServer() then
-		-- Check if there are any stacks left on the table
-		if #self.stacks_table > 0 then
-
-			-- For each stack, check if it is past its expiration time. If it is, remove it from the table
-			for i = #self.stacks_table, 1, -1 do
-				if self.stacks_table[i] + self.duration < GameRules:GetGameTime() then
-					table.remove(self.stacks_table, i)
-				end
-			end
-
-			-- If after removing the stacks, the table is empty, remove the modifier.
-			if #self.stacks_table == 0 then
-				self:Destroy()
-
-				-- Otherwise, set its stack count
-			else
-				self:SetStackCount(#self.stacks_table)
-			end
-
-			-- Recalculate bonus based on new stack count
-			self:GetParent():CalculateStatBonus(true)
-
-			-- If there are no stacks on the table, just remove the modifier.
-		else
-			self:Destroy()
-		end
-	end
-end
-
-function modifier_imba_tower_essence_drain_debuff:OnRefresh()
-	if IsServer() then
-		-- Insert new stack values
-		table.insert(self.stacks_table, GameRules:GetGameTime())
+		self.stat_drain_amount_enemy = self.ability:GetSpecialValueFor("all_attributes_drain_per_stack")
 	end
 end
 
@@ -2488,32 +2447,23 @@ function modifier_imba_tower_essence_drain_debuff:IsDebuff()
 end
 
 function modifier_imba_tower_essence_drain_debuff:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+	return {
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS}
-
-	return decFuncs
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS
+	}
 end
 
 function modifier_imba_tower_essence_drain_debuff:GetModifierBonusStats_Agility()
-	local stacks = self:GetStackCount()
-
-	local stats_drain = self.stat_drain_amount_enemy * stacks
-	return stats_drain
+	return 0 - math.abs(self.stat_drain_amount_enemy * self:GetStackCount())
 end
 
 function modifier_imba_tower_essence_drain_debuff:GetModifierBonusStats_Intellect()
-	local stacks = self:GetStackCount()
-
-	local stats_drain = self.stat_drain_amount_enemy * stacks
-	return stats_drain
+	return 0 - math.abs(self.stat_drain_amount_enemy * self:GetStackCount())
 end
 
 function modifier_imba_tower_essence_drain_debuff:GetModifierBonusStats_Strength()
-	local stacks = self:GetStackCount()
-
-	local stats_drain = self.stat_drain_amount_enemy * stacks
-	return stats_drain
+	return 0 - math.abs(self.stat_drain_amount_enemy * self:GetStackCount())
 end
 
 -- Essence Drain buff (ally)
@@ -2522,66 +2472,14 @@ modifier_imba_tower_essence_drain_buff = modifier_imba_tower_essence_drain_buff 
 function modifier_imba_tower_essence_drain_buff:OnCreated()
 	if IsServer() then
 		-- Ability properties
-		self.caster = self:GetCaster()
 		self.ability = self:GetAbility()
 		if not self.ability then
 			self:Destroy()
 			return nil
 		end
-		self.parent = self:GetParent()
 
 		-- Ability specials
-		self.stat_drain_amount_ally = self.ability:GetSpecialValueFor("stat_drain_amount_ally")
-
-		-- Set the hero's main attribute
-		self.primary_attribute = self.parent:GetPrimaryAttribute()
-
-		-- Get the duration
-		self.duration = self:GetDuration()
-
-		-- Initialize table
-		self.stacks_table = {}
-
-		-- Start thinking
-		self:StartIntervalThink(0.1)
-	end
-end
-
-function modifier_imba_tower_essence_drain_buff:OnIntervalThink()
-	if IsServer() then
-		-- Check if there are any stacks left on the table
-		if #self.stacks_table > 0 then
-
-			-- For each stack, check if it is past its expiration time. If it is, remove it from the table
-			for i = #self.stacks_table, 1, -1 do
-				if self.stacks_table[i] + self.duration < GameRules:GetGameTime() then
-					table.remove(self.stacks_table, i)
-				end
-			end
-
-			-- If after removing the stacks, the table is empty, remove the modifier.
-			if #self.stacks_table == 0 then
-				self:Destroy()
-
-				-- Otherwise, set its stack count
-			else
-				self:SetStackCount(#self.stacks_table)
-			end
-
-			-- Recalculate bonus based on new stack count
-			self:GetParent():CalculateStatBonus(true)
-
-			-- If there are no stacks on the table, just remove the modifier.
-		else
-			self:Destroy()
-		end
-	end
-end
-
-function modifier_imba_tower_essence_drain_buff:OnRefresh()
-	if IsServer() then
-		-- Insert new stack values
-		table.insert(self.stacks_table, GameRules:GetGameTime())
+		self.stat_drain_amount_ally = self.ability:GetSpecialValueFor("all_attributes_gain_per_stack")
 	end
 end
 
@@ -2598,53 +2496,23 @@ function modifier_imba_tower_essence_drain_buff:IsDebuff()
 end
 
 function modifier_imba_tower_essence_drain_buff:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+	return {
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS}
-
-	return decFuncs
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS
+	}
 end
 
 function modifier_imba_tower_essence_drain_buff:GetModifierBonusStats_Agility()
-	if IsServer() then
-		-- Grant bonuses if Agility is the main attribute
-		if self.primary_attribute == DOTA_ATTRIBUTE_AGILITY then
-			local stacks = self:GetStackCount()
-
-			local stats_drain = self.stat_drain_amount_ally * stacks
-			return stats_drain
-		end
-
-		return nil
-	end
+	return math.abs(self.stat_drain_amount_ally * self:GetStackCount())
 end
 
 function modifier_imba_tower_essence_drain_buff:GetModifierBonusStats_Intellect()
-	if IsServer() then
-		-- Grant bonuses if Intelligence is the main attribute
-		if self.primary_attribute == DOTA_ATTRIBUTE_INTELLECT then
-			local stacks = self:GetStackCount()
-
-			local stats_drain = self.stat_drain_amount_ally * stacks
-			return stats_drain
-		end
-
-		return nil
-	end
+	return math.abs(self.stat_drain_amount_ally * self:GetStackCount())
 end
 
 function modifier_imba_tower_essence_drain_buff:GetModifierBonusStats_Strength()
-	if IsServer() then
-		-- Grant bonuses if Strength is the main attribute
-		if self.primary_attribute == DOTA_ATTRIBUTE_STRENGTH then
-			local stacks = self:GetStackCount()
-
-			local stats_drain = self.stat_drain_amount_ally * stacks
-			return stats_drain
-		end
-
-		return nil
-	end
+	return math.abs(self.stat_drain_amount_ally * self:GetStackCount())
 end
 
 

@@ -10,6 +10,7 @@
         "AbilityCastRange"                                                     "%aura_radius"
         "ScriptFile"                                                           "abilities/dota_imba/tower_abilities"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
+        "SpellDispellableType"                                                 "SPELL_DISPELLABLE_YES"
 
         "AbilityValues"
         {
@@ -30,7 +31,7 @@
         }
 
         "ReduxFlags"                                                           "attack_modifier | support"
-        "ReduxPerks"                                                           "attack_modifier | support"
+        "ReduxPerks"                                                           "attack_modifier | aura | support"
         "ReduxCost"                                                            "120"
     }
 }
