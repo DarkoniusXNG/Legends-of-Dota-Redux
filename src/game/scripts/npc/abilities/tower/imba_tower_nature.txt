@@ -9,6 +9,8 @@
         "AbilityCastRange"                                                     "%root_radius"
         "AbilityCooldown"                                                      "10 9 8"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
+
         "AbilityValues"
         {
             "root_radius" "800 900 1000"
@@ -16,6 +18,12 @@
             "root_damage" "30 45 60"
             "min_creeps" "4"
         }
+
+        "precache"
+        {
+            "particle"                                           "particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf"
+        }
+
         "Modifiers"
         {
             "modifier_imba_tower_nature"
@@ -59,7 +67,9 @@
                 }
             }
         }
+
         "ReduxFlags"                                                           "stun"
+        "ReduxPerks"                                                           "nature"
         "ReduxCost"                                                            "120"
     }
 }
