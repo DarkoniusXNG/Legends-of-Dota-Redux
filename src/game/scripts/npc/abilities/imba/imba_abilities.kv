@@ -1605,64 +1605,6 @@
 	}
 
 	//=================================================================================================================
-	// Tower ability: Thorns Aura (Tier 1)
-	//=================================================================================================================
-	"imba_tower_thorns"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_lua"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"custom/tower_thorns"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle" 							"particles/units/heroes/hero_centaur/centaur_return.vpcf"
-		}
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"return_damage_pct"				"30 40 50"
-			}
-
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"aura_radius"					"900"
-			}
-
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"aura_stickyness"				"0.5"
-			}
-
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"return_damage_per_stack"		"3"
-			}
-
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"minimum_damage"				"40 80 120"
-			}
-		}
-	}
-
-	//=================================================================================================================
 	// Tower ability: Spell Shield (Tier 1)
 	//=================================================================================================================
 	"imba_tower_spell_shield"

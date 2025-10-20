@@ -414,6 +414,14 @@ imba_tower_thorns = imba_tower_thorns or class({})
 LinkLuaModifier("modifier_imba_tower_thorns_aura", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_tower_thorns_aura_buff", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 
+function imba_tower_thorns:Spawn()
+	if not IsServer() then return end
+	local caster = self:GetCaster()
+	if not caster:HasModifier("modifier_imba_tower_protective_instinct") then
+		caster:AddNewModifier(caster, nil, "modifier_imba_tower_protective_instinct", {})
+	end
+end
+
 function imba_tower_thorns:GetAbilityTextureName()
 	return "custom/tower_thorns"
 end
@@ -452,7 +460,7 @@ function modifier_imba_tower_thorns_aura:GetAuraRadius()
 end
 
 function modifier_imba_tower_thorns_aura:GetAuraSearchFlags()
-	return DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED
+	return DOTA_UNIT_TARGET_FLAG_NONE --DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED
 end
 
 function modifier_imba_tower_thorns_aura:GetAuraSearchTeam()
@@ -460,7 +468,7 @@ function modifier_imba_tower_thorns_aura:GetAuraSearchTeam()
 end
 
 function modifier_imba_tower_thorns_aura:GetAuraSearchType()
-	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING
 end
 
 function modifier_imba_tower_thorns_aura:GetModifierAura()
@@ -496,7 +504,7 @@ function modifier_imba_tower_thorns_aura_buff:OnCreated()
 	-- Ability specials
 	self.return_damage_pct = self.ability:GetSpecialValueFor("return_damage_pct")
 	self.return_damage_per_stack = self.ability:GetSpecialValueFor("return_damage_per_stack")
-	self.minimum_damage = self.ability:GetSpecialValueFor("minimum_damage")
+	self.minimum_damage = self.ability:GetSpecialValueFor("damage_per_hit")
 end
 
 function modifier_imba_tower_thorns_aura_buff:OnRefresh()
@@ -508,13 +516,12 @@ function modifier_imba_tower_thorns_aura_buff:IsHidden()
 end
 
 function modifier_imba_tower_thorns_aura_buff:DeclareFunctions()
-	local decFuncs = {MODIFIER_EVENT_ON_ATTACK_LANDED}
-
-	return decFuncs
+	return {
+		MODIFIER_EVENT_ON_ATTACK_LANDED,
+	}
 end
 
 function modifier_imba_tower_thorns_aura_buff:OnAttackLanded( keys )
-	-- Ability properties
 	if IsServer() then
 		local attacker = keys.attacker
 		local target = keys.target
@@ -537,12 +544,7 @@ function modifier_imba_tower_thorns_aura_buff:OnAttackLanded( keys )
 
 			-- Calculate damage based on percentage of main stat
 			local return_damage_pct_final = self.return_damage_pct + self.return_damage_per_stack * protective_instinct_stacks
-			local return_damage = main_attribute_value * (return_damage_pct_final * 0.01)
-
-			-- Increase damage to the minimum if it's not sufficient
-			if self.minimum_damage > return_damage then
-				return_damage = self.minimum_damage
-			end
+			local return_damage = self.minimum_damage + main_attribute_value * (return_damage_pct_final * 0.01)
 
 			-- Apply damage
 			local damageTable = {

@@ -72,8 +72,8 @@
 			}
 		}
 
-		"ReduxFlags"                    "tank"
-		"ReduxPerks"                    "aura"
+		"ReduxFlags"                    "support | tank"
+		"ReduxPerks"                    "aura | support"
 		"ReduxCost"                     "120"
 	}
 }

@@ -8,6 +8,8 @@
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCooldown"                                                      "4 3 2"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
+
         "AbilityValues"
         {
             "bash_damage" "50 100 150"

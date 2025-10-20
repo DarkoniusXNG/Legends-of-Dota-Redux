@@ -90,8 +90,8 @@
         }
 
         "ReduxCost"                                                            "30"
-        "ReduxFlags"                                                           "doNotRandom | support | tank"
-        "ReduxPerks"                                                           "aura | support "
+        "ReduxFlags"                                                           "doNotRandom | tank"
+        "ReduxPerks"                                                           "aura"
         "ReduxBans"                                                            "arc_warden_tempest_double"
     }
 }

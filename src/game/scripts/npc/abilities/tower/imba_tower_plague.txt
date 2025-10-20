@@ -8,7 +8,8 @@
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%aura_radius"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
-        "ScriptFile"							"abilities/dota_imba/tower_abilities"
+        "ScriptFile"                                                           "abilities/dota_imba/tower_abilities"
+        "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
 
         "AbilityValues"
         {

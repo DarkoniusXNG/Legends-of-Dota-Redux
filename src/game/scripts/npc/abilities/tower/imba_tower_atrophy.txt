@@ -21,8 +21,8 @@
             "additional_dr_per_protective" "-2"
         }
 
-        "ReduxFlags"                                                           "support | tank"
-        "ReduxPerks"                                                           "aura | support"
+        "ReduxFlags"                                                           "tank"
+        "ReduxPerks"                                                           "aura"
         "ReduxCost"                                                            "120"
         "ReduxBans"                                                            "abyssal_underlord_atrophy_aura"
     }
