@@ -24,6 +24,7 @@
             "particle"  "particles/units/heroes/hero_tinker/laser_cutter_sparks_k.vpcf"
             "particle"  "particles/ambient/tower_laser_blind.vpcf"
         }
+
         "OnProjectileHitUnit"
         {
             "DeleteOnHit"                                                  "1"
@@ -69,7 +70,8 @@
                 }
             }
         }
+
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
+        "ReduxPerks"                                                           "scientific"
     }
 }

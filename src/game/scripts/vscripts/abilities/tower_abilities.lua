@@ -128,7 +128,6 @@ function Laser( keys )
 
 		-- Create projectile
 		local laser_projectile = {
-			Target = "",
 			Source = caster,
 			Ability = ability,
 			EffectName = projectile_laser,
@@ -170,6 +169,7 @@ function LaserHit( keys )
 	-- Play hit particle
 	local laser_pfx = ParticleManager:CreateParticle(particle_blind, PATTACH_OVERHEAD_FOLLOW, target)
 	ParticleManager:SetParticleControl(laser_pfx, 1, target:GetAbsOrigin())
+	ParticleManager:ReleaseParticleIndex(laser_pfx)
 
 	-- Apply blind modifier
 	ability:ApplyDataDrivenModifier(caster, target, modifier_blind, {})

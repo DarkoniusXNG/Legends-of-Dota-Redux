@@ -2645,6 +2645,14 @@ imba_tower_disease = imba_tower_disease or class({})
 LinkLuaModifier("modifier_imba_tower_disease_aura", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_tower_disease_aura_debuff", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 
+function imba_tower_disease:Spawn()
+	if not IsServer() then return end
+	local caster = self:GetCaster()
+	if not caster:HasModifier("modifier_imba_tower_protective_instinct") then
+		caster:AddNewModifier(caster, nil, "modifier_imba_tower_protective_instinct", {})
+	end
+end
+
 function imba_tower_disease:GetAbilityTextureName()
 	return "custom/disease_aura"
 end
@@ -2691,7 +2699,7 @@ function modifier_imba_tower_disease_aura:GetAuraSearchTeam()
 end
 
 function modifier_imba_tower_disease_aura:GetAuraSearchType()
-	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+	return DOTA_UNIT_TARGET_HERO
 end
 
 function modifier_imba_tower_disease_aura:GetModifierAura()
@@ -2699,7 +2707,7 @@ function modifier_imba_tower_disease_aura:GetModifierAura()
 end
 
 function modifier_imba_tower_disease_aura:IsAura()
-	return true
+	return not self:GetCaster():PassivesDisabled()
 end
 
 function modifier_imba_tower_disease_aura:IsDebuff()
@@ -2736,11 +2744,11 @@ function modifier_imba_tower_disease_aura_debuff:IsHidden()
 end
 
 function modifier_imba_tower_disease_aura_debuff:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+	return {
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS}
-
-	return decFuncs
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS
+	}
 end
 
 function modifier_imba_tower_disease_aura_debuff:GetModifierBonusStats_Agility()
