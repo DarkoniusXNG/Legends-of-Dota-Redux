@@ -32,8 +32,8 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "stun"
-        "ReduxPerks"                                                           "enemymoving"
+        "ReduxFlags"                                                           "attack_modifier | bash | stun"
+        "ReduxPerks"                                                           "attack_modifier | bash | enemymoving"
         "ReduxCost"                                                            "120"
     }
 }
