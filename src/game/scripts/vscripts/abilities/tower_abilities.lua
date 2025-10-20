@@ -251,9 +251,11 @@ function ManaBurn( keys )
 
 	-- Calculate mana to burn
 	local mana_to_burn = caster:GetAttackDamage() * mana_burn_pct / 100
+	local current_mana = target:GetMana()
+	local real_mana_to_burn = math.min(mana_to_burn, current_mana)
 
 	-- Burn mana
-	target:Script_ReduceMana(mana_to_burn, ability)
+	target:Script_ReduceMana(real_mana_to_burn, ability)
 
 	-- Play sound
 	target:EmitSound(sound_burn)
@@ -261,6 +263,7 @@ function ManaBurn( keys )
 	-- Play mana burn particle
 	local mana_burn_pfx = ParticleManager:CreateParticle(particle_burn, PATTACH_ABSORIGIN, target)
 	ParticleManager:SetParticleControl(mana_burn_pfx, 0, target:GetAbsOrigin())
+	ParticleManager:ReleaseParticleIndex(mana_burn_pfx)
 end
 
 function ManaFlare( keys )
@@ -298,11 +301,14 @@ function ManaFlare( keys )
 			
 			-- Burn mana
 			local mana_to_burn = enemy:GetMaxMana() * burn_pct / 100
-			enemy:Script_ReduceMana(mana_to_burn, ability)
+			local current_mana = enemy:GetMana()
+			local real_mana_to_burn = math.min(mana_to_burn, current_mana)
+			enemy:Script_ReduceMana(real_mana_to_burn, ability)
 
 			-- Play mana burn particle
 			local mana_burn_pfx = ParticleManager:CreateParticle(particle_burn, PATTACH_ABSORIGIN, enemy)
 			ParticleManager:SetParticleControl(mana_burn_pfx, 0, enemy:GetAbsOrigin())
+			ParticleManager:ReleaseParticleIndex(mana_burn_pfx)
 		end
 
 		-- Put the ability on cooldown

@@ -1402,34 +1402,6 @@
 	}
 
 	//=================================================================================================================
-	// Tower ability: Mana Burn (Tier 2)
-	//=================================================================================================================
-	"imba_tower_mana_burn"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_lua"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"custom/tower_mana_burn"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-        {
-            "mana_burn" "40 55 70"
-            "aura_radius" "900"
-            "aura_stickyness" "0.5"
-            "additional_burn_per_hero" "15"
-            "mana_burn_damage_pct" "100"
-            "illusion_mana_burn_pct" "50"
-        }		
-	}
-
-	//=================================================================================================================
 	// Tower ability: Plague (Tier 2)
 	//=================================================================================================================
 	"imba_tower_plague"
