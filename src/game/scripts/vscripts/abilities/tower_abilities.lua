@@ -330,7 +330,6 @@ function Permabash( keys )
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 	local sound_bash = keys.sound_bash
-	local modifier_bash = keys.modifier_bash
 
 	-- If the ability is on cooldown, do nothing
 	if not ability:IsCooldownReady() then
@@ -349,7 +348,6 @@ function Permabash( keys )
 	target:EmitSound(sound_bash)
 
 	-- Apply bash modifiers
-	ability:ApplyDataDrivenModifier(caster, target, modifier_bash, {})
 	target:AddNewModifier(caster, ability, "modifier_stunned", {duration = bash_duration})
 
 	-- Deal damage

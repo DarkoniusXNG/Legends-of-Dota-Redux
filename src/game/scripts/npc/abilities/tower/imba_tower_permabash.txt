@@ -4,7 +4,7 @@
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                                   "custom/imba_tower_permabash"
+        "AbilityTextureName"                                                   "custom/imba_tower_permabash" // "custom/tower_bash"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCooldown"                                                      "4 3 2"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
@@ -26,27 +26,12 @@
                         "ScriptFile"                           "abilities/tower_abilities.lua"
                         "Function"                             "Permabash"
                         "sound_bash"                           "Hero_FacelessVoid.TimeLockImpact"
-                        "modifier_bash"                        "modifier_imba_tower_permabash_bash"
                     }
                 }
             }
-            "modifier_imba_tower_permabash_bash"
-            {
-                "Passive"                                              "0"
-                "IsHidden"                                             "1"
-                "IsDebuff"                                             "1"
-                "IsPurgable"                                           "1"
-                "Duration"                                             "%bash_duration"
-                "StatusEffectName"                                     "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
-                "StatusEffectPriority"                                 "1"
-                "States"
-                {
-                    "MODIFIER_STATE_FROZEN"                        "MODIFIER_STATE_VALUE_ENABLED"
-                }
-            }
         }
-        "ReduxFlags"                                                           "bash | attack_modifier | stun"
-        "ReduxPerks"                                                           "bash"
+        "ReduxFlags"                                                           "attack_modifier | bash | stun"
+        "ReduxPerks"                                                           "attack_modifier | bash"
         "ReduxCost"                                                            "120"
     }
 }
