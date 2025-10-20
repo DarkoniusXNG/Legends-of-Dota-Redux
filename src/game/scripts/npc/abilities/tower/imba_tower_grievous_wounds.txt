@@ -30,8 +30,8 @@
             "particle"                                         "particles/units/heroes/hero_ursa/ursa_fury_swipes_debuff.vpcf"
         }
 
-        "ReduxFlags"                                                           "attack_modifier | support"
-        "ReduxPerks"                                                           "attack_modifier | aura | support"
+        "ReduxFlags"                                                           "attack_modifier | physical | support"
+        "ReduxPerks"                                                           "attack_modifier | aura | physical | support"
         "ReduxCost"                                                            "120"
     }
 }

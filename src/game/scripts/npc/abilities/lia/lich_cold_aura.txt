@@ -17,15 +17,21 @@
 
         "AbilityValues"
         {
-            "slow" "-10 -15 -20"
-            "damage" "2.0 3.5 5.0"
-            "armor_bonus" "1 2 3"
+            "slow" "-15 -20 -25"
+            "damage" "2.0 3.5 5.0" // max hp percent dmg
+            "armor_bonus" "3 6 9"
             "radius"
 			{
 				"value"			"700"
 				"affected_by_aoe_increase"	"1"
 			}
         }
+
+        "precache"
+        {
+            "particle"                                                 "particles/status_fx/status_effect_frost_lich.vpcf"
+        }
+
         "Modifiers"
         {
             "lich_cold_aura_mod"
