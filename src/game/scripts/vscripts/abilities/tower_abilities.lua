@@ -953,7 +953,7 @@ function PlasmaField( keys )
 	if not caster:IsRealHero() and not caster:IsBuilding() then return nil end
 	
 	-- Parameters
-	local plasma_radius = ability:GetLevelSpecialValueFor("plasma_radius", ability_level-1)
+	local plasma_radius = ability:GetLevelSpecialValueFor("radius", ability_level-1)
 	local tower_loc = caster:GetAbsOrigin()
 
 	-- Find nearby enemies
@@ -961,7 +961,7 @@ function PlasmaField( keys )
 	local creeps = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, plasma_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
 
 	-- Check if the ability should be cast
-	if #heroes >= 1 or #creeps > 1 then
+	if #heroes >= 1 or #creeps > 4 then
 		local plasma = caster:FindAbilityByName("plasma_internal_tower")
 		if not plasma then
 			plasma = caster:AddAbility("plasma_internal_tower")
