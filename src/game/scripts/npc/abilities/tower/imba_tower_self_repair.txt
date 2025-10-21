@@ -10,7 +10,7 @@
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
-            "hp_regen" "8 14 20"
+            "hp_regen" "8 14 20" // self repair
             "hp_regen_aura" "0.5 1.0 1.5" // percent hp regen for allies only
             "aura_radius"
 			{

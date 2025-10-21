@@ -27,7 +27,7 @@
 
         "precache"
         {
-            "particle"                                      "particles/units/heroes/hero_pudge/pudge_rot_radius.vpcf"
+            "particle"                                      "particles/units/heroes/hero_pudge/pudge_rot.vpcf"
         }
 
         "ReduxPerks"                                                           "aura | undead"

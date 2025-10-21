@@ -8,12 +8,12 @@
 		"AbilitySharedWithTeammates"                                           "1"
 		"AbilityCastRange"                                                     "%aura_radius"
 		"AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities"
+		"ScriptFile"                                                           "abilities/dota_imba/tower_abilities"
 
 		"AbilityValues"
 		{
 			"bonus_armor" "4 8 12"
-			"bonus_health" "400 800 1200"
+			"bonus_health" "400 800 1200" // lvls 2 and 3 must be the multiplier of lvl 1 in order to be correct on towers
 			"aura_radius"
 			{
 				"value"			"1200"
@@ -39,7 +39,7 @@
         "AbilityValues"
         {
             "bonus_armor" "8 16 24"
-            "bonus_health" "800 1600 2400" // lvls 2 and 3 must be the multiplier of lvl 1
+            "bonus_health" "800 1600 2400" // lvls 2 and 3 must be the multiplier of lvl 1 in order to be correct on everyone
             "bonus_armor_aura" "6 10 14"
             "aura_radius"
 			{

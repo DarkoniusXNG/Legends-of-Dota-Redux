@@ -1954,55 +1954,6 @@
 	}
 
 	//=================================================================================================================
-	// Tower ability: Reality (Actives)
-	//=================================================================================================================
-	"imba_tower_reality"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_datadriven"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"terrorblade_reflection"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
-		"AbilityCooldown"						"10 8 6"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"reality_aoe"					"1200"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_imba_tower_reality"
-			{
-				"Passive"						"1"
-				"IsHidden"						"1"
-
-				"ThinkInterval"					"0.5"
-
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"			"abilities/dota_imba/tower_abilities.lua"
-						"Function"				"Reality"
-
-						"sound_reality"			"DOTA_Item.DiffusalBlade.Activate"
-					}
-				}
-			}
-		}
-	}
-
-	//=================================================================================================================
 	// Tower ability: Healing Tower (Actives)
 	//=================================================================================================================
 	"imba_tower_healing_tower"

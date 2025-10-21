@@ -1462,7 +1462,7 @@
 		"AbilityTextureName"					"terrorblade_reflection"
 		"MaxLevel"								"3"
 		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
+		"AbilityCastRange"						"%reality_aoe"
 		"AbilityCooldown"						"10 8 6"
 
 		// Special

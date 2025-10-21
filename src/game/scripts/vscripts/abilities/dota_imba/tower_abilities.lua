@@ -20,6 +20,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
+-- imba_tower_reality
 function Reality( keys )
 	local caster = keys.caster
 	local ability = keys.ability
@@ -28,8 +29,12 @@ function Reality( keys )
 
 	-- If the ability is on cooldown, do nothing
 	if not ability:IsCooldownReady() then
-		return nil
+		return
 	end
+
+	if caster:PassivesDisabled() then return end
+
+	if not caster:IsRealHero() and not caster:IsBuilding() then return end
 
 	-- Parameters
 	local reality_aoe = ability:GetLevelSpecialValueFor("reality_aoe", ability_level)
@@ -339,6 +344,21 @@ end
 
 function imba_tower_aegis:GetIntrinsicModifierName()
 	return "modifier_imba_tower_aegis_aura"
+end
+
+function imba_tower_aegis:OnUpgrade()
+	local caster = self:GetCaster()
+	if not caster:IsBuilding() then
+		return
+	end
+
+	-- Parameters
+	local bonus_health = self:GetLevelSpecialValueFor("bonus_health", 0)
+
+	-- Update health
+	caster:SetBaseMaxHealth(caster:GetBaseMaxHealth() + bonus_health)
+	caster:SetMaxHealth(caster:GetMaxHealth() + bonus_health)
+	caster:SetHealth(caster:GetHealth() + bonus_health)
 end
 
 -- Tower Aura
@@ -1334,16 +1354,15 @@ function modifier_imba_tower_plague_aura:OnCreated()
 		self:Destroy()
 		return nil
 	end
-	self.particle_rot = "particles/units/heroes/hero_pudge/pudge_rot_radius.vpcf" --"particles/hero/tower/plague_tower_aura.vpcf"
+	self.particle_rot = "particles/units/heroes/hero_pudge/pudge_rot.vpcf" --"particles/hero/tower/plague_tower_aura.vpcf"
 
 	-- Ability specials
 	self.aura_radius = self.ability:GetSpecialValueFor("aura_radius")
 
 	if not self.particle_rot_fx then
 		-- Apply particles
-		self.particle_rot_fx = ParticleManager:CreateParticle(self.particle_rot, PATTACH_ABSORIGIN, self.caster)
-		ParticleManager:SetParticleControl(self.particle_rot_fx, 0, self.caster:GetAbsOrigin())
-		ParticleManager:SetParticleControl(self.particle_rot_fx, 3, self.caster:GetAbsOrigin())
+		self.particle_rot_fx = ParticleManager:CreateParticle(self.particle_rot, PATTACH_ABSORIGIN_FOLLOW, self.caster)
+		ParticleManager:SetParticleControl(self.particle_rot_fx, 1, Vector(self.aura_radius, 1, self.aura_radius))
 		self:AddParticle(self.particle_rot_fx, false, false, -1, false, false)
 	end
 end
@@ -2021,7 +2040,7 @@ function modifier_imba_tower_grievous_wounds_aura_buff:OnAttackLanded(keys)
 				grievous_debuff_handler = target:FindModifierByName(self.grievous_debuff)
 				grievous_debuff_handler:ForceRefresh()
 			end
-			
+
 			local grievous_stacks
 			if not grievous_debuff_handler then
 				grievous_stacks = 1
