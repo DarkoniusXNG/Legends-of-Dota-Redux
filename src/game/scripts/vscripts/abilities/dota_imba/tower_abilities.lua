@@ -20,56 +20,6 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-function HexAura( keys )
-	local caster = keys.caster
-	local ability = keys.ability
-	local ability_level = ability:GetLevel() - 1
-	local modifier_slow = keys.modifier_slow
-
-	-- If the ability is on cooldown, do nothing
-	if not ability:IsCooldownReady() then
-		return nil
-	end
-
-	-- Parameters
-	local hex_aoe = ability:GetLevelSpecialValueFor("hex_aoe", ability_level)
-	local hex_duration = ability:GetLevelSpecialValueFor("hex_duration", ability_level)
-	local min_creeps = ability:GetLevelSpecialValueFor("min_creeps", ability_level)
-	local tower_loc = caster:GetAbsOrigin()
-
-	-- Find nearby enemies
-	local creeps = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, hex_aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
-	local heroes = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, hex_aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
-
-	-- Check if the ability should be cast
-	if #creeps >= min_creeps or #heroes >= 1 then
-
-		-- Choose a random hero to be the modifier owner (having a non-hero hex modifier owner crashes the game)
-		local hero_owner = HeroList:GetHero(0)
-
-		-- Hex enemies
-		for _,enemy in pairs(creeps) do
-			if enemy:IsIllusion() then
-				enemy:ForceKill(true)
-			else
-				enemy:AddNewModifier(hero_owner, ability, "modifier_sheepstick_debuff", {duration = hex_duration})
-				ability:ApplyDataDrivenModifier(caster, enemy, modifier_slow, {})
-			end
-		end
-		for _,enemy in pairs(heroes) do
-			if enemy:IsIllusion() then
-				enemy:ForceKill(true)
-			else
-				enemy:AddNewModifier(hero_owner, ability, "modifier_sheepstick_debuff", {duration = hex_duration})
-				ability:ApplyDataDrivenModifier(caster, enemy, modifier_slow, {})
-			end
-		end
-
-		-- Put the ability on cooldown
-		ability:StartCooldown(ability:GetCooldown(ability_level))
-	end
-end
-
 function Reality( keys )
 	local caster = keys.caster
 	local ability = keys.ability

@@ -4,8 +4,8 @@
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | hex"
+		"ReduxFlags"                                                           "attack_modifier | silence"
+		"ReduxPerks"                                                           "attack_modifier | hex | silence"
 	}
 
 	"shadow_shaman_mass_serpent_ward"
