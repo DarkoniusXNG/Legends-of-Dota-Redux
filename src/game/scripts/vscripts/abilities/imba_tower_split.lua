@@ -147,7 +147,7 @@ if IsServer() then
 					
 					-- Check if max amount is reached
 					if split_amount <= 0 then
-						return
+						break
 					end
 				end
 			end

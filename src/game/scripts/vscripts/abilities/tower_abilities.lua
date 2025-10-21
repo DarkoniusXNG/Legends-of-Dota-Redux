@@ -422,9 +422,9 @@ function Fervor( keys )
 
 	-- Increase stacks if below the maximum amount
 	if current_stacks < max_stacks then
-		AddStacks(ability, caster, caster, modifier_fervor, 1, true)
+		AddStacks(ability, caster, caster, modifier_fervor, current_stacks, true)
 	else
-		AddStacks(ability, caster, caster, modifier_fervor, 0, true)
+		AddStacks(ability, caster, caster, modifier_fervor, max_stacks, true)
 	end
 end
 
