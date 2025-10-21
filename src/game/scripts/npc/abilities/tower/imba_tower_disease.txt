@@ -18,7 +18,7 @@
             "stat_reduction" "-10 -20 -30"
             "aura_radius"
 			{
-				"value"			"1200"
+				"value"			"900"
 				"affected_by_aoe_increase"	"1"
 			}
             "aura_stickyness" "0.5"

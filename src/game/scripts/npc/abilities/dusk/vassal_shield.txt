@@ -12,13 +12,9 @@
 		"AbilityUnitTargetTeam"		 "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"		 "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"SpellImmunityType"			 "SPELL_IMMUNITY_ALLIES_YES"
-		"AbilityCastAnimation"		  "ACT_DOTA_ATTACK"
 		"AbilityTextureName"			"custom/vassal_shield"
 
 		"AbilityCastRange"			"%radius"
-		"AbilityCastPoint"			"0.45"
-		"AbilityCooldown"			"0"
-		"AbilityManaCost"			"0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -27,7 +23,7 @@
             "damage_reduction" "-14 -18 -22"
             "radius"
 			{
-				"value"			"700"
+				"value"			"1200"
 				"affected_by_aoe_increase"	"1"
 			}
             "block" "8 12 16"

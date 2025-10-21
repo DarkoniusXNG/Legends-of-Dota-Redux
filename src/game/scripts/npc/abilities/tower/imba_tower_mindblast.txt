@@ -11,7 +11,7 @@
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
-            "silence_radius" "800 1000 1200"
+            "silence_radius" "800 900 1000"
             "silence_duration" "2 2.5 3"
         }
         "Modifiers"
