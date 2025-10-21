@@ -383,7 +383,7 @@ function modifier_imba_tower_aegis_aura:GetAuraRadius()
 end
 
 function modifier_imba_tower_aegis_aura:GetAuraSearchFlags()
-	return DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED
+	return DOTA_UNIT_TARGET_FLAG_NONE --DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED
 end
 
 function modifier_imba_tower_aegis_aura:GetAuraSearchTeam()

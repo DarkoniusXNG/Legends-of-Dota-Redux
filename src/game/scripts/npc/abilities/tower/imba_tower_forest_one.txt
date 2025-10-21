@@ -6,7 +6,6 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/imba_tower_forest"
         "MaxLevel"                                                             "1"
-        "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%tree_radius"
         "AbilityCooldown"                                                      "8"
 
@@ -33,7 +32,7 @@
         }
         "Modifiers"
         {
-            "modifier_imba_tower_forest"
+            "modifier_imba_tower_forest_one"
             {
                 "Passive"                                              "1"
                 "IsHidden"                                             "1"
