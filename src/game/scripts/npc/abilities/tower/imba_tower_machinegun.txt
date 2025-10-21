@@ -9,7 +9,7 @@
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityValues"
         {
-            "bonus_as" "75 125 175"
+            "bonus_as" "100 150 200"
         }
         "Modifiers"
         {
@@ -23,7 +23,6 @@
                 }
             }
         }
-        "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
+        "ReduxCost"                                                            "60"
     }
 }

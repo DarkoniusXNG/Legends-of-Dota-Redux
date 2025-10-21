@@ -1451,51 +1451,6 @@
 	}
 
 	//=================================================================================================================
-	// Tower ability: Machinegun (Tier 1)
-	//=================================================================================================================
-	"imba_tower_machinegun"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_lua"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"gyrocopter_skyhigh_flak_cannon"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities.lua"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_as"						"40 60 80"
-			}
-
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"aura_radius"					"900"
-			}
-
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"aura_stickyness"				"0.5"
-			}
-
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"as_per_protective_instinct"	"20"
-			}
-		}
-	}
-
-	//=================================================================================================================
 	// Tower ability: Tenacity Aura (Tier 2)
 	//=================================================================================================================
 	"imba_tower_tenacity"
