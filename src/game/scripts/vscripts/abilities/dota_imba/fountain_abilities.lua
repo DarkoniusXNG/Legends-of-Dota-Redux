@@ -26,7 +26,7 @@ function GrievousWounds( keys )
 
 	-- Don't apply if the target is dead
 	if not target:IsAlive() then
-		return nil
+		return
 	end
 
 	-- Parameters
@@ -35,6 +35,7 @@ function GrievousWounds( keys )
 	-- Play hit particle
 	local hit_pfx = ParticleManager:CreateParticle(particle_hit, PATTACH_ABSORIGIN, target)
 	ParticleManager:SetParticleControl(hit_pfx, 0, target:GetAbsOrigin())
+	ParticleManager:ReleaseParticleIndex(hit_pfx)
 
 	-- Calculate bonus damage
 	local base_damage = caster:GetAttackDamage()

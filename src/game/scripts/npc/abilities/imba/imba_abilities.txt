@@ -1316,43 +1316,6 @@
 	}
 
 	//=================================================================================================================
-	// Tower ability: Mass Confusion (Doppleganger) (Tier 3)
-	//=================================================================================================================
-	"imba_tower_doppleganger"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_lua"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"custom/tower_doppleganger"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle"							"particles/econ/items/phantom_lancer/phantom_lancer_immortal_ti6/phantom_lancer_immortal_ti6_spiritlance_cast.vpcf"
-		}
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-        {
-            "aura_radius" "900"
-            "aura_stickyness" "0.5"
-            "incoming_damage" "0"
-            "outgoing_damage" "-100"
-            "doppleganger_duration" "12"
-            "doppleganger_cooldown" "25"
-            "cd_reduction_per_protective" "1"
-            "summon_distance" "200"
-        }
-	}
-
-	//=================================================================================================================
 	// Tower ability: Barrier Aura (Tier 3)
 	//=================================================================================================================
 	"imba_tower_barrier"
@@ -1493,42 +1456,6 @@
 				}
 			}
 		}
-	}
-
-	//=================================================================================================================
-	// Tower ability: Healing Tower (Actives)
-	//=================================================================================================================
-	"imba_tower_healing_tower"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_lua"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"custom/tower_healing_wave"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
-		"AbilityCooldown"						"6"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle"							"particles/hero/tower/tower_healing_wave.vpcf"
-			"soundfile"							"soundevents/game_sounds_greevils.vsndevts"
-		}
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-        {
-            "search_radius" "900"
-            "bounce_delay" "0.5"
-            "bounce_radius" "700"
-            "heal_amount" "250 400 550"
-            "hp_threshold" "85"
-        }
 	}
 
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

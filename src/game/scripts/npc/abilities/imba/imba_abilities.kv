@@ -1260,31 +1260,6 @@
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 	//=================================================================================================================
-	// Tower ability: Protective Instinct
-	//=================================================================================================================
-	"imba_tower_protective_instinct"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_lua"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"								"1"
-		"AbilityCastRange"						"1600"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"1600"
-			}
-		}
-	}
-
-	//=================================================================================================================
 	// Tower ability: Explosion Tower (Tier 1)
 	//=================================================================================================================
 	"imba_tower_splash_fire"
@@ -1693,82 +1668,6 @@
 	}
 
 	//=================================================================================================================
-	// Tower ability: Mass Confusion (Doppleganger) (Tier 3)
-	//=================================================================================================================
-	"imba_tower_doppleganger"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_lua"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"custom/tower_doppleganger"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle"							"particles/econ/items/phantom_lancer/phantom_lancer_immortal_ti6/phantom_lancer_immortal_ti6_spiritlance_cast.vpcf"
-		}
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"aura_radius"					"900"
-			}
-
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"aura_stickyness"				"0.5"
-			}
-
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"incoming_damage"				"0"
-			}
-
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"outgoing_damage"				"-100"
-			}
-
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"doppleganger_duration"			"12"
-			}
-
-			"06"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"doppleganger_cooldown"			"25"
-			}
-
-			"07"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"cd_reduction_per_protective"	"1"
-			}
-
-			"08"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"summon_distance"				"200"
-			}
-		}
-	}
-
-	//=================================================================================================================
 	// Tower ability: Barrier Aura (Tier 3)
 	//=================================================================================================================
 	"imba_tower_barrier"
@@ -1949,66 +1848,6 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"aoe_radius"					"250"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Tower ability: Healing Tower (Actives)
-	//=================================================================================================================
-	"imba_tower_healing_tower"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_lua"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"custom/tower_healing_wave"
-		"MaxLevel"								"3"
-		"AbilitySharedWithTeammates"			"1"
-		"AbilityCastRange"						"900"
-		"AbilityCooldown"						"6"
-		"ScriptFile"							"abilities/dota_imba/tower_abilities"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle"							"particles/hero/tower/tower_healing_wave.vpcf"
-			"soundfile"							"soundevents/game_sounds_greevils.vsndevts"
-		}
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"search_radius"				"900"
-			}
-
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"bounce_delay"				"0.5"
-			}
-
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bounce_radius"				"700"
-			}
-
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"heal_amount"				"250 400 550"
-			}
-
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hp_threshold"				"85"
 			}
 		}
 	}

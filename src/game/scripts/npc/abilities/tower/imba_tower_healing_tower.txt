@@ -10,7 +10,7 @@
         "BaseClass"                             "ability_lua"
         "ScriptFile"                            "abilities/healing_aura.lua"
         "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                           "ABILITY_TYPE_ULTIMATE"
         "AbilityTextureName"                    "custom/tower_healing_wave"
         "AbilitySharedWithTeammates"            "1"
         "AbilityCastRange"                      "%search_radius"
@@ -18,7 +18,7 @@
 
         "ReduxPerks"                            "support | light"
         "ReduxFlags"                            "support"
-        "ReduxCost"                                                            "120"
+        "ReduxCost"                             "120"
 
         // Precache
         //-------------------------------------------------------------------------------------------------------------
@@ -40,7 +40,7 @@
             "bounce_delay" "0.5"
             "bounce_radius"
 			{
-				"value"			"600"
+				"value"			"700"
 				"affected_by_aoe_increase"	"1"
 			}
             "heal_amount" "150 250 350"
@@ -55,15 +55,14 @@
         "BaseClass"                             "ability_lua"
         "ScriptFile"                            "abilities/healing_aura.lua"
         "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "AbilityType"                           "ABILITY_TYPE_ULTIMATE"
         "AbilityTextureName"                    "custom/tower_healing_wave_hero"
-        "AbilitySharedWithTeammates"            "1"
         "AbilityCastRange"                      "%search_radius"
         "AbilityCooldown"                       "30 20 10"
 
         "ReduxPerks"                            "support | light"
         "ReduxFlags"                            "support"
-        "ReduxCost"                                                            "40"
+        "ReduxCost"                             "40"
 
         // Precache
         //-------------------------------------------------------------------------------------------------------------
@@ -85,7 +84,7 @@
             "bounce_delay" "0.5"
             "bounce_radius"
 			{
-				"value"			"600"
+				"value"			"700"
 				"affected_by_aoe_increase"	"1"
 			}
             "heal_amount" "150 250 350"

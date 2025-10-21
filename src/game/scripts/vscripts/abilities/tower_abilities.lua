@@ -427,9 +427,9 @@ function Fervor( keys )
 
 	-- Increase stacks if below the maximum amount
 	if current_stacks < max_stacks then
-		AddStacks(ability, caster, caster, modifier_fervor, current_stacks, true)
+		AddStacks(ability, caster, caster, modifier_fervor, 1, true)
 	else
-		AddStacks(ability, caster, caster, modifier_fervor, max_stacks, true)
+		AddStacks(ability, caster, caster, modifier_fervor, 0, true)
 	end
 end
 
@@ -832,7 +832,7 @@ function Forest( keys )
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 	local sound_tree = keys.sound_tree
-	local abilityName = ability:GetName()
+	local abilityName = ability:GetAbilityName()
 
 	-- If the ability is on cooldown, do nothing
 	if not ability:IsCooldownReady() then
@@ -848,7 +848,7 @@ function Forest( keys )
 	local tree_duration = ability:GetLevelSpecialValueFor("tree_duration", ability_level)
 
 	-- Tree generator for black forest mutator
-	if ability:GetAbilityName() == "imba_tower_forest_generator" then
+	if abilityName == "imba_tower_forest_generator" then
 
 		-- FOREST CALIBRATION SETTINGS
 		local treeBufferDistance = 205 --How far trees should be apart
@@ -912,7 +912,6 @@ function Forest( keys )
 		-- Put the ability on cooldown
 		ability:StartCooldown(ability:GetCooldown(ability_level))
 	end
-
 end
 
 function createTempTreePretty( tree_loc, duration, owner )
