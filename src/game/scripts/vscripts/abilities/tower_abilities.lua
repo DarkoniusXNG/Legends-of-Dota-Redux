@@ -1157,7 +1157,6 @@ function Cannon( keys )
 	if caster:PassivesDisabled() then return end
 
 	if not caster:IsRealHero() and not caster:IsBuilding() then return nil end
-	
 
 	-- Parameters
 	local salvo_aoe = ability:GetLevelSpecialValueFor("salvo_aoe", ability_level)
@@ -1165,16 +1164,17 @@ function Cannon( keys )
 	local target_loc = target:GetAbsOrigin()
 
 	-- Find nearby enemies
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target_loc, nil, salvo_aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target_loc, nil, salvo_aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
 	-- Play particle
 	target_loc = target_loc + Vector(0, 0, 100)
 	local explosion_pfx = ParticleManager:CreateParticle(particle_explosion, PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(explosion_pfx, 0, target_loc)
 	ParticleManager:SetParticleControl(explosion_pfx, 3, target_loc)
+	ParticleManager:ReleaseParticleIndex(explosion_pfx)
 
 	-- Deal bonus damage to enemies
-	for _,enemy in pairs(enemies) do
+	for _, enemy in pairs(enemies) do
 		ApplyDamage({attacker = caster, victim = enemy, ability = ability, damage = salvo_dmg, damage_type = DAMAGE_TYPE_MAGICAL})
 	end
 end

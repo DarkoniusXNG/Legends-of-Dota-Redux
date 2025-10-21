@@ -7,6 +7,8 @@
         "AbilityTextureName"                                                   "custom/imba_tower_salvo"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
+
         "AbilityValues"
         {
             "as_slow" "-50"
@@ -17,6 +19,12 @@
 				"affected_by_aoe_increase"	"1"
 			}
         }
+
+        "precache"
+        {
+            "particle"                                         "particles/ambient/tower_salvo_explosion.vpcf"
+        }
+
         "Modifiers"
         {
             "modifier_imba_tower_salvo"
@@ -38,7 +46,9 @@
                 }
             }
         }
+
         "ReduxFlags"                                                           "aoe_attack | attack_modifier"
+        "ReduxPerks"                                                           "attack_modifier | explosive"
         "ReduxCost"                                                            "120"
     }
 }
