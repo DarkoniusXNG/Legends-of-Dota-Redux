@@ -1498,6 +1498,10 @@ function Pregame:onThink()
                 SkillManager:precacheSkill("vassal_shield")
             end
 
+            if this.optionStore['lodOptionBlackForest'] == 1 then
+                SkillManager:precacheSkill("imba_tower_forest_generator")
+            end
+
             -- Move to ingame
             this:setPhase(constants.PHASE_INGAME)
 

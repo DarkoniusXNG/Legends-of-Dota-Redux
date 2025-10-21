@@ -15,6 +15,22 @@
             "tree_radius" "700"
             "tree_duration" "240"
         }
+        "precache"
+        {
+            "model"                                                    "models/props_tree/dire_tree001.vmdl"
+            "model"                                                    "models/props_tree/dire_tree002.vmdl"
+            "model"                                                    "models/props_tree/dire_tree004b_sfm.vmdl"
+            "model"                                                    "models/props_tree/dire_tree007_sfm.vmdl"
+            "model"                                                    "models/props_tree/dire_tree003.vmdl"
+            "model"                                                    "models/props_tree/dire_tree005.vmdl"
+            "model"                                                    "models/props_tree/tree_oak_01_sfm.vmdl"
+            "model"                                                    "models/props_tree/tree_oak_00.vmdl"
+            "model"                                                    "models/props_tree/tree_oak_01b_sfm.vmdl"
+            "model"                                                    "models/props_tree/tree_oak_02_sfm.vmdl"
+            "model"                                                    "models/props_tree/tree_pine_01_sfm.vmdl"
+            "model"                                                    "models/props_tree/tree_pine_02_sfm.vmdl"
+            "model"                                                    "models/props_tree/tree_pine_03b_sfm.vmdl"
+        }
         "Modifiers"
         {
             "modifier_imba_tower_forest"
@@ -33,6 +49,8 @@
                 }
             }
         }
+
         "ReduxFlags"                                                           "doNotRandom"
+        "ReduxPerks"                                                           "nature"
     }
 }
