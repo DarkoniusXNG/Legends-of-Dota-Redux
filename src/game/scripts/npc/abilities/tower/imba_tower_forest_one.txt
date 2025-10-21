@@ -8,6 +8,7 @@
         "MaxLevel"                                                             "1"
         "AbilityCastRange"                                                     "%tree_radius"
         "AbilityCooldown"                                                      "8"
+        "IsBreakable"                                                          "1"
 
         "AbilityValues"
         {

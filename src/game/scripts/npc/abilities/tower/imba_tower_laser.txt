@@ -9,6 +9,8 @@
         "AbilityCastRange"                                                     "800 1000 1200"
         "AbilityCooldown"                                                      "10 9 8"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
             "blind_chance" "100"

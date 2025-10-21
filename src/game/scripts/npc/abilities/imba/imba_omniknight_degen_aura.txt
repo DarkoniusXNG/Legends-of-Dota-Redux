@@ -8,6 +8,8 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"                                                   "custom/imba_omniknight_degen_aura"
         "AbilityCastRange"                                                     "%radius"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
             "radius" "400 500 600 700"

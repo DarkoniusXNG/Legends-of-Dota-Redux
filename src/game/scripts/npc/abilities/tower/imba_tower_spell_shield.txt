@@ -9,6 +9,7 @@
         "AbilityCastRange"                                                     "%aura_radius"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "ScriptFile"                                                           "abilities/dota_imba/tower_abilities"
+        "IsBreakable"                                                          "1"
 
         "AbilityValues"
         {

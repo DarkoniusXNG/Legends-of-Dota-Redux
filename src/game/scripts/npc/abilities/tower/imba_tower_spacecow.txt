@@ -9,6 +9,7 @@
         "AbilityCooldown"                                                      "5 4 3"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
+        "IsBreakable"                                                          "1"
 
         "AbilityValues"
         {

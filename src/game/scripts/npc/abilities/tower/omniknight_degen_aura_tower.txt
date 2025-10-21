@@ -9,6 +9,8 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"                                                   "custom/omniknight_degen_aura_tower"
         "AbilityCastRange"                                                     "%radius"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
             "radius"

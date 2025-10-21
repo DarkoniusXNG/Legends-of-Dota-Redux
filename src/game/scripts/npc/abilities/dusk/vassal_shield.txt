@@ -13,8 +13,8 @@
 		"AbilityUnitTargetType"		 "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"SpellImmunityType"			 "SPELL_IMMUNITY_ALLIES_YES"
 		"AbilityTextureName"			"custom/vassal_shield"
-
 		"AbilityCastRange"			"%radius"
+		//"IsBreakable"					"0" // needs recoding in lua
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------

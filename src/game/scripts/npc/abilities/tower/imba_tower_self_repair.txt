@@ -8,6 +8,8 @@
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%aura_radius"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        //"IsBreakable"                                                          "0" // needs recoding in lua
+
         "AbilityValues"
         {
             "hp_regen" "8 14 20" // self repair

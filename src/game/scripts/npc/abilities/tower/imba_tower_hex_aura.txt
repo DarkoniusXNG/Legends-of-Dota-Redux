@@ -9,6 +9,8 @@
         "AbilityCastRange"                                                     "%hex_aoe"
         "AbilityCooldown"                                                      "10 9 8"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
             "hex_aoe" "800 900 1000"

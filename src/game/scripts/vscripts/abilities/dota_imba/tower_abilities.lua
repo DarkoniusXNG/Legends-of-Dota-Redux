@@ -446,7 +446,6 @@ function modifier_imba_tower_aegis_aura_buff:GetModifierPhysicalArmorBonus()
 	return self.armor_per_protective * protective_instinct_stacks
 end
 
-
 ---------------------------------------------------
 ---------------------------------------------------
 ---------------------------------------------------

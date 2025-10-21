@@ -9,6 +9,8 @@
         "AbilityCastRange"                                                     "%force_aoe"
         "AbilityCooldown"                                                      "8"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
             "force_aoe"

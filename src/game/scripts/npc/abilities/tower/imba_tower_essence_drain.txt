@@ -10,6 +10,7 @@
         "AbilityCastRange"                                                     "%aura_radius"
         "ScriptFile"                                                           "abilities/dota_imba/tower_abilities"
         "SpellDispellableType"                                                 "SPELL_DISPELLABLE_YES"
+        "IsBreakable"                                                          "1"
 
         "ReduxFlags"                                                           "attack_modifier"
         "ReduxPerks"                                                           "attack_modifier | aura | drain"

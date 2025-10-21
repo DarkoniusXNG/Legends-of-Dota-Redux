@@ -7,6 +7,8 @@
         "AbilityTextureName"                                                   "custom/imba_tower_mana_burn" // "custom/tower_mana_burn"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
             "mana_burn" "50 75 100" // percent of tower's dmg

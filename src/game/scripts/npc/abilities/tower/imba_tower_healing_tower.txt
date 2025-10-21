@@ -15,6 +15,7 @@
         "AbilitySharedWithTeammates"            "1"
         "AbilityCastRange"                      "%search_radius"
         "AbilityCooldown"                       "6"
+        "IsBreakable"                                                          "1"
 
         "ReduxPerks"                            "support | light"
         "ReduxFlags"                            "support"
@@ -59,6 +60,7 @@
         "AbilityTextureName"                    "custom/tower_healing_wave_hero"
         "AbilityCastRange"                      "%search_radius"
         "AbilityCooldown"                       "30 20 10"
+        "IsBreakable"                                                          "1"
 
         "ReduxPerks"                            "support | light"
         "ReduxFlags"                            "support"
