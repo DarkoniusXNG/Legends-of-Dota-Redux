@@ -912,6 +912,7 @@
 "DOTA_Tooltip_ability_bahamut_reckoning_aura" "Reckoning Aura"
 "DOTA_Tooltip_ability_bahamut_reckoning_aura_damage" "%EXTRA DAMAGE RECEIVED:"
 "DOTA_Tooltip_ability_bahamut_reckoning_aura_description" "Bahamut's very presence causes nearby enemies to take more damage.\n\n<font color='#7D7D7D'>Imported from Dusk\n"
+"DOTA_Tooltip_ability_bahamut_reckoning_aura_radius" "AURA RADIUS:"
 "DOTA_Tooltip_ability_bash_reflect" "Anti-Stun"
 "DOTA_Tooltip_ability_bash_reflect_Description" "Enemy Heroes that stun you from any source will be counter-stunned for a multiplier of the stun duration.\n\nCan be cast on an allied hero to temporarily transfer the protection.<br><br><font color='#7D7D7D'>Credits: Wouterz90 | github.com/Wouterz90</font><br>"
 "DOTA_Tooltip_ability_bash_reflect_duration_multiplier" "%DURATION MULTIPLIER:"

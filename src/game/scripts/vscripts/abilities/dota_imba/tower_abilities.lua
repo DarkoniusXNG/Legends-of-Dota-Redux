@@ -1994,6 +1994,16 @@ function modifier_imba_tower_grievous_wounds_aura_buff:OnAttackLanded(keys)
 		local target = keys.target
 		local protective_instinct_stacks = self.caster:GetModifierStackCount("modifier_imba_tower_protective_instinct", self.caster)
 
+		-- Attacked target is an item, rune or some weird entity
+		if target.HasModifier == nil then
+			return
+		end
+
+		-- Attacked target is a building or ward
+		if target:IsBuilding() or target:IsOther() then
+			return
+		end
+
 		-- Only apply if the parent is the victim and the attacker is on the opposite team
 		if self.parent == attacker and attacker:GetTeamNumber() ~= target:GetTeamNumber() then
 
@@ -2194,6 +2204,11 @@ function modifier_imba_tower_essence_drain_aura_buff:OnAttackLanded( keys )
 	if IsServer() then
 		local attacker = keys.attacker
 		local target = keys.target
+
+		-- Attacked target is an item, rune or some weird entity
+		if target.HasModifier == nil then
+			return
+		end
 
 		local protective_instinct_stacks = self.caster:GetModifierStackCount("modifier_imba_tower_protective_instinct", self.caster)
 
