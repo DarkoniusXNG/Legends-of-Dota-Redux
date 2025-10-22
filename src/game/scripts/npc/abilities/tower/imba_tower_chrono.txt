@@ -13,8 +13,8 @@
 
         "AbilityValues"
         {
-            "stun_radius" "800 900 1000"
-            "stun_duration" "1.0 1.25 1.5"
+            "stun_radius" "800 1000 1200"
+            "stun_duration" "1.0 1.5 2.0"
             "min_creeps" "4"
         }
 

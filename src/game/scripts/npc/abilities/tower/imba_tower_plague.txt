@@ -14,7 +14,7 @@
 
         "AbilityValues"
         {
-            "damage_per_second" "30 50 70"
+            "damage_per_second" "40 60 80"
             "ms_slow" "-20 -25 -30"
             "as_slow" "-20 -25 -30"
             "aura_radius"

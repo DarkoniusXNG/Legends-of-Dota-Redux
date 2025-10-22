@@ -8,8 +8,8 @@
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
         "AbilityTextureName"                                                   "custom/lich_cold_aura"
-
         "AbilityCastRange"                                                     "%radius"
+        //"IsBreakable"                                                          "0" // needs recoding in lua
 
         "ReduxFlags"                                                           "tank | physical"
         "ReduxPerks"                                                           "ice | aura | physical"
@@ -18,7 +18,7 @@
         "AbilityValues"
         {
             "slow" "-15 -20 -25"
-            "damage" "2.0 3.5 5.0" // max hp percent dmg
+            "damage" "3.5 4.5 5.5" // max hp percent dmg
             "armor_bonus" "3 6 9"
             "radius"
 			{

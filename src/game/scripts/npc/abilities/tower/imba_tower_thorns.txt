@@ -14,15 +14,15 @@
 
         "AbilityValues"
         {
-            "damage_per_hit" "20 30 40"
-            "return_damage_pct" "30 40 50"
+            "damage_per_hit" "35 45 55" // base dmg
+            "return_damage_pct" "30 40 50" // dmg per main attribute
             "aura_radius"
             {
                 "value"			"1200"
                 "affected_by_aoe_increase"	"1"
             }
             "aura_stickyness" "0.5"
-            "return_damage_per_stack" "3"
+            "return_damage_per_stack" "3" // dmg per main attribute increase
         }
 
         "precache"

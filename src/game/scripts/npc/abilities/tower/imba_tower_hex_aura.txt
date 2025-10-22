@@ -13,7 +13,7 @@
 
         "AbilityValues"
         {
-            "hex_aoe" "800 900 1000"
+            "hex_aoe" "800 1000 1200"
             "hex_duration" "1.0 1.5 2.0"
             "min_creeps" "4"
         }

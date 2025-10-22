@@ -35,7 +35,7 @@
         {
             "search_radius"
 			{
-				"value"			"900"
+				"value"			"1200"
 				"affected_by_aoe_increase"	"1"
 			}
             "bounce_delay" "0.5"
@@ -80,7 +80,7 @@
         {
             "search_radius"
 			{
-				"value"			"900"
+				"value"			"1200"
 				"affected_by_aoe_increase"	"1"
 			}
             "bounce_delay" "0.5"

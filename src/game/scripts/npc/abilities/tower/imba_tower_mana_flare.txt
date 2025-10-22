@@ -15,7 +15,7 @@
         {
             "burn_aoe"
             {
-                "value"			"900"
+                "value"			"800 1000 1200"
                 "affected_by_aoe_increase"	"1"
             }
             "burn_pct" "20 25 30"
