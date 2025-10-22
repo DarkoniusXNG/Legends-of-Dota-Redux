@@ -8,6 +8,9 @@
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCooldown"                                                      "5 4 3"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
             "knockback_damage" "50 75 100"
@@ -32,8 +35,8 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "stun"
-        "ReduxPerks"                                                           "enemymoving"
+        "ReduxFlags"                                                           "attack_modifier | bash | stun"
+        "ReduxPerks"                                                           "attack_modifier | bash | enemymoving"
         "ReduxCost"                                                            "120"
     }
 }

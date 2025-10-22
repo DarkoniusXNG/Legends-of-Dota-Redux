@@ -7,10 +7,13 @@
         "AbilityTextureName"                                                   "custom/imba_tower_sniper"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        //"IsBreakable"                                                          "0" // needs recoding in lua
+
         "AbilityValues"
         {
             "bonus_range" "200 400 600"
         }
+
         "Modifiers"
         {
             "modifier_imba_tower_sniper"
@@ -28,6 +31,7 @@
             }
         }
         "ReduxFlags"                                                           "attack_modifier"
+        "ReduxPerks"                                                           "attack_modifier | ranger"
         "ReduxCost"                                                            "120"
     }
 }

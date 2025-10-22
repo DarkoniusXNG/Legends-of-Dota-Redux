@@ -9,6 +9,7 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "SpellDispellableType"                                                 "SPELL_DISPELLABLE_YES"
         "IsBreakable"                                                          "1"
@@ -19,18 +20,19 @@
         "AbilityValues"
         {
             "slow"                                                             "-30 -45 -60"
-            "damage"                                                           "40 60 80"
+            "damage"                                                           "35 50 65"
             "interval"                                                         "0.35"
             "radius"
             {
-              "value"                                                          "600"
+              "value"                                                          "700"
               "affected_by_aoe_increase"                                       "1"
             }
             "slow_duration"                                                    "0.8"
         }
         "precache"
         {
-            "particle"                                                         "particles/units/heroes/hero_summoner/tesla_coil_bolt.vpcf"
+            //"particle"                                                         "particles/units/heroes/hero_summoner/tesla_coil_bolt.vpcf"
+            "particle"                                                         "particles/items_fx/chain_lightning.vpcf"
         }
 
         "ReduxPerks"                                                           "lightning | scientific"

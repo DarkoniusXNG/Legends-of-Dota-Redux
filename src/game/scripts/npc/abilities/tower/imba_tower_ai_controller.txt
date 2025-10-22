@@ -7,9 +7,10 @@
 		"AbilitySharedWithTeammates" "1"
 		"AbilityCastRange" "1200"
 		"AbilityCooldown" "1"
+		"IsBreakable"                                                          "1"
 
 		"Modifiers" {
-			"modifier_imba_tower_hex_aura" {
+			"modifier_imba_tower_ai_controller" {
 				"Passive" "1"
 				"IsHidden" "1"
 				"IsBuff" "1"

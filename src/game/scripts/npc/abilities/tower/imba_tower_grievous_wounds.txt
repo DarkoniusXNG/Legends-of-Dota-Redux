@@ -2,45 +2,37 @@
 {
     "imba_tower_grievous_wounds"
     {
-        "BaseClass"                                                            "ability_datadriven"
+        "BaseClass"                                                            "ability_lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "ursa_fury_swipes"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "AbilityCastRange"                                                     "%aura_radius"
+        "ScriptFile"                                                           "abilities/dota_imba/tower_abilities"
+        "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
+        "SpellDispellableType"                                                 "SPELL_DISPELLABLE_YES"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
             "damage_increase" "10 15 20"
             "debuff_duration" "5"
+            "aura_radius"
+            {
+                "value"			"1200"
+                "affected_by_aoe_increase"	"1"
+            }
+            "aura_stickyness" "0.5"
+            "damage_increase_per_hero" "2"
         }
-        "Modifiers"
+
+        "precache"
         {
-            "modifier_imba_tower_grievous_wounds"
-            {
-                "Passive"                                              "1"
-                "IsHidden"                                             "1"
-                "OnAttackLanded"
-                {
-                    "RunScript"
-                    {
-                        "ScriptFile"                           "abilities/tower_abilities.lua"
-                        "Function"                             "GrievousWounds"
-                        "modifier_debuff"                      "modifier_imba_tower_grievous_wounds_debuff"
-                        "particle_hit"                         "particles/units/heroes/hero_ursa/ursa_fury_swipes.vpcf"
-                    }
-                }
-            }
-            "modifier_imba_tower_grievous_wounds_debuff"
-            {
-                "Passive"                                              "0"
-                "IsHidden"                                             "0"
-                "IsDebuff"                                             "1"
-                "IsPurgable"                                           "0"
-                "Duration"                                             "%debuff_duration"
-                "EffectName"                                           "particles/units/heroes/hero_ursa/ursa_fury_swipes_debuff.vpcf"
-                "EffectAttachType"                                     "follow_overhead"
-            }
+            "particle"                                         "particles/units/heroes/hero_ursa/ursa_fury_swipes_debuff.vpcf"
         }
-        "ReduxFlags"                                                           "attack_modifier"
+
+        "ReduxFlags"                                                           "attack_modifier | physical | support"
+        "ReduxPerks"                                                           "attack_modifier | aura | physical | support"
         "ReduxCost"                                                            "120"
     }
 }

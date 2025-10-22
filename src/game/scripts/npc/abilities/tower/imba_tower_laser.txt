@@ -6,9 +6,11 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/imba_tower_laser"
         "AbilitySharedWithTeammates"                                           "1"
-        "AbilityCastRange"                                                     "800 1000 1200"
+        "AbilityCastRange"                                                     "%blind_aoe"
         "AbilityCooldown"                                                      "10 9 8"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
             "blind_chance" "100"
@@ -24,6 +26,7 @@
             "particle"  "particles/units/heroes/hero_tinker/laser_cutter_sparks_k.vpcf"
             "particle"  "particles/ambient/tower_laser_blind.vpcf"
         }
+
         "OnProjectileHitUnit"
         {
             "DeleteOnHit"                                                  "1"
@@ -69,7 +72,8 @@
                 }
             }
         }
+
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
+        "ReduxPerks"                                                           "scientific"
     }
 }

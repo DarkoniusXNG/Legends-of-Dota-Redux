@@ -2,49 +2,29 @@
 {
     "imba_tower_atrophy"
     {
-        "BaseClass"                                                            "ability_datadriven"
+        "BaseClass"                                                            "ability_lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                                   "bane_enfeeble"
+        "AbilityTextureName"                                                   "custom/tower_atrophy"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%aura_radius"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "ScriptFile"                                                           "abilities/dota_imba/tower_abilities"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
-            "damage_reduction" "-30 -45 -60"
+            "damage_reduction" "-25 -35 -45"
             "aura_radius"
 			{
-				"value"			"1200"
+				"value"			"900"
 				"affected_by_aoe_increase"	"1"
 			}
+            "additional_dr_per_protective" "-2"
         }
-        "Modifiers"
-        {
-            "modifier_imba_tower_atrophy"
-            {
-                "Passive"                                              "1"
-                "IsHidden"                                             "1"
-                "Aura"                                                 "modifier_imba_tower_atrophy_aura"
-                "Aura_Radius"                                          "%aura_radius"
-                "Aura_Teams"                                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-                "Aura_Types"                                           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-                "Aura_Flags"                                           "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-                "Aura_ApplyToCaster"                                   "0"
-            }
-            "modifier_imba_tower_atrophy_aura"
-            {
-                "Passive"                                              "0"
-                "IsHidden"                                             "0"
-                "IsDebuff"                                             "1"
-                "IsPurgable"                                           "0"
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE""%damage_reduction"
-                }
-            }
-        }
+
+        "ReduxFlags"                                                           "tank"
         "ReduxPerks"                                                           "aura"
         "ReduxCost"                                                            "120"
         "ReduxBans"                                                            "abyssal_underlord_atrophy_aura"
-        "ReduxFlags"                                                           ""
     }
 }

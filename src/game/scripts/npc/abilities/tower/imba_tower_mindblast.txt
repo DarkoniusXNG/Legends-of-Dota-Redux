@@ -9,6 +9,8 @@
         "AbilityCastRange"                                                     "%silence_radius"
         "AbilityCooldown"                                                      "9 8 7"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
             "silence_radius" "800 1000 1200"
@@ -49,6 +51,7 @@
             }
         }
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
+        "ReduxFlags"                                                           "silence"
+        "ReduxPerks"                                                           "silence"
     }
 }

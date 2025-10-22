@@ -7,9 +7,11 @@
         "AbilityTextureName"                                                   "gyrocopter_skyhigh_flak_cannon"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        //"IsBreakable"                                                          "0" // needs recoding in lua
+
         "AbilityValues"
         {
-            "bonus_as" "75 125 175"
+            "bonus_as" "100 150 200"
         }
         "Modifiers"
         {
@@ -23,7 +25,6 @@
                 }
             }
         }
-        "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
+        "ReduxCost"                                                            "60"
     }
 }

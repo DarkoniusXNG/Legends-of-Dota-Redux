@@ -93,6 +93,7 @@ function DegenAura( keys )
     local modifier_stacks = keys.modifier_stacks
 	
 	if caster:PassivesDisabled() then return end
+
     -- Parameters
     local stack_reduction_pct = ability:GetLevelSpecialValueFor("stack_reduction_pct", ability_level)
     

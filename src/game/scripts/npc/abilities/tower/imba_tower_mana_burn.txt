@@ -4,12 +4,14 @@
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                                   "custom/imba_tower_mana_burn"
+        "AbilityTextureName"                                                   "custom/imba_tower_mana_burn" // "custom/tower_mana_burn"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
-            "mana_burn" "50 75 100"
+            "mana_burn" "50 75 100" // percent of tower's dmg
         }
         "Modifiers"
         {
@@ -29,7 +31,8 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "attack_modifier"
+        "ReduxFlags"                                                           "attack_modifier | mana"
+        "ReduxPerks"                                                           "attack_modifier"
         "ReduxCost"                                                            "120"
     }
 }

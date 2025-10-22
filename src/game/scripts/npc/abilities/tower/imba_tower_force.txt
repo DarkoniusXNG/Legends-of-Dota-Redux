@@ -6,15 +6,22 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/imba_force_tower"
         "AbilitySharedWithTeammates"                                           "1"
-        "AbilityCastRange"                                                     "800"
-        "AbilityCooldown"                                                      "4"
+        "AbilityCastRange"                                                     "%force_aoe"
+        "AbilityCooldown"                                                      "8"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
-            "force_aoe" "800"
-            "force_distance" "300 350 400"
-            "force_duration" "0.4 0.8 1.2"
+            "force_aoe"
+            {
+                "value"			"800 1000 1200"
+                "affected_by_aoe_increase"	"1"
+            }
+            "force_distance" "400 500 600"
+            "force_duration" "0.2"
             "min_creeps" "4"
+            "stun_duration" "0.6 0.8 1.0"
         }
         "Modifiers"
         {
@@ -34,8 +41,9 @@
                 }
             }
         }
+
+        "ReduxFlags"                                                           "stun"
         "ReduxPerks"                                                           "enemymoving"
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
     }
 }

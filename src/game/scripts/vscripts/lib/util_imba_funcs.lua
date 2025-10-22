@@ -803,7 +803,17 @@ function RollPseudoRandom(base_chance, entity)
 
 	if not prngBase then
 		print("The chance was not found! Make sure to add it to the table or change the value.")
-		return false
+		local unit
+		if entity.HasModifier ~= nil then
+			unit = entity
+		elseif entity.GetParent ~= nil then
+			unit = entity:GetParent()
+		end
+		if unit then
+			return RollPseudoRandomPercentage(base_chance, unit:GetEntityIndex(), unit)
+		else
+			return RollPercentage(base_chance)
+		end
 	end
 	
 	if RollPercentage( prngBase + entity.pseudoRandomModifier ) then

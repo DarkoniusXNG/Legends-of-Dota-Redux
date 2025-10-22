@@ -2,56 +2,30 @@
 {
     "imba_tower_vicious"
     {
-        "BaseClass"                                                            "ability_datadriven"
+        "BaseClass"                                                            "ability_lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                                   "custom/imba_tower_vicious"
+        "AbilityTextureName"                                                   "custom/imba_tower_vicious" // "custom/tower_vicious"
         "AbilitySharedWithTeammates"                                           "1"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "AbilityCastRange"                                                     "%aura_radius"
+        "ScriptFile"                                                           "abilities/dota_imba/tower_abilities"
+        "IsBreakable"                                                          "1"
 
         "AbilityValues"
         {
-            "crit_chance" "35"
-            "crit_damage" "200 250 300"
-        }
-        "Modifiers"
-        {
-            "modifier_imba_tower_vicious"
+            "crit_chance" "20 25 30"
+            "crit_damage" "150 200 250"
+            "aura_radius"
             {
-                "Passive"                                              "1"
-                "IsHidden"                                             "1"
-                "OnAttack"
-                {
-                    "RemoveModifier"
-                    {
-                        "ModifierName"                         "modifier_imba_tower_vicious_crit"
-                        "Target"                               "ATTACKER"
-                    }
-                    "Random"
-                    {
-                        "Chance"                               "%crit_chance"
-                        "OnSuccess"
-                        {
-                            "ApplyModifier"
-                            {
-                                "ModifierName"         "modifier_imba_tower_vicious_crit"
-                                "Target"               "ATTACKER"
-                            }
-                        }
-                    }
-                }
+                "value"			"1200"
+                "affected_by_aoe_increase"	"1"
             }
-            "modifier_imba_tower_vicious_crit"
-            {
-                "IsHidden"                                             "1"
-                "IsBuff"                                               "1"
-                "IsPurgable"                                           "0"
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"   "%crit_damage"
-                }
-            }
+            "aura_stickyness" "0.5"
+            "crit_chance_per_protective" "3"
         }
+
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
+        "ReduxFlags"                                                           "attack_modifier | crit"
+        "ReduxPerks"                                                           "attack_modifier"
     }
 }

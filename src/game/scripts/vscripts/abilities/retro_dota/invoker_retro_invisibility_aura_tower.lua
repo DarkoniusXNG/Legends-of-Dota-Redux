@@ -119,6 +119,7 @@ end
 function modifier_invoker_retro_invisibility_aura_on_destroy(keys)
 	if keys.caster.invisibility_aura_particle ~= nil then
 		ParticleManager:DestroyParticle(keys.caster.invisibility_aura_particle, false)
+		ParticleManager:ReleaseParticleIndex(keys.caster.invisibility_aura_particle)
 		keys.caster.invisibility_aura_particle = nil
 	end
 end

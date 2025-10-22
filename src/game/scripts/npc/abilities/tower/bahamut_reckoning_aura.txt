@@ -9,6 +9,7 @@
         "AbilityCastAnimation"                                                 "ACT_DOTA_CAST_ABILITY_2"
         "AbilityTextureName"                                                   "custom/bahamut_reckoning_aura"
         "AbilityCastRange"                                                     "%radius"
+        //"IsBreakable"                                                          "0" // needs recoding in lua
 
         "AbilityValues"
         {
@@ -47,6 +48,5 @@
         }
         "ReduxPerks"                                                           "aura"
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
     }
 }

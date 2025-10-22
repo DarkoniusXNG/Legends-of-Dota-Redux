@@ -1458,12 +1458,56 @@ function Pregame:onThink()
             -- Fix builds
             this:applyBuilds()
 
+            -- Precache strong towers
+            if OptionManager:GetOption('strongTowers') then
+                SkillManager:precacheSkill("bahamut_reckoning_aura")
+                SkillManager:precacheSkill("imba_tower_aegis")
+                SkillManager:precacheSkill("imba_tower_atrophy")
+                SkillManager:precacheSkill("imba_tower_berserk")
+                SkillManager:precacheSkill("imba_tower_chrono")
+                SkillManager:precacheSkill("imba_tower_death_pulse")
+                SkillManager:precacheSkill("imba_tower_disease")
+                SkillManager:precacheSkill("imba_tower_essence_drain")
+                SkillManager:precacheSkill("imba_tower_fervor")
+                SkillManager:precacheSkill("imba_tower_force")
+                SkillManager:precacheSkill("imba_tower_grievous_wounds")
+                SkillManager:precacheSkill("imba_tower_hex_aura")
+                SkillManager:precacheSkill("imba_tower_laser")
+                SkillManager:precacheSkill("imba_tower_machinegun")
+                SkillManager:precacheSkill("imba_tower_mana_burn")
+                SkillManager:precacheSkill("imba_tower_mana_flare")
+                SkillManager:precacheSkill("imba_tower_mindblast")
+                SkillManager:precacheSkill("imba_tower_multihit")
+                SkillManager:precacheSkill("imba_tower_nature")
+                SkillManager:precacheSkill("imba_tower_permabash")
+                SkillManager:precacheSkill("imba_tower_plague")
+                SkillManager:precacheSkill("imba_tower_plasma_field")
+                SkillManager:precacheSkill("imba_tower_salvo")
+                SkillManager:precacheSkill("imba_tower_self_repair")
+                SkillManager:precacheSkill("imba_tower_sniper")
+                SkillManager:precacheSkill("imba_tower_spacecow")
+                SkillManager:precacheSkill("imba_tower_spell_shield")
+                SkillManager:precacheSkill("imba_tower_split")
+                SkillManager:precacheSkill("imba_tower_thorns")
+                SkillManager:precacheSkill("imba_tower_vicious")
+                SkillManager:precacheSkill("lich_cold_aura")
+                SkillManager:precacheSkill("omniknight_degen_aura_damage_tower")
+                SkillManager:precacheSkill("omniknight_degen_aura_tower")
+                SkillManager:precacheSkill("summoner_tesla_coil")
+                SkillManager:precacheSkill("titan_command_aura")
+                SkillManager:precacheSkill("vassal_shield")
+            end
+
+            if this.optionStore['lodOptionBlackForest'] == 1 then
+                SkillManager:precacheSkill("imba_tower_forest_generator")
+            end
+
             -- Move to ingame
             this:setPhase(constants.PHASE_INGAME)
 
             -- Start tutorial mode so we can show tips to players
             Tutorial:StartTutorialMode()
-        end, DoUniqueString('preventcamping'), 1)
+        end, DoUniqueString('pregamestart'), 1)
 
         -- Hook bot stuff
         -- self:hookBotStuff()
@@ -1513,7 +1557,7 @@ function Pregame:onThink()
             --SU:LoadPlayersMessages()
 
             Ingame:onStart()
-        end, DoUniqueString('preventcamping'), 1)
+        end, DoUniqueString('ingamestart'), 1)
     end
 end
 

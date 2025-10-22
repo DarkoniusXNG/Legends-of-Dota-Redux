@@ -6,9 +6,11 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/imba_tower_hex_aura"
         "AbilitySharedWithTeammates"                                           "1"
-        "AbilityCastRange"                                                     "800 1000 1200"
+        "AbilityCastRange"                                                     "%hex_aoe"
         "AbilityCooldown"                                                      "10 9 8"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
             "hex_aoe" "800 1000 1200"
@@ -45,7 +47,8 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "stun"
+        "ReduxFlags"                                                           "silence | stun"
+        "ReduxPerks"                                                           "hex | silence"
         "ReduxCost"                                                            "120"
     }
 }

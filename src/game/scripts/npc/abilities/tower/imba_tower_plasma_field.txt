@@ -6,15 +6,22 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/imba_tower_plasma_field"
         "AbilitySharedWithTeammates"                                           "1"
-        "AbilityCastRange"                                                     "%plasma_radius"
+        "AbilityCastRange"                                                     "%radius"
         "AbilityCooldown"                                                      "15 14 13"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
+        "IsBreakable"                                                          "1"
 
         "AbilityValues"
         {
-            "plasma_radius" "700"
-            "plasma_damage_min" "100 200 300"
-            "plasma_damage_max" "200 400 600"
+            "radius"
+            {
+                "value"			"700"
+                "affected_by_aoe_increase"	"1"
+            }
+            "plasma_damage_min" "100 200 300" // tooltip only, change values in plasma_internal_tower too
+            "plasma_damage_max" "200 400 600" // tooltip only, change values in plasma_internal_tower too
+            "min_creeps"        "4"
         }
         "Modifiers"
         {
@@ -34,6 +41,7 @@
             }
         }
 
+        "ReduxPerks"                                                           "lightning"
         "ReduxCost"                                                            "120"
     }
 }

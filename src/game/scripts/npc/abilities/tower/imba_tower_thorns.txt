@@ -2,49 +2,35 @@
 {
     "imba_tower_thorns"
     {
-        "BaseClass"                                                            "ability_datadriven"
+        "BaseClass"                                                            "ability_lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/tower_thorns"
         "AbilitySharedWithTeammates"                                           "1"
+        "AbilityCastRange"                                                     "%aura_radius"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "ScriptFile"                                                           "abilities/dota_imba/tower_abilities"
+        "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
+        "IsBreakable"                                                          "1"
+
         "AbilityValues"
         {
-            "damage_per_hit" "20 30 40"
-        }
-        "Modifiers"
-        {
-            "modifier_imba_tower_thorns"
+            "damage_per_hit" "35 45 55" // base dmg
+            "return_damage_pct" "30 40 50" // dmg per main attribute
+            "aura_radius"
             {
-                "Passive"                                              "1"
-                "IsHidden"                                             "1"
-                "OnAttacked"
-                {
-                    "Damage"
-                    {
-                        "Type"                                 "DAMAGE_TYPE_PURE"
-                        "Damage"                               "%damage_per_hit"
-                        "Target"
-                        {
-                            "Center"                       "ATTACKER"
-                            "Teams"                        "DOTA_UNIT_TARGET_TEAM_ENEMY"
-                            "Types"                        "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-                            "Flags"                        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-                        }
-                    }
-                    "FireEffect"
-                    {
-                        "EffectName"                           "particles/units/heroes/hero_centaur/centaur_return.vpcf"
-                        "EffectAttachType"                     "attach_hitloc"
-                        "Target"                               "CASTER"
-                        "ControlPointEntities"
-                        {
-                            "CASTER"                       "attach_hitloc"
-                            "ATTACKER"                     "attach_hitloc"
-                        }
-                    }
-                }
+                "value"			"1200"
+                "affected_by_aoe_increase"	"1"
             }
+            "aura_stickyness" "0.5"
+            "return_damage_per_stack" "3" // dmg per main attribute increase
         }
-        "ReduxFlags"                                                           "tank"
+
+        "precache"
+        {
+            "particle" 							"particles/units/heroes/hero_centaur/centaur_return.vpcf"
+        }
+
+        "ReduxFlags"                                                           "physical | support | tank"
+        "ReduxPerks"                                                           "aura | physical | support"
     }
 }

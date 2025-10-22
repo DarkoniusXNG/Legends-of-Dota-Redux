@@ -6,8 +6,8 @@
 		"AbilityTextureName" "custom/invoker_retro_invisibility_aura"
 		"SpellImmunityType" "SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastRange" "%radius"
-
 		"AbilityType" "ABILITY_TYPE_ULTIMATE"
+		"IsBreakable"                                                          "1"
 
 		"ReduxFlags"                                                           "invis"
 		"ReduxCost"                                                            "120"
