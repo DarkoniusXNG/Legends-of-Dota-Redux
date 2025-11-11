@@ -1507,6 +1507,8 @@ function Pregame:onThink()
 
             -- Start tutorial mode so we can show tips to players
             --Tutorial:StartTutorialMode()
+            SendToServerConsole("dota_bot_mode true")
+            SendToServerConsole("dota_bot_disable false")
         end, DoUniqueString('pregamestart'), 1)
 
         -- Hook bot stuff
