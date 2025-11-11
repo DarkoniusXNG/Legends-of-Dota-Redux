@@ -618,7 +618,8 @@ function Commands:OnPlayerChat(keys)
                 --print(GameRules:GetDOTATime(false,false))
                 -- If the game has already started, do nothing.
                 if GameRules:GetDOTATime(false,false) == 0 then
-                    Tutorial:ForceGameStart()
+                    --Tutorial:ForceGameStart()
+                    GameRules:ForceGameStart()
                     Ingame:CommandNotification("-startgame", 'Cheat Used (-startgame): Forced game start, by '.. util:GetPlayerNameReliable(playerID))
                 end
             end, DoUniqueString('cheat'), .1)

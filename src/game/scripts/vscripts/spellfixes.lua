@@ -193,7 +193,7 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
                                     local slotItem = hero:GetItemInSlot(i)
 
                                     -- Was this the spell that was cast?
-                                    if slotItem and slotItem:GetClassname() == keys.abilityname then
+                                    if slotItem and slotItem:GetAbilityName() == keys.abilityname then
                                         -- We found it
                                         ab = slotItem
                                         isItemAb = true

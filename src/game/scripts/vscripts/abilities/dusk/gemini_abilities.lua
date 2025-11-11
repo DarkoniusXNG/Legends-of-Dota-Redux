@@ -1,6 +1,6 @@
 require('lib/physics')
 require('lib/util_dusk')
-require('lib/timers')
+
 function gemini_voidal_flare_purge(event)
   local caster = event.caster
   local target = event.target
@@ -14,22 +14,6 @@ function gemini_voidal_flare_purge(event)
   	end
   	end)
 
-end
-
-function FastDummy(target, team, duration, vision)
-  duration = duration or 0
-  vision = vision or  250
-  local dummy = CreateUnitByName("npc_dummy_unit", target, false, nil, nil, team)
-  if dummy ~= nil then
-    dummy:SetAbsOrigin(target) -- CreateUnitByName uses only the x and y coordinates so we have to move it with SetAbsOrigin()
-    dummy:SetDayTimeVisionRange(vision)
-    dummy:SetNightTimeVisionRange(vision)
-    dummy:AddNewModifier(dummy, nil, "modifier_phased", { duration = 9999})
-    dummy:AddNewModifier(dummy, nil, "modifier_invulnerable", { duration = 9999})
-    dummy:AddNewModifier(dummy, nil, "modifier_kill", {duration = duration })
-    
-  end
-  return dummy
 end
 
 function RealmBlister( keys )

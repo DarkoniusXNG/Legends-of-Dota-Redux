@@ -57,7 +57,7 @@ end
 function COverthrowGameMode:SpecialItemAdd( event )
 	local item = EntIndexToHScript( event.ItemEntityIndex )
 	local owner = EntIndexToHScript( event.HeroEntityIndex )
-	local hero = owner:GetClassname()
+	local hero = owner:GetUnitName()
 	local ownerTeam = owner:GetTeamNumber()
 	local sortedTeams = {}
 	for _, team in pairs( self.m_GatheredShuffledTeams ) do

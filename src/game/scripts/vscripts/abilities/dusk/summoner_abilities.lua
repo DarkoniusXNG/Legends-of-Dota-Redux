@@ -1,6 +1,6 @@
 require('lib/physics')
 require('lib/util_dusk')
-require('lib/timers')
+
 function summon_vassal(keys)
 	local caster = keys.caster
 	local vassal = keys.vassal -- 1 red, 2 green, 3 blue

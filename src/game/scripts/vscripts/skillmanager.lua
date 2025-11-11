@@ -405,7 +405,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
                 if IsValidEntity(ab) then
                     local timeLeft = ab:GetCooldownTimeRemaining()
                     if timeLeft > 0 then
-                        cooldownInfo[ab:GetClassname()] = Time() + timeLeft
+                        cooldownInfo[ab:GetAbilityName()] = Time() + timeLeft
                     end
                 end
             end
@@ -509,7 +509,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
     hero.buildApplied = true
 
     -- Store the hero of this build
-    build.hero = hero:GetClassname()
+    build.hero = hero:GetUnitName()
 
     -- Build the skill list
     self:BuildSkillList(hero)
@@ -521,7 +521,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
     local extraSkills = {}
 
     -- Check if this hero is a melee hero
-    local melee = isMeleeHero(hero:GetClassname())
+    local melee = isMeleeHero(hero:GetUnitName())
 
     -- Devour fix
     --[[for i=1,6 do
@@ -575,7 +575,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
         table.insert(abs, v)
     end
 
-    local isTower = towerClasses[hero:GetClassname()] or autoLevelSkills
+    local isTower = towerClasses[hero:GetUnitName()] or autoLevelSkills
 
     if isRealHero then
         -- Ensure this player has an active skill list
@@ -759,7 +759,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
             if ab:GetName() == "generic_hidden" then
                 ab:SetHidden(true)
             else
-                local timeLeft = (cooldownInfo[ab:GetClassname()] or 0) - Time()
+                local timeLeft = (cooldownInfo[ab:GetAbilityName()] or 0) - Time()
                 if timeLeft > 0 then
                     ab:StartCooldown(timeLeft)
                 end

@@ -126,25 +126,24 @@ function InflictDamage(target,attacker,ability,damage,damage_type,flags)
 end
 
 function FastDummy(target, team, duration, vision)
-  duration = duration or 0.03
-  vision = vision or  250
-  local dummy = CreateUnitByName("npc_dummy_unit", target, false, nil, nil, team)
-  if dummy ~= nil then
-    dummy:SetAbsOrigin(target)
-    dummy:SetDayTimeVisionRange(vision)
-    dummy:SetNightTimeVisionRange(vision)
-    dummy:AddNewModifier(dummy, nil, "modifier_phased", { duration = 9999})
-    dummy:AddNewModifier(dummy, nil, "modifier_invulnerable", { duration = 9999})
-    dummy:AddNewModifier(dummy, nil, "modifier_kill", {duration = duration+0.03})
-      Timers:CreateTimer(duration,function()
-        if not dummy:IsNull() then
-          dummy:ForceKill(true)
-          --dummy:Destroy()
-          UTIL_Remove(dummy)
-        end
-      end)
-  end
-  return dummy
+	local dur = duration or 0.03
+	local vis = vision or 250
+	local dummy = CreateUnitByName("npc_dummy_unit", target, false, nil, nil, team)
+	if dummy ~= nil then
+		dummy:SetAbsOrigin(target)
+		dummy:SetDayTimeVisionRange(vis)
+		dummy:SetNightTimeVisionRange(vis)
+		dummy:AddNewModifier(dummy, nil, "modifier_phased", {})
+		dummy:AddNewModifier(dummy, nil, "modifier_invulnerable", {})
+		dummy:AddNewModifier(dummy, nil, "modifier_kill", {duration = dur})
+		Timers:CreateTimer(dur+0.03, function()
+			if dummy and not dummy:IsNull() then
+				dummy:ForceKill(false)
+				UTIL_Remove(dummy)
+			end
+		end)
+	end
+	return dummy
 end
 
 function FindEnemies(caster,point,radius,targets,flags)

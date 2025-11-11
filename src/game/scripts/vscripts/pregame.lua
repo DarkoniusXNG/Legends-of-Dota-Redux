@@ -1506,7 +1506,7 @@ function Pregame:onThink()
             this:setPhase(constants.PHASE_INGAME)
 
             -- Start tutorial mode so we can show tips to players
-            Tutorial:StartTutorialMode()
+            --Tutorial:StartTutorialMode()
         end, DoUniqueString('pregamestart'), 1)
 
         -- Hook bot stuff
@@ -6822,7 +6822,8 @@ function Pregame:addBotPlayers()
     while totalRadiant < self.desiredRadiant do
         playerID = totalRadiant + totalDire
         totalRadiant = totalRadiant + 1
-        Tutorial:AddBot('', '', 'unfair', true)
+        --Tutorial:AddBot('', '', 'unfair', true)
+        GameRules:AddBotPlayerWithEntityScript('', '', DOTA_TEAM_GOODGUYS, '', true)
 
         local ply = PlayerResource:GetPlayer(playerID)
         if ply then
@@ -6845,7 +6846,8 @@ function Pregame:addBotPlayers()
     while totalDire < self.desiredDire do
         playerID = totalRadiant + totalDire
         totalDire = totalDire + 1
-        Tutorial:AddBot('', '', 'unfair', false)
+        --Tutorial:AddBot('', '', 'unfair', false)
+        GameRules:AddBotPlayerWithEntityScript('', '', DOTA_TEAM_BADGUYS, '', true)
 
         local ply = PlayerResource:GetPlayer(playerID)
         if ply then
@@ -7513,7 +7515,7 @@ function Pregame:hookBotStuff()
                 if IsValidEntity(hero) then
                     local build = this.selectedSkills[playerID]
 
-                    local heroName = hero:GetClassname()
+                    local heroName = hero:GetUnitName()
                     local defaultSkills = {}
                     for k,abilityName in pairs(this.botHeroes[heroName] or {}) do
                         defaultSkills[abilityName] = true

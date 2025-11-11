@@ -189,7 +189,6 @@ function duskDota:StartEventTest()
 	ListenToGameEvent("dota_inventory_player_got_item", Dynamic_Wrap(duskDota, 'On_dota_inventory_player_got_item'), self)
 	ListenToGameEvent("player_is_experienced", Dynamic_Wrap(duskDota, 'On_player_is_experienced'), self)
 	ListenToGameEvent("player_is_notexperienced", Dynamic_Wrap(duskDota, 'On_player_is_notexperienced'), self)
-	ListenToGameEvent("dota_tutorial_lesson_start", Dynamic_Wrap(duskDota, 'On_dota_tutorial_lesson_start'), self)
 	ListenToGameEvent("map_location_updated", Dynamic_Wrap(duskDota, 'On_map_location_updated'), self)
 	ListenToGameEvent("richpresence_custom_updated", Dynamic_Wrap(duskDota, 'On_richpresence_custom_updated'), self)
 	ListenToGameEvent("game_end_visible", Dynamic_Wrap(duskDota, 'On_game_end_visible'), self)
@@ -238,8 +237,6 @@ function duskDota:StartEventTest()
 	ListenToGameEvent("dota_non_player_begin_cast", Dynamic_Wrap(duskDota, 'On_dota_non_player_begin_cast'), self)
 	ListenToGameEvent("dota_item_combined", Dynamic_Wrap(duskDota, 'On_dota_item_combined'), self)
 	ListenToGameEvent("profile_opened", Dynamic_Wrap(duskDota, 'On_profile_opened'), self)
-	ListenToGameEvent("dota_tutorial_task_advance", Dynamic_Wrap(duskDota, 'On_dota_tutorial_task_advance'), self)
-	ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(duskDota, 'On_dota_tutorial_shop_toggled'), self)
 	ListenToGameEvent("ugc_download_requested", Dynamic_Wrap(duskDota, 'On_ugc_download_requested'), self)
 	ListenToGameEvent("ugc_installed", Dynamic_Wrap(duskDota, 'On_ugc_installed'), self)
 	ListenToGameEvent("compendium_trophies_loaded", Dynamic_Wrap(duskDota, 'On_compendium_trophies_loaded'), self)
@@ -1402,12 +1399,6 @@ function duskDota:On_player_is_notexperienced(data)
 end
 
 
-function duskDota:On_dota_tutorial_lesson_start(data)
-  print("[DUSKDOTA] dota_tutorial_lesson_start")
-  PrintTable(data)
-end
-
-
 function duskDota:On_map_location_updated(data)
   print("[DUSKDOTA] map_location_updated")
   PrintTable(data)
@@ -1682,18 +1673,6 @@ end
 
 function duskDota:On_profile_opened(data)
   print("[DUSKDOTA] profile_opened")
-  PrintTable(data)
-end
-
-
-function duskDota:On_dota_tutorial_task_advance(data)
-  print("[DUSKDOTA] dota_tutorial_task_advance")
-  PrintTable(data)
-end
-
-
-function duskDota:On_dota_tutorial_shop_toggled(data)
-  print("[DUSKDOTA] dota_tutorial_shop_toggled")
   PrintTable(data)
 end
 

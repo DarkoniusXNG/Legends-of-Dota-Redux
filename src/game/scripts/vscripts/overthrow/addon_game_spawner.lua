@@ -12,7 +12,6 @@ function OnTriggerThink_Timer()
 		if entity:IsNeutralUnitType() or entity:IsCreature() then
 			camp_counter = camp_counter + 1
 		end
-		--print(entity:GetClassname())
 	end
 	if camp_counter == 0 then
 		if vacated_time == 0 then
