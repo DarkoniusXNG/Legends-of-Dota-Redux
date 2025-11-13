@@ -23,7 +23,7 @@
 	"bounty_hunter_wind_walk_ally"
 	{
 		"ReduxFlags"                                                           "mobility | invis | support"
-		"ReduxPerks"                                                           "mobility | invis | support"
+		"ReduxPerks"                                                           "mobility | support"
 	}
 
 	"bounty_hunter_track"

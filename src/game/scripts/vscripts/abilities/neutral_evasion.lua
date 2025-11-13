@@ -1,4 +1,4 @@
-neutral_evasion = {}
+neutral_evasion = class({})
 
 function neutral_evasion:GetIntrinsicModifierName()
 	return "modifier_neutral_evasion"

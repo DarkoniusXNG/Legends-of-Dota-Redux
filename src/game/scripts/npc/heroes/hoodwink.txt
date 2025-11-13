@@ -24,8 +24,8 @@
 
 	"hoodwink_decoy"
 	{
-		"ReduxFlags"                                                           "invis | upgradeable | mobility | doNotRandom"
-		"ReduxPerks"                                                           "invis | mobility"
+		"ReduxFlags"                                                           "invis | illusion | upgradeable | mobility | doNotRandom"
+		"ReduxPerks"                                                           "invis | illusion | mobility"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"MaxLevel"						"4"

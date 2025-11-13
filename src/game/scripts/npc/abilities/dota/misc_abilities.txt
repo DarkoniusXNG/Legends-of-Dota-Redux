@@ -347,7 +347,7 @@
         "SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
 
         "ReduxFlags"                                                           "support | mobility | invis"
-        "ReduxPerks"                                                           "support | mobility"
+        "ReduxPerks"                                                           "support | mobility | invis"
         "ReduxCost"                                                            "120"
 
         "AbilityTextureName"            "custom/mirana_invis_redux"

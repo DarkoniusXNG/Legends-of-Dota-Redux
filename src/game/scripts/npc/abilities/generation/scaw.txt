@@ -29,6 +29,9 @@
         "AbilityChannelTime"            "0.5"
         "AbilityCooldown"               "20 18 16 14"
 
+        "ReduxFlags"                    "invis"
+        "ReduxPerks"                    "invis"
+
         "AbilityValues"
         {
             "fade_time" "1.0"
