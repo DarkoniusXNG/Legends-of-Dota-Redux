@@ -48,6 +48,7 @@
 	{
 		"ReduxFlags"                    "attack_modifier"
 		"ReduxPerks"                    "attack_modifier | ice | undead"
+		"ReduxCost"                     "10"
 	}
 
 	//=================================================================================================================

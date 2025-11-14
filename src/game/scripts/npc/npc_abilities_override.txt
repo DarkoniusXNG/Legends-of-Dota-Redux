@@ -2354,11 +2354,13 @@
 	{
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility | ranger"
+		"ReduxCost"                                                            "10"
 	}
 	"nyx_assassin_spiked_carapace"
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "earth"
+		"ReduxCost"                                                            "10"
 	}
 
 	"phantom_lancer_phantom_edge"
@@ -2534,6 +2536,7 @@
 	{
 		"ReduxFlags"                                                           "aoe_attack | attack_modifier | upgradeable"
 		"ReduxPerks"                                                           "attack_modifier | scientific"
+		"ReduxCost"                                                            "10"
 	}
 
 	"monkey_king_jingu_mastery"
@@ -2656,7 +2659,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | rage"
-		"ReduxCost"                                                            "50"
+		"ReduxCost"                                                            "30"
 	}
 
 	"beastmaster_boar_poison"
@@ -2861,6 +2864,7 @@
 		"ReduxFlags"                                                           "tank | support | upgradeable"
 		"ReduxPerks"                                                           "support"
 		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
+		"ReduxCost"                                                            "20"
 	}
 
 	"dark_willow_cursed_crown"
@@ -3126,6 +3130,7 @@
 	{
 		"ReduxFlags"                                                           "upgradeable"
 		"ReduxPerks"                                                           "light | skillshot"
+		"ReduxCost"                                                            "10"
 	}
 
 	"treant_leech_seed"
@@ -4234,6 +4239,7 @@
 	{
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support"
+		"ReduxCost"                                                            "20"
 	}
 
 	"primal_beast_onslaught"

@@ -28,6 +28,7 @@
 	{
 		"ReduxFlags"                                                           "support | mobility | upgradeable | stun"
 		"ReduxPerks"                                                           "support | mobility | teleport | light | channeled"
+		"ReduxCost"                                                            "20"
 	}
 
 	"dawnbreaker_break_of_dawn"

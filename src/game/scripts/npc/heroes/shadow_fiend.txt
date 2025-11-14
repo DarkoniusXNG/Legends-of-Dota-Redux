@@ -25,6 +25,7 @@
 	"nevermore_dark_lord"
 	{
 		"ReduxPerks"                                                           "aura | demon"
+		"ReduxCost"                                                            "10"
 	}
 
 	"nevermore_requiem"
