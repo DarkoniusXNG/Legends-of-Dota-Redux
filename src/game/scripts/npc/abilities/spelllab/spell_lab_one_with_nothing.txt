@@ -16,9 +16,6 @@
             "particle"                                                     "particles/spell_lab/one_with_nothing.vpcf"
         }
 
-        "ReduxFlags"                                                           "doNotRandom"
-        //"ReduxBans"                                                            ""
-        //"ReduxPerks"                                                           "support | mobility"
-        "ReduxCost"                                                            "90"
+        "ReduxFlags"                                                           "doNotRandom | mana"
     }
 }

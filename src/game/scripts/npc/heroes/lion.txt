@@ -5,6 +5,7 @@
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "earth | demon"
+		"ReduxCost"                                                            "10"
 	}
 
 	"lion_voodoo"
@@ -23,7 +24,7 @@
 	{
 		"ReduxFlags"                                                           "upgradeable"
 		"ReduxPerks"                                                           "demon | lightning"
-		"ReduxCost"                                                            "20"
+		"ReduxCost"                                                            "10"
 	}
 
 	//=================================================================================================================

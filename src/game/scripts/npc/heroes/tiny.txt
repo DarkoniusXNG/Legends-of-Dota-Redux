@@ -5,6 +5,7 @@
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "earth | skillshot"
+		"ReduxCost"                                                            "10"
 	}
 
 	"tiny_toss"

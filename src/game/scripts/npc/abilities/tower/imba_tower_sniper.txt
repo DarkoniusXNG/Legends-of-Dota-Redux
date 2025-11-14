@@ -30,6 +30,7 @@
                 }
             }
         }
+
         "ReduxFlags"                                                           "attack_modifier"
         "ReduxPerks"                                                           "attack_modifier | ranger"
         "ReduxCost"                                                            "120"

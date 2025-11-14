@@ -18,13 +18,14 @@
 	"phantom_assassin_immaterial"
 	{
 		"ReduxFlags"                                                           "tank"
+		"ReduxCost"                                                            "30"
 	}
 
 	"phantom_assassin_coup_de_grace"
 	{
 		"ReduxFlags"                                                           "attack_modifier | crit"
 		"ReduxPerks"                                                           "attack_modifier"
-		"ReduxCost"                                                            "80"
+		"ReduxCost"                                                            "60"
 	}
 
 	//=================================================================================================================

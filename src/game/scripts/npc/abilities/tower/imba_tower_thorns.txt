@@ -32,5 +32,6 @@
 
         "ReduxFlags"                                                           "physical | support | tank"
         "ReduxPerks"                                                           "aura | physical | support"
+        "ReduxCost"                                                            "40"
     }
 }

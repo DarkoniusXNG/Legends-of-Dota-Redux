@@ -50,8 +50,9 @@
                 }
             }
         }
-        "ReduxCost"                                                            "120"
+
         "ReduxFlags"                                                           "silence"
         "ReduxPerks"                                                           "silence"
+        "ReduxCost"                                                            "120"
     }
 }

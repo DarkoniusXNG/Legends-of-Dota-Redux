@@ -65,8 +65,8 @@
             }
         }
 
-        "ReduxFlags"                                                           "attack_modifier | dota_custom | underpowered"
-        "ReduxPerks"                                                           "attack_modifier"
+        "ReduxFlags"                                                           "attack_modifier | dota_custom | physical | underpowered"
+        "ReduxPerks"                                                           "attack_modifier | physical"
         "ReduxCost"                                                            "40"
     }
 }

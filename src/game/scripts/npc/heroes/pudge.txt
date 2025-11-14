@@ -30,6 +30,7 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
 		"ReduxPerks"                                                           "undead"
+		"ReduxCost"                                                            "10"
 	}
 
 	"special_bonus_unique_pudge_1"

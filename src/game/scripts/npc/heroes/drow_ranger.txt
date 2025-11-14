@@ -69,7 +69,7 @@
 
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support | aura | ranger"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "20"
 	}
 
 	"drow_ranger_vantage_point"
@@ -78,6 +78,7 @@
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_drow_ranger_perk"
 
 		"ReduxPerks"                                                           "ranger"
+		"ReduxCost"                                                            "10"
 	}
 
 	"drow_ranger_creep_rally"

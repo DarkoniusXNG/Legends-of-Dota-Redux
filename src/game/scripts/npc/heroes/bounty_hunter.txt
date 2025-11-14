@@ -11,6 +11,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | autocast_basic | gold"
+		"ReduxCost"                                                            "10"
 	}
 
 	"bounty_hunter_wind_walk"

@@ -73,6 +73,7 @@
 
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | ranger"
+		"ReduxCost"                                                            "10"
 	}
 
 	"special_bonus_unique_sniper_1"

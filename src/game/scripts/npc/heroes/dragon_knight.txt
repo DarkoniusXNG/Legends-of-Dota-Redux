@@ -58,6 +58,7 @@
 
 		"ReduxFlags"                                                           "tank"
 		"ReduxPerks"                                                           "blood | dragon"
+		"ReduxCost"                                                            "30"
 	}
 
 	"special_bonus_unique_dragon_knight"
