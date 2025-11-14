@@ -56,7 +56,7 @@ end
 
 function thunder_wave(keys)
 	local caster = keys.caster
-	local target = keys.target_points[1]
+	local target = keys.ability:GetCursorPosition() --keys.target_points[1]
 	local modifier = "modifier_thunder_wave_generate"
 	local speed = keys.speed
 	local distance = 1250

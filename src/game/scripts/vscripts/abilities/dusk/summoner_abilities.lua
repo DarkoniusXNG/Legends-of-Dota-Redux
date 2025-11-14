@@ -219,11 +219,9 @@ end
 
 function electric_flare(keys)
 	local caster = keys.caster
-	local target = keys.target_points[1]
+	local target = keys.ability:GetCursorPosition() --keys.target_points[1]
 
 	local dummy = FastDummy(target, caster:GetTeam(), 8, 0)
-
-	
 end
 
 function ForcefieldCheck(keys)

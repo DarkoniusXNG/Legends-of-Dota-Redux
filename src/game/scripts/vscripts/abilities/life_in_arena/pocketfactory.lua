@@ -12,7 +12,7 @@ function BuildPocketFactory( event )
 	-- Variables
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition() --event.target_points[1]
 	local factory_duration =  ability:GetLevelSpecialValueFor( "factory_duration" , ability:GetLevel() - 1  )
 	local ability_level = ability:GetLevel()
 	local building_name = "android_pocket_factory_building"..ability_level
@@ -74,8 +74,6 @@ function StartGoblinSpawn( event )
 	Timers:CreateTimer(spawn_ratio, function()
 		
 		local allRobots = Entities:FindAllByModel("models/heroes/rattletrap/rattletrap.vmdl")
-		
-
 
 		if caster and IsValidEntity(caster) and caster:IsAlive() then
 			--print("Create Goblin")
@@ -103,9 +101,7 @@ function StartGoblinSpawn( event )
 				else
 					goblin:AddNewModifier(caster, nil, "modifier_kill", {duration = goblin_duration})
 				end
-				
 
-				
 				-- Add the ability and set its level to the main ability level
 				goblin:AddAbility(goblin_ability_name)
 				local goblin_ability = goblin:FindAbilityByName(goblin_ability_name)

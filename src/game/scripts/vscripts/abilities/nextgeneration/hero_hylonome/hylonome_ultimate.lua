@@ -29,7 +29,7 @@ function Chronosphere( keys )
     -- Variables
     local caster = keys.caster
     local ability = keys.ability
-    local target_point = keys.target_points[1]
+    --local target_point = ability:GetCursorPosition() --keys.target_points[1]
 
     -- Special Variables
     local duration = 10 --ability:GetLevelSpecialValueFor("duration", (ability:GetLevel() - 1))

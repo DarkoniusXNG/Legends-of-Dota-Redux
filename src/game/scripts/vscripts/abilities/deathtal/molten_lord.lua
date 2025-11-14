@@ -112,7 +112,7 @@ function MoltenCharge( keys )
 	local target = keys.target
 	local ability = keys.ability
 	local caster_location = caster:GetAbsOrigin()
-	local target_point = keys.target_points[1]
+	local target_point = ability:GetCursorPosition() --keys.target_points[1]
 	local modifier = keys.modifier
 	local sound = keys.sound
 	local particle = keys.particle

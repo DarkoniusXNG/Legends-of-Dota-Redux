@@ -4,7 +4,7 @@
 	Called when Confuse is cast.
 ================================================================================================================= ]]
 function invoker_retro_confuse_on_spell_start(keys)
-	local target_point = keys.target_points[1]
+	local target_point = keys.ability:GetCursorPosition() --keys.target_points[1]
 	local caster = keys.caster
 	local ability = caster:FindAbilityByName("invoker_retro_confuse")
 

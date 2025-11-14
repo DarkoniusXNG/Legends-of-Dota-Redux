@@ -70,8 +70,8 @@ end
 
 function chongci( keys )
 	local caster = keys.caster
-	local point = keys.target_points[1]
 	local ability = keys.ability
+	local point = ability:GetCursorPosition() --keys.target_points[1]
 	local caster_ori = caster:GetAbsOrigin()
 	local distance = math.min((caster_ori-point):Length2D(),keys.maxdistance)
 	local radius = keys.radius

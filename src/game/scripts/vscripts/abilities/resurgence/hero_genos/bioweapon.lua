@@ -23,7 +23,7 @@ end
 function Launch( event )
 	local caster = event.caster
     local ability = event.ability
-    local land_point = event.target_points[1]
+    local land_point = ability:GetCursorPosition() --event.target_points[1]
 
     caster:SetMana(caster:GetMana() - (caster:GetMaxMana())*0.1)
 

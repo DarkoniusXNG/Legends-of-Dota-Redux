@@ -1,15 +1,20 @@
 function FadeBlinkSetPosition( keys )
 	local caster = keys.caster
-	point = keys.target_points[1]
+	caster.point = ability:GetCursorPosition() --keys.target_points[1]
 end
 
 function FadeBlinkActive( keys )
 	local caster = keys.caster
 	ProjectileManager:ProjectileDodge(caster)
-	FindClearSpaceForUnit(caster, point, false)
+	if caster.point then
+		FindClearSpaceForUnit(caster, caster.point, false)
+	end
 	caster:AddNoDraw()
 	Timers:CreateTimer( 0.1, function()
-		caster:RemoveNoDraw()
+		if caster and not caster:IsNull() then
+			caster:RemoveNoDraw()
+			caster.point = nil
+		end
 	end)
 end
 

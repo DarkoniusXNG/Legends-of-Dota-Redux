@@ -2,7 +2,7 @@ function CreateIllusionLine( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local player = caster:GetPlayerID()
-	local point = keys.target_points[1]
+	local point = ability:GetCursorPosition() --keys.target_points[1]
 
 	local duration = ability:GetLevelSpecialValueFor("duration", ability:GetLevel() - 1 )
 	local delay = ability:GetLevelSpecialValueFor("illusion_delay", ability:GetLevel() - 1 )

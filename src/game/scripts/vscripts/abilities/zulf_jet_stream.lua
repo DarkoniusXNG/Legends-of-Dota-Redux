@@ -1,13 +1,11 @@
 function JetStreamGetLocation( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	local point = keys.target_points[1]
+	local point = ability:GetCursorPosition() --keys.target_points[1]
 
 	caster.caster_location = caster:GetAbsOrigin()
 	caster.casterVec = (point - caster:GetAbsOrigin()):Normalized()
 end
-
-
 
 function JetStreamProjectile( keys )
 	local caster = keys.caster

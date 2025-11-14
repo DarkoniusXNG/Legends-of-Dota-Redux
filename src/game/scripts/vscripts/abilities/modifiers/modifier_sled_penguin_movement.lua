@@ -316,11 +316,11 @@ end
 
 
 --------------------------------------------------------------------------------
-
-function modifier_sled_penguin_movement:OnOrder( params )
-	if IsServer() then
-		if not self:GetCaster() then
-			return 0
+if IsServer() then
+	function modifier_sled_penguin_movement:OnOrder( params )
+		local caster = self:GetCaster()
+		if not caster or caster:IsNull() then
+			return
 		end
 
 		local hOrderedUnit = params.unit 
@@ -328,19 +328,17 @@ function modifier_sled_penguin_movement:OnOrder( params )
 		local nOrderType = params.order_type
 		if nOrderType == DOTA_UNIT_ORDER_MOVE_TO_POSITION or nOrderType == DOTA_UNIT_ORDER_ATTACK_MOVE then
 			if hOrderedUnit == self:GetParent() and self:IsParentPenguin() == false then
-				local vDir = params.new_pos - self:GetCaster():GetOrigin()
+				local vDir = caster:GetCursorPosition() - caster:GetOrigin()
 				vDir.z = 0
 				vDir = vDir:Normalized()
 				local angles = VectorAngles( vDir )
-				local hBuff = self:GetCaster():FindModifierByName( "modifier_sled_penguin_movement" )
+				local hBuff = caster:FindModifierByName( "modifier_sled_penguin_movement" )
 				if hBuff ~= nil then
 					hBuff.flDesiredYaw = angles.y
 				end	
 			end
 		end
 	end
-
-	return 0
 end
 
 -----------------------------------------------------------------------

@@ -1,7 +1,7 @@
 function Launch_Bolt (keys) -- KV OnSpellStart
 	local caster = keys.caster
 	local ability = keys.ability
-	local target_point = keys.target_points[1]
+	local target_point = ability:GetCursorPosition() --keys.target_points[1]
 	local duration = ability:GetLevelSpecialValueFor("bolt_duration", ability:GetLevel() -1)
 	local attacksneeded = ability:GetLevelSpecialValueFor("attacks_needed", ability:GetLevel() -1)
 

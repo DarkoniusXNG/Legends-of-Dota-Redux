@@ -2,11 +2,11 @@ function GardenCheck( keys )
     local caster = keys.caster
     local ability = keys.ability
     local healthCost = caster:GetMaxHealth()*0.001
-    
+
     if not caster:HasModifier("modifier_npc_dota_hero_enchantress_perk") then
         if caster:GetHealth() > healthCost then
             caster:ModifyHealth( caster:GetHealth() - healthCost, ability, false, 0 )
-        else 
+        else
             caster:Stop()
             caster:RemoveModifierByName("modifier_garden_channel")
         end
@@ -34,7 +34,7 @@ function PlantSetHealth( keys )
     local health = ability:GetLevelSpecialValueFor("flower_health", abilityLevel - 1 )
     local whiteDamage = ability:GetLevelSpecialValueFor("white_flower_damage", abilityLevel - 1 )
     local redDamage = ability:GetLevelSpecialValueFor("red_flower_damage", abilityLevel - 1 )
-    
+
     target:SetControllableByPlayer(owner:GetPlayerID(), true)
     target:SetBaseMaxHealth(health)
     if target:GetUnitName() == "white_flower" then
@@ -60,10 +60,10 @@ function PlantWhite( keys )
     local caster = keys.caster
     local owner = caster:GetOwner()
     local ownerAbility = owner:FindAbilityByName("cherub_flower_garden")
-    
+
     owner.whiteFlowerCount = owner.whiteFlowerCount or 0
     owner.whiteFlowerTable = owner.whiteFlowerTable or {}
-    
+
     local maxFlowers = 10
     local casterLocation = caster:GetAbsOrigin()
     if ownerAbility then
@@ -73,26 +73,32 @@ function PlantWhite( keys )
         --whiteFlower:SetBaseMaxHealth(flowerHealth)
         --whiteFlower:SetBaseDamageMax(flowerDamage + 5)
         --whiteFlower:SetBaseDamageMin(flowerDamage - 5)
-        
+
         owner.whiteFlowerCount = owner.whiteFlowerCount + 1
         table.insert(owner.whiteFlowerTable, whiteFlower)
-        
-        if owner.whiteFlowerCount > maxFlowers then
-            owner.whiteFlowerTable[1]:ForceKill(true)
+
+        if owner.whiteFlowerCount > maxFlowers and owner.whiteFlowerTable then
+			for i = 1, #owner.whiteFlowerTable do
+				local f = owner.whiteFlowerTable[i]
+				if f and not f:IsNull() then
+					f:ForceKill(false)
+					break
+				end
+			end
         end
     end
-    caster:ForceKill(true)
+    caster:ForceKill(false)
 end
 
 function PlantWhiteBase( keys )
     local caster = keys.caster
     local owner = caster
     local ownerAbility = owner:FindAbilityByName("garden_white_flower_base")
-    local point = keys.target_points[1]
-    
+    local point = keys.ability:GetCursorPosition() --keys.target_points[1]
+
     owner.whiteFlowerCount = owner.whiteFlowerCount or 0
     owner.whiteFlowerTable = owner.whiteFlowerTable or {}
-    
+
     local maxFlowers = 10
     local casterLocation = caster:GetAbsOrigin()
     if ownerAbility then
@@ -102,9 +108,15 @@ function PlantWhiteBase( keys )
 
         owner.whiteFlowerCount = owner.whiteFlowerCount + 1
         table.insert(owner.whiteFlowerTable, whiteFlower)
-        
-        if owner.whiteFlowerCount > maxFlowers then
-            owner.whiteFlowerTable[1]:ForceKill(true)
+
+        if owner.whiteFlowerCount > maxFlowers and owner.whiteFlowerTable then
+			for i = 1, #owner.whiteFlowerTable do
+				local f = owner.whiteFlowerTable[i]
+				if f and not f:IsNull() then
+					f:ForceKill(false)
+					break
+				end
+			end
         end
     end
 end
@@ -127,10 +139,10 @@ function PlantRed( keys )
     local ownerAbility = owner:FindAbilityByName("cherub_flower_garden")
     --local flowerHealth = ownerAbility:GetLevelSpecialValueFor("flowerHealth", (ability:GetLevel() - 1))
     --local flowerDamage = ownerAbility:GetLevelSpecialValueFor("redflowerDamage", (ability:GetLevel() - 1))
-    
+
     owner.redFlowerCount = owner.redFlowerCount or 0
     owner.redFlowerTable = owner.redFlowerTable or {}
-    
+
     local maxFlowers = 10
     local casterLocation = caster:GetAbsOrigin()
     if ownerAbility then
@@ -143,25 +155,31 @@ function PlantRed( keys )
 
         owner.redFlowerCount = owner.redFlowerCount + 1
         table.insert(owner.redFlowerTable, redFlower)
-        
-        if owner.redFlowerCount > maxFlowers then
-            owner.redFlowerTable[1]:ForceKill(true)
+
+        if owner.redFlowerCount > maxFlowers and owner.redFlowerTable then
+			for i = 1, #owner.redFlowerTable do
+				local f = owner.redFlowerTable[i]
+				if f and not f:IsNull() then
+					f:ForceKill(false)
+					break
+				end
+			end
         end
     end
-    caster:ForceKill(true)
+    caster:ForceKill(false)
 end
 
 function PlantRedBase( keys )
     local caster = keys.caster
     local owner = caster
     local ownerAbility = owner:FindAbilityByName("garden_red_flower_base")
-    local point = keys.target_points[1]
+    local point = keys.ability:GetCursorPosition() --keys.target_points[1]
     --local flowerHealth = ownerAbility:GetLevelSpecialValueFor("flowerHealth", (ability:GetLevel() - 1))
     --local flowerDamage = ownerAbility:GetLevelSpecialValueFor("redflowerDamage", (ability:GetLevel() - 1))
-    
+
     owner.redFlowerCount = owner.redFlowerCount or 0
     owner.redFlowerTable = owner.redFlowerTable or {}
-    
+
     local maxFlowers = 10
     local casterLocation = caster:GetAbsOrigin()
     if ownerAbility then
@@ -171,9 +189,15 @@ function PlantRedBase( keys )
 
         owner.redFlowerCount = owner.redFlowerCount + 1
         table.insert(owner.redFlowerTable, redFlower)
-        
-        if owner.redFlowerCount > maxFlowers then
-            owner.redFlowerTable[1]:ForceKill(true)
+
+        if owner.redFlowerCount > maxFlowers and owner.redFlowerTable then
+			for i = 1, #owner.redFlowerTable do
+				local f = owner.redFlowerTable[i]
+				if f and not f:IsNull() then
+					f:ForceKill(false)
+					break
+				end
+			end
         end
     end
 end
@@ -182,13 +206,13 @@ function PlantRedBaseOP( keys )
     local caster = keys.caster
     local owner = caster
     local ownerAbility = owner:FindAbilityByName("garden_red_flower_base_OP")
-    local point = keys.target_points[1]
+    local point = keys.ability:GetCursorPosition() --keys.target_points[1]
     --local flowerHealth = ownerAbility:GetLevelSpecialValueFor("flowerHealth", (ability:GetLevel() - 1))
     --local flowerDamage = ownerAbility:GetLevelSpecialValueFor("redflowerDamage", (ability:GetLevel() - 1))
-    
+
     owner.redFlowerCount = owner.redFlowerCount or 0
     owner.redFlowerTable = owner.redFlowerTable or {}
-    
+
     local maxFlowers = 10
     local casterLocation = caster:GetAbsOrigin()
     if ownerAbility then
@@ -198,9 +222,15 @@ function PlantRedBaseOP( keys )
 
         owner.redFlowerCount = owner.redFlowerCount + 1
         table.insert(owner.redFlowerTable, redFlower)
-        
-        if owner.redFlowerCount > maxFlowers then
-            owner.redFlowerTable[1]:ForceKill(true)
+
+        if owner.redFlowerCount > maxFlowers and owner.redFlowerTable then
+			for i = 1, #owner.redFlowerTable do
+				local f = owner.redFlowerTable[i]
+				if f and not f:IsNull() then
+					f:ForceKill(false)
+					break
+				end
+			end
         end
     end
 end
@@ -222,10 +252,10 @@ function PlantPink( keys )
     local owner = caster:GetOwner()
     local ownerAbility = owner:FindAbilityByName("cherub_flower_garden")
     --local flowerHealth = ownerAbility:GetLevelSpecialValueFor("flowerHealth", (ability:GetLevel() - 1))
-    
+
     owner.pinkFlowerCount = owner.pinkFlowerCount or 0
     owner.pinkFlowerTable = owner.pinkFlowerTable or {}
-    
+
     local maxFlowers = 3
     local casterLocation = caster:GetAbsOrigin()
     if ownerAbility then
@@ -236,24 +266,30 @@ function PlantPink( keys )
 
         owner.pinkFlowerCount = owner.pinkFlowerCount + 1
         table.insert(owner.pinkFlowerTable, pinkFlower)
-        
-        if owner.pinkFlowerCount > maxFlowers then
-            owner.pinkFlowerTable[1]:ForceKill(true)
+
+		if owner.pinkFlowerCount > maxFlowers and owner.pinkFlowerTable then
+			for i = 1, #owner.pinkFlowerTable do
+				local f = owner.pinkFlowerTable[i]
+				if f and not f:IsNull() then
+					f:ForceKill(false)
+					break
+				end
+			end
         end
     end
-    caster:ForceKill(true)
+    caster:ForceKill(false)
 end
 
 function PlantPinkBase( keys )
     local caster = keys.caster
     local owner = caster
     local ownerAbility = owner:FindAbilityByName("garden_pink_blossom_base")
-    local point = keys.target_points[1]
+    local point = keys.ability:GetCursorPosition() --keys.target_points[1]
     --local flowerHealth = ownerAbility:GetLevelSpecialValueFor("flowerHealth", (ability:GetLevel() - 1))
-    
+
     owner.pinkFlowerCount = owner.pinkFlowerCount or 0
     owner.pinkFlowerTable = owner.pinkFlowerTable or {}
-    
+
     local maxFlowers = 3
     local casterLocation = caster:GetAbsOrigin()
     if ownerAbility then
@@ -263,9 +299,15 @@ function PlantPinkBase( keys )
 
         owner.pinkFlowerCount = owner.pinkFlowerCount + 1
         table.insert(owner.pinkFlowerTable, pinkFlower)
-        
-        if owner.pinkFlowerCount > maxFlowers then
-            owner.pinkFlowerTable[1]:ForceKill(true)
+
+		if owner.pinkFlowerCount > maxFlowers and owner.pinkFlowerTable then
+			for i = 1, #owner.pinkFlowerTable do
+				local f = owner.pinkFlowerTable[i]
+				if f and not f:IsNull() then
+					f:ForceKill(false)
+					break
+				end
+			end
         end
     end
 end
@@ -277,7 +319,7 @@ function HealUnits(keys)
 
     local nearby_allied_units = FindHealUnits(caster)
 
-    for i, unit in ipairs(nearby_allied_units) do 
+    for i, unit in ipairs(nearby_allied_units) do
         local projTable = {
             EffectName = projectileName,
             Ability = ability,
@@ -300,16 +342,16 @@ function FindHealUnits( caster )
     local count = 0
     local maxCount = 3
     local result = {}
-    
+
     local nearby_allied_units = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 500,
         DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-    
-    for i, unit in ipairs(nearby_allied_units) do     
+
+    for i, unit in ipairs(nearby_allied_units) do
         if unit and unit:GetHealthPercent() < 100 then
             table.insert(result, unit)
             count = count + 1
-            if count == maxCount then 
-                return result 
+            if count == maxCount then
+                return result
             end
         end
     end
@@ -333,10 +375,10 @@ function PlantBlue( keys )
     local owner = caster:GetOwner()
     local ownerAbility = owner:FindAbilityByName("cherub_flower_garden")
     --local flowerHealth = ownerAbility:GetLevelSpecialValueFor("flowerHealth", (ability:GetLevel() - 1))
-    
+
     owner.blueFlowerCount = owner.blueFlowerCount or 0
     owner.blueFlowerTable = owner.blueFlowerTable or {}
-    
+
     local maxFlowers = 4
     local casterLocation = caster:GetAbsOrigin()
     if ownerAbility then
@@ -347,24 +389,30 @@ function PlantBlue( keys )
 
         owner.blueFlowerCount = owner.blueFlowerCount + 1
         table.insert(owner.blueFlowerTable, blueFlower)
-        
-        if owner.blueFlowerCount > maxFlowers then
-            owner.blueFlowerTable[1]:ForceKill(true)
+
+		if owner.blueFlowerCount > maxFlowers and owner.blueFlowerTable then
+			for i = 1, #owner.blueFlowerTable do
+				local f = owner.blueFlowerTable[i]
+				if f and not f:IsNull() then
+					f:ForceKill(false)
+					break
+				end
+			end
         end
     end
-    caster:ForceKill(true)
+    caster:ForceKill(false)
 end
 
 function PlantBlueBase( keys )
     local caster = keys.caster
     local owner = caster
     local ownerAbility = owner:FindAbilityByName("garden_blue_blossom_base")
-    local point = keys.target_points[1]
+    local point = keys.ability:GetCursorPosition() --keys.target_points[1]
     --local flowerHealth = ownerAbility:GetLevelSpecialValueFor("flowerHealth", (ability:GetLevel() - 1))
-    
+
     owner.blueFlowerCount = owner.blueFlowerCount or 0
     owner.blueFlowerTable = owner.blueFlowerTable or {}
-    
+
     local maxFlowers = 4
     local casterLocation = caster:GetAbsOrigin()
     if ownerAbility then
@@ -374,9 +422,15 @@ function PlantBlueBase( keys )
 
         owner.blueFlowerCount = owner.blueFlowerCount + 1
         table.insert(owner.blueFlowerTable, blueFlower)
-        
-        if owner.blueFlowerCount > maxFlowers then
-            owner.blueFlowerTable[1]:ForceKill(true)
+
+		if owner.blueFlowerCount > maxFlowers and owner.blueFlowerTable then
+			for i = 1, #owner.blueFlowerTable do
+				local f = owner.blueFlowerTable[i]
+				if f and not f:IsNull() then
+					f:ForceKill(false)
+					break
+				end
+			end
         end
     end
 end
@@ -388,7 +442,7 @@ function BlueFlowerRestoreMana( keys )
 
     local nearby_allied_units = FindUnitsInRadius(keys.caster:GetTeam(), keys.caster:GetAbsOrigin(), nil, keys.ReplenishRadius,
         DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-        
+
     for i, individual_unit in ipairs(nearby_allied_units) do  --Restore mana and play a particle effect for every found ally.
         individual_unit:GiveMana(keys.ReplenishAmount)
         local fxIndex2 = ParticleManager:CreateParticle("particles/items_fx/arcane_boots_recipient.vpcf", PATTACH_ABSORIGIN_FOLLOW, individual_unit)
@@ -413,10 +467,10 @@ function PlantYellow( keys )
     local owner = caster:GetOwner()
     local ownerAbility = owner:FindAbilityByName("cherub_flower_garden")
     --local flowerHealth = ownerAbility:GetLevelSpecialValueFor("flowerHealth", (ability:GetLevel() - 1))
-    
+
     owner.yellowFlowerCount = owner.yellowFlowerCount or 0
     owner.yellowFlowerTable = owner.yellowFlowerTable or {}
-    
+
     local maxFlowers = 3
     local casterLocation = caster:GetAbsOrigin()
     if ownerAbility then
@@ -427,24 +481,30 @@ function PlantYellow( keys )
 
         owner.yellowFlowerCount = owner.yellowFlowerCount + 1
         table.insert(owner.yellowFlowerTable, yellowFlower)
-        
-        if owner.yellowFlowerCount > maxFlowers then
-            owner.yellowFlowerTable[1]:ForceKill(true)
+
+		if owner.yellowFlowerCount > maxFlowers and owner.yellowFlowerTable then
+			for i = 1, #owner.yellowFlowerTable do
+				local f = owner.yellowFlowerTable[i]
+				if f and not f:IsNull() then
+					f:ForceKill(false)
+					break
+				end
+			end
         end
     end
-    caster:ForceKill(true)
+    caster:ForceKill(false)
 end
 
 function PlantYellowBase( keys )
     local caster = keys.caster
     local owner = caster
     local ownerAbility = owner:FindAbilityByName("garden_yellow_daisy_base")
-    local point = keys.target_points[1]
+    local point = keys.ability:GetCursorPosition() --keys.target_points[1]
     --local flowerHealth = ownerAbility:GetLevelSpecialValueFor("flowerHealth", (ability:GetLevel() - 1))
-    
+
     owner.yellowFlowerCount = owner.yellowFlowerCount or 0
     owner.yellowFlowerTable = owner.yellowFlowerTable or {}
-    
+
     local maxFlowers = 3
     local casterLocation = caster:GetAbsOrigin()
     if ownerAbility then
@@ -454,9 +514,15 @@ function PlantYellowBase( keys )
 
         owner.yellowFlowerCount = owner.yellowFlowerCount + 1
         table.insert(owner.yellowFlowerTable, yellowFlower)
-        
-        if owner.yellowFlowerCount > maxFlowers then
-            owner.yellowFlowerTable[1]:ForceKill(true)
+
+		if owner.yellowFlowerCount > maxFlowers and owner.yellowFlowerTable then
+			for i = 1, #owner.yellowFlowerTable do
+				local f = owner.yellowFlowerTable[i]
+				if f and not f:IsNull() then
+					f:ForceKill(false)
+					break
+				end
+			end
         end
     end
 end
@@ -478,10 +544,10 @@ function PlantPurple( keys )
     local owner = caster:GetOwner()
     local ownerAbility = owner:FindAbilityByName("cherub_flower_garden")
     --local flowerHealth = ownerAbility:GetLevelSpecialValueFor("flowerHealth", (ability:GetLevel() - 1))
-    
+
     owner.purpleFlowerCount = owner.purpleFlowerCount or 0
     owner.purpleFlowerTable = owner.purpleFlowerTable or {}
-    
+
     local maxFlowers = 3
     local casterLocation = caster:GetAbsOrigin()
     if ownerAbility then
@@ -492,24 +558,30 @@ function PlantPurple( keys )
 
         owner.purpleFlowerCount = owner.purpleFlowerCount + 1
         table.insert(owner.purpleFlowerTable, purpleFlower)
-        
-        if owner.purpleFlowerCount > maxFlowers then
-            owner.purpleFlowerTable[1]:ForceKill(true)
+
+		if owner.purpleFlowerCount > maxFlowers and owner.purpleFlowerTable then
+			for i = 1, #owner.purpleFlowerTable do
+				local f = owner.purpleFlowerTable[i]
+				if f and not f:IsNull() then
+					f:ForceKill(false)
+					break
+				end
+			end
         end
     end
-    caster:ForceKill(true)
+    caster:ForceKill(false)
 end
 
 function PlantPurpleBase( keys )
     local caster = keys.caster
     local owner = caster
     local ownerAbility = owner:FindAbilityByName("garden_purple_lotus_base")
-    local point = keys.target_points[1]
+    local point = keys.ability:GetCursorPosition() --keys.target_points[1]
     --local flowerHealth = ownerAbility:GetLevelSpecialValueFor("flowerHealth", (ability:GetLevel() - 1))
-    
+
     owner.purpleFlowerCount = owner.purpleFlowerCount or 0
     owner.purpleFlowerTable = owner.purpleFlowerTable or {}
-    
+
     local maxFlowers = 3
     local casterLocation = caster:GetAbsOrigin()
     if ownerAbility then
@@ -519,9 +591,15 @@ function PlantPurpleBase( keys )
 
         owner.purpleFlowerCount = owner.purpleFlowerCount + 1
         table.insert(owner.purpleFlowerTable, purpleFlower)
-        
-        if owner.purpleFlowerCount > maxFlowers then
-            owner.purpleFlowerTable[1]:ForceKill(true)
+
+		if owner.purpleFlowerCount > maxFlowers and owner.purpleFlowerTable then
+			for i = 1, #owner.purpleFlowerTable do
+				local f = owner.purpleFlowerTable[i]
+				if f and not f:IsNull() then
+					f:ForceKill(false)
+					break
+				end
+			end
         end
     end
 end
@@ -539,5 +617,5 @@ function OnDestroyPurple( keys )
 end
 
 function DestroyGarden( keys )
-    keys.caster:ForceKill(true)
+    keys.caster:ForceKill(false)
 end

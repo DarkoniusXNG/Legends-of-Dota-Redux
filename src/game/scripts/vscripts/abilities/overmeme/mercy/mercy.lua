@@ -7,7 +7,7 @@ function CaduceusHealLaunch(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
-	local target = keys.target_points[1]
+	local target = ability:GetCursorPosition() --keys.target_points[1]
 
 	-- Parameters
 	local caster_loc = caster:GetAbsOrigin()
@@ -74,7 +74,7 @@ function CaduceusPowerLaunch(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
-	local target = keys.target_points[1]
+	local target = ability:GetCursorPosition() --keys.target_points[1]
 
 	-- Parameters
 	local caster_loc = caster:GetAbsOrigin()

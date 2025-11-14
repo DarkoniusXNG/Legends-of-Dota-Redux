@@ -103,36 +103,34 @@ end
 	Main: Check/Reduce charge, spawn dummy and cast the actual ability
 ]]
 function LiveTransfusion( keys )
-	
 	local caster = keys.caster
-	local target = keys.target_points[1]
 	local ability = keys.ability
+	local target = ability:GetCursorPosition() --keys.target_points[1]
 	local casterLoc = caster:GetAbsOrigin()
 	local modifierName = "modifier_live_transfusion_stack_counter_datadriven"
-
-	local range = ability:GetLevelSpecialValueFor( "range", ( ability:GetLevel() - 1 ) )
-	local radius = ability:GetLevelSpecialValueFor( "radius", ( ability:GetLevel() - 1 ) )
-	local maximum_charges = ability:GetLevelSpecialValueFor( "maximum_charges", ( ability:GetLevel() - 1 ) )		
-	local charge_replenish_time = ability:GetLevelSpecialValueFor( "charge_replenish_time", ( ability:GetLevel() - 1 ) )
-
 	local ability_level = ability:GetLevel() - 1
-	local target = keys.target_points[ 1 ]
-	local direction = caster:GetForwardVector()
-	local speed = (ability:GetLevelSpecialValueFor("transfusion_speed", ability:GetLevel() - 1 ) / 33)
-	local projectilespeed = ability:GetLevelSpecialValueFor("transfusion_speed", ability:GetLevel() - 1 )
-	local vision_radius = ability:GetLevelSpecialValueFor("vision_radius", ability:GetLevel() - 1 )
-	local hp_per_distance = ability:GetLevelSpecialValueFor("hp_cost", ability:GetLevel() - 1 )
-	local damage_radius = ability:GetLevelSpecialValueFor("effect_radius", ability:GetLevel() - 1 )
-	local duration = ability:GetDuration()
-	if caster:HasScepter() then
-		local effect_radius =  ability:GetLevelSpecialValueFor("effect_radius", ability:GetLevel() - 1 )
-	else
-		local effect_radius = ability:GetLevelSpecialValueFor("effect_radius_scepter", ability:GetLevel() - 1 )
-	end
-	local max_range = ability:GetLevelSpecialValueFor("transfusion_range", ability:GetLevel() - 1 )
-	local next_charge = caster.live_transfusion_charges
+
+	local range = ability:GetLevelSpecialValueFor( "range", ability_level)
+	local radius = ability:GetLevelSpecialValueFor( "radius", ability_level )
+	local maximum_charges = ability:GetLevelSpecialValueFor( "maximum_charges", ability_level )		
+	local charge_replenish_time = ability:GetLevelSpecialValueFor( "charge_replenish_time", ability_level )
 
 	
+	local direction = caster:GetForwardVector()
+	local speed = ability:GetLevelSpecialValueFor("transfusion_speed", ability_level ) / 33
+	local projectilespeed = ability:GetLevelSpecialValueFor("transfusion_speed", ability_level )
+	local vision_radius = ability:GetLevelSpecialValueFor("vision_radius", ability_level )
+	local hp_per_distance = ability:GetLevelSpecialValueFor("hp_cost", ability_level )
+	local damage_radius = ability:GetLevelSpecialValueFor("effect_radius", ability_level )
+	local duration = ability:GetDuration()
+	if caster:HasScepter() then
+		local effect_radius =  ability:GetLevelSpecialValueFor("effect_radius", ability_level )
+	else
+		local effect_radius = ability:GetLevelSpecialValueFor("effect_radius_scepter", ability_level )
+	end
+	local max_range = ability:GetLevelSpecialValueFor("transfusion_range", ability_level )
+	local next_charge = caster.live_transfusion_charges
+
 	-- Deplete charge
 	-- Reduce stack if more than 0 else refund mana
 	if caster.live_transfusion_charges > 0 then

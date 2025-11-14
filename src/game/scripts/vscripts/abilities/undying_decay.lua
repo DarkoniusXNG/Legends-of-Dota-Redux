@@ -43,7 +43,7 @@ end
 function ApplyParticles(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-	local target = keys.target_points[1]
+	local target = ability:GetCursorPosition() --keys.target_points[1]
 	local radius = ability:GetSpecialValueFor("radius")
 	
 	local decayRadius = ParticleManager:CreateParticle(keys.particleRadius, PATTACH_POINT, caster)

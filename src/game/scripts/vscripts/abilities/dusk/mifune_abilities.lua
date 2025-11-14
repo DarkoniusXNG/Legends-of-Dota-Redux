@@ -57,7 +57,7 @@ end
 
 function raigeki(keys)
 	local caster = keys.caster
-	local target = keys.target_points[1]
+	local target = keys.ability:GetCursorPosition() --keys.target_points[1]
 	local c_pos = caster:GetAbsOrigin()
 	local dr = (target-c_pos):Normalized()
 	local range = keys.range

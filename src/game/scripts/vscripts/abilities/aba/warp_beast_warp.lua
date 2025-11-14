@@ -54,7 +54,7 @@ function warp_beast_warp:Warp(maxCastRange, castPosition, ability, order)
 	local castVector = castPosition + caster:GetForwardVector() * RandomFloat(maxCastRange / 3, maxCastRange - 50)
 	local angle = RandomInt(0, 360)
 
-	local warpPosition = RotatePosition(castPosition, QAngle(0,angle, 0), castVector)
+	local warpPosition = RotatePosition(castPosition, QAngle(0, angle, 0), castVector)
 	local forwardVec = (castPosition - warpPosition):Normalized()
 
 	local distance = (castPosition - caster:GetAbsOrigin()):Length2D()
@@ -162,8 +162,8 @@ if IsServer() then
 					order.Position = event.target:GetAbsOrigin()
 					order.TargetIndex = event.target:GetEntityIndex()
 				else
-					castPosition = event.new_pos
-					order.Position = event.new_pos
+					castPosition = ability:GetCursorPosition() --event.new_pos
+					order.Position = ability:GetCursorPosition() --event.new_pos
 				end
 
 				if order.Position.z > 1200 then return end
@@ -179,7 +179,7 @@ if IsServer() then
 				local distance = (caster:GetAbsOrigin() - castPosition):Length2D()
 				if maxCastRange > 0 and maxCastRange < distance then
 					Timers:CreateTimer(0, function()
-						if order and self.checkRange then
+						if warpAbility and order and self.checkRange then
 							if warpAbility:GetToggleState() and warpAbility:CanWarp(warpRange, castPosition, ability) then
 								self.checkRange = false
 								caster:Stop()
