@@ -31,7 +31,6 @@ function BuildPocketFactory( event )
 		FindClearSpaceForUnit(caster.pocket_factory, point, true)
 	end)
 	caster.pocket_factory:SetControllableByPlayer(caster:GetPlayerID(), true)
-	
 
 	dummy:RemoveSelf()
 
@@ -65,7 +64,6 @@ function StartGoblinSpawn( event )
 	local offsetExtra = 8
 	local offX = sizeBuild/math.sqrt(2)
 	local pointToCreate = Vector(locHero.x + (offX+offsetExtra),locHero.y - (offX+offsetExtra), locHero.z)
-	
 
 	-- Display the spawn ability as cooling down, this is purely cosmetic but helps showing the interval
 	ability:StartCooldown(spawn_ratio)
@@ -86,8 +84,7 @@ function StartGoblinSpawn( event )
 				local goblin = CreateUnitByName(unit_name, pointToCreate, true, hero, hero, caster:GetTeamNumber())
 					
 				local sizeUnit = goblin:GetPaddedCollisionRadius()
-				Timers:CreateTimer(0.01,
-				function()
+				Timers:CreateTimer(0.01, function()
 					ResolveNPCPositions(pointToCreate,sizeUnit*2)
 					FindClearSpaceForUnit(goblin, pointToCreate, false)
 				end)
@@ -116,19 +113,4 @@ function StartGoblinSpawn( event )
 			return spawn_ratio
 		end
 	end)
-
-end
-
-function CauseDamageDecor(event)
-	local ability = event.ability
-	local attacker = event.caster
-	--local target = event.target
-	local targets = event.target_entities
-	local attack_damage = event.attack_damage
-	for _,v in pairs(targets) do
-		if v.destructable == 1 then
-			ApplyDamage({victim = v, attacker = attacker, damage = attack_damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability})
-		end
-	end
-
 end

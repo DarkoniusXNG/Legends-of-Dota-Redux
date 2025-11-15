@@ -354,3 +354,171 @@ end
 function modifier_techies_custom_blast_off:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
 end
+
+---------------------------------------------------------------------------------------------------
+LinkLuaModifier("modifier_android_clockwerk_goblin_kaboom_death", "abilities/techies_suicide_old.lua", LUA_MODIFIER_MOTION_NONE)
+
+android_clockwerk_goblin_kaboom = class({})
+
+function android_clockwerk_goblin_kaboom:GetAOERadius()
+	return self:GetSpecialValueFor("small_radius")
+end
+
+function android_clockwerk_goblin_kaboom:OnSpellStart()
+	local caster = self:GetCaster()
+	local point = self:GetCursorPosition()
+
+	if not point or not caster then
+		return
+	end
+
+	self:PrimaryEffect(point, caster)
+	-- Kill the caster
+	caster:DispelDeathPreventingBuffs()
+	caster:Kill(self, caster)
+end
+
+function android_clockwerk_goblin_kaboom:PrimaryEffect(point, caster)
+	if not caster then
+		caster = self:GetCaster()
+	end
+
+	local function TableContains(t, element)
+		if t == nil then return false end
+		for _, v in pairs(t) do
+			if v == element then
+				return true
+			end
+		end
+		return false
+	end
+
+	-- Targetting constants
+	local target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
+	local target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BUILDING)
+	local target_flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+
+	local team = caster:GetTeamNumber()
+
+	-- KV
+	local small_radius = self:GetSpecialValueFor("small_radius")
+	local big_radius = self:GetSpecialValueFor("big_radius")
+	local small_radius_dmg = self:GetSpecialValueFor("small_radius_damage")
+	local big_radius_dmg = self:GetSpecialValueFor("big_radius_damage")
+	local building_dmg_reduction = self:GetSpecialValueFor("building_dmg_reduction")
+	local vision_radius = self:GetSpecialValueFor("vision_radius")
+	local vision_duration = self:GetSpecialValueFor("vision_duration")
+
+	-- Damage table
+	local damage_table = {
+		attacker = caster,
+		damage_type = DAMAGE_TYPE_MAGICAL,
+		damage_flags = DOTA_DAMAGE_FLAG_REFLECTION,
+		ability = self,
+	}
+
+	local enemies_big_radius = FindUnitsInRadius(team, point, nil, big_radius, target_team, target_type, target_flags, FIND_ANY_ORDER, false)
+	local enemies_small_radius = FindUnitsInRadius(team, point, nil, small_radius, target_team, target_type, target_flags, FIND_ANY_ORDER, false)
+
+	-- Sound
+	--caster:EmitSound("Hero_Techies.Suicide")
+	EmitSoundOnLocationWithCaster(point, "Hero_Techies.Suicide", caster)
+
+	for _, enemy in pairs(enemies_big_radius) do
+		if enemy and not enemy:IsNull() then
+			-- Victim
+			damage_table.victim = enemy
+
+			-- Calculate damage
+			local dmg = big_radius_dmg
+			-- Increase the damage if enemy is closer to the center
+			if TableContains(enemies_small_radius, enemy) then
+				dmg = small_radius_dmg
+			end
+
+			damage_table.damage = dmg
+			if enemy:IsBuilding() or enemy:IsBarracks() or enemy:IsTower() or enemy:IsFort() then
+				damage_table.damage = dmg * building_dmg_reduction / 100
+			end
+
+			-- Explode (damage)
+			ApplyDamage(damage_table)
+		end
+	end
+
+	-- Explode particles
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_blast_off.vpcf", PATTACH_WORLDORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, point)
+	ParticleManager:ReleaseParticleIndex(pfx)
+	--local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_suicide.vpcf", PATTACH_WORLDORIGIN, caster) -- PATTACH_ABSORIGIN
+	--ParticleManager:SetParticleControl(pfx, 0, point)
+	--ParticleManager:SetParticleControl(pfx, 2, Vector(big_radius, big_radius, big_radius))
+	--ParticleManager:ReleaseParticleIndex(pfx)
+
+	-- Destroy trees
+	GridNav:DestroyTreesAroundPoint(point, big_radius, false)
+
+	-- Vision
+	self:CreateVisibilityNode(point, vision_radius, vision_duration)
+end
+
+function android_clockwerk_goblin_kaboom:ProcsMagicStick()
+	return false
+end
+
+function android_clockwerk_goblin_kaboom:GetIntrinsicModifierName()
+	return "modifier_android_clockwerk_goblin_kaboom_death"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_android_clockwerk_goblin_kaboom_death = class({})
+
+function modifier_android_clockwerk_goblin_kaboom_death:IsHidden()
+	return true
+end
+
+function modifier_android_clockwerk_goblin_kaboom_death:IsDebuff()
+	return false
+end
+
+function modifier_android_clockwerk_goblin_kaboom_death:IsPurgable()
+	return false
+end
+
+function modifier_android_clockwerk_goblin_kaboom_death:DeclareFunctions()
+	return {
+		MODIFIER_EVENT_ON_DEATH,
+	}
+end
+
+if IsServer() then
+	function modifier_android_clockwerk_goblin_kaboom_death:OnDeath(event)
+		local parent = self:GetParent()
+		local attacker = event.attacker
+		local dead = event.unit
+
+		-- Check if attacker exists
+		if not attacker or attacker:IsNull() then
+			return
+		end
+
+		-- Check if dead has this modifier and if it's not triggered with Kill
+		if parent ~= dead or attacker == parent then
+			return
+		end
+
+		local owner = parent:GetOwner() or parent:GetPlayerOwner():GetAssignedHero()
+		local location = parent:GetAbsOrigin()
+
+		-- No effect while broken or for illusions
+		if parent:PassivesDisabled() or parent:IsIllusion() then
+			return
+		end
+
+		local ability = self:GetAbility()
+		if ability and not ability:IsNull() then
+			ability:PrimaryEffect(location, owner)
+		end
+	end
+end

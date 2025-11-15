@@ -14,7 +14,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"2000"
+		"AbilityCastRange"				"1500" // distance + 250
 		"AbilityCastPoint"				"0.3"
 		
 		// Time		
@@ -29,18 +29,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "explosions" "10"
-            "damage" "50 70 90 110"
-            "interval" "0.1"
-            "slow" "-60"
-            "radius"				
+			"damage" "50 70 90 110" // initial dmg, can hit a single unit multiple times
+			"interval" "0.1"
+			"slow" "-60"
+			"radius" // blast radius, can hit units (AbilityCastRange + radius) distance away
 			{
 				"value"	"250"
 				"affected_by_aoe_increase"	"1"
 			}
-            "speed" "900"
-            "duration" "3"
-            "lightning_damage" "50 75 100 125"
+			"speed" "900"
+			"distance"  "1250"
+			"duration" "3" // slow duration
+			"lightning_damage" "50 75 100 125" // secondary dmg, can hit a single unit multiple times
         }
 		
 		"precache"
@@ -56,6 +56,7 @@
 				"ScriptFile"	"abilities/dusk/lightning_abilities.lua"
 				"Function"		"thunder_wave"
 				"speed"			"%speed"
+				"distance"      "%distance"
 				"Target"		"POINT"
 			}
 
@@ -93,12 +94,12 @@
 			"modifier_thunder_wave_buff"
 			{
 				"Duration"			"%duration"
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+
 				"IsPurgable"		"1"
 				"IsBuff"			"0"
 				"IsDebuff"			"1"
 				"IsStunDebuff"		"0"
-				//Purge(bool RemovePositiveBuffs, bool RemoveDebuffs, bool BuffsCreatedThisFrameOnly, bool RemoveStuns, bool RemoveExceptions)
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%slow"
@@ -108,6 +109,5 @@
 		}
 
 		"ReduxPerks"	"lightning"
-		"ReduxFlags"	""
 	}
 }

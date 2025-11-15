@@ -33,6 +33,7 @@
 
         "precache"
         {
+            "particle"                                                     "particles/firelord_fire_trap.vpcf"
             "particle"                                                     "particles/firelord_fire_trap_explode_custom.vpcf"
         }
 

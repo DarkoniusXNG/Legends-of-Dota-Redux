@@ -16,29 +16,6 @@ function gemini_voidal_flare_purge(event)
 
 end
 
-function RealmBlister( keys )
-  -- Variables
-  local caster = keys.caster
-  local ability = keys.ability
-  local target_point = ability:GetCursorPosition() --keys.target_points[1]
-
-  -- Special Variables
-  local duration = ability:GetLevelSpecialValueFor("duration", (ability:GetLevel() - 1))
-  local vision_radius = ability:GetLevelSpecialValueFor("vision_radius", (ability:GetLevel() - 1))
-
-  -- Dummy
-  local dummy_modifier = keys.dummy_aura
-  local dummy = CreateUnitByName("npc_dummy_blank", target_point, false, caster, caster, caster:GetTeam())
-  dummy:AddNewModifier(caster, nil, "modifier_phased", {})
-  ability:ApplyDataDrivenModifier(caster, dummy, dummy_modifier, {})
-
-  -- Vision
-  ability:CreateVisibilityNode(target_point, vision_radius, duration)
-
-  -- Timer to remove the dummy
-  Timers:CreateTimer(duration, function() dummy:RemoveSelf() end)
-end
-
 function ChronosphereAura( keys )
 print("==AURA IS ACTIVE==")
   local caster = keys.caster

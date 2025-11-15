@@ -1,107 +1,43 @@
 "DOTAAbilities" {
 	"android_clockwerk_goblin_kaboom" {
-		"BaseClass" "ability_datadriven"
-		"AbilityTextureName" "custom/golem_explosion"
-		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
-		"MaxLevel" "3"
-		"AbilityCastRange" "150"
-		"AbilityCastPoint" "0.0"
-		"AbilityDamage" "40 70 100"
+		"BaseClass"                                           "ability_lua"
+		"ScriptFile"                                          "abilities/techies_suicide_old.lua"
+		"AbilityTextureName"                                  "custom/golem_explosion"
+		"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"                                            "3"
+		"AbilityCastRange"                                    "150"
+		"AbilityCastPoint"                                    "0.0"
+		"AbilityCooldown"                                     "0"
+		"AbilityManaCost"                                     "0"
+
+		"precache"
+		{
+			//"particle"                                          "particles/units/heroes/hero_techies/techies_suicide.vpcf"
+			"particle"                                          "particles/units/heroes/hero_techies/techies_blast_off.vpcf"
+		}
 
 		"AbilityValues"
-        {
-            "small_radius" "150"
-            "big_radius" "250"
-            "big_radius_dmg" "0.5"
-        }
+		{
+			"small_radius_damage"                               "40 70 100" // full damage
+			"big_radius_damage"                                 "20 35 50" // partial damage - not in tooltip
 
-		"OnOwnerDied" {
-			"FireEffect" {
-				"Target" {
-					"Center" "CASTER"
-					"Flags" "DOTA_UNIT_TARGET_FLAG_DEAD"
-				}
-				"EffectName" "particles/units/heroes/hero_techies/techies_suicide.vpcf"
-				"EffectAttachType" "follow_origin"
+			"small_radius" // full damage radius;
+			{
+				"value"                                           "200"
+				"affected_by_aoe_increase"                        "1"
+			}
+			"big_radius" // half damage radius;
+			{
+				"value"                                           "400"
+				"affected_by_aoe_increase"                        "1"
 			}
 
-			"FireSound" {
-				"EffectName" "Hero_Techies.Suicide"
-
-				"Target" {
-					"Center" "CASTER"
-					"Flags" "DOTA_UNIT_TARGET_FLAG_DEAD"
-				}
-			}
-
-			"Damage" {
-				"Target" {
-					"Center" "CASTER"
-					"Radius" "%big_radius"
-					"Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				}
-				"Damage" "%AbilityDamage * %big_radius_dmg"
-				"Type" "DAMAGE_TYPE_MAGICAL"
-			}
-
-			"RunScript" {
-				"ScriptFile" "abilities/life_in_arena/pocketfactory.lua"
-				"Function" "CauseDamageDecor"
-				"attack_damage" "%AbilityDamage"
-
-				"Target" {
-					"Center" "CASTER"
-					"Radius" "150"
-					"Teams" "DOTA_UNIT_TARGET_TEAM_BOTH"
-					"Types" "DOTA_UNIT_TARGET_BUILDING"
-				}
-			}
-		}
-
-		"OnSpellStart" {
-			"FireEffect" {
-				"Target" "CASTER"
-				"EffectName" "particles/units/heroes/hero_techies/techies_suicide.vpcf"
-				"EffectAttachType" "follow_origin"
-			}
-
-			"FireSound" {
-				"EffectName" "Hero_Techies.Suicide"
-				"Target" "CASTER"
-			}
-
-			"Damage" {
-				"Target" "CASTER"
-				"Damage" "99999"
-				"Type" "DAMAGE_TYPE_PURE"
-			}
-
-			"RunScript" {
-				"ScriptFile" "abilities/life_in_arena/pocketfactory.lua"
-				"Function" "CauseDamageDecor"
-				"attack_damage" "%AbilityDamage"
-
-				"Target" {
-					"Center" "CASTER"
-					"Radius" "150"
-					"Teams" "DOTA_UNIT_TARGET_TEAM_BOTH"
-					"Types" "DOTA_UNIT_TARGET_BUILDING"
-				}
-			}
-		}
-
-		"Modifiers" {
-			"modifier_summoned" {
-				"IsHidden" "1"
-
-				"States" {
-					"MODIFIER_STATE_DOMINATED" "MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
+			"building_dmg_reduction"                            "25"
+			"vision_radius"                                     "200"
+			"vision_duration"                                   "1.0"
 		}
 	}
 }
