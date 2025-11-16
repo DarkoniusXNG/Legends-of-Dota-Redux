@@ -162,8 +162,8 @@ if IsServer() then
 					order.Position = event.target:GetAbsOrigin()
 					order.TargetIndex = event.target:GetEntityIndex()
 				else
-					castPosition = ability:GetCursorPosition() --event.new_pos
-					order.Position = ability:GetCursorPosition() --event.new_pos
+					--castPosition = --caster:GetCursorPosition() is the center of the map --event.new_pos is nil
+					--order.Position = --caster:GetCursorPosition() is the center of the map --event.new_pos is nil
 				end
 
 				if order.Position.z > 1200 then return end
@@ -178,10 +178,11 @@ if IsServer() then
 				end
 				local distance = (caster:GetAbsOrigin() - castPosition):Length2D()
 				if maxCastRange > 0 and maxCastRange < distance then
+					local mod = self
 					Timers:CreateTimer(0, function()
-						if warpAbility and order and self.checkRange then
+						if warpAbility and order and mod.checkRange then
 							if warpAbility:GetToggleState() and warpAbility:CanWarp(warpRange, castPosition, ability) then
-								self.checkRange = false
+								mod.checkRange = false
 								caster:Stop()
 								warpAbility:Warp(warpRange, castPosition, ability, order)
 								return nil
