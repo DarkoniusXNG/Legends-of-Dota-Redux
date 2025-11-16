@@ -10,7 +10,7 @@
         "AbilityUnitTargetType"                                                 "DOTA_UNIT_TARGET_HERO"
         "AbilityCastRange"                                                      "25000"
         "AbilityCastPoint"                                                      "0.1"
-        "AbilityCooldown"                                                       "9"
+        "AbilityCooldown"                                                       "20"
         "AbilityManaCost"                                                       "100 110 120 130"
 
         "AbilityValues"
@@ -23,10 +23,18 @@
 			}
             "crater_damage" "120 180 240 300"
             "crater_duration" "3.5 4 4.5 5"
-            "marker_speed" "2000"
+            "marker_speed" "1000"
         }
 
-        "ReduxFlags"                                                           "dota_custom"
+        "precache"
+        {
+            "particle"                                                         "particles/crater_marker.vpcf"
+            "particle"                                                         "particles/units/heroes/hero_ogre_magi/ogre_magi_ignite.vpcf"
+            "particle"                                                         "particles/crater_strike.vpcf"
+            "particle"                                                         "particles/crater_area.vpcf"
+        }
+
+        "ReduxPerks"                                                           "explosive | fire | scientific | skillshot"
     }
 
 }

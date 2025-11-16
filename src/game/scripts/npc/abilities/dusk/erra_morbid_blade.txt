@@ -11,7 +11,6 @@
 		"SpellImmunityType"			 "SPELL_IMMUNITY_ENEMIES_NO"
 		"AnimationPlaybackRate"		 "1"
 		"AbilityTextureName"			"custom/erra_morbid_blade"
-		"AoERadius"					 "%radius"
 
 		"ReduxFlags"					"physical"
 		"ReduxPerks"					"blades | physical"

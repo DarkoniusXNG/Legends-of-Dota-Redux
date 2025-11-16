@@ -1,6 +1,3 @@
-if IsServer() then
-	require('lib/timers')
-end
 --[[
 	Author: Noya
 	Date: 25.01.2015.
@@ -15,9 +12,8 @@ function BlizzardStart( event )
 	caster.blizzard_dummy = CreateUnitByName("dummy_unit", point, false, caster, caster, caster:GetTeam())
 	local wave_interval = ability:GetSpecialValueFor("wave_interval")
 	local wave_count = ability:GetSpecialValueFor("wave_count")	
-	local delay = 0.25
 
-	local duration = wave_count * wave_interval + 0.25
+	local duration = (wave_count-1) * wave_interval + 0.1 -- total thinker (blizzard) duration
 
 	ability:ApplyDataDrivenModifier(caster, caster.blizzard_dummy, "modifier_blizzard_thinker", {duration = duration})
 end

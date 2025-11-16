@@ -67,10 +67,7 @@ function sohei_flurry_of_blows:OnSpellStart()
 end
 
 function sohei_flurry_of_blows:GetAOERadius()
-  local caster = self:GetCaster()
-  local radius = self:GetSpecialValueFor("flurry_radius")
-
-  return radius
+  return self:GetSpecialValueFor("flurry_radius")
 end
 
 function sohei_flurry_of_blows:ProcsMagicStick()

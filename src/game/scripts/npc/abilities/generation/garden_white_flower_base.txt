@@ -9,7 +9,7 @@
         "AbilityChannelTime"                                                   "1.0"
         "AbilityTextureName"                                                   "custom/cherub_flower_white"
         "AnimationPlaybackRate"                                                "0.2"
-        "AOERadius"                                                            "900"
+        "AOERadius"                                                            "%range"
 
         "ReduxFlags"                                                           "summon"
         "ReduxPerks"                                                           "trap | channeled | nature | summon_non_ult | self_damage"

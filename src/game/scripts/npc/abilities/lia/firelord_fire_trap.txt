@@ -12,6 +12,7 @@
         "AbilityCastPoint"                                                     "0"
         "AbilityCooldown"                                                      "15 14 13 12"
         "AbilityManaCost"                                                      "80"
+        "AOERadius"                                                            "%detonation_radius"
 
         "AbilityValues"
         {

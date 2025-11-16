@@ -85,6 +85,7 @@ function modifier_random_lane_creep_spawner_mutator:OnCreated()
                         local origin = u:GetAbsOrigin()
                         local teamNumber = u:GetTeamNumber()
                         local waypoint = u:GetInitialGoalEntity()
+                        local goal = u:GetInitialGoalPosition()
 
                         -- Freeze and hide them until time reaches .30 or .60
 
@@ -96,8 +97,9 @@ function modifier_random_lane_creep_spawner_mutator:OnCreated()
                         --unit:AddNewModifier(unit,nil,"modifier_random_lane_creep_freeze",{duration = waitTime+1})
                         Timers:CreateTimer(waitTime+2,function()
                             local unit = CreateUnitByName(name,origin,true,nil,nil,teamNumber)
-                            --unit:MoveToPositionAggressive(Vector(0,0,0))
+
                             unit:SetInitialGoalEntity(waypoint)
+                            unit:SetInitialGoalPosition(goal)
 
                             unit:AddNewModifier(unit,nil,"modifier_random_lane_creep_mutator_ai",{})
                             unit:AddNewModifier(unit,nil,"modifier_phased",{duration = 2.5})
@@ -134,7 +136,6 @@ function modifier_random_lane_creep_mutator_ai.OnCreated(self,kv)
         return
     end
 
-    --self.unit = EntIndexToHScript(kv.unit)
     local unit = self:GetParent()
     self.initPos = unit:GetAbsOrigin()
 
@@ -145,7 +146,7 @@ function modifier_random_lane_creep_mutator_ai.OnCreated(self,kv)
         end
     end
     unit:SetMana(unit:GetMaxMana())
-    self:StartIntervalThink(FrameTime())
+    self:StartIntervalThink(1)
 end
 
 function modifier_random_lane_creep_mutator_ai.OnIntervalThink(self)
@@ -155,28 +156,57 @@ function modifier_random_lane_creep_mutator_ai.OnIntervalThink(self)
 		self:Destroy()
 		return
 	end
-    if self:GetElapsedTime() > 2.5 and self:GetElapsedTime() < 2.75 and ((unit:GetAbsOrigin()-self.initPos):Length2D()< 50) then
-        print("UNIT WS STUCK",unit:GetLastAttackTime())
+    if self:GetElapsedTime() > 30 and ((unit:GetAbsOrigin()-self.initPos):Length2D() < 100) then
+        print("modifier_random_lane_creep_mutator_ai: UNIT IS STUCK, last attack time: ", unit:GetLastAttackTime())
         UTIL_Remove(unit)
+		self:StartIntervalThink(-1)
+		self:Destroy()
         return
     end
-    -- if self.unit and not self.unit:IsNull() then
-    --     unit:MoveToPositionAggressive(self.unit:GetAbsOrigin())
-    --     print(self.unit:GetInitialGoalEntity())
-    --     unit:SetInitialGoalEntity(self.unit:GetInitialGoalEntity())
-    -- end
 
-    --[[if not unit:GetInitialGoalEntity() then
-        local units = FindUnitsInRadius(unit:GetTeamNumber(),unit:GetAbsOrigin(),nil,500,DOTA_UNIT_TARGET_TEAM_FRIENDLY,DOTA_UNIT_TARGET_BASIC,DOTA_UNIT_TARGET_FLAG_NONE,FIND_ANY_ORDER,false)
-        for _,u in pairs(units) do
-            --print(u:GetUnitName(),u:GetInitialGoalEntity())
-            if u:GetInitialGoalEntity() then
-                unit:SetInitialGoalEntity(u:GetInitialGoalEntity())
-            end
+    if not unit:GetInitialGoalEntity() then
+		--print("========")
+		--print("modifier_random_lane_creep_mutator_ai Initial goal entity: ", unit:GetInitialGoalEntity())
+		--print("modifier_random_lane_creep_mutator_ai Initial goal position: ", unit:GetInitialGoalPosition())
+		--print("========")
+		unit.ordered_to_attack = false
+        local units = FindUnitsInRadius(unit:GetTeamNumber(),unit:GetAbsOrigin(),nil,1200,DOTA_UNIT_TARGET_TEAM_FRIENDLY,DOTA_UNIT_TARGET_BASIC,DOTA_UNIT_TARGET_FLAG_NONE,FIND_ANY_ORDER,false)
+        for _, u in pairs(units) do
+			if u and IsValidEntity(u) then
+                if (string.find(u:GetUnitName(),"goodguys_ranged") or string.find(u:GetUnitName(),"badguys_ranged")) and unit:GetTeamNumber() == u:GetTeamNumber() then
+					if u:GetInitialGoalEntity() then
+						--unit:SetInitialGoalEntity(u:GetInitialGoalEntity())
+						local goal = u:GetInitialGoalEntity():GetAbsOrigin()
+						ExecuteOrderFromTable({
+							UnitIndex = unit:entindex(),
+							OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+							Position = goal,
+							Queue = true,
+						})
+						unit.ordered_to_attack = true
+						break
+					end
+				end
+			end
         end
-    else
-        --print("YEAH",unit:GetInitialGoalEntity())
-    end]]
+		if not unit.ordered_to_attack then
+			local buildings = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+			local closest_building = buildings[1]
+			ExecuteOrderFromTable({
+				UnitIndex = unit:entindex(),
+				OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+				Position = closest_building:GetAbsOrigin(),
+				Queue = true,
+			})
+			unit.ordered_to_attack = true
+		end
+    --else
+        --print("========")
+		--print("modifier_random_lane_creep_mutator_ai YEAH, Initial goal entity: ", unit:GetInitialGoalEntity())
+		--print("modifier_random_lane_creep_mutator_ai Initial goal position: ", unit:GetInitialGoalPosition())
+		--print("========")
+    end
+
     for i = 0, unit:GetAbilityCount() - 1 do
         local ability = unit:GetAbilityByIndex(i)
         if unit:GetCurrentActiveAbility() then return end
@@ -213,7 +243,6 @@ function modifier_random_lane_creep_mutator_ai.OnIntervalThink(self)
             end
         end
     end
-    --unit:MoveToPositionAggressive(Vector(0,0,0))
 end
 
 
