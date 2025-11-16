@@ -25,6 +25,12 @@ function zulf_gale_force:OnSpellStart()
 	end
 end
 
+function zulf_gale_force:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
+
+---------------------------------------------------------------------------------------------------
+
 -- Disarm Aura
 modifier_gale_force = class({})
 

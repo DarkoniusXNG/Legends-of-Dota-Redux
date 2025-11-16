@@ -131,17 +131,18 @@
 
         // General
         //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_datadriven"
         "AbilityType"                   "ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
-        "BaseClass"                     "ability_datadriven"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityTextureName"            "custom/Blazer"
 
-        "AOERadius"                     "%radius"
+        "AbilityCastRange"              "%radius"
         "AbilityCooldown"               "60 40 20"
         "AbilityManaCost"               "420"
+
         "ReduxCost"                     "120"
 
         // Special

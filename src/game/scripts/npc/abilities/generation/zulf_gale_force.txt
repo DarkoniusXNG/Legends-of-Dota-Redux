@@ -8,7 +8,7 @@
 		"AbilityTextureName" "zulf_gale_force"
 		"AbilityProcsMagicStick" "1"
 		"AbilityCastPoint" "0.1"
-		"AOERadius" "%radius"
+		"AbilityCastRange" "%radius"
 		"AbilityCooldown" "16 14 12 10"
 		"AbilityManaCost" "90 80 70 60"
 		"ScriptFile"	  "abilities/zulf_gale_force.lua"

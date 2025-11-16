@@ -51,6 +51,12 @@ function hawkeye_detonator_dart:OnProjectileHit(t, l)
 	]]
 end
 
+function hawkeye_detonator_dart:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
+
+---------------------------------------------------------------------------------------------------
+
 modifier_detonator_dart = class({})
 
 function modifier_detonator_dart:OnCreated()

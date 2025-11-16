@@ -1,9 +1,5 @@
 erra_morbid_blade = class({})
 
-function erra_morbid_blade:GetAOERadius()
-	self:GetSpecialValueFor("radius")
-end
-
 function erra_morbid_blade:OnSpellStart()
 	local caster = self:GetCaster()
 	local point = self:GetCursorPosition()
@@ -58,6 +54,10 @@ function erra_morbid_blade:OnSpellStart()
 			caster:Heal(v:GetHealthDeficit()*(lifesteal*0.5),caster)
 		end
 	end
+end
+
+function erra_morbid_blade:GetAOERadius()
+	self:GetSpecialValueFor("radius")
 end
 
 function DealDamage(target,attacker,damageAmount,damageType,ability,damageFlags)

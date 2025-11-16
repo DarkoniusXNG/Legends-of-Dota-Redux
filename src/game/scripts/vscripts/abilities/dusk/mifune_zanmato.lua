@@ -195,6 +195,12 @@ function mifune_zanmato:OnProjectileHit(t,l)
 	end
 end
 
+function mifune_zanmato:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
+
+---------------------------------------------------------------------------------------------------
+
 modifier_zanmato_main_target = class({})
 
 function modifier_zanmato_main_target:CheckState()

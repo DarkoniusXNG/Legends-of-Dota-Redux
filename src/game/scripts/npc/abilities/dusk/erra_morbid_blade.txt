@@ -4,7 +4,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"			 "ability_lua"
-		"ScriptFile"			"abilities/dusk/erra_morbid_blade"
+		"ScriptFile"			"abilities/dusk/erra_morbid_blade.lua"
 		"AbilityBehavior"			   "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"		 "DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"		 "DAMAGE_TYPE_PHYSICAL"
@@ -37,11 +37,11 @@
 		"AbilityValues"
         {
             "pure_threshold" "50"
-            "radius"				
-			{
-				"value"	"400"
-				"affected_by_aoe_increase"	"1"
-			}
+            "radius"
+            {
+                "value"                                           "400"
+                "affected_by_aoe_increase"                        "1"
+            }
             "lifesteal" "6 9 12 15"
         }
 

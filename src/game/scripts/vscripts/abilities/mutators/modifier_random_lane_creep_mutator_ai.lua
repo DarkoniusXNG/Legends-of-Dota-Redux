@@ -192,12 +192,14 @@ function modifier_random_lane_creep_mutator_ai.OnIntervalThink(self)
 		if not unit.ordered_to_attack then
 			local buildings = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
 			local closest_building = buildings[1]
-			ExecuteOrderFromTable({
-				UnitIndex = unit:entindex(),
-				OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-				Position = closest_building:GetAbsOrigin(),
-				Queue = true,
-			})
+			if closest_building then
+				ExecuteOrderFromTable({
+					UnitIndex = unit:entindex(),
+					OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+					Position = closest_building:GetAbsOrigin(),
+					Queue = true,
+				})
+			end
 			unit.ordered_to_attack = true
 		end
     --else
