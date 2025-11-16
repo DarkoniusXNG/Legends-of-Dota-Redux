@@ -36,7 +36,6 @@ function Ingame:init()
     self:addStrongTowers()
     self:loadTrollCombos()
     self:AddTowerBotController()
-    --self:fixRuneBug()
 
     -- -- Init global mutator
     self:initGlobalMutator()
@@ -659,28 +658,6 @@ function Ingame:CommandNotification(command, message, cooldown)
         end, DoUniqueString('temporaryblockcommand'), cooldown)
     end
 end
-
---[[function Ingame:fixRuneBug()
-    ListenToGameEvent('game_rules_state_change', function(keys)
-        local newState = GameRules:State_Get()
-
-        if newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-            --GpmInit()
-            Timers:CreateTimer(function()
-                for playerID=0,DOTA_MAX_TEAM_PLAYERS-1 do
-                    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-                    if hero and util:isPlayerBot(playerID) then
-                        hero:MoveToPositionAggressive(Vector(0, 0, 0))
-
-                        --local item = hero:FindItemInInventory("item_vambrace")
-                        --item:Destroy()
-                        --hero:AddItemByName("item_giants_ring")
-                    end
-                end
-            end, "botRune", 6)
-        end
-    end, nil)
-end]]
 
 -- Called every 0.1 second to check and convert consumable items into actual consumable items
 function Ingame:CheckConsumableItems()

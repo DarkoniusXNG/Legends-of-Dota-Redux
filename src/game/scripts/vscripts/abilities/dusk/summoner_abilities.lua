@@ -131,8 +131,6 @@ function summon_vassal(keys)
 
 		local other_target = found[1]
 
-		--v:MoveToPositionAggressive(v:GetAbsOrigin())
-
 		if hero_target then
 			print("targeting hero")
 			Orders:IssueAttackOrder(v,hero_target)

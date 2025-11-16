@@ -239,7 +239,12 @@ function SpawnRadiantBehemoth( keys )
 				-- Make Behemoth attack-move the opposing ancient
 				local target_loc = Entities:FindByName(nil, "dire_reinforcement_spawn_mid"):GetAbsOrigin()
 				Timers:CreateTimer(0.5, function()
-					behemoth:MoveToPositionAggressive(target_loc)
+					ExecuteOrderFromTable({
+						UnitIndex = behemoth:entindex(),
+						OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+						Position = target_loc,
+						Queue = false,
+					})
 				end)
 
 				-- Reset body count
@@ -311,7 +316,12 @@ function SpawnDireBehemoth( keys )
 				-- Make Behemoth move to the opposing ancient
 				local target_loc = Entities:FindByName(nil, "radiant_reinforcement_spawn_mid"):GetAbsOrigin()
 				Timers:CreateTimer(0.5, function()
-					behemoth:MoveToPositionAggressive(target_loc)
+					ExecuteOrderFromTable({
+						UnitIndex = behemoth:entindex(),
+						OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+						Position = target_loc,
+						Queue = false,
+					})
 				end)
 
 				-- Reset body count

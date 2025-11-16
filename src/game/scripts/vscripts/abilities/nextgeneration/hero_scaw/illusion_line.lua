@@ -75,7 +75,12 @@ function CreateIllusionLine( keys )
 		caster:RemoveNoDraw()
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_spawn", {})
 		if not caster:IsChanneling() then
-			caster:MoveToPositionAggressive(casterVec)
+			ExecuteOrderFromTable({
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+				Position = casterVec,
+				Queue = false,
+			})
 		end
 
 		for j = 1, 5 do

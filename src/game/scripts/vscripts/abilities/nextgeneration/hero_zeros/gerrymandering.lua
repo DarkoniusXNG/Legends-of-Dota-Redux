@@ -5,7 +5,6 @@ function GerrymanderInitiate( keys )
 
 	if target:TriggerSpellAbsorb(ability) then
 		target:RemoveModifierByName("modifier_gerrymander_debuff")
-		RemoveLinkens(target)
 		return
 	end
 end

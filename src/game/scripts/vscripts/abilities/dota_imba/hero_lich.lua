@@ -2197,7 +2197,12 @@ function modifier_imba_lich_sinister_gaze:OnDestroy()
 
 	if self.ability:IsChanneling() then
 		self.ability:EndChannel(false)
-		self.caster:MoveToPositionAggressive(self.caster:GetAbsOrigin())
+		ExecuteOrderFromTable({
+			UnitIndex = self.caster:entindex(),
+			OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+			Position = self.caster:GetAbsOrigin(),
+			Queue = false,
+		})
 	end
 end
 

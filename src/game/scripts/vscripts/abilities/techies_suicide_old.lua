@@ -421,7 +421,6 @@ function android_clockwerk_goblin_kaboom:PrimaryEffect(point, caster)
 	local enemies_small_radius = FindUnitsInRadius(team, point, nil, small_radius, target_team, target_type, target_flags, FIND_ANY_ORDER, false)
 
 	-- Sound
-	--caster:EmitSound("Hero_Techies.Suicide")
 	EmitSoundOnLocationWithCaster(point, "Hero_Techies.Suicide", caster)
 
 	for _, enemy in pairs(enemies_big_radius) do

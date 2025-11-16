@@ -4,7 +4,6 @@ function MindControlAdd( keys )
 	local target = keys.target
 
 	if target:TriggerSpellAbsorb(ability) then
-		RemoveLinkens(target)
 		return
 	end
 

@@ -41,7 +41,6 @@ function MindControlAdd( keys )
 	local target = keys.target
 
 	if target:TriggerSpellAbsorb(ability) then
-		RemoveLinkens(target)
 		caster:Stop()
 		return
 	end
@@ -62,7 +61,12 @@ function MindControlAdd( keys )
 	end
 	--ability:ApplyDataDrivenModifier(caster, target, "Nexus_Sync_Casts", {duration = -1})
 	target.nexusdouble:SetControllableByPlayer(caster:GetPlayerID(), false)
-	target.nexusdouble:MoveToPositionAggressive(caster:GetAbsOrigin())
+	ExecuteOrderFromTable({
+		UnitIndex = target.nexusdouble:entindex(),
+		OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+		Position = caster:GetAbsOrigin(),
+		Queue = false,
+	})
 	
 	if target:IsHero() then
 		local caster_level = caster:GetLevel()

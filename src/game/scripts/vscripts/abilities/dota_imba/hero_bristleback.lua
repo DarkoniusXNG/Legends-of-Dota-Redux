@@ -283,7 +283,12 @@ function modifier_imba_bristleback_viscous_nasal_goo_autocaster:OnIntervalThink(
 				Timers:CreateTimer(self.ability:GetBackswingTime(), function()
 					-- This is just to prevent Bristleback from bricking up in super low CD situations, but he won't target people after cast then
 					if not self.ability:IsNull() and self.ability:GetCooldownTimeRemaining() > self.ability:GetBackswingTime() then
-						self.caster:MoveToPositionAggressive(self.caster:GetAbsOrigin())
+						ExecuteOrderFromTable({
+							UnitIndex = self.caster:entindex(),
+							OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+							Position = self.caster:GetAbsOrigin(),
+							Queue = false,
+						})
 					end
 				end)
 			end
