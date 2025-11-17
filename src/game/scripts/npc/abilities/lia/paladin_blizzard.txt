@@ -14,23 +14,23 @@
         "AbilityCooldown"                                                      "18 17 16 15"
         "AbilityManaCost"                                                      "120 130 140 150"
         "AOERadius"                                                            "%radius"
+
         "AbilityValues"
         {
             "wave_damage" "40 100 160 220"
             "stun" "0.45"
             "wave_interval" "1.0"
-            "wave_count" "12"
+            "wave_count" "13"
             "radius"
 			{
 				"value"			"350"
 				"affected_by_aoe_increase"	"1"
 			}
-            "max_targets" "16"
         }
 
         "precache"
         {
-            "particle"                                                     "particles/status_fx/status_effect_frost_lich.vpcf"
+            "particle"                                                     "particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_explosion.vpcf"
         }
 
         "OnSpellStart"
@@ -51,53 +51,89 @@
         {
             "modifier_blizzard_thinker"
             {
+                "OnCreated"
+                {
+                    "Damage"
+                    {
+                        "Target"
+                        {
+                            "Center"       "TARGET"
+                            "Radius"       "%radius"
+                            "Teams"        "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                            "Types"        "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                            "Random"       "0"
+                        }
+                        "Type"                 "DAMAGE_TYPE_MAGICAL"
+                        "Damage"               "%wave_damage"
+                    }
+                    "ApplyModifier"
+                    {
+                        "ModifierName"         "modifier_stunned"
+                        "Target"
+                        {
+                            "Center"       "TARGET"
+                            "Radius"       "%radius"
+                            "Teams"        "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                            "Types"        "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                            "Random"       "0"
+                        }
+                        "Duration"             "%stun"
+                    }
+                    "FireSound"
+                    {
+                        "EffectName"           "hero_Crystal.freezingField.explosion"
+                        "Target"
+                        {
+                            "Center"       "TARGET"
+                            "Radius"       "%radius"
+                            "Teams"        "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                            "Types"        "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                        }
+                    }
+                    "RunScript"
+                    {
+                        "ScriptFile"                           "abilities/life_in_arena/blizzard.lua"
+                        "Function"                             "BlizzardWave"
+                    }
+                }
                 "ThinkInterval"                                        "%wave_interval"
                 "OnIntervalThink"
                 {
-                    "DelayedAction"
+                    "Damage"
                     {
-                        "Delay"                                "0.01"
-                        "Action"
+                        "Target"
                         {
-                            "Damage"
-                            {
-                                "Target"
-                                {
-                                    "Center"       "TARGET"
-                                    "Radius"       "%radius"
-                                    "Teams"        "DOTA_UNIT_TARGET_TEAM_ENEMY"
-                                    "Types"        "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-                                    "MaxTargets"   "%max_targets"
-                                    "Random"       "0"
-                                }
-                                "Type"                 "DAMAGE_TYPE_MAGICAL"
-                                "Damage"               "%wave_damage"
-                            }
-                            "ApplyModifier"
-                            {
-                                "ModifierName"         "modifier_stunned"
-                                "Target"
-                                {
-                                    "Center"       "TARGET"
-                                    "Radius"       "%radius"
-                                    "Teams"        "DOTA_UNIT_TARGET_TEAM_ENEMY"
-                                    "Types"        "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-                                    "MaxTargets"   "%max_targets"
-                                    "Random"       "0"
-                                }
-                                "Duration"             "%stun"
-                            }
-                            "FireSound"
-                            {
-                                "EffectName"           "hero_Crystal.freezingField.explosion"
-                                "Target"
-                                {
-                                    "Center"       "TARGET"
-                                    "Radius"       "%radius"
-                                    "Teams"        "DOTA_UNIT_TARGET_TEAM_ENEMY"
-                                    "Types"        "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-                                }
-                            }
+                            "Center"       "TARGET"
+                            "Radius"       "%radius"
+                            "Teams"        "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                            "Types"        "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                            "Random"       "0"
+                        }
+                        "Type"                 "DAMAGE_TYPE_MAGICAL"
+                        "Damage"               "%wave_damage"
+                    }
+                    "ApplyModifier"
+                    {
+                        "ModifierName"         "modifier_stunned"
+                        "Target"
+                        {
+                            "Center"       "TARGET"
+                            "Radius"       "%radius"
+                            "Teams"        "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                            "Types"        "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                            "Random"       "0"
+                        }
+                        "Duration"             "%stun"
+                    }
+                    "FireSound"
+                    {
+                        "EffectName"           "hero_Crystal.freezingField.explosion"
+                        "Target"
+                        {
+                            "Center"       "TARGET"
+                            "Radius"       "%radius"
+                            "Teams"        "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                            "Types"        "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
                         }
                     }
                     "RunScript"
@@ -116,7 +152,7 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "stun | doNotRandom"
+        "ReduxFlags"                                                           "stun"
         "ReduxPerks"                                                           "ice"
     }
 }

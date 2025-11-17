@@ -46,6 +46,7 @@
 			}
 		}
 
+		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "nature"
 	}
 }

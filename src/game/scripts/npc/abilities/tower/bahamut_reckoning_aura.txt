@@ -46,6 +46,7 @@
                 }
             }
         }
+
         "ReduxPerks"                                                           "aura"
         "ReduxCost"                                                            "120"
     }

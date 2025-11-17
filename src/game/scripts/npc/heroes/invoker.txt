@@ -34,11 +34,11 @@
 			}
 			"duration"
 			{
-				"value"				"6.0"
+				"value"				"3.5 4.3 5.1 6.0"
 			}
 			"freeze_duration"		"0.4"
-			"freeze_cooldown"		"0.8 0.73 0.66 0.59"
-			"freeze_damage"			"16 32 48 64"
+			"freeze_cooldown"		"0.8 0.73 0.66 0.59" // buffed
+			"freeze_damage"			"16 32 48 64" // buffed
 			"damage_trigger"		"10.0"
 		}
 	}
@@ -53,19 +53,19 @@
 
 		"AbilityTextureName"            "invoker_ghost_walk_ad_png"
 		"MaxLevel"						"4"
-		"AbilityManaCost"				"175"
+		"AbilityManaCost"				"175" // same as normal Ghost Walk
 		"AbilityCastPoint"				"0.05"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"					"45 40 35 30"
+				"value"					"32" // same as normal Ghost Walk
 			}
-			"duration"				"100.0"
+			"duration"				"60" // same as normal Ghost Walk
 			"area_of_effect"
 			{
-				"value"			"400 450 500 550"
-					"affected_by_aoe_increase"	"1"
+				"value"			"450" // same as normal Ghost Walk
+				"affected_by_aoe_increase"	"1"
 			}
 			"enemy_slow"	"-20 -30 -40 -50"
 			"self_slow"		"-15 -5 5 15"
@@ -89,10 +89,10 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"30 27 24 21"
+				"value"					"27 25 23 21"
 				"special_bonus_unique_invoker_3" "-4"
 			}
-			"travel_distance"		"1400 2000 2600 3200"
+			"travel_distance"		"1500 2100 2700 3300" // similar to normal Tornado
 			"travel_speed"			"1000"
 			"area_of_effect"
 			{
@@ -107,11 +107,11 @@
 			"end_vision_duration"	"1.75"
 			"lift_duration"
 			{
-				"value"				"1.1 1.6 2.1 2.6"
+				"value"				"1.2 1.6 2.0 2.4" // similar to normal Tornado
 			}
-			"base_damage"			"70"
+			"base_damage"			"50" // same as normal Tornado
 			"quas_damage"			"0 0 0 0"
-			"wex_damage"			"90 180 270 360"
+			"wex_damage"			"90 180 270 360" // buffed
 		}
 	}
 
@@ -127,7 +127,7 @@
 		"HasShardUpgrade"				"1"
 		"AbilityCastRange"				"950"
 		"AbilityCastPoint"				"0.05"
-		"AbilityCooldown"				"30 26 22 18"
+		"AbilityCooldown"				"27 25 23 21"
 		"AbilityManaCost"				"125"
 
 		"AbilityValues"
@@ -153,8 +153,7 @@
 
 			"shard_drag_speed"
 			{
-				"value"					"175"
-				"RequiresShard"			"1"
+				"value"					"150" // same as normal EMP
 			}
 			"self_mana_restore_pct"			"25"
 		}
@@ -171,7 +170,7 @@
 		"AbilityTextureName"            "invoker_alacrity_ad_png"
 		"AbilityCastRange"				"650"
 		"AbilityCastPoint"				"0.05"
-		"AbilityCooldown"				"17 16 15 14"
+		"AbilityCooldown"				"15" // same as normal Alacrity
 		"AbilityManaCost"				"90"
 		"AbilityValues"
 		{
@@ -204,6 +203,8 @@
 		"AbilityCastPoint"				"0.05"
 
 		"AbilityManaCost"				"175"
+		"AbilityCooldown"				"25 23 21 19"
+
 		"AbilityValues"
 		{
 			"delay"						"1.7"
@@ -213,33 +214,29 @@
 				"value"		"175"
 				"affected_by_aoe_increase"	"1"
 			}
-			"AbilityCooldown"
-			{
-				"value"					"23 22 21 20"
-			}
-			"damage"					"200 300 400 500"
+
+			"damage"					"200 300 400 500" // buffed
 			"vision_distance"			"400"
 			"vision_duration"			"4.0"
 			"cataclysm_count"
 			{
-				"value"					"0"
 				"special_bonus_scepter"	"+2"
-				"RequiresScepter"		"1"
 			}
 			"cataclysm_cooldown"
 			{
-				"value"					"100"
-				"RequiresScepter"		"1"
+				"value"					"90"
 			}
 			"cataclysm_min_range"
 			{
-				"value"					"160"
-				"RequiresScepter"		"1"
+				"value"					"90"
 			}
 			"cataclysm_max_range"
 			{
-				"value"					"200"
-				"RequiresScepter"		"1"
+				"value"					"180"
+			}
+			"cataclysm_damage_pct"
+			{
+				"value"					"75"
 			}
 		}
 	}
@@ -253,7 +250,7 @@
 		"ReduxPerks"                    "fire | ice | summon_non_ult"
 
 		"AbilityTextureName"            "invoker_forge_spirit_ad_png"
-		"AbilityCooldown"				"30 27 24 21"
+		"AbilityCooldown"				"27 25 23 21"
 		"AbilityManaCost"				"75"
 		"AbilityCastPoint"				"0.05"
 		"AbilityValues"
@@ -263,8 +260,8 @@
 			"spirit_armor"			"1 2 4 6"
 			"spirit_attack_range"	"365 470 580 690"
 			"spirit_hp"				"400 566 733 900"
-			"spirit_duration"		"30 50 70 90"
-			"armor_per_attack"
+			"spirit_duration"		"30 50 70 90" // buffed
+			"armor_per_attack" // unused?
 			{
 				"value"			"1.2 1.3 1.4 1.5"
 			}
@@ -300,7 +297,7 @@
 			}
 			"travel_distance"
 			{
-				"value"					"625 925 1225 1425"
+				"value"					"615 880 1145 1410"
 			}
 			"travel_speed"				"300"
 			"damage_interval"
@@ -317,12 +314,12 @@
 			"end_vision_duration"		"3.0"
 			"main_damage"
 			{
-				"value"					"80 110 140 170"
+				"value"					"80 120 160 200" // buffed
 			}
 			"burn_duration"				"3.0"
 			"burn_dps"
 			{
-				"value"					"20 25 30 35"
+				"value"					"15 25 35 45" // buffed
 				"CalculateSpellDamageTooltip"	"1"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 			}
@@ -342,36 +339,48 @@
 		"ReduxPerks"                    "ice | skillshot"
 
 		"AbilityTextureName"            "invoker_ice_wall_ad_png"
-		"AbilityCooldown"				"25 23 21 19"
+		"AbilityCooldown"				"23 22 21 20"
 		"AbilityManaCost"				"125"
 		"AbilityCastPoint"				"0.05"
 		"AbilityValues"
 		{
-			"duration"				"4.5 7.0 9.5 12.0"
+			"duration"				"4.0 6.0 8.0 10.0" // similar to normal Ice Wall
 
-			"slow"					"-50 -80 -110 -140"
+			"slow"					"-40 -80 -120 -160" // similar to normal Ice Wall
 			"slow_duration"			"2.0"
 			"damage_per_second"
 			{
-				"value"				"15 25 35 45"
+				"value"				"30 45 60 75"
 				"special_bonus_unique_invoker_ice_wall_dps" "+50"
 			}
+			"tick_interval"			"0.5"
 			"wall_place_distance"	"200"
-			"num_wall_elements"		"15"
-			"wall_element_spacing"
+			//"num_wall_elements"		"15"
+			//"wall_element_spacing"
+			//{
+				//"value"		"80"
+				//"affected_by_aoe_increase"	"1"
+			//}
+			"wall_total_length"	
 			{
-				"value"		"80"
-				"affected_by_aoe_increase"	"1"
+				"value"						"1200"
+				"affected_by_aoe_increase"	"1"		
+
 			}
-			"wall_element_radius"
+			"wall_width"
 			{
-				"value"		"105"
-				"affected_by_aoe_increase"	"1"
+				"value"					"105"
+				"affected_by_aoe_increase"	"1"		
+
 			}
 			"vector_cast_range"
 			{
 				"value"				"0"
+				"special_bonus_unique_invoker_glacier" 	"600"
 			}
+
+			"glacier_formation_delay"			"1.3"
+			"glacier_formation_speed"			"600"
 		}
 	}
 
@@ -402,9 +411,9 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"end_vision_duration"	"1.75"
-			"damage"				"60 140 220 300"
-			"knockback_duration"	"0.4 0.8 1.2 1.6"
-			"disarm_duration"		"2.0 3.5 5.0 6.5"
+			"damage"				"70 150 230 310" // similar to normal Deafening Blast
+			"knockback_duration"	"1.1 1.3 1.5 1.7" // similar to normal Deafening Blast
+			"disarm_duration"		"2.0 3.0 4.0 5.0" // similar to normal Deafening Blast
 			"radial_count"
 			{
 				"value"					"1"

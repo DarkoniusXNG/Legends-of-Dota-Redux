@@ -26,7 +26,7 @@ function CasterStartLoc(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local duration = ability:GetLevelSpecialValueFor("buff_duration", ability:GetLevel() - 1 ) + 0.5
-	local target = keys.target_points[1]
+	local target = ability:GetCursorPosition() --keys.target_points[1]
 	if ability:GetLevel() == 1 then
 		blood_effect = keys.bloodeffect1	
 	elseif ability:GetLevel() == 2 then

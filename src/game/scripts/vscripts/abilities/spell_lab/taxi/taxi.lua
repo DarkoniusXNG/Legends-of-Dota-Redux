@@ -16,11 +16,7 @@ function spell_lab_taxi:OnSpellStart()
 	self.capture[self.proid] = {}
 	local fCastRange = self:GetCastRange(self:GetCursorPosition(),hCaster)
 	local fAttemptRange = (self:GetCursorPosition()-vOrigin):Length2D()
-	if (hCaster:HasScepter()) then
-		fCastRange = fAttemptRange
-	else
-		fCastRange = math.min(fCastRange,fAttemptRange)
-	end
+	fCastRange = math.min(fCastRange,fAttemptRange)
 
   local info =
   {
@@ -64,9 +60,9 @@ function spell_lab_taxi:OnProjectileHit_ExtraData(hTarget, vPosition, tExtra)
 		table.insert(self.capture[tExtra.id],hTarget)
 		hTarget:AddNewModifier(self:GetCaster(),self,"spell_lab_taxi_modifier",{})
 		EmitSoundOn( "Spell_Lab.BFG_Hit", hTarget )
-		local nFXIndex = ParticleManager:CreateParticle( "particles/spell_lab/taxi_shock.vpcf", PATTACH_CUSTOMORIGIN, nil );
+		local nFXIndex = ParticleManager:CreateParticle( "particles/spell_lab/taxi_shock.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster() )
 		ParticleManager:SetParticleControl(nFXIndex, 0, vPosition );
-		ParticleManager:SetParticleControlEnt( nFXIndex, 1, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetOrigin(), true );
+		ParticleManager:SetParticleControlEnt( nFXIndex, 1, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetOrigin(), true )
 		local Colour = {0,0,0}
 		ParticleManager:SetParticleControl(nFXIndex, 15, Vector(Colour[1],Colour[2],Colour[3]))
 		ParticleManager:ReleaseParticleIndex( nFXIndex )

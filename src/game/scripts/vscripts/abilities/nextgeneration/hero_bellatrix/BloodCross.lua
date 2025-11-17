@@ -34,7 +34,6 @@ function BloodCrossInitiate(keys)
 	local ability = keys.ability
 	local target = keys.target
 	if target:TriggerSpellAbsorb(ability) then
-		RemoveLinkens(target)
 		return
 	else 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_cross_effect", {})

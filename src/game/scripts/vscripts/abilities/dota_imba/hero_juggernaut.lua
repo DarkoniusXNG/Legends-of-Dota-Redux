@@ -2118,8 +2118,13 @@ function modifier_imba_omni_slash_caster:OnDestroy()
 		end
 
 		self.parent:FadeGesture(ACT_DOTA_OVERRIDE_ABILITY_4)
-		
-		self.parent:MoveToPositionAggressive(self.parent:GetAbsOrigin())
+
+		ExecuteOrderFromTable({
+			UnitIndex = self.parent:entindex(),
+			OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+			Position = self.parent:GetAbsOrigin(),
+			Queue = false,
+		})
 
 		-- Create the delay effect before the image destroys itself.
 		if self.parent:HasModifier("modifier_imba_omni_slash_image") then

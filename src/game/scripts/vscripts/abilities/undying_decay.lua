@@ -8,7 +8,7 @@ function ScepterCheck( keys )
 	
 	ApplyDamage({victim = target, attacker = caster, damage = ability:GetSpecialValueFor("decay_damage"), damage_type = ability:GetAbilityDamageType(), ability = ability})
 	
-	if target:IsHero() then
+	if target:IsRealHero() then
 		local scepterNameModifier = ""
 		local stacks = keys.stacks
 		if caster:HasScepter() then 
@@ -24,6 +24,7 @@ function ScepterCheck( keys )
 		ParticleManager:SetParticleControlEnt(decayLink, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(decayLink, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(decayLink, 3, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", (caster:GetAbsOrigin() + target:GetAbsOrigin())/2, true)
+		ParticleManager:ReleaseParticleIndex(decayLink)
 		caster:CalculateStatBonus(true)
 		target:CalculateStatBonus(true)
 	end
@@ -42,11 +43,12 @@ end
 function ApplyParticles(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-	local target = keys.target_points[1]
+	local target = ability:GetCursorPosition() --keys.target_points[1]
 	local radius = ability:GetSpecialValueFor("radius")
 	
 	local decayRadius = ParticleManager:CreateParticle(keys.particleRadius, PATTACH_POINT, caster)
-			ParticleManager:SetParticleControl(decayRadius, 0, target)
-			ParticleManager:SetParticleControl(decayRadius, 1, Vector(radius, radius, radius))
-			ParticleManager:SetParticleControl(decayRadius, 2, target)
+	ParticleManager:SetParticleControl(decayRadius, 0, target)
+	ParticleManager:SetParticleControl(decayRadius, 1, Vector(radius, radius, radius))
+	ParticleManager:SetParticleControl(decayRadius, 2, target)
+	ParticleManager:ReleaseParticleIndex(decayRadius)
 end

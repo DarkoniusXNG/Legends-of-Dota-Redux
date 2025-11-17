@@ -1,17 +1,22 @@
 function FastDummy(target, team, duration, vision)
-  duration = duration or 0
-  vision = vision or  250
-  local dummy = CreateUnitByName("npc_dummy_unit_dusk", target, false, nil, nil, team)
-  if dummy ~= nil then
-    dummy:SetAbsOrigin(target) -- CreateUnitByName uses only the x and y coordinates so we have to move it with SetAbsOrigin()
-    dummy:SetDayTimeVisionRange(vision)
-    dummy:SetNightTimeVisionRange(vision)
-    dummy:AddNewModifier(dummy, nil, "modifier_phased", { duration = 9999})
-    dummy:AddNewModifier(dummy, nil, "modifier_invulnerable", { duration = 9999})
-    dummy:AddNewModifier(dummy, nil, "modifier_kill", {duration = duration })
-
-  end
-  return dummy
+	local dur = duration or 0.03
+	local vis = vision or 250
+	local dummy = CreateUnitByName("npc_dummy_unit", target, false, nil, nil, team) -- change to npc_dummy_unit_dusk if it doesnt work
+	if dummy ~= nil then
+		dummy:SetAbsOrigin(target)
+		dummy:SetDayTimeVisionRange(vis)
+		dummy:SetNightTimeVisionRange(vis)
+		dummy:AddNewModifier(dummy, nil, "modifier_phased", {})
+		dummy:AddNewModifier(dummy, nil, "modifier_invulnerable", {})
+		dummy:AddNewModifier(dummy, nil, "modifier_kill", {duration = dur})
+		Timers:CreateTimer(dur+0.03, function()
+			if dummy and not dummy:IsNull() then
+				dummy:ForceKill(false)
+				UTIL_Remove(dummy)
+			end
+		end)
+	end
+	return dummy
 end
 
 function ouichi(keys)
@@ -52,7 +57,7 @@ end
 
 function raigeki(keys)
 	local caster = keys.caster
-	local target = keys.target_points[1]
+	local target = keys.ability:GetCursorPosition() --keys.target_points[1]
 	local c_pos = caster:GetAbsOrigin()
 	local dr = (target-c_pos):Normalized()
 	local range = keys.range

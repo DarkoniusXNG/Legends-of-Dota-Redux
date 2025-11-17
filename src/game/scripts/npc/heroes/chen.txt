@@ -19,7 +19,6 @@
 	{
 		"ReduxFlags"                                                           "summon | upgradeable"
 		"ReduxPerks"                                                           "light"
-		"ReduxCost"                                                            "10"
 	}
 
 	"chen_test_of_faith"

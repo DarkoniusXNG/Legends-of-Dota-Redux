@@ -10,9 +10,8 @@
         "AbilityCastRange"                                                     "1500 3000 4500 6000"
         "AbilityCastPoint"                                                     "0.3"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
-        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-        "HasScepterUpgrade"                                                    "0"
-        "AoERadius"               "%radius"
+        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
+
         "AbilityValues"
         {
             "radius"
@@ -26,8 +25,9 @@
         {
             "soundfile"                                                    "soundevents/spell_lab_sounds.vsndevts"
             "particle"                                                     "particles/spell_lab/taxi_linear.vpcf"
-      			"particle"          "particles/spell_lab/taxi_shock.vpcf"
+            "particle"                                                     "particles/spell_lab/taxi_shock.vpcf"
         }
+
         "ReduxFlags"                                                           "support"
         "ReduxPerks"                                                           "support"
         "ReduxCost"                                                            "30"

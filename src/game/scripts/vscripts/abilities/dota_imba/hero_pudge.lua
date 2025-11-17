@@ -37,7 +37,7 @@ local function IsNearFountain( location, radius )
 	-- check npc fountain
 	local found = false
 	for _,building in pairs(buildings) do
-		if building:GetClassname()=="ent_dota_fountain" then
+		if building:GetName() == "ent_dota_fountain" then
 			found = true
 		end
 	end
@@ -1193,14 +1193,21 @@ function modifier_imba_dismember:OnIntervalThink()
 end
 
 function modifier_imba_dismember:OnDestroy()
+	local parent = self:GetParent()
+	local caster = self:GetCaster()
 	if IsServer() then
-		self:GetParent():FadeGesture(ACT_DOTA_DISABLED)
-		self:GetCaster():FadeGesture(ACT_DOTA_CHANNEL_ABILITY_4)
+		parent:FadeGesture(ACT_DOTA_DISABLED)
+		caster:FadeGesture(ACT_DOTA_CHANNEL_ABILITY_4)
 		
 		-- Status Resistance compromise to make Pudge automatically attack the Dismember target on interrupt
-		if self:GetCaster():IsChanneling() then
+		if caster:IsChanneling() then
 			self:GetAbility():EndChannel(false)
-			self:GetCaster():MoveToPositionAggressive(self:GetParent():GetAbsOrigin())
+			ExecuteOrderFromTable({
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+				Position = parent:GetAbsOrigin(),
+				Queue = false,
+			})
 		end
 	end
 end

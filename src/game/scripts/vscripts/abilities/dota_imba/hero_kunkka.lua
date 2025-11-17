@@ -43,7 +43,7 @@ local function IsNearFountain( location, radius )
 	-- check npc fountain
 	local found = false
 	for _,building in pairs(buildings) do
-		if building:GetClassname()=="ent_dota_fountain" then
+		if building:GetName() == "ent_dota_fountain" then
 			found = true
 		end
 	end

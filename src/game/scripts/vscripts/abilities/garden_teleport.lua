@@ -6,7 +6,7 @@
 function Teleport( event )
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition() --event.target_points[1]
 	local teleport_distance = (caster:GetAbsOrigin() - point):Length2D()
 	local teleport_range = ability:GetSpecialValueFor("range")
 	if teleport_distance > teleport_range then
@@ -23,7 +23,7 @@ end
 function CreateTeleportParticles( event )
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition() --event.target_points[1]
 	local teleport_distance = (caster:GetAbsOrigin() - point):Length2D()
 	local teleport_range = ability:GetSpecialValueFor("range")
 	if teleport_distance > teleport_range then
@@ -40,5 +40,6 @@ end
 function EndTeleport( event )
 	local caster = event.caster
 	ParticleManager:DestroyParticle(caster.teleportParticle, false)
+	ParticleManager:ReleaseParticleIndex(caster.teleportParticle)
 	caster:StopSound("Hero_Furion.Teleport_Grow")
 end

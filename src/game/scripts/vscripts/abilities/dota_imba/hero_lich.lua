@@ -39,7 +39,7 @@ local function IsNearFountain( location, radius )
 	-- check npc fountain
 	local found = false
 	for _,building in pairs(buildings) do
-		if building:GetClassname()=="ent_dota_fountain" then
+		if building:GetName() == "ent_dota_fountain" then
 			found = true
 		end
 	end
@@ -2197,7 +2197,12 @@ function modifier_imba_lich_sinister_gaze:OnDestroy()
 
 	if self.ability:IsChanneling() then
 		self.ability:EndChannel(false)
-		self.caster:MoveToPositionAggressive(self.caster:GetAbsOrigin())
+		ExecuteOrderFromTable({
+			UnitIndex = self.caster:entindex(),
+			OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+			Position = self.caster:GetAbsOrigin(),
+			Queue = false,
+		})
 	end
 end
 

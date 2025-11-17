@@ -2,7 +2,7 @@ function CreateIllusionLine( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local player = caster:GetPlayerID()
-	local point = keys.target_points[1]
+	local point = ability:GetCursorPosition() --keys.target_points[1]
 
 	local duration = ability:GetLevelSpecialValueFor("duration", ability:GetLevel() - 1 )
 	local delay = ability:GetLevelSpecialValueFor("illusion_delay", ability:GetLevel() - 1 )
@@ -75,7 +75,12 @@ function CreateIllusionLine( keys )
 		caster:RemoveNoDraw()
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_spawn", {})
 		if not caster:IsChanneling() then
-			caster:MoveToPositionAggressive(casterVec)
+			ExecuteOrderFromTable({
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+				Position = casterVec,
+				Queue = false,
+			})
 		end
 
 		for j = 1, 5 do

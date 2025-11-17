@@ -19,7 +19,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | rage | blood"
-		"ReduxCost"                                                            "20"
+		"ReduxCost"                                                            "10"
 	}
 
 	"bloodseeker_blood_bath"

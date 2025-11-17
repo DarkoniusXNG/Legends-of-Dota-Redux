@@ -1,18 +1,24 @@
 require('lib/physics')
+
 function FastDummy(target, team, duration, vision)
-  duration = duration or 0
-  vision = vision or  250
-  local dummy = CreateUnitByName("npc_dummy_unit_dusk", target, false, nil, nil, team)
-  if dummy ~= nil then
-    dummy:SetAbsOrigin(target) -- CreateUnitByName uses only the x and y coordinates so we have to move it with SetAbsOrigin()
-    dummy:SetDayTimeVisionRange(vision)
-    dummy:SetNightTimeVisionRange(vision)
-    dummy:AddNewModifier(dummy, nil, "modifier_phased", { duration = 9999})
-    dummy:AddNewModifier(dummy, nil, "modifier_invulnerable", { duration = 9999})
-    dummy:AddNewModifier(dummy, nil, "modifier_kill", {duration = duration })
-    
-  end
-  return dummy
+	local dur = duration or 0.03
+	local vis = vision or 250
+	local dummy = CreateUnitByName("npc_dummy_unit", target, false, nil, nil, team)
+	if dummy ~= nil then
+		dummy:SetAbsOrigin(target)
+		dummy:SetDayTimeVisionRange(vis)
+		dummy:SetNightTimeVisionRange(vis)
+		dummy:AddNewModifier(dummy, nil, "modifier_phased", {})
+		dummy:AddNewModifier(dummy, nil, "modifier_invulnerable", {})
+		dummy:AddNewModifier(dummy, nil, "modifier_kill", {duration = dur})
+		Timers:CreateTimer(dur+0.03, function()
+			if dummy and not dummy:IsNull() then
+				dummy:ForceKill(false)
+				UTIL_Remove(dummy)
+			end
+		end)
+	end
+	return dummy
 end
 
 function DealDamage(target,attacker,damageAmount,damageType,damageFlags,ability)
@@ -50,16 +56,14 @@ end
 
 function thunder_wave(keys)
 	local caster = keys.caster
-	local target = keys.target_points[1]
+	local target = keys.ability:GetCursorPosition() --keys.target_points[1]
 	local modifier = "modifier_thunder_wave_generate"
 	local speed = keys.speed
-	local distance = 1250
+	local distance = keys.distance + caster:GetCastRangeBonus()
 	local direction = (target - caster:GetAbsOrigin()):Normalized()
 
-	local dummy = FastDummy(caster:GetAbsOrigin(),caster:GetTeam(),8,100)
-	keys.ability:ApplyDataDrivenModifier(caster, dummy, modifier, {}) --[[Returns:void
-	No Description Set
-	]]
+	local dummy = FastDummy(caster:GetAbsOrigin(),caster:GetTeam(),1 + distance/speed,100)
+	keys.ability:ApplyDataDrivenModifier(caster, dummy, modifier, {})
 
 	dummy.stop = false
 
@@ -73,79 +77,69 @@ function thunder_wave(keys)
   
   	dummy:SetPhysicsVelocity(direction * distance)
 
-  	Timers:CreateTimer(1,function()
-    dummy:SetPhysicsVelocity(Vector(0,0,0))
---    FindClearSpaceForUnit(caster,caster:GetAbsOrigin(),true)
-    	
-    	
-	dummy.stop = true
-    end
-    )
- 
+  	Timers:CreateTimer(distance/speed, function()
+		dummy:SetPhysicsVelocity(Vector(0,0,0))
+		--FindClearSpaceForUnit(caster,caster:GetAbsOrigin(),true)
+		dummy.stop = true
+    end)
 end
 
 function generate_thunder(keys)
+	local real_caster = keys.caster
 	local caster = keys.target
 	local radius = keys.radius
 	local dmg = keys.damage
-	local ldmg = keys.lightningdamage or 225
-	local count = 0
+	local ldmg = keys.lightningdamage
 	local vector = caster:GetAbsOrigin() + RandomVector(150)
 
 	if caster.stop == false then
-
-		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_disruptor/disruptor_thuderstrike_aoe_area.vpcf", PATTACH_ABSORIGIN, caster) --[[Returns:int
-		Creates a new particle effect
-		]]
-		ParticleManager:SetParticleControl(particle, 0, vector) --[[Returns:void
-		Set the control point data for a control on a particle effect
-		]]
-		ParticleManager:SetParticleControl(particle, 2, vector) --[[Returns:void
-		Set the control point data for a control on a particle effect
-		]]
+		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_disruptor/disruptor_thuderstrike_aoe_area.vpcf", PATTACH_ABSORIGIN, caster)
+		ParticleManager:SetParticleControl(particle, 0, vector)
+		ParticleManager:SetParticleControl(particle, 2, vector)
+		ParticleManager:ReleaseParticleIndex(particle)
 
 		caster:EmitSound("Hero_Zuus.ArcLightning.Target")
 
-		local enemy_found = FindUnitsInRadius( caster:GetTeamNumber(),
-	                              vector,
-	                              nil,
-	                                radius,
-	                                DOTA_UNIT_TARGET_TEAM_ENEMY,
-	                                DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_CREEP,
-	                                DOTA_UNIT_TARGET_FLAG_NONE,
-	                                FIND_CLOSEST,
-	                                false)
+		local enemy_found = FindUnitsInRadius(
+			real_caster:GetTeamNumber(),
+			vector,
+			nil,
+			radius,
+			DOTA_UNIT_TARGET_TEAM_ENEMY,
+			DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_CREEP,
+			DOTA_UNIT_TARGET_FLAG_NONE,
+			FIND_ANY_ORDER,
+			false
+		)
 
 		for k,v in pairs(enemy_found) do
-			DealDamage(v,keys.caster,dmg,DAMAGE_TYPE_MAGICAL)
-			keys.ability:ApplyDataDrivenModifier(caster, v, "modifier_thunder_wave_buff", {}) --[[Returns:void
-			No Description Set
-			]]
+			DealDamage(v, real_caster, dmg, DAMAGE_TYPE_MAGICAL)
+			keys.ability:ApplyDataDrivenModifier(real_caster, v, "modifier_thunder_wave_buff", {})
 		end
 
 		Timers:CreateTimer(1,function()
-			local enemy_found = FindUnitsInRadius( caster:GetTeamNumber(),
-	                              vector,
-	                              nil,
-	                                radius/2,
-	                                DOTA_UNIT_TARGET_TEAM_ENEMY,
-	                                DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC,
-	                                DOTA_UNIT_TARGET_FLAG_NONE,
-	                                FIND_CLOSEST,
-	                                false)
+			local enemy_found = FindUnitsInRadius( 
+				real_caster:GetTeamNumber(),
+				vector,
+				nil,
+				radius,
+				DOTA_UNIT_TARGET_TEAM_ENEMY,
+				DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC,
+				DOTA_UNIT_TARGET_FLAG_NONE,
+				FIND_ANY_ORDER,
+				false
+			)
 			caster:EmitSound("Hero_Zuus.LightningBolt")
 			for k,v in pairs(enemy_found) do
-				DealDamage(v,keys.caster,ldmg,DAMAGE_TYPE_MAGICAL)
-				keys.ability:ApplyDataDrivenModifier(caster, v, "modifier_thunder_wave_buff", {}) --[[Returns:void
-				No Description Set
-				]]
+				DealDamage(v, real_caster, ldmg, DAMAGE_TYPE_MAGICAL)
+				keys.ability:ApplyDataDrivenModifier(real_caster, v, "modifier_thunder_wave_buff", {})
 			end
 			local targetmod = vector+Vector(0,0,800)
-		    local boltparticle  = ParticleManager:CreateParticle("particles/units/heroes/hero_lightning/thunder_wave_lightning_bolt.vpcf", PATTACH_ABSORIGIN, caster)
-		    ParticleManager:SetParticleControl(boltparticle,0,vector+Vector(0,0,25))
-		    ParticleManager:SetParticleControl(boltparticle,1,targetmod)
-		end
-		)
+			local boltparticle  = ParticleManager:CreateParticle("particles/units/heroes/hero_lightning/thunder_wave_lightning_bolt.vpcf", PATTACH_ABSORIGIN, caster)
+			ParticleManager:SetParticleControl(boltparticle,0,vector+Vector(0,0,25))
+			ParticleManager:SetParticleControl(boltparticle,1,targetmod)
+			ParticleManager:ReleaseParticleIndex(boltparticle)
+		end)
 	end
 end
 
@@ -266,9 +260,7 @@ end
 function Spark(keys)
 	local caster = keys.caster
 
-	local spark = caster:FindAbilityByName("lightning_spark") --[[Returns:handle
-	Retrieve an ability by name from the unit.
-	]]
+	local spark = caster:FindAbilityByName("lightning_spark")
 
 	if not spark then return end
 
@@ -292,12 +284,8 @@ function Spark(keys)
 	caster:EmitSound("Hero_Zuus.StaticField")
 
 	for k,v in pairs(enemy) do
-
 		DealDamage(v,caster,damage,DAMAGE_TYPE_MAGICAL)
 		ParticleManager:CreateParticle("particles/units/heroes/hero_lightning/spark.vpcf", PATTACH_ABSORIGIN_FOLLOW, v)
-		spark:ApplyDataDrivenModifier(caster, v, "modifier_spark_slow", {}) --[[Returns:void
-		No Description Set
-		]]
-
+		spark:ApplyDataDrivenModifier(caster, v, "modifier_spark_slow", {})
 	end
 end

@@ -103,7 +103,10 @@ function spell_lab_bfg:Explosion(vPosition, tExtra)
 	ParticleManager:SetParticleControl( expl, 2, Vector(2,0.35,1) )
 	ParticleManager:SetParticleControl( expl, 3, Vector(100,255,0) )
 	ParticleManager:SetParticleControl( expl, 4, Vector(100,255,0) )
- EmitSoundOnLocationWithCaster(vPosition, "Spell_Lab.BFG_Die", hCaster )
+	ParticleManager:ReleaseParticleIndex(expl)
+ 
+	EmitSoundOnLocationWithCaster(vPosition, "Spell_Lab.BFG_Die", hCaster )
+
 	 local tdamage = {
 		 attacker = hCaster,
 		 damage_type = self:GetAbilityDamageType(),
@@ -125,6 +128,8 @@ function spell_lab_bfg:Explosion(vPosition, tExtra)
 		 end
 	 end
 end
+
+---------------------------------------------------------------------------------------------------
 
 if spell_lab_bfg_modifier == nil then
 	spell_lab_bfg_modifier = class({})

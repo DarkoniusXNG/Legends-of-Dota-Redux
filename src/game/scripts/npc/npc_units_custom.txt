@@ -1316,8 +1316,6 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
-		"AttackType"    "pierce"
-		"ArmorType"     "unarmored"
 
 		// Vision
 		//----------------------------------------------------------------
@@ -1385,8 +1383,6 @@
 
 	"TeamName" "DOTA_TEAM_GOODGUYS"
 	"UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	"AttackType"    "normal"
-	"ArmorType"     "heavy"
 
 
 
@@ -1458,10 +1454,7 @@
 
 	"TeamName" "DOTA_TEAM_GOODGUYS"
 	"UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	"AttackType"    "normal"
-	"ArmorType"     "heavy"
-
-
+	
 
 	"VisionDaytimeRange" "800"
 	"VisionNighttimeRange" "800"
@@ -1532,9 +1525,6 @@
 
 	"TeamName" "DOTA_TEAM_GOODGUYS"
 	"UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	"AttackType"    "normal"
-	"ArmorType"     "heavy"
-
 
 
 	"VisionDaytimeRange" "800"
@@ -1606,10 +1596,7 @@
 
 	"TeamName" "DOTA_TEAM_GOODGUYS"
 	"UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	"AttackType"    "normal"
-	"ArmorType"     "heavy"
-
-
+	
 
 	"VisionDaytimeRange" "800"
 	"VisionNighttimeRange" "800"
@@ -3529,8 +3516,6 @@
 		//----------------------------------------------------------------
 		"TeamName"				"DOTA_TEAM_BADGUYS"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"AttackType"    "siege"
-		"ArmorType"     "fortified"
 
 		"BoundsHullName"		"DOTA_HULL_SIZE_SMALL"
 		"RingRadius"			"100"
@@ -3598,8 +3583,6 @@
 		//----------------------------------------------------------------
 		"TeamName"				"DOTA_TEAM_BADGUYS"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"AttackType"    "siege"
-		"ArmorType"     "fortified"
 
 		"BoundsHullName"		"DOTA_HULL_SIZE_SMALL"
 		"RingRadius"			"100"
@@ -3667,8 +3650,6 @@
 		//----------------------------------------------------------------
 		"TeamName"				"DOTA_TEAM_BADGUYS"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"AttackType"    "siege"
-		"ArmorType"     "fortified"
 
 		"BoundsHullName"		"DOTA_HULL_SIZE_SMALL"
 		"RingRadius"			"100"
@@ -3684,12 +3665,13 @@
 		"BaseClass"			"npc_dota_creature"
 		"Model"				"models/heroes/rattletrap/rattletrap.vmdl"
 		"ModelScale"		"0.5"
-		"Level"				"0"
+		"Level"				"1"
 
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"			"" //tinker_clockwerk_goblin_kaboom, learned in lua	 //Reference: Asd3
 		"Ability2"			"android_pocket_factory_spawn_goblin1"
+
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"			"1"
@@ -3698,12 +3680,12 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"		"15.0"
-		"AttackDamageMax"		"15.0"
-		"AttackRate"			"0.8"
+		"AttackDamageMin"		"15"
+		"AttackDamageMax"		"15"
+		"AttackRate"			"1.0"
 		"AttackAnimationPoint"		"0.33"
 		"AttackAcquisitionRange"	"5000"
-		"AttackRange"			"90"
+		"AttackRange"			"128"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -3719,7 +3701,7 @@
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"			"200"
-		"StatusHealthRegen"		"2"
+		"StatusHealthRegen"		"0"
 		"StatusMana"			"0"
 		"StatsManaRegen"		"0"
 
@@ -3732,8 +3714,6 @@
 		//----------------------------------------------------------------
 		"TeamName"				"DOTA_TEAM_BADGUYS"
 		"UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"AttackType"    "normal"
-		"ArmorType"     "heavy"
 
 		"BoundsHullName"		"DOTA_HULL_SIZE_SMALL"
 		"RingRadius"			"45"
@@ -3761,12 +3741,13 @@
 		"BaseClass"			"npc_dota_creature"
 		"Model"				"models/heroes/rattletrap/rattletrap.vmdl"
 		"ModelScale"		"0.6"
-		"Level"				"0"
+		"Level"				"2"
 
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"			"" //tinker_clockwerk_goblin_kaboom, learned in lua	 //Reference: Asd3
 		"Ability2"			"android_pocket_factory_spawn_goblin2"
+
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"			"3"
@@ -3775,12 +3756,12 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"		"40.0"
-		"AttackDamageMax"		"40.0"
-		"AttackRate"			"0.8"
+		"AttackDamageMin"		"15"
+		"AttackDamageMax"		"15"
+		"AttackRate"			"1.0"
 		"AttackAnimationPoint"		"0.33"
 		"AttackAcquisitionRange"	"5000"
-		"AttackRange"			"90"
+		"AttackRange"			"128"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -3795,8 +3776,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"			"300"
-		"StatusHealthRegen"		"2"
+		"StatusHealth"			"400"
+		"StatusHealthRegen"		"0"
 		"StatusMana"			"0"
 		"StatsManaRegen"		"0"
 
@@ -3809,8 +3790,6 @@
 		//----------------------------------------------------------------
 		"TeamName"			"DOTA_TEAM_BADGUYS"
 		"UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"AttackType"    "normal"
-		"ArmorType"     "heavy"
 
 		"BoundsHullName"		"DOTA_HULL_SIZE_SMALL"
 		"RingRadius"			"45"
@@ -3838,7 +3817,7 @@
 		"BaseClass"			"npc_dota_creature"
 		"Model"				"models/heroes/rattletrap/rattletrap.vmdl"
 		"ModelScale"		"0.7"
-		"Level"				"0"
+		"Level"				"3"
 
 		// Abilities
 		//----------------------------------------------------------------
@@ -3853,12 +3832,12 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"		"65.0"
-		"AttackDamageMax"		"65.0"
-		"AttackRate"			"0.8"
+		"AttackDamageMin"		"15"
+		"AttackDamageMax"		"15"
+		"AttackRate"			"1.0"
 		"AttackAnimationPoint"		"0.33"
 		"AttackAcquisitionRange"	"5000"
-		"AttackRange"			"90"
+		"AttackRange"			"128"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -3873,8 +3852,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"			"400"
-		"StatusHealthRegen"		"2"
+		"StatusHealth"			"600"
+		"StatusHealthRegen"		"0"
 		"StatusMana"			"0"
 		"StatsManaRegen"		"0"
 
@@ -3887,8 +3866,6 @@
 		//----------------------------------------------------------------
 		"TeamName"			"DOTA_TEAM_BADGUYS"
 		"UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"AttackType"    "normal"
-		"ArmorType"     "heavy"
 
 		"BoundsHullName"		"DOTA_HULL_SIZE_SMALL"
 		"RingRadius"			"45"

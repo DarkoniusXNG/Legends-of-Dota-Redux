@@ -4,7 +4,7 @@
 	"juggernaut_blade_fury"
 	{
 		"ReduxPerks"                                                           "blades | rage"
-		"ReduxCost"                                                            "20"
+		"ReduxCost"                                                            "30"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
 

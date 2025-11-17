@@ -11,7 +11,6 @@ function __TS__ArrayForEach(arr,callbackFn)
 end
 
 LinkLuaModifier("modifier_crater_spell_manager","abilities/crater.lua",LUA_MODIFIER_MOTION_NONE);
-LinkLuaModifier("modifier_crater_projectile","abilities/crater.lua",LUA_MODIFIER_MOTION_NONE);
 LinkLuaModifier("modifier_crater_area_controller","abilities/crater.lua",LUA_MODIFIER_MOTION_NONE);
 LinkLuaModifier("modifier_crater_area_control","abilities/crater.lua",LUA_MODIFIER_MOTION_NONE);
 crater = crater or {}
@@ -33,22 +32,18 @@ function crater.GetAbilityTexture(self)
 end
 function crater.GetManaCost(self,i)
     local caster = self:GetCaster()
-    local cost = {100,110,120,130}
     if caster:GetModifierStackCount(self:GetIntrinsicModifierName(),caster)==0 then
-        return cost[(i)+1]
+        return self.BaseClass.GetManaCost( self, i )
     else
         return 0
     end
 end
 function crater.GetCooldown(self,i)
-    local caster = self:GetCaster();
-    if IsClient() then
-        return 9
-    end
+    local caster = self:GetCaster()
     if caster:GetModifierStackCount(self:GetIntrinsicModifierName(),caster)==0 then
-        return 0.5
+        return 0.25
     else
-        return 9
+        return self.BaseClass.GetCooldown( self, i )
     end
 end
 function crater.GetCastPoint(self)
@@ -59,13 +54,29 @@ function crater.GetCastPoint(self)
         return 0
     end
 end
+function crater:GetBehavior()
+    local caster = self:GetCaster();
+    if caster:GetModifierStackCount(self:GetIntrinsicModifierName(),caster)==0 then
+        return DOTA_ABILITY_BEHAVIOR_POINT
+    else
+        return DOTA_ABILITY_BEHAVIOR_NO_TARGET
+    end
+end
+function crater:ProcsMagicStick()
+	local caster = self:GetCaster()
+	if caster:GetModifierStackCount(self:GetIntrinsicModifierName(),caster)==0 then
+		return false
+	else
+		return true
+	end
+end
 function crater.GetIntrinsicModifierName(self)
     return "modifier_crater_spell_manager"
 end
 function crater.OnSpellStart(self)
     local caster = self:GetCaster();
-    local origin = caster:GetAbsOrigin();
     if caster:GetModifierStackCount(self:GetIntrinsicModifierName(),caster)==0 then
+        local origin = caster:GetAbsOrigin();
         local direction = (caster:GetCursorPosition()-origin):Normalized();
         direction.z = 0;
         local projectileTable = {Ability = self,EffectName = "",vSpawnOrigin = origin,fDistance = 25000,fStartRadius = self:GetSpecialValueFor("crater_radius"),fEndRadius = self:GetSpecialValueFor("crater_radius"),Source = caster,vVelocity = direction*(self:GetSpecialValueFor("marker_speed"))};
@@ -77,8 +88,6 @@ function crater.OnSpellStart(self)
         self.time = GameRules:GetGameTime();
         self.launchDirection = direction;
         self.launchLocation = origin;
-        self:EndCooldown();
-        self:StartCooldown(0.25);
     else
         local time = GameRules:GetGameTime()-self.time;
         local origin = self.launchLocation+(self.launchDirection*(self:GetSpecialValueFor("marker_speed")*time));
@@ -104,10 +113,10 @@ function crater.OnDestroyProjectile(self,origin,target)
     self.projectileParticle = ParticleManager:CreateParticleForTeam("particles/crater_marker.vpcf",PATTACH_CUSTOMORIGIN,caster,caster:GetTeamNumber());
     ParticleManager:SetParticleControl(self.projectileParticle,0,origin);
     ParticleManager:SetParticleControl(self.projectileParticle,1,Vector(0,0,0));
-    self.partic = ParticleManager:CreateParticle("particles/units/heroes/hero_ogre_magi/ogre_magi_ignite.vpcf",PATTACH_CUSTOMORIGIN,caster);
-    ParticleManager:SetParticleControl(self.partic,0,caster:GetAbsOrigin());
-    ParticleManager:SetParticleControlEnt(self.partic,1,self.dummy,PATTACH_POINT_FOLLOW,"attach_hitloc",self.dummy:GetAbsOrigin(),true);
-    ParticleManager:SetParticleControl(self.partic,2,Vector(self:GetSpecialValueFor("projectile_speed"),0));
+    --self.partic = ParticleManager:CreateParticle("particles/units/heroes/hero_ogre_magi/ogre_magi_ignite.vpcf",PATTACH_CUSTOMORIGIN,caster);
+    --ParticleManager:SetParticleControl(self.partic,0,caster:GetAbsOrigin());
+    --ParticleManager:SetParticleControlEnt(self.partic,1,self.dummy,PATTACH_POINT_FOLLOW,"attach_hitloc",self.dummy:GetAbsOrigin(),true);
+    --ParticleManager:SetParticleControl(self.partic,2,Vector(self:GetSpecialValueFor("projectile_speed"),0));
     ProjectileManager:CreateTrackingProjectile(pTable);
     return false
 end
@@ -121,8 +130,8 @@ function crater.OnProjectileHit(self,target,location)
         self.dummy:EmitSound("Hero_Invoker.SunStrike.Ignite");
         UTIL_Remove(self.dummy);
         self.dummy = nil;
-        ParticleManager:DestroyParticle(self.partic,true);
-        ParticleManager:ReleaseParticleIndex(self.partic);
+        --ParticleManager:DestroyParticle(self.partic,true);
+        --ParticleManager:ReleaseParticleIndex(self.partic);
         ParticleManager:DestroyParticle(self.projectileParticle,true);
         ParticleManager:ReleaseParticleIndex(self.projectileParticle);
     end
@@ -153,48 +162,8 @@ function crater.CreateCrater(self,origin)
 );
     end
 end
-modifier_crater_projectile = modifier_crater_projectile or {}
-modifier_crater_projectile.__index = modifier_crater_projectile
-function modifier_crater_projectile.new(construct, ...)
-    local self = setmetatable({}, modifier_crater_projectile)
-    if construct and modifier_crater_projectile.constructor then modifier_crater_projectile.constructor(self, ...) end
-    return self
-end
-function modifier_crater_projectile.constructor(self)
-end
-function modifier_crater_projectile.OnCreated(self)
-    if IsClient() then
-        return
-    end
-    local projectile = self:GetParent();
-    local ability = self:GetAbility();
-    self.speed = (ability:GetSpecialValueFor("projectile_speed")*FrameTime());
-    self.radius = ability:GetSpecialValueFor("crater_radius");
-    self:StartIntervalThink(FrameTime());
-    self.particle = ParticleManager:CreateParticle("particles/crater_marker.vpcf",PATTACH_ABSORIGIN,self:GetCaster());
-    ParticleManager:SetParticleControl(self.particle,4,Vector(self.radius,0,0));
-end
-function modifier_crater_projectile.OnIntervalThink(self)
-    local projectile = self:GetParent();
-    projectile:SetAbsOrigin(projectile:GetAbsOrigin()+(self.direction*self.speed));
-end
-function modifier_crater_projectile.OnDestroy(self)
-    if IsClient() then
-        return
-    end
-    local projectile = self:GetParent();
-    local ability = self:GetAbility();
-    local origin = projectile:GetAbsOrigin();
-    ability:CreateVisibilityNode(origin,self.radius,ability:GetSpecialValueFor("vision_duration"));
-    local dummy = CreateModifierThinker(self:GetCaster(),ability,"modifier_crater_area_controller",{duration = ability:GetSpecialValueFor("crater_duration")},origin+Vector(0,0,50),self:GetCaster():GetTeamNumber(),false);
-    self:GetParent():Destroy();
-end
-function modifier_crater_projectile.GetEffectName(self)
-    return "particles/crater_marker.vpcf"
-end
-function modifier_crater_projectile.GetEffectAttachType(self)
-    return PATTACH_ABSORIGIN_FOLLOW
-end
+---------------------------------------------------------------------------------------------------
+-- Thinker
 modifier_crater_area_controller = modifier_crater_area_controller or {}
 modifier_crater_area_controller.__index = modifier_crater_area_controller
 function modifier_crater_area_controller.new(construct, ...)
@@ -229,6 +198,8 @@ function modifier_crater_area_controller.OnDestroy(self)
         ParticleManager:ReleaseParticleIndex(self.particle2);
     end
 end
+---------------------------------------------------------------------------------------------------
+-- Debuff
 modifier_crater_area_control = modifier_crater_area_control or {}
 modifier_crater_area_control.__index = modifier_crater_area_control
 function modifier_crater_area_control.new(construct, ...)
@@ -284,6 +255,8 @@ function modifier_crater_area_control.GetModifierMoveSpeed_Absolute(self)
         return 0
     end
 end
+---------------------------------------------------------------------------------------------------
+-- Just for the stacks
 modifier_crater_spell_manager = modifier_crater_spell_manager or {}
 modifier_crater_spell_manager.__index = modifier_crater_spell_manager
 function modifier_crater_spell_manager.new(construct, ...)

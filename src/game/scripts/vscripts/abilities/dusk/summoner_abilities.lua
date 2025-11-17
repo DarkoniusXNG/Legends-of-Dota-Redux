@@ -1,6 +1,6 @@
 require('lib/physics')
 require('lib/util_dusk')
-require('lib/timers')
+
 function summon_vassal(keys)
 	local caster = keys.caster
 	local vassal = keys.vassal -- 1 red, 2 green, 3 blue
@@ -131,8 +131,6 @@ function summon_vassal(keys)
 
 		local other_target = found[1]
 
-		--v:MoveToPositionAggressive(v:GetAbsOrigin())
-
 		if hero_target then
 			print("targeting hero")
 			Orders:IssueAttackOrder(v,hero_target)
@@ -215,15 +213,6 @@ end
 function StopSound( event )
 	local target = event.target
 	target:StopSound("Hero_ShadowShaman.Shackles")
-end
-
-function electric_flare(keys)
-	local caster = keys.caster
-	local target = keys.target_points[1]
-
-	local dummy = FastDummy(target, caster:GetTeam(), 8, 0)
-
-	
 end
 
 function ForcefieldCheck(keys)

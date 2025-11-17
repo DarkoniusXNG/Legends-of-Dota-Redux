@@ -24,6 +24,7 @@
             {
                 "Passive"                                              "1"
                 "IsHidden"                                             "1"
+                "IsPurgable"                                           "0"
                 "OnAttackLanded"
                 {
                     "RunScript"
@@ -39,6 +40,7 @@
                 "Duration"                                             "%duration"
                 "Passive"                                              "0"
                 "IsHidden"                                             "0"
+                "IsPurgable"                                           "0"
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"        "%agi_gain"
@@ -65,6 +67,7 @@
                 "Passive"                                              "0"
                 "IsHidden"                                             "1"
                 "Attributes"                                           "MODIFIER_ATTRIBUTE_MULTIPLE"
+                "IsPurgable"                                           "0"
                 "OnDestroy"
                 {
                     "RunScript"
@@ -80,20 +83,13 @@
                 "Passive"                                              "0"
                 "IsHidden"                                             "1"
                 "Attributes"                                           "MODIFIER_ATTRIBUTE_MULTIPLE"
+                "IsPurgable"                                           "0"
                 "OnDestroy"
                 {
                     "RunScript"
                     {
                         "ScriptFile"                           "abilities/slark_essence_shift_agility_lod.lua"
                         "Function"                             "modifier_slark_essence_shift_agility_datadriven_debuff_on_destroy"
-                    }
-                }
-                "OnDeath"
-                {
-                    "RunScript"
-                    {
-                        "ScriptFile"                           "abilities/slark_essence_shift_agility_lod.lua"
-                        "Function"                             "modifier_slark_essence_shift_agility_datadriven_debuff_on_death"
                     }
                 }
             }

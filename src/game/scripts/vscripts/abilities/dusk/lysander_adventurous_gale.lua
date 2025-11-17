@@ -316,3 +316,24 @@ function modifier_adventurous_gale_push:CheckState()
 	}
 	return state
 end
+
+function FastDummy(target, team, duration, vision)
+	local dur = duration or 0.03
+	local vis = vision or 250
+	local dummy = CreateUnitByName("npc_dummy_unit", target, false, nil, nil, team)
+	if dummy ~= nil then
+		dummy:SetAbsOrigin(target)
+		dummy:SetDayTimeVisionRange(vis)
+		dummy:SetNightTimeVisionRange(vis)
+		dummy:AddNewModifier(dummy, nil, "modifier_phased", {})
+		dummy:AddNewModifier(dummy, nil, "modifier_invulnerable", {})
+		dummy:AddNewModifier(dummy, nil, "modifier_kill", {duration = dur})
+		Timers:CreateTimer(dur+0.03, function()
+			if dummy and not dummy:IsNull() then
+				dummy:ForceKill(false)
+				UTIL_Remove(dummy)
+			end
+		end)
+	end
+	return dummy
+end

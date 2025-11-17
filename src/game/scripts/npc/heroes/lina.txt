@@ -15,7 +15,7 @@
 	"lina_fiery_soul"
 	{
 		"ReduxPerks"                                                           "fire"
-		"ReduxCost"                                                            "80"
+		"ReduxCost"                                                            "60"
 	}
 
 	"lina_laguna_blade"
@@ -63,6 +63,8 @@
 
 		"ReduxFlags"                                                           "aoe_attack"
 		"ReduxPerks"                                                           "explosive | fire"
+		"ReduxBans"                                                            "batrider_sticky_napalm"
+		"ReduxCost"                                                            "30"
 	}
 
 	"special_bonus_unique_lina_1"

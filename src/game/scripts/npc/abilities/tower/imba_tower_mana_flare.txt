@@ -45,7 +45,8 @@
                 }
             }
         }
-        "ReduxCost"                                                            "120"
+
         "ReduxFlags"                                                           "mana"
+        "ReduxCost"                                                            "120"
     }
 }

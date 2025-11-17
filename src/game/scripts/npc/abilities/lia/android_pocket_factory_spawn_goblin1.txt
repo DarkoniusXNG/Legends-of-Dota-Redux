@@ -3,17 +3,17 @@
 		"BaseClass" "ability_datadriven"
 		"AbilityTextureName" "faceless_void_time_lock"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+
 		"ReduxFlags" "doNotRandom"
 
 		"AbilityValues"
         {
             "bash_chance" "8"
-            "stun_hero_duration" "0.5"
+            "stun_hero_duration" "0.1"
         }
 
 		"Modifiers" {
-			"modifier_bash" {
+			"modifier_clockwerk_goblin_bash_redux" {
 				"Passive" "1"
 				"IsHidden" "1"
 

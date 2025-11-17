@@ -73,7 +73,7 @@
             }
         }
 
-        "ReduxCost"                                                            "120"
         "ReduxPerks"                                                           "scientific"
+        "ReduxCost"                                                            "120"
     }
 }

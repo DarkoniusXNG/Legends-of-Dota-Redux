@@ -130,6 +130,7 @@ for _, name in pairs (hero_names) do
 	LinkLuaModifier("modifier_npc_dota_hero_"..name.."_perk", "abilities/hero_perks/npc_dota_hero_"..name.."_perk.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
+LinkLuaModifier("modifier_no_invis_redux", "abilities/modifiers/modifier_no_invis_redux.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_pudge_custom_flesh_heap_kill_tracker", "abilities/modifiers/modifier_pudge_custom_flesh_heap_kill_tracker.lua", LUA_MODIFIER_MOTION_NONE)
 -- Custom AI script modifiers
 LinkLuaModifier( "modifier_slark_shadow_dance_ai", "abilities/botAI/modifier_slark_shadow_dance_ai.lua" , LUA_MODIFIER_MOTION_NONE )

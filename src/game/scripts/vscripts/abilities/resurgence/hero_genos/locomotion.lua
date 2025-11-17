@@ -10,7 +10,7 @@ function Leap( event )
 	local caster = event.caster
 	local ability = event.ability
 	local ability_level = ability:GetLevel() - 1
-	local point = event.target_points[1]	
+	local point = ability:GetCursorPosition() --event.target_points[1]	
 
 	caster:AddNewModifier(caster, ability, "modifier_locomotion_vision", {})
 

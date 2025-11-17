@@ -831,6 +831,9 @@ function CDOTA_PlayerResource:IsDisableHelpSetForPlayerID(nPlayerID, nOtherPlaye
 end
 
 function util:DisplayError(pid, message)
+    if PlayerResource:IsFakeClient(pid) then
+        return
+    end
     local player = PlayerResource:GetPlayer(pid)
     if player then
         CustomGameEventManager:Send_ServerToPlayer(player, "lodCreateIngameErrorMessage", {message=message})
@@ -838,6 +841,9 @@ function util:DisplayError(pid, message)
 end
 
 function util:EmitSoundOnClient(pid, sound)
+    if PlayerResource:IsFakeClient(pid) then
+        return
+    end
     local player = PlayerResource:GetPlayer(pid)
     if player then
         CustomGameEventManager:Send_ServerToPlayer(player, "lodEmitClientSound", {sound=sound})

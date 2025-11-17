@@ -20,7 +20,8 @@
             }
         }
 
-		"ReduxFlags"                                                           "dota_custom"
-		"ReduxBans"                     "pudge_innate_graft_flesh"
+		"ReduxFlags"                                                           "dota_custom | tank"
+		"ReduxBans"                                                            "pudge_innate_graft_flesh"
+		"ReduxCost"                                                            "30"
 	}
 }

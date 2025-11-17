@@ -1506,7 +1506,9 @@ function Pregame:onThink()
             this:setPhase(constants.PHASE_INGAME)
 
             -- Start tutorial mode so we can show tips to players
-            Tutorial:StartTutorialMode()
+            --Tutorial:StartTutorialMode()
+            Convars:SetBool('dota_bot_mode', true)
+            Convars:SetBool('dota_bot_disable', false)
         end, DoUniqueString('pregamestart'), 1)
 
         -- Hook bot stuff
@@ -4023,11 +4025,11 @@ function Pregame:processOptions()
         end
 
         -- Banning invis skills
-        if not disableBanLists and this.optionStore['lodOptionBanningBanInvis'] > 0 then
-            for abilityName,v in pairs(this.invisSkills) do
-                this:banAbility(abilityName)
-            end
-        end
+        -- if not disableBanLists and this.optionStore['lodOptionBanningBanInvis'] > 0 then
+        --     for abilityName,v in pairs(this.invisSkills) do
+        --         this:banAbility(abilityName)
+        --     end
+        -- end
 
         -- Banning scepter giving abilities
         if not disableBanLists and this.optionStore['lodOptionGameSpeedUpgradedUlts'] > 0 then
@@ -4038,13 +4040,6 @@ function Pregame:processOptions()
         -- Dota Modified Abilities
         if not disableBanLists and this.optionStore['lodOptionAdvancedCustomSkills'] ~= 1 then
             for abilityName,v in pairs(this.dotaCustom) do
-                this:banAbility(abilityName)
-            end
-        end
-
-        -- Banning invis skills
-        if not disableBanLists and this.optionStore['lodOptionBanningBanInvis'] > 0 then
-            for abilityName,v in pairs(this.invisSkills) do
                 this:banAbility(abilityName)
             end
         end
@@ -6822,7 +6817,8 @@ function Pregame:addBotPlayers()
     while totalRadiant < self.desiredRadiant do
         playerID = totalRadiant + totalDire
         totalRadiant = totalRadiant + 1
-        Tutorial:AddBot('', '', 'unfair', true)
+        --Tutorial:AddBot('', '', 'unfair', true)
+        GameRules:AddBotPlayerWithEntityScript('', 'RadiantBot'..tostring(playerID), DOTA_TEAM_GOODGUYS, '', true)
 
         local ply = PlayerResource:GetPlayer(playerID)
         if ply then
@@ -6845,7 +6841,8 @@ function Pregame:addBotPlayers()
     while totalDire < self.desiredDire do
         playerID = totalRadiant + totalDire
         totalDire = totalDire + 1
-        Tutorial:AddBot('', '', 'unfair', false)
+        --Tutorial:AddBot('', '', 'unfair', false)
+        GameRules:AddBotPlayerWithEntityScript('', 'DireBot'..tostring(playerID), DOTA_TEAM_BADGUYS, '', true)
 
         local ply = PlayerResource:GetPlayer(playerID)
         if ply then
@@ -7513,7 +7510,7 @@ function Pregame:hookBotStuff()
                 if IsValidEntity(hero) then
                     local build = this.selectedSkills[playerID]
 
-                    local heroName = hero:GetClassname()
+                    local heroName = hero:GetUnitName()
                     local defaultSkills = {}
                     for k,abilityName in pairs(this.botHeroes[heroName] or {}) do
                         defaultSkills[abilityName] = true
@@ -8102,6 +8099,11 @@ function Pregame:fixSpawningIssues()
 
         if spawnedUnit:GetUnitName() == "npc_dota_flying_courier" or spawnedUnit:GetUnitName() == "npc_dota_courier" and OptionManager:GetOption('turboCourier') == 1 then
             spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_turbo_courier", {})
+        end
+
+        -- Reveal invis
+        if spawnedUnit.HasModifier and OptionManager:GetOption('banInvis') > 0 then
+            spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_no_invis_redux", {})
         end
 
         -- Grab their playerID

@@ -23,7 +23,7 @@
 	{
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility | rage | semi_passive"
-		"ReduxCost"                                                            "80"
+		"ReduxCost"                                                            "70"
 		"ReduxBans"                                                            "storm_spirit_ball_lightning"
 		"ReduxBanCategory"                                                     "ToggleSpells"
 	}

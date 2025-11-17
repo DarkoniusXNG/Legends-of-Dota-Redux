@@ -104,8 +104,6 @@ function duskDota:_InitduskDota()
   ListenToGameEvent("dota_npc_goal_reached", Dynamic_Wrap(duskDota, 'OnNPCGoalReached'), self)
 
   ListenToGameEvent("player_chat", Dynamic_Wrap(duskDota, 'OnPlayerChat'), self)
-  
-  --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(duskDota, 'OnShopToggled'), self)
 
   --ListenToGameEvent('player_spawn', Dynamic_Wrap(duskDota, 'OnPlayerSpawn'), self)
   --ListenToGameEvent('dota_unit_event', Dynamic_Wrap(duskDota, 'OnDotaUnitEvent'), self)

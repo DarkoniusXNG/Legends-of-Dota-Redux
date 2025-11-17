@@ -8,9 +8,12 @@ function CancelAttack (keys) -- Make sure the caster doesnt attack enemies, but 
 	end
 end
 
+local hammer_point
+
 function ThrowHammer (keys)
 	local caster = keys.caster
 	local ability = keys.ability
+	local target_loc = ability:GetCursorPosition() --keys.target_points[1]
 
 	if not IsServer() then return end
 
@@ -18,9 +21,11 @@ function ThrowHammer (keys)
 	--CosmeticLib:RemoveFromSlot( caster, "weapon" )
 	caster.HasHammer = false
 
+	local distance = (caster:GetAbsOrigin() - target_loc):Length()
 
-	local distance = (caster:GetAbsOrigin() - keys.target_points[1]):Length()
-
+	local hammerOffset
+	local hammerShake
+	local hammerShakeDuration
 	if caster:HasScepter() then
 		hammerOffset = Vector(0,0,180) 
 		hammerShake = 1000
@@ -31,7 +36,7 @@ function ThrowHammer (keys)
 		hammerShakeDuration = 0.5
 	end
 
-	hammer_point = keys.target_points[1] + hammerOffset
+	hammer_point = target_loc + hammerOffset
 
 	--if utherhammer == nil or utherhammer:IsNull() then -- Check if the hammer is on a location or in the casters hands -- HasHammer was added later :/
 
@@ -49,13 +54,6 @@ function ThrowHammer (keys)
 		ability:ApplyDataDrivenModifier(caster,utherhammer,"modifier_hammer_moving_dummy",{duration = 1})
 	end
 
-
---[[else
-		ability:ApplyDataDrivenModifier(caster,utherhammer,"modifier_hammer_moving_dummy",{duration = 1})
-		utherdirection = (hammer_point - utherhammer:GetOrigin() ):Normalized()
-		caster:RemoveModifierByName("modifier_hammer_stationary_dummy")
-	end]]
-
 	utherhammer.angles = utherhammer:GetAngles()
 	local baseflip = 55
 	local flip = baseflip
@@ -72,18 +70,17 @@ function ThrowHammer (keys)
 
 	caster.utherhammer = utherhammer
 
-	time_elapsed = 0
+	caster.time_elapsed = 0
 
-	
 	local hammer_size = ability:GetLevelSpecialValueFor("Hammer_Size",ability:GetLevel()-1)
 
 	Timers:CreateTimer(0, function()
 		local hammer_speed = (hammer_point - utherhammer:GetAbsOrigin()):Length2D() * 0.099
 		if utherhammer:HasModifier("modifier_hammer_moving_dummy") or utherhammer:HasModifier("modifier_hammer_moving_dummy_scepter") then
 			utherhammer:SetOrigin(utherhammer:GetOrigin() + utherdirection * hammer_speed + Vector(0,0,jump))
-			local pitch = utherhammer.angles.x + ((time_elapsed * 3) * flip )
+			local pitch = utherhammer.angles.x + ((caster.time_elapsed * 3) * flip )
 			utherhammer:SetAngles(pitch, utherhammer.angles.y, utherhammer.angles.z)
-			time_elapsed = time_elapsed + 0.03
+			caster.time_elapsed = caster.time_elapsed + 0.03
 			jump = jump - (basejump * 0.06)
 			flip = flip * 0.995
 			return 0.03
@@ -168,7 +165,7 @@ function ReturnHammer (keys) -- The hammer returning to uther, damaging units in
 		local basejump = ((caster.utherhammer:GetOrigin() - caster:GetOrigin()):Length2D() + 750) * 0.03
 		local jump = basejump
 
-		local time_elapsed = 0
+		caster.time_elapsed = 0
 		caster.utherhammer.angles = caster.utherhammer:GetAngles()
 		caster.utherhammer.angles.x = caster.utherhammer.angles.x + 45
 
@@ -177,11 +174,11 @@ function ReturnHammer (keys) -- The hammer returning to uther, damaging units in
 				if caster:HasModifier("modifier_hammer_stationary_dummy") and not caster.utherhammer:IsNull() then
 					local direction = (caster:GetAbsOrigin() - caster.utherhammer:GetOrigin()):Normalized()
 					caster.utherhammer:SetAbsOrigin(caster.utherhammer:GetOrigin() + direction * hammer_speed)
-					local pitch = (caster.utherhammer.angles.x + ((time_elapsed * 3) * flip) * 1.4)
+					local pitch = (caster.utherhammer.angles.x + ((caster.time_elapsed * 3) * flip) * 1.4)
 					caster.utherhammer:SetAngles(-pitch, caster.utherhammer.angles.y, caster.utherhammer.angles.z)
-					time_elapsed = time_elapsed + 0.03
+					caster.time_elapsed = caster.time_elapsed + 0.03
 					flip = flip * 0.996
-					if time_elapsed > 2.5 then
+					if caster.time_elapsed > 2.5 then
 						caster.utherhammer:SetAbsOrigin(caster:GetOrigin())
 					end
 					return 0.03

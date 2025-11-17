@@ -9,7 +9,7 @@
         "AbilityChannelTime"                                                   "1.0"
         "AbilityTextureName"                                                   "custom/cherub_flower_yellow"
         "AnimationPlaybackRate"                                                "0.2"
-        "AOERadius"                                                            "700"
+        "AOERadius"                                                            "%radius"
 
         "ReduxFlags"                                                           "support"
         "ReduxPerks"                                                           "support | channeled | nature | self_damage"

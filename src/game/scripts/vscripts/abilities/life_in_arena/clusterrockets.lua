@@ -63,7 +63,7 @@ end
 function StartClusterRockets( event )
     local caster = event.caster
     local ability = event.ability
-    ability.point = event.target_points[1]
+    ability.point = ability:GetCursorPosition() --event.target_points[1]
     ability.projectile_count = ability:GetLevelSpecialValueFor( "projectile_count" , ability:GetLevel() - 1  )
 end
 

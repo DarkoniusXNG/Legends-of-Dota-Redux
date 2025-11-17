@@ -24,8 +24,8 @@
             "crit_chance_per_protective" "3"
         }
 
-        "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           "attack_modifier | crit"
         "ReduxPerks"                                                           "attack_modifier"
+        "ReduxCost"                                                            "120"
     }
 }

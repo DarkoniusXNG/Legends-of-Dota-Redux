@@ -1,6 +1,5 @@
 require('lib/physics')
 require('lib/util_dusk')
-require('lib/timers')
 
 function hawkeye_double_tap(event)
   local caster = event.caster

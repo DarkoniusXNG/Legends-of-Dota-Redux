@@ -1610,7 +1610,6 @@ function Physics:Unit(unit)
             if ent.GetUnitName ~= nil and ent ~= unit then
               blocked = true
             end
-            --print(ent:GetClassname() .. " -- " .. ent:GetName() .. " -- " .. tostring(ent.IsHero))
             ent = Entities:FindInSphere(ent, position, 35)
           end
           if blocked or blockedPos or GridNav:IsNearbyTree(position, 30, true) then
@@ -1637,7 +1636,6 @@ function Physics:Unit(unit)
           if ent.IsHero ~= nil and ent ~= unit then
             blocked = true
           end
-          --print(ent:GetClassname() .. " -- " .. ent:GetName() .. " -- " .. tostring(ent.IsHero))
           ent = Entities:FindInSphere(ent, position, 35)
         end
         if blocked or not GridNav:IsTraversable(position) or GridNav:IsBlocked(position) or GridNav:IsNearbyTree(position, 30, true) then

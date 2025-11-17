@@ -14,16 +14,19 @@
 
         "precache"
         {
-            "model"                                                        "models/items/rattletrap/forge_warrior_rocket_cannon/forge_warrior_rocket_cannon.vmdl"
             "model"                                                        "models/items/rattletrap/clockwerk_furnator_furnators_furnace/clockwerk_furnator_furnators_furnace.vmdl"
-            "particle"                                                     "particles/units/heroes/hero_techies/techies_suicide.vpcf"
+            "model"                                                        "models/heroes/rattletrap/rattletrap.vmdl"
+            //"particle"                                                     "particles/units/heroes/hero_techies/techies_suicide.vpcf"
+            "particle"                                                     "particles/units/heroes/hero_techies/techies_blast_off.vpcf"
         }
 
         "AbilityValues"
         {
             "factory_duration" "45"
-            "goblin_hp" "125 325 525"
-            "goblin_damage" "15 40 65"
+            "goblin_hp" "200 400 600" // tooltip only, if you change this then it needs to be changed in npc_units_custom too
+            "goblin_damage" "15" // tooltip only, if you change this then it needs to be changed in npc_units_custom too
+            "goblin_kaboom_damage"  "40 70 100" // tooltip only, if you change this then it needs to be changed in android_clockwerk_goblin_kaboom too
+            "goblin_bash_chance"  "8 10 12" // tooltip only, if you change this then it needs to be changed in android_pocket_factory_spawn_goblin1,2 and 3 too
         }
         "OnSpellStart"
         {

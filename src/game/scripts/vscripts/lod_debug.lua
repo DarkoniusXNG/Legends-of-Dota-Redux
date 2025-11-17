@@ -212,9 +212,6 @@ function Debug:listModifiers(playerID)
     --local modifiers = hero:FindAllModifiers()
 
     print('Modifiers for playerID = ' .. playerID)
-    --for k,modifier in pairs(modifiers) do
-    --    print(modifier:GetClassname())
-    --end
 
     local count = hero:GetModifierCount()
     for i=0,count-1 do

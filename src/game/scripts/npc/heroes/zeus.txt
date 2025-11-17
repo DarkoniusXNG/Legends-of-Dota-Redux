@@ -55,6 +55,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier | doNotRandom"
 		"ReduxPerks"                                                           "attack_modifier | lightning"
+		"ReduxCost"                                                            "20"
 
 		"MaxLevel"						"4"
 		"AbilityCastPoint"				"0"

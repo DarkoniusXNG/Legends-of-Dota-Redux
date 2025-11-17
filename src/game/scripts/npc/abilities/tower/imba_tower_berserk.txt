@@ -46,6 +46,7 @@
             }
         }
 
+        "ReduxPerks"                                                           "rage"
         "ReduxCost"                                                            "120"
     }
 }

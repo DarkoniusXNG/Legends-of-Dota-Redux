@@ -25,7 +25,7 @@ end
 
 function saodang( keys )
 	local caster = keys.caster
-	local point = keys.target_points[1]
+	local point = keys.ability:GetCursorPosition() --keys.target_points[1]
 	local radius = keys.radius
 	local caster_ori =caster:GetAbsOrigin()
 	local distance = math.min((caster_ori-point):Length2D(),keys.maxdistance)
@@ -75,7 +75,7 @@ end
 function shunzhan( keys )
 	local caster = keys.caster
 	local radius = keys.radius
-	local point = keys.target_points[1]
+	local point = keys.ability:GetCursorPosition() --keys.target_points[1]
 	local target = keys.target
 	if target then
 		caster.preplace = caster:GetAbsOrigin()

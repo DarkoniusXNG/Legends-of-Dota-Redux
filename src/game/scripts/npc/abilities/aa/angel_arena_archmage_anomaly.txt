@@ -16,7 +16,6 @@
 		}
 
 		"AbilityCastRange"              "1200"
-		"AOERadius"                     "%radius"
 		"AbilityCastPoint"              "0.1"
 		"AbilityCooldown"               "60 50 40"
 		"AbilityManaCost"               "150"

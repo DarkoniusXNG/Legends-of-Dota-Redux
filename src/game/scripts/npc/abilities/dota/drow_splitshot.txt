@@ -15,6 +15,7 @@
 
         "ReduxFlags"                    "aoe_attack | attack_modifier | dota_custom"
         "ReduxPerks"                    "attack_modifier | ranger"
+        "ReduxCost"                     "20"
 
         //cooldown and mana cost are supported if this needs a nerf
         //"AbilityCooldown"				"0.0"

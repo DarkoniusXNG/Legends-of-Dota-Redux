@@ -5,13 +5,14 @@ end
 function StasisStart( event )
 	local caster = event.caster
 	local ability = event.ability
-	local target_point = event.target_points[1]
+	local target_point = ability:GetCursorPosition() --event.target_points[1]
 	local duration = ability:GetSpecialValueFor('duration') 
 	local stasis = CreateUnitByName('fire_trap_unit', target_point, true, caster, caster, caster:GetTeamNumber())
 	stasis:AddNewModifier(stasis, nil, "modifier_kill", {duration = duration})
 	ability:ApplyDataDrivenModifier(stasis, stasis, 'modifier_stasis_ward', nil)	
 	stasis:EmitSound('Hero_Techies.StasisTrap.Plant')
-	ParticleManager:CreateParticle("particles/firelord_fire_trap.vpcf", 1, stasis)
+	local particle = ParticleManager:CreateParticle("particles/firelord_fire_trap.vpcf", 1, stasis)
+	ParticleManager:ReleaseParticleIndex(particle)
 end
 
 function StasisSetup( event )
@@ -52,7 +53,8 @@ function StasisThink( event )
 							end
 						end
 						stasis:EmitSound('Hero_Techies.StasisTrap.Stun')
-						ParticleManager:CreateParticle("particles/firelord_fire_trap_explode_custom.vpcf", 1, stasis)
+						local particle = ParticleManager:CreateParticle("particles/firelord_fire_trap_explode_custom.vpcf", 1, stasis)
+						ParticleManager:ReleaseParticleIndex(particle)
 						stasis:ForceKill(true)
 					end
 				end

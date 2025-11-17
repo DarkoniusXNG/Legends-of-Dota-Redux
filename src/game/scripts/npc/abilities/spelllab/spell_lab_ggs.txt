@@ -34,7 +34,7 @@
         }
 
         "ReduxPerks"                                                           "channeled | light | scientific"
-        "ReduxCost"                                                            "20"
+        "ReduxCost"                                                            "100"
     }
 	"spell_lab_ggs_passive"
 	{

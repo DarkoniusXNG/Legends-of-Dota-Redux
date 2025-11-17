@@ -22,6 +22,12 @@ function ptomely_astralise:OnSpellStart()
 	target:AddNewModifier(caster, self, "modifier_astralise", {Duration=duration})
 end
 
+function ptomely_astralise:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
+
+---------------------------------------------------------------------------------------------------
+
 modifier_astralise = class({})
 
 function modifier_astralise:GetEffectName()
@@ -69,8 +75,7 @@ function modifier_astralise:OnCreated(kv)
 
 		target.astralise_unit = unit
 
-		ParticleManager:CreateParticle("particles/units/heroes/hero_ptomely/astralise_ghost.vpcf",
-			PATTACH_ABSORIGIN_FOLLOW, unit)
+		self.particle = ParticleManager:CreateParticle("particles/units/heroes/hero_ptomely/astralise_ghost.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
 		local interval = self:GetAbility():GetSpecialValueFor("interval")
 		self:StartIntervalThink(interval)
 	end
@@ -107,8 +112,18 @@ function modifier_astralise:OnIntervalThink()
 			local p = ParticleManager:CreateParticle("particles/units/heroes/hero_ptomely/astralise_pulse.vpcf", PATTACH_WORLDORIGIN, nil)
 			ParticleManager:SetParticleControl(p, 0, loc)
 			ParticleManager:SetParticleControl(p, 1, Vector(radius,0,0))
+			ParticleManager:ReleaseParticleIndex(p)
 
 			target.astralise_unit:EmitSound("Ptomely.AstralisePulse")
+		end
+	end
+end
+
+function modifier_astralise:OnDestroy()
+	if IsServer() then
+		if self.particle then
+			ParticleManager:DestroyParticle(self.particle, false)
+			ParticleManager:ReleaseParticleIndex(self.particle)
 		end
 	end
 end
@@ -126,50 +141,53 @@ function InflictDamage(target,attacker,ability,damage,damage_type,flags)
 end
 
 function FastDummy(target, team, duration, vision)
-  duration = duration or 0.03
-  vision = vision or  250
-  local dummy = CreateUnitByName("npc_dummy_unit", target, false, nil, nil, team)
-  if dummy ~= nil then
-    dummy:SetAbsOrigin(target)
-    dummy:SetDayTimeVisionRange(vision)
-    dummy:SetNightTimeVisionRange(vision)
-    dummy:AddNewModifier(dummy, nil, "modifier_phased", { duration = 9999})
-    dummy:AddNewModifier(dummy, nil, "modifier_invulnerable", { duration = 9999})
-    dummy:AddNewModifier(dummy, nil, "modifier_kill", {duration = duration+0.03})
-      Timers:CreateTimer(duration,function()
-        if not dummy:IsNull() then
-          dummy:ForceKill(true)
-          --dummy:Destroy()
-          UTIL_Remove(dummy)
-        end
-      end)
-  end
-  return dummy
+	local dur = duration or 0.03
+	local vis = vision or 250
+	local dummy = CreateUnitByName("npc_dummy_unit", target, false, nil, nil, team)
+	if dummy ~= nil then
+		dummy:SetAbsOrigin(target)
+		dummy:SetDayTimeVisionRange(vis)
+		dummy:SetNightTimeVisionRange(vis)
+		dummy:AddNewModifier(dummy, nil, "modifier_phased", {})
+		dummy:AddNewModifier(dummy, nil, "modifier_invulnerable", {})
+		dummy:AddNewModifier(dummy, nil, "modifier_kill", {duration = dur})
+		Timers:CreateTimer(dur+0.03, function()
+			if dummy and not dummy:IsNull() then
+				dummy:ForceKill(false)
+				UTIL_Remove(dummy)
+			end
+		end)
+	end
+	return dummy
 end
 
 function FindEnemies(caster,point,radius,targets,flags)
   local targets = targets or DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_CREEP
   local flags = flags or DOTA_UNIT_TARGET_FLAG_NONE
-  return FindUnitsInRadius( caster:GetTeamNumber(),
-                            point,
-                            nil,
-                            radius,
-                            DOTA_UNIT_TARGET_TEAM_ENEMY,
-                            targets,
-                            flags,
-                            FIND_CLOSEST,
-                            false)
+  return FindUnitsInRadius( 
+    caster:GetTeamNumber(),
+    point,
+    nil,
+    radius,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    targets,
+    flags,
+    FIND_ANY_ORDER,
+    false
+  )
 end
 
 function FindAllies(caster,point,radius,targets)
   local targets = targets or DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_CREEP
-  return FindUnitsInRadius( caster:GetTeamNumber(),
-                            point,
-                            nil,
-                            radius,
-                            DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-                            targets,
-                            DOTA_UNIT_TARGET_FLAG_NONE,
-                            FIND_CLOSEST,
-                            false)
+  return FindUnitsInRadius( 
+    caster:GetTeamNumber(),
+    point,
+    nil,
+    radius,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    targets,
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
 end

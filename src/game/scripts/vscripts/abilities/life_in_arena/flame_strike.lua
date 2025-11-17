@@ -2,6 +2,10 @@ LinkLuaModifier("modifier_flame_strike_thinker", "abilities/life_in_arena/flame_
 
 firelord_flame_strike = class({})
 
+function firelord_flame_strike:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
+
 function firelord_flame_strike:OnSpellStart()
 	local target = self:GetCursorPosition()
 
@@ -33,7 +37,9 @@ modifier_flame_strike_thinker = class({
 
 	OnCreated = function(self)
 		local ab = self:GetAbility()
-		self:StartIntervalThink(ab:GetSpecialValueFor("delay"))
+		if IsServer() then
+			self:StartIntervalThink(ab:GetSpecialValueFor("delay"))
+		end
 		self.particleRadius = ab:GetSpecialValueFor("radius")
 		if ab:GetSpecialValueFor("duration") > 0 then
 			local dps = ab:GetSpecialValueFor("total_damage") / ab:GetSpecialValueFor("duration")

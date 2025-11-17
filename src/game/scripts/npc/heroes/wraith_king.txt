@@ -24,6 +24,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier | crit"
 		"ReduxPerks"                                                           "attack_modifier"
+		"ReduxCost"                                                            "20"
 	}
 
 	"skeleton_king_reincarnation"

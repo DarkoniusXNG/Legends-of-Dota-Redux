@@ -4,7 +4,7 @@
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityTextureName" "custom/cherub_flower_pink"
 		"MaxLevel" "3"
-		"AOERadius" "1000"
+		"AOERadius" "%radius"
 
 		"AbilityValues"
         {

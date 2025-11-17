@@ -2,9 +2,10 @@
 	"android_pocket_factory_spawn_goblin" {
 		"BaseClass" "ability_datadriven"
 		"AbilityTextureName" "rattletrap_power_cogs"
-		"MaxLevel" "1"
+		"MaxLevel" "3"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityCooldown" "2.0"
+
 		"ReduxFlags" "doNotRandom"
 
 		"AbilityValues"

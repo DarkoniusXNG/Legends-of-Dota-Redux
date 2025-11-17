@@ -775,9 +775,19 @@ function imba_wraith_king_mortal_strike:OnSpellStart()
 						-- Issue one aggressive move command to the enemy's ancient and that's it
 						Timers:CreateTimer(FrameTime(), function()
 							if self.caster:GetTeam() == DOTA_TEAM_GOODGUYS then
-								skeleton:MoveToPositionAggressive(Vector(5654, 4939, 0))
+								ExecuteOrderFromTable({
+									UnitIndex = skeleton:entindex(),
+									OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+									Position = Vector(5654, 4939, 0),
+									Queue = false,
+								})
 							elseif self.caster:GetTeam() == DOTA_TEAM_BADGUYS then
-								skeleton:MoveToPositionAggressive(Vector(-5864, -5340, 0))
+								ExecuteOrderFromTable({
+									UnitIndex = skeleton:entindex(),
+									OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+									Position = Vector(-5864, -5340, 0),
+									Queue = false,
+								})
 							end
 						end)
 					end)
@@ -835,9 +845,19 @@ function modifier_imba_mortal_strike_skeleton:OnIntervalThink()
 		-- Issue one aggressive move command to the enemy's ancient and that's it
 		Timers:CreateTimer(FrameTime(), function()
 			if self.caster:GetTeam() == DOTA_TEAM_GOODGUYS then
-				skeleton:MoveToPositionAggressive(Vector(5654, 4939, 0))
+				ExecuteOrderFromTable({
+					UnitIndex = skeleton:entindex(),
+					OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+					Position = Vector(5654, 4939, 0),
+					Queue = false,
+				})
 			elseif self.caster:GetTeam() == DOTA_TEAM_BADGUYS then
-				skeleton:MoveToPositionAggressive(Vector(-5864, -5340, 0))
+				ExecuteOrderFromTable({
+					UnitIndex = skeleton:entindex(),
+					OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+					Position = Vector(-5864, -5340, 0),
+					Queue = false,
+				})
 			end
 		end)
 	end)

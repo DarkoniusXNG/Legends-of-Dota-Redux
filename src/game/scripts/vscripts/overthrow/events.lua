@@ -151,11 +151,11 @@ function COverthrowGameMode:OnEntityKilled( event )
 				local memberID = hero:GetPlayerID()
 				PlayerResource:ModifyGold( memberID, 500, true, 0 )
 				hero:AddExperience( 100, 0, false, false )
-				local name = hero:GetClassname()
-				local victim = killedUnit:GetClassname()
+				local name = hero:GetUnitName()
+				local victim = killedUnit:GetUnitName()
 				local kill_alert =
 					{
-						hero_id = hero:GetClassname()
+						hero_id = hero:GetUnitName()
 					}
 				CustomGameEventManager:Send_ServerToAllClients( "kill_alert", kill_alert )
 			else

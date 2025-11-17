@@ -15,7 +15,7 @@ function ScryerProjectiles( keys )
 	local spawnRadius = ability:GetLevelSpecialValueFor( "radius", ability:GetLevel() - 1 )
 	local delay = ability:GetLevelSpecialValueFor( "spawn_delay", ability:GetLevel() - 1 )
 
-	local point = keys.target_points[1]
+	local point = ability:GetCursorPosition() --keys.target_points[1]
 	local casterOrigin = caster:GetAbsOrigin()
 	local casterForwardVec = caster:GetForwardVector()
 	local rotateVar = 0
@@ -60,7 +60,7 @@ function CreateScryerIllusions( keys )
 	local incomingDamage = ability:GetLevelSpecialValueFor( "illusion_damage_taken", ability:GetLevel() - 1 )
 	local spawnRadius = ability:GetLevelSpecialValueFor( "radius", ability:GetLevel() - 1 )
 
-	local point = keys.target_points[1]
+	local point = ability:GetCursorPosition() --keys.target_points[1]
 	local casterOrigin = caster:GetAbsOrigin()
 	local casterForwardVec = caster:GetForwardVector()
 	local rotateVar = 0

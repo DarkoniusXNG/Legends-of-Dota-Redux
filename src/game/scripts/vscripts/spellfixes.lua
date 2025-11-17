@@ -95,19 +95,9 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
                 })
             end
 
-            -- Check if they tried to illegally use shadow items, if they did, punish them by not refunding the full price
+            -- Check if they tried to use invisibility items, if they did, display a warning
             if OptionManager:GetOption('banInvis') == 2 and (keys.abilityname == "item_invis_sword" or keys.abilityname == "item_silver_edge" or keys.abilityname == "item_shadow_amulet" or keys.abilityname == "item_glimmer_cape") then
-                for i = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
-                    local item = hero:GetItemInSlot(i)
-                    if item then
-                        if item:GetName() == "item_invis_sword" or item:GetName() == "item_silver_edge" or item:GetName() == "item_shadow_amulet" or item:GetName() == "item_glimmer_cape" then
-                            hero:ModifyGold(item:GetCost(), false, 0)
-                            hero:RemoveItem(item)
-                            util:DisplayError(keys.PlayerID, "invisbilityItemsAreBanned")
-                            break
-                        end
-                    end
-                end
+                util:DisplayError(keys.PlayerID, "invisbilityItemsAreBanned")
             end  
 
             -- Check if they have multicast
@@ -193,7 +183,7 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
                                     local slotItem = hero:GetItemInSlot(i)
 
                                     -- Was this the spell that was cast?
-                                    if slotItem and slotItem:GetClassname() == keys.abilityname then
+                                    if slotItem and slotItem:GetAbilityName() == keys.abilityname then
                                         -- We found it
                                         ab = slotItem
                                         isItemAb = true
