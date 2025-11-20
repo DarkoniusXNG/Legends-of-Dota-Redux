@@ -85,7 +85,7 @@
 	"omniknight_pacify"
 	{
 		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
+		"ReduxPerks"                                                           "light | support"
 	}
 
 	"special_bonus_unique_omniknight_1"

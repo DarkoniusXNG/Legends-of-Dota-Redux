@@ -24,6 +24,7 @@
 #base "heroes\drow_ranger.txt"
 #base "heroes\earthshaker.txt"
 #base "heroes\elder_titan.txt"
+#base "heroes\enigma.txt"
 #base "heroes\hoodwink.txt"
 #base "heroes\huskar.txt"
 #base "heroes\invoker.txt"
@@ -72,14 +73,122 @@
 
 "DOTAAbilities"
 {
+	"granite_golem_bash"
+	{
+		"ReduxFlags"                                                           "attack_modifier | bash | stun"
+		"ReduxPerks"                                                           "attack_modifier | bash | neutral"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"bash_chance"
+			{
+				"value" "7 9 11 13"
+			}
+			"bonus_damage"
+			{
+				"value" "25 50 75 100"
+			}
+			"stun_duration"
+			{
+				"value" "1"
+			}
+		}
+	}
+
+	"spawnlord_master_bash"
+	{
+		"ReduxFlags"                                                           "attack_modifier | bash | stun"
+		"ReduxPerks"                                                           "attack_modifier | bash | neutral"
+		"ReduxCost"                                                            "120"
+
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"bash_chance"
+			{
+				"value" "40"
+			}
+			"bonus_damage"
+			{
+				"value" "0"
+			}
+			"stun_duration"
+			{
+				"value" "1"
+			}
+		}
+	}
+
+	"ancient_golem_rockslide"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "nature | neutral"
+	}
+
+	"treant_innate_attack_damage"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_treant_perk"
+
+		"ReduxPerks"                    "nature"
+		"ReduxCost"                     "30"
+	}
+
+	"nyx_assassin_innate_mana_burn"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_nyx_assassin_perk"
+
+		"ReduxFlags"                    "mana"
+		"ReduxPerks"                    "fire"
+		"ReduxCost"                     "30"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"mana_pct"		"15 18 21 24"
+		}
+	}
+
+	"magnus_magnetic_horn"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_magnataur_perk"
+
+		"ReduxFlags"                    "doNotRandom"
+		"ReduxPerks"                    "enemymoving"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"pull_duration"		"0.2"
+			"pull_distance"		"150 200 250 300"
+			"pull_radius"		"200 250 300 350"
+		}
+	}
+
+	"gyrocopter_lock_on"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		//"AbilityTextureName"            "custom/npc_dota_hero_gyrocopter_perk"
+
+		"ReduxFlags"                    "doNotRandom"
+		"ReduxPerks"                    "scientific"
+	}
+
 	"tusk_bitter_chill"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
 		"ReduxPerks"                    "ice"
 		"ReduxCost"                     "10"
 	}
-	
+
 	"razor_dynamo"
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -434,7 +543,7 @@
 		"MaxLevel"						"4"
 		"AbilityCastRange"				"1100"
 		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"9 8 7 6"
+		"AbilityCooldown"				"9"
 		"AbilityManaCost"				"50"
 		"AbilityValues"
 		{
@@ -442,9 +551,9 @@
 			{
 				"value" "6"
 			}
-			"movement_speed"
+			"movement_speed" // slow
 			{
-				"value" "30 45 60 75"
+				"value" "30 40 50 60"
 			}
 			"attack_speed"
 			{
@@ -589,8 +698,8 @@
 
 	"spawnlord_master_freeze"
 	{
-		"ReduxFlags"                                                           "attack_modifier | bash | physical | semi_passive"
-		"ReduxPerks"                                                           "attack_modifier | bash | physical | neutral | autocast_basic"
+		"ReduxFlags"                                                           "attack_modifier | physical | semi_passive | stun"
+		"ReduxPerks"                                                           "attack_modifier | physical | neutral | autocast_basic"
 
 		"MaxLevel"                                                             "4"
 		"AbilityCooldown"				"15 12 9 6"
@@ -598,11 +707,19 @@
 		{
 			"duration"
 			{
-				"value" "2 2.2 2.4 2.6"
+				"value" "1.2 1.3 1.4 1.5"
 			}
 			"damage"
 			{
-				"value" "75 100 125 150"
+				"value" "100 140 180 220"
+			}
+			"tick_interval"
+			{
+				"value"	"0.1"
+			}
+			"health_threshold_pct"
+			{
+				"value"	"90"
 			}
 		}
 	}
@@ -1824,13 +1941,7 @@
 		"ReduxPerks"                                                           "attack_modifier | nature"
 		"ReduxCost"                                                            "20"
 	}
-	"enigma_black_hole"
-	{
-		"ReduxFlags"                                                           "upgradeable | stun | silence"
-		"ReduxPerks"                                                           "channeled | enemymoving | silence"
-		"ReduxCost"                                                            "10"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
-	}
+
 	"faceless_void_chronosphere"
 	{
 		"ReduxFlags"                                                           "stun"
@@ -2699,12 +2810,6 @@
 		"ReduxPerks"                                                           "water | physical"
 	}
 
-	"enigma_malefice"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "demon"
-	}
-
 	"gyrocopter_homing_missile"
 	{
 		"ReduxFlags"                                                           "stun"
@@ -2809,12 +2914,7 @@
 		"ReduxPerks"                                                           "summon_non_ult"
 		"ReduxBans"                                                            "tinker_rearm"
 	}
-	"enigma_demonic_conversion"
-	{
-		"ReduxFlags"                                                           "summon | wtfAutoBan"
-		"ReduxPerks"                                                           "summon_non_ult | demon"
-		"ReduxBans"                                                            "tinker_rearm"
-	}
+
 	"pangolier_swashbuckle"
 	{
 		"ReduxFlags"                                                           "mobility | physical | aoe_attack"
@@ -2922,7 +3022,7 @@
 
 	"nyx_assassin_mana_burn"
 	{
-		"ReduxFlags"                                                           "mana"
+		"ReduxFlags"                                                           "doNotRandom | mana"
 		"ReduxPerks"                                                           "fire"
 	}
 
@@ -4037,7 +4137,7 @@
 			}
 			"status_resistance"
 			{
-				"value" "25 35 45 55"
+				"value" "25 30 35 40"
 			}
 			"duration"
 			{
@@ -4722,64 +4822,6 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "enchantress_enchant"
-	}
-
-	// Enigma
-	"special_bonus_unique_enigma"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "enigma_demonic_conversion"
-	}
-	"special_bonus_unique_enigma_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "enigma_malefice"
-	}
-	"special_bonus_unique_enigma_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "enigma_demonic_conversion"
-	}
-	"special_bonus_unique_enigma_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "enigma_demonic_conversion"
-	}
-	"special_bonus_unique_enigma_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "enigma_malefice"
-	}
-	"special_bonus_unique_enigma_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "enigma_black_hole"
-	}
-	"special_bonus_unique_enigma_9"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "enigma_midnight_pulse"
 	}
 
 	// Faceless Void

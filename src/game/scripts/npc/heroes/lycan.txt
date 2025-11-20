@@ -87,8 +87,9 @@
 
 	"lycan_summon_wolves_bash"
 	{
-		"ReduxFlags"                                                           "attack_modifier | physical | bash"
+		"ReduxFlags"                                                           "attack_modifier | physical | bash | stun"
 		"ReduxPerks"                                                           "attack_modifier | physical | bash"
+		"ReduxCost"                                                            "120"
 
 		"MaxLevel"                                                             "4"
 
