@@ -69,17 +69,17 @@
 		"ReduxPerks"                                                           "support | ice"
 	}
 
-	"lich_dark_sorcery"
-	{
-		"ReduxFlags"                                                           "mana"
-		"ReduxPerks"                                                           "drain | self_damage | undead"
-	}
+	// "lich_dark_sorcery"
+	// {
+		// "ReduxFlags"                                                           "mana"
+		// "ReduxPerks"                                                           "drain | self_damage | undead"
+	// }
 
-	"lich_frost_aura"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | ice | aura"
-	}
+	// "lich_frost_aura"
+	// {
+		// "ReduxFlags"                                                           "support"
+		// "ReduxPerks"                                                           "support | ice | aura"
+	// }
 
 	"special_bonus_unique_lich_1"
 	{

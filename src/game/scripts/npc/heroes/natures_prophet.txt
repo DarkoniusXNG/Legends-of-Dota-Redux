@@ -1,0 +1,189 @@
+"DOTAAbilities"
+{
+	"furion_sprout"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | nature"
+	}
+
+	"furion_teleportation"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "channeled | mobility | teleport | nature"
+		"ReduxCost"                                                            "30"
+		"ReduxBans"                                                            "nyx_assassin_burrow | nyx_assassin_burrow_redux"
+	}
+
+	"furion_force_of_nature"
+	{
+		"ReduxFlags"                                                           "summon | wtfAutoBan"
+		"ReduxPerks"                                                           "summon_non_ult | nature"
+		"ReduxBans"                                                            "tinker_rearm"
+	}
+
+	"furion_wrath_of_nature"
+	{
+		"ReduxFlags"                                                           "upgradeable | wtfAutoBan"
+		"ReduxPerks"                                                           "nature | rage"
+		"ReduxCost"                                                            "10"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	"furion_spirit_of_the_forest"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxPerks"                                                           "nature"
+	}
+
+	"furion_natures_profit"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_furion_perk"
+
+		"ReduxPerks"                                                           "gold | nature"
+	}
+
+	// "furion_fecundity"
+	// {
+		// "ReduxPerks"                                                           "nature"
+	// }
+
+	"furion_curse_of_the_forest"
+	{
+		"ReduxPerks"                                                           "nature"
+
+		"MaxLevel"					"4"
+
+		"AbilityCooldown"				"18 17 16 15"
+		"AbilityManaCost"				"80"
+		"AbilityValues"
+		{
+			"duration"		"7 8 9 10"
+			"damage_per_tree"		"20"
+			"slow_per_tree"			"7 8 9 10"
+			"radius"
+			{
+				"value"	"250"
+				"affected_by_aoe_increase"	"1"
+			}
+			"range"
+			{
+				"value"						"1200 1300 1400 1500"
+				"affected_by_aoe_increase"	"1"
+			}
+		}
+	}
+
+	// "furion_summon_fey"
+	// {
+		// "ReduxFlags"                                                           "summon"
+		// "ReduxPerks"                                                           "nature | summon_non_ult"
+	// }
+
+	// "furion_hedgerow"
+	// {
+		// "ReduxPerks"                                                           "nature"
+	// }
+
+	// "furion_arboreal_might"
+	// {
+		// "ReduxPerks"                                                           "nature"
+	// }
+
+	"furion_greater_sprout"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | nature"
+
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"850 900 950 1000"
+		"AbilityCastPoint"				"0.35"
+		"AbilityCooldown"				"30 25 20 15"
+		"AbilityManaCost"				"130"
+		"AbilityValues"
+		{
+			"vision_range"
+			{
+				"value" "500 600 700 800"
+			}
+			"duration"
+			{
+				"value" "6 6.5 7 7.5"
+			}
+		}
+	}
+
+	"special_bonus_unique_furion"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"
+		{
+			"1" "furion_force_of_nature"
+			"2" "furion_spirit_of_the_forest"
+		}
+	}
+	"special_bonus_unique_furion_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "furion_force_of_nature"
+	}
+	"special_bonus_unique_furion_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "furion_teleportation"
+	}
+	"special_bonus_unique_furion_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "furion_sprout"
+	}
+	"special_bonus_unique_furion_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "furion_wrath_of_nature"
+	}
+	"special_bonus_unique_furion_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "furion_force_of_nature"
+	}
+	"special_bonus_unique_furion_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "furion_wrath_of_nature"
+	}
+	"special_bonus_unique_furion_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"
+		{
+			"1" "furion_sprout"
+			"2" "furion_natures_profit"
+		}
+	}
+}

@@ -62,6 +62,16 @@
 		"ReduxPerks"                                                           "blades | mobility"
 	}
 
+	"juggernaut_innate_mask_spin_crit"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"juggernaut_innate_mask_crit_lifesteal"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
 	"special_bonus_unique_juggernaut"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"

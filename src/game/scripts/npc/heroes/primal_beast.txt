@@ -1,0 +1,138 @@
+// Abilities for primal beast
+"DOTAAbilities"
+{
+	"primal_beast_onslaught"
+	{
+		"ReduxFlags"                                                           "mobility | stun | physical"
+		"ReduxPerks"                                                           "mobility | enemymoving | skillshot | rage | physical"
+	}
+
+	"primal_beast_trample"
+	{
+		"ReduxPerks"                                                           "earth | rage"
+	}
+
+	"primal_beast_uproar"
+	{
+		"ReduxFlags"                                                           "tank | upgradeable"
+		"ReduxPerks"                                                           "rage"
+	}
+
+	"primal_beast_pulverize"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "channeled | rage | earth | enemymoving"
+	}
+
+	"primal_beast_colossal"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+	}
+
+	"primal_beast_innate_slow_resistance_per_time"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"primal_beast_innate_status_resistance_per_time"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"primal_beast_rock_throw"
+	{
+		"ReduxFlags"                                                           "physical | stun"
+		"ReduxPerks"                                                           "earth | physical | skillshot"
+
+		"MaxLevel"						"4"
+		"AbilityCooldown"               "25 21 17 13"
+		"AbilityManaCost"               "85"
+		"AbilityCastPoint"              "0.25"
+		"AbilityCastRange"              "1800"
+		"AbilityValues"
+		{
+			"base_damage"
+			{
+				"value"					"325"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"impact_radius"
+			{
+				"value"	"225 250 275 300"
+				"affected_by_aoe_increase"	"1"
+			}
+			"min_range"               "550"
+			"min_travel_time"                 "0.65"
+			"max_travel_time"                  "1.75"
+			"bounce_travel_time"                  "0.5"
+			"stun_duration"                  "1.4 1.5 1.6 1.7"
+			"fragment_impact_distance"    "525"
+			"fragment_impact_radius"
+			{
+				"value"						"185 195 205 215"
+				"affected_by_aoe_increase"	"1"
+			}
+		}
+	}
+
+	"special_bonus_unique_primal_beast_trample_attack_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"primal_beast_trample"
+	}
+	"special_bonus_unique_primal_beast_uproar_armor"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"primal_beast_uproar"
+	}
+	"special_bonus_unique_primal_beast_roar_dispells"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"primal_beast_uproar"
+	}
+	"special_bonus_unique_primal_beast_pulverize_duration"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"primal_beast_pulverize"
+	}
+	"special_bonus_unique_primal_beast_trample_magic_resist"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"primal_beast_trample"
+	}
+	"special_bonus_unique_primal_beast_trample_cooldown"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"primal_beast_trample"
+	}
+	"special_bonus_unique_primal_beast_trample_unslowable"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"primal_beast_trample"
+	}
+}

@@ -60,17 +60,11 @@
 		"ReduxPerks"                                                           "undead"
 	}
 
-	//=================================================================================================================
-	// Unknown
-	//=================================================================================================================
-	"death_prophet_innate_healing_mastery"
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_death_prophet_perk"
-
-		"ReduxFlags"                                                           "doNotRandom | support"
-		"ReduxPerks"                                                           "support | undead"
-	}
+	// "death_prophet_innate_healing_mastery"
+	// {
+		// "ReduxFlags"                                                           "doNotRandom | support"
+		// "ReduxPerks"                                                           "support | undead"
+	// }
 
 	"special_bonus_unique_death_prophet"
 	{
