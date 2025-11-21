@@ -75,6 +75,139 @@
 
 "DOTAAbilities"
 {
+	"wisp_sight_seer"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_wisp_perk"
+
+		"Innate"						"0"
+
+		"ReduxFlags"                                                           "doNotRandom | support"
+		"ReduxPerks"                                                           "support"
+	}
+
+	"void_spirit_symmetry"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/void_spirit_symmetry"
+
+		"MaxLevel"						"4"
+
+		"ReduxFlags"                                                           "tank"
+
+		"AbilityValues"
+		{
+			"buff_duration"			"20.0"
+			"refresh_duration"		"10"
+			"absorb_per_damage_pct"	"40 45 55 60"
+			"return_projectile_speed"			"900"
+		}
+	}
+
+	"ursa_bear_down"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE" // requires Enrage
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_ursa_perk"
+	}
+
+	"tidehunter_krill_eater"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_tidehunter_perk"
+
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	// "templar_assassin_hidden_gates"
+	// {
+		// "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		// "AbilityTextureName"                                                   "custom/npc_dota_hero_templar_assassin_perk"
+
+		// "Innate"						"0"
+
+		// "ReduxFlags"                                                           "doNotRandom"
+	// }
+
+	"techies_squees_scope"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_techies_perk"
+
+		"MaxLevel"						"1"
+	}
+
+	"techies_spoons_stash"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_techies_perk"
+
+		"MaxLevel"						"1"
+	}
+
+	"shadow_demon_shadow_servant"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE" // requires Disruption
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_shadow_demon_perk"
+
+		"ReduxFlags"                                                           "doNotRandom | illusion"
+		"ReduxPerks"                                                           "illusion"
+	}
+
+	"queenofpain_bondage"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_queenofpain_perk"
+
+		"MaxLevel"						"4"
+
+		"ReduxFlags"                                                           "tank"
+
+		"AbilityValues"
+		{
+			"spell_reflect_pct"			"20 25 30 35"
+			"radius"
+			{
+				"value"			"1200"
+				"affected_by_aoe_increase"	"1"
+			}
+		}
+	}
+
+	"queenofpain_masochist"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_queenofpain_perk"
+
+		"MaxLevel"						"4"
+
+		"ReduxPerks"                                                           "self_damage"
+
+		"AbilityValues"
+		{
+			"spell_amplification"			"14 16 18 20"
+			"spell_amplification_per_level"	"0.0"
+			"damage_reflected_to_self"		"27 26 25 24"
+		}
+	}
+
+	"phoenix_dying_light"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_phoenix_perk"
+	}
+
+	"morphling_flow"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_morphling_perk"
+	}
+
+	"medusa_venomed_volley"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE" // requires Split Shot
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_medusa_perk"
+	}
+
 	"spirit_breaker_knockback_amp"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"

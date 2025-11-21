@@ -32,13 +32,16 @@
 	"primal_beast_innate_slow_resistance_per_time"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/primal_beast_innate_slow_resistance_per_time"
 
-		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxFlags"                                                           "doNotRandom | mobility"
+		"ReduxPerks"                                                           "mobility"
 	}
 
 	"primal_beast_innate_status_resistance_per_time"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/primal_beast_innate_status_resistance_per_time"
 
 		"ReduxFlags"                                                           "doNotRandom"
 	}
