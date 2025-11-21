@@ -75,6 +75,44 @@
 
 "DOTAAbilities"
 {
+	"spirit_breaker_knockback_amp"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_spirit_breaker_perk"
+
+		"MaxLevel"						"4"
+
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "enemymoving"
+
+		"AbilityValues"
+		{
+			"knockback_amp"			"20 25 30 35"
+		}
+	}
+
+	"keeper_of_the_light_mana_magnifier"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_keeper_of_the_light_perk"
+
+		"MaxLevel"						"4"
+		"Innate"						"0"
+
+		"ReduxFlags"                                                           "mana | support"
+		"ReduxPerks"                                                           "aura | support"
+
+		"AbilityValues"
+		{
+			"aura_radius"
+			{
+				"value"		"1200"
+				"affected_by_aoe_increase"	"1"
+			}
+			"bonus_mana_pct"	"15 20 25 30"
+		}
+	}
+
 	"granite_golem_bash"
 	{
 		"ReduxFlags"                                                           "attack_modifier | bash | stun"
@@ -101,6 +139,8 @@
 
 	"spawnlord_master_bash"
 	{
+		"AbilityTextureName"                                                   "spawnlord_master_freeze"
+
 		"ReduxFlags"                                                           "attack_modifier | bash | stun"
 		"ReduxPerks"                                                           "attack_modifier | bash | neutral"
 		"ReduxCost"                                                            "120"
@@ -126,8 +166,10 @@
 
 	"ancient_golem_rockslide"
 	{
+		"AbilityTextureName"                                                   "satyr_hellcaller_shockwave"
+
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "earth | nature | neutral"
+		"ReduxPerks"                                                           "earth | nature | neutral | skillshot"
 	}
 
 	"treant_innate_attack_damage"
@@ -170,7 +212,7 @@
 		{
 			"pull_duration"		"0.2"
 			"pull_distance"		"150 200 250 300"
-			"pull_radius"		"200 250 300 350"
+			"pull_radius"		"200 275 350 425"
 		}
 	}
 
@@ -1815,12 +1857,12 @@
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "dragon | neutral"
 
-		"MaxLevel"                      "4"
+		"MaxLevel"                      "1"
 		"AbilityValues"
 		{
 			"evasion_chance_pct"
 			{
-				"value" "15 30 45 60"
+				"value" "15" // putting more values does not work
 			}
 		}
 	}
@@ -1830,12 +1872,12 @@
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "dragon | neutral"
 
-		"MaxLevel"                      "4"
+		"MaxLevel"                      "1"
 		"AbilityValues"
 		{
 			"evasion_chance_pct"
 			{
-				"value" "15 30 45 60"
+				"value" "15" // putting more values does not work
 			}
 		}
 	}
@@ -3009,13 +3051,13 @@
 			{
 				"value" "25"
 			}
-			"move_slow"
+			"move_slow" // does not work for some reason
 			{
 				"value" "40 45 50 55"
 			}
 			"attack_slow"
 			{
-				"value" "0 20 40 80"
+				"value" "20 40 60 80"
 			}
 		}
 	}
@@ -3273,13 +3315,13 @@
 		}
 	}
 
-	"obsidian_destroyer_essence_aura"
-	{
-		"ReduxFlags"			"mana | support"
-		"ReduxPerks"			"aura | support"
-		"ReduxCost"				"120"
-		"ReduxBanCategory"		"ToggleSpells"
-	}
+	// "obsidian_destroyer_essence_aura"
+	// {
+		// "ReduxFlags"			"mana | support"
+		// "ReduxPerks"			"aura | support"
+		// "ReduxCost"				"120"
+		// "ReduxBanCategory"		"ToggleSpells"
+	// }
 
 	"item_ancient_janggo"
 	{
@@ -3817,13 +3859,13 @@
 		"AbilityManaCost"               "75"
 		"AbilityValues"
 		{
-			"duration"		"3"
+			"duration"		"2.4 2.6 2.8 3.0"
 			"damage"
 			{
 				"value"					"150 200 250 300"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"movement_slow"		"30 45 60 75"
+			"movement_slow"		"30 35 40 45"
 			"debuff_duration"		"4"
 			"projectile_speed"		"1600"
 			"wake_damage_limit"		"200"
@@ -4259,7 +4301,7 @@
 			"damage_interval"		"1.0"
 			"duration"				"7 9 11 13"
 			"explosion_damage"		"300 350 400 450"
-			"explosion_stun_duration"	"2 2.5 3.0 3.5"
+			"explosion_stun_duration"	"1.6 1.8 2.0 2.2"
 		}
 	}
 

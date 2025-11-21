@@ -2451,6 +2451,9 @@ end
 function Pregame:isTrollCombo(build)
     local exceptions = {
         ["kunkka_torrent_storm"] = "kunkka_torrent",
+        ["shredder_chakram_2"] = "shredder_chakram",
+        ["bounty_hunter_wind_walk_ally"] = "bounty_hunter_wind_walk",
+        ["earthshaker_enchant_totem"] = "earthshaker_aftershock",
     }
     local maxSlots = self.optionStore['lodOptionCommonMaxSlots']
 
@@ -2462,22 +2465,17 @@ function Pregame:isTrollCombo(build)
                 if (exceptions[ab1] and exceptions[ab1] == ab2) or (exceptions[ab2] and exceptions[ab2] == ab1) then
                     print(ab1.." "..ab2)
                 else
-                if self.banList[ab1] then
-
-
-
-                    if ab2 ~= nil and self.banList[ab1][ab2] then
-                        -- Ability should be banned
-
-                        return true, ab1, ab2
+                    if self.banList[ab1] then
+                        if ab2 ~= nil and self.banList[ab1][ab2] then
+                            -- Ability should be banned
+                            return true, ab1, ab2
+                        end
                     end
-
-                end
-                if ab1 and ab2 then
-                    if string.find(ab1,ab2) or string.find(ab2,ab1) then
-                        return true, ab1, ab2
+                    if ab1 and ab2 then
+                        if string.find(ab1,ab2) or string.find(ab2,ab1) then
+                            return true, ab1, ab2
+                        end
                     end
-                end
                 end
             end
         end

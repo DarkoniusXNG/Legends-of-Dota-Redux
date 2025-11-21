@@ -94,11 +94,11 @@
 	}
 
 	//=================================================================================================================
-	// Anti-Mage: Blink Fragment (scepter ability)
+	// Anti-Mage: Blink Fragment
 	//=================================================================================================================
 	"antimage_mana_overload"
 	{
-		"ReduxFlags"					"illusion | upgradeable | illusion"
+		"ReduxFlags"					"illusion"
 		"ReduxPerks"                    "blink | illusion"
 		"MaxLevel"						"4"
 		"AbilityCooldown"				"0"

@@ -364,11 +364,11 @@
             "obsidian_destroyer_arcane_orb"            "1"
             "obsidian_destroyer_astral_imprisonment"            "1"
             "obsidian_destroyer_astral_imprisonment_redux" "1" // custom, Old Astral Imprisonment (6.86-7.27d)
-            "obsidian_destroyer_essence_aura"	"1"
-            "obsidian_destroyer_essence_aura_lod"            "1" // custom, Essence Aura (pre 7.20)
-            "obsidian_destroyer_essence_aura_redux"            "1" // custom, Essence Aura (pre 7.20) Redux
+            //"obsidian_destroyer_essence_aura"            "1" // does not work anymore
+            "obsidian_destroyer_essence_aura_lod"          "1" // custom, Essence Aura (pre 7.20)
+            "obsidian_destroyer_essence_aura_redux"        "1" // custom, Essence Aura (pre 7.20) Redux
             "obsidian_destroyer_sanity_eclipse"            "1"
-            "obsidian_destroyer_equilibrium"                "1"
+            "obsidian_destroyer_equilibrium"               "1" // Essence Flux
             "ogre_magi_bloodlust"            "1"
             "ogre_magi_fireblast"            "1"
             "ogre_magi_ignite"            "1"
@@ -695,7 +695,7 @@
             "omniknight_hammer_of_purity"       "1"   // ok
 			"pangolier_rollup"					"1"
             "phantom_assassin_fan_of_knives"    "1"   // ok
-            "riki_poison_dart"                  "1"   // ok
+            "riki_poison_dart"                  "1"   // crashes the game in tools because no particle, otherwise seems fine
             "slark_fish_bait"                   "1"   // ok
             "sniper_concussive_grenade"         "1"   // ok
             "storm_spirit_electric_rave"        "1"   // needs overload - added warning text
@@ -814,7 +814,7 @@
 			"ancient_apparition_death_rime"		"1"
 			"ancient_apparition_ice_age"		"1"
 			"arc_warden_runic_infusion"		"1"
-			"arc_warden_tempest_recall"     "1"
+			//"arc_warden_tempest_recall"     "1" // disappears from skills on game start
 			"axe_coat_of_blood"		"1"
 			"axe_one_man_army"		"1"
 			"bane_ichor_of_nyctasha"		"1"
@@ -846,7 +846,7 @@
 			//"death_prophet_innate_healing_mastery"		"1" // disappears from skills on game start
 			"death_prophet_spirit_collector"		"1"
 			"disruptor_electromagnetic_repulsion"		"1"
-			"disruptor_innate_kinetic_circle"		"1"
+			//"disruptor_innate_kinetic_circle"		"1" // disappears from skills on game start
 			"disruptor_kinetic_fence"		"1"
 			"doom_bringer_devils_bargain"		"1"
 			"doom_bringer_lvl_pain"		"1"
@@ -913,7 +913,7 @@
 			"mirana_selemenes_faithful"		"1"
 			"mirana_solar_flare"		"1"
 			"morphling_accumulation"		"1"
-			"morphling_ebb"		"1"
+			//"morphling_ebb"		"1" // does nothing, primary attribute change can misbehave with our primary attribute changes
 			"morphling_flow"		"1"
 			//"muerta_grave_tracker"		"1" // does nothing? maybe a sub-ability
 			"muerta_ofrenda"		"1"
@@ -2649,8 +2649,7 @@
         }
 
         "npc_dota_hero_arc_warden" {
-			"1"  "arc_warden_tempest_recall"
-			"2"  "arc_warden_scepter"
+			"1"  "arc_warden_scepter"
         }
 
 		"npc_dota_hero_axe" {
@@ -2769,7 +2768,6 @@
 		"npc_dota_hero_disruptor" {
 			"1"  "disruptor_kinetic_field"
 			"2"  "disruptor_kinetic_fence"
-			"3"  "disruptor_innate_kinetic_circle"
 		}
 
 		"npc_dota_hero_doom_bringer" {
@@ -2947,8 +2945,7 @@
             "2"  "morph_str_int_redux"
             "3"  "morph_agi_int_redux"
             "4"  "morph_int_agi_redux"
-			"5"  "morphling_ebb"
-			"6"  "morphling_flow"
+			"5"  "morphling_flow"
         }
 
 		"npc_dota_hero_muerta" {
@@ -2983,7 +2980,6 @@
             "1"           "obsidian_destroyer_astral_imprisonment_redux"
             "2"           "obsidian_destroyer_essence_aura_lod"
             "3"           "obsidian_destroyer_essence_aura_redux"
-			"4"			  "obsidian_destroyer_essence_aura"
         }
 
 		"npc_dota_hero_ogre_magi" {
@@ -3025,9 +3021,9 @@
 		}
 
 		"npc_dota_hero_riki" {
-            "1"           "riki_permanent_invisibility"
-			"2"			  "riki_poison_dart"
-            "3"           "riki_backstab_lod"
+			"1"           "riki_permanent_invisibility"
+			"2"           "riki_backstab_lod"
+			"3"           "riki_poison_dart"
         }
 
 		"npc_dota_hero_rubick" {

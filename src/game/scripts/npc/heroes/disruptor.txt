@@ -38,17 +38,11 @@
 		"ReduxPerks"                                                           "enemymoving | explosive | lightning"
 	}
 
-	//=================================================================================================================
-	// Unknown
-	//=================================================================================================================
-	"disruptor_innate_kinetic_circle"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/npc_dota_hero_disruptor_perk"
-
-		"ReduxFlags"                                                           "doNotRandom"
-		"ReduxPerks"                                                           "lightning"
-	}
+	// "disruptor_innate_kinetic_circle"
+	// {
+		// "ReduxFlags"                                                           "doNotRandom"
+		// "ReduxPerks"                                                           "lightning"
+	// }
 
 	"special_bonus_unique_disruptor"
 	{
