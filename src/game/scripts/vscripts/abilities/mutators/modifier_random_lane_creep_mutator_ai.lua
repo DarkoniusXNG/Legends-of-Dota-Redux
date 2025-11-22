@@ -72,44 +72,50 @@ function modifier_random_lane_creep_spawner_mutator:OnCreated()
             "npc_dota_neutral_redux_kobold",
         }
 
-        ListenToGameEvent('npc_spawned',function(keys)
-            local u = EntIndexToHScript(keys.entindex)
-            if u and IsValidEntity(u) then
-                if string.find(u:GetUnitName(),"goodguys_ranged") or string.find(u:GetUnitName(),"badguys_ranged") then
+		ListenToGameEvent('npc_spawned',function(keys)
+			local u = EntIndexToHScript(keys.entindex)
+			if u and IsValidEntity(u) then
+				if string.find(u:GetUnitName(),"goodguys_ranged") or string.find(u:GetUnitName(),"badguys_ranged") then
+					local spawnCount = 0
+					while spawnCount < self.minSpawn or self.maxSpawn > spawnCount and RollPercentage(50) do
+						spawnCount = spawnCount + 1
+						local rnd = RandomInt(1,#self.units)
+						local name = self.units[rnd]
+						local origin = u:GetAbsOrigin()
+						local teamNumber = u:GetTeamNumber()
+						local waypoint = u:GetInitialGoalEntity()
+						local goal = u:GetInitialGoalPosition()
 
-                    local spawnCount = 0
-                    while spawnCount < self.minSpawn or self.maxSpawn > spawnCount and RollPercentage(50)  do
-                        spawnCount = spawnCount + 1
-                        local rnd = RandomInt(1,#self.units)
-                        local name = self.units[rnd]
-                        local origin = u:GetAbsOrigin()
-                        local teamNumber = u:GetTeamNumber()
-                        local waypoint = u:GetInitialGoalEntity()
-                        local goal = u:GetInitialGoalPosition()
+						-- Freeze and hide them until time reaches .30 or .60
+						local waitTime = 30-math.floor(GameRules:GetDOTATime(false,false)%30)
+						if waitTime > 28 then
+							waitTime = FrameTime()
+						end
+						local allowed_spawn = true
+						Timers:CreateTimer(0.5, function()
+							if u and not u:IsNull() then
+								-- If the spawned unit is a clone then dont spawn a random lane creep
+								allowed_spawn = u:FindAbilityByName("clone_token_ability") == nil
+							end
+						end)
 
-                        -- Freeze and hide them until time reaches .30 or .60
+						Timers:CreateTimer(waitTime+2,function()
+							if allowed_spawn then
+								local unit = CreateUnitByName(name,origin,true,nil,nil,teamNumber)
 
-                        local waitTime = 30-math.floor(GameRules:GetDOTATime(false,false)%30)
-                        if waitTime > 28 then
-                            waitTime = FrameTime()
-                        end
+								unit:SetInitialGoalEntity(waypoint)
+								unit:SetInitialGoalPosition(goal)
 
-                        --unit:AddNewModifier(unit,nil,"modifier_random_lane_creep_freeze",{duration = waitTime+1})
-                        Timers:CreateTimer(waitTime+2,function()
-                            local unit = CreateUnitByName(name,origin,true,nil,nil,teamNumber)
-
-                            unit:SetInitialGoalEntity(waypoint)
-                            unit:SetInitialGoalPosition(goal)
-
-                            unit:AddNewModifier(unit,nil,"modifier_random_lane_creep_mutator_ai",{})
-                            unit:AddNewModifier(unit,nil,"modifier_phased",{duration = 2.5})
-                            ResolveNPCPositions(unit:GetAbsOrigin(),100)
-                        end)
-                    end
-                end
-            end
-        end, nil)
-    end
+								unit:AddNewModifier(unit,nil,"modifier_random_lane_creep_mutator_ai",{})
+								unit:AddNewModifier(unit,nil,"modifier_phased",{duration = 2.5})
+								ResolveNPCPositions(unit:GetAbsOrigin(),100)
+							end
+						end)
+					end
+				end
+			end
+		end, nil)
+	end
 end
 
 function modifier_random_lane_creep_spawner_mutator:OnIntervalThink()
@@ -150,30 +156,30 @@ function modifier_random_lane_creep_mutator_ai.OnCreated(self,kv)
 end
 
 function modifier_random_lane_creep_mutator_ai.OnIntervalThink(self)
-    local unit = self:GetParent()
+	local unit = self:GetParent()
 	if not unit or unit:IsNull() then
 		self:StartIntervalThink(-1)
 		self:Destroy()
 		return
 	end
-    if self:GetElapsedTime() > 30 and ((unit:GetAbsOrigin()-self.initPos):Length2D() < 100) then
-        print("modifier_random_lane_creep_mutator_ai: UNIT IS STUCK, last attack time: ", unit:GetLastAttackTime())
-        UTIL_Remove(unit)
+	if self:GetElapsedTime() > 30 and ((unit:GetAbsOrigin()-self.initPos):Length2D() < 100) then
+		print("modifier_random_lane_creep_mutator_ai: UNIT IS STUCK, last attack time: ", unit:GetLastAttackTime())
+		UTIL_Remove(unit)
 		self:StartIntervalThink(-1)
 		self:Destroy()
-        return
-    end
+		return
+	end
 
-    if not unit:GetInitialGoalEntity() then
+	if not unit:GetInitialGoalEntity() then
 		--print("========")
 		--print("modifier_random_lane_creep_mutator_ai Initial goal entity: ", unit:GetInitialGoalEntity())
 		--print("modifier_random_lane_creep_mutator_ai Initial goal position: ", unit:GetInitialGoalPosition())
 		--print("========")
 		unit.ordered_to_attack = false
-        local units = FindUnitsInRadius(unit:GetTeamNumber(),unit:GetAbsOrigin(),nil,1200,DOTA_UNIT_TARGET_TEAM_FRIENDLY,DOTA_UNIT_TARGET_BASIC,DOTA_UNIT_TARGET_FLAG_NONE,FIND_ANY_ORDER,false)
-        for _, u in pairs(units) do
+		local units = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, 1800, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+		for _, u in pairs(units) do
 			if u and IsValidEntity(u) then
-                if (string.find(u:GetUnitName(),"goodguys_ranged") or string.find(u:GetUnitName(),"badguys_ranged")) and unit:GetTeamNumber() == u:GetTeamNumber() then
+				if (string.find(u:GetUnitName(),"goodguys_ranged") or string.find(u:GetUnitName(),"badguys_ranged")) and unit:GetTeamNumber() == u:GetTeamNumber() then
 					if u:GetInitialGoalEntity() then
 						--unit:SetInitialGoalEntity(u:GetInitialGoalEntity())
 						local goal = u:GetInitialGoalEntity():GetAbsOrigin()
@@ -188,10 +194,17 @@ function modifier_random_lane_creep_mutator_ai.OnIntervalThink(self)
 					end
 				end
 			end
-        end
+		end
 		if not unit.ordered_to_attack then
 			local buildings = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
-			local closest_building = buildings[1]
+			local closest_building
+			for _, ally_building in ipairs(buildings) do
+				if ally_building and not ally_building:IsNull() and ally_building:IsAlive() then
+					if string.find(ally_building:GetUnitName(), "watch_tower") == nil and string.find(ally_building:GetUnitName(), "lantern") == nil then
+						closest_building = ally_building
+					end
+				end
+			end
 			if closest_building then
 				ExecuteOrderFromTable({
 					UnitIndex = unit:entindex(),
@@ -202,86 +215,46 @@ function modifier_random_lane_creep_mutator_ai.OnIntervalThink(self)
 			end
 			unit.ordered_to_attack = true
 		end
-    --else
-        --print("========")
+	--else
+		--print("========")
 		--print("modifier_random_lane_creep_mutator_ai YEAH, Initial goal entity: ", unit:GetInitialGoalEntity())
 		--print("modifier_random_lane_creep_mutator_ai Initial goal position: ", unit:GetInitialGoalPosition())
 		--print("========")
-    end
+	end
 
-    for i = 0, unit:GetAbilityCount() - 1 do
-        local ability = unit:GetAbilityByIndex(i)
-        if unit:GetCurrentActiveAbility() then return end
-        if ability and not ability:IsPassive() and ability:IsCooldownReady() and unit:GetMana() >= ability:GetManaCost(-1) then
-            if ability:GetAbilityName() == "dark_troll_warlord_raise_dead" and unit:IsAttacking() then
-                ability:CastAbility()
-                return
-            end
+	for i = 0, unit:GetAbilityCount() - 1 do
+		local ability = unit:GetAbilityByIndex(i)
+		if unit:GetCurrentActiveAbility() then return end
+		if ability and not ability:IsPassive() and ability:IsCooldownReady() and unit:GetMana() >= ability:GetManaCost(-1) then
+			if ability:GetAbilityName() == "dark_troll_warlord_raise_dead" and unit:IsAttacking() then
+				ability:CastAbility()
+				return
+			end
 
-            if ability:GetAbilityName() == "enraged_wildkin_tornado" then
-                return
-            end
+			if ability:GetAbilityName() == "enraged_wildkin_tornado" then
+				return
+			end
             -- Cast stomps
-            if ability:GetCastRange(unit:GetAbsOrigin(),nil) < 50 then
-                local units = FindUnitsInRadius(unit:GetTeamNumber(),unit:GetAbsOrigin(),nil,ability:GetSpecialValueFor("radius"),ability:GetAbilityTargetTeam(),DOTA_UNIT_TARGET_HERO,DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE ,FIND_ANY_ORDER,false)
-                if #units > 0 then
-                    ability:CastAbility()
-                    ability:StartCooldown(ability:GetCooldown(-1))
-                    unit:SpendMana(ability:GetManaCost(-1),ability)
-                    --unit:CastAbilityNoTarget(ability,-1)
-                    return
-                end
-            end
+			if ability:GetCastRange(unit:GetAbsOrigin(),nil) < 50 then
+				local units = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, ability:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
+				if #units > 0 then
+					ability:CastAbility()
+					ability:StartCooldown(ability:GetCooldown(-1))
+					unit:SpendMana(ability:GetManaCost(-1),ability)
+					--unit:CastAbilityNoTarget(ability,-1)
+					return
+				end
+			end
 
-            local units = FindUnitsInRadius(unit:GetTeamNumber(),unit:GetAbsOrigin(),nil,ability:GetCastRange(unit:GetAbsOrigin(),nil),DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO,DOTA_UNIT_TARGET_FLAG_NONE,FIND_CLOSEST ,false)
-
-            if #units > 0 then
-                unit:SetCursorCastTarget(units[1])
-                ability:CastAbility()
-                ability:StartCooldown(ability:GetCooldown(-1))
-                unit:SpendMana(ability:GetManaCost(-1),ability)
-                --unit:CastAbilityOnTarget(units[1],ability,-1)
-                return
-            end
-        end
-    end
-end
-
-
-
-
-
-modifier_random_lane_creep_freeze = class({})
-
-function modifier_random_lane_creep_freeze.IsPermanent(self)
-    return true
-end
-function modifier_random_lane_creep_freeze.IsPurgable(self)
-    return false
-end
-function modifier_random_lane_creep_freeze.IsHidden(self)
-    return true
-end
-
-function modifier_random_lane_creep_freeze:CheckState()
-    return {
-        [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-        [MODIFIER_STATE_OUT_OF_GAME  ] = true,
-        [MODIFIER_STATE_STUNNED      ] = true,
-        [MODIFIER_STATE_INVISIBLE    ] = true,
-        [MODIFIER_STATE_TRUESIGHT_IMMUNE] = true,
-        [MODIFIER_STATE_INVULNERABLE ] = true,
-    }
-end
-
-function modifier_random_lane_creep_freeze:OnCreated()
-    if IsClient() then return end
-    elf:GetParent():AddNoDraw()
-end
-
-function modifier_random_lane_creep_freeze:OnDestroy()
-    if IsClient() then return end
-    self:GetParent():RemoveNoDraw()
-    local unit = self:GetParent()
-
+			local units = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, ability:GetCastRange(unit:GetAbsOrigin(),nil), ability:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false)
+			if #units > 0 then
+				unit:SetCursorCastTarget(units[1])
+				ability:CastAbility()
+				ability:StartCooldown(ability:GetCooldown(-1))
+				unit:SpendMana(ability:GetManaCost(-1),ability)
+				--unit:CastAbilityOnTarget(units[1],ability,-1)
+				return
+			end
+		end
+	end
 end

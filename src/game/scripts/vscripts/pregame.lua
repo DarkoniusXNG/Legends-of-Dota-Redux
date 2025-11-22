@@ -46,7 +46,6 @@ LinkLuaModifier("modifier_killstreak_mutator_redux","abilities/mutators/modifier
 LinkLuaModifier("modifier_no_healthbar_mutator","abilities/mutators/modifier_no_healthbar_mutator.lua",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_random_spell_mutator","abilities/mutators/modifier_random_spell_mutator.lua",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_random_lane_creep_mutator_ai","abilities/mutators/modifier_random_lane_creep_mutator_ai.lua",LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_random_lane_creep_freeze","abilities/mutators/modifier_random_lane_creep_mutator_ai.lua",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_random_lane_creep_spawner_mutator","abilities/mutators/modifier_random_lane_creep_mutator_ai.lua",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_resurrection_mutator","abilities/mutators/modifier_resurrection_mutator.lua",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rune_doubledamage_mutated_redux","abilities/mutators/super_runes.lua",LUA_MODIFIER_MOTION_NONE)
@@ -3544,6 +3543,10 @@ function Pregame:MultiplyLaneUnit( unit, mult )
 		clone:AddAbility("clone_token_ability")
 		clone:AddNewModifier(clone, nil, "modifier_kill", {duration = 30})
 		clone:SetInitialGoalEntity(unit:GetInitialGoalEntity())
+		-- Random lane creeps
+		if unit:HasModifier("modifier_random_lane_creep_mutator_ai") then
+			clone:AddNewModifier(clone, nil, "modifier_random_lane_creep_mutator_ai", {})
+		end
 	end
 end
 
@@ -6559,7 +6562,7 @@ function Pregame:multiplyLaneCreeps()
                 attacker = EntIndexToHScript( keys.entindex_attacker )
             end
 
-            -- Neutral Multiplier: Checks if hurt npc is neutral, dead, and if it doesnt have the clone token ability, and their is a valid attacker
+            -- Lane Creep Multiplier: Checks if hurt npc is non-neutral, dead, and if it doesnt have the clone token ability, and there is a valid attacker
             if IsValidEntity(ent) and IsValidEntity(attacker) then
                 if ent:GetName() == "npc_dota_creep_lane" and ent:FindAbilityByName("clone_token_ability") == nil then
                     ent:AddAbility("clone_token_ability")
