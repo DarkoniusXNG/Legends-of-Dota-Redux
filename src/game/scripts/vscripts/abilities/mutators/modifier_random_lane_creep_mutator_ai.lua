@@ -198,10 +198,10 @@ function modifier_random_lane_creep_mutator_ai.OnIntervalThink(self)
 		if not unit.ordered_to_attack then
 			local buildings = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
 			local closest_building
-			for _, ally_building in ipairs(buildings) do
-				if ally_building and not ally_building:IsNull() and ally_building:IsAlive() then
-					if string.find(ally_building:GetUnitName(), "watch_tower") == nil and string.find(ally_building:GetUnitName(), "lantern") == nil then
-						closest_building = ally_building
+			for _, building in ipairs(buildings) do
+				if building and not building:IsNull() and building:IsAlive() then
+					if string.find(building:GetUnitName(), "watch_tower") == nil and string.find(building:GetUnitName(), "lantern") == nil then
+						closest_building = building
 					end
 				end
 			end
