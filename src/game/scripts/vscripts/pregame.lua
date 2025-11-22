@@ -6329,7 +6329,7 @@ function Pregame:findRandomSkill(build, slotNumber, playerID, optionalFilter)
     end
 
     -- Pick a random skill to return
-    return possibleSkills[math.random(#possibleSkills)]
+    return possibleSkills[RandomInt(1, #possibleSkills)]
 end
 
 -- Sets the stage
