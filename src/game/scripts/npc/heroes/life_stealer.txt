@@ -75,18 +75,15 @@
 		{
 			"damage"
 			{
-				"value" "300 400 500 600"
-				"RequiresScepter" "1"
+				"value" "300 350 400 450"
 			}
 			"radius"
 			{
-				"value" "700 700 700"
-				"RequiresScepter" "1"
+				"value" "700"
 			}
 			"order_lock_duration"
 			{
 				"value" "2"
-				"RequiresScepter" "1"
 			}
 		}
 	}
@@ -102,11 +99,11 @@
 		{
 			"damage_tooltip"
 			{
-				"value" "300 400 500 600"
+				"value" "300 350 400 450"
 			}
 			"radius_tooltip"
 			{
-				"value" "700 700 700"
+				"value" "700"
 			}
 		}
 	}

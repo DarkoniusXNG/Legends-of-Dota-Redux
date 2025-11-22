@@ -385,7 +385,7 @@ local item_builds = {
 		"item_mystic_staff",
 	},
 	npc_dota_hero_windrunner = {
-		"item_magic_wand",
+		"item_null_talisman",
 		"item_power_treads",
 		"item_maelstrom",
 		"item_black_king_bar",
@@ -554,6 +554,12 @@ local junk_to_sell = {
 	--item_robe = 1,
 	--item_staff_of_wizardry = 1,
 	--item_tiara_of_selemene = 1,
+	item_dagon_5 = 1,
+	item_meteor_hammer = 1,
+	--item_eternal_shroud = 1,
+	item_silver_edge = 1,
+	item_helm_of_the_overlord = 1,
+	item_falcon_blade = 1,
 }
 
 local duplicates = {
@@ -654,6 +660,7 @@ local forbidden_ranged = {
 	item_crimson_guard = 1,
 	item_echo_sabre = 1,
 	item_harpoon = 1,
+	item_heavens_halberd = 1,
 	item_vanguard = 1,
 }
 
@@ -906,9 +913,18 @@ if IsServer() then
     if unit ~= parent then
       return
     end
-    if self.difficulty == 4 or (self.difficulty == 5 and parent:HasModifier("modifier_unfairbot")) then
-      parent:ModifyGold(1000, true, DOTA_ModifyGold_SellItem)
-      parent:AddExperience(500, DOTA_ModifyXP_Unspecified, true, true)
+    if self.difficulty == 5 then
+      if parent:HasModifier("modifier_unfairbot") then
+        parent:ModifyGold(1000, true, DOTA_ModifyGold_SellItem)
+        parent:AddExperience(1000, DOTA_ModifyXP_Unspecified, true, false)
+      else
+        local r = RandomInt(250, 1000)
+        parent:ModifyGold(r, true, DOTA_ModifyGold_SellItem)
+        parent:AddExperience(r, DOTA_ModifyXP_Unspecified, true, false)
+      end
+    elseif self.difficulty <= 4 then
+      parent:ModifyGold(self.difficulty * 250, true, DOTA_ModifyGold_SellItem)
+      parent:AddExperience(self.difficulty * 250, DOTA_ModifyXP_Unspecified, true, false)
     end
     self:OnIntervalThink()
   end

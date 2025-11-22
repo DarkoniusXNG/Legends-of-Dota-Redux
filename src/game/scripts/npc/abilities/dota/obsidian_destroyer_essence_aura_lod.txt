@@ -64,7 +64,7 @@
         }
 
         "ReduxFlags"                                                           "dota_custom | mana | support"
-        "ReduxPerks"                                                           "support | aura"
+        "ReduxPerks"                                                           "aura | support"
         "ReduxCost"                                                            "120"
     }
 }

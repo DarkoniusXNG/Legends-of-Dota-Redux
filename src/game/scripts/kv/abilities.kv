@@ -288,7 +288,7 @@
             "lion_impale"            "1"
             "lion_mana_drain"            "1"
             "lion_voodoo"            "1"
-            "lone_druid_rabid"            "1"
+            //"lone_druid_rabid"            "1" // does not work; does not provide move speed and attack speed
             "lone_druid_spirit_bear"            "1"
             "lone_druid_true_form"            "1"
             "lone_druid_spirit_link" "1"
@@ -356,7 +356,7 @@
             "night_stalker_void"            "1"
             "night_stalker_darkness"      "1"
             "nyx_assassin_impale"            "1"
-            "nyx_assassin_mana_burn"            "1"
+            //"nyx_assassin_mana_burn"            "1"  // does not work anymore
             "nyx_assassin_spiked_carapace"            "1"
             "nyx_assassin_vendetta"            "1"
             "nyx_assassin_burrow"            "1"
@@ -364,11 +364,11 @@
             "obsidian_destroyer_arcane_orb"            "1"
             "obsidian_destroyer_astral_imprisonment"            "1"
             "obsidian_destroyer_astral_imprisonment_redux" "1" // custom, Old Astral Imprisonment (6.86-7.27d)
-            "obsidian_destroyer_essence_aura"	"1"
-            "obsidian_destroyer_essence_aura_lod"            "1" // custom, Essence Aura (pre 7.20)
-            "obsidian_destroyer_essence_aura_redux"            "1" // custom, Essence Aura (pre 7.20) Redux
+            //"obsidian_destroyer_essence_aura"            "1" // does not work anymore
+            "obsidian_destroyer_essence_aura_lod"          "1" // custom, Essence Aura (pre 7.20)
+            "obsidian_destroyer_essence_aura_redux"        "1" // custom, Essence Aura (pre 7.20) Redux
             "obsidian_destroyer_sanity_eclipse"            "1"
-            "obsidian_destroyer_equilibrium"                "1"
+            "obsidian_destroyer_equilibrium"               "1" // Essence Flux
             "ogre_magi_bloodlust"            "1"
             "ogre_magi_fireblast"            "1"
             "ogre_magi_ignite"            "1"
@@ -695,7 +695,7 @@
             "omniknight_hammer_of_purity"       "1"   // ok
 			"pangolier_rollup"					"1"
             "phantom_assassin_fan_of_knives"    "1"   // ok
-            "riki_poison_dart"                  "1"   // ok
+            "riki_poison_dart"                  "1"   // crashes the game in tools because no particle, otherwise seems fine
             "slark_fish_bait"                   "1"   // ok
             "sniper_concussive_grenade"         "1"   // ok
             "storm_spirit_electric_rave"        "1"   // needs overload - added warning text
@@ -762,10 +762,10 @@
 			"crystal_maiden_let_it_go"		"1" // ok
 			//"crystal_maiden_ice_rink"		"1" // does not exist, removed from the game
 			"furion_greater_sprout"			"1"
-			"lich_dark_sorcery"				"1"
-			"lich_frost_aura"				"1"
+			//"lich_dark_sorcery"           "1" // disappears from skills on game start
+			//"lich_frost_aura"             "1" // disappears from skills on game start
 			"lone_druid_entangling_claws"	"1"
-			"luna_lunar_grace"				"1"
+			//"luna_lunar_grace"            "1" // disappears from skills on game start
 			"omniknight_angelic_flight"		"1"
 			"shadow_shaman_serpentine"		"1"
 			"omniknight_pacify"             "1"
@@ -801,8 +801,6 @@
 			"centaur_work_horse"            "1" // added warning text
 			"bounty_hunter_wind_walk_ally"  "1"
 			//"chen_martyrdom"				"1" // crashes the game when used on self
-			"warlock_imp_explode"			"1" // you lose control of your hero
-			"warlock_imp_explode_major"		"1" // you lose control of your hero
 
 			// 7.36
 			//"abaddon_font_of_avernus"		"1" // does not exist
@@ -816,7 +814,7 @@
 			"ancient_apparition_death_rime"		"1"
 			"ancient_apparition_ice_age"		"1"
 			"arc_warden_runic_infusion"		"1"
-			"arc_warden_tempest_recall"     "1"
+			//"arc_warden_tempest_recall"     "1" // disappears from skills on game start
 			"axe_coat_of_blood"		"1"
 			"axe_one_man_army"		"1"
 			"bane_ichor_of_nyctasha"		"1"
@@ -845,10 +843,10 @@
 			"dawnbreaker_unbreakable"		"1"
 			"dazzle_innate_weave"		"1"
 			"dazzle_nothl_boon"		"1"
-			"death_prophet_innate_healing_mastery"		"1"
+			//"death_prophet_innate_healing_mastery"		"1" // disappears from skills on game start
 			"death_prophet_spirit_collector"		"1"
 			"disruptor_electromagnetic_repulsion"		"1"
-			"disruptor_innate_kinetic_circle"		"1"
+			//"disruptor_innate_kinetic_circle"		"1" // disappears from skills on game start
 			"disruptor_kinetic_fence"		"1"
 			"doom_bringer_devils_bargain"		"1"
 			"doom_bringer_lvl_pain"		"1"
@@ -866,13 +864,13 @@
 			"enigma_splitting_image"		"1"
 			"faceless_void_distortion_field"		"1"
 			"faceless_void_time_zone"		"1"
-			"furion_arboreal_might"		"1"
-			"furion_fecundity"		"1"
-			"furion_hedgerow"		"1"
+			//"furion_arboreal_might"           "1"  // disappears from skills on game start
+			//"furion_fecundity"                "1" // disappears from skills on game start
+			//"furion_hedgerow"                 "1" // disappears from skills on game start
 			"furion_spirit_of_the_forest"		"1"
 			"grimstroke_ink_trail"		"1"
 			"gyrocopter_chop_shop"		"1"
-			"gyrocopter_lock_on"		"1"
+			//"gyrocopter_lock_on"		"1" // disappears from skills on game start
 			//"hoodwink_go_nutss_boomerang"		"1"  // does not exist
 			"hoodwink_mistwoods_wayfarer"		"1"
 			"huskar_blood_magic"		"1"
@@ -915,9 +913,9 @@
 			"mirana_selemenes_faithful"		"1"
 			"mirana_solar_flare"		"1"
 			"morphling_accumulation"		"1"
-			"morphling_ebb"		"1"
+			//"morphling_ebb"		"1" // does nothing, primary attribute change can misbehave with our primary attribute changes
 			"morphling_flow"		"1"
-			"muerta_grave_tracker"		"1"
+			//"muerta_grave_tracker"		"1" // does nothing? maybe a sub-ability
 			"muerta_ofrenda"		"1"
 			"muerta_supernatural"		"1"
 			"naga_siren_crit"		"1"
@@ -990,7 +988,7 @@
 			"tiny_insurmountable"		"1"
 			"tiny_rocksteady"		"1"
 			"treant_innate_attack_damage"		"1"
-			"treant_lifebomb_explode"		"1"
+			//"treant_lifebomb_explode"		"1" // does nothing?
 			"troll_warlord_innate_masterful"		"1"
 			//"troll_warlord_innate_unflinching"		"1" // does not exist
 			"tusk_bitter_chill"		"1"
@@ -1078,8 +1076,8 @@
 			"kez_shadowhawk_passive"               "1"
 
 			// 7.39
-			"templar_assassin_hidden_gates"        "1"
-			"furion_summon_fey"                    "1"
+			//"templar_assassin_hidden_gates"        "1" // does nothing (there are no hidden gates)
+			//"furion_summon_fey"                    "1" // disappears from skills on game start
 			"furion_natures_profit"                "1"
 			"silencer_oppressive_silence"          "1"
 			"wisp_essence_conduction"              "1"
@@ -1087,121 +1085,122 @@
         }
         // The neutrals skills
         "neutral" {
-            "alpha_wolf_group" {
-				"black_dragon_splash_attack"			"1"
-                "ghost_frost_attack"					"1"
-                "gnoll_assassin_envenomed_weapon"		"1"
-                "alpha_wolf_critical_strike"			"1"
+            "alpha_wolf_group" {                              // non-ancient attack modifiers
+				"alpha_wolf_critical_strike"            "1"
+				"berserker_troll_break"                 "1"
+				"ghost_frost_attack"                    "1"
 				//"giant_wolf_critical_strike"            "1" // inferior version of alpha_wolf_critical_strike
-				"berserker_troll_break"					"1"
-				"kobold_disarm"							"1"
-				"necronomicon_warrior_mana_burn_lod"                "1"
+				"gnoll_assassin_envenomed_weapon"       "1"
+				"kobold_disarm"                         "1"
             }
 
-            "big_thunder_lizard_group" {
-				"alpha_wolf_command_aura"					"1"
-				"centaur_khan_endurance_aura"				"1"
-				"big_thunder_lizard_wardrums_aura"			"1"
-				"kobold_taskmaster_speed_aura"				"1"
-				"black_drake_magic_amplification_aura"		"1"
+            "big_thunder_lizard_group" {                        // non-ancient auras
+				"alpha_wolf_command_aura"                   "1"
+				"centaur_khan_endurance_aura"               "1"
+				"enraged_wildkin_toughness_aura"            "1"
+				"flagbearer_creep_aura_effect"              "1"
+				"forest_troll_high_priest_heal_amp_aura"    "1"
+				"forest_troll_high_priest_mana_aura"        "1"
+				"hill_troll_rally"                          "1"
+				"kobold_taskmaster_speed_aura"              "1"
+				"kobold_tunneler_prospecting"               "1"
+				"mudgolem_cloak_aura"                       "1"
+				"satyr_hellcaller_unholy_aura"              "1"
+            }
+
+            "black_dragon_group" {                              // ancient auras
 				"ancient_rock_golem_weakening_aura"			"1"
-				"frostbitten_golem_time_warp_aura"			"1" // does not work for the caster/owner
-				"hill_troll_rally"							"1"
-            }
-
-            "black_dragon_group" {
-				"satyr_hellcaller_unholy_aura"				"1"
-				"spawnlord_aura"							"1"
-				"kobold_tunneler_prospecting"				"1"
-				"forest_troll_high_priest_heal_amp_aura"	"1"
-				"forest_troll_high_priest_mana_aura"		"1"
-				"mudgolem_cloak_aura"						"1"
-				"enraged_wildkin_toughness_aura"			"1"
+				"big_thunder_lizard_wardrums_aura"			"1"
 				"black_dragon_dragonhide_aura"				"1"
-				"granite_golem_hp_aura"						"1"
+				"black_drake_magic_amplification_aura"		"1"
 				"blue_dragonspawn_overseer_devotion_aura"	"1"
+				"frostbitten_golem_time_warp_aura"			"1" // does not work for the caster/owner
+				"granite_golem_hp_aura"						"1"
+				"spawnlord_aura"							"1"
 				"necronomicon_archer_aoe_lod"               "1"
 				"necronomicon_warrior_sight"				"1"
-				"flagbearer_creep_aura_effect"				"1"
-				//"mud_golem_rock_destroy"  "1"      // doesnt work
             }
 
-            "blue_dragonspawn_group" {
-				"harpy_storm_chain_lightning"               "1"
+            "blue_dragonspawn_group" {                          // offensive single target abilities
 				"dark_troll_warlord_ensnare"                "1"
-                "satyr_soulstealer_mana_burn"               "1"
-                "satyr_trickster_purge"                     "1"
-                "mud_golem_hurl_boulder"                    "1"
-				"warpine_raider_seed_shot"					"1"
-				"fel_beast_haunt"							"1"
 				"enraged_wildkin_hurricane"					"1"
+				"fel_beast_haunt"							"1"
+				"harpy_storm_chain_lightning"               "1"
+				"mud_golem_hurl_boulder"                    "1"
+				"satyr_soulstealer_mana_burn"               "1"
+				"satyr_trickster_purge"                     "1"
+				"warpine_raider_seed_shot"					"1"
 				"ice_shaman_incendiary_bomb"				"1"
 				"necronomicon_archer_mana_burn_lod"         "1"
 				"necronomicon_archer_purge"                 "1"
             }
 
-            "centaur_khan_group" {
-                "big_thunder_lizard_slam"                 "1"
-                "centaur_khan_war_stomp"                  "1"
-				"spawnlord_master_stomp"                  "1"
-				"polar_furbolg_ursa_warrior_thunder_clap" "1"
-            }
-
-            "dark_troll_warlord_group" {
-                "enraged_wildkin_tornado"                "1"
-                "dark_troll_warlord_raise_dead"          "1"
-				"satyr_hellcaller_shockwave"             "1"
-				"spawnlord_master_freeze"                "1"
-				"black_dragon_fireball"                  "1"
+            "centaur_khan_group" {                             // no target abilities
+				"centaur_khan_war_stomp"                  "1"
+				"dark_troll_warlord_raise_dead"          "1"
 				"giant_wolf_intimidate"					 "1"
-				"ogre_bruiser_ogre_smash"				 "1"
 				"harpy_scout_take_off"					 "1"
+				"polar_furbolg_ursa_warrior_thunder_clap" "1"
+				"big_thunder_lizard_slam"                 "1"
+				"spawnlord_master_stomp"                  "1"
             }
 
-            "enraged_wildkin_group" {
-                "ogre_magi_frost_armor"                "1"
-                "big_thunder_lizard_frenzy"            "1"
-				"forest_troll_high_priest_heal"        "1"
-                "blue_dragonspawn_overseer_evasion"		"1"
+            "dark_troll_warlord_group" {                      // point/ground target abilities
+				"enraged_wildkin_tornado"                "1"
+				"ogre_bruiser_ogre_smash"                "1"
+				"satyr_hellcaller_shockwave"             "1"
+				"black_dragon_fireball"                  "1"
+				"ancient_golem_rockslide"                "1"
+            }
+
+            "enraged_wildkin_group" {                         // allied single target abilities
+				"forest_troll_high_priest_heal"          "1"
+				"ogre_magi_frost_armor"                  "1"
+				"big_thunder_lizard_frenzy"              "1"
+            }
+
+            "lone_druid_spirit_bear_group" {                  // spirit bear abilities
+				"lone_druid_spirit_bear_demolish"      "1"
+				"lone_druid_spirit_bear_entangle"      "1"
+				"lone_druid_spirit_bear_fetch"         "1"
+				"lone_druid_spirit_bear_return"        "1"
+				//"lone_druid_spirit_bear_defender"      "1" // does not work
+            }
+
+            "satyr_group" {                                   // passive abilities that are not auras, not attack modifiers and not ondeath effects
+				"blue_dragonspawn_overseer_evasion"		"1"
 				"blue_dragonspawn_sorcerer_evasion"		"1"
-				"furbolg_enrage_attack_speed"			"1"
-				"furbolg_enrage_damage"					"1"
+            }
+
+            "necronomicon_group" {                            // on-death passive abilities
+				"furbolg_enrage_attack_speed"           "1"
+				"furbolg_enrage_damage"                 "1"
+				//"mud_golem_rock_destroy"                "1" // doesnt work
 				"necronomicon_warrior_last_will_lod"    "1"
             }
 
-            "lone_druid_spirit_bear_group" {
-                "lone_druid_spirit_bear_demolish"                "1"
-                "lone_druid_spirit_bear_entangle"                "1"
-				"lone_druid_spirit_bear_fetch"					 "1"
-                "lone_druid_spirit_bear_return"                "1"
+            "roshan_group" {                                  // roshan abilities
+				"roshan_slam"                           "1"
+				"roshan_spell_block"                    "1"
+				"roshan_bash"                           "1"
+				"roshan_revengeroar"                    "1"
+				"roshan_grab_and_throw"                 "1"
             }
 
-            "satyr_group" {
-
+            "prowler_group" {                                // ancient attack modifiers
+				"black_dragon_splash_attack"            "1"
+				"granite_golem_bash"                    "1"
+				"spawnlord_master_bash"                 "1"
+				"spawnlord_master_freeze"               "1"
+				"necronomicon_warrior_mana_burn_lod"    "1"
             }
 
-            "necronomicon_group" {
-
-            }
-
-            "roshan_group" {
-				"roshan_slam"                "1"
-				"roshan_spell_block"                "1"
-				"roshan_bash"                "1"
-				"roshan_revengeroar"		"1"
-				"roshan_grab_and_throw"                "1"
-            }
-
-            "prowler_group" {
-				"ancient_golem_rockslide"		"1"
-				"granite_golem_bash"		"1"
-				"spawnlord_master_bash"			"1"
-            }
-
-            "warlock_group" {
-                "warlock_golem_flaming_fists"                "1"
-                "warlock_golem_permanent_immolation"                "1"
-                "warlock_golem_permanent_immolation_lod"        "1"
+            "warlock_group" {                                  // warlock golem and imp abilities
+				"warlock_golem_flaming_fists"               "1"
+				"warlock_golem_permanent_immolation"        "1"
+				"warlock_golem_permanent_immolation_lod"    "1"
+				"warlock_imp_explode"                       "1" // you lose control of your hero
+				"warlock_imp_explode_major"                 "1" // you lose control of your hero
             }
 
             "misc_neutral_1_group" {
@@ -2650,8 +2649,7 @@
         }
 
         "npc_dota_hero_arc_warden" {
-			"1"  "arc_warden_tempest_recall"
-			"2"  "arc_warden_scepter"
+			"1"  "arc_warden_scepter"
         }
 
 		"npc_dota_hero_axe" {
@@ -2765,13 +2763,11 @@
 		"npc_dota_hero_death_prophet" {
 			"1"            "death_prophet_spirit_collector"
 			"2"            "death_prophet_mourning_ritual"
-			"3"            "death_prophet_innate_healing_mastery"
         }
 
 		"npc_dota_hero_disruptor" {
 			"1"  "disruptor_kinetic_field"
 			"2"  "disruptor_kinetic_fence"
-			"3"  "disruptor_innate_kinetic_circle"
 		}
 
 		"npc_dota_hero_doom_bringer" {
@@ -2819,11 +2815,7 @@
 
 		"npc_dota_hero_furion" {
 			"1"		"furion_greater_sprout"
-			"2"     "furion_arboreal_might"
-			"3"     "furion_hedgerow"
-			"4"     "furion_summon_fey"
-			"5"     "furion_natures_profit"
-			"6"     "furion_fecundity"
+			"2"     "furion_natures_profit"
         }
 
 		"npc_dota_hero_grimstroke" {
@@ -2833,7 +2825,6 @@
 		"npc_dota_hero_gyrocopter"
 		{
 			"1"  "side_gunner_redux"
-			"2"  "gyrocopter_lock_on"
 		}
 
 		"npc_dota_hero_huskar" {
@@ -2889,8 +2880,6 @@
 
 		"npc_dota_hero_lich" {
             "1"       "lich_frost_armor"
-			"2"		  "lich_dark_sorcery"
-			"3"		  "lich_frost_aura"
         }
 
 		"npc_dota_hero_life_stealer" {
@@ -2906,13 +2895,12 @@
 		"npc_dota_hero_lone_druid" {
 			"1"     "lone_druid_bear_necessities"
 			"2"     "lone_druid_entangling_claws"
-			"3"     "lone_druid_rabid"
-			"4"     "lone_druid_true_form_battle_cry"
+			"3"     "lone_druid_true_form_battle_cry"
         }
 
-		"npc_dota_hero_luna" {
-            "1"		"luna_lunar_grace"
-        }
+		// "npc_dota_hero_luna" {
+
+        // }
 
 		"npc_dota_hero_lycan" {
 			"1"		"lycan_summon_wolves_critical_strike"
@@ -2957,14 +2945,12 @@
             "2"  "morph_str_int_redux"
             "3"  "morph_agi_int_redux"
             "4"  "morph_int_agi_redux"
-			"5"  "morphling_ebb"
-			"6"  "morphling_flow"
+			"5"  "morphling_flow"
         }
 
 		"npc_dota_hero_muerta" {
 			"1"  "muerta_ofrenda"
 			"2"  "muerta_parting_shot"
-			"3"  "muerta_grave_tracker"
 		}
 
 		"npc_dota_hero_naga_siren" {
@@ -2988,14 +2974,12 @@
         {
             "1"  "nyx_assassin_burrow_redux"
 			"2"  "nyx_assassin_innate_mana_burn"
-			"3"  "nyx_assassin_mana_burn"
         }
 
 		"npc_dota_hero_obsidian_destroyer" {
             "1"           "obsidian_destroyer_astral_imprisonment_redux"
             "2"           "obsidian_destroyer_essence_aura_lod"
             "3"           "obsidian_destroyer_essence_aura_redux"
-			"4"			  "obsidian_destroyer_essence_aura"
         }
 
 		"npc_dota_hero_ogre_magi" {
@@ -3037,9 +3021,9 @@
 		}
 
 		"npc_dota_hero_riki" {
-            "1"           "riki_permanent_invisibility"
-			"2"			  "riki_poison_dart"
-            "3"           "riki_backstab_lod"
+			"1"           "riki_permanent_invisibility"
+			"2"           "riki_backstab_lod"
+			"3"           "riki_poison_dart"
         }
 
 		"npc_dota_hero_rubick" {
@@ -3110,9 +3094,9 @@
 			"7"     "techies_custom_suicide"
         }
 
-        "npc_dota_hero_templar_assassin" {
-            "1"     "templar_assassin_hidden_gates"
-        }
+        //"npc_dota_hero_templar_assassin" {
+
+        //}
 
 		"npc_dota_hero_tidehunter" {
 			"1"		"tidehunter_arm_of_the_deep"
@@ -3133,7 +3117,6 @@
 		"npc_dota_hero_treant"
 		{
 			"1"  "treant_innate_attack_damage"
-			"2"  "treant_lifebomb_explode"
 		}
 
 		"npc_dota_hero_troll_warlord" {
@@ -3175,8 +3158,6 @@
 
 		"npc_dota_hero_warlock" {
 			"1"          "warlock_black_grimoire"
-			"2"          "warlock_imp_explode"
-			"3"          "warlock_imp_explode_major"
 		}
 
 		"npc_dota_hero_winter_wyvern" {
@@ -3187,6 +3168,10 @@
 		"npc_dota_hero_wisp" {
 			"1"           "wisp_sight_seer"
 			"2"           "wisp_overcharge_old"
+		}
+
+		"npc_dota_hero_witch_doctor" {
+			"1"           "witch_doctor_innate_maledict_heal_reduction"
 		}
 
 		"npc_dota_hero_zuus" {

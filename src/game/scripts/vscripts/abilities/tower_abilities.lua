@@ -1,94 +1,93 @@
 --[[	Author: Firetoad
 		Date: 06.09.2015	]]
 
-require('lib/timers')
 require('lib/util_imba')
 
 function AIControl( keys )
-    local caster = keys.caster
-    local ability = keys.ability
+	local caster = keys.caster
+	local ability = keys.ability
 
-    -- Mostly for duel
-    if caster:HasModifier("modifier_duel_out_of_game") then
-    	return
-    end
+	-- If the ability is on cooldown or tower is affected by break, do nothing
+	if not ability:IsCooldownReady() or caster:PassivesDisabled() then
+		return
+	end
 
-    -- If the ability is on cooldown, do nothing
-    if not ability:IsCooldownReady() then
-        return
-    end
+	-- Parameters
+	local tower_loc = caster:GetAbsOrigin()
+	local nearbyEnemyRadius = 800 -- normal night vision
+	local nearbyAllyRadius = 1200 -- normal aura (same as ability cast range)
+	local veryCloseEnemyRadius = 600 -- within tower attack range
+	local veryCloseAllyRadius = 800 -- normal night vision / maximum tpscroll teleport distance
 
-	if caster:PassivesDisabled() then return end
+	-- Find nearby enemies
+	local EnemyInRange = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, nearbyEnemyRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
+	if #EnemyInRange == 0 then return end
 
-    -- Parameters
-    local tower_loc = caster:GetAbsOrigin()
-    local nearby = 800
-    local veryClose = 300
+	local enemy_buildings = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+	local closest_building = enemy_buildings[1]
+	if not closest_building then return end
 
-    -- Find nearby enemies
-    local EnemyInRange = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, nearby, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
-    if not EnemyInRange then return end
+	local AllyInRange = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, nearbyAllyRadius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD, FIND_ANY_ORDER, false)
+	local veryCloseAllies = 0
+	for _, ally in pairs(AllyInRange) do
+		if (tower_loc - ally:GetAbsOrigin()):Length2D() <= veryCloseAllyRadius then
+			veryCloseAllies = veryCloseAllies + 1
+		end
+	end
 
-    local AllyInRange = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, nearby+100, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
-    local veryCloseAllies = 0
-    for _,ally in pairs(AllyInRange) do
-        if (tower_loc - ally:GetAbsOrigin()):Length2D() < veryClose then
-            veryCloseAllies = veryCloseAllies + 1
-        end
-    end
-    -- Check if the ability should be cast
-        -- IF TOWER IS VULNERABLE AND DOES NOT HAVE BACK DOOR PROTECTION AND AT LEAST 1 ENEMY NEARBY
-    for _,enemy in pairs(EnemyInRange) do
-    	if enemy and not enemy:IsNull() then
-	        if util:isPlayerBot(enemy:GetPlayerID()) then
-	            local distance = (tower_loc - enemy:GetAbsOrigin()):Length2D()
-				-- IF BOT IS ABOUT TO DIE, SAVE IT AND SEND IT BACK TO BASE WITH FULL HP MP AND MAX MOVE SPEED FOR 30 SECONDS
-	            if enemy:GetHealth() < 300 and enemy:HasModifier("modifier_pugna_decrepify") == false and #AllyInRange == 0 then
-	                enemy:AddNewModifier(caster, ability, "modifier_pugna_decrepify", {duration = 5})
-	                enemy:AddNewModifier(caster, ability, "modifier_chen_test_of_faith_teleport", {duration = 5}) -- this doesnt teleport them to base anymore lmao
+	-- IF TOWER IS VULNERABLE AND DOES NOT HAVE BACK DOOR PROTECTION AND ONLY 1 or 0 ENEMY NEARBY -> attack the tower
+	-- IF TOWER IS INVULNERABLE -> scare the bots away
+	for _,enemy in pairs(EnemyInRange) do
+		if enemy and not enemy:IsNull() then
+			if util:isPlayerBot(enemy:GetPlayerID()) and not enemy:IsChanneling() then
+				local distance = (tower_loc - enemy:GetAbsOrigin()):Length2D()
+				-- IF BOT IS ABOUT TO DIE, SAVE IT AND TELEPORT IT TO THE NEAREST (allied to the bot) BUILDING WITH FULL HP and MP only if there are no enemies (to the bot)
+				if enemy:GetHealth() < 300 and not enemy:HasModifier("modifier_pugna_decrepify") and #AllyInRange == 0 then
+					enemy:AddNewModifier(caster, ability, "modifier_pugna_decrepify", {duration = 5})
+					--enemy:AddNewModifier(caster, ability, "modifier_chen_test_of_faith_teleport", {duration = 5}) -- this doesnt teleport them to base anymore lmao
 					ability:StartCooldown(ability:GetCooldown(-1))
-	                Timers:CreateTimer(1, function()
-	                    if enemy and not enemy:IsNull() then
-	                        enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = 4})
-	                    end
-	                end)
+					Timers:CreateTimer(1, function()
+						if enemy and not enemy:IsNull() then
+							enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = 4})
+						end
+					end)
 					Timers:CreateTimer(5, function()
-	                    if enemy and not enemy:IsNull() and enemy:IsAlive() then
+						if enemy and not enemy:IsNull() and enemy:IsAlive() then
+							local random_loc = closest_building:GetAbsOrigin() + RandomVector(veryCloseAllyRadius)
+							FindClearSpaceForUnit(enemy, random_loc, true)
 							enemy:SetHealth(enemy:GetMaxHealth())
 							enemy:SetMana(enemy:GetMaxMana())
-							--local tpScroll = enemy:FindItemByName("item_tpscroll")
-							--if tpScroll then
-								--tpScroll:StartCooldown(30)
-							--end
-	                        enemy:AddNewModifier(caster, ability, "modifier_dark_seer_surge", {duration = 30})
-	                        enemy:AddExperience(100,0,false,false)
-	                        enemy:ModifyGold(100, false, 0)
-	                    end
-	                end)
-	            else
+							--enemy:AddNewModifier(caster, ability, "modifier_dark_seer_surge", {duration = 30}) -- doesnt work, 0 bonus ms
+							enemy:AddExperience(100, DOTA_ModifyXP_Unspecified, true, false)
+							enemy:ModifyGold(100, false, DOTA_ModifyGold_Unspecified)
+						end
+					end)
+	            elseif #AllyInRange <= 1 then
 					local invulnerable = caster:HasModifier("modifier_tower_anti_rat") or caster:HasModifier("modifier_invulnerable") or caster:HasModifier("modifier_backdoor_protection_active")
-	                if distance < veryClose then
-	                    if invulnerable then
-	                    	if caster:HasModifier("modifier_tower_anti_rat") then
-	                       	 	enemy:AddNewModifier(caster, ability, "modifier_chen_test_of_faith_teleport", {duration = 4}) -- this doesnt teleport them to base anymore lmao
-	                    	end
-	                        abilityRoar = caster:FindAbilityByName("lone_druid_savage_roar_tower")
-	                        caster:CastAbilityImmediately(abilityRoar, caster:GetPlayerOwnerID())
-	                        enemy:AddNewModifier(caster, ability, "modifier_phased", {duration = 4})
-	                        enemy:AddNewModifier(caster, ability, "modifier_dark_seer_surge", {duration = 4})
-	                        ability:StartCooldown(ability:GetCooldown(-1))
-	                    elseif enemy:GetHealth() > enemy:GetMaxHealth() * 0.90 and veryCloseAllies == 0 then
-	                        enemy:AddNewModifier(caster, ability, "modifier_axe_berserkers_call", {duration = 1.5})
-	                        ability:StartCooldown(ability:GetCooldown(-1))
-	                    end
-	                elseif not enemy:HasModifier("modifier_lone_druid_savage_roar") and not enemy:HasModifier("modifier_pugna_decrepify") and #AllyInRange == 0 and not invulnerable then
-	                    enemy:AddNewModifier(caster, ability, "modifier_axe_berserkers_call", {duration = 1.5})
-	                    ability:StartCooldown(ability:GetCooldown(-1))
-	                end
-	            end
-	        end
-    	end
-    end
+					if distance <= veryCloseEnemyRadius then
+						if invulnerable then
+							--if caster:HasModifier("modifier_tower_anti_rat") then
+								--enemy:AddNewModifier(caster, ability, "modifier_chen_test_of_faith_teleport", {duration = 4}) -- this doesnt teleport them to base anymore lmao
+							--end
+							local abilityRoar = caster:FindAbilityByName("lone_druid_savage_roar_tower")
+							if abilityRoar then
+								caster:CastAbilityImmediately(abilityRoar, caster:GetPlayerOwnerID())
+							end
+							enemy:AddNewModifier(caster, ability, "modifier_phased", {duration = 4})
+							--enemy:AddNewModifier(caster, ability, "modifier_dark_seer_surge", {duration = 4}) -- doesnt work, 0 bonus ms
+							ability:StartCooldown(ability:GetCooldown(-1))
+						elseif enemy:GetHealth() > enemy:GetMaxHealth() * 0.75 and veryCloseAllies == 0 and not enemy:HasModifier("modifier_axe_berserkers_call") then
+							enemy:AddNewModifier(caster, ability, "modifier_axe_berserkers_call", {duration = 1.5})
+							ability:StartCooldown(ability:GetCooldown(-1))
+						end
+					elseif not enemy:HasModifier("modifier_lone_druid_savage_roar") and not enemy:HasModifier("modifier_pugna_decrepify") and #AllyInRange == 0 and not invulnerable and not enemy:HasModifier("modifier_axe_berserkers_call") then
+						enemy:AddNewModifier(caster, ability, "modifier_axe_berserkers_call", {duration = 1.5})
+						ability:StartCooldown(ability:GetCooldown(-1))
+					end
+				end
+			end
+		end
+	end
 end
 
 function Laser( keys )

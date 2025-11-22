@@ -1,0 +1,110 @@
+"DOTAAbilities"
+{
+	"enigma_malefice"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "demon"
+	}
+
+	"enigma_demonic_conversion"
+	{
+		"ReduxFlags"                                                           "summon | wtfAutoBan"
+		"ReduxPerks"                                                           "summon_non_ult | demon"
+		"ReduxBans"                                                            "tinker_rearm"
+	}
+
+	"enigma_midnight_pulse"
+	{
+		"ReduxPerks"                                                           "demon"
+	}
+
+	"enigma_black_hole"
+	{
+		"ReduxFlags"                                                           "upgradeable | stun | silence"
+		"ReduxPerks"                                                           "channeled | enemymoving | silence"
+		"ReduxCost"                                                            "10"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	"enigma_gravity_well"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "aura | support"
+	}
+
+	"enigma_splitting_image"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_enigma_perk"
+
+		"ReduxFlags"                                                           "doNotRandom | summon"
+		"ReduxPerks"                                                           "summon_non_ult | demon"
+	}
+
+	"enigma_event_horizon"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_enigma_perk"
+
+		"ReduxPerks"                                                           "aura"
+	}
+
+	"special_bonus_unique_enigma"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "enigma_demonic_conversion"
+	}
+	"special_bonus_unique_enigma_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "enigma_malefice"
+	}
+	"special_bonus_unique_enigma_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "enigma_demonic_conversion"
+	}
+	"special_bonus_unique_enigma_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "enigma_demonic_conversion"
+	}
+	"special_bonus_unique_enigma_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "enigma_malefice"
+	}
+	"special_bonus_unique_enigma_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "enigma_black_hole"
+	}
+	"special_bonus_unique_enigma_9"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "enigma_midnight_pulse"
+	}
+}

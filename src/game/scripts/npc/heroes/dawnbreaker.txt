@@ -42,6 +42,7 @@
 	"dawnbreaker_unbreakable"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/dawnbreaker_unbreakable"
 
 		"ReduxFlags"                                                           "cooldown | doNotRandom"
 		"ReduxPerks"                                                           "light"

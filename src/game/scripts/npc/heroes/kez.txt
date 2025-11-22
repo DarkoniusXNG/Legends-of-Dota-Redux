@@ -93,7 +93,8 @@
 	//=================================================================================================================
 	"kez_shadowhawk_passive"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires Raven's Veil
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires Raven's Veil
+		"AbilityTextureName"                                                   "custom/kez_shadowhawk"
 
 		"ReduxFlags"                                                           "crit | doNotRandom | invis"
 	}

@@ -55,11 +55,25 @@
 	//=================================================================================================================
 	"juggernaut_bladeform"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/npc_dota_hero_juggernaut_perk"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_juggernaut_perk"
 
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "blades | mobility"
+	}
+
+	"juggernaut_innate_mask_spin_crit"
+	{
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_juggernaut_perk"
+		
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"juggernaut_innate_mask_crit_lifesteal"
+	{
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_juggernaut_perk"
+		
+		"ReduxFlags"                                                           "doNotRandom"
 	}
 
 	"special_bonus_unique_juggernaut"

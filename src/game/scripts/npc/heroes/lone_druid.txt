@@ -110,11 +110,11 @@
 		"ReduxPerks"                                                           "rage | enemymoving"
 	}
 
-	"lone_druid_rabid"
-	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility | rage"
-	}
+	// "lone_druid_rabid"
+	// {
+		// "ReduxFlags"                                                           "mobility"
+		// "ReduxPerks"                                                           "mobility | rage"
+	// }
 
 	"lone_druid_spirit_link"
 	{

@@ -64,23 +64,11 @@
 	//=================================================================================================================
 	// Arc warden: Tempest Recall
 	//=================================================================================================================
-	"arc_warden_tempest_recall"
-	{
-		"MaxLevel"						"3"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"50 40 30"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"restore_pct"			"50 75 100"
-		}
-
-		"ReduxPerks"                                                           "lightning"
-	}
+	// "arc_warden_tempest_recall"
+	// {
+		// "ReduxFlags"                                                           "doNotRandom"
+		// "ReduxPerks"                                                           "lightning"
+	// }
 
 	//=================================================================================================================
 	// Arc Warden: Runic Infusion (Innate)
@@ -147,7 +135,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "arc_warden_spark_wraith"
 	}
 

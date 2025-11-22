@@ -620,6 +620,7 @@ function Commands:OnPlayerChat(keys)
                 if GameRules:GetDOTATime(false,false) == 0 then
                     --Tutorial:ForceGameStart()
                     GameRules:ForceGameStart()
+                    GameRules:ForceCreepSpawn()
                     Ingame:CommandNotification("-startgame", 'Cheat Used (-startgame): Forced game start, by '.. util:GetPlayerNameReliable(playerID))
                 end
             end, DoUniqueString('cheat'), .1)

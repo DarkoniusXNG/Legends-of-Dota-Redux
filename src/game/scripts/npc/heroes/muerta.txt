@@ -30,11 +30,11 @@
 		"ReduxFlags"                                                           "stun | support | doNotRandom"
 		"ReduxPerks"                                                           "support | enemymoving | undead"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
 		"MaxLevel"						"4"
 		"AbilityCastRange"				"750 800 850 900"
 		"AbilityCastPoint"				"0.3"
-		"AbilityCooldown"				"45 35 25 15"
+		"AbilityCooldown"				"45 40 35 30"
 		"AbilityDamage"					"300 325 350 375"
 		"AbilityManaCost"				"250 225 200 175"
 		"AbilityValues"

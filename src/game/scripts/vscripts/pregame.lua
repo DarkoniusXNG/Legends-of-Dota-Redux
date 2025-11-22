@@ -46,7 +46,6 @@ LinkLuaModifier("modifier_killstreak_mutator_redux","abilities/mutators/modifier
 LinkLuaModifier("modifier_no_healthbar_mutator","abilities/mutators/modifier_no_healthbar_mutator.lua",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_random_spell_mutator","abilities/mutators/modifier_random_spell_mutator.lua",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_random_lane_creep_mutator_ai","abilities/mutators/modifier_random_lane_creep_mutator_ai.lua",LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_random_lane_creep_freeze","abilities/mutators/modifier_random_lane_creep_mutator_ai.lua",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_random_lane_creep_spawner_mutator","abilities/mutators/modifier_random_lane_creep_mutator_ai.lua",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_resurrection_mutator","abilities/mutators/modifier_resurrection_mutator.lua",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rune_doubledamage_mutated_redux","abilities/mutators/super_runes.lua",LUA_MODIFIER_MOTION_NONE)
@@ -2451,6 +2450,9 @@ end
 function Pregame:isTrollCombo(build)
     local exceptions = {
         ["kunkka_torrent_storm"] = "kunkka_torrent",
+        ["shredder_chakram_2"] = "shredder_chakram",
+        ["bounty_hunter_wind_walk_ally"] = "bounty_hunter_wind_walk",
+        ["earthshaker_enchant_totem"] = "earthshaker_aftershock",
     }
     local maxSlots = self.optionStore['lodOptionCommonMaxSlots']
 
@@ -2462,22 +2464,17 @@ function Pregame:isTrollCombo(build)
                 if (exceptions[ab1] and exceptions[ab1] == ab2) or (exceptions[ab2] and exceptions[ab2] == ab1) then
                     print(ab1.." "..ab2)
                 else
-                if self.banList[ab1] then
-
-
-
-                    if ab2 ~= nil and self.banList[ab1][ab2] then
-                        -- Ability should be banned
-
-                        return true, ab1, ab2
+                    if self.banList[ab1] then
+                        if ab2 ~= nil and self.banList[ab1][ab2] then
+                            -- Ability should be banned
+                            return true, ab1, ab2
+                        end
                     end
-
-                end
-                if ab1 and ab2 then
-                    if string.find(ab1,ab2) or string.find(ab2,ab1) then
-                        return true, ab1, ab2
+                    if ab1 and ab2 then
+                        if string.find(ab1,ab2) or string.find(ab2,ab1) then
+                            return true, ab1, ab2
+                        end
                     end
-                end
                 end
             end
         end
@@ -3546,6 +3543,10 @@ function Pregame:MultiplyLaneUnit( unit, mult )
 		clone:AddAbility("clone_token_ability")
 		clone:AddNewModifier(clone, nil, "modifier_kill", {duration = 30})
 		clone:SetInitialGoalEntity(unit:GetInitialGoalEntity())
+		-- Random lane creeps
+		if unit:HasModifier("modifier_random_lane_creep_mutator_ai") then
+			clone:AddNewModifier(clone, nil, "modifier_random_lane_creep_mutator_ai", {})
+		end
 	end
 end
 
@@ -6328,7 +6329,7 @@ function Pregame:findRandomSkill(build, slotNumber, playerID, optionalFilter)
     end
 
     -- Pick a random skill to return
-    return possibleSkills[math.random(#possibleSkills)]
+    return possibleSkills[RandomInt(1, #possibleSkills)]
 end
 
 -- Sets the stage
@@ -6561,7 +6562,7 @@ function Pregame:multiplyLaneCreeps()
                 attacker = EntIndexToHScript( keys.entindex_attacker )
             end
 
-            -- Neutral Multiplier: Checks if hurt npc is neutral, dead, and if it doesnt have the clone token ability, and their is a valid attacker
+            -- Lane Creep Multiplier: Checks if hurt npc is non-neutral, dead, and if it doesnt have the clone token ability, and there is a valid attacker
             if IsValidEntity(ent) and IsValidEntity(attacker) then
                 if ent:GetName() == "npc_dota_creep_lane" and ent:FindAbilityByName("clone_token_ability") == nil then
                     ent:AddAbility("clone_token_ability")
