@@ -1306,7 +1306,7 @@ var advancedOptions = {
                 des: 'lodOptionDesGameSpeedGoldModifier',
                 about: 'lodOptionAboutGameSpeedGoldModifier',
                 sort: 'range',
-                min: 100,
+                min: 0,
                 max: 1000,
                 step: 10,
                 default: 100
@@ -1319,7 +1319,7 @@ var advancedOptions = {
                 min: 0,
                 max: 1000,
                 step: 10,
-                default: 0
+                default: 100
             },
             {
                 name: 'lodOptionGameSpeedRespawnTimePercentage',

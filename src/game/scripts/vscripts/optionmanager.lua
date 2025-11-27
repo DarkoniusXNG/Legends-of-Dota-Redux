@@ -202,8 +202,8 @@ if not OptionManager.initialSettings then
 	OptionManager:SetOption('autoDraftHeroNumber', 10)
 
 	-- Gold Modifier
-	OptionManager:SetOption('goldModifier', 1)
-	OptionManager:SetOption('expModifier', 1)
+	OptionManager:SetOption('goldModifier', 100)
+	OptionManager:SetOption('expModifier', 100)
 
 	-- mapname
 	-- lodOptionCrazyWTF

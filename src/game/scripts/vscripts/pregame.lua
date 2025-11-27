@@ -533,7 +533,6 @@ function Pregame:init()
         self:setOption('lodOptionLimitPassives', 1, true)
         self:setOption('lodOptionAntiBash', 1, true)
         self:setOption('lodOptionCreepPower', 120, true)
-
         self:setOption('lodOptionGameSpeedTowersPerLane', 3, true)
         OptionManager:SetOption('banningTime', 50)
         self:setOption('lodOptionBalanceMode', 0, true)
@@ -803,7 +802,7 @@ function Pregame:loadDefaultSettings()
     self:setOption('lodOptionBotsRestrict', 0, true)
 
     -- Hide enemy picks
-    self:setOption('lodOptionAdvancedHidePicks', 1, true)
+    self:setOption('lodOptionAdvancedHidePicks', 0, true)
 
     -- Disable Unique Skills
     self:setOption('lodOptionAdvancedUniqueSkills', 0, true)
@@ -2828,7 +2827,7 @@ function Pregame:initOptionSelector()
             -- It needs to be a whole number between a certain range
             if type(value) ~= 'number' then return false end
             if math.floor(value) ~= value then return false end
-            if value < 100 or value > 1000 then return false end
+            if value < 0 or value > 1000 then return false end
 
             -- Valid
             return true
@@ -3984,11 +3983,11 @@ function Pregame:processOptions()
         local disableBanLists = false
 
         -- Load troll combos
-        self:loadTrollCombos()
+        this:loadTrollCombos()
 
         -- Enable Balance Mode (disables ban lists)
         -- Load balance mode stats
-        self.spellCosts = {}
+        this.spellCosts = {}
         for abilityName, abilityData in pairs(util:getAbilityKV()) do
             if abilityData.ReduxCost then
                 if abilityData.ReduxCost == -1 and this.optionStore['lodOptionBalanceMode'] == 1 then
@@ -3997,7 +3996,7 @@ function Pregame:processOptions()
                 else
                     -- Spell Shop
                     local price = abilityData.ReduxCost
-                    self.spellCosts[abilityName] = price
+                    this.spellCosts[abilityName] = price
                     network:sendSpellPrice(abilityName, price)
                 end
             end
@@ -4020,7 +4019,7 @@ function Pregame:processOptions()
 
         -- Banning of OP Skills
         if not disableBanLists and this.optionStore['lodOptionAdvancedOPAbilities'] == 1 then
-            for abilityName,v in pairs(self.OPSkillsList) do
+            for abilityName,v in pairs(this.OPSkillsList) do
                 this:banAbility(abilityName)
             end
         end
@@ -4052,7 +4051,7 @@ function Pregame:processOptions()
 
         -- Single Player Ability Bans
         if not disableBanLists and this.optionStore['lodOptionBanningUseBanList'] == 1 then
-            for abilityName,v in pairs(self.SuperOP) do
+            for abilityName,v in pairs(this.SuperOP) do
                 this:banAbility(abilityName)
             end
         else
@@ -4186,7 +4185,7 @@ function Pregame:processOptions()
             -- Did anyone actually post to the banning vote?
             if this.optionVotingBanning ~= nil then
                 -- Someone actually voted
-                statCollection:setFlags(self.votingStatFlags)
+                statCollection:setFlags(this.votingStatFlags)
             end
         else
             -- We are using option selection
@@ -5750,7 +5749,6 @@ function Pregame:setSelectedAbility(playerID, slot, abilityName, dontNetwork)
     if self.optionStore['lodOptionBanningBlockTrollCombos'] == 1 then
         -- Validate that it isn't a troll build
         local isTrollCombo, ab1, ab2 = self:isTrollCombo(newBuild)
-
 
         if isTrollCombo then
             -- Invalid ability name
@@ -8271,13 +8269,11 @@ function Pregame:fixSpawningIssues()
 
         -- Ensure it's a valid unit
         if IsValidEntity(spawnedUnit) and not spawnedUnit:IsSpiritBearCustom() then
-            -- Filter gold modifier here instead of in filtergold in ingame because this makes the popup correct
+            -- Filter gold modifier for creeps here instead of in filtergold in ingame because this makes the popup correct
             local goldModifier = OptionManager:GetOption('goldModifier')
-            if goldModifier > 100 and not spawnedUnit.bountyAdjusted then
-                -- Non hero units that respawn should only be adjusted once, this are things like familiars
-                if not spawnedUnit:IsHero() then
-					spawnedUnit.bountyAdjusted = true
-                end
+            if goldModifier >= 0 and not spawnedUnit.bountyAdjusted and not spawnedUnit:IsHero() then
+                -- Non hero units that respawn should only be adjusted once
+                spawnedUnit.bountyAdjusted = true
                 local newBounty = spawnedUnit:GetGoldBounty() * goldModifier / 100
                 spawnedUnit:SetMaximumGoldBounty(newBounty)
                 spawnedUnit:SetMinimumGoldBounty(newBounty)
@@ -8336,7 +8332,6 @@ function Pregame:fixSpawningIssues()
                     if this.optionStore['lodOptionLaneCreepBonusAbility'] == 2 then -- Random Individual: All creeps get a random ability each time
                         pickedAbility = math.random(3,14)
                     end
-
 
                     if pickedAbility == 3 then
                         self.freeCreepAbility = "spirit_breaker_greater_bash"

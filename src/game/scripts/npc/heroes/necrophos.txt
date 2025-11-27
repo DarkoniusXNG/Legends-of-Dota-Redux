@@ -24,7 +24,7 @@
 			}
 		}
 
-		"ReduxFlags"                                                           "support"
+		"ReduxFlags"                                                           "doNotRandom | support"
 		"ReduxPerks"                                                           "support | undead"
 	}
 
