@@ -16,7 +16,7 @@ require('network')
 -- Chat commands
 require('commands')
 
---Interaction with server (https://github.com/darklordabc/Legends-of-Dota-Server)
+--Interaction with server
 require('stats_client')
 
 -- Custom Shop

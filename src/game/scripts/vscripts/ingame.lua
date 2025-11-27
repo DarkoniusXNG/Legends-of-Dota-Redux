@@ -463,12 +463,11 @@ function Ingame:onStart()
         end
     end
 
+    -- Random Lane Creeps spawner
     if not randomLaneCreepSpawnerMade and OptionManager:GetOption("randomLaneCreeps") ~= 0 then
         randomLaneCreepSpawnerMade = true
-        local randomLaneCreepSpawner = CreateUnitByName("npc_dummy_unit_imba", Vector(0, 0, 0), true, nil, nil,
-            DOTA_TEAM_NEUTRALS)
-        randomLaneCreepSpawner:AddNewModifier(periodicDummyCastingUnit, nil, "modifier_random_lane_creep_spawner_mutator",
-            {})
+        local randomLaneCreepSpawner = CreateUnitByName("npc_dummy_unit_imba", Vector(0, 0, 0), true, nil, nil, DOTA_TEAM_NEUTRALS)
+        randomLaneCreepSpawner:AddNewModifier(randomLaneCreepSpawner, nil, "modifier_random_lane_creep_spawner_mutator", {})
         local a = randomLaneCreepSpawner:AddAbility("dummy_unit_state")
         a:SetLevel(1)
     end

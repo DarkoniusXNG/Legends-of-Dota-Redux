@@ -22,7 +22,6 @@ function modifier_random_lane_creep_spawner_mutator.IsHidden(self)
 end
 function modifier_random_lane_creep_spawner_mutator:OnCreated()
     if IsServer() then
-        self:StartIntervalThink(1)
         if OptionManager:GetOption("randomLaneCreeps") == 1 then
             self.maxSpawn = 2
             self.minSpawn = 0
@@ -116,13 +115,6 @@ function modifier_random_lane_creep_spawner_mutator:OnCreated()
 			end
 		end, nil)
 	end
-end
-
-function modifier_random_lane_creep_spawner_mutator:OnIntervalThink()
-    --print(GameRules:GetDOTATime(false,false),math.floor(GameRules:GetDOTATime(false,false)%30)==0)
-
-    --if GameRules:GetDOTATime(false,false) > 5 and math.floor(GameRules:GetDOTATime(false,false)%30)==0 then
-
 end
 
 

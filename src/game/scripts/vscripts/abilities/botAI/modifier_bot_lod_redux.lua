@@ -92,7 +92,7 @@ local item_builds = {
 		"item_orchid",
 		"item_blink",
 		"item_reaver",
-		"item_ultimate_scepter",
+		--"item_ultimate_scepter", -- lags the game
 	},
 	npc_dota_hero_crystal_maiden = {
 		"item_bracer",
@@ -179,6 +179,7 @@ local item_builds = {
 		"item_nullifier",
 		"item_demon_edge",
 		"item_abyssal_blade",
+		--"item_eagle",
 	},
 	npc_dota_hero_kunkka = {
 		"item_bracer",
@@ -227,14 +228,14 @@ local item_builds = {
 		"item_yasha",
 		"item_black_king_bar",
 		"item_lesser_crit",
-		"item_ultimate_scepter",
+		--"item_ultimate_scepter",
 		"item_eagle",
 	},
 	npc_dota_hero_necrolyte = {
 		"item_null_talisman",
 		"item_arcane_boots",
 		"item_reaver",
-		"item_relic",
+		--"item_relic",
 		"item_ultimate_scepter",
 		"item_pipe",
 		"item_sange",
@@ -262,11 +263,12 @@ local item_builds = {
 		"item_sange",
 		"item_echo_sabre",
 		"item_ultimate_scepter",
+		"item_mystic_staff",
 	},
 	npc_dota_hero_oracle = {
 		"item_null_talisman",
 		"item_arcane_boots",
-		"item_glimmer_cape",
+		--"item_glimmer_cape",
 		"item_aether_lens",
 		"item_magic_wand",
 		"item_aeon_disk",
@@ -450,7 +452,7 @@ local upgrade_map = {
 	item_vanguard = "item_crimson_guard",
 	item_veil_of_discord = "item_shivas_guard",
 	item_witch_blade = "item_devastator",
-	item_yasha = "item_manta",
+	item_yasha = "item_sange_and_yasha", --"item_manta",
 }
 
 local sell_first = {
@@ -526,6 +528,7 @@ local items_to_sell = {
 	item_wind_lace = 1,
 }
 
+-- Items that should be sold in lategame
 local junk_to_sell = {
 	--item_belt_of_strength = 1,
 	--item_blade_of_alacrity = 1,
@@ -543,7 +546,7 @@ local junk_to_sell = {
 	--item_gloves = 1,
 	--item_helm_of_iron_will = 1,
 	--item_javelin = 1,
-	item_magic_wand = 1,
+	item_magic_wand = 1, -- bots that have this in their build should upgrade it into holy locket by this time
 	--item_mithril_hammer = 1,
 	--item_ogre_axe = 1,
 	item_quelling_blade = 1,
@@ -554,18 +557,19 @@ local junk_to_sell = {
 	--item_robe = 1,
 	--item_staff_of_wizardry = 1,
 	--item_tiara_of_selemene = 1,
-	item_dagon_5 = 1,
-	item_meteor_hammer = 1,
+	item_dagon_5 = 1, -- good in the early game only
+	--item_meteor_hammer = 1,
 	--item_eternal_shroud = 1,
-	item_silver_edge = 1,
-	item_helm_of_the_overlord = 1,
-	item_falcon_blade = 1,
+	--item_silver_edge = 1,
+	item_helm_of_the_overlord = 1, -- good in the early game only
+	item_falcon_blade = 1, -- good in the early game only
+	item_radiance = 1, -- good in the early game only
 }
 
 local duplicates = {
 	item_abyssal_blade = 1,
 	item_aeon_disk = 1,
-	item_aether_lens = 1, 
+	item_aether_lens = 1,
 	item_angels_demise = 1,
 	item_arcane_blink = 1,
 	item_arcane_boots = 1,
@@ -604,11 +608,11 @@ local duplicates = {
 	item_lotus_orb = 1,
 	item_maelstrom = 1,
 	item_mage_slayer = 1,
-	item_magic_wand = 1, 
-	item_manta = 1,
-	item_mask_of_madness = 1, 
+	item_magic_wand = 1,
+	--item_manta = 1,
+	item_mask_of_madness = 1,
 	item_mekansm = 1,
-	item_meteor_hammer = 1,
+	--item_meteor_hammer = 1,
 	item_mjollnir = 1,
 	item_monkey_king_bar = 1,
 	item_nullifier = 1,
@@ -629,7 +633,7 @@ local duplicates = {
 	item_satanic = 1,
 	item_sheepstick = 1,
 	item_shivas_guard = 1,
-	item_silver_edge = 1,
+	--item_silver_edge = 1,
 	item_skadi = 1,
 	item_solar_crest = 1,
 	item_sphere = 1,
@@ -652,6 +656,10 @@ local duplicates = {
 local forbidden_melee = {
 	item_dragon_lance = 1,
 	item_hurricane_pike = 1,
+	item_manta = 1, -- lags
+	item_meteor_hammer = 1, -- bots never use this
+	item_recipe_hurricane_pike = 1,
+	item_silver_edge = 1, -- there are better items
 }
 
 local forbidden_ranged = {
@@ -661,6 +669,13 @@ local forbidden_ranged = {
 	item_echo_sabre = 1,
 	item_harpoon = 1,
 	item_heavens_halberd = 1,
+	item_manta = 1, -- lags
+	item_meteor_hammer = 1, -- bots never use this
+	item_recipe_abyssal_blade = 1,
+	item_recipe_crimson_guard = 1,
+	item_recipe_harpoon = 1,
+	item_recipe_heavens_halberd = 1,
+	item_silver_edge = 1, -- there are better items
 	item_vanguard = 1,
 }
 
@@ -687,7 +702,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
   if (self.difficulty <= 3 or (self.difficulty == 5 and not parent:HasModifier("modifier_unfairbot"))) and not IsNearFriendlyClass(parent, 1800, "ent_dota_fountain") then
     return
   end
-  
+
   local name = parent:GetUnitName()
 
   if GameRules:GetDOTATime(false, false) >= 4*60 and not self:HasRoomForItemCustom() and IsNearFriendlyClass(parent, 1200, "ent_dota_fountain") then
@@ -798,7 +813,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
       break
     end
   end
-  
+
   -- Remove duplicates
   for slot1 = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
     local item1 = parent:GetItemInSlot(slot1)
@@ -820,7 +835,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
       end
     end
   end
-  
+
   -- Remove bad items
   if parent:IsRangedAttacker() then
     for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
@@ -849,7 +864,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
       end
     end
   end
-  
+
   -- Sell all low lvl boots, do this rarely
   if GameRules:GetDOTATime(false, false) >= 10*60 and not self.alreadyfixedmultipleboots then
     for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
@@ -866,8 +881,8 @@ function modifier_bot_lod_redux:OnIntervalThink()
     end
     self.alreadyfixedmultipleboots = true
   end
-  
-  if GameRules:GetDOTATime(false, false) >= 21*60 and not self:HasRoomForItemCustom() then
+
+  if GameRules:GetDOTATime(false, false) >= 20*60 then
     -- self.alreadyfixedmultipleboots = false
     for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
       local item = parent:GetItemInSlot(slot)

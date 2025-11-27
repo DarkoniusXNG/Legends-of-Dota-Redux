@@ -593,13 +593,12 @@ function util:split(s, delimiter)
 end
 
 function util:anyBots()
-    if Pregame.enabledBots == true then return true end
-    local count = 0
     local toggle = false
     for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-        print(playerID, self:isPlayerBot(playerID), PlayerResource:IsFakeClient(playerID), PlayerResource:GetPlayer(playerID))
+        --print(playerID, self:isPlayerBot(playerID), PlayerResource:IsFakeClient(playerID), PlayerResource:GetPlayer(playerID))
         if PlayerResource:GetPlayer(playerID) and (PlayerResource:IsFakeClient(playerID) or PlayerResource:GetSteamAccountID(playerID) == 0) then
             toggle = true
+            break
         end
     end
     return toggle
