@@ -7270,7 +7270,7 @@
 "DOTA_Tooltip_ability_pudge_flesh_heap_willpower_flesh_heap_value_buff_amount" "WILLPOWER PER STACK:"
 "DOTA_Tooltip_ability_pudge_flesh_heap_willpower_Note0" "Does not work on buffs applied by passives."
 "DOTA_Tooltip_ability_pudge_flesh_heap_aoe" "Flesh Heap - AoE"
-"DOTA_Tooltip_ability_pudge_flesh_heap_aoe_Description" "<font color='#70EA72'>Grants bonus aoe to spells and items used by this hero that increases each time this hero kills an enemy Hero or it dies in his vicinity.</font> Flesh Heap AoE is retroactive, meaning it can gain charges before it is skilled, which then become active."
+"DOTA_Tooltip_ability_pudge_flesh_heap_aoe_Description" "<font color='#70EA72'>Grants bonus aoe to spells (but not items) used by this hero that increases each time this hero kills an enemy Hero or it dies in his vicinity.</font> Flesh Heap AoE is retroactive, meaning it can gain charges before it is skilled, which then become active."
 "DOTA_Tooltip_ability_pudge_flesh_heap_aoe_flesh_heap_range" "RANGE:"
 "DOTA_Tooltip_ability_pudge_flesh_heap_aoe_flesh_heap_value_buff_amount" "AOE BONUS PER STACK:"
 "DOTA_Tooltip_ability_pudge_flesh_heap_heal_amp" "Flesh Heap - Heal Amp"

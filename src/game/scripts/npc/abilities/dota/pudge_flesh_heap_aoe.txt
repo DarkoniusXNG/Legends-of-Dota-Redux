@@ -13,11 +13,7 @@
         "AbilityValues"
         {
             "flesh_heap_value_buff_amount" "1 2 3 4"
-            "flesh_heap_range" // affects itself
-            {
-              "value"		"400"
-              "affected_by_aoe_increase"	"1"
-            }
+            "flesh_heap_range"  "450"
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "40"

@@ -82,21 +82,26 @@ local forbidden_kvs = {
 
 function modifier_flesh_heap_aoe:GetModifierOverrideAbilitySpecial(keys)
   local ability = keys.ability
+  local parent = self:GetParent()
   if not ability or not keys.ability_special_value then
     return 0
   end
-  if ignored_abilities and ignored_abilities[ability:GetAbilityName()] then
+  local name = ability:GetAbilityName()
+  if not parent:FindAbilityByName(name) then
     return 0
   end
-  if forbidden_kvs and forbidden_kvs[ability:GetAbilityName()] then
-    local t = forbidden_kvs[ability:GetAbilityName()]
+  if (ignored_abilities and ignored_abilities[name]) or ability:IsItem() then
+    return 0
+  end
+  if forbidden_kvs and forbidden_kvs[name] then
+    local t = forbidden_kvs[name]
     if t[keys.ability_special_value] then
       return 0
     end
   end
-  local ability_kvs = GetAbilityKeyValuesByName(ability:GetAbilityName())
-  if ability_kvs.AbilityValues and ability_kvs.AbilityValues[keys.ability_special_value] then
-    -- print("Keyvalue for ability: "..ability:GetAbilityName())
+  local ability_kvs = GetAbilityKeyValuesByName(name)
+  if ability_kvs and ability_kvs.AbilityValues and ability_kvs.AbilityValues[keys.ability_special_value] then
+    -- print("Keyvalue for ability: "..name)
     -- print("Key: "..tostring(keys.ability_special_value))
     -- print("Value: "..tostring(ability_kvs.AbilityValues[keys.ability_special_value]))
     if type(ability_kvs.AbilityValues[keys.ability_special_value]) == "table" then
@@ -122,21 +127,28 @@ function modifier_flesh_heap_aoe:GetModifierOverrideAbilitySpecialValue(keys)
   if not ability or not keys.ability_special_value then
     return 0
   end
-  if ignored_abilities and ignored_abilities[ability:GetAbilityName()] then
+  local value = ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
+  if not value then
+    return 0
+  end
+  if value == 0 then
+    return 0
+  end
+  local name = ability:GetAbilityName()
+  if not parent:FindAbilityByName(name) then
     return value
   end
-  if forbidden_kvs and forbidden_kvs[ability:GetAbilityName()] then
-    local t = forbidden_kvs[ability:GetAbilityName()]
+  if (ignored_abilities and ignored_abilities[name]) or ability:IsItem() then
+    return value
+  end
+  if forbidden_kvs and forbidden_kvs[name] then
+    local t = forbidden_kvs[name]
     if t[keys.ability_special_value] then
       return value
     end
   end
-  local value = ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
-  if not value or value == 0 then
-    return value
-  end
-  local ability_kvs = GetAbilityKeyValuesByName(ability:GetAbilityName())
-  if ability_kvs.AbilityValues and ability_kvs.AbilityValues[keys.ability_special_value] then
+  local ability_kvs = GetAbilityKeyValuesByName(name)
+  if ability_kvs and ability_kvs.AbilityValues and ability_kvs.AbilityValues[keys.ability_special_value] then
     if type(ability_kvs.AbilityValues[keys.ability_special_value]) == "table" then
       local affected_kv = ability_kvs.AbilityValues[keys.ability_special_value].affected_by_aoe_increase
       if affected_kv then
