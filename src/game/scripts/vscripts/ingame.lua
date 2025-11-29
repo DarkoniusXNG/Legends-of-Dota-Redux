@@ -226,7 +226,7 @@ function Ingame:OnPlayerPurchasedItem(keys)
                         local pID = PlayerResource:GetNthPlayerIDOnTeam(hero:GetTeamNumber(), x)
                         if PlayerResource:IsValidPlayerID(pID) then
                             local otherHero = PlayerResource:GetPlayer(pID):GetAssignedHero()
-                            otherHero:AddExperience(math.ceil(425 / util:GetActivePlayerCountForTeam(hero:GetTeamNumber())), 0, false, false)
+                            otherHero:AddExperience(math.ceil(425 / util:GetActivePlayerCountForTeam(hero:GetTeamNumber())), DOTA_ModifyXP_Unspecified, false, false)
                         end
                     end
                     break
@@ -1371,7 +1371,7 @@ function Ingame:initGoldBalancer()
     gamemode:SetBountyRunePickupFilter(Dynamic_Wrap(Ingame, "BountyRunePickupFilter"), self)
 end
 
--- Attempt to balance gold - needs SetFilterMoreGold to work properly
+-- Gold gain filter - needs SetFilterMoreGold to work properly, probably ignores ModifyGold
 function Ingame:FilterModifyGold(filterTable)
     local oldGold = filterTable.gold
     -- local playerID = filterTable.player_id_const
@@ -1412,45 +1412,42 @@ function Ingame:FilterModifyGold(filterTable)
     return true
 end
 
--- Option to modify EXP
+-- Experience gain filter - ignores AddExperience for some reason
 function Ingame:FilterModifyExperience(filterTable)
     local expModifier = OptionManager:GetOption('expModifier')
     --hotfix start: to stop the insane amount of EXP when heros with higher level then 28, kill other heros
     if math.abs(filterTable.experience) > 100000 then
         local Hero = PlayerResource:GetPlayer(filterTable.player_id_const):GetAssignedHero()
-        Hero:AddExperience(math.ceil(250 * expModifier / 100), 0, false, false)
+        Hero:AddExperience(math.ceil(250 * expModifier / 100), DOTA_ModifyXP_Unspecified, false, false)
         filterTable.experience = 0
         return true
     end
     --hotfix end
 
     if expModifier ~= 100 then
-        filterTable.experience = math.ceil(filterTable.experience * expModifier / 100)
+        filterTable.experience = math.floor(filterTable.experience * expModifier / 100)
     end
 
     if PlayerResource:GetPlayer(filterTable.player_id_const) then
-        local team = PlayerResource:GetPlayer(filterTable.player_id_const):GetTeamNumber()
+        local team = PlayerResource:GetTeam(filterTable.player_id_const)
 
         if OptionManager:GetOption('sharedXP') == 1 then
-            if filterTable.reason_const ~= 0 then
+            if filterTable.reason_const ~= DOTA_ModifyXP_Unspecified then
                 for i = 0, DOTA_MAX_TEAM do
                     local pID = PlayerResource:GetNthPlayerIDOnTeam(team, i)
-                    if (PlayerResource:IsValidPlayerID(pID) or PlayerResource:GetConnectionState(pID) == 1) and PlayerResource:GetPlayer(pID) then
+                    if PlayerResource:IsValidPlayerID(pID) and PlayerResource:GetConnectionState(pID) == DOTA_CONNECTION_STATE_CONNECTED and PlayerResource:GetPlayer(pID) then
                         local otherHero = PlayerResource:GetPlayer(pID):GetAssignedHero()
 
-                        otherHero:AddExperience(
-                        math.ceil(filterTable.experience / util:GetActivePlayerCountForTeam(team)), 0, false, false)
+                        otherHero:AddExperience(math.ceil(filterTable.experience / util:GetActivePlayerCountForTeam(team)), DOTA_ModifyXP_Unspecified, false, false)
                     end
                 end
 
                 return false
-            else
-                return true
             end
-        else
-            return true
         end
     end
+
+    return true
 end
 
 function Ingame:BountyRunePickupFilter(filterTable)
@@ -1461,7 +1458,7 @@ function Ingame:BountyRunePickupFilter(filterTable)
 
     --[[ -- Bounties dont give xp anymore
 	if OptionManager:GetOption('sharedXP') == 1 then
-        local team = PlayerResource:GetPlayer(filterTable.player_id_const):GetTeamNumber()
+        local team = PlayerResource:GetTeam(filterTable.player_id_const)
 
         for i = 0, DOTA_MAX_TEAM do
             local pID = PlayerResource:GetNthPlayerIDOnTeam(team, i)
@@ -1470,8 +1467,7 @@ function Ingame:BountyRunePickupFilter(filterTable)
                 if player ~= nil then
                     local otherHero = player:GetAssignedHero()
 
-                    otherHero:AddExperience(math.ceil(filterTable.xp_bounty / util:GetActivePlayerCountForTeam(team)), 0,
-                        false, false)
+                    otherHero:AddExperience(math.ceil(filterTable.xp_bounty / util:GetActivePlayerCountForTeam(team)), DOTA_ModifyXP_Unspecified, false, false)
                     otherHero.expSkip = true
                 end
             end

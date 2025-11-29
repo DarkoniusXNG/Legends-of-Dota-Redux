@@ -590,8 +590,8 @@ function imba_chen_holy_persuasion:OnSpellStart()
 		target:SetMaximumGoldBounty(math.max(target_gold_max - commonwealth_gold, 0))
 		
 		-- Give half of this to the caster
-		self:GetCaster():AddExperience(commonwealth_xp_self, 2, true, true)
-		self:GetCaster():ModifyGold(commonwealth_gold_self, false, 13)
+		self:GetCaster():AddExperience(commonwealth_xp_self, DOTA_ModifyXP_CreepKill, false, false)
+		self:GetCaster():ModifyGold(commonwealth_gold_self, false, DOTA_ModifyGold_CreepKill)
 		
 		SendOverheadEventMessage(self:GetCaster():GetPlayerOwner(), OVERHEAD_ALERT_XP, self:GetCaster(), commonwealth_xp_self, nil)
 		SendOverheadEventMessage(self:GetCaster():GetPlayerOwner(), OVERHEAD_ALERT_GOLD, self:GetCaster(), commonwealth_gold_self, nil)
@@ -607,8 +607,8 @@ function imba_chen_holy_persuasion:OnSpellStart()
 			local hero = PlayerResource:GetPlayer(PlayerResource:GetNthPlayerIDOnTeam(self:GetCaster():GetTeamNumber(), ally)):GetAssignedHero()
 			
 			if hero ~= self:GetCaster() then
-				hero:AddExperience(commonwealth_xp_others, 2, true, true)
-				hero:ModifyGold(commonwealth_gold_others, false, 13)
+				hero:AddExperience(commonwealth_xp_others, DOTA_ModifyXP_CreepKill, false, false)
+				hero:ModifyGold(commonwealth_gold_others, false, DOTA_ModifyGold_CreepKill)
 				
 				SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_XP, hero, commonwealth_xp_self, nil)
 				SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, hero, commonwealth_gold_self, nil)

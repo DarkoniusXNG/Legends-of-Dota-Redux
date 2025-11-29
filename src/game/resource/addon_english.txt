@@ -10044,7 +10044,7 @@
 "DOTA_Tooltip_modifier_sohei_flurry_self"                                       "Flurry of Blows"
 "DOTA_Tooltip_modifier_sohei_flurry_self_Description"                           "Invulnerable, rooted, attacking random enemies in the area."
 "DOTA_Tooltip_Ability_sohei_guard"                                              "Guard (Sohei)"
-"DOTA_Tooltip_Ability_sohei_guard_description"                                  "Removes most negative effects and reflects all projectiles that would hit you for the next %guard_duration% seconds. Can be used while stunned but consumes %charges_required% charges of Dash if used while stunned.\n\nDISPEL TYPE: Strong Dispel"
+"DOTA_Tooltip_Ability_sohei_guard_description"                                  "Removes most negative effects and reflects all attack projectiles and single target spells that would hit you for the next %guard_duration% seconds. Can be used while stunned but not while silenced or hexed.\n\nDISPEL TYPE: Strong Dispel"
 "DOTA_Tooltip_Ability_sohei_guard_note1"                                        "Can be activated while stunned but not while silenced."
 "DOTA_Tooltip_Ability_sohei_guard_guard_duration"                               "DURATION:"
 "DOTA_Tooltip_modifier_sohei_guard_reflect"                                     "Guard"

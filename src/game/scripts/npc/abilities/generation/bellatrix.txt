@@ -310,7 +310,7 @@
         "AbilityManaCost"               "80 90 100 110"
         "AbilityProcsMagicStick"        "1"
 
-        "Precache"
+        "precache"
         {
             "particle"              "particles/bellatrix/bellatrix_bloodrake1.vpcf"
             "particle"              "particles/bellatrix/bellatrix_bloodrake2.vpcf"
@@ -476,7 +476,7 @@
         //Cost
         "AbilityManaCost"               "150 175 200"
 
-        "Precache"
+        "precache"
         {
             "particle"                  "particles/bellatrix/bellatrix_live_transfusion.vpcf"
             "particle"                  "particles/bellatrix/blood_trail.vpcf"
@@ -707,7 +707,7 @@
         "AbilityCooldown"               "15 14 13 12"
         "AbilityDuration"               "4"
 
-        "Precache"
+        "precache"
         {
             "particle"          "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture_nuke.vpcf"
             "particle"          "particles/bellatrix/bellatrix_unholy_ecstasy.vpcf"

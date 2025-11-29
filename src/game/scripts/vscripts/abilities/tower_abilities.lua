@@ -18,6 +18,8 @@ function AIControl( keys )
 	local nearbyAllyRadius = 1200 -- normal aura (same as ability cast range)
 	local veryCloseEnemyRadius = 600 -- within tower attack range
 	local veryCloseAllyRadius = 800 -- normal night vision / maximum tpscroll teleport distance
+	local goldModifier = OptionManager:GetOption('goldModifier') or 100
+	local expModifier = OptionManager:GetOption('expModifier') or 100
 
 	-- Find nearby enemies
 	local EnemyInRange = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, nearbyEnemyRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
@@ -58,8 +60,10 @@ function AIControl( keys )
 							enemy:SetHealth(enemy:GetMaxHealth())
 							enemy:SetMana(enemy:GetMaxMana())
 							--enemy:AddNewModifier(caster, ability, "modifier_dark_seer_surge", {duration = 30}) -- doesnt work, 0 bonus ms
-							enemy:AddExperience(100, DOTA_ModifyXP_Unspecified, true, false)
-							enemy:ModifyGold(100, false, DOTA_ModifyGold_Unspecified)
+							local gold = math.floor(100 * goldModifier / 100)
+							local xp = math.floor(100 * expModifier / 100)
+							enemy:ModifyGold(gold, false, DOTA_ModifyGold_Unspecified)
+							enemy:AddExperience(xp, DOTA_ModifyXP_Unspecified, false, false)
 						end
 					end)
 	            elseif #AllyInRange <= 1 then

@@ -14,7 +14,7 @@
             "duration" "15"
         }
 
-        "Precache"
+        "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
         }

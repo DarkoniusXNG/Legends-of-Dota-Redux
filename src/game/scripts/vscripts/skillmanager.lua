@@ -436,7 +436,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
             --    hero:HeroLevelUp(false)
             -- end
             -- Add EXP
-            hero:AddExperience(currentLevel, false, false)
+            hero:AddExperience(currentLevel, DOTA_ModifyXP_Unspecified, false, false)
 
             -- Replace gold
             PlayerResource:SetGold(playerID, ug, false)

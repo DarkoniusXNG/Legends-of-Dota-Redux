@@ -947,7 +947,7 @@ function imba_alchemist_goblins_greed:OnSpellStart()
 
 		-- Consume target
 		target:Kill(self, caster)
-		caster:AddExperience(total_exp, false, false)
+		caster:AddExperience(total_exp, DOTA_ModifyXP_Unspecified, false, false)
 		caster:ModifyGold(total_gold, true, 0)
 
 		modifier:SetStackCount(modifier:GetStackCount() + bonus_stacks )

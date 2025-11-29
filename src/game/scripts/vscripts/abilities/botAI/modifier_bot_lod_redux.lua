@@ -26,6 +26,8 @@ function modifier_bot_lod_redux:OnCreated()
 		elseif team == DOTA_TEAM_BADGUYS then
 			self.difficulty = OptionManager:GetOption('direBotDiff')
 		end
+		self.goldModifier = OptionManager:GetOption('goldModifier') or 100
+		self.expModifier = OptionManager:GetOption('expModifier') or 100
 		self:OnIntervalThink()
 		self:StartIntervalThink(30)
 	end
@@ -928,19 +930,23 @@ if IsServer() then
     if unit ~= parent then
       return
     end
+    -- Grant gold and xp to bots when they respawn (or on death)
+    local gold = 0
+    local xp = 0
     if self.difficulty == 5 then
       if parent:HasModifier("modifier_unfairbot") then
-        parent:ModifyGold(1000, true, DOTA_ModifyGold_SellItem)
-        parent:AddExperience(1000, DOTA_ModifyXP_Unspecified, true, false)
+        gold = math.floor(700 * self.goldModifier / 100)
+        xp = math.floor(700 * self.expModifier / 100) -- 1000
       else
-        local r = RandomInt(250, 1000)
-        parent:ModifyGold(r, true, DOTA_ModifyGold_SellItem)
-        parent:AddExperience(r, DOTA_ModifyXP_Unspecified, true, false)
+        gold = math.floor(RandomInt(175, 700) * self.goldModifier / 100)
+        xp = math.floor(RandomInt(175, 700) * self.expModifier / 100) -- RandomInt(250, 1000)
       end
     elseif self.difficulty <= 4 then
-      parent:ModifyGold(self.difficulty * 250, true, DOTA_ModifyGold_SellItem)
-      parent:AddExperience(self.difficulty * 250, DOTA_ModifyXP_Unspecified, true, false)
+      gold = math.floor(self.difficulty * 175 * self.goldModifier / 100)
+      xp = math.floor(self.difficulty * 175 * self.expModifier / 100) -- 250 * self.difficulty
     end
+    parent:ModifyGold(gold, true, DOTA_ModifyGold_Unspecified)
+    parent:AddExperience(xp, DOTA_ModifyXP_Unspecified, false, false)
     self:OnIntervalThink()
   end
 end

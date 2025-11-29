@@ -4404,7 +4404,7 @@
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		"vscripts"					"abilities/dota2horde/UnitAI.lua"
 
-		//Precache
+		// Precache
 		//---------------------------------------------------------------------
 		"precache"
 		{

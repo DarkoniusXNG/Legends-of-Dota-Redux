@@ -1298,7 +1298,7 @@ function imba_lich_dark_ritual:OnSpellStart()
 
 		for _,hero in pairs(heroes) do
 			-- Increase all heroes' XP by the divided amount
-			hero:AddExperience(xp_per_hero, false, false)
+			hero:AddExperience(xp_per_hero, DOTA_ModifyXP_Unspecified, false, false)
 		end
 	end
 

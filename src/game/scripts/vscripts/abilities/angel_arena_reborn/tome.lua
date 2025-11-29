@@ -104,11 +104,11 @@ function tome_levelup(keys)
 
 	local expFactor = keys.ability:GetSpecialValueFor("exp") / 100
 
-	print(need_exp - old_exp)
+	--print(need_exp - old_exp)
 	local expNeededForNextLevel = need_exp - old_exp
 	local giveExp = expNeededForNextLevel * expFactor
 	--caster:HeroLevelUp(true)
-	caster:AddExperience(giveExp, 0, true, true)
+	caster:AddExperience(giveExp, DOTA_ModifyXP_Unspecified, false, false)
 
 	if not caster.lvllTomesUsed then
 		caster.lvllTomesUsed = 1 

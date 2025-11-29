@@ -8027,7 +8027,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
             local exp = constants.XP_PER_LEVEL_TABLE[startingLevel]
 
             -- Fix EXP
-            spawnedUnit:AddExperience(exp, false, false)
+            spawnedUnit:AddExperience(exp, DOTA_ModifyXP_Unspecified, false, false)
         end
 
         -- Any bonus gold?
