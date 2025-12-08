@@ -19,11 +19,9 @@
 			{
 				"special_bonus_unique_alchemist_7"	"+2"
 			}
-
 			"bonus_gold_cap"
 			{
 				"value"				"69420"
-				
 			}
 			"starting_gold_bonus"
 			{

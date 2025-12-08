@@ -75,6 +75,38 @@
 
 "DOTAAbilities"
 {
+	"templar_assassin_third_eye"
+	{
+		"ReduxFlags"                                                           "doNotRandom | support"
+		"ReduxPerks"                                                           "support"
+	}
+
+	"meepo_sticky_fingers"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"meepo_pack_rat"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"meepo_megameepo"
+	{
+		"ReduxFlags"                                                           "doNotRandom | tank"
+	}
+
+	"meepo_megameepo_fling"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"creep_siege"
+	{
+		"ReduxFlags"                                                           "tank"
+		"ReduxCost"                                                            "120"
+	}
+
 	"wisp_sight_seer"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -732,6 +764,7 @@
 
 	"beastmaster_drums_of_slom"
 	{
+		"ReduxFlags"                    "doNotRandom"
 		"ReduxPerks"                    "aura"
 
 		"MaxLevel"						"4"
@@ -1578,6 +1611,7 @@
 	"ice_shaman_incendiary_bomb"
 	{
 		"ReduxPerks"                                                           "ice | fire | neutral"
+		"ReduxCost"                                                            "40"
 
 		"MaxLevel"                                                             "4"
 		"AbilityCastRange"				"700 725 750 800"
@@ -2047,7 +2081,7 @@
 
 		"ReduxFlags"                                                           "tank | stun | doNotRandom"
 		"ReduxPerks"                                                           "skillshot"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "120"
 	}
 
 	"beastmaster_primal_roar"

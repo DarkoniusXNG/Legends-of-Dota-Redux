@@ -12,6 +12,7 @@
 		"ReduxFlags"                                                           "support | wtfAutoBan"
 		"ReduxPerks"                                                           "support | undead"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxCost"                                                            "20"
 	}
 
 	"dazzle_shadow_wave"

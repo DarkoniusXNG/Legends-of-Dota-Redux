@@ -2,16 +2,16 @@
 {
    "death_prophet_witchcraft_op"
     {
-        "BaseClass"                    "death_prophet_witchcraft"
-        "AbilityTextureName"            "custom/death_prophet_witchcraft_op"
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                     "death_prophet_witchcraft"
+		"AbilityTextureName"            "custom/death_prophet_witchcraft_op"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"4" // needed because of the lod part (flat cdr and flat manacost reduction)
 		"Innate"						"0"
 		"IsBreakable"					"1"
 
-        "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           "cooldown"
-        "ReduxBans"                                                            "death_prophet_witchcraft"
+		"ReduxCost"                                                            "360"
+		"ReduxFlags"                                                           "cooldown"
+		"ReduxBans"                                                            "death_prophet_witchcraft"
 
         "AbilityValues"
 		{

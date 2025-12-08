@@ -209,23 +209,26 @@ if IsServer() then
 			false
 		)
 
+		local hit_at_least_one = false
 		for _, unit in ipairs(units) do
 			if unit and not unit:IsNull() and parent:CanEntityBeSeenByMyTeam(unit) and not unit:IsInvulnerable() and not unit:IsAttackImmune() then
+				hit_at_least_one = true
 				-- Additional attack on closest unit within range
 				parent:PerformAttack(unit, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
 				-- Decrease counter
 				counter = counter - 1
-				-- Trigger cooldown and end the 'for' loop when counter reaches 0
+				-- End the 'for' loop when counter reaches 0
 				if counter <= 0 then
-					if ability and not ability:IsNull() then
-						ability:StartCooldown(interval)
-					else
-						parent:AddNewModifier(parent, nil, "modifier_ebf_clinkz_trickshot_passive_cd", {duration = interval})
-					end
-
 					break
 				end
 			end
+		end
+
+		-- Trigger cooldown
+		if ability and not ability:IsNull() and hit_at_least_one then
+			ability:StartCooldown(interval)
+		else
+			parent:AddNewModifier(parent, nil, "modifier_ebf_clinkz_trickshot_passive_cd", {duration = interval})
 		end
 	end
 end

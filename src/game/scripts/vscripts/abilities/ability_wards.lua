@@ -15,12 +15,12 @@ function modifier_ability_wards_type:IsHidden() return true end
 
 function ability_wards:OnUpgrade()
   if self:GetLevel() == 1 then
-    local modifier = self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_ability_wards_type",{})
-    modifier:SetStackCount(0)
-    local modifier = self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_ability_wards_observer_cooldown",{})
-    modifier:SetStackCount(1)
-    local modifier = self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_ability_wards_sentry_cooldown",{})
-    modifier:SetStackCount(1)
+    local modifier1 = self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_ability_wards_type",{})
+    modifier1:SetStackCount(0)
+    local modifier2 = self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_ability_wards_observer_cooldown",{})
+    modifier2:SetStackCount(1)
+    local modifier3 = self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_ability_wards_sentry_cooldown",{})
+    modifier3:SetStackCount(1)
   end
 end
 
@@ -93,13 +93,12 @@ ability_wards_op = class({})
 
 function ability_wards_op:OnUpgrade()
   if self:GetLevel() == 1 then
-    local modifier = self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_ability_wards_type",{})
-    modifier:SetStackCount(0)
-    local modifier = self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_ability_wards_observer_cooldown",{})
-    modifier:SetStackCount(1)
-    local modifier = self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_ability_wards_sentry_cooldown",{})
-    modifier:SetStackCount(1)
-
+    local modifier1 = self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_ability_wards_type",{})
+    modifier1:SetStackCount(0)
+    local modifier2 = self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_ability_wards_observer_cooldown",{})
+    modifier2:SetStackCount(1)
+    local modifier3 = self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_ability_wards_sentry_cooldown",{})
+    modifier3:SetStackCount(1)
   end
 end
 

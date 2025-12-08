@@ -27,7 +27,7 @@
 
 	"crystal_maiden_crystal_clone"
 	{
-		"ReduxFlags"                                                           "mobility"
+		"ReduxFlags"                                                           "doNotRandom | mobility"
 		"ReduxPerks"                                                           "mobility | ice"
 
 		"MaxLevel"						"4"

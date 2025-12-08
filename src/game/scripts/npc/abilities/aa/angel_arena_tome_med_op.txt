@@ -4,8 +4,8 @@
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "AbilityCooldown"                                                      "60 40 30 15"
-        "AbilityGoldCost"                                                      "150 125 100 60"
+        "AbilityCooldown"                                                      "60 45 30 15"
+        "AbilityGoldCost"                                                      "150 125 100 75"
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO"
         "AbilityTextureName"                                                   "custom/tome_med_op"
@@ -14,7 +14,7 @@
         {
             "health" "40"
             "mana" "20"
-            "gold_cost_toolip" "150 125 100 60"
+            "gold_cost_toolip" "150 125 100 75"
         }
         "OnSpellStart"
         {

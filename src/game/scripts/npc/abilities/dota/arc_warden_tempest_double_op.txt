@@ -50,7 +50,7 @@
 			}
 		}
         "ReduxPerks"                                                           "lightning"
-        "ReduxCost"                                                            "120"
+        "ReduxCost"                                                            "360"
         "ReduxBans"                                                            "arc_warden_tempest_double"
     }
 }

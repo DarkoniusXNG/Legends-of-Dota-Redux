@@ -13,17 +13,19 @@
         {
             "radius"
 			{
-				"value"	"500 600 700"
+				"value"	"475 575 675"
 				"affected_by_aoe_increase"	"1"
 			}
-            "damage_percent" "80 90 100"
+            "damage_percent" "60 70 80"
         }
         "Modifiers"
         {
-            "modifier_passive_razor_power"
+            "modifier_passive_razor_power_op"
             {
                 "Passive"                                              "1"
                 "IsHidden"                                             "1"
+                "IsPurgable"                                           "0"
+
                 "OnAttackLanded"
                 {
                     "RunScript"

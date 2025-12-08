@@ -9,7 +9,7 @@
         {
             "particle"                                                     "particles/rubick_spell_echo.vpcf"
         }
-        "AbilityCooldown"                                                      "30.0 20.0 10.0 6.0"
+        "AbilityCooldown"                                                      "25 20 15 10"
         "AbilityValues"
         {
             "delay" "2.0 1.5 1.0 0.5"

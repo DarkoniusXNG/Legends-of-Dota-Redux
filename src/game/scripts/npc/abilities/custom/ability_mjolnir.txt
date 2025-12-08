@@ -14,12 +14,12 @@
             "chain_strikes" "4 5 6 7"
             "chain_radius"			
 			{
-				"value"	"800 900 1000 1100"
+				"value"	"650 750 850 950"
 				"affected_by_aoe_increase"	"1"
 			}
         }
         "ReduxFlags"                                                           "dota_custom"
-        "ReduxCost"                                                            "0"
+        "ReduxCost"                                                            "20"
     }
 
     "ability_mjolnir_creep"
@@ -37,7 +37,7 @@
             "chain_strikes" "2 2 3 3 4 4 5"
             "chain_radius"			
 			{
-				"value"	"800 900 1000 1100"
+				"value"	"650"
 				"affected_by_aoe_increase"	"1"
 			}
         }
@@ -54,9 +54,9 @@
         
         "AbilityValues"
         {
-            "chain_chance" "20 40 60 80"
-            "chain_damage" "100 170 190 210"
-            "chain_strikes" "4 8 12 16"
+            "chain_chance" "25 30 35 40"
+            "chain_damage" "180 200 220 240"
+            "chain_strikes" "12"
             "chain_radius"			
 			{
 				"value"	"1200"

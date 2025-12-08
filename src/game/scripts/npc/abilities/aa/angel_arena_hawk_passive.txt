@@ -12,9 +12,10 @@
 
 		"Modifiers" {
 			"modifier_hawk" {
-				"isBuff" "1"
-				"Passive" "1"
-				"isHidden" "1"
+				"IsBuff"      "1"
+				"Passive"     "1"
+				"IsHidden"    "1"
+				"IsPurgable"  "0"
 
 				"Properties" {
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%bonus_damage"

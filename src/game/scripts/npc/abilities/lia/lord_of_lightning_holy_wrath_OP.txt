@@ -9,7 +9,10 @@
         "AbilityCastRange"                                                     "%radius"
         "AbilityCooldown"                                                      "0.0"
 
+        "ReduxFlags"                                                           "tank"
         "ReduxPerks"                                                           "light | lightning | rage"
+        "ReduxBans"                                                            "lord_of_lightning_holy_wrath"
+        "ReduxCost"                                                            "120"
 
         "AbilityValues"
         {
@@ -64,8 +67,5 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "tank"
-        "ReduxCost"                                                            "120"
-        "ReduxBans"                                                            "lord_of_lightning_holy_wrath"
     }
 }

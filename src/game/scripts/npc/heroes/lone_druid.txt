@@ -70,6 +70,7 @@
 	{
 		"ReduxFlags"                    "attack_modifier | tank | doNotRandom"
 		"ReduxPerks"                    "attack_modifier"
+		"ReduxCost"                     "30"
 
 		"MaxLevel"                      "4"
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"

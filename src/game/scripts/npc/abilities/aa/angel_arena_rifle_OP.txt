@@ -16,13 +16,13 @@
             "gun_base_attack_time" "0.01"
             "gun_range" "-50"
             "gun_range_tooltip" "-50"
-            "gun_bonus_attack" "-85 -80 -75 -70" // attack damage reduction
-            "gun_bonus_movespeed" "-10"
-            "rifle_bonus_attack" "25 40 55 70"
-            "rifle_base_attack_time" "1.4"
+            "gun_bonus_attack" "-85 -80 -75 -70" // percent attack damage reduction
+            "gun_bonus_movespeed" "-20" // flat ms penalty
+            "rifle_bonus_attack" "25 40 55 70" // flat attack dmg bonus
+            "rifle_base_attack_time" "1.5"
             "rifle_range" "100 200 300 400"
             "rifle_range_tooltip" "100 200 300 400"
-            "rifle_bonus_movespeed" "15 25 35 45"
+            "rifle_bonus_movespeed" "25" // flat ms bonus
         }
         "OnUpgrade"
         {

@@ -17,9 +17,11 @@
         {
             "modifier_night_vampire_passive"
             {
-                "isBuff"                                               "1"
+                "IsBuff"                                               "1"
                 "IsHidden"                                             "1"
                 "Passive"                                              "1"
+                "IsPurgable"                                           "0"
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"  "%base_attack_time"

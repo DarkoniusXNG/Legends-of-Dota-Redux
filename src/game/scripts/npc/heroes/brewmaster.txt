@@ -72,6 +72,7 @@
 		"MaxLevel"                                                             "3"
 		"ReduxFlags"                                                           "attack_modifier | doNotRandom"
 		"ReduxPerks"                                                           "attack_modifier | earth"
+		"ReduxCost"                                                            "30"
 	}
 
 	"brewmaster_storm_dispel_magic"
@@ -107,6 +108,7 @@
 		"MaxLevel"                                                             "3"
 		"ReduxFlags"                                                           "mobility | invis | doNotRandom"
 		"ReduxPerks"                                                           "mobility | invis"
+		"ReduxCost"                                                            "40"
 	}
 
 	"brewmaster_void_astral_pulse"

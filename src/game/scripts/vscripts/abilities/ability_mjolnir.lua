@@ -7,15 +7,21 @@
 
 ability_mjolnir = class({})
 ability_mjolnir_op = class({})
+ability_mjolnir_creep = class({})
 LinkLuaModifier( "modifier_ability_mjolnir", "abilities/ability_mjolnir.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_ability_mjolnir_op", "abilities/ability_mjolnir.lua", LUA_MODIFIER_MOTION_NONE )
 
 function ability_mjolnir:GetIntrinsicModifierName()
-  return "modifier_ability_mjolnir" end
+  return "modifier_ability_mjolnir"
+end
 
 function ability_mjolnir_op:GetIntrinsicModifierName()
-  return "modifier_ability_mjolnir_op" end
+  return "modifier_ability_mjolnir_op"
+end
 
+function ability_mjolnir_creep:GetIntrinsicModifierName()
+  return "modifier_ability_mjolnir"
+end
 
 -----------------------------------------------------------------------------------------------------------
 --  Maelstrom passive modifier (stackable)
@@ -27,32 +33,38 @@ function modifier_ability_mjolnir:IsDebuff() return false end
 function modifier_ability_mjolnir:IsPurgable() return false end
 function modifier_ability_mjolnir:IsPermanent() return true end
 
-
 -- Declare modifier events/properties
 function modifier_ability_mjolnir:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-  return funcs
 end
 
 -- On attack landed, roll for proc and apply stacks
 function modifier_ability_mjolnir:OnAttackLanded( keys )
   if IsServer() then
     local attacker = self:GetParent()
-    if attacker:PassivesDisabled() then return end
+    if attacker:PassivesDisabled() then
+      return
+    end
     -- If this attack is irrelevant, do nothing
-    if attacker ~= keys.attacker then
-      return end
+    if attacker ~= keys.attacker then 
+      return
+    end
 
     -- If this is an illusion, do nothing either
     if attacker:IsIllusion() then
-      return end
+      return
+    end
 
     -- If the target is invalid, still do nothing
     local target = keys.target
-    if (not target:IsHero() and not target:IsCreep())   or attacker:GetTeam() == target:GetTeam() then
-      return end
+    if not target:IsBaseNPC() then
+      return
+    end
+    if (not target:IsHero() and not target:IsCreep()) or attacker:GetTeam() == target:GetTeam() then
+      return
+    end
 
     -- All conditions met, stack the proc counter up
     local ability = self:GetAbility()   
@@ -72,13 +84,11 @@ function modifier_ability_mjolnir_op:IsDebuff() return false end
 function modifier_ability_mjolnir_op:IsPurgable() return false end
 function modifier_ability_mjolnir_op:IsPermanent() return true end
 
-
 -- Declare modifier events/properties
 function modifier_ability_mjolnir_op:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-  return funcs
 end
 
 -- On attack landed, roll for proc and apply stacks
@@ -88,16 +98,24 @@ function modifier_ability_mjolnir_op:OnAttackLanded( keys )
 
     -- If this attack is irrelevant, do nothing
     if attacker ~= keys.attacker then
-      return end
-    if attacker:PassivesDisabled() then return end
+      return
+    end
+    if attacker:PassivesDisabled() then
+      return
+    end
     -- If this is an illusion, do nothing either
     if attacker:IsIllusion() then
-      return end
+      return
+    end
 
     -- If the target is invalid, still do nothing
     local target = keys.target
-    if (not target:IsHero() and not target:IsCreep())   or attacker:GetTeam() == target:GetTeam() then
-      return end
+    if not target:IsBaseNPC() then
+      return
+    end
+    if (not target:IsHero() and not target:IsCreep()) or attacker:GetTeam() == target:GetTeam() then
+      return
+    end
 
     -- All conditions met, stack the proc counter up
     local ability = self:GetAbility()   

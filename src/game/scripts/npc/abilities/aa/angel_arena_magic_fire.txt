@@ -1,25 +1,26 @@
 "DOTAAbilities" {
 	"angel_arena_magic_fire" {
 		"BaseClass" "ability_datadriven"
-		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType" "SPELL_IMMUNITY_ENEMIES_NO"
 
 		"AbilityTextureName" "custom/angel_arena_magic_fire"
-		"AbilityCastRange" "700 700 700 700"
-		"AbilityCastPoint" "0.3 0.3 0.3 0.3"
+		"AbilityCastRange" "700"
+		"AbilityCastPoint" "0.3"
 		"AbilityCooldown" "15 14 13 12"
 		"AbilityManaCost" "100 120 140 160"
 
 		"AbilityValues"
         {
-            "damage" "120 200 280 360"
-            "damage_pct" "10.0"
+            "damage" "120 200 280 360" // mana burn and damage
+            "damage_pct" "10" // current hp pct
         }
 
-		"precache" {
+		"precache"
+		{
 			"particle" "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_msg.vpcf"
 			"particle" "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn.vpcf"
 		}
@@ -32,6 +33,7 @@
 			}
 		}
 
+		"ReduxFlags"    "mana"
 		"ReduxPerks"	"fire"
 	}
 }

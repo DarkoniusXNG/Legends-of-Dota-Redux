@@ -11,12 +11,12 @@
 
         "precache"
         {
-            "particle"                                                     "particles/units/heroes/hero_clinkz/clinkz_strafe_fire.vpcf"
+            "particle"                                                         "particles/units/heroes/hero_sven/sven_warcry_buff.vpcf"
         }
 
         "AbilityValues"
         {
-            "bonus_armor" "40.0 60.0 75.0"
+            "bonus_armor" "40 60 75"
             "bonus_damage" "80 100 120"
             "duration" "15"
         }
@@ -30,7 +30,7 @@
             }
             "FireSound"
             {
-                "EffectName"                                           "Hero_Clinkz.Strafe"
+                "EffectName"                                           "Hero_Nightstalker.Darkness"
                 "Target"                                               "CASTER"
             }
         }
@@ -38,11 +38,13 @@
         {
             "modifier_darkrage"
             {
-                "isBuff"                                               "1"
-                "isHidden"                                             "0"
+                "IsBuff"                                               "1"
+                "IsHidden"                                             "0"
                 "IsPurgable"                                           "1"
-                "EffectName"                                           "particles/units/heroes/hero_clinkz/clinkz_strafe.vpcf"
+
+                "EffectName"                                           "particles/units/heroes/hero_sven/sven_warcry_buff.vpcf"
                 "EffectAttachType"                                     "follow_origin"
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE""%bonus_damage"

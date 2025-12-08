@@ -31,6 +31,6 @@
         }
 
         "ReduxFlags"                                                           "cooldown"
-        "ReduxCost"                                                            "120"
+        "ReduxCost"                                                            "150"
     }
 }

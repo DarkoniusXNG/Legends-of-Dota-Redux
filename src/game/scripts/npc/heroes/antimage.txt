@@ -51,8 +51,9 @@
 	//=================================================================================================================
 	"antimage_counterspell_ally"
 	{
-		"ReduxFlags"                    "support | illusion"
+		"ReduxFlags"                    "doNotRandom | support | illusion"
 		"ReduxPerks"                    "support | illusion"
+
 		"MaxLevel"						"4"
 		"AbilityCastRange"				"600 700 800 900"
 		"AbilityCastPoint"				"0 0 0 0"

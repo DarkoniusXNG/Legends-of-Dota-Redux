@@ -1,80 +1,72 @@
 function takedamage(params)
 	local damage = params.Damage
 	local attacker = params.attacker
-	local hero = params.caster
+	local caster = params.caster
 	local ability = params.ability
-	local reduction_percentage = ability:GetLevelSpecialValueFor("reduce_percent", ability:GetLevel() - 1) / 100
 
-	if not ability:IsCooldownReady() then return end
+	if not ability or ability:IsNull() then
+		return
+	end
 
-	if not hero then return end
-	if not attacker then return end
+	local diff = ability:GetLevelSpecialValueFor("reduce_percent", ability:GetLevel() - 1) / 100
 
-	-- if hero:IsIllusion() then return end
-	
+	if not ability:IsCooldownReady() then
+		return
+	end
 
-	if attacker:IsInvulnerable() then return end
+	if not caster or caster:IsNull() then
+		return
+	end
 
-	-- if attacker == hero then return end
+	if caster:PassivesDisabled() then
+		return
+	end
 
-	if attacker:IsBuilding() then return end
+	--if caster:IsIllusion() then
+		--return
+	--end
 
-	damage = hero:GetIntellect(false)
+	if not attacker or attacker:IsNull() then
+		return
+	end
 
-	-- Deals damage based on how much more int this hero has
+	if not attacker:IsBaseNPC() then
+		return
+	end
+
+	-- Do not trigger on wards, buildings and invulnerable units
+	if attacker:IsOther() or attacker:IsBuilding() or attacker:IsInvulnerable() then
+		return
+	end
+
+	if damage <= 0 then
+		return
+	end
+
+	local castersInt = caster:GetIntellect(false)
+	local attackersInt = 0 -- default for non-heroes
+
+	-- Find attacker's int, 
 	if attacker:IsHero() then
-		local attackersInt = attacker:GetIntellect(false)
-		local castersInt = hero:GetIntellect(false)
-		if attackersInt >= castersInt then
-			return
-		end
-		damage = castersInt - attackersInt
-	else
-		damage = hero:GetIntellect(false) * reduction_percentage
+		attackersInt = attacker:GetIntellect(false)
 	end
 	
-	if hero:HasModifier("modifier_oracle_false_promise") then return end
-	if attacker:HasModifier("modifier_item_blade_mail_reflect") then return end
-	if attacker:HasModifier("modifier_nyx_assassin_spiked_carapace") then return end
-
-	if hero:PassivesDisabled() then return end
-
-	
-
-	
-
-	--if hero then 
-	--	if hero:GetHealth() > damage - damage*reduction_percentage then
-	--		print("HEAL:", damage*reduction_percentage)
-	--		hero:Heal(damage * reduction_percentage, ability)
-	--	end
-	--end
-
-	--local damage_int_pct_add = 1
-	--if hero:IsRealHero() then
-	--	damage_int_pct_add = hero:GetIntellect(false)
-	--	damage_int_pct_add = damage_int_pct_add / 16 / 100 + 1
-	--end 
-
-	ApplyDamage({ victim = attacker, attacker = hero, damage = damage, damage_type = DAMAGE_TYPE_PURE, abilityReturn = ability })
-
-
-	--if damage > 2 then
-	--	if attacker:GetHealth() < damage + 1 then
-	--		attacker:Kill(ability, hero)
-	--	else
-	--		attacker:SetHealth(attacker:GetHealth() - damage - 1)
-	--		attacker:Heal(1, ability) 
-	--		ApplyDamage({ victim = attacker, attacker = hero, damage = 1, damage_type = DAMAGE_TYPE_PURE, abilityReturn = ability })
-	--		print("apply damage", damage)
-	--	end
-	--end
-	
-	if attacker:GetHealth() < 0 then
-		attacker:Kill(ability, hero)
+	-- if attacker's int is higher -> do nothing
+	if attackersInt >= castersInt then
+		return
 	end
-	
+
+	local revenge_dmg = (castersInt - attackersInt) * diff
+
+	ApplyDamage({
+		victim = attacker,
+		attacker = caster,
+		damage = revenge_dmg,
+		damage_type = DAMAGE_TYPE_PURE,
+		damage_flags = DOTA_DAMAGE_FLAG_REFLECTION + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
+		ability = ability,
+	})
+
 	local cooldown = ability:GetCooldown( ability:GetLevel() )
 	ability:StartCooldown( cooldown )
-
 end

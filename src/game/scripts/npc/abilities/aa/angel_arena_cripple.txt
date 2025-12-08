@@ -1,10 +1,12 @@
 "DOTAAbilities" {
 	"angel_arena_cripple" {
-		"BaseClass" "ability_datadriven"
-		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"AbilityTextureName" "custom/angel_arena_cripple"
+		"BaseClass"                                                             "ability_datadriven"
+		"AbilityBehavior"                                                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"                                                 "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"                                                 "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"                                                 "DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"                                                    "custom/angel_arena_cripple"
+		"SpellDispellableType"                                                  "SPELL_DISPELLABLE_YES"
 
 		"precache"
 		{
@@ -12,16 +14,15 @@
 		}
 
 		"AbilityCastRange" "850"
-		"AbilityCastPoint" "0.3 0.3 0.3 0.3"
+		"AbilityCastPoint" "0.3"
 		"AbilityCooldown" "15.0 14.0 13.0 12.0"
-		"AbilityDuration" "8.0"
 		"AbilityManaCost" "90 100 110 120"
 
 		"AbilityValues"
         {
             "duration" "8.0"
-            "damage" "35 50 65 80"
-            "attack_reduce" "-50 -80 -110 -140"
+            "damage" "15 30 45 60"
+            "attack_reduce" "-30 -60 -90 -120"
             "slow_percent" "-15 -20 -25 -30"
         }
 
@@ -40,10 +41,21 @@
 
 		"Modifiers" {
 			"modifier_cripple" {
-				"EffectName" "particles/units/heroes/hero_bane/bane_enfeeble.vpcf"
-				"EffectAttachType" "follow_overhead"
 				"IsDebuff" "1"
 				"IsPurgable" "1"
+
+				"EffectName" "particles/units/heroes/hero_bane/bane_enfeeble.vpcf"
+				"EffectAttachType" "follow_overhead"
+
+				"OnCreated"
+				{
+					"Damage" {
+						"Target" "TARGET"
+						"Type" "DAMAGE_TYPE_MAGICAL"
+						"Damage" "%damage"
+					}
+				}
+
 				"ThinkInterval" "1.0"
 
 				"OnIntervalThink" {

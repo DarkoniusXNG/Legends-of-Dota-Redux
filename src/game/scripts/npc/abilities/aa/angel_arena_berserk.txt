@@ -6,6 +6,7 @@
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PURE"
         "AbilityTextureName"                                                   "custom/angel_arena_berserk"
+        "SpellDispellableType"                                                 "SPELL_DISPELLABLE_YES"
 
         "precache"
         {
@@ -13,7 +14,7 @@
         }
 
         "AbilityCooldown"                                                      "30.0"
-        "AbilityCastPoint"                                                     "0.0 0.0 0.0 0.0"
+        "AbilityCastPoint"                                                     "0.0"
         "AbilityManaCost"                                                      "30"
 
         "AbilityValues"
@@ -28,7 +29,7 @@
             "FireSound"
             {
                 "Target"                                               "CASTER"
-                "EffectName"                                           "Hero_Clinkz.Strafe"
+                "EffectName"                                           "Hero_LifeStealer.Rage"
             }
             "ApplyModifier"
             {
@@ -41,7 +42,9 @@
         {
             "modifier_berserk"
             {
-                "isBuff"                                               "1"
+                "IsBuff"                                               "1"
+                "IsPurgable"                                           "1"
+
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
@@ -56,8 +59,8 @@
                         "Damage"                               "%damage_pct"
                     }
                 }
-                "StatusEffectName"  "particles/status_fx/status_effect_life_stealer_rage.vpcf"
-                "StatusEffectPriority"  "10" 
+                "StatusEffectName"                             "particles/status_fx/status_effect_life_stealer_rage.vpcf"
+                "StatusEffectPriority"                         "10" 
             } 
         }
         "ReduxPerks"                                                           "rage"

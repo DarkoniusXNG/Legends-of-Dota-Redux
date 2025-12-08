@@ -13,6 +13,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityChannelTime"			"0.5"
 		"AbilityTextureName"			"custom/alexander_godfall"
+
 		"ReduxPerks"					"channeled | light"
 
 		// Casting

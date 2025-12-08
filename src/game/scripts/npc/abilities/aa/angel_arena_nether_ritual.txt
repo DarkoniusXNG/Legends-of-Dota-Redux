@@ -9,7 +9,7 @@
 
         "AbilityValues"
         {
-            "bonus_hp_regen" "15.0 18.0 21.0"
+            "bonus_hp_regen" "15 18 21"
             "bonus_armor" "4 8 12"
             "bonus_damage" "5 7 9"
             "bonus_movespeed" "3 6 9"
@@ -19,12 +19,14 @@
         {
             "modifier_nether_ritual"
             {
-                "isBuff"                                               "1"
+                "IsBuff"                                               "1"
                 "Passive"                                              "1"
-                "isHidden"                                             "0"
+                "IsHidden"                                             "1"
+                "IsPurgable"                                           "0"
+
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE""%bonus_damage"
+                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"  "%bonus_damage"
                     "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"       "%bonus_armor"
                     "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"      "%bonus_hp_regen"
                     "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movespeed"

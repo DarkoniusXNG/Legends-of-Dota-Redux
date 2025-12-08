@@ -18,17 +18,17 @@
         "AbilityCastRange"                                                     "800"
         "AbilityCastPoint"                                                     "0.2"
         "AbilityCooldown"                                                      "4"
-        "AbilityManaCost"                                                      "90 100 110 120"
+        "AbilityManaCost"                                                      "80 90 100 110"
         "AbilityValues"
         {
-            "jump_count" "3 5 7 9"
+            "jump_count" "5 7 9 11"
             "radius"				
-			{
-				"value"	"800"
-				"affected_by_aoe_increase"	"1"
-			}
-            "jump_delay" "0.25 0.25 0.25 0.25"
-            "damage" "110 150 190 330"
+            {
+                "value"	"650"
+                "affected_by_aoe_increase"	"1"
+            }
+            "jump_delay" "0.25"
+            "damage" "90 140 190 240"
         }
         "OnSpellStart"
         {

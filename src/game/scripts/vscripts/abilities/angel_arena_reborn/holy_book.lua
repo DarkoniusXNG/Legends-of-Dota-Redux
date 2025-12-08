@@ -1,28 +1,39 @@
-function GetDamagePercent(caster, ability)
-	local summ_pct = ability:GetLevelSpecialValueFor("damage_percent", ability:GetLevel() - 1)
-
-	for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-		local item = caster:GetItemInSlot(i)
-		if item and item ~= ability and item:GetName() == ability:GetName() then
-			summ_pct = summ_pct + item:GetSpecialValueFor("damage_percent")
-		end
-	end
-	return summ_pct
-end
-
+-- OnAttackLanded
 function HolyBook_attack( keys )
 	local caster = keys.caster
-	if not caster or caster:IsNull() then return end
-	if not caster:IsRealHero() then return end
-	if caster:PassivesDisabled() then return end
 	local target = keys.target
 	local ability = keys.ability
-	local position = keys.target:GetAbsOrigin()
-	local team = caster:GetTeamNumber()
 	local radius = keys.Radius
-	local damage_percent = GetDamagePercent(caster, ability)
+	local attack_dmg = keys.Damage
 
-	local damage = keys.Damage*(damage_percent/100)
+	if not caster or caster:IsNull() then
+		return
+	end
+
+	if not caster:IsRealHero() then
+		return
+	end
+
+	if caster:PassivesDisabled() then
+		return
+	end
+
+	if not target or target:IsNull() then
+		return
+	end
+
+	if not target:IsBaseNPC() then
+		return
+	end
+
+	--if target:IsOther() or target:IsBuilding() then
+		--return
+	--end
+	
+	local position = target:GetAbsOrigin()
+	local team = caster:GetTeamNumber()
+	local damage_percent = ability:GetLevelSpecialValueFor("damage_percent", ability:GetLevel() - 1)
+	local damage = attack_dmg * damage_percent / 100
 
 	local damage_table = {
 		attacker = caster,

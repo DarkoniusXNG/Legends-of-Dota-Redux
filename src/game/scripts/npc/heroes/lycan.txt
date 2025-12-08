@@ -69,6 +69,7 @@
 	{
 		"ReduxFlags"                                                           "invis | doNotRandom"
 		"ReduxPerks"                                                           "invis"
+		"ReduxCost"                                                            "80"
 
 		"MaxLevel"                                                             "4"
 

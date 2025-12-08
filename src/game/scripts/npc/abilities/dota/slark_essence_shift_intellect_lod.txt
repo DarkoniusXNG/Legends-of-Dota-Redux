@@ -9,6 +9,7 @@
 
         "ReduxFlags"                                                           "attack_modifier | dota_custom"
         "ReduxPerks"                                                           "attack_modifier | drain"
+        //"ReduxBans"                                                            "silencer_glaives_of_wisdom"
         "ReduxCost"                                                            "20"
 
         "AbilityValues"
@@ -16,7 +17,7 @@
             "ranged_chance" "80"
             "int_gain" "3"
             "stat_loss" "-1"
-            "duration" "15 30 60 120"
+            "duration" "15 35 55 75"
         }
         "Modifiers"
         {

@@ -21,7 +21,7 @@
 
         "ReduxFlags"                                                           "stun"
         "ReduxPerks"                                                           "earth"
-        "ReduxCost"                                                            "120"
+        "ReduxCost"                                                            "360"
         "ReduxBans"                                                            "tinker_rearm"
     }
 }
