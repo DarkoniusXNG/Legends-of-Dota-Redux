@@ -5,15 +5,21 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityTextureName"                                                   "custom/custom_arcane_mastery"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "SpellDispellableType"                                                 "SPELL_DISPELLABLE_NO"
+
         "AbilityCastPoint"                                                     "0.3"
         "AbilityCooldown"                                                      "60"
         "AbilityManaCost"                                                      "150"
-        "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+
         "AbilityProcsMagicStick"                                               "1"
 
         "precache"
         {
             "particle"                                                     "particles/custom_arcane_mastery/arcane_mastery_main.vpcf"
+            "particle"                                                     "particles/custom_arcane_mastery/arcane_mastery_phase.vpcf"
+            "particle"                                                     "particles/custom_arcane_mastery/status_effect_template.vpcf"
+            "particle"                                                     "particles/custom_arcane_mastery/arcane_mastery_kill_effect.vpcf"
         }
 
         "AbilityValues"

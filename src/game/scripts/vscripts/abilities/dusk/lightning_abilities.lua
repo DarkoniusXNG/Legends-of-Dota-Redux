@@ -156,8 +156,12 @@ function check_pos(keys)
 	local caster = keys.caster
 	local pos = caster:GetAbsOrigin()
 
-	if caster.poscount == nil then caster.poscount = -1 end
-	if caster.lastpos == nil then caster.lastpos = pos else caster.lastpos = caster.lastpos end
+	if caster.poscount == nil then
+		caster.poscount = -1
+	end
+	if caster.lastpos == nil then
+		caster.lastpos = pos
+	end
 
 	if pos == caster.lastpos then
 		--print("[CHECK_POS] ADDING COUNT")
@@ -168,15 +172,9 @@ function check_pos(keys)
 
 	if caster.poscount > 10 then
 		--print("[CHECK_POS] REMOVING MODIFIER")
-		caster:RemoveModifierByName("modifier_blinding_speed_active") --[[Returns:void
-		Removes a modifier
-		]]
-		caster:RemoveModifierByName("modifier_bloodseeker_thirst_speed") --[[Returns:void
-		Removes a modifier
-		]]
-		caster:RemoveModifierByName("modifier_blinding_speed_active_aghs") --[[Returns:void
-		Removes a modifier
-		]]
+		caster:RemoveModifierByName("modifier_blinding_speed_active")
+		caster:RemoveModifierByName("modifier_bloodseeker_thirst_speed")
+		caster:RemoveModifierByName("modifier_blinding_speed_active_aghs")
 		caster.poscount = -1
 	end
 
@@ -185,18 +183,15 @@ end
 
 function blinding_speed(keys)
 	local caster = keys.caster
+	local ability = keys.ability
 	local aghs = caster:HasScepter()
 	local modifier = "modifier_blinding_speed_active"
 	local aghs_modifier = "modifier_blinding_speed_active_aghs"
 
 	if aghs then
-		keys.ability:ApplyDataDrivenModifier(caster, caster, aghs_modifier, {}) --[[Returns:void
-		No Description Set
-		]]
+		ability:ApplyDataDrivenModifier(caster, caster, aghs_modifier, {})
 	else
-		keys.ability:ApplyDataDrivenModifier(caster, caster, modifier, {}) --[[Returns:void
-		No Description Set
-		]]
+		ability:ApplyDataDrivenModifier(caster, caster, modifier, {})
 	end
 end
 

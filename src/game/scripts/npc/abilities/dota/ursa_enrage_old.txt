@@ -6,8 +6,11 @@
         "AbilityTextureName"                                                   "custom/ursa_enrage_old"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "SpellDispellableType"                                                 "SPELL_DISPELLABLE_NO"
+
         "AbilityCooldown"                                                      "25"
         "AbilityManaCost"                                                      "0"
+
         "AbilityValues"
         {
             "current_health_as_damage" "5 6 7"

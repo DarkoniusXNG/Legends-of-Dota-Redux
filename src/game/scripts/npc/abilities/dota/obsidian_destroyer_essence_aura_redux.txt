@@ -44,6 +44,8 @@
             }
             "modifier_essence_aura_effect_lod"
             {
+                "IsPurgable"                                           "0"
+
                 "OnAbilityExecuted"
                 {
                     "Random"

@@ -50,29 +50,6 @@ function alchemist_alchemise_transmute_target(keys)
   end
 end
 
-function alchemist_grant_to_hero(event)
-  local caster = event.caster
-  local target = event.target
-  
-  local percent = event.pt / 100
-  
-  caster:EmitSound("DOTA_Item.Hand_Of_Midas")
-  local midas_particle = ParticleManager:CreateParticle("particles/items2_fx/hand_of_midas.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)  
-  ParticleManager:SetParticleControlEnt(midas_particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), false)
-  
-  if caster == target then
-    local gold = caster:GetGold()
-    local stacks = gold/200
-    caster:SpendGold(500+gold*0.04,0)
-    event.ability:ApplyDataDrivenModifier(caster,caster,"alchemist_gold_armor_mod",{})
-    caster:SetModifierStackCount("alchemist_gold_armor_mod",event.ability,stacks)
-    return
-  end
-  
-  caster:SpendGold(caster:GetGold()*percent,0)
-  target:ModifyGold(caster:GetGold()*percent,true,0)
-end
-
 function alchemist_alchemise_tick_gold(keys)
   keys.target:ModifyGold(keys.gold, false, 0)
   --print("Adding "..keys.gold.." gold to modifier owner")
@@ -106,29 +83,6 @@ function alchemist_multiply_gold_tgt(keys)
   ParticleManager:SetParticleControl(particle, 1, Vector(symbol, gold, symbol))
   ParticleManager:SetParticleControl(particle, 2, Vector(lifetime, digits, 0))
   ParticleManager:SetParticleControl(particle, 3, color)
-end
-
-function alchemist_increase_bounty_tgt(keys)
-  local target = keys.target
-  local mult = keys.gold/100
-  
-  target.bounty_table = {}
-  
-  table.insert(target.bounty_table,target:GetGoldBounty())
-  
-  local gold = target:GetGoldBounty()*mult
-  
-  target:SetMaximumGoldBounty(gold+(gold*0.1))
-  target:SetMinimumGoldBounty(gold-(gold*0.1))
-end
-
-function alchemist_reset_bounty_tgt(keys)
-  local target = keys.target
-  
-  local bt = target.bounty_table[1]
-  
-  target:SetMaximumGoldBounty(bt)
-  target:SetMinimumGoldBounty(bt)
 end
 
 function alchemist_bottle_throw_start(keys)

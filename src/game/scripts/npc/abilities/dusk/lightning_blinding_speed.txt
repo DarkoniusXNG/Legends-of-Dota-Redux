@@ -11,6 +11,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"custom/lightning_blinding_speed"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"          "SPELL_DISPELLABLE_NO"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -38,6 +39,8 @@
 			}
             "duration" "6"
             "scepter_speed" "1750 2000 2375"
+			"move_speed_slow"  "-25 -30 -35"
+			"attack_speed_slow"  "-25 -30 -35"
         }
 		
 		"precache"
@@ -53,8 +56,6 @@
 				"ModifierName"	"modifier_bloodseeker_thirst_speed"
 				"Target" 		"CASTER"
 				"Duration"		"%duration"
-				"IsHidden"		"1"
-				"IsPurgable"	"1"
 			}
 			"RunScript"
 			{
@@ -67,8 +68,10 @@
 		{
 			"modifier_blinding_speed_active"
 			{
+				"IsBuff"                                               "1"
+				"IsPurgable"                                           "0"
+
 				"Duration" "%duration"
-				"IsBuff" "1"
 
 				"Aura"		  	"modifier_blinding_speed_damage_apply"
 				"Aura_Radius"   	"%radius"
@@ -115,12 +118,13 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-			
 			}
 			"modifier_blinding_speed_active_aghs"
 			{
+				"IsBuff"                                               "1"
+				"IsPurgable"                                           "0"
+
 				"Duration" "%duration"
-				"IsBuff" "1"
 
 				"Aura"		  	"modifier_blinding_speed_damage_apply"
 				"Aura_Radius"   	"%radius"
@@ -184,8 +188,8 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-40"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-35"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_slow"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_speed_slow"
 				}
 				"OnCreated"
 				{

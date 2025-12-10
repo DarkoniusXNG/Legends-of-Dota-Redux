@@ -36,6 +36,7 @@
                 "Passive"                                              "1"
                 "IsPurgable"                                           "0"
                 "IsHidden"                                             "1"
+
                 "OnAbilityExecuted"
                 {
                     "RunScript"

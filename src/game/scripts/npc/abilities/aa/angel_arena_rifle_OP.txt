@@ -5,6 +5,8 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
         "AbilityTextureName"                                                   "custom/angel_arena_rifle_op"
+        "SpellDispellableType"                                                 "SPELL_DISPELLABLE_NO"
+
         "AbilityCastPoint"                                                     "0.1"
 
         "ReduxFlags"                                                           "attack_modifier"

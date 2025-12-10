@@ -5,6 +5,8 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/troll_multistrike"
+        "SpellDispellableType"                                                 "SPELL_DISPELLABLE_NO"
+
         "AbilityValues"
         {
             "max_stacks" "5"
@@ -18,6 +20,8 @@
                 "Passive"                                              "1"
                 "IsHidden"                                             "1"
                 "IsDebuff"                                             "0"
+                "IsPurgable"                                           "0"
+
                 "OnAttack"
                 {
                     "RunScript"

@@ -5,13 +5,15 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityTextureName"                                                   "custom/shards_of_truesight_lod_OP"
+        "SpellDispellableType"                                                 "SPELL_DISPELLABLE_NO"
+
         "AbilityCooldown"                                                      "12"
         "AbilityManaCost"                                                      "100 75 50 0"
         "AbilityCastRange"                                                     "%radius"
+
         "precache"
         {
             "particle"                                                     "particles/true_sight/true_sight_debuff.vpcf"
-            "sound"                                                        "sounds/items/dust_of_appearance.vsnd"
         }
         "AbilityValues"
         {

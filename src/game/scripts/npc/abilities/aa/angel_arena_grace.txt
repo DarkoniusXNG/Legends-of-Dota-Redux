@@ -8,11 +8,14 @@
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ALLIES_YES"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+        "SpellDispellableType"                                                 "SPELL_DISPELLABLE_YES"
         "AbilityTextureName"                                                   "custom/angel_arena_grace"
+
         "AbilityCastRange"                                                     "1000"
         "AbilityCastPoint"                                                     "0.2"
         "AbilityCooldown"                                                      "50.0 40.0 30.0"
         "AbilityManaCost"                                                      "150 175 200"
+
         "AbilityValues"
         {
             "heal" "500 750 1000"
