@@ -48,7 +48,7 @@
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/primal_beast_innate_status_resistance_per_time"
-
+		"MaxLevel"						"4"
 		"ReduxFlags"                                                           "doNotRandom"
 		"AbilityValues"
 		{
