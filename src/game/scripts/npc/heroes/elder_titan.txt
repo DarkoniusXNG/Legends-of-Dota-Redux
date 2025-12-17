@@ -77,6 +77,12 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "custom/npc_dota_hero_elder_titan_perk"
+		"MaxLevel"						"4"
+		"AbilityValues"
+		{
+			"attack_speed_from_movespeed"			"25 40 55 60"
+			"attack_speed_penalty"					"85"
+		}
 	}
 
 	//=================================================================================================================
@@ -143,3 +149,4 @@
 		"TalentRequiredAbility"		"elder_titan_ancestral_spirit"
 	}
 }
+
