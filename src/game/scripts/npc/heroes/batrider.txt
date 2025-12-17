@@ -19,6 +19,20 @@
 
 		"ReduxFlags"                    "attack_modifier"
 		"ReduxPerks"                    "attack_modifier | fire"
+		"MaxLevel"						"4"
+		"Innate"						"1"
+		"IsBreakable"					"1"
+
+		"AbilityValues"
+		{
+			"total_ticks"			
+			{
+				"value"		"2"
+				"special_bonus_unique_batrider_smoldering_resin_ticks"	"+4"
+			}
+			"tick_rate"				"1"
+			"tick_attack_damage_pct"		"20 30 40 50"
+		}
 	}
 
 	//=================================================================================================================
@@ -31,6 +45,12 @@
 
 		"ReduxFlags"                    "doNotRandom | mobility"
 		"ReduxPerks"                    "enemymoving | mobility"
+		"AbilityValues"
+		{
+			"duration"					"7.0"
+			"movement_speed_pct"		"4 8 12 16"
+			"spell_amplification"		"4 8 12 16"
+		}
 	}
 
 	//=================================================================================================================
@@ -123,3 +143,4 @@
 		"TalentRequiredAbility"			"batrider_smoldering_resin"
 	}
 }
+
