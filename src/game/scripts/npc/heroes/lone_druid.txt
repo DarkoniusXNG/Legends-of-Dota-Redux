@@ -65,11 +65,11 @@
 		"ReduxPerks"                    "nature"
 	}
 
-	"lone_druid_entangling_claws"
-	{
-		"ReduxFlags"                    "stun"
-		"ReduxPerks"                    "nature"
-	}
+	//"lone_druid_entangling_claws"
+	//{
+		//"ReduxFlags"                    "stun"
+		//"ReduxPerks"                    "nature"
+	//}
 
 	"lone_druid_spirit_bear_demolish" // Spirit Bear's innate
 	{
