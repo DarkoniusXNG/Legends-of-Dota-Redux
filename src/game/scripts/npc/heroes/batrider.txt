@@ -19,7 +19,7 @@
 
 		"ReduxFlags"                    "attack_modifier"
 		"ReduxPerks"                    "attack_modifier | fire"
-		"MaxLevel"						"4"
+		"MaxLevel"						"1"
 		"Innate"						"1"
 		"IsBreakable"					"1"
 
@@ -31,7 +31,7 @@
 				"special_bonus_unique_batrider_smoldering_resin_ticks"	"+4"
 			}
 			"tick_rate"				"1"
-			"tick_attack_damage_pct"		"20 30 40 50"
+			"tick_attack_damage_pct"		"20"
 		}
 	}
 
@@ -143,4 +143,5 @@
 		"TalentRequiredAbility"			"batrider_smoldering_resin"
 	}
 }
+
 
