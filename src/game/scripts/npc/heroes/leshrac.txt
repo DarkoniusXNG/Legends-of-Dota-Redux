@@ -56,6 +56,16 @@
 
 		"ReduxFlags"                                                           "attack_modifier | mana | doNotRandom"
 		"ReduxPerks"                                                           "attack_modifier | light"
+		"MaxLevel"						"4"
+		"IsBreakable"					"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"mana_pct_per_hit"				"25 30 35 40"
+			"creep_penalty_reduction_pct"	"50"
+		}
 	}
 
 	//=================================================================================================================
