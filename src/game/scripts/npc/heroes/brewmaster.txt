@@ -40,7 +40,7 @@
 	{
 		"ReduxFlags"                    "tank"
 		"ReduxPerks"                   	"rage | mobility"	
-		"MaxLevel"						"4"
+		"MaxLevel"						"1"
 		"Innate"						"1"
 		"HasShardUpgrade"				"1"
 
@@ -52,12 +52,12 @@
 			"max_health_threshold"			"20"		// When the effect is at full power
 			"status_resist"			
 			{
-				"value"					"10.5 12.5 14.5 16.5"
+				"value"					"10.5"
 				"hero_levelup"			"+0.5"
 			}
 
-			"min_speed"					"10 8 6 4"	
-			"max_speed"					"25 30 35 40"
+			"min_speed"					"10"	
+			"max_speed"					"25"
 			"speed_toggle_time"			"1"
 
 			"drink_duration"					
