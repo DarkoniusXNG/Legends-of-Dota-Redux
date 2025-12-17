@@ -9,11 +9,11 @@
 
         "AbilityValues"
         {
-            "bonus_hp_regen" "15 18 21"
-            "bonus_armor" "4 8 12"
-            "bonus_damage" "5 7 9"
-            "bonus_movespeed" "3 6 9"
-            "base_attack_time" "1.6 1.55 1.5"
+            "bonus_hp_regen"                                                   "15 18 21"
+            "bonus_armor"                                                      "4 8 12"
+            "bonus_damage"                                                     "5 7 9" // percentage base dmg increase
+            "bonus_movespeed"                                                  "3 6 9"
+            "base_attack_time"                                                 "1.6 1.55 1.5"
         }
         "Modifiers"
         {

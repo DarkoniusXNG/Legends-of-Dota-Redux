@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-    "angel_arena_razor_power" // holy book
+    "angel_arena_razor_power" // Holy Book
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"

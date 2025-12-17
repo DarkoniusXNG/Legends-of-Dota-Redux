@@ -20,10 +20,10 @@
 
 		"AbilityValues"
         {
-            "duration" "8.0"
-            "damage" "15 30 45 60"
-            "attack_reduce" "-30 -60 -90 -120"
-            "slow_percent" "-15 -20 -25 -30"
+            "duration"                                                          "8.0"
+            "damage"                                                            "15 30 45 60"
+            "attack_reduce"                                                     "-30 -60 -90 -120" // flat attack damage reduction
+            "slow_percent"                                                      "-20 -25 -30 -35"
         }
 
 		"OnSpellStart" {

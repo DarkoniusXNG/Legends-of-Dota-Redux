@@ -35,7 +35,7 @@
 
         "precache"
         {
-            "particle"                                                     "particles/items3_fx/silver_edge_slow.vpcf"
+            "particle"                                                     "particles/skywrath_mage_concussive_break/skywrath_mage_concussive_break.vpcf"
         }
 
         "ReduxFlags"                                                           "upgradeable | dota_custom"

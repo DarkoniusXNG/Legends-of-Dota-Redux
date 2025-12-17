@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-    "angel_arena_berserk"
+    "angel_arena_berserk" // Savage Rage
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -19,10 +19,10 @@
 
         "AbilityValues"
         {
-            "duration" "30.0"
-            "bonus_attack_speed" "60 75 90 105"
-            "bonus_damage" "20 18 16 14"
-            "damage_pct" "0.6 1.2 1.8 2.4"
+            "duration"                                                         "30.0"
+            "bonus_attack_speed"                                               "60 75 90 105"
+            "bonus_damage"                                                     "20 18 16 14" // extra damage the caster takes
+            "damage_pct"                                                       "0.6 1.2 1.8 2.4" // current hp dmg the enemy takes
         }
         "OnSpellStart"
         {

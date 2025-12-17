@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-    "angel_arena_rifle_OP"
+    "angel_arena_rifle_OP" // Toggle Rifle
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"

@@ -3814,7 +3814,7 @@
 	"ember_spirit_activate_fire_remnant"
 	{
 		"ReduxFlags"                                                           "doNotRandom | mobility"
-		"ReduxPerks"                                                           "skillshot"
+		"ReduxPerks"                                                           "fire | mobility | skillshot"
 	}
 	"shadow_demon_shadow_poison_release"
 	{

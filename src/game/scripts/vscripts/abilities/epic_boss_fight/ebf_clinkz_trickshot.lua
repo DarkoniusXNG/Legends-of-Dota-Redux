@@ -225,10 +225,12 @@ if IsServer() then
 		end
 
 		-- Trigger cooldown
-		if ability and not ability:IsNull() and hit_at_least_one then
-			ability:StartCooldown(interval)
-		else
-			parent:AddNewModifier(parent, nil, "modifier_ebf_clinkz_trickshot_passive_cd", {duration = interval})
+		if hit_at_least_one then
+			if ability and not ability:IsNull() then
+				ability:StartCooldown(interval)
+			else
+				parent:AddNewModifier(parent, nil, "modifier_ebf_clinkz_trickshot_passive_cd", {duration = interval})
+			end
 		end
 	end
 end

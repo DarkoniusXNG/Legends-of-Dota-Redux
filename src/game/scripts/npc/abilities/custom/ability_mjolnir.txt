@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-    "ability_mjolnir"
+    "ability_mjolnir" // Hammer of Sparks
     {
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/ability_mjolnir.lua"
@@ -45,7 +45,7 @@
         "ReduxCost"                                                            "0"
     }
 
-    "ability_mjolnir_op"
+    "ability_mjolnir_op" // Hammer of Thunder
     {
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/ability_mjolnir.lua"

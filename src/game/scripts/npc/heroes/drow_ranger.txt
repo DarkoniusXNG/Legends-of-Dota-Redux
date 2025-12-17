@@ -30,7 +30,6 @@
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | ranger"
 		"ReduxCost"                                                            "120"
-		"ReduxBans"                                                            "brawler_agi"
 	}
 
 	"drow_ranger_glacier"

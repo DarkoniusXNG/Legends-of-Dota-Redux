@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-    "angel_arena_revenge"
+    "angel_arena_revenge" // Whiteboard's Revenge
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"

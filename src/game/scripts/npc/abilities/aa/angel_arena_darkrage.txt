@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-    "angel_arena_darkrage"
+    "angel_arena_darkrage" // Power of Darkness
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"

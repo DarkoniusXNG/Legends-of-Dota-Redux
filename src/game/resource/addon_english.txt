@@ -6487,7 +6487,7 @@
 "DOTA_Tooltip_ability_keeper_of_the_light_chakra_magic_cooldown_cooldown_reduction" "COOLDOWN REDUCTION:"
 "DOTA_Tooltip_ability_keeper_of_the_light_chakra_magic_cooldown_Description" "Reduces cooldowns of all basic abilities currently on cooldown by a fixed amount. Is %self_bonus%%% more effective when self-cast. <font color='#70EA72'>Does not give or restore any mana</font>."
 "DOTA_Tooltip_ability_keeper_of_the_light_chakra_magic_cooldown_Lore" "In the same vein, Ezalor bestows his harmony among others."
-"DOTA_Tooltip_ability_keeper_of_the_light_innate_scepter_description" "Improves vision by 1000."
+"DOTA_Tooltip_ability_keeper_of_the_light_innate_redux_scepter_description" "Improves vision by 1000."
 "DOTA_Tooltip_ability_keeper_of_the_light_innate_redux" "Unobstructed Day Vision"
 "DOTA_Tooltip_ability_keeper_of_the_light_innate_redux_Description" "Will grant unobstructed vision at day time.\n\n Upgradeable by Aghanim's Scepter<br><br><font color='#7D7D7D'>Credits: Wouterz90 | github.com/Wouterz90</font><br>"
 "DOTA_Tooltip_ability_keeper_of_the_light_innate_redux_vision_radius" "VISION RADIUS:"

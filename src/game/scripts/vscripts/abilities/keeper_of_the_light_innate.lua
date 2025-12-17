@@ -1,10 +1,14 @@
 keeper_of_the_light_innate_redux = class({})
+
 LinkLuaModifier("modifier_keeper_of_the_light_innate_redux","abilities/keeper_of_the_light_innate.lua",LUA_MODIFIER_MOTION_NONE)
-modifier_keeper_of_the_light_innate_redux = class({})
 
 function keeper_of_the_light_innate_redux:GetIntrinsicModifierName()
   return "modifier_keeper_of_the_light_innate_redux"
 end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_keeper_of_the_light_innate_redux = class({})
 
 function modifier_keeper_of_the_light_innate_redux:IsPassive() 
   return true
@@ -23,7 +27,6 @@ function modifier_keeper_of_the_light_innate_redux:OnCreated()
     self:StartIntervalThink(1/32)
   end
 end
-
 
 function modifier_keeper_of_the_light_innate_redux:IsHidden()
   return self:GetStackCount() == 1

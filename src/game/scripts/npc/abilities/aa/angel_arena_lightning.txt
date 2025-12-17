@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-    "angel_arena_lightning"
+    "angel_arena_lightning" // Lightning Strike
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
