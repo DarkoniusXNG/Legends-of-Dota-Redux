@@ -48,18 +48,18 @@
 	"abaddon_withering_mist"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-		"MaxLevel"						"4"
+		"MaxLevel"						"1"
 		"ReduxPerks"                    "undead"
 
 		"AbilityValues"
 		{
-			"hp_threshold_pct"		"40.0 45.0 50.0 55.0"
+			"hp_threshold_pct"		"40.0"
 			"heal_reduction_pct"	
 			{
-				"value"				"35 40 45 50"
+				"value"				"35"
 				"special_bonus_unique_abaddon_6"		"+10"
 			}
-			"duration"				"5.0 6.0 7.0 8.0"
+			"duration"				"5.0"
 		}
 	}
 
@@ -156,5 +156,6 @@
 		"TalentRequiredAbility"                                                   "abaddon_borrowed_time"
 	}
 }
+
 
 
