@@ -29,6 +29,17 @@
 		"AbilityTextureName"            "custom/npc_dota_hero_abaddon_perk"
 
 		"ReduxFlags"                    "cooldown"
+
+		"AbilityValues"
+		{
+			"cooldown_reduction_creeps"		"0.2 0.3 0.4 0.5"
+			"cooldown_reduction_heroes"		"5.0 6.0 7.0 8.0"
+			"radius"	
+			{
+				"value"		"900"
+				"affected_by_aoe_increase"	"1"
+			}
+		}
 	}
 
 	//=================================================================================================================
@@ -39,6 +50,17 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
 		"ReduxPerks"                    "undead"
+
+		"AbilityValues"
+		{
+			"hp_threshold_pct"		"40.0 45.0 50.0 55.0"
+			"heal_reduction_pct"	
+			{
+				"value"				"35 40 45 50"
+				"special_bonus_unique_abaddon_6"		"+10"
+			}
+			"duration"				"5.0 6.0 7.0 8.0"
+		}
 	}
 
 	//=================================================================================================================
@@ -134,3 +156,4 @@
 		"TalentRequiredAbility"                                                   "abaddon_borrowed_time"
 	}
 }
+
