@@ -59,6 +59,13 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "custom/npc_dota_hero_oracle_perk"
+		"MaxLevel"						"4"
+		"IsBreakable"					"1"
+
+		"AbilityValues"
+		{
+			"spell_amplification"		"1.0 1.25 1.5 1.75"
+		}
 	}
 
 	//=================================================================================================================
@@ -68,9 +75,13 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "custom/npc_dota_hero_oracle_perk"
-
+		"MaxLevel"						"4"
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support"
+		"AbilityValues"
+		{
+			"heal_amplification"		"0.75 1.0 1.25 1.5"
+		}
 	}
 
 	//=================================================================================================================
