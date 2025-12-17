@@ -40,8 +40,23 @@
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_furion_perk"
-
+		"MaxLevel"						"4"
 		"ReduxPerks"                                                           "gold | nature"
+		"AbilityValues"
+		{
+			"tick_interval"				"1"
+			"initial_spawn_time"				"2"
+			"radius"					"750"
+			"bags_per_tick"					
+			{
+				"value"						"2 3 4 5"
+				"special_bonus_unique_furion_8"									"+1"
+			}
+			"tree_duration"					"3"
+			"min_throw_range"				"200"
+			"max_throw_range"				"250"
+			"hero_level_gold_multiplier"			"2.0"
+		}
 	}
 
 	// "furion_fecundity"
@@ -60,7 +75,7 @@
 		"AbilityValues"
 		{
 			"duration"		"7 8 9 10"
-			"damage_per_tree"		"20"
+			"damage_per_tree"		"15"
 			"slow_per_tree"			"7 8 9 10"
 			"radius"
 			{
@@ -69,7 +84,7 @@
 			}
 			"range"
 			{
-				"value"						"1200 1300 1400 1500"
+				"value"						"900 1100 1300 1500"
 				"affected_by_aoe_increase"	"1"
 			}
 		}
@@ -113,6 +128,7 @@
 			}
 		}
 	}
+
 
 	"special_bonus_unique_furion"
 	{
