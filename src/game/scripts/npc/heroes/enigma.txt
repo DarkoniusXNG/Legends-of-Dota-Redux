@@ -41,6 +41,15 @@
 
 		"ReduxFlags"                                                           "doNotRandom | summon"
 		"ReduxPerks"                                                           "summon_non_ult | demon"
+		"MaxLevel"						"4"
+		"IsBreakable"					"1"
+		"AbilityValues"
+		{
+				"damage_threshold"				"375 300 225 150"
+				"damage_reset_interval"			"7 8 9 10"
+				"eidolon_spawns"				"1"
+				"non_splitting_bounty_reduction_tooltip"	"50"		// tooltip only, non_splitting_bounty_reduction is real value
+		}
 	}
 
 	"enigma_event_horizon"
