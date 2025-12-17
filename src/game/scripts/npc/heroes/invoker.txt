@@ -11,6 +11,11 @@
 		"Innate"                        "0"
 
 		"ReduxFlags"                    "doNotRandom"
+		"MaxLevel"						"4"
+		"AbilityValues"
+		{
+			"xp_on_deny_percent"		"25 50 75 100"
+		}
 	}
 
 	//=================================================================================================================
@@ -476,3 +481,4 @@
 		"TalentRequiredAbility"                                                   "invoker_chaos_meteor_ad"
 	}
 }
+
