@@ -36,8 +36,8 @@
 
 		"ReduxFlags"                                                           "illusion"
 		"ReduxPerks"                                                           "illusion"
+
 		"MaxLevel"						"4"
-		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
@@ -70,6 +70,7 @@
 		"AbilityTextureName"            "custom/npc_dota_hero_chaos_knight_perk"
 
 		"ReduxFlags"                                                           "doNotRandom"
+
 		"MaxLevel"						"4"
 
 		"AbilityValues"

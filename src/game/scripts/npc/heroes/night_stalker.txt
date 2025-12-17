@@ -47,7 +47,7 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Night Reign (Facet)
+	// Ability: Night Reign (Facet) - do not change, it can mess up Roshan
 	//=================================================================================================================
 	"night_stalker_night_reign"
 	{
@@ -55,14 +55,6 @@
 		"AbilityTextureName"            "custom/npc_dota_hero_night_stalker_perk"
 
 		"ReduxFlags"                                                           "doNotRandom"
-		"MaxLevel"						"4"
-		"AbilityValues"
-		{
-			"daytime_start" 	".75"
-			"daytime_change"	"-15 -30 -45 -60"
-			"roshan_initial_move_timer_override"	"1199" // Have Roshan start moving at 20 minutes instead of at 15.
-			"tooltip_nighttime_change"	"15 30 45 60" // Should match daytime_change, just so we can have different tooltips
-		}
 	}
 
 	//=================================================================================================================

@@ -67,6 +67,7 @@
 	{
 		"ReduxFlags"                                                           "support | tank"
 		"ReduxPerks"                                                           "support | ice"
+
 		"AbilityValues"
 		{
 			"armor_bonus"			"4 7 10 13"

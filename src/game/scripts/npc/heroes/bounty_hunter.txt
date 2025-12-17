@@ -54,6 +54,7 @@
 	"bounty_hunter_big_game_hunter"
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "gold"
 	}

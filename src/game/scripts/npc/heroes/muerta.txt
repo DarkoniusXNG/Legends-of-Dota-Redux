@@ -67,12 +67,15 @@
 	"muerta_ofrenda"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"ReduxPerks"                                                           "undead"
+
 		"MaxLevel"		"4"
+
 		"AbilityCastRange"				"300 500 700 900"
 		"AbilityCastPoint"				"0.3"
-		"AbilityCooldown"				"60.0 50.0 40.0 30.0"
-		"AbilityManaCost"				"0"
-		"ReduxPerks"                    "undead"
+		"AbilityCooldown"				"60 50 40 30"
+
 		"AbilityValues"
 		{
 			"pierce_the_veil_duration_pct"				"50 60 70 80"
@@ -86,7 +89,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "muerta_dead_shot"
 	}
 	"special_bonus_unique_muerta_the_calling_num_revenants"
@@ -94,7 +97,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "muerta_the_calling"
 	}
 	"special_bonus_unique_muerta_gunslinger_double_shot_chance"
@@ -102,7 +105,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "muerta_gunslinger"
 	}
 	"special_bonus_unique_muerta_dead_shot_charges"
@@ -110,7 +113,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "muerta_dead_shot"
 	}
 	"special_bonus_unique_muerta_calling_hp_regen"

@@ -36,7 +36,9 @@
 
 		"ReduxFlags"                                                           "doNotRandom | mobility"
 		"ReduxPerks"                                                           "mobility"
+
 		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"slow_resistance_per_upgrade"		"1"
@@ -48,8 +50,11 @@
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/primal_beast_innate_status_resistance_per_time"
-		"MaxLevel"						"4"
+
 		"ReduxFlags"                                                           "doNotRandom"
+
+		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"status_resistance_per_upgrade"		"1"

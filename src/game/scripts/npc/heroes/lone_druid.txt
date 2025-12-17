@@ -52,22 +52,17 @@
 
 	"lone_druid_spirit_bear_entangle"
 	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"ReduxFlags"                    "attack_modifier | bash"
 		"ReduxPerks"                    "attack_modifier | bash | nature"
 		"ReduxCost"                     "40"
-
-		"MaxLevel"                      "4"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	}
 
 	"lone_druid_entangle"
 	{
-		"ReduxFlags"                    "attack_modifier | bash"
-		"ReduxPerks"                    "attack_modifier | bash | nature"
-		"ReduxCost"                     "40"
-
-		"MaxLevel"                      "4"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ReduxFlags"                    "stun"
+		"ReduxPerks"                    "nature"
 	}
 
 	"lone_druid_entangling_claws"
@@ -76,26 +71,11 @@
 		"ReduxPerks"                    "nature"
 	}
 
-	"lone_druid_spirit_bear_demolish"
+	"lone_druid_spirit_bear_demolish" // Spirit Bear's innate
 	{
-		"ReduxFlags"                    "attack_modifier | tank | doNotRandom"
+		"ReduxFlags"                    "attack_modifier | doNotRandom"
 		"ReduxPerks"                    "attack_modifier"
-		"ReduxCost"                     "0"
-
-		"MaxLevel"                      "4"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"bonus_building_damage"
-			{
-				"value"													"30 35 40 45"
-				"special_bonus_unique_lone_druid_spirit_bear_demolish"	"+20"
-			}
-			"bonus_damage_against_entangled"
-			{
-				"special_bonus_unique_lone_druid_spirit_bear_damage_against_entangled" "15"
-			}
-		}
+		"ReduxCost"                     "10"
 	}
 
 	"lone_druid_spirit_bear_return"
@@ -107,7 +87,7 @@
 
 	"lone_druid_spirit_bear"
 	{
-		"ReduxFlags"                                                           "summon"
+		"ReduxFlags"                                                           "doNotRandom | summon"
 		"ReduxPerks"                                                           "self_damage | summon_non_ult"
 		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand"
 	}
@@ -152,10 +132,12 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires True Form
 		"AbilityTextureName"            "custom/npc_dota_hero_lone_druid_perk"
-		"ReduxCost"                     "120"
+		
 		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxCost"                                                            "120"
+
 		"AbilityValues"
-		{	
+		{
 			"item_slots"				"3 4 5 6"
 			"bonus_stat_percent"		"45 55 65 75"
 		}

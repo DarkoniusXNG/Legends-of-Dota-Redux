@@ -77,9 +77,15 @@
 {
 	"centaur_horsepower"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"1"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_centaur_perk"
+
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility"
+
+		"MaxLevel"						"4"
 		"Innate"						"0"
+
 		"AbilityValues"
 		{
 			"strength_to_movement_pct"			"30 35 40 45"
@@ -125,28 +131,24 @@
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_wisp_perk"
 
-		"Innate"						"0"
-		"MaxLevel"						"4"
 		"ReduxFlags"                                                           "doNotRandom | support"
 		"ReduxPerks"                                                           "support"
+
+		"Innate"						"0"
+		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
-				"bonus_vision"	"300 500 700 900"
-				"bonus_channel_speed"	"1"
+			"bonus_vision"	"300 500 700 900"
+			"bonus_channel_speed"	"1"
 		}
 	}
 
-	"wisp_essence_conduction"
+	"wisp_essence_conduction" // Io's current innate
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilityTextureName"            "custom/npc_dota_hero_wisp_perk"
-		"Innate"						"1"		
-		"MaxLevel"						"4"
-		"AbilityValues"
-		{
-				"consume_speed"	"2 3 4 5"
-		}
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "doNotRandom"
 	}
 
 	"void_spirit_symmetry"
@@ -156,14 +158,14 @@
 
 		"MaxLevel"						"4"
 
-		"ReduxFlags"                    "tank"
+		"ReduxFlags"                                                           "tank"
 
 		"AbilityValues"
 		{
-			"buff_duration"			"20.0"
-			"refresh_duration"		"10"
-			"absorb_per_damage_pct"	"40 45 55 60"
-			"return_projectile_speed"			"900"
+			"buff_duration"                                                    "20.0"
+			"refresh_duration"                                                 "10"
+			"absorb_per_damage_pct"                                            "40 45 55 60"
+			"return_projectile_speed"                                          "900"
 		}
 	}
 
@@ -257,11 +259,14 @@
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_phoenix_perk"
+
+		"ReduxPerks"                                                           "fire | light"
+
 		"MaxLevel"						"4"
-		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
-			"radius"					
+			"radius"
 			{
 				"value"			"400 450 500 550"
 				"affected_by_aoe_increase"	"1"
@@ -324,12 +329,12 @@
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+
 		"MaxLevel"						"3"
-		"FightRecapLevel"				"1"
-		"IsGrantedByScepter"			"1"
-		"HasScepterUpgrade"				"1"
+
 		"AbilityCooldown"				"60 50 40"
 		"AbilityManaCost"				"150"
+
 		"AbilityValues"
 		{
 			"duration"					"15"
@@ -343,18 +348,18 @@
 	"troll_warlord_switch_stance"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"ReduxFlags"                                                           "doNotRandom | semi_passive"
+		"ReduxCost"                                                            "120"
+
 		"MaxLevel"						"4"
 		"Innate"						"1"
-		"AbilityCastPoint"				"0.2"
-		"ReduxCost"                     "120"
+
 		"AbilityValues"
 		{
 			"bonus_range"			"350 370 390 410"
 			"base_attack_time"		"1.4 1.35 1.3 1.25"
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-		"ReduxFlags"				"semi_passive"
 	}
 
 	"granite_golem_bash"
@@ -423,7 +428,8 @@
 
 		"ReduxPerks"                    "nature"
 		"ReduxCost"                     "60"
-		"MaxLevel"						"4"		
+
+		"MaxLevel"						"4"
 
 		"AbilityValues"
 		{
@@ -480,7 +486,9 @@
 		"AbilityTextureName"            "custom/npc_dota_hero_razor_perk"
 
 		"ReduxBans"                     "rubick_might_and_magus" // because it crashes the game
-		"MaxLevel"	"4"
+
+		"MaxLevel"                      "4"
+
 		"AbilityValues"
 		{
 			"spell_amp_damage_divisor"	"20"
@@ -608,6 +616,12 @@
 
 	"clinkz_bone_and_arrow"
 	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_clinkz_perk"
+
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "undead"
 	}
 
@@ -663,22 +677,23 @@
 
 	"flagbearer_creep_aura_effect"
 	{
-		"MaxLevel"						"4"
-		"AbilityValues"
-		{
-				"bonus_health_regen"					"3 5 7 9"
-				"radius"								"700 800 900 1000"
-				"bonus_gold"							"10"
-				"bonus_magic_resistance_per_interval"	"4"
-				"maximum_intervals"						"15"
-				"total_magic_resistance"
-				{
-					"dynamic_value"			"true"
-				}
-
-		}
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support | neutral | aura"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"bonus_health_regen"					"3 5 7 9"
+			"radius"								"700 800 900 1000"
+			"bonus_gold"							"10"
+			"bonus_magic_resistance_per_interval"	"4"
+			"maximum_intervals"						"15"
+			"total_magic_resistance"
+			{
+				"dynamic_value"			"true"
+			}
+		}
 	}
 
 	"beastmaster_hawk_perch"
@@ -702,20 +717,20 @@
 		}
 	}
 
-	
-	
 	"miniboss_radiance"
 	{
-		"ReduxPerks"                    "neutral | aura"
-		"MaxLevel"						"4"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"MaxLevel"						"4"
+
+		"ReduxPerks"                    "neutral | aura"
 
 		"AbilityValues"
 		{
-				"aura_radius"			"1000"
-				"aura_damage"			"60 75 90 105"
-				"aura_interval"			"0.2"
-				"attack_timer_duration"		"10"
+			"aura_radius"			"1000"
+			"aura_damage"			"60 75 90 105"
+			"aura_interval"			"0.2"
+			"attack_timer_duration"		"10"
 		}
 	}
 
@@ -775,9 +790,9 @@
 		"AbilityValues"
 		{
 			"wave_count"			"6"
-			"range"					"850"				
+			"range"					"850"
 			"damage_pct"			"75 80 85 90"
-			"projectile_width"		
+			"projectile_width"
 			{
 				"value"		"200"
 				"affected_by_aoe_increase"	"1"
@@ -791,16 +806,29 @@
 	{
 		"ReduxFlags"                                                           "tank | doNotRandom"
 		"ReduxPerks"                                                           "neutral"
+
+		"MaxLevel"                                                             "4"
+
+		"AbilityValues"
+		{
+			"passive_reflection_pct"			"50 60 70 80"
+			"passive_reflection_bonus_per_interval"		"2"
+		}
 	}
 
 	"miniboss_unyielding_shield"
 	{
 		"ReduxFlags"                                                           "tank | doNotRandom"
 		"ReduxPerks"                                                           "neutral"
+
+		"MaxLevel"                                                             "4"
+
 		"AbilityValues"
 		{
-				"passive_reflection_pct"			"50 60 70 80"
-				"passive_reflection_bonus_per_interval"		"2"
+			"damage_absorb"		"500 1000 1500 2000"
+			"absorb_bonus_per_interval"	"20"
+			"regen_per_second"	"40 50 60 70"
+			"regen_bonus_per_interval"	"3.5"
 		}
 	}
 
@@ -908,24 +936,10 @@
 		}
 	}
 
-	"centaur_mount"
+	"centaur_mount" // sub-ability for centaur_work_horse
 	{
 		"ReduxFlags"                    "support | doNotRandom | upgradeable"
 		"ReduxPerks"                    "support"
-
-		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET |  DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"35 30 25 20"
-		"AbilityCastRange"				"250"
-		"AbilityManaCost"				"75"
-		"AbilityValues"
-		{
-			"duration"					"7"
-			"melee_attack_range"		"200"
-			"air_duration"		"0.5"
-			"air_height"		"450"
-			"break_distance"		"600"
-		}
 	}
 
 	"centaur_work_horse"
@@ -933,10 +947,11 @@
 		"ReduxFlags"                    "support | doNotRandom | upgradeable"
 		"ReduxPerks"                    "support"
 
-		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET |  DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"MaxLevel"						"4"
+
 		"AbilityCooldown"				"35 30 25 20"
 		"AbilityManaCost"				"75"
+
 		"AbilityValues"
 		{
 			"duration"					"7"
@@ -2169,13 +2184,15 @@
 		"ReduxCost"                                                            "20"
 
 		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+
 		"MaxLevel"                      "4"
+
 		"AbilityCastRange"				"350 400 450 500"
 		"AbilityCharges"				"3"
 		"AbilityChargeRestoreTime"		"55.0 50.0 45.0 40.0"
 		"AbilityValues"
 		{
-			"vision_aoe"		
+			"vision_aoe"
 			{
 				"value"						"800"
 				"affected_by_aoe_increase"	"1"
@@ -2614,12 +2631,15 @@
 
 	"treant_natures_guise"
 	{
-		"ReduxFlags"                   	"mobility | invis"
+		"ReduxFlags"                   	"mobility | invis | semi_passive"
 		"ReduxPerks"                    "mobility | invis | nature"
 		"ReduxCost"                     "10"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"MaxLevel"						"4"
+		"Innate"						"1"
+
 		"AbilityValues"
 		{
 			"radius"
@@ -2630,27 +2650,24 @@
 			"grace_time"				"2 2.25 2.5 2.75"
 			"cooldown_time"
 			{
-				"value"								"2.75"				
+				"value"								"2.75"
 			}
-
 			"movement_bonus"
 			{
 				"value"							"10 12 14 16"
 				"special_bonus_unique_treant_12"			"+2.5"
 			}
-
 			"AbilityCooldown"
 			{
 				"value"							"50"
 				"hero_levelup"					"-3"
-				"levelup_interval"				"2"				
+				"levelup_interval"				"2"
 			}
-			
 			"shard_root_time"					"0"
-			"shard_by_tree_root_time"			"0"			
+			"shard_by_tree_root_time"			"0"
 			"shard_damage"						"0"
 			"attack_damage_pct"					"0"
-			"shard_cooldown"					"0"						
+			"shard_cooldown"					"0"
 		}
 	}
 
@@ -3161,8 +3178,8 @@
 	}
 	"treant_overgrowth"
 	{
+		"ReduxFlags"                                                           "stun | tank | upgradeable"
 		"ReduxPerks"                                                           "nature"
-		"ReduxFlags"                                                           "stun | tank"
 	}
 	"broodmother_spawn_spiderlings"
 	{
@@ -3505,8 +3522,8 @@
 
 	"treant_leech_seed"
 	{
-		"ReduxPerks"                    "nature | attack_modifier | autocast_basic | drain | nature | support"
-		"ReduxFlags"					"attack_modifier | semi_passive | support"
+		"ReduxFlags"                                                           "attack_modifier | semi_passive | support"
+		"ReduxPerks"                                                           "nature | attack_modifier | autocast_basic | drain | nature | support"
 	}
 	"treant_natures_grasp"
 	{
@@ -4352,7 +4369,7 @@
 			"duration"					"6"
 			"bonus_attack_speed"		"70 80 90 100"
 			"bonus_move_speed"			"100 125 150 175"
-			"radius"					
+			"radius"
 			{
 				"value"		"1200"
 				"affected_by_aoe_increase"	"1"
@@ -8449,4 +8466,3 @@
 		"ItemInitialStockTime"			"480.0"
 	}
 }
-

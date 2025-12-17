@@ -76,7 +76,9 @@
 		"Innate"                                                               "0"
 
 		"ReduxPerks"                                                           "earth"
+
 		"MaxLevel"			"4"
+
 		"AbilityValues"
 		{
 			"max_attack_speed"			"100 120 140 160"
@@ -95,8 +97,9 @@
 		"Innate"                                                               "0"
 
 		"ReduxPerks"                                                           "earth"
+
 		"MaxLevel"						"4"
-		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
 			"str_to_slow_resist_pct"			"20 25 30 35"

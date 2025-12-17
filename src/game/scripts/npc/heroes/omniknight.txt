@@ -54,11 +54,13 @@
 
 		"ReduxFlags"                                                           "doNotRandom | support"
 		"ReduxPerks"                                                           "light | support"
+
 		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"healing_pct_of_damage"				"20 25 30 35"
-			"duration"							"5" //has other code dependencies
+			"duration"							"5"
 		}
 	}
 

@@ -34,21 +34,22 @@
 		"ReduxPerks"                                                           "aura | support"
 	}
 
-	"enigma_splitting_image"
+	"enigma_splitting_image" // Requires enigma_demonic_conversion to work
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_enigma_perk"
 
 		"ReduxFlags"                                                           "doNotRandom | summon"
 		"ReduxPerks"                                                           "summon_non_ult | demon"
+
 		"MaxLevel"						"4"
-		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
-				"damage_threshold"				"375 300 225 150"
-				"damage_reset_interval"			"7 8 9 10"
-				"eidolon_spawns"				"1"
-				"non_splitting_bounty_reduction_tooltip"	"50"		// tooltip only, non_splitting_bounty_reduction is real value
+			"damage_threshold"				"375 300 225 150"
+			"damage_reset_interval"			"7 8 9 10"
+			"eidolon_spawns"				"1"
+			"non_splitting_bounty_reduction_tooltip"	"50"
 		}
 	}
 

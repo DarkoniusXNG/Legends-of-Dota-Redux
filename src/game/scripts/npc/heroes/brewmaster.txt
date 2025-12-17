@@ -31,71 +31,19 @@
 
 	"brewmaster_belligerent"
 	{
-		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_brewmaster_perk"
+		
+		"Innate"                                                               "0"
 
+		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "rage"
 	}
 
 	"brewmaster_liquid_courage"
 	{
-		"ReduxFlags"                    "tank"
-		"ReduxPerks"                   	"rage | mobility"	
-		"MaxLevel"						"1"
-		"Innate"						"1"
-		"HasShardUpgrade"				"1"
-
-		"AbilityCastAnimation"		"ACT_DOTA_OVERRIDE_ABILITY_4"
-
-		"AbilityValues"
-		{
-			"min_health_threshold"			"50"		// When the effect starts
-			"max_health_threshold"			"20"		// When the effect is at full power
-			"status_resist"			
-			{
-				"value"					"10.5"
-				"hero_levelup"			"+0.5"
-			}
-
-			"min_speed"					"10"	
-			"max_speed"					"25"
-			"speed_toggle_time"			"1"
-
-			"drink_duration"					
-			{
-				"value"						"0"
-				"special_bonus_shard"		"+5"
-			}
-			"AbilityCooldown"				
-			{
-				"value"						"0"
-				"special_bonus_shard"		"20.0"
-			}
-			"AbilityCastPoint"				
-			{
-				"value"						"0"
-				"special_bonus_shard"		"0.3"
-			}
-			"AbilityManaCost"
-			{
-				"value"						"0"
-				"special_bonus_shard"		"50"	
-			}
-			"AbilityCastRange"
-			{
-				"value"					  	"0"
-				"special_bonus_shard"	 	"+800"	
-			}	
-			"projectile_speed"
-			{
-				"value"						"0"
-				"special_bonus_shard"		"+1000"
-			}
-			"max_hp_regen"
-			{
-				"value"						"0"
-				"special_bonus_shard"		"+2"
-			}
-		}		
+		"ReduxFlags"                    "mobility | tank"
+		"ReduxPerks"                   	"rage | mobility"
 	}
 
 	"brewmaster_primal_companion" // requires Primal Split and Drunken Brawler to work
@@ -126,7 +74,7 @@
 		"MaxLevel"                                                             "1"
 		"ReduxFlags"                                                           "tank | doNotRandom"
 		"ReduxPerks"                                                           "earth"
-		"ReduxCost"                                                            "500"
+		"ReduxCost"                                                            "120"
 	}
 
 	"brewmaster_earth_pulverize"
@@ -183,7 +131,12 @@
 	{
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support | enemymoving"
-		"MaxLevel"                                                             "3"
+	}
+	
+	"brewmaster_fire_pull"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | enemymoving"
 	}
 
 	"brewmaster_fire_phase"
@@ -191,7 +144,8 @@
 		"ReduxPerks"                                                           "fire"
 		"ReduxCost"                                                            "40"
 
-		"MaxLevel"                                                             "4 "
+		"MaxLevel"                                                             "4"
+
 		"AbilityValues"
 		{
 			"status_resistance"				"30 40 50 60"

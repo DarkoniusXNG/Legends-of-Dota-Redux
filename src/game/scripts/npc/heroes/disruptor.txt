@@ -34,24 +34,23 @@
 	//=================================================================================================================
 	"disruptor_electromagnetic_repulsion"
 	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE" // this might crash with Disruptor facet that changes behavior
+
 		"ReduxFlags"                                                           "semi_passive"
 		"ReduxPerks"                                                           "enemymoving | explosive | lightning"
 
-		"Innate"						"1"
-		"AbilityCooldown"				"5"
-		"IsBreakable"					"1"		
-		"RestrictValuesToMaxLevel"		"0"
-		"MaxLevel"						"4"
+		//"MaxLevel"						"4" // max level is defined in AbilityValues
+
 		"AbilityValues"
 		{
 			"damage_threshold"			"250"
-			"effect_radius"				
+			"effect_radius"
 			{
 				"value"			"400 450 500 550"
 				"special_bonus_unique_disruptor_7"	"+150"
 				"affected_by_aoe_increase"	"1"
 			}
-			"knockback"					
+			"knockback"
 			{
 				"value"			"300 350 400 450"
 				"special_bonus_unique_disruptor_7"	"+150"
@@ -75,12 +74,11 @@
 			{
 				"special_bonus_facet_disruptor_conduit"										"=50"
 			}
-			"max_level"	
+			"max_level"
 			{
 				"value"								"4"
 				"special_bonus_facet_disruptor_conduit"										"=4"
 			}
-
 		}
 	}
 

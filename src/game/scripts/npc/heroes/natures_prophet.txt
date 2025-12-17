@@ -40,14 +40,17 @@
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_furion_perk"
-		"MaxLevel"						"4"
+
 		"ReduxPerks"                                                           "gold | nature"
+
+		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"tick_interval"				"1"
 			"initial_spawn_time"				"2"
 			"radius"					"750"
-			"bags_per_tick"					
+			"bags_per_tick"
 			{
 				"value"						"2 3 4 5"
 				"special_bonus_unique_furion_8"									"+1"

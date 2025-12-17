@@ -60,8 +60,9 @@
 
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "blades | mobility"
+
 		"MaxLevel"						"4"
-		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
 			"max_stacks"				"10"
@@ -75,14 +76,14 @@
 	"juggernaut_innate_mask_spin_crit"
 	{
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_juggernaut_perk"
-		
+
 		"ReduxFlags"                                                           "doNotRandom"
 	}
 
 	"juggernaut_innate_mask_crit_lifesteal"
 	{
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_juggernaut_perk"
-		
+
 		"ReduxFlags"                                                           "doNotRandom"
 	}
 

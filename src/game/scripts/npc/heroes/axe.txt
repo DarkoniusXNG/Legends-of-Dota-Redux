@@ -46,8 +46,8 @@
 		"AbilityTextureName"                "custom/npc_dota_hero_axe_perk"
 
 		"ReduxFlags"                        "tank"
+
 		"MaxLevel"						"4"
-		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
@@ -139,4 +139,3 @@
 		"TalentRequiredAbility"         "axe_culling_blade"
 	}
 }
-

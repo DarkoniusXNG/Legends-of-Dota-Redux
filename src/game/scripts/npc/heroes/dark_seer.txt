@@ -67,11 +67,10 @@
 		"ReduxPerks"                                                           "mobility"
 
 		"MaxLevel"						"4"
-		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
-			"radius"		
+			"radius"
 			{
 				"value"			"1200 1400 1600 1800"
 				"affected_by_aoe_increase"	"1"

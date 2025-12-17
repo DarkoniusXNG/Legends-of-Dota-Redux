@@ -16,8 +16,9 @@
 	{
 		"ReduxPerks"			"rage"
 		"ReduxCost"				"10"
+
 		"AbilityValues"
-		{		
+		{
 			"duration"
 			{
 				"value"				"4.0 5.0 6.0 7.0"
@@ -25,11 +26,11 @@
 			}
 			"magic_resist"
 			{
-				"value"			"60 70 80 90"
+				"value"			"60 65 70 75"
 			}
 			"status_resist"
 			{
-				"value"			"60 65 70 75"					
+				"value"			"60 65 70 75"
 			}
 		}
 	}
@@ -39,11 +40,12 @@
 	//=================================================================================================================
 	"life_stealer_feast"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
 		"ReduxFlags"					"attack_modifier | physical"
 		"ReduxPerks"					"attack_modifier | physical | blood | undead"
 		"ReduxCost"						"80"
 		"ReduxBans"						"holdout_multishot | life_stealer_feast_melee"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 	}
 
 	//=================================================================================================================
@@ -220,4 +222,3 @@
 		"TalentRequiredAbility"			 "life_stealer_infest"
 	}
 }
-

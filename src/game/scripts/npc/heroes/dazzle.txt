@@ -39,16 +39,16 @@
 	{
 		"ReduxFlags"                                                           "cooldown | support | upgradeable"
 		"ReduxPerks"                                                           "support"
-		"MaxLevel"						"3"
+
 		"AbilityValues"
 		{
-				"cooldown_reduction"		"2 3 4"
-				"item_cooldown_reduction"		
-				{
-					"special_bonus_scepter"		"50 60 70"
-				}
-				"scepter_mana_cost"			"250"
-				"scepter_cooldown"			"120 100 80"
+			"cooldown_reduction"		"2 3 4"
+			"item_cooldown_reduction"
+			{
+				"special_bonus_scepter"		"50 55 60"
+			}
+			"scepter_mana_cost"			"250"
+			"scepter_cooldown"			"120 100 80"
 		}
 	}
 
@@ -84,7 +84,9 @@
 		"ReduxPerks"                                                           "hex | physical | silence"
 
 		"MaxLevel"						"4"
+
 		"AbilityCooldown"				"30 26 22 18"
+
 		"AbilityValues"
 		{
 			"duration"
@@ -134,12 +136,14 @@
 
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support"
+
 		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"duration"
 			{
-				"value"	"12 16 20 24"							
+				"value"	"12 16 20 24"
 			}
 		}
 	}

@@ -8,7 +8,6 @@
 		"ReduxPerks"                                                           "attack_modifier | hex | silence"
 
 		"MaxLevel"						"4"
-		"IsBreakable"					"1"
 
 		"AbilityCooldown"				"15 14 13 12"
 
@@ -73,13 +72,15 @@
 
 		"ReduxFlags"                                                           "upgradeable | wtfAutoBan"
 		"ReduxPerks"                                                           "hex | illusion | transformation"
+
 		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"hex_duration"				"3.0"
 			"movespeed_bonus_pct"		"0"	// if changing this, change ally_chicken_movement_speed_bonus_pct
 
-			"damage_reduction_duration"	
+			"damage_reduction_duration"
 			{
 				"value"					"1 1.25 1.5 1.75"
 				"special_bonus_shard"	"+.5"

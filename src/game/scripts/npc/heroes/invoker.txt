@@ -11,7 +11,9 @@
 		"Innate"                        "0"
 
 		"ReduxFlags"                    "doNotRandom"
+
 		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"xp_on_deny_percent"		"25 50 75 100"
@@ -366,16 +368,16 @@
 				//"value"		"80"
 				//"affected_by_aoe_increase"	"1"
 			//}
-			"wall_total_length"	
+			"wall_total_length"
 			{
 				"value"						"1200"
-				"affected_by_aoe_increase"	"1"		
+				"affected_by_aoe_increase"	"1"
 
 			}
 			"wall_width"
 			{
 				"value"					"105"
-				"affected_by_aoe_increase"	"1"		
+				"affected_by_aoe_increase"	"1"
 
 			}
 			"vector_cast_range"

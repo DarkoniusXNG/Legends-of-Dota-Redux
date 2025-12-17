@@ -42,7 +42,9 @@
 
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "demon | gold"
+
 		"MaxLevel"				"4"
+
 		"AbilityValues"
 		{
 			"buyback_penalty"	"20 15 10 5"

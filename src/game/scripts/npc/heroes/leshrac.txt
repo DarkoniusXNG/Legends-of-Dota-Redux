@@ -31,8 +31,10 @@
 		"ReduxFlags"					"upgradeable | disarm_break"
 
 		"MaxLevel"                      "4"
+
 		"AbilityCooldown"               "25 21 19 16"
 		"AbilityManaCost"               "75"
+
 		"AbilityValues"
 		{
 			"duration"		"4"
@@ -56,11 +58,9 @@
 
 		"ReduxFlags"                                                           "attack_modifier | mana | doNotRandom"
 		"ReduxPerks"                                                           "attack_modifier | light"
-		"MaxLevel"						"4"
-		"IsBreakable"					"1"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"mana_pct_per_hit"				"25 30 35 40"

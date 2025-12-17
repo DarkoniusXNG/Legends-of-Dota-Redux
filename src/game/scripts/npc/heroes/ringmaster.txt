@@ -11,7 +11,6 @@
 
 		"AbilityValues"
 		{
-			
 			"radius"
 			{
 				"value"		"275 300 325 350"

@@ -57,45 +57,14 @@
 	}
 
 	//=================================================================================================================
-	// Alchemist: Goblin's Greed (Innate)
+	// Alchemist: Greevil's Greed (Innate)
 	//=================================================================================================================
 	"alchemist_goblins_greed"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-		"MaxLevel"						"1"
+
 		"ReduxPerks"                    "gold | scientific"
 		"ReduxCost"                     "10"
-
-		"AbilityValues"
-		{
-			"duration"				"40"
-			"bonus_gold"			"2"
-			"bonus_bonus_gold"		"2"
-			"bounty_multiplier"		"2"
-			"damage"
-			{
-				"special_bonus_unique_alchemist_7"	"+2.5"
-			}
-
-			"bonus_gold_cap"
-			{
-				"value"				"18 20 22 24"	
-			}
-			"starting_gold_bonus"
-			{
-				"special_bonus_facet_alchemist_seed_money"	"=250"
-			}
-
-			"scepter_bonus_damage"	"25"
-			"scepter_spell_amp"
-			{
-				"special_bonus_scepter"		"0"
-			}
-			"gpm_increase_per_stack"
-			{
-				"special_bonus_facet_alchemist_dividends"	"+70"
-			}
-		}
 	}
 
 	//=================================================================================================================
@@ -189,5 +158,3 @@
 		"TalentRequiredAbility"         "alchemist_chemical_rage"
 	}
 }
-
-

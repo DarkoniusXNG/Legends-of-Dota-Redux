@@ -37,10 +37,12 @@
 		"ReduxPerks"	"ice"
 
 		"MaxLevel"						"4"
+
 		"AbilityCastRange"				"400"
 		"AbilityCastPoint"				"0.1"
 		"AbilityCooldown"				"20 18 16 14"
 		"AbilityManaCost"				"50"
+
 		"AbilityValues"
 		{
 			"shard_width"				"180"
@@ -78,8 +80,9 @@
 
 		"ReduxPerks"                                                           "ranger"
 		"ReduxCost"                                                            "10"
+
 		"MaxLevel"						"4"
-		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
 			"damage_bonus"		"30 40 50 60"
@@ -87,14 +90,14 @@
 		}
 	}
 
-	"drow_ranger_creep_rally"
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_drow_ranger_perk"
+	// "drow_ranger_creep_rally"
+	// {
+		// "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		// "AbilityTextureName"                                                   "custom/npc_dota_hero_drow_ranger_perk"
 
-		"ReduxFlags"                                                           "doNotRandom"
-		"ReduxPerks"                                                           "ranger"
-	}
+		// "ReduxFlags"                                                           "doNotRandom"
+		// "ReduxPerks"                                                           "ranger"
+	// }
 
 	"special_bonus_unique_drow_ranger_1"
 	{

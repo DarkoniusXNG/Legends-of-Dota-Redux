@@ -471,7 +471,7 @@
             "spectre_dispersion"            "1"
             "spectre_haunt"            "1"
             //"spectre_reality"            "1" // sub-ability of Haunt and Shadow Step
-            "spectre_haunt_single"            "1"
+            //"spectre_haunt_single"            "1" // does not exist
             "spectre_spectral_dagger"            "1"
             "spirit_breaker_charge_of_darkness"            "1"
             "spirit_breaker_empowering_haste"            "1"
@@ -968,7 +968,7 @@
 			"skywrath_mage_ruin_and_restoration"		"1"
 			"skywrath_mage_staff_of_the_scion"		"1"
 			"slardar_seaborn_sentinel"		"1"
-			"slark_barracuda"		"1"
+			//"slark_barracuda"		"1" // does not exist
 			"snapfire_buckshot"		"1"
 			"sniper_keen_scope"		"1"
 			"spectre_spectral"		"1"
@@ -1012,7 +1012,6 @@
 			"winter_wyvern_eldwurm_scholar"		"1"
 			"winter_wyvern_essence_of_the_blueheart"		"1"
 			"wisp_sight_seer"		"1"
-			"wisp_essence_conduction"	"1"
 			"witch_doctor_gris_gris"		"1"
 			"witch_doctor_innate_maledict_heal_reduction"		"1"
 
@@ -1084,13 +1083,29 @@
 			"wisp_essence_conduction"              "1"
 			"monkey_king_transfiguration"          "1"
 
-			// 7.40
-			"slark_saltwater_shiv"		"1"
-			"brewmaster_liquid_courage"		"1"
-			"treant_super_bloom"	"1"		// newly added, probably a beta form of new scepter
+			// 7.40 and Largo
+			"brewmaster_drunken_brawler_brew_up"   "1" // empty ability?
+			"brewmaster_fire_pull"                 "1"
+			"brewmaster_liquid_courage"            "1"
+			"clinkz_infernal_shred"                "1"
+			"largo_amphibian_rhapsody"             "1"
+			"largo_catchy_lick"                    "1"
+			"largo_croak_of_genius"                "1"
+			"largo_encore"                         "1"
+			"largo_frogstomp"                      "1"
+			"largo_song_double_time"               "1"
+			"largo_song_fight_song"                "1"
+			"largo_song_good_vibrations"           "1"
+			"lone_druid_entangle"                  "1"
+			"lone_druid_spirit_bear_spirit_link"   "1"
+			"rattletrap_jetpack_toggle"            "1" // sub-ability?
+			"slark_saltwater_shiv"                 "1"
+			"spectre_shadow_step"                  "1"
+			"treant_super_bloom"                   "1"
+			//"visage_summon_familiars_recall"       "1"
         }
 
-			
+
         // The neutrals skills
         "neutral" {
             "alpha_wolf_group" {                              // non-ancient attack modifiers
@@ -2654,7 +2669,8 @@
         }
 
 		"npc_dota_hero_antimage" {
-			"1"			  "antimage_mana_overload"
+			"1"           "antimage_mana_overload"
+			"2"           "antimage_counterspell_ally"
         }
 
         "npc_dota_hero_arc_warden" {
@@ -2702,10 +2718,12 @@
             "5"           "brewmaster_storm_dispel_magic"
 			"6"           "brewmaster_storm_cyclone"
             "7"           "brewmaster_fire_permanent_immolation"
-            "8"			  "brewmaster_fire_phase"
-			"9"			  "brewmaster_void_astral_pulse"
-			"10"		  "brewmaster_void_astral_pull"
-			"11"		  "brewmaster_liquid_courage"
+            "8"           "brewmaster_fire_phase"
+			"9"           "brewmaster_void_astral_pulse"
+			"10"          "brewmaster_void_astral_pull"
+			"11"          "brewmaster_belligerent"
+			"12"          "brewmaster_fire_pull"
+			"13"          "brewmaster_primal_companion"
         }
 
 		// "npc_dota_hero_bristleback" {
@@ -2735,7 +2753,8 @@
         }
 
         "npc_dota_hero_clinkz" {
-			"1"        "clinkz_searing_arrows"
+			"1"        "clinkz_bone_and_arrow"
+			"2"        "clinkz_tar_bomb"
         }
 
 		"npc_dota_hero_crystal_maiden" {
@@ -2906,6 +2925,7 @@
 			"1"     "lone_druid_bear_necessities"
 			"2"     "lone_druid_entangling_claws"
 			"3"     "lone_druid_true_form_battle_cry"
+			"4"     "lone_druid_gift_bearer"
         }
 
 		// "npc_dota_hero_luna" {
@@ -3079,6 +3099,10 @@
             "2"            "slark_essence_shift_strength_lod"
             "3"            "slark_essence_shift_agility_lod"
 			"4"			   "slark_fish_bait"
+        }
+
+        "npc_dota_hero_spectre" {
+			"1"        "spectre_spectral"
         }
 
 		"npc_dota_hero_spirit_breaker" {
