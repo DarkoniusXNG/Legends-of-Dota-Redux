@@ -62,14 +62,14 @@
 	"alchemist_goblins_greed"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-		"MaxLevel"						"4"
+		"MaxLevel"						"1"
 		"ReduxPerks"                    "gold | scientific"
 		"ReduxCost"                     "10"
 
 		"AbilityValues"
 		{
-			"duration"				"40 45 50 55"
-			"bonus_gold"			"2 3 4 5"
+			"duration"				"40"
+			"bonus_gold"			"2"
 			"bonus_bonus_gold"		"2"
 			"bounty_multiplier"		"2"
 			"damage"
@@ -189,4 +189,5 @@
 		"TalentRequiredAbility"         "alchemist_chemical_rage"
 	}
 }
+
 
