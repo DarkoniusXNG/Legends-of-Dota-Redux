@@ -33,34 +33,6 @@
 	//=================================================================================================================
 	"spectre_haunt"
 	{
-		"AbilityCooldown"				"160 150 140 130"
-		"MaxLevel"						"4"
-		"AbilityValues"
-		{
-			"duration"					"6.0 7.0 8.0 9.0"
-			"illusion_damage_outgoing"
-			{
-				"value" "-20 -15 -10 -5"
-			}
-			"tooltip_outgoing"
-			{
-				"value" "80 85 90 95"
-			}
-			"illusion_damage_incoming"	"100"
-			"tooltip_illusion_total_damage_incoming"
-			{
-				"value"					"200"
-				"CalculateSpellDamageTooltip"	"0"
-				"DamageTypeTooltip"	"DAMAGE_TYPE_NONE"
-			}
-			"attack_delay"				"0"
-			"destroy_if_target_is_dead"
-			{
-				"value"										"1"
-				"special_bonus_facet_spectre_twist_the_knife"	"=0"
-			}
-		}
-
 		"ReduxFlags"                                                           "illusion | wtfAutoBan | doNotRandom"
 		"ReduxPerks"                                                           "illusion | undead"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
