@@ -53,7 +53,17 @@
 	"lone_druid_spirit_bear_entangle"
 	{
 		"ReduxFlags"                    "attack_modifier | bash"
-		"ReduxPerks"                    "attack_modifier | bash"
+		"ReduxPerks"                    "attack_modifier | bash | nature"
+		"ReduxCost"                     "40"
+
+		"MaxLevel"                      "4"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+	"lone_druid_entangle"
+	{
+		"ReduxFlags"                    "attack_modifier | bash"
+		"ReduxPerks"                    "attack_modifier | bash | nature"
 		"ReduxCost"                     "40"
 
 		"MaxLevel"                      "4"
@@ -70,23 +80,20 @@
 	{
 		"ReduxFlags"                    "attack_modifier | tank | doNotRandom"
 		"ReduxPerks"                    "attack_modifier"
-		"ReduxCost"                     "30"
+		"ReduxCost"                     "0"
 
 		"MaxLevel"                      "4"
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityValues"
 		{
-			"spell_resistance"
-			{
-				"value" "33 38 43 48"
-			}
 			"bonus_building_damage"
 			{
-				"value" "10 20 30 40"
+				"value"													"30 35 40 45"
+				"special_bonus_unique_lone_druid_spirit_bear_demolish"	"+20"
 			}
-			"true_form_bonus_building_damage"
+			"bonus_damage_against_entangled"
 			{
-				"value" "15 30 45 60"
+				"special_bonus_unique_lone_druid_spirit_bear_damage_against_entangled" "15"
 			}
 		}
 	}
@@ -145,8 +152,13 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires True Form
 		"AbilityTextureName"            "custom/npc_dota_hero_lone_druid_perk"
-
+		"ReduxCost"                     "120"
 		"ReduxFlags"                                                           "doNotRandom"
+		"AbilityValues"
+		{	
+			"item_slots"				"3 4 5 6"
+			"bonus_stat_percent"		"45 55 65 75"
+		}
 	}
 
 	"special_bonus_unique_lone_druid_2"
