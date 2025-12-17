@@ -56,11 +56,6 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "gold"
-		"MaxLevel"						"4"
-		"AbilityValues"
-		{
-			"bonus_killstreak_bounty"				"20 40 60 80"
-		}
 	}
 
 	"special_bonus_unique_bounty_hunter"
