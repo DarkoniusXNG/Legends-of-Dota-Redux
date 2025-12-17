@@ -12,15 +12,15 @@
 
 		"AbilityCastRange"				"800 900 1000 1100"
 		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"35 32 29 26"
+		"AbilityCooldown"				"35"
 		"AbilityManaCost"				"100"
 		"AbilityValues"
 		{
 			"duration"		"15"
-			"attack_speed"		"50 55 60 65"
-			"hp_regen"		"40 45 50 55"
-			"projectile_speed"			"900 1000 1100 1200"
-			"move_speed"			"30 35 40 45"
+			"attack_speed"		"50 60 70 80"
+			"hp_regen"		"40 60 70 80"
+			"projectile_speed"			"900"
+			"move_speed"			"30 40 50 60"
 			"chemical_rage_cooldown_reduction_pct"
 			{
 				"value"					"0"
@@ -57,7 +57,7 @@
 	}
 
 	//=================================================================================================================
-	// Alchemist: Goblin's Greed (Innate)
+	// Alchemist: Greevil's Greed (Innate)
 	//=================================================================================================================
 	"alchemist_goblins_greed"
 	{

@@ -6,6 +6,16 @@
 
 		"ReduxFlags"                                                           "attack_modifier | silence"
 		"ReduxPerks"                                                           "attack_modifier | hex | silence"
+
+		"MaxLevel"						"4"
+
+		"AbilityCooldown"				"15 14 13 12"
+
+		"AbilityValues"
+		{
+			"voodoo_duration"			"1.0 1.2 1.4 1.6"
+			"movespeed"					"100"		// if changing this, update shadow_shaman_voodoo movespeed
+		}
 	}
 
 	"shadow_shaman_mass_serpent_ward"
@@ -58,10 +68,55 @@
 	//=================================================================================================================
 	"shadow_shaman_fowl_play"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"ReduxFlags"                                                           "upgradeable | wtfAutoBan"
 		"ReduxPerks"                                                           "hex | illusion | transformation"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"hex_duration"				"3.0"
+			"movespeed_bonus_pct"		"0"	// if changing this, change ally_chicken_movement_speed_bonus_pct
+
+			"damage_reduction_duration"
+			{
+				"value"					"1 1.25 1.5 1.75"
+				"special_bonus_shard"	"+.5"
+			}
+			"damage_reduction_pct"		"100"
+
+			"allow_items"
+			{
+				"special_bonus_shard"	"1"
+			}
+
+			"invuln_duration"
+			{
+				"special_bonus_shard"	".1"
+			}
+
+			"invuln_vision_radius"
+			{
+				"special_bonus_shard"	"1000"
+			}
+
+			"ally_chicken_images_take_damage_percent"
+			{
+				"special_bonus_shard"	"200"
+			}
+
+			"ally_chicken_images_count"
+			{
+				"special_bonus_shard"	"3"
+			}
+
+			"ally_voodoo_duration"
+			{
+				"special_bonus_shard"	"3"
+			}
+		}
 	}
 
 	"special_bonus_unique_shadow_shaman_1"

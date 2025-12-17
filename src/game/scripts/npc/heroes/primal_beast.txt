@@ -36,6 +36,14 @@
 
 		"ReduxFlags"                                                           "doNotRandom | mobility"
 		"ReduxPerks"                                                           "mobility"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"slow_resistance_per_upgrade"		"1"
+			"upgrade_rate"						"120.0 90.0 60.0 30.0"
+		}
 	}
 
 	"primal_beast_innate_status_resistance_per_time"
@@ -44,6 +52,14 @@
 		"AbilityTextureName"                                                   "custom/primal_beast_innate_status_resistance_per_time"
 
 		"ReduxFlags"                                                           "doNotRandom"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"status_resistance_per_upgrade"		"1"
+			"upgrade_rate"						"360.0 280.0 200.0 120.0"
+		}
 	}
 
 	"primal_beast_rock_throw"

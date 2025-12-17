@@ -33,47 +33,18 @@
 	//=================================================================================================================
 	"spectre_haunt"
 	{
-		"AbilityCooldown"				"160 150 140 130"
-		"MaxLevel"						"4"
-		"AbilityValues"
-		{
-			"duration"					"6.0 7.0 8.0 9.0"
-			"illusion_damage_outgoing"
-			{
-				"value" "-20 -15 -10 -5"
-			}
-			"tooltip_outgoing"
-			{
-				"value" "80 85 90 95"
-			}
-			"illusion_damage_incoming"	"100"
-			"tooltip_illusion_total_damage_incoming"
-			{
-				"value"					"200"
-				"CalculateSpellDamageTooltip"	"0"
-				"DamageTypeTooltip"	"DAMAGE_TYPE_NONE"
-			}
-			"attack_delay"				"0"
-			"destroy_if_target_is_dead"
-			{
-				"value"										"1"
-				"special_bonus_facet_spectre_twist_the_knife"	"=0"
-			}
-		}
-
 		"ReduxFlags"                                                           "illusion | wtfAutoBan | doNotRandom"
 		"ReduxPerks"                                                           "illusion | undead"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
 	}
 
 	//=================================================================================================================
-	// Spectre: Haunt Single
+	// Spectre: Shadow Step
 	//=================================================================================================================
-	"spectre_haunt_single"
+	"spectre_shadow_step"
 	{
 		"ReduxFlags"                                                           "illusion"
 		"ReduxPerks"                                                           "illusion"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
 	}
 
 	//=================================================================================================================
@@ -85,11 +56,14 @@
 	}
 
 	//=================================================================================================================
-	// Spectre: Spectral (Innate)
+	// Spectre: Spectral (old Innate)
 	//=================================================================================================================
 	"spectre_spectral"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_spectre_perk"
+
+		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "undead"
@@ -143,7 +117,7 @@
 		"TalentRequiredAbility"
 		{
 		  "1" "spectre_haunt"
-		  "2" "spectre_haunt_single"
+		  "2" "spectre_shadow_step"
 		}
 	}
 

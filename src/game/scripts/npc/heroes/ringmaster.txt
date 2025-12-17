@@ -13,17 +13,19 @@
 		{
 			"radius"
 			{
-				"value"		"550 600 650 700"
+				"value"		"275 300 325 350"
 				"affected_by_aoe_increase"	"1"
 			}
-			"illusion_percent_damage"		"50"
+			"illusion_percent_damage"		"30"
 			"pulse_interval"				"0.1"
-			"duration"						"8"
-			"miss_chance"					"30 40 50 60"
+			"duration"						"8 9 10 11"
+			"miss_chance"					"30 35 40 45"
 			"initial_speed"					"3000"
 			"sweep_speed"					"0.785"
-			"sweep_radius"					"450"
+			"sweep_radius"					"450 475 500 525"
 			"linger_duration"				"0.3"
+			"spotlight_count"				"3"
+			"start_offset"					"0"
 		}
 
 		"ReduxFlags"                                                           "support"

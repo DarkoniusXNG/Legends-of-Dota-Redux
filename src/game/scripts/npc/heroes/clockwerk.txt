@@ -43,7 +43,7 @@
 			"rocket_flare_interval"				"0.15"
 			"rocket_flare_offset_pct"		"125 110 95 80"
 			"rocket_flare_rockets"				"2 3 4 5"
-			"rocket_flare_cooldown"				"3"
+			"rocket_flare_cooldown"				"3.5"
 			"jetpack_bonus_speed"			"40"
 			"jetpack_turn_rate"				"75 100 125 150"
 		}

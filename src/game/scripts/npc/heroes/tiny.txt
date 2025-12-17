@@ -66,7 +66,7 @@
 	}
 
 	//=================================================================================================================
-	// Rocksteady (Unknown)
+	// Rocksteady (turns AS bonuses to damage)
 	//=================================================================================================================
 	"tiny_rocksteady"
 	{
@@ -76,6 +76,14 @@
 		"Innate"                                                               "0"
 
 		"ReduxPerks"                                                           "earth"
+
+		"MaxLevel"			"4"
+
+		"AbilityValues"
+		{
+			"max_attack_speed"			"100 120 140 160"
+			"attack_speed_to_damage"	"60 75 90 105"
+		}
 	}
 
 	//=================================================================================================================
@@ -89,6 +97,14 @@
 		"Innate"                                                               "0"
 
 		"ReduxPerks"                                                           "earth"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"str_to_slow_resist_pct"			"20 25 30 35"
+			"str_to_status_resist_pct"			"10 12 14 16"
+		}
 	}
 
 	"special_bonus_unique_tiny"

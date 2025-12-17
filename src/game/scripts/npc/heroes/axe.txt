@@ -46,6 +46,15 @@
 		"AbilityTextureName"                "custom/npc_dota_hero_axe_perk"
 
 		"ReduxFlags"                        "tank"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"armor_pct_as_strength"			"40 50 60 70"
+			"radius"					"700"
+			"bonus_linger_duration"		"3 4 5 6"
+		}
 	}
 
 	//=================================================================================================================

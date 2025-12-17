@@ -55,11 +55,13 @@
 		//"ReduxBans"                                                            "batrider_sticky_napalm"
 		"ReduxCost"                                                            "30"
 
+		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
-			"impact_damage_pct"						"60"
-			"burn_damage_pct"						"65"
-			"total_damage_tooltip"					"125"
+			"impact_damage_pct"						"60 65 70 75"
+			"burn_damage_pct"						"65 70 75 80"
+			"total_damage_tooltip"					"125 135 145 155"
 
 			"burn_duration" // changing this to be independed from the facet made it work for other heroes
 			{

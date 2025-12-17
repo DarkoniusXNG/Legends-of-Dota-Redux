@@ -36,6 +36,18 @@
 
 		"ReduxFlags"                                                           "illusion"
 		"ReduxPerks"                                                           "illusion"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"aura_radius"
+			{
+				"value"		"1200"
+				"affected_by_aoe_increase"	"1"
+			}
+			"damage_reduction_pct"	"20 30 40 50"
+		}
 	}
 
 	//=================================================================================================================
@@ -58,6 +70,14 @@
 		"AbilityTextureName"            "custom/npc_dota_hero_chaos_knight_perk"
 
 		"ReduxFlags"                                                           "doNotRandom"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"trinket_options_current"	"2 3 4 5"
+			"trinket_options_next"		"2 3 4 5"
+		}
 	}
 
 	"special_bonus_unique_chaos_knight"

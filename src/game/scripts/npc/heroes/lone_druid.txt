@@ -52,12 +52,17 @@
 
 	"lone_druid_spirit_bear_entangle"
 	{
-		"ReduxFlags"                    "attack_modifier | bash"
-		"ReduxPerks"                    "attack_modifier | bash"
-		"ReduxCost"                     "40"
-
-		"MaxLevel"                      "4"
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ReduxFlags"                    "attack_modifier | bash"
+		"ReduxPerks"                    "attack_modifier | bash | nature"
+		"ReduxCost"                     "40"
+	}
+
+	"lone_druid_entangle"
+	{
+		"ReduxFlags"                    "stun"
+		"ReduxPerks"                    "nature"
 	}
 
 	"lone_druid_entangling_claws"
@@ -66,29 +71,11 @@
 		"ReduxPerks"                    "nature"
 	}
 
-	"lone_druid_spirit_bear_demolish"
+	"lone_druid_spirit_bear_demolish" // Spirit Bear's innate
 	{
-		"ReduxFlags"                    "attack_modifier | tank | doNotRandom"
+		"ReduxFlags"                    "attack_modifier | doNotRandom"
 		"ReduxPerks"                    "attack_modifier"
-		"ReduxCost"                     "30"
-
-		"MaxLevel"                      "4"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"spell_resistance"
-			{
-				"value" "33 38 43 48"
-			}
-			"bonus_building_damage"
-			{
-				"value" "10 20 30 40"
-			}
-			"true_form_bonus_building_damage"
-			{
-				"value" "15 30 45 60"
-			}
-		}
+		"ReduxCost"                     "10"
 	}
 
 	"lone_druid_spirit_bear_return"
@@ -100,7 +87,7 @@
 
 	"lone_druid_spirit_bear"
 	{
-		"ReduxFlags"                                                           "summon"
+		"ReduxFlags"                                                           "doNotRandom | summon"
 		"ReduxPerks"                                                           "self_damage | summon_non_ult"
 		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand"
 	}
@@ -145,8 +132,15 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires True Form
 		"AbilityTextureName"            "custom/npc_dota_hero_lone_druid_perk"
-
+		
 		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxCost"                                                            "120"
+
+		"AbilityValues"
+		{
+			"item_slots"				"3 4 5 6"
+			"bonus_stat_percent"		"45 55 65 75"
+		}
 	}
 
 	"special_bonus_unique_lone_druid_2"

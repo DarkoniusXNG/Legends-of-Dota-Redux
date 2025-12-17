@@ -46,6 +46,13 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "custom/npc_dota_hero_dark_seer_perk"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"int_to_atkspd"				"1.0 1.2 1.4 1.6"
+		}
 	}
 
 	//=================================================================================================================
@@ -58,6 +65,18 @@
 
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"			"1200 1400 1600 1800"
+				"affected_by_aoe_increase"	"1"
+			}
+			"movement_speed_pct"	"7 8 9 10"
+		}
 	}
 
 	//=================================================================================================================

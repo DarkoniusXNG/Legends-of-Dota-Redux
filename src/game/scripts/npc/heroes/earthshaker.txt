@@ -41,6 +41,13 @@
 
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "earth"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+				"fissure_radius"			"75 150 225 300"
+		}
 	}
 
 	//=================================================================================================================
@@ -58,7 +65,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "earthshaker_enchant_totem"
 	}
 	"special_bonus_unique_earthshaker_2"
@@ -66,7 +73,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "earthshaker_echo_slam"
 	}
 	"special_bonus_unique_earthshaker_3"
@@ -74,7 +81,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "earthshaker_fissure"
 	}
 	"special_bonus_unique_earthshaker_4"
@@ -82,7 +89,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "earthshaker_fissure"
 	}
 
@@ -91,7 +98,7 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
-		
+
 		"TalentRequiredAbility"                                                   "earthshaker_aftershock"
 	}
 
