@@ -27,7 +27,7 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "custom/npc_dota_hero_abaddon_perk"
-
+		"MaxLevel"						"4"
 		"ReduxFlags"                    "cooldown"
 
 		"AbilityValues"
@@ -48,7 +48,7 @@
 	"abaddon_withering_mist"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-
+		"MaxLevel"						"4"
 		"ReduxPerks"                    "undead"
 
 		"AbilityValues"
@@ -156,4 +156,5 @@
 		"TalentRequiredAbility"                                                   "abaddon_borrowed_time"
 	}
 }
+
 
