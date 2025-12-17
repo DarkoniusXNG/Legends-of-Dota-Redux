@@ -36,6 +36,68 @@
 		"ReduxPerks"                                                           "rage"
 	}
 
+	"brewmaster_liquid_courage"
+	{
+		"ReduxFlags"                    "tank"
+		"ReduxPerks"                   	"rage | mobility"	
+		"MaxLevel"						"4"
+		"Innate"						"1"
+		"HasShardUpgrade"				"1"
+
+		"AbilityCastAnimation"		"ACT_DOTA_OVERRIDE_ABILITY_4"
+
+		"AbilityValues"
+		{
+			"min_health_threshold"			"50"		// When the effect starts
+			"max_health_threshold"			"20"		// When the effect is at full power
+			"status_resist"			
+			{
+				"value"					"10.5 12.5 14.5 16.5"
+				"hero_levelup"			"+0.5"
+			}
+
+			"min_speed"					"10 8 6 4"	
+			"max_speed"					"25 30 35 40"
+			"speed_toggle_time"			"1"
+
+			"drink_duration"					
+			{
+				"value"						"0"
+				"special_bonus_shard"		"+5"
+			}
+			"AbilityCooldown"				
+			{
+				"value"						"0"
+				"special_bonus_shard"		"20.0"
+			}
+			"AbilityCastPoint"				
+			{
+				"value"						"0"
+				"special_bonus_shard"		"0.3"
+			}
+			"AbilityManaCost"
+			{
+				"value"						"0"
+				"special_bonus_shard"		"50"	
+			}
+			"AbilityCastRange"
+			{
+				"value"					  	"0"
+				"special_bonus_shard"	 	"+800"	
+			}	
+			"projectile_speed"
+			{
+				"value"						"0"
+				"special_bonus_shard"		"+1000"
+			}
+			"max_hp_regen"
+			{
+				"value"						"0"
+				"special_bonus_shard"		"+2"
+			}
+		}		
+	}
+
 	"brewmaster_primal_companion" // requires Primal Split and Drunken Brawler to work
 	{
 		"ReduxFlags"                                                           "summon | doNotRandom"
@@ -77,20 +139,20 @@
 
 	"brewmaster_storm_dispel_magic"
 	{
-		"ReduxFlags"                                                           "doNotRandom"
-		"ReduxPerks"                                                           "lightning"
+		"ReduxFlags"                                                           "doNotRandom | support"
+		"ReduxPerks"                                                           "lightning | support"
 		"ReduxCost"                                                            "80"
 
-		"MaxLevel"                                                             "3"
+		"MaxLevel"                                                             "4"
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value" "1000 1250 1500"
+				"value" "1000 1250 1500 1750"
 			}
 			"radius"
 			{
-				"value" "600 800 1000"
+				"value" "600 750 900 1050"
 			}
 		}
 	}
@@ -129,10 +191,10 @@
 		"ReduxPerks"                                                           "fire"
 		"ReduxCost"                                                            "40"
 
-		"MaxLevel"                                                             "3"
+		"MaxLevel"                                                             "4 "
 		"AbilityValues"
 		{
-			"status_resistance"				"30 40 50"
+			"status_resistance"				"30 40 50 60"
 		}
 	}
 
