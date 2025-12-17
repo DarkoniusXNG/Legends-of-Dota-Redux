@@ -12,15 +12,15 @@
 
 		"AbilityCastRange"				"800 900 1000 1100"
 		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"35 32 29 26"
+		"AbilityCooldown"				"35"
 		"AbilityManaCost"				"100"
 		"AbilityValues"
 		{
 			"duration"		"15"
-			"attack_speed"		"50 55 60 65"
-			"hp_regen"		"40 45 50 55"
-			"projectile_speed"			"900 1000 1100 1200"
-			"move_speed"			"30 35 40 45"
+			"attack_speed"		"50 60 70 80"
+			"hp_regen"		"40 60 70 80"
+			"projectile_speed"			"900"
+			"move_speed"			"30 40 50 60"
 			"chemical_rage_cooldown_reduction_pct"
 			{
 				"value"					"0"
@@ -62,9 +62,40 @@
 	"alchemist_goblins_greed"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-
+		"MaxLevel"						"4"
 		"ReduxPerks"                    "gold | scientific"
 		"ReduxCost"                     "10"
+
+		"AbilityValues"
+		{
+			"duration"				"40 45 50 55"
+			"bonus_gold"			"2 3 4 5"
+			"bonus_bonus_gold"		"2"
+			"bounty_multiplier"		"2"
+			"damage"
+			{
+				"special_bonus_unique_alchemist_7"	"+2.5"
+			}
+
+			"bonus_gold_cap"
+			{
+				"value"				"18 20 22 24"	
+			}
+			"starting_gold_bonus"
+			{
+				"special_bonus_facet_alchemist_seed_money"	"=250"
+			}
+
+			"scepter_bonus_damage"	"25"
+			"scepter_spell_amp"
+			{
+				"special_bonus_scepter"		"0"
+			}
+			"gpm_increase_per_stack"
+			{
+				"special_bonus_facet_alchemist_dividends"	"+70"
+			}
+		}
 	}
 
 	//=================================================================================================================
@@ -158,3 +189,4 @@
 		"TalentRequiredAbility"         "alchemist_chemical_rage"
 	}
 }
+
