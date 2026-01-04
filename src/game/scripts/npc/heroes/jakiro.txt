@@ -27,7 +27,7 @@
 	"jakiro_macropyre"
 	{
 		"ReduxFlags"                                                           "upgradeable"
-		"ReduxPerks"                                                           "dragon | fire | skillshot"
+		"ReduxPerks"                                                           "dragon | fire"
 	}
 
 	//=================================================================================================================

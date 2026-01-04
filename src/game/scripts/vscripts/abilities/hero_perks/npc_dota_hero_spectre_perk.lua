@@ -27,12 +27,12 @@ end
 function modifier_npc_dota_hero_spectre_perk:OnCreated()
 	if IsServer() then
         local caster = self:GetCaster()
-        local bonus_ability = caster:FindAbilityByName("spectre_desolate")
+        local bonus_ability = caster:FindAbilityByName("spectre_dispersion")
 
         if bonus_ability then
             bonus_ability:UpgradeAbility(false)
         else 
-            bonus_ability = caster:AddAbility("spectre_desolate")
+            bonus_ability = caster:AddAbility("spectre_dispersion")
             --bonus_ability:SetStolen(true)
             bonus_ability:SetActivated(true)
             bonus_ability:SetLevel(1)

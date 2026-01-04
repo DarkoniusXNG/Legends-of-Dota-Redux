@@ -1,0 +1,129 @@
+// Abilities for largo
+"DOTAAbilities"
+{
+	"largo_catchy_lick"
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | enemymoving | water"
+	}
+	
+	"largo_frogstomp"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "earth | skillshot | water"
+	}
+	
+	"largo_croak_of_genius"
+	{
+		"ReduxFlags"                                                           "mana | support"
+		"ReduxPerks"                                                           "support"
+	}
+	
+	"largo_amphibian_rhapsody"
+	{
+		"ReduxFlags"                                                           "doNotRandom | tank | upgradeable"
+		"ReduxPerks"                                                           "water"
+	}
+	
+	"largo_song_fight_song"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+	
+	"largo_song_double_time"
+	{
+		"ReduxFlags"                                                           "doNotRandom | mobility"
+		"ReduxPerks"                                                           "mobility"
+	}
+	
+	"largo_song_good_vibrations"
+	{
+		"ReduxFlags"                                                           "doNotRandom | support"
+		"ReduxPerks"                                                           "support"
+	}
+
+	//=================================================================================================================
+	// Largo: Encore (Innate)
+	//=================================================================================================================
+	"largo_encore"
+	{
+		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+		"ReduxFlags"                                                           "support | upgradeable"
+		"ReduxPerks"                                                           "support"
+	}
+
+	"special_bonus_unique_largo_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "largo_frogstomp"
+	}
+	"special_bonus_unique_largo_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "largo_catchy_lick"
+	}
+	"special_bonus_unique_largo_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "largo_croak_of_genius"
+	}
+	"special_bonus_unique_largo_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "largo_catchy_lick"
+	}
+	"special_bonus_unique_largo_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "largo_catchy_lick"
+	}
+
+	"special_bonus_unique_largo_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "largo_amphibian_rhapsody"
+	}
+	
+	"special_bonus_unique_largo_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"
+		{
+			"1"	"largo_amphibian_rhapsody"
+			"2"	"largo_song_fight_song"
+			"3"	"largo_song_double_time"
+			"4"	"largo_song_good_vibrations"
+		}
+	}
+	
+	"special_bonus_unique_largo_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "largo_catchy_lick"
+	}
+}

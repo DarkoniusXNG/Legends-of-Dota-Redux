@@ -98,7 +98,7 @@ local hero_names = {
 	"slark", -- NEEDS IMPROVEMENT, D tier
 	"snapfire", -- ok, missing icon, A tier
 	"sniper", -- NEEDS REPLACEMENT, A tier, bot
-	"spectre", -- NEEDS IMPROVEMENT, D tier
+	"spectre", -- C tier
 	"spirit_breaker", -- NEEDS IMPROVEMENT
 	"storm_spirit", -- ok
 	"sven", -- ok, bot

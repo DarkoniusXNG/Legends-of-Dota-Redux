@@ -2452,6 +2452,10 @@ function Pregame:isTrollCombo(build)
         ["shredder_chakram_2"] = "shredder_chakram",
         ["bounty_hunter_wind_walk_ally"] = "bounty_hunter_wind_walk",
         ["earthshaker_enchant_totem"] = "earthshaker_aftershock",
+        --["bristleback_quill_spray"] = "bristleback_warpath",
+        --["bristleback_viscous_nasal_goo"] = "bristleback_warpath",
+        --["storm_spirit_static_remnant"] = "storm_spirit_overload",
+        ["dazzle_shadow_wave"] = "dazzle_bad_juju",
     }
     local maxSlots = self.optionStore['lodOptionCommonMaxSlots']
 

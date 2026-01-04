@@ -10,10 +10,12 @@
 	}
 
 	//=================================================================================================================
-	// Spectre: Desolate
+	// Spectre: Desolate (Innate)
 	//=================================================================================================================
 	"spectre_desolate"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier"
 	}
@@ -106,7 +108,7 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Special Bonus // maybe add all illusion spells to the list
+	// Works only if you have Desolate
 	//=================================================================================================================
 	"special_bonus_unique_spectre_4"
 	{
@@ -114,11 +116,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"
-		{
-		  "1" "spectre_haunt"
-		  "2" "spectre_shadow_step"
-		}
+		"TalentRequiredAbility"                                                   "spectre_desolate"
 	}
 
 	//=================================================================================================================
@@ -143,5 +141,14 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "spectre_spectral_dagger"
+	}
+
+	"special_bonus_unique_spectre_shadow_step_duration"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "spectre_shadow_step"
 	}
 }

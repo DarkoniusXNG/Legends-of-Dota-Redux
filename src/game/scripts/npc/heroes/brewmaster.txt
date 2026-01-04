@@ -126,44 +126,6 @@
 		"MaxLevel"                                                             "3"
 		"ReduxFlags"                                                           "disarm_break"
 	}
-
-	"brewmaster_void_astral_pull"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | enemymoving"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
- 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
-		"AbilityCastPoint"				"0.10"
-		"AbilityCastGestureSlot"		"DEFAULT"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8.0"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
-
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"AbilityCastRange"			"150"
-			"damage"					"75 150 225"
-			"pull_distance"				"450 575 700"
-			"pull_duration"				"0.5"
-		}
-	}
 	
 	"brewmaster_fire_pull"
 	{
@@ -224,7 +186,15 @@
 
 		"TalentRequiredAbility"                                                "brewmaster_cinder_brew"
 	}
-	"special_bonus_unique_brewmaster_6"
+	"special_bonus_unique_brewmaster_brewed_up_duration"
+	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
+		"TalentRequiredAbility"                                                "brewmaster_drunken_brawler"
+	}
+	"special_bonus_unique_brewmaster_primal_split_cooldown"
 	{
 		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -232,15 +202,7 @@
 
 		"TalentRequiredAbility"                                                "brewmaster_primal_split"
 	}
-	"special_bonus_unique_brewmaster_7"
-	{
-		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"                                                            "special_bonus_base"
-
-		"TalentRequiredAbility"                                                "brewmaster_thunder_clap"
-	}
-	"special_bonus_unique_brewmaster_8"
+	"special_bonus_unique_brewmaster_drunken_brawler_stance_bonus"
 	{
 		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
