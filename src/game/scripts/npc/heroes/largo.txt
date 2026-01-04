@@ -6,36 +6,36 @@
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support | enemymoving | water"
 	}
-	
+
 	"largo_frogstomp"
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "earth | skillshot | water"
 	}
-	
+
 	"largo_croak_of_genius"
 	{
 		"ReduxFlags"                                                           "mana | support"
 		"ReduxPerks"                                                           "support"
 	}
-	
+
 	"largo_amphibian_rhapsody"
 	{
 		"ReduxFlags"                                                           "doNotRandom | tank | upgradeable"
 		"ReduxPerks"                                                           "water"
 	}
-	
+
 	"largo_song_fight_song"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
 	}
-	
+
 	"largo_song_double_time"
 	{
 		"ReduxFlags"                                                           "doNotRandom | mobility"
 		"ReduxPerks"                                                           "mobility"
 	}
-	
+
 	"largo_song_good_vibrations"
 	{
 		"ReduxFlags"                                                           "doNotRandom | support"
@@ -102,7 +102,7 @@
 
 		"TalentRequiredAbility"                                                   "largo_amphibian_rhapsody"
 	}
-	
+
 	"special_bonus_unique_largo_7"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -117,7 +117,7 @@
 			"4"	"largo_song_good_vibrations"
 		}
 	}
-	
+
 	"special_bonus_unique_largo_8"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"

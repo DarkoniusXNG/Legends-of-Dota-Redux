@@ -33,7 +33,7 @@
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_brewmaster_perk"
-		
+
 		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "doNotRandom"
@@ -126,7 +126,7 @@
 		"MaxLevel"                                                             "3"
 		"ReduxFlags"                                                           "disarm_break"
 	}
-	
+
 	"brewmaster_fire_pull"
 	{
 		"ReduxFlags"                                                           "support"
