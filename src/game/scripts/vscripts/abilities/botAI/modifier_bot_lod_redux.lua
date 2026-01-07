@@ -667,6 +667,7 @@ local forbidden_melee = {
 local forbidden_ranged = {
 	item_abyssal_blade = 1,
 	item_basher = 1,
+	item_bfury = 1,
 	item_crimson_guard = 1,
 	item_echo_sabre = 1,
 	item_harpoon = 1,
@@ -857,7 +858,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
       local item = parent:GetItemInSlot(slot)
       if item then
         local item_name = item:GetAbilityName()
-        if forbidden_melee[item_name] and name ~= "npc_dota_hero_vengefulspirit" then
+        if (forbidden_melee[item_name] and name ~= "npc_dota_hero_vengefulspirit" and name ~= "npc_dota_hero_dragon_knight") or (name == "npc_dota_hero_dragon_knight" and forbidden_ranged[item_name]) then
           print("Removing bad item: "..tostring(item_name).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
           local gold_value = math.floor(GetItemCost(item_name))
           parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
