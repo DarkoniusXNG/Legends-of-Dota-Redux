@@ -298,6 +298,15 @@ local item_builds = {
 		"item_black_king_bar",
 		"item_bloodstone",
 	},
+	npc_dota_hero_razor = {
+		"item_power_treads",
+		"item_maelstrom",
+		"item_yasha",
+		"item_black_king_bar",
+		"item_satanic",
+		"item_refresher",
+		"item_ultimate_scepter",
+	},
 	npc_dota_hero_sand_king = {
 		"item_bracer",
 		"item_phase_boots",
@@ -936,15 +945,15 @@ if IsServer() then
     local xp = 0
     if self.difficulty == 5 then
       if parent:HasModifier("modifier_unfairbot") then
-        gold = math.floor(700 * self.goldModifier / 100)
-        xp = math.floor(700 * self.expModifier / 100) -- 1000
+        gold = math.floor(600 * self.goldModifier / 100)
+        xp = math.floor(600 * self.expModifier / 100)
       else
-        gold = math.floor(RandomInt(175, 700) * self.goldModifier / 100)
-        xp = math.floor(RandomInt(175, 700) * self.expModifier / 100) -- RandomInt(250, 1000)
+        gold = math.floor(RandomInt(150, 600) * self.goldModifier / 100)
+        xp = math.floor(RandomInt(150, 600) * self.expModifier / 100)
       end
     elseif self.difficulty <= 4 then
-      gold = math.floor(self.difficulty * 175 * self.goldModifier / 100)
-      xp = math.floor(self.difficulty * 175 * self.expModifier / 100) -- 250 * self.difficulty
+      gold = math.floor(self.difficulty * 150 * self.goldModifier / 100)
+      xp = math.floor(self.difficulty * 150 * self.expModifier / 100)
     end
     parent:ModifyGold(gold, true, DOTA_ModifyGold_Unspecified)
     parent:AddExperience(xp, DOTA_ModifyXP_Unspecified, false, false)

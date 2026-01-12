@@ -6867,21 +6867,19 @@ end
 
 -- Generate builds for bots
 function Pregame:generateBotBuilds(singleID)
-        -- Create a table to store bot builds
-    --self.botBuilds = {}
     local brokenBots = {}
 
     -- List of bots that are borked
     if IsInToolsMode() then
         brokenBots = {
             npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
-            npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
+            --npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_vengefulspirit = true, -- Crashes
         }
     else
         brokenBots = {
             npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
-            npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
+            --npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_vengefulspirit = true, -- Crashes
         }
     end

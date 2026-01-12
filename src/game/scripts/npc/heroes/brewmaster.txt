@@ -130,7 +130,7 @@
 	"brewmaster_fire_pull"
 	{
 		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | enemymoving"
+		"ReduxPerks"                                                           "fire | support | enemymoving"
 	}
 
 	"brewmaster_fire_phase"
