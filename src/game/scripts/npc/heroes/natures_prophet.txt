@@ -139,11 +139,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"
-		{
-			"1" "furion_force_of_nature"
-			"2" "furion_spirit_of_the_forest"
-		}
+		"TalentRequiredAbility"                                                   "furion_force_of_nature"
 	}
 	"special_bonus_unique_furion_2"
 	{

@@ -7404,19 +7404,19 @@ function Pregame:levelUpAbilities(hero)
                         if lvl >= 10 and talent_10_1:GetLevel() == 0 and talent_10_2:GetLevel() == 0 then
                             if random == 0 then
                                 talent_10_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             else
                                 talent_10_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                         if lvl >= 27 then
                             if talent_10_1:GetLevel() == 0 then
                                 talent_10_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             elseif talent_10_2:GetLevel() == 0 then
                                 talent_10_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                     end
@@ -7424,19 +7424,19 @@ function Pregame:levelUpAbilities(hero)
                         if lvl >= 15 and talent_15_1:GetLevel() == 0 and talent_15_2:GetLevel() == 0 then
                             if random == 0 then
                                 talent_15_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             else
                                 talent_15_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                         if lvl >= 28 then
                             if talent_15_1:GetLevel() == 0 then
                                 talent_15_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             elseif talent_15_2:GetLevel() == 0 then
                                 talent_15_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                     end
@@ -7444,19 +7444,19 @@ function Pregame:levelUpAbilities(hero)
                         if lvl >= 20 and talent_20_1:GetLevel() == 0 and talent_20_2:GetLevel() == 0 then
                             if random == 0 then
                                 talent_20_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             else
                                 talent_20_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                         if lvl >= 29 then
                             if talent_20_1:GetLevel() == 0 then
                                 talent_20_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             elseif talent_20_2:GetLevel() == 0 then
                                 talent_20_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                     end
@@ -7464,19 +7464,19 @@ function Pregame:levelUpAbilities(hero)
                         if lvl >= 25 and talent_25_1:GetLevel() == 0 and talent_25_2:GetLevel() == 0 then
                             if random == 0 then
                                 talent_25_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             else
                                 talent_25_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                         if lvl >= 30 then
                             if talent_25_1:GetLevel() == 0 then
                                 talent_25_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             elseif talent_25_2:GetLevel() == 0 then
                                 talent_25_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                     end

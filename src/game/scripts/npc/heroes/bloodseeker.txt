@@ -94,7 +94,7 @@
 
 		"TalentRequiredAbility"                                                "bloodseeker_thirst"
 	}
-	"special_bonus_unique_bloodseeker_6"
+	"special_bonus_unique_bloodseeker_5"
 	{
 		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -108,14 +108,6 @@
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"                                                            "special_bonus_base"
 
-		"TalentRequiredAbility"                                                "bloodseeker_rupture"
-	}
-	"special_bonus_unique_bloodseeker_rupture_charges"
-	{
-		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"                                                            "special_bonus_base"
-
-		"TalentRequiredAbility"                                                "bloodseeker_rupture"
+		"TalentRequiredAbility"                                                "bloodseeker_blood_bath"
 	}
 }

@@ -6190,7 +6190,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "rubick_telekinesis"
+		"TalentRequiredAbility"                                                   "rubick_fade_bolt"
 	}
 	"special_bonus_unique_rubick_8"
 	{
@@ -6248,7 +6248,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "dark_willow_cursed_crown"
+		"TalentRequiredAbility"                                                   "dark_willow_terrorize"
 	}
 	"special_bonus_unique_dark_willow_bedlam_targets"
 	{
@@ -6960,7 +6960,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "treant_overgrowth"
+		"TalentRequiredAbility"                                                   "treant_leech_seed"
 	}
 
 	// Troll Warlord
@@ -7556,7 +7556,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "broodmother_spiders_milk"
+		"TalentRequiredAbility"                                                   "broodmother_insatiable_hunger"
 	}
 	"special_bonus_unique_broodmother_7"
 	{
