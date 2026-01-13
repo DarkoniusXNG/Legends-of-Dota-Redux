@@ -197,7 +197,7 @@ local item_builds = {
 		"item_bracer",
 		"item_tranquil_boots",
 		"item_glimmer_cape",
-		"item_aether_lens",
+		"item_ghost",
 		"item_force_staff",
 		"item_blink",
 		"item_platemail",
@@ -429,7 +429,7 @@ local item_builds = {
 }
 
 local upgrade_map = {
-	item_aether_lens = "item_ethereal_blade",
+	--item_aether_lens = "",
 	item_arcane_boots = "item_guardian_greaves",
 	item_bfury = "item_rapier",
 	item_blink = "item_overwhelming_blink",
@@ -526,6 +526,7 @@ local items_to_sell = {
 	item_recipe_guardian_greaves = 1,
 	item_recipe_greater_crit = 1,
 	item_recipe_harpoon = 1,
+	item_recipe_holy_locket = 1,
 	item_recipe_magic_wand = 1,
 	item_recipe_travel_boots = 1,
 	--item_ring_of_basilius = 1,
