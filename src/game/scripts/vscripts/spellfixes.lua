@@ -96,7 +96,7 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
             end
 
             -- Check if they tried to use invisibility items, if they did, display a warning
-            if OptionManager:GetOption('banInvis') == 2 and (keys.abilityname == "item_invis_sword" or keys.abilityname == "item_silver_edge" or keys.abilityname == "item_shadow_amulet" or keys.abilityname == "item_glimmer_cape") then
+            if OptionManager:GetOption('banInvis') >= 2 and (keys.abilityname == "item_invis_sword" or keys.abilityname == "item_silver_edge" or keys.abilityname == "item_shadow_amulet" or keys.abilityname == "item_glimmer_cape") then
                 util:DisplayError(keys.PlayerID, "invisbilityItemsAreBanned")
             end  
 

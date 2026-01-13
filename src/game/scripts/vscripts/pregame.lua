@@ -2764,7 +2764,7 @@ function Pregame:initOptionSelector()
 
         -- Common ban all invis
         lodOptionBanningBanInvis = function(value)
-            return value == 0 or value == 1 or value == 2
+            return value == 0 or value == 1 or value == 2 or value == 3
         end,
 
         -- Common -- Disable Perks
