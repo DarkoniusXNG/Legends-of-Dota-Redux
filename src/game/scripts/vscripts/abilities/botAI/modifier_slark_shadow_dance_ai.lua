@@ -6,7 +6,7 @@ modifier_slark_shadow_dance_ai = class({})
 --------------------------------------------------------------------------------
 
 function modifier_slark_shadow_dance_ai:IsHidden()
-    return true
+    return not IsInToolsMode()
 end
 
 --------------------------------------------------------------------------------
@@ -50,7 +50,8 @@ if IsServer() then
 			if duration == 0 then
 				duration = 3
 			end
-			caster:CastAbilityImmediately(ability, caster:GetPlayerOwnerID())
+			--caster:CastAbilityImmediately(ability, caster:GetPlayerOwnerID())
+			ability:OnSpellStart()
 			ability:StartCooldown( cooldown )
 			caster:AddNewModifier(caster, ability, "modifier_slark_shadow_dance_custom_redux", {duration = duration})
 			caster:EmitSound("Hero_Slark.ShadowDance")

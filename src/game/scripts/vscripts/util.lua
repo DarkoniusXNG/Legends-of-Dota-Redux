@@ -198,6 +198,41 @@ function util:IsVanillaInnate(ability)
     return false
 end
 
+-- Tells you if given spell is an innate
+function util:IsSupposedToBeHidden(ability)
+    local ability_name
+    if type(ability) == "string" then
+        ability_name = ability
+    else
+        if not ability or ability:IsNull() then
+            print("util:IsSupposedToBeHidden: Passed parameter does not exist!")
+            return true
+        end
+        if not ability.GetAbilityName then
+            print("util:IsSupposedToBeHidden: Passed parameter is not an ability!")
+            return true
+        end
+        ability_name = ability:GetAbilityName()
+    end
+
+    if ability_name == "" or ability_name == 'special_bonus_attributes' or ability_name == 'generic_hidden' or DONOTREMOVE[ability_name] or ability_name == "ability_base" then
+        return true
+    end
+
+    local ability_data = GetAbilityKeyValuesByName(ability_name)
+    if not ability_data then
+        print("util:IsSupposedToBeHidden: Ability "..ability_name.." does not exist!")
+        return true
+    end
+
+    local behavior = ability_data.AbilityBehavior
+    if not behavior then
+        print("util:IsSupposedToBeHidden: Ability "..ability_name.." does not have a behavior!")
+        return true
+    end
+    return string.find(behavior, "DOTA_ABILITY_BEHAVIOR_HIDDEN")
+end
+
 function util:sortTable(input)
     local array = {}
     for heroName in pairs(input) do

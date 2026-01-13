@@ -1,7 +1,7 @@
 modifier_bot_lod_redux = modifier_bot_lod_redux or class({})
 
 function modifier_bot_lod_redux:IsHidden()
-	return true
+	return not IsInToolsMode()
 end
 
 function modifier_bot_lod_redux:RemoveOnDeath()
