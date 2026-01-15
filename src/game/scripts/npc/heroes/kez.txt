@@ -152,13 +152,12 @@
 
 		"TalentRequiredAbility"                                                   "kez_raptor_dance"
 	}
-
-	"special_bonus_unique_kez_talon_toss_attack_factor"
+	"special_bonus_unique_kez_falcon_rush_attack_speed"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "kez_talon_toss"
+		"TalentRequiredAbility"                                                   "kez_falcon_rush"
 	}
 }

@@ -84,14 +84,6 @@
 
 		"TalentRequiredAbility"                                                   "warlock_rain_of_chaos"
 	}
-	"special_bonus_unique_warlock_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "warlock_rain_of_chaos"
-	}
 	"special_bonus_unique_warlock_3"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -139,5 +131,13 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "warlock_upheaval"
+	}
+	"special_bonus_unique_warlock_fatal_bonds_count"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "warlock_fatal_bonds"
 	}
 }

@@ -625,13 +625,15 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
 
                 -- Enable it
                 if oldAb then
-                    oldAb:SetHidden(false)
+                    if not util:IsSupposedToBeHidden(oldAb) then
+                        oldAb:SetHidden(false)
+                    end
                 else
-                    hero:RemoveAbility(multV)
+                    hero:RemoveAbility(multV) -- this part of code will never execute unless FindAbilityByName is bugged
                 end
             else
                 local newAb = hero:AddAbility(multV)
-                if newAb then
+                if newAb and not util:IsSupposedToBeHidden(newAb) then
                     newAb:SetHidden(false)
                 end
 
@@ -668,62 +670,72 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
     end
 
     -- Do a nice little sort
-    for i=1,23 do
-        local v = build[i]
-        if v then
-            local inSlot = abs[i]
+    if not PlayerResource:IsFakeClient(playerID) then
+        for i=1,23 do
+            local v = build[i]
+            if v then
+                local inSlot = abs[i]
 
-            -- Grab the multiplied skill
-            local seekAbility = self:GetMultiplierSkillName(v)
-            if isRealHero then
-                -- Check for a bot
-                if PlayerResource:IsFakeClient(playerID) then
-                    if hero:HasAbility(v) then
-                        seekAbility = v
+                -- Grab the multiplied skill
+                local seekAbility = self:GetMultiplierSkillName(v)
+                --if isRealHero then
+                    -- Check for a bot
+                    --if PlayerResource:IsFakeClient(playerID) then
+                        --if hero:HasAbility(v) then
+                            --seekAbility = v
+                        --end
+                    --end
+                --end
+
+                if inSlot and inSlot ~= seekAbility then
+                    -- Swap in dota
+                    hero:SwapAbilities(seekAbility, inSlot, true, true)
+                    local ab1 = hero:FindAbilityByName(seekAbility)
+                    local ab2 = hero:FindAbilityByName(inSlot)
+                    if ab1 then
+                        ab1:SetHidden(false)
                     end
-                end
-            end
-
-            if inSlot and inSlot ~= seekAbility then
-                -- Swap in dota
-                hero:SwapAbilities(seekAbility, inSlot, true, true)
-
-                -- Perform swap internally
-                for j=i+1,23 do
-                    if build[i] == abs[j] then
-                        abs[j] = abs[i]
-                        break
+                    if ab2 then
+                        ab2:SetHidden(false)
                     end
-                end
-                abs[i] = build[i]
-            end
 
-            if i > 6 and not isTower then
-                local ab = hero:FindAbilityByName(seekAbility)
-                if ab then
-                    ab:SetHidden(true)
-                end
-            end
-
-            -- Store the index
-            if isRealHero then
-                activeSkills[playerID][i] = seekAbility
-            end
-        else
-            local inSlot = abs[i]
-
-            if inSlot then
-                local ab = hero:FindAbilityByName(inSlot)
-                if ab and not isTower then
-                    local hide = true
-                    for _,buildAb in pairs(build) do
-                        if buildAb == inSlot then
-                            hide = false
+                    -- Perform swap internally
+                    for j=i+1,23 do
+                        if build[i] == abs[j] then
+                            abs[j] = abs[i]
                             break
                         end
                     end
-                    if hide then
+                    abs[i] = build[i]
+                end
+
+                if i > 6 and not isTower then
+                    local ab = hero:FindAbilityByName(seekAbility)
+                    if ab and util:IsSupposedToBeHidden(ab) then
                         ab:SetHidden(true)
+                    end
+                end
+
+                -- Store the index
+                if isRealHero then
+                    activeSkills[playerID][i] = seekAbility
+                end
+            else
+                local inSlot = abs[i]
+
+                if inSlot then
+                    local ab = hero:FindAbilityByName(inSlot)
+                    if ab and not isTower then
+                        local hide = true
+                        for _,buildAb in pairs(build) do
+                            if buildAb == inSlot then
+                                hide = false
+                                break
+                            end
+                        end
+                        if hide then
+                            ab:SetHidden(true)
+                        end
                     end
                 end
             end
@@ -744,6 +756,11 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
 
             -- Add the ability
             hero:AddAbility(realAbility)
+
+            local ab1 = hero:FindAbilityByName(realAbility)
+            if ab1 and not util:IsSupposedToBeHidden(ab1) then
+                ab1:SetHidden(false)
+            end
 
             -- Remove auras
             fixModifiers(hero, k)

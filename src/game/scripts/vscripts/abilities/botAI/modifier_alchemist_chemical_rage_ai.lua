@@ -6,7 +6,7 @@ modifier_alchemist_chemical_rage_ai = class({})
 --------------------------------------------------------------------------------
 
 function modifier_alchemist_chemical_rage_ai:IsHidden()
-    return true
+    return not IsInToolsMode()
 end
 
 --------------------------------------------------------------------------------
@@ -44,9 +44,10 @@ if IsServer() then
 			return
 		end
 		
-		if caster:GetHealthPercent() < 75 and ability and ability:IsFullyCastable() and not caster:IsChanneling() and caster:IsRealHero() and not (caster:IsStunned() or caster:IsSilenced() or caster:IsChanneling()) then
+		if caster:GetHealthPercent() <= 75 and ability and ability:IsFullyCastable() and caster:IsRealHero() and not (caster:IsStunned() or caster:IsSilenced() or caster:IsChanneling()) then
 			local cooldown = ability:GetCooldown(ability:GetLevel() - 1)
-			caster:CastAbilityImmediately(ability, caster:GetPlayerOwnerID())
+			--caster:CastAbilityImmediately(ability, caster:GetPlayerOwnerID())
+			ability:OnSpellStart()
 			ability:StartCooldown( cooldown )
 			caster:EmitSound("Hero_Alchemist.ChemicalRage.Cast")
 		end

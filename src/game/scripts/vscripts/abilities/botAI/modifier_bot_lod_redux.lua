@@ -1,7 +1,7 @@
 modifier_bot_lod_redux = modifier_bot_lod_redux or class({})
 
 function modifier_bot_lod_redux:IsHidden()
-	return true
+	return not IsInToolsMode()
 end
 
 function modifier_bot_lod_redux:RemoveOnDeath()
@@ -197,7 +197,7 @@ local item_builds = {
 		"item_bracer",
 		"item_tranquil_boots",
 		"item_glimmer_cape",
-		"item_aether_lens",
+		"item_ghost",
 		"item_force_staff",
 		"item_blink",
 		"item_platemail",
@@ -297,6 +297,15 @@ local item_builds = {
 		"item_kaya",
 		"item_black_king_bar",
 		"item_bloodstone",
+	},
+	npc_dota_hero_razor = {
+		"item_power_treads",
+		"item_maelstrom",
+		"item_yasha",
+		"item_black_king_bar",
+		"item_satanic",
+		"item_refresher",
+		"item_ultimate_scepter",
 	},
 	npc_dota_hero_sand_king = {
 		"item_bracer",
@@ -420,7 +429,7 @@ local item_builds = {
 }
 
 local upgrade_map = {
-	item_aether_lens = "item_ethereal_blade",
+	--item_aether_lens = "",
 	item_arcane_boots = "item_guardian_greaves",
 	item_bfury = "item_rapier",
 	item_blink = "item_overwhelming_blink",
@@ -499,10 +508,10 @@ local items_to_sell = {
 	--item_claymore = 1,
 	--item_crown = 1,
 	--item_diadem = 1,
-	item_dust = OptionManager and OptionManager:GetOption('banInvis') == 2,
+	item_dust = OptionManager and OptionManager:GetOption('banInvis') >= 2,
 	item_flask = 1,
 	item_gauntlets = 1,
-	item_gem = OptionManager and OptionManager:GetOption('banInvis') == 2,
+	item_gem = OptionManager and OptionManager:GetOption('banInvis') == 3,
 	--item_gloves = 1,
 	--item_helm_of_iron_will = 1,
 	--item_javelin = 1,
@@ -517,6 +526,7 @@ local items_to_sell = {
 	item_recipe_guardian_greaves = 1,
 	item_recipe_greater_crit = 1,
 	item_recipe_harpoon = 1,
+	item_recipe_holy_locket = 1,
 	item_recipe_magic_wand = 1,
 	item_recipe_travel_boots = 1,
 	--item_ring_of_basilius = 1,
@@ -667,6 +677,7 @@ local forbidden_melee = {
 local forbidden_ranged = {
 	item_abyssal_blade = 1,
 	item_basher = 1,
+	item_bfury = 1,
 	item_crimson_guard = 1,
 	item_echo_sabre = 1,
 	item_harpoon = 1,
@@ -857,7 +868,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
       local item = parent:GetItemInSlot(slot)
       if item then
         local item_name = item:GetAbilityName()
-        if forbidden_melee[item_name] and name ~= "npc_dota_hero_vengefulspirit" then
+        if (forbidden_melee[item_name] and name ~= "npc_dota_hero_vengefulspirit" and name ~= "npc_dota_hero_dragon_knight") or (name == "npc_dota_hero_dragon_knight" and forbidden_ranged[item_name]) then
           print("Removing bad item: "..tostring(item_name).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
           local gold_value = math.floor(GetItemCost(item_name))
           parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
@@ -935,15 +946,15 @@ if IsServer() then
     local xp = 0
     if self.difficulty == 5 then
       if parent:HasModifier("modifier_unfairbot") then
-        gold = math.floor(700 * self.goldModifier / 100)
-        xp = math.floor(700 * self.expModifier / 100) -- 1000
+        gold = math.floor(600 * self.goldModifier / 100)
+        xp = math.floor(600 * self.expModifier / 100)
       else
-        gold = math.floor(RandomInt(175, 700) * self.goldModifier / 100)
-        xp = math.floor(RandomInt(175, 700) * self.expModifier / 100) -- RandomInt(250, 1000)
+        gold = math.floor(RandomInt(150, 600) * self.goldModifier / 100)
+        xp = math.floor(RandomInt(150, 600) * self.expModifier / 100)
       end
     elseif self.difficulty <= 4 then
-      gold = math.floor(self.difficulty * 175 * self.goldModifier / 100)
-      xp = math.floor(self.difficulty * 175 * self.expModifier / 100) -- 250 * self.difficulty
+      gold = math.floor(self.difficulty * 150 * self.goldModifier / 100)
+      xp = math.floor(self.difficulty * 150 * self.expModifier / 100)
     end
     parent:ModifyGold(gold, true, DOTA_ModifyGold_Unspecified)
     parent:AddExperience(xp, DOTA_ModifyXP_Unspecified, false, false)

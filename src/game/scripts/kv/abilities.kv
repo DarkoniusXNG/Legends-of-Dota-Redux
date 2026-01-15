@@ -796,7 +796,7 @@
 			// 7.35
 			"tidehunter_dead_in_the_water"	"1"
 			"crystal_maiden_crystal_clone"	"1"
-			"brewmaster_void_astral_pull"	"1"
+			//"brewmaster_void_astral_pull"	"1" // does nothing
 			"antimage_counterspell_ally"    "1"
 			"centaur_work_horse"            "1" // added warning text
 			"bounty_hunter_wind_walk_ally"  "1"
@@ -879,8 +879,8 @@
 			//"jakiro_liquid_frost"		"1" // does not exist
 			"juggernaut_bladeform"		"1"
 			"juggernaut_duelist"		"1"
-			"juggernaut_innate_mask_crit_lifesteal"		"1"
-			"juggernaut_innate_mask_spin_crit"		"1"
+			//"juggernaut_innate_mask_crit_lifesteal"		"1" // does nothing
+			//"juggernaut_innate_mask_spin_crit"		"1" // does nothing
 			"keeper_of_the_light_mana_magnifier"		"1"
 			//"keeper_of_the_light_solar_bind"		"1" // does not exist
 			//"kunkka_ghost_ship_fire_cannons"		"1" // does not exist
@@ -956,8 +956,8 @@
 			"shadow_demon_menace"		"1"
 			"shadow_demon_shadow_servant"		"1"
 			"shadow_shaman_fowl_play"		"1"
-			"shadow_shaman_innate_piglet_pole"		"1"
-			"shadow_shaman_innate_snake_jar"		"1"
+			//"shadow_shaman_innate_piglet_pole"		"1" // disappears from skills on game start
+			//"shadow_shaman_innate_snake_jar"		"1" // disappears from skills on game start
 			"shredder_exposure_therapy"		"1"
 			"shredder_twisted_chakram"		"1"
 			"silencer_brain_drain"		"1"
@@ -989,7 +989,7 @@
 			"tiny_rocksteady"		"1"
 			"treant_innate_attack_damage"		"1"
 			//"treant_lifebomb_explode"		"1" // does nothing?
-			"troll_warlord_innate_masterful"		"1"
+			//"troll_warlord_innate_masterful"		"1" // disappears from skills on game start
 			//"troll_warlord_innate_unflinching"		"1" // does not exist
 			"tusk_bitter_chill"		"1"
 			"tusk_drinking_buddies"		"1"
@@ -1031,8 +1031,8 @@
 			"kunkka_admirals_rum"		"1"
 			"legion_commander_outfight_them"		"1"
 			"lina_combustion"		"1"
-			// "lone_druid_bear_necessities"		"1"			// temporarily moved to superOP
-			"lone_druid_gift_bearer"		"1"
+			//"lone_druid_bear_necessities"		"1"			// temporarily moved to superOP
+			//"lone_druid_gift_bearer"		"1"             // useless
 			"luna_lunar_orbit"		"1"
 			"lycan_summon_wolves_bash"		"1"
 			"lycan_summon_wolves_hamstring"		"1"
@@ -1084,7 +1084,7 @@
 			"monkey_king_transfiguration"          "1"
 
 			// 7.40 and Largo
-			"brewmaster_drunken_brawler_brew_up"   "1" // empty ability?
+			//"brewmaster_drunken_brawler_brew_up"   "1" // disappears from skills on game start
 			"brewmaster_fire_pull"                 "1"
 			"brewmaster_liquid_courage"            "1"
 			"clinkz_infernal_shred"                "1"
@@ -1097,7 +1097,6 @@
 			"largo_song_fight_song"                "1"
 			"largo_song_good_vibrations"           "1"
 			"lone_druid_entangle"                  "1"
-			"lone_druid_spirit_bear_spirit_link"   "1"
 			"rattletrap_jetpack_toggle"            "1" // sub-ability?
 			"slark_saltwater_shiv"                 "1"
 			"spectre_shadow_step"                  "1"
@@ -1187,6 +1186,7 @@
 				"lone_druid_spirit_bear_entangle"      "1"
 				"lone_druid_spirit_bear_fetch"         "1"
 				"lone_druid_spirit_bear_return"        "1"
+				"lone_druid_spirit_bear_spirit_link"   "1"
 				//"lone_druid_spirit_bear_defender"      "1" // does not work
             }
 
@@ -2720,10 +2720,9 @@
             "7"           "brewmaster_fire_permanent_immolation"
             "8"           "brewmaster_fire_phase"
 			"9"           "brewmaster_void_astral_pulse"
-			"10"          "brewmaster_void_astral_pull"
-			"11"          "brewmaster_belligerent"
-			"12"          "brewmaster_fire_pull"
-			"13"          "brewmaster_primal_companion"
+			"10"          "brewmaster_belligerent"
+			"11"          "brewmaster_fire_pull"
+			"12"          "brewmaster_primal_companion"
         }
 
 		// "npc_dota_hero_bristleback" {
@@ -2924,7 +2923,6 @@
 		"npc_dota_hero_lone_druid" {
 			"1"     "lone_druid_bear_necessities"
 			"2"     "lone_druid_true_form_battle_cry"
-			"3"     "lone_druid_gift_bearer"
         }
 
 		// "npc_dota_hero_luna" {

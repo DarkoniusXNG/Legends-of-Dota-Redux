@@ -137,7 +137,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                "drow_ranger_wave_of_silence"
+		"TalentRequiredAbility"                                                "drow_ranger_frost_arrows"
 	}
 	"special_bonus_unique_drow_ranger_8"
 	{

@@ -225,7 +225,8 @@ var basicOptions = {
                         },
                         states: {
                             'lodMutatorBanningBanInvis': 1,
-                            'lodMutatorBanningBanInvis2': 2
+                            'lodMutatorBanningBanInvis2': 2,
+                            'lodMutatorBanningBanInvis3': 3
                         }
                     },
                     {

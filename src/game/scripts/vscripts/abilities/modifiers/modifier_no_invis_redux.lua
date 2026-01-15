@@ -34,7 +34,7 @@ function modifier_no_invis_redux:OnCreated()
 end
 
 function modifier_no_invis_redux:IsAura()
-	return self:GetStackCount() == 2
+	return self:GetStackCount() == 3
 end
 
 function modifier_no_invis_redux:GetModifierAura()
@@ -54,7 +54,7 @@ function modifier_no_invis_redux:GetAuraSearchFlags()
 end
 
 function modifier_no_invis_redux:GetAuraRadius()
-	if self:GetStackCount() == 2 then
+	if self:GetStackCount() == 3 then
 		return self:GetParent():GetCurrentVisionRange() or 800
 	else
 		return 1
@@ -66,11 +66,38 @@ function modifier_no_invis_redux:GetPriority()
 end
 
 function modifier_no_invis_redux:CheckState()
-	if self:GetStackCount() == 2 then
+	if self:GetStackCount() == 3 then -- True Sight, everything is revealed
 		return {
 			[MODIFIER_STATE_INVISIBLE] = false
 		}
-	elseif self:GetStackCount() == 1 then
+	elseif self:GetStackCount() == 2 then -- All invis (abilities and items) except wards are revealed
+		local parent = self:GetParent()
+		local ward_modifiers = {
+			"modifier_item_buff_ward",
+			"modifier_item_ward_true_sight",
+		}
+
+		--if parent:IsOther() then
+			--return {}
+		--end
+
+		if parent.HasModifier then
+			local bIsWard = false
+			for _, v in pairs(ward_modifiers) do
+				if parent:HasModifier(v) then
+					bIsWard = true
+					break
+				end
+			end
+			if bIsWard then
+				return {}
+			end
+		end
+
+		return {
+			[MODIFIER_STATE_INVISIBLE] = false
+		}
+	elseif self:GetStackCount() == 1 then -- Invis abilities are revealed (but not items and wards)
 		local parent = self:GetParent()
 		local invis_item_modifiers = {
 			"modifier_item_invisibility_edge_windwalk",
@@ -82,6 +109,10 @@ function modifier_no_invis_redux:CheckState()
 			"modifier_item_buff_ward",
 			"modifier_item_ward_true_sight",
 		}
+
+		--if parent:IsOther() then
+			--return {}
+		--end
 
 		if parent.HasModifier then
 			local bHasInvisItem = false

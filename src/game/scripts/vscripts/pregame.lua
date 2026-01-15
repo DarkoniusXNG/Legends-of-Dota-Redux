@@ -29,9 +29,6 @@ require('abilities/angel_arena_reborn/duels')
 
 require('abilities/mutators/convertable_tower_mutator')
 
-
---LinkLuaModifier( "modifier_rattletrap_rocket_flare_ai", "abilities/botAI/modifier_rattletrap_rocket_flare_ai.lua" ,LUA_MODIFIER_MOTION_NONE )
-
 -- Creep power modifier
 LinkLuaModifier("modifier_neutral_power", "abilities/modifiers/modifier_neutral_power.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -89,6 +86,10 @@ function Pregame:init()
     self.selectedPlayerAttr = {}
     self.selectedSkills = {}
     self.selectedRandomBuilds = {}
+
+    self.NotFirstRun = {} 
+    self.originalSkillsCount = {} 
+    self.extraSkillsCount = {}
 
     -- Mirror draft stuff
     self.useDraftArrays = false
@@ -2452,6 +2453,10 @@ function Pregame:isTrollCombo(build)
         ["shredder_chakram_2"] = "shredder_chakram",
         ["bounty_hunter_wind_walk_ally"] = "bounty_hunter_wind_walk",
         ["earthshaker_enchant_totem"] = "earthshaker_aftershock",
+        --["bristleback_quill_spray"] = "bristleback_warpath",
+        --["bristleback_viscous_nasal_goo"] = "bristleback_warpath",
+        --["storm_spirit_static_remnant"] = "storm_spirit_overload",
+        ["dazzle_shadow_wave"] = "dazzle_bad_juju",
     }
     local maxSlots = self.optionStore['lodOptionCommonMaxSlots']
 
@@ -2759,7 +2764,7 @@ function Pregame:initOptionSelector()
 
         -- Common ban all invis
         lodOptionBanningBanInvis = function(value)
-            return value == 0 or value == 1 or value == 2
+            return value == 0 or value == 1 or value == 2 or value == 3
         end,
 
         -- Common -- Disable Perks
@@ -6863,21 +6868,19 @@ end
 
 -- Generate builds for bots
 function Pregame:generateBotBuilds(singleID)
-        -- Create a table to store bot builds
-    --self.botBuilds = {}
     local brokenBots = {}
 
     -- List of bots that are borked
     if IsInToolsMode() then
         brokenBots = {
             npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
-            npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
+            --npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_vengefulspirit = true, -- Crashes
         }
     else
         brokenBots = {
             npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
-            npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
+            --npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_vengefulspirit = true, -- Crashes
         }
     end
@@ -6994,11 +6997,11 @@ function Pregame:generateBotBuilds(singleID)
                 --maxSlots = 4
             else
                 self:getSkillforBot(self.botPlayers.all[playerID], botSkills)
-                self:getSkillforBot(self.botPlayers.all[playerID], botSkills)
+                self:getSkillforBot(self.botPlayers.all[playerID], botSkills) -- ?
             end
         else
             self:getSkillforBot(self.botPlayers.all[playerID], botSkills)
-            self:getSkillforBot(self.botPlayers.all[playerID], botSkills)
+            self:getSkillforBot(self.botPlayers.all[playerID], botSkills) -- ?
         end
 
         return true
@@ -7139,6 +7142,20 @@ function Pregame:getSkillforBot( botInfo, botSkills )
     local heroName = botInfo.heroName
     local skills = botSkills[heroName]
     local isAdded
+
+    if not self.NotFirstRun[playerID] then
+        self.originalSkillsCount[playerID] = skillID
+        if maxSlots > 4 then
+            self.extraSkillsCount[playerID] = maxSlots - 4
+        else
+            self.extraSkillsCount[playerID] = 0
+        end
+        self.NotFirstRun[playerID] = true
+    end
+
+    if self.originalSkillsCount[playerID] and self.extraSkillsCount[playerID] then
+       maxSlots = self.originalSkillsCount[playerID] - 2 + self.extraSkillsCount[playerID] -- minus 2 (special_bonus_attributes and innate)
+    end
 
     if skills then
         for k, abilityName in pairs(skills) do
@@ -7402,19 +7419,19 @@ function Pregame:levelUpAbilities(hero)
                         if lvl >= 10 and talent_10_1:GetLevel() == 0 and talent_10_2:GetLevel() == 0 then
                             if random == 0 then
                                 talent_10_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             else
                                 talent_10_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                         if lvl >= 27 then
                             if talent_10_1:GetLevel() == 0 then
                                 talent_10_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             elseif talent_10_2:GetLevel() == 0 then
                                 talent_10_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                     end
@@ -7422,19 +7439,19 @@ function Pregame:levelUpAbilities(hero)
                         if lvl >= 15 and talent_15_1:GetLevel() == 0 and talent_15_2:GetLevel() == 0 then
                             if random == 0 then
                                 talent_15_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             else
                                 talent_15_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                         if lvl >= 28 then
                             if talent_15_1:GetLevel() == 0 then
                                 talent_15_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             elseif talent_15_2:GetLevel() == 0 then
                                 talent_15_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                     end
@@ -7442,19 +7459,19 @@ function Pregame:levelUpAbilities(hero)
                         if lvl >= 20 and talent_20_1:GetLevel() == 0 and talent_20_2:GetLevel() == 0 then
                             if random == 0 then
                                 talent_20_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             else
                                 talent_20_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                         if lvl >= 29 then
                             if talent_20_1:GetLevel() == 0 then
                                 talent_20_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             elseif talent_20_2:GetLevel() == 0 then
                                 talent_20_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                     end
@@ -7462,19 +7479,19 @@ function Pregame:levelUpAbilities(hero)
                         if lvl >= 25 and talent_25_1:GetLevel() == 0 and talent_25_2:GetLevel() == 0 then
                             if random == 0 then
                                 talent_25_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             else
                                 talent_25_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                         if lvl >= 30 then
                             if talent_25_1:GetLevel() == 0 then
                                 talent_25_1:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             elseif talent_25_2:GetLevel() == 0 then
                                 talent_25_2:UpgradeAbility(false)
-                                upgrades = upgrades + 1
+                                --upgrades = upgrades + 1
                             end
                         end
                     end
@@ -7724,12 +7741,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     -- Grab a reference to self
     local this = self
 
-    local botAIModifier = {
-        slark_shadow_dance = true,
-        alchemist_chemical_rage = true,
-        --rattletrap_rocket_flare = true,
-    }
-
     local disabledPerks = {
         --npc_dota_hero_vengefulspirit_perk = true,
         --npc_dota_hero_windrunner = false,
@@ -7815,8 +7826,10 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     Timers:CreateTimer(function()
         if IsValidEntity(spawnedUnit) then
             if util:isPlayerBot(playerID) then
-                -- Apply fix for bots not buying items
+                -- Apply fix for bots not buying items and other bot AI
                 spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_bot_lod_redux", {})
+                spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_alchemist_chemical_rage_ai", {})
+                spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_slark_shadow_dance_ai", {})
                 -- Apply Bot Difficulty
                 if spawnedUnit:GetTeam() == DOTA_TEAM_GOODGUYS then
                     if OptionManager:GetOption('radiantBotDiff') == 5 then -- If its random individual, give the bot a difficulty between easy and unfair
@@ -7924,30 +7937,6 @@ function Pregame:fixSpawnedHero( spawnedUnit )
            --print("Perk assigned")
         end
     end, DoUniqueString('addPerk'), 0.75)
-
-    -- Are they a bot?
-    Timers:CreateTimer(function()
-        if PlayerResource:GetConnectionState(playerID) == 1 then
-            -- Find custom abilities to add AI modifiers
-            for k,abilityName in pairs(this.selectedSkills[playerID]) do
-                if botAIModifier[abilityName] then
-                    local abModifierName = "modifier_" .. abilityName .. "_ai"
-                    spawnedUnit:AddNewModifier(spawnedUnit, nil, abModifierName, {})
-                end
-            end
-
-            -- For revealing hidden abilities in special cases - uncomment and modify if needed
-			-- CUSTOMSLOTS = {
-				-- npc_dota_hero_nevermore = (maxSlots == 4 and 6 or 8)
-			-- }
-			-- for i = 0, spawnedUnit:GetAbilityCount() - 1 do
-                -- local ab = spawnedUnit:GetAbilityByIndex(i)
-                -- if ab and not string.match(ab:GetAbilityName(), "special_bonus") and not string.match(ab:GetName(), "perk") and spawnedUnit:GetUnitName() == 'npc_dota_hero_nevermore' then
-                    -- ab:SetHidden(false)
-                -- end
-            -- end
-        end
-    end, DoUniqueString('addBotAI'), 1.0)
 
     -- Toolsmode developer stuff to help test
     if IsInToolsMode() then

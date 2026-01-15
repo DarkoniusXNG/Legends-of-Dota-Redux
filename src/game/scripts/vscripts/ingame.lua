@@ -140,7 +140,7 @@ function Ingame:OnHeroLeveledUp(keys)
     local player = PlayerResource:GetPlayer(pID)
     local hero = player:GetAssignedHero()
 
-    local markedLevels = { [17] = true, [19] = true, [21] = true, [22] = true, [23] = true, [24] = true }
+    local markedLevels = { [23] = true, [24] = true }
     if markedLevels[keys.level] then
         hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
     end
@@ -158,7 +158,6 @@ function Ingame:OnHeroLeveledUp(keys)
     end
 
     local level = hero:GetLevel()
-
 
     hero:SetCustomDeathXP(GetXPForLevel(level))
     -- print(hero:GetUnitName(), level, hero:GetDeathXP(), GetXPForLevel( level ))
@@ -488,9 +487,9 @@ function Ingame:onStart()
             Convars:SetBool("dota_all_vision", false)
         end, 'disable_all_vision_fix', 5.2)
     end
-
-    --secondary fix for randomly not getting skill points for levels 18-24
-    --  the other method is inconsistant
+	
+    -- secondary fix for randomly not getting skill points for levels 18-24
+    -- the other method is inconsistant
     Timers:CreateTimer(function()
         local heroes = HeroList:GetAllHeroes()
         for _, hero in pairs(heroes) do

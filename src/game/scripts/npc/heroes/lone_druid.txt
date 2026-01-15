@@ -73,6 +73,8 @@
 
 	"lone_druid_spirit_bear_demolish" // Spirit Bear's innate
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
 		"ReduxFlags"                    "attack_modifier | doNotRandom"
 		"ReduxPerks"                    "attack_modifier"
 		"ReduxCost"                     "10"
@@ -116,23 +118,13 @@
 	}
 
 	//=================================================================================================================
-	// Gift Bearer (Innate)
-	//=================================================================================================================
-	"lone_druid_gift_bearer"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-
-		"ReduxFlags"                                                           "doNotRandom"
-	}
-
-	//=================================================================================================================
 	// Bear Necessities (Facet)
 	//=================================================================================================================
 	"lone_druid_bear_necessities"
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires True Form
 		"AbilityTextureName"            "custom/npc_dota_hero_lone_druid_perk"
-		
+
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxCost"                                                            "120"
 
@@ -141,6 +133,15 @@
 			"item_slots"				"3 4 5 6"
 			"bonus_stat_percent"		"45 55 65 75"
 		}
+	}
+
+	"special_bonus_unique_lone_druid_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "lone_druid_entangle"
 	}
 
 	"special_bonus_unique_lone_druid_2"
@@ -167,34 +168,6 @@
 
 		"TalentRequiredAbility"                                                   "lone_druid_true_form"
 	}
-	"special_bonus_unique_lone_druid_11"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear"
-	}
-	"special_bonus_unique_lone_druid_entangle_dps"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"
-		{
-			"1" "lone_druid_spirit_bear"
-			"2" "lone_druid_spirit_bear_entangle"
-		}
-	}
-	"special_bonus_unique_lone_druid_spirit_link_attack_speed"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "lone_druid_spirit_link"
-	}
 	"special_bonus_unique_lone_druid_savage_roar_aoe"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -202,5 +175,29 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "lone_druid_savage_roar"
+	}
+	"special_bonus_unique_lone_druid_spirit_bear_return_cd"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear_return"
+	}
+	"special_bonus_unique_lone_druid_spirit_bear_demolish"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear_demolish"
+	}
+	"special_bonus_unique_lone_druid_spirit_bear_damage_against_entangled"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "lone_druid_spirit_bear_demolish"
 	}
 }
