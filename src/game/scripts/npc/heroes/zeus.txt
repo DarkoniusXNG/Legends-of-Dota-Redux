@@ -39,7 +39,7 @@
 		"AbilityValues"
 		{
 			"cloud_duration"	"30"
-			"cloud_bolt_interval"	"2.5 2.2 1.9 1.6"
+			"cloud_bolt_interval"	"2.5 2.1 1.7 1.3"
 			"cloud_radius"
 			{
 				"value"			"450"
