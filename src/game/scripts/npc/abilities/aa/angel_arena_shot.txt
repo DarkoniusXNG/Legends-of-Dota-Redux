@@ -11,9 +11,9 @@
         "AbilityValues"
         {
             "chance" "35 45 55 65"
-            "lifesteal" "30 40 50 60"
+            "lifesteal" "20 25 30 35"
             "damage" "30 45 60 75"
-            "damage_percent" "0.4 0.6 0.8 1.0"
+            "damage_percent" "1.0"
         }
         "Modifiers"
         {
@@ -68,13 +68,13 @@
                         "Type"                                 "DAMAGE_TYPE_MAGICAL"
                         "Damage"                               "%damage"
                     }
-                    "RunScript"
-                    {
-                        "Target"                               "TARGET"
-                        "ScriptFile"                           "abilities/angel_arena_reborn/shot.lua"
-                        "Function"                             "DamageOfCurrentHealth"
-                        "DamagePercent"                        "%damage_percent"
-                    }
+                 //   "RunScript"
+                 //   {
+                 //       "Target"                               "TARGET"
+                 //       "ScriptFile"                           "abilities/angel_arena_reborn/shot.lua"
+                 //       "Function"                             "DamageOfCurrentHealth"
+                 //       "DamagePercent"                        "%damage_percent"
+                 //   }
                 }
             }
         }
