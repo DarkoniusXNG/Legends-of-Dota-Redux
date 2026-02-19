@@ -6,14 +6,18 @@
         "ScriptFile"                                                           "abilities/pushing_blast.lua"
         "AbilityTextureName"                                                   "custom/pushing_blast"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-        "AbilityManaCost"                                                       "80 85 90 95"
+        "AbilityManaCost"                                                       "100 110 120 130"
         "AbilityCooldown"                                                       "13 12 11 10"
         "AbilityCastPoint"                                                      "0.05"
 
         "AbilityValues"
         {
             "duration" "3 3.5 4 4.5"
-            "damage" "130 190 270 340"
+            "damage"
+			{
+				"value"	"130 190 270 340"
+				"DamageTypeTooltip"	"DAMAGE_TYPE_MAGICAL"
+			}
             "radius" // max knockback distance
 			{
 				"value"			"400"
