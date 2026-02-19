@@ -343,13 +343,15 @@ end
 require('lib/physics')
 
 function RollInitiate(caster, ability)
-	local leap_speed = caster:GetMoveSpeedModifier(caster:GetBaseMoveSpeed(), false) + 50
+	-- local leap_speed = caster:GetMoveSpeedModifier(caster:GetBaseMoveSpeed(), false) + 50
 	local casterAngles = caster:GetAngles()
 	local start_position = GetGroundPosition(caster:GetAbsOrigin() , caster)
+	local land_distance = 450
 
 	-- Physics
 	local direction = caster:GetForwardVector()
-	local velocity = leap_speed * 3.0
+	-- local velocity = leap_speed * 3.0
+	local velocity = land_distance / end_time
 	local end_time = 0.6
 	local time_elapsed = 0
 	local time = 0.3
