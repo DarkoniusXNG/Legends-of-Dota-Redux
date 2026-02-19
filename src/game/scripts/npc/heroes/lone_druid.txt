@@ -141,7 +141,11 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "lone_druid_entangle"
+		"TalentRequiredAbility"
+		{
+			"1"		"lone_druid_entangle"
+			"2"		"lone_druid_spirit_bear_entangle"
+		}
 	}
 
 	"special_bonus_unique_lone_druid_2"
