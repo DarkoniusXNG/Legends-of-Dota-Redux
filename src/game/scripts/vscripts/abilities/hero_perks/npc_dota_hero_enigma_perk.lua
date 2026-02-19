@@ -25,9 +25,9 @@ function modifier_npc_dota_hero_enigma_perk:GetTexture()
 end
 
 function modifier_npc_dota_hero_enigma_perk:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
-  }
+	return {
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+	}
 end
 
 function modifier_npc_dota_hero_enigma_perk:GetModifierPercentageCooldown(keys)

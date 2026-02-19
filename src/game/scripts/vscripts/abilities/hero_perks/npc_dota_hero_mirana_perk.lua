@@ -24,6 +24,13 @@ function modifier_npc_dota_hero_mirana_perk:GetTexture()
 	return "custom/npc_dota_hero_mirana_perk"
 end
 
+function modifier_npc_dota_hero_mirana_perk:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
+	}
+end
+
 function modifier_npc_dota_hero_mirana_perk:GetModifierPercentageCooldown(keys)
 	local ability = keys.ability
 	if ability then
