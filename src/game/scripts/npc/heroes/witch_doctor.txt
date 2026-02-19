@@ -57,6 +57,11 @@
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_witch_doctor_perk"
 
 		"ReduxFlags"                                                           "doNotRandom"
+		"MaxLevel"						"4"
+		"AbilityValues"
+		{
+			"health_restoration_reduction"		"30 45 60 75"
+		}
 	}
 
 	//=================================================================================================================
