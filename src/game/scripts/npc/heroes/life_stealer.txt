@@ -154,13 +154,13 @@
 
 		"ReduxPerks"		"undead"
 		"MaxLevel"						"4"
-		"IsBreakable"					"1"
+
 		"AbilityValues"
-		{			
+		{
 			"bonus_hp_per_hero"			"15 25 35 45"
 			"bonus_hp_per_creep"		"1"
 		}
-		
+
 	}
 
 	"special_bonus_unique_lifestealer"
@@ -230,4 +230,3 @@
 		"TalentRequiredAbility"			 "life_stealer_infest"
 	}
 }
-

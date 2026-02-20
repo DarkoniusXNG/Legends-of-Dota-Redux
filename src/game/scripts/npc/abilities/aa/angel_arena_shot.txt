@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-    "angel_arena_shot"
+    "angel_arena_shot" // Accurate Shot
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -12,8 +12,7 @@
         {
             "chance" "35 45 55 65"
             "lifesteal" "20 25 30 35"
-            "damage" "30 45 60 75"
-            "damage_percent" "1.0"
+            "damage" "45 60 75 90"
         }
         "Modifiers"
         {
@@ -57,24 +56,17 @@
                         "Target"                               "CASTER"
                         "LifestealPercent"                     "%lifesteal"
                     }
-                    "RemoveModifier"
-                    {
-                        "ModifierName"                         "modifier_shot_lifesteal_true_strike"
-                        "Target"                               "CASTER"
-                    }
                     "Damage"
                     {
                         "Target"                               "TARGET"
                         "Type"                                 "DAMAGE_TYPE_MAGICAL"
                         "Damage"                               "%damage"
                     }
-                 //   "RunScript"
-                 //   {
-                 //       "Target"                               "TARGET"
-                 //       "ScriptFile"                           "abilities/angel_arena_reborn/shot.lua"
-                 //       "Function"                             "DamageOfCurrentHealth"
-                 //       "DamagePercent"                        "%damage_percent"
-                 //   }
+                    "RemoveModifier"
+                    {
+                        "ModifierName"                         "modifier_shot_lifesteal_true_strike"
+                        "Target"                               "CASTER"
+                    }
                 }
             }
         }

@@ -172,7 +172,7 @@
             "movement_damage"                    "20 25 30 35"
             "movement_slow"                      "-30 -35 -40 -45"
             "duration"                           "4.0"
-            "creep_duration"                     "4.0"
+            "creep_duration"                     "6.0"
             "trigger_essence_aura"               "1"
         }
 
