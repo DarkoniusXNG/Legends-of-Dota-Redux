@@ -575,6 +575,10 @@ function util:getTableLength(t)
 end
 
 function DebugCalls()
+    if not debug then
+        print("debug not available!")
+        return
+    end
     if not GameRules.DebugCalls then
         print("Starting DebugCalls")
         GameRules.DebugCalls = true
@@ -584,7 +588,7 @@ function DebugCalls()
             local src = tostring(info.short_src)
             local name = tostring(info.name)
             if name ~= "__index" then
-                print("Call: ".. src .. " -- " .. name)
+                print("Call: ".. src .. " -- " .. name .. " -- " .. info.currentline)
             end
         end, "c")
     else

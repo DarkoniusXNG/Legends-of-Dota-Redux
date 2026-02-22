@@ -10,7 +10,6 @@ end
 function JetStreamProjectile( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	--local timers = require('easytimers')
 	forwardVec = caster.casterVec
 
 	-- Projectile variables

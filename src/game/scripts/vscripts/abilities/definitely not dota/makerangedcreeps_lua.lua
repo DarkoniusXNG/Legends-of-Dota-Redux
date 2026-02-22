@@ -1,5 +1,4 @@
 makerangedcreeps_lua = class({})
---local timers = require('easytimers')
 
 --------------------------------------------------------------------------------
 

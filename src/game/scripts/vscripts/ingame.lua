@@ -1,5 +1,4 @@
 local constants = require('constants')
-----local timers = require('easytimers')
 
 require('abilities/hero_perks/hero_perks_filters')
 require('abilities/epic_boss_fight/ebf_mana_fiend_essence_amp')

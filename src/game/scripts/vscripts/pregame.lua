@@ -5,7 +5,6 @@ end
 -- Libraries
 local constants = require('constants')
 local SU = require('lib/StatUploaderFunctions')
-require('easytimers')
 local SpellFixes = require('spellfixes')
 require('statcollection.init')
 local Debug = require('lod_debug')              -- Debug library with helper functions, by Ash47

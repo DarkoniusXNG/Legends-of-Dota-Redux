@@ -1,4 +1,3 @@
---local timers = require('easytimers')
 --[[
 	Author: wFX with help of Rook and Noya
 	Date: 18.01.2015.

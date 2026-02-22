@@ -10,8 +10,7 @@
 
 **dedicated.lua**	
 
-**dedicated_orig.lua**	
-**easytimers.lua** - Timer library.	
+**dedicated_orig.lua**
 
 **ingame.lua** - Major functions that happen primarily while the game is being played. Things like handling respawning and creep spawning. 
 

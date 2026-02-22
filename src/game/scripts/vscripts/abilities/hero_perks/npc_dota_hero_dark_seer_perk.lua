@@ -32,8 +32,6 @@ function modifier_npc_dota_hero_dark_seer_perk:DeclareFunctions()
 	return funcs
 end
 
---local timers = require('easytimers')
-
 function modifier_npc_dota_hero_dark_seer_perk:OnAbilityExecuted(params)
 	if params.unit == self:GetParent() then
 		if params.ability:GetName() == "dark_seer_surge" then

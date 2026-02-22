@@ -1,7 +1,5 @@
 TIMERS_VERSION = "2.01"
 
-require("easytimers")
-
 --[[
 
   -- A timer running every second that starts immediately on the next frame, respects pauses
@@ -164,12 +162,12 @@ function Timers:HandleEventError(name, event, err)
   end
 end
 
-function Timers:CreateTimer(name, args,T)
+function Timers:CreateTimer(name, args, T)
 
   -- Use easytimers if 3 arguments are given
   if T and type(T) == "number" then
     local gm = GameRules:GetGameModeEntity()
-    gm:SetThink(name, args,T)
+    gm:SetThink(name, args, T)
     return
   end
 

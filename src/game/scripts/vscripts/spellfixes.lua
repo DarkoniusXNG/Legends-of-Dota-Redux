@@ -1,4 +1,3 @@
---local timers = require('easytimers')
 
 local noMulticast = {}
 local noWitchcraft = {}

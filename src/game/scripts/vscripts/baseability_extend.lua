@@ -84,7 +84,6 @@ if CDOTABaseAbility then
 	end
 
 	function CDOTABaseAbility:GetTrueCooldown()
-		--if Convars:GetBool('dota_ability_debug') then return 0 end
 		local cooldown = self:GetCooldown(-1) -- TODO: Check if this returns cooldown after CDR
 		local hero = self:GetCaster()
 		local true_cd = cooldown

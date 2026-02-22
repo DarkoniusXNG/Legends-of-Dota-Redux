@@ -1,4 +1,4 @@
---local timers = require('easytimers')
+
 if not SkillManager then
     require('skillmanager')
 end
