@@ -174,6 +174,11 @@
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE" // requires Enrage
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_ursa_perk"
+		"MaxLevel"						"4"
+		"AbilityValues"
+		{
+			"debuff_amp"				"15 20 25 30"
+		}
 	}
 
 	"tidehunter_krill_eater"
@@ -230,10 +235,10 @@
 
 		"AbilityValues"
 		{
-			"spell_reflect_pct"			"16 21 26 31"
+			"spell_reflect_pct"			"16 22 28 34"
 			"radius"
 			{
-				"value"			"1200"
+				"value"			"1200 1400 1600 1800"
 				"affected_by_aoe_increase"	"1"
 			}
 		}
@@ -250,9 +255,9 @@
 
 		"AbilityValues"
 		{
-			"spell_amplification"			"14 16 18 20"
+			"spell_amplification"			"14 18 22 26"
 			"spell_amplification_per_level"	"0.0"
-			"damage_reflected_to_self"		"27 26 25 24"
+			"damage_reflected_to_self"		"27 25 23 21"
 		}
 	}
 
@@ -286,6 +291,15 @@
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE" // requires Split Shot
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_medusa_perk"
+
+		"AbilityValues"
+		{
+			"duration"				"1.5 2.0 2.5 3.0"
+			"move_slow"				"15 20 25 30 35"
+			"attack_slow"			"20 35 50 65 80"
+			"cast_slow"				"0"
+			"attack_count"			"6"
+		}
 	}
 
 	"spirit_breaker_knockback_amp"
@@ -300,7 +314,7 @@
 
 		"AbilityValues"
 		{
-			"knockback_amp"			"20 30 40 50"
+			"knockback_amp"			"20 35 50 65"
 		}
 	}
 
@@ -551,6 +565,13 @@
 		"ReduxFlags"                                                           "doNotRandom | mobility"
 		"ReduxPerks"                                                           "mobility"
 		"ReduxCost"                                                            "10"
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"fixed_movespeed"				"310 340 370 400"
+			"stone_gaze_ms_tooltip_only"	"465"
+		}
 	}
 
 	"roshan_grab_and_throw"
@@ -619,16 +640,74 @@
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_clinkz_perk"
-
+		"MaxLevel"						"4"
 		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "undead"
+		"AbilityValues"
+		{
+			"skeleton_duration"
+			{
+				"value"						"15 20 25 30"
+			}
+
+			"skeleton_health"
+			{
+				"value"					"8"
+			}
+
+			"skeleton_health_tooltip"
+			{
+				"value"					"2"
+
+			}
+			"skeleton_building_damage_reduction"			"75 60 45 30"
+			"attack_rate"			"1.6 1.4 1.2 1.0"
+			"damage_percent"
+			{
+				"value"					"20 30 40 50"
+			}
+		}
 	}
 
 	"clinkz_death_pact"
 	{
 		"ReduxPerks"                                                           "undead"
+	}
+
+	"clinkz_tar_bomb"
+	{
+		"ReduxPerks"                    "fire | attack_modifier | autocast_basic | physical"
+		"AbilityCastRange"				"1000"
+		"AbilityCooldown"				"6 5 4 3"
+		"AbilityManaCost"				"40 45 55 60"
+		"AbilityValues"
+		{
+
+			"radius"
+			{
+				"value"		"350"
+				"affected_by_aoe_increase"	"1"
+			}
+			"projectile_speed"					"2000"
+			"damage_bonus"
+			{
+				"value"					"30 40 50 60"
+			}
+			"ground_duration"				"5"
+			"slow_movement_speed"			"-20 -25 -30 -35"
+			"slow_duration"					"2.5"
+			"has_multishot"
+			{
+				"special_bonus_unique_clinkz_3"		"1"
+			}
+			"impact_damage"
+			{
+				"value"				"50 75 100 125"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_MAGICAL"
+			}
+		}
 	}
 
 	"shredder_twisted_chakram"
@@ -2511,6 +2590,30 @@
 	{
 		"ReduxFlags"                                                           "support | semi_passive"
 		"ReduxPerks"                                                           "support | aura"
+		"AbilityCooldown"				"20 18 16 14"
+		"AbilityValues"
+		{
+			"bonus_movespeed_pct_self"
+			{
+				"value" "10 14 18 22"
+			}
+			"bonus_movespeed_pct_allies"
+			{
+				"value" "6 8 10 12"
+			}
+			"aura_radius"
+			{
+				"value" "1200"
+			}
+			"bonus_movespeed_pct_extra"
+			{
+				"value" "4 8 12 16"
+			}
+			"duration"
+			{
+				"value" "6 7 8 9"
+			}
+		}
 	}
 
 	"pugna_decrepify"
@@ -3124,6 +3227,25 @@
 	"keeper_of_the_light_mana_leak"
 	{
 		"ReduxFlags"                                                           "stun | mana"
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"13 12 11 10"
+		"AbilityManaCost"				"120"
+		"AbilityCastRange"				"650 700 750 800"
+		"AbilityValues"
+		{
+			"duration"
+			{
+				"value" "5.0 5.5 6.0 6.5"
+			}
+			"mana_leak_pct"
+			{
+				"value" "6 6.5 7 7.5"
+			}
+			"stun_duration"
+			{
+				"value" "2 2.25 2.5 2.75"
+			}
+		}
 	}
 	"centaur_hoof_stomp"
 	{
@@ -4029,6 +4151,7 @@
 			"total_damage"
 			{
 				"value" "320 360 400 440"
+				"DamageTypeTooltip"	"DAMAGE_TYPE_MAGICAL"
 			}
 			"attack_speed"
 			{
@@ -4595,15 +4718,15 @@
 		{
 			"duration_damage"
 			{
-				"value"					"20 26 32 38"
+				"value"					"20 28 36 44"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"movement_slow"			"-10 -14 -18 -22"
+			"movement_slow"			"-10 -15 -20 -25"
 			"projectile_speed"		"1800"
 			"damage_interval"		"1.0"
 			"duration"				"7 9 11 13"
 			"explosion_damage"		"300 350 400 450"
-			"explosion_stun_duration"	"1.6 1.8 2.0 2.2"
+			"explosion_stun_duration"	"1.6 1.9 2.2 2.5"
 		}
 	}
 

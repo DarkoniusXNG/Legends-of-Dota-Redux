@@ -117,10 +117,30 @@
 	//=================================================================================================================
 	"kunkka_admirals_rum"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"ReduxFlags"                                                           "tank | wtfAutoBan"
 		"ReduxPerks"                                                           "water"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"damage_threshold"			"65"
+			"ghostship_absorb"
+			{
+				"value"					"20 25 30 35"
+				"special_bonus_unique_kunkka_rum" "+15"
+			}
+
+			"buff_duration"				"6"
+			"movespeed_bonus"			"10 12 14 16"
+			"AbilityCooldown"
+			{
+				"value"							"60 50 40 30"
+				"special_bonus_unique_kunkka_3"	"-15"
+			}
+		}
 	}
 
 	//=================================================================================================================

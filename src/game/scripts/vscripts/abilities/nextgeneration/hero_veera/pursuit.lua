@@ -346,11 +346,12 @@ function RollInitiate(caster, ability)
 	local leap_speed = caster:GetMoveSpeedModifier(caster:GetBaseMoveSpeed(), false) + 50
 	local casterAngles = caster:GetAngles()
 	local start_position = GetGroundPosition(caster:GetAbsOrigin() , caster)
+	local max_land_distance = 800
 
 	-- Physics
 	local direction = caster:GetForwardVector()
-	local velocity = leap_speed * 3.0
 	local end_time = 0.6
+	local velocity = math.min(leap_speed * 3.0, max_land_distance / end_time)
 	local time_elapsed = 0
 	local time = 0.3
 	local jump = 48

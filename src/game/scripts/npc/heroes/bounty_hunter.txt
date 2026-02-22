@@ -12,6 +12,8 @@
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | autocast_basic | gold"
 		"ReduxCost"                                                            "10"
+
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 	}
 
 	"bounty_hunter_wind_walk"
