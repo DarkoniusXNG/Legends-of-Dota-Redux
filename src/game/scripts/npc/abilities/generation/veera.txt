@@ -169,7 +169,7 @@
         "AbilityValues"
         {
             "base_damage"                        "30 40 50 60"
-            "movement_damage"                    "20 25 30 35"
+            "movement_damage"                    "25 30 35 40"
             "movement_slow"                      "-30 -35 -40 -45"
             "duration"                           "4.0"
             "creep_duration"                     "6.0"
