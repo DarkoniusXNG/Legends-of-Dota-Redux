@@ -198,7 +198,7 @@ function LocustSwarmPhysics( event )
 
 			-- If no enemies, set the unit to collide with a random point.
 			else
-				unit.state = "target_acquired"
+				unit.state = "target_acquired" -- this seems wrong
 				unit.current_target = nil
 				point = source + RandomVector(RandomInt(radius/2, radius))
 				--print("Acquiring -> Random Point Target acquired")
@@ -258,6 +258,7 @@ function LocustSwarmPhysics( event )
 						local particle = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN, unit.current_target)
 						ParticleManager:SetParticleControl(particle, 0, unit.current_target:GetAbsOrigin())
 						ParticleManager:SetParticleControlEnt(particle, 3, unit.current_target, PATTACH_POINT_FOLLOW, "attach_hitloc", unit.current_target:GetAbsOrigin(), true)
+						ParticleManager:ReleaseParticleIndex(particle)
 
 						-- Fire Sound on the target unit
 						unit.current_target:EmitSound("Hero_Weaver.SwarmAttach")
@@ -293,7 +294,6 @@ function LocustSwarmPhysics( event )
 
 			if collision then
 				unit.state = "acquiring"
-
 
 				-- Reset the damage done
 				unit.damage_done = 0
@@ -359,6 +359,7 @@ function LocustSwarmDeath( event )
 				local particle = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, unit)
 				ParticleManager:SetParticleControl(particle, 0, unit:GetAbsOrigin())
 				ParticleManager:SetParticleControlEnt(particle, 3, unit, PATTACH_POINT_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), true)
+				ParticleManager:ReleaseParticleIndex(particle)
 
 				-- Kill
 				unit.no_corpse = true

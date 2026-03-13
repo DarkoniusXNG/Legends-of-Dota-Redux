@@ -195,7 +195,6 @@ function imba_crystal_maiden_crystal_nova:OnSpellStart()
 	local ability = self
 	local target_point = self:GetCursorPosition()
 	local particle_nova = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
-	local sound_nova = "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
 	local modifier_nova_debuff = "modifier_imba_crystal_nova_slow"
 	local modifier_thinker_ally = "modifier_imba_crystal_nova_snowfield_ally_aura"
 	local modifier_thinker_enemy = "modifier_imba_crystal_nova_snowfield_enemy_aura"
