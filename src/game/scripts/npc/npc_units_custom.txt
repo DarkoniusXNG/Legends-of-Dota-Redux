@@ -3173,6 +3173,8 @@
 	{
 		"BaseClass"                    "npc_dota_creature"    // Class of entity of link to.
 
+		"Ability1"                    "global_mutator"    // Ability 1.
+
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"  "DOTA_UNIT_CAP_NO_ATTACK"
