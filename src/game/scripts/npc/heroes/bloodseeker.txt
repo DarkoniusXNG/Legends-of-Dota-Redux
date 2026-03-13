@@ -19,7 +19,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | rage | blood"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "10" // does too much to be bad
 	}
 
 	"bloodseeker_blood_bath"

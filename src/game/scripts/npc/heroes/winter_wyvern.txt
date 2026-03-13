@@ -5,7 +5,7 @@
 	{
 		"ReduxFlags"                                                           "upgradeable | attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | dragon | ice"
-		"ReduxCost"                                                            "30"
+		"ReduxCost"                                                            "40"
 	}
 
 	"winter_wyvern_splinter_blast"

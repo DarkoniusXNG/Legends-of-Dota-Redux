@@ -77,7 +77,7 @@
 
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support"
-		"ReduxCost"                                                            "20"
+		"ReduxCost"                                                            "30"
 	}
 
 	"special_bonus_unique_leshrac_1"

@@ -33,7 +33,7 @@
 	{
 		"ReduxFlags"                                "stun"
 		"ReduxPerks"                                "demon | sleep"
-		"ReduxCost"                                 "10"
+		"ReduxCost"                                 "10" // any dmg from the caster (attack or spell) does not interrupt the sleep
 	}
 
 	//=================================================================================================================

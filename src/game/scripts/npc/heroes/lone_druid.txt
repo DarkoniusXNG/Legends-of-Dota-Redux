@@ -54,15 +54,15 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ReduxFlags"                    "attack_modifier | bash"
+		"ReduxFlags"                    "attack_modifier | bash | doNotRandom"
 		"ReduxPerks"                    "attack_modifier | bash | nature"
-		"ReduxCost"                     "40"
 	}
 
 	"lone_druid_entangle"
 	{
 		"ReduxFlags"                    "stun"
 		"ReduxPerks"                    "nature"
+		"ReduxCost"                     "40"
 	}
 
 	//"lone_druid_entangling_claws"

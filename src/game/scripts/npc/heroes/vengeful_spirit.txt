@@ -15,7 +15,7 @@
 	{
 		"ReduxFlags"                                                           "illusion | support | upgradeable"
 		"ReduxPerks"                                                           "aura | illusion | support | undead"
-		"ReduxCost"                                                            "30"
+		"ReduxCost"                                                            "40"
 	}
 
 	"vengefulspirit_nether_swap"

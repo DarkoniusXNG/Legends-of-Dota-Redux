@@ -17,6 +17,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier | crit"
 		"ReduxPerks"                                                           "attack_modifier"
+		"ReduxCost"                                                            "10"
 	}
 
 	"chaos_knight_phantasm"

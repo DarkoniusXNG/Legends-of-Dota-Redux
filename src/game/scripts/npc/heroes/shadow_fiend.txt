@@ -40,7 +40,7 @@
 
 		"ReduxFlags"                                                           "upgradeable"
 		"ReduxPerks"                                                           "demon | undead"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "30"
 	}
 
 	"special_bonus_unique_nevermore_1"

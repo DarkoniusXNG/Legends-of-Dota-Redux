@@ -26,10 +26,7 @@ function modifier_memes_redux:OnAbilityFullyCast(event)
     caster:EmitSound("Memes.OmniSwords")
   elseif ability:GetName() == "earthshaker_enchant_totem" then
     caster:EmitSound("Memes.PowerUp")
-  elseif ability:GetName() == "earthshaker_enchant_totem" then
-    caster:EmitSound("Memes.PowerUp")
-  elseif ability:GetName() == "lone_druid_spirit_bear_return_lod" then
-  	
+  elseif ability:GetName() == "item_blink" then
   	if not self.FlahshTracker then
   		self.FlahshTracker = 1
   	else
@@ -43,9 +40,7 @@ function modifier_memes_redux:OnAbilityFullyCast(event)
   		self.FlahshTracker = 0
   	else
     	caster:EmitSound("Memes.FlashShort")
-	end
-  elseif ability:GetName() == "earthshaker_enchant_totem" then
-    caster:EmitSound("Memes.PowerUp")
+    end
   elseif ability:GetName() == "shadow_shaman_shackles" then
     caster:EmitSound("Memes.UnlimitedPower")
   elseif ability:GetName() == "crystal_maiden_freezing_field" then

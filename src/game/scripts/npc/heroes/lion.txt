@@ -5,7 +5,7 @@
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "earth | demon"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "20"
 	}
 
 	"lion_voodoo"
@@ -24,7 +24,7 @@
 	{
 		"ReduxFlags"                                                           "upgradeable"
 		"ReduxPerks"                                                           "demon | lightning"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "10" // because of scaling per kill
 	}
 
 	//=================================================================================================================

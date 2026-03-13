@@ -2456,6 +2456,7 @@ function Pregame:isTrollCombo(build)
         --["bristleback_viscous_nasal_goo"] = "bristleback_warpath",
         --["storm_spirit_static_remnant"] = "storm_spirit_overload",
         ["dazzle_shadow_wave"] = "dazzle_bad_juju",
+        ["lone_druid_true_form_battle_cry"] = "lone_druid_true_form",
     }
     local maxSlots = self.optionStore['lodOptionCommonMaxSlots']
 

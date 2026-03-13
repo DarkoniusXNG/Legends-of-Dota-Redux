@@ -22,8 +22,8 @@
 	"windrunner_focusfire"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxCost"                                                            "40"
 		"ReduxPerks"                                                           "ranger"
+		"ReduxCost"                                                            "30"
 	}
 
 	"windrunner_gale_force"

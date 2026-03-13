@@ -76,6 +76,33 @@
 
 "DOTAAbilities"
 {
+	"clinkz_infernal_shred"
+	{
+		"ReduxFlags"                                                           "attack_modifier | physical"
+		"ReduxPerks"                                                           "attack_modifier | fire | physical"
+	}
+
+	"puck_puckish"
+	{
+		"ReduxFlags"                                                           "doNotRandom | mana"
+	}
+
+	"tusk_drinking_buddies"
+	{
+		"ReduxFlags"                                                           "mobility | support | physical"
+		"ReduxPerks"                                                           "mobility | support | physical"
+	}
+
+	"venomancer_sepsis"
+	{
+		"ReduxPerks"                                                           "poison"
+	}
+
+	"venomancer_noxious_plague"
+	{
+		"ReduxPerks"                                                           "poison"
+	}
+
 	"centaur_horsepower"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -492,7 +519,7 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
 		"ReduxPerks"                    "ice"
-		"ReduxCost"                     "10"
+		"ReduxCost"                     "10" // really good but dependent on Walrus Punch
 	}
 
 	"razor_dynamo"
@@ -2651,7 +2678,8 @@
 	{
 		"ReduxFlags"                                                           "mana | upgradeable"
 		"ReduxBanCategory"                                                     "ToggleSpells"
-		"ReduxCost"                                                            "40"
+		"ReduxBans"                                                            "medusa_mana_shield | storm_spirit_ball_lightning"
+		"ReduxCost"                                                            "30"
 	}
 	"troll_warlord_battle_trance"
 	{
@@ -2663,7 +2691,7 @@
 	{
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility | blink"
-		"ReduxCost"                                                            "20"
+		"ReduxCost"                                                            "30"
 	}
 	"marci_unleash"
 	{
@@ -2817,7 +2845,7 @@
 	{
 		"ReduxFlags"                                                           "invis"
 		"ReduxPerks"                                                           "invis"
-		"ReduxCost"                                                            "40"
+		"ReduxCost"                                                            "50"
 		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 	"templar_assassin_meld"
@@ -2830,7 +2858,7 @@
 	{
 		"ReduxFlags"                                                           "mobility | invis"
 		"ReduxPerks"                                                           "mobility | invis"
-		"ReduxCost"                                                            "80"
+		"ReduxCost"                                                            "90"
 	}
 
 	"queenofpain_blink"
@@ -2972,7 +3000,7 @@
 	"medusa_mana_shield"
 	{
 		"ReduxFlags"                                                           "tank | mana"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "40"
 	}
 	"legion_commander_moment_of_courage"
 	{
@@ -3045,7 +3073,7 @@
 	{
 		"ReduxFlags"                                                           "aoe_attack | attack_modifier | upgradeable"
 		"ReduxPerks"                                                           "attack_modifier | scientific"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "30"
 	}
 
 	"monkey_king_jingu_mastery"
@@ -3149,7 +3177,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"
 		"ReduxPerks"                                                           "attack_modifier | physical | autocast_basic"
-		"ReduxCost"                                                            "30"
+		"ReduxCost"                                                            "10"
 	}
 	"obsidian_destroyer_arcane_orb"
 	{
@@ -3161,14 +3189,14 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier | upgradeable"
 		"ReduxPerks"                                                           "attack_modifier | undead"
-		"ReduxCost"                                                            "120" // Made single player because its causes lag, needs more investigation
+		"ReduxCost"                                                            "120" // Made single player because its causes lag
 	}
 
 	"troll_warlord_fervor"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | rage"
-		"ReduxCost"                                                            "30"
+		"ReduxCost"                                                            "20" // why people think this is bad?
 	}
 
 	"beastmaster_boar_poison"
@@ -3507,8 +3535,8 @@
 	}
 	"shadow_demon_shadow_poison"
 	{
-		"ReduxPerks"                                                           "poison | skillshot | demon"
 		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "poison | skillshot | demon"
 	}
 
 	"razor_plasma_field"
@@ -3617,7 +3645,7 @@
 	{
 		"ReduxFlags"                                                           "cooldown"
 		"ReduxPerks"                                                           "scientific | channeled"
-		"ReduxCost"                                                            "360"
+		"ReduxCost"                                                            "150"
 		"ReduxBans"                                                            "dazzle_shallow_grave | lich_absolute_zero | arc_warden_tempest_double"
 	}
 
@@ -3645,8 +3673,9 @@
 
 	"treant_leech_seed"
 	{
-		"ReduxFlags"                                                           "attack_modifier | semi_passive | support"
-		"ReduxPerks"                                                           "nature | attack_modifier | autocast_basic | drain | nature | support"
+		"ReduxFlags"                                                           "attack_modifier | bash | semi_passive | support"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | bash | drain | nature | support"
+		"ReduxCost"                                                            "10"
 	}
 	"treant_natures_grasp"
 	{
@@ -3863,7 +3892,6 @@
 		"ReduxFlags"														   "mobility | aoe_attack | upgradeable"
 		"ReduxPerks"                                                           "channeled | mobility"
 		"ReduxBans"                                                            "dazzle_bad_juju_redux"
-		"ReduxCost"                                                            "10"
 	}
 
 	"beastmaster_wild_axes"
@@ -3954,7 +3982,7 @@
 	"ursa_overpower"
 	{
 		"ReduxPerks"                                                           "rage"
-		"ReduxCost"                                                            "60"
+		"ReduxCost"                                                            "40"
 		"ReduxBans"                                                            "tusk_walrus_punch"
 	}
 
@@ -4271,7 +4299,7 @@
 	"tusk_tag_team"
 	{
 		"ReduxFlags"                                                           "physical | support"
-		"ReduxPerks"                                                           "physical"
+		"ReduxPerks"                                                           "ice | physical"
 	}
 
 	"riki_poison_dart"
