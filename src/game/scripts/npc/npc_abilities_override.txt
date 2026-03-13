@@ -372,6 +372,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 
+		"ReduxPerks"                                                           "nature | transformation"
+
 		"MaxLevel"						"3"
 
 		"AbilityCooldown"				"60 50 40"
@@ -392,14 +394,16 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 
 		"ReduxFlags"                                                           "doNotRandom | semi_passive"
+		"ReduxPerks"                                                           "transformation"
 		"ReduxCost"                                                            "120"
+		"ReduxBans"                                                            "lone_druid_true_form"
 
 		"MaxLevel"						"4"
 		"Innate"						"1"
 
 		"AbilityValues"
 		{
-			"bonus_range"			"350 370 390 410"
+			"bonus_range"			"350" // do not change this
 			"base_attack_time"		"1.4 1.35 1.3 1.25"
 		}
 	}

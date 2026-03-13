@@ -3,7 +3,7 @@
 	"lone_druid_spirit_bear_fetch"
 	{
 		"ReduxFlags"					"stun | support"
-		"ReduxPerks"                    "support | neutral" // not enemymoving because the caster and the target are not moving
+		"ReduxPerks"                    "support | neutral | enemymoving" // caster and the target can move in some cases
 
 		"MaxLevel"					"4"
 		"AbilityCastPoint"				"0.2"
@@ -23,7 +23,6 @@
 
 	"lone_druid_true_form_battle_cry"
 	{
-		"ReduxFlags"														   "doNotRandom"
 		"ReduxPerks"                                                           "rage"
 
 		"AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
@@ -113,7 +112,7 @@
 
 	"lone_druid_true_form"
 	{
-		"ReduxFlags"                                                           "tank"
+		"ReduxFlags"                                                           "tank | doNotRandom"
 		"ReduxPerks"                                                           "nature | transformation"
 	}
 
