@@ -4117,6 +4117,7 @@
 	{
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "transformation"
+		"ReduxCost"                                                            "360"
 	}
 	"monkey_king_wukongs_command"
 	{
