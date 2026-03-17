@@ -2849,7 +2849,7 @@
 	{
 		"ReduxFlags"                                                           "invis"
 		"ReduxPerks"                                                           "invis"
-		"ReduxCost"                                                            "50"
+		"ReduxCost"                                                            "90"
 		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 	"templar_assassin_meld"
