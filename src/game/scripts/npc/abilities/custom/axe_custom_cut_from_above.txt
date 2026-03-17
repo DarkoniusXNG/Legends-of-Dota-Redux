@@ -18,8 +18,8 @@
 
     "HasScepterUpgrade"                                   "1"
 
-    "ReduxFlags"                                          "upgradeable"
-    "ReduxPerks"                                          "blades"
+    "ReduxFlags"                                          "mobility | upgradeable"
+    "ReduxPerks"                                          "blades | mobility | skillshot | rage"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60 120 180"
+    "AbilityManaCost"                                     "100 125 150"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
@@ -48,10 +48,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_kill_threshold"                             "250 350 450"
+      "damage_kill_threshold"                             "275 375 475"
       "scepter_damage_kill_threshold"
       {
-        "value"                                           "400 550 700"
+        "value"                                           "425 525 625"
         "RequiresScepter"                                 "1"
       }
       "scepter_bonus_cast_range"
@@ -69,7 +69,7 @@
         "affected_by_aoe_increase"                        "1"
       }
 
-      "bonus_move_speed_on_kill"                          "20 30 40"
+      "bonus_move_speed_on_kill"                          "20 25 30"
       "bonus_attack_speed_on_kill"                        "40 50 60"
       "buff_duration"                                     "10"
       "buff_radius"
@@ -78,8 +78,5 @@
         "affected_by_aoe_increase"                        "1"
       }
     }
-
-    "ReduxFlags"                                          "mobility | upgradeable"
-    "ReduxPerks"                                          "mobility | skillshot | rage"
   }
 }
