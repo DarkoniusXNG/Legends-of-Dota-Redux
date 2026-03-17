@@ -74,7 +74,7 @@ if IsServer() then
 	function modifier_ebf_clinkz_trickshot_active:OnIntervalThink()
 		local parent = self:GetParent()
 
-		if parent:IsInvisible() or parent:IsStunned() or parent:IsDisarmed() or parent:IsHexed() then
+		if parent:IsInvisible() or parent:IsStunned() or parent:IsDisarmed() or parent:IsHexed() or parent:IsChanneling() then
 			return
 		end
 
@@ -162,7 +162,7 @@ if IsServer() then
 	function modifier_ebf_clinkz_trickshot_passive:OnIntervalThink()
 		local parent = self:GetParent()
 
-		if parent:PassivesDisabled() or parent:IsInvisible() or parent:IsIllusion() or not parent:IsAlive() or parent:IsStunned() or parent:IsDisarmed() or parent:IsHexed() then
+		if parent:PassivesDisabled() or parent:IsInvisible() or parent:IsIllusion() or not parent:IsAlive() or parent:IsStunned() or parent:IsDisarmed() or parent:IsHexed() or parent:IsChanneling() then
 			return
 		end
 

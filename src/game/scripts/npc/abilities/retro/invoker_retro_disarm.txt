@@ -16,12 +16,12 @@
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_invoker/invoker_retro_disarm_impact.vpcf"
+            "particle"                                                     "particles/units/heroes/hero_invoker/invoker_deafening_blast_disarm_debuff.vpcf"
         }
         "AbilityValues"
         {
             "duration" "3 4 5 6"
             "cast_range" "700 750 800 850"
-            "pip_current" "1"
         }
         "OnSpellStart"
         {
@@ -52,16 +52,7 @@
                 "IsHidden"                                             "0"
                 "TextureName"                                          "invoker_retro_disarm"
                 "EffectName"                                           "particles/units/heroes/hero_invoker/invoker_deafening_blast_disarm_debuff.vpcf"
-                "EffectAttachType"                                     "PATTACH_ABSORIGIN"
-                "OnCreated"
-                {
-                    "AttachEffect"
-                    {
-                        "EffectName"                           "particles/units/heroes/hero_invoker/invoker_deafening_blast_disarm_debuff.vpcf"
-                        "EffectAttachType"                     "follow_overhead"
-                        "Target"                               "TARGET"
-                    }
-                }
+                "EffectAttachType"                                     "follow_overhead"
                 "States"
                 {
                     "MODIFIER_STATE_DISARMED"                      "MODIFIER_STATE_VALUE_ENABLED"

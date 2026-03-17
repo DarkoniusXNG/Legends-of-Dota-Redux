@@ -5,7 +5,6 @@
         "BaseClass"                                                            "ability_lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/tower_thorns"
-        "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%aura_radius"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "ScriptFile"                                                           "abilities/dota_imba/tower_abilities"

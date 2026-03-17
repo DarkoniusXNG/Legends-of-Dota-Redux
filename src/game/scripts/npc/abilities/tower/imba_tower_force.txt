@@ -5,7 +5,6 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/imba_force_tower"
-        "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%force_aoe"
         "AbilityCooldown"                                                      "8"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"

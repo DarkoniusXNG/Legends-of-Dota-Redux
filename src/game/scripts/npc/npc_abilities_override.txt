@@ -76,6 +76,29 @@
 
 "DOTAAbilities"
 {
+	"courier_burst"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility"
+		"ReduxCost"                                                            "100"
+
+		"MaxLevel"		"4"
+
+		"AbilityCooldown"				"120 110 100 90"
+
+		"AbilityValues"
+		{
+			"duration"
+			{
+				"value" "6"
+			}
+			"movement_speed"
+			{
+				"value" "50 55 60 65"
+			}
+		}
+	}
+
 	"clinkz_infernal_shred"
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"

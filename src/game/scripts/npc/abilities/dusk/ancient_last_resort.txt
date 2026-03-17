@@ -15,7 +15,6 @@
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityTextureName"			"custom/ancient_last_resort"
 		"MaxLevel"						"1"
-		"AbilitySharedWithTeammates" 	"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

@@ -23,7 +23,6 @@
             "owl_duration" "30 35 40 45"
             "owl_vision" "600"
             "owl_movespeed" "200 250 300 350"
-            "pip_current" "1"
         }
         "OnSpellStart"
         {

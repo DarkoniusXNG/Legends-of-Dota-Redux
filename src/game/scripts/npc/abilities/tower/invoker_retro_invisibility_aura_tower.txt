@@ -24,7 +24,6 @@
                 "affected_by_aoe_increase"	"1"
             }
             "fade_time" "3 2 1"
-            "pip_current" "1"
         }
 
 		"Modifiers" {

@@ -5,7 +5,6 @@
         "BaseClass"                                                            "ability_lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "slark_essence_shift"
-        "AbilitySharedWithTeammates"                                           "1"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityCastRange"                                                     "%aura_radius"
         "ScriptFile"                                                           "abilities/dota_imba/tower_abilities"
