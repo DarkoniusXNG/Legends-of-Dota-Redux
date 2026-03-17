@@ -60,6 +60,7 @@
 
 		"ReduxFlags"                    "attack_modifier"
 		"ReduxPerks"                    "attack_modifier | lightning"
+		"ReduxCost"                     "10"
 
 		"AbilityValues"
         {
