@@ -34,6 +34,7 @@ end
 function bash_reflect_op:OnSpellStart()
   self:GetCaster():RemoveModifierByName("modifier_bash_reflect")
   self:GetCursorTarget():AddNewModifier(self:GetCaster(),self,"modifier_bash_reflect",{duration = self:GetSpecialValueFor("duration")})
+  self:GetCursorTarget():EmitSound("DOTA_Item.LinkensSphere.Target")
 end
 
 function bash_reflect:GetIntrinsicModifierName()
@@ -43,11 +44,13 @@ function bash_reflect_op:GetIntrinsicModifierName()
   return "modifier_bash_reflect"
 end
 
+---------------------------------------------------------------------------------------------------
+
 function modifier_bash_reflect:IsPurgable()
   return self:GetParent() ~= self:GetCaster()
 end
 function modifier_bash_reflect:IsHidden()
-  return self:GetParent() == self:GetCaster()
+  return false
 end
 
 function modifier_bash_reflect:OnRemoved()
@@ -69,7 +72,7 @@ function modifier_bash_reflect:GetEffectAttachType()
   end
 end
 
-
+---------------------------------------------------------------------------------------------------
 
 function ReflectBashes(filterTable)
   local parent_index = filterTable["entindex_parent_const"]
@@ -82,19 +85,27 @@ function ReflectBashes(filterTable)
   local caster = EntIndexToHScript( caster_index )
   local ability = EntIndexToHScript( ability_index )
   local modifierName = filterTable["name_const"]
-  local modifier
+  local modifierDuration = filterTable["duration"]
   if parent:IsIllusion() then return end
-  if filterTable["duration"] <= 0 then return end
-  if not parent:FindModifierByName("modifier_bash_reflect") then return end
+  if modifierDuration <= 0 then return end
+  local anti_stun_mod = parent:FindModifierByName("modifier_bash_reflect")
+  if not anti_stun_mod or anti_stun_mod:IsNull() then return end
   if caster:GetTeamNumber() == parent:GetTeamNumber() then return end
   if ability:GetAbilityName() == "bash_reflect_op" or ability:GetAbilityName() == "bash_reflect" then return end
-  if parent:FindModifierByName("modifier_bash_reflect"):GetCaster() == parent and parent:PassivesDisabled() then return end
+  if anti_stun_mod:GetCaster() == parent and parent:PassivesDisabled() then return end
 
   Timers:CreateTimer(function ()
-    if not parent:FindModifierByName("modifier_bash_reflect") then return end
+    if not parent or parent:IsNull() then return end
+    local anti_stun_mod = parent:FindModifierByName("modifier_bash_reflect")
+    if not anti_stun_mod or anti_stun_mod:IsNull() then return end
     local modifier = parent:FindModifierByName(modifierName)
+    if not modifier or modifier:IsNull() then return end
     if not modifier:IsStunDebuff() then return end
-    caster:AddNewModifier(parent,parent:FindModifierByName("modifier_bash_reflect"):GetAbility(),modifierName,{duration = filterTable["duration"] *parent:FindModifierByName("modifier_bash_reflect"):GetAbility():GetSpecialValueFor("duration_multiplier")/100})
+    local anti_stun_ab = anti_stun_mod:GetAbility()
+    if not anti_stun_ab or anti_stun_ab:IsNull() then return end
+    local duration_mult = anti_stun_ab:GetSpecialValueFor("duration_multiplier")
+    if not caster or caster:IsNull() then return end
+    caster:AddNewModifier(parent, anti_stun_ab, modifierName, {duration = modifierDuration * duration_mult / 100})
     parent:EmitSound("Hero_Tiny.CraggyExterior.Stun")
     local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_craggy_hit.vpcf",PATTACH_POINT_FOLLOW,parent)
     ParticleManager:SetParticleControl(particle, 0, parent:GetAbsOrigin())

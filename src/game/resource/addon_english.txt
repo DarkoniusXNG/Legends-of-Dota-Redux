@@ -943,6 +943,7 @@
 "DOTA_Tooltip_ability_bash_reflect_op_Description" "Enemy Heroes that stun you from any source will be counter-stunned for a multiplier of the stun duration.\n\nCan be cast on an allied hero to temporarily transfer the protection. <font color='#70EA72'>Larger multiplier</font>.<br><br><font color='#7D7D7D'>Credits: Wouterz90 | github.com/Wouterz90</font>"
 "DOTA_Tooltip_ability_bash_reflect_op_duration_multiplier" "%DURATION MULTIPLIER:"
 "DOTA_Tooltip_ability_bash_reflect_op_Lore" "Stun paid back in spades."
+"DOTA_Tooltip_modifier_bash_reflect"  "Anti-Stun"
 "DOTA_Tooltip_ability_basic_bat" "Basic BAT"
 "DOTA_Tooltip_ability_basic_bat_Description" "Changes your Base Attack Time."
 "DOTA_Tooltip_ability_basic_bat_new_bat" "BASE ATTACK TIME:"

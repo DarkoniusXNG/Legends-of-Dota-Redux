@@ -6,18 +6,19 @@
         "ScriptFile"                                                           "abilities/bash_reflect.lua"
         "AbilityTextureName"                                                   "custom/bash_reflect"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-        "AbilityUnitTargetTeam"                                                 "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"                                                 "DOTA_UNIT_TARGET_HERO"
-        "AbilityCastRange"                                                      "700"
-        "AbilityCastPoint"                                                      "0.3"
-        "AbilityCooldown"                                                       "5"
+        "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO"
+        "IsBreakable"					                                       "1"
 
-        "AbilityCooldown"                                                       "13"
+        "AbilityCastRange"                                                     "700"
+        "AbilityCastPoint"                                                     "0.3"
+
+        "AbilityCooldown"                                                      "13"
 
         "precache"
         {
             "particle"  "particles/units/heroes/hero_tiny/tiny_craggy_hit.vpcf"
-            "particle"  "particles/units/heroes/hero_wisp/wisp_guardian.vpcf"
+            "particle"  "particles/bash_reflect_shield.vpcf"
         }
 
         "AbilityValues"
@@ -28,17 +29,20 @@
         "ReduxFlags"                                                           "dota_custom | semi_passive"
         "ReduxCost"                                                            "0"
     }
+
     "bash_reflect_op"
     {
         "BaseClass"                                                            "ability_lua"
         "ScriptFile"                                                           "abilities/bash_reflect.lua"
         "AbilityTextureName"                                                   "custom/bash_reflect_op"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-        "AbilityUnitTargetTeam"                                                 "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"                                                 "DOTA_UNIT_TARGET_HERO"
-        "AbilityCastRange"                                                      "700"
-        "AbilityCastPoint"                                                      "0.3"
-        "AbilityCooldown"                                                       "13"
+        "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO"
+        "IsBreakable"					                                       "1"
+
+        "AbilityCastRange"                                                     "700"
+        "AbilityCastPoint"                                                     "0.3"
+        "AbilityCooldown"                                                      "13"
 
         "precache"
         {
@@ -51,7 +55,7 @@
             "duration" "13"
             "duration_multiplier" "150 200 250 300"
         }
-        "ReduxFlags"                                                           "dota_custom"
+        "ReduxFlags"                                                           "dota_custom | semi_passive"
         "ReduxCost"                                                            "120"
     }
 }
