@@ -33,6 +33,8 @@
 	//=================================================================================================================
 	"phantom_assassin_blur"
 	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		
 		"ReduxFlags"                                                           "cooldown | doNotRandom | upgradeable"
 		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
 	}

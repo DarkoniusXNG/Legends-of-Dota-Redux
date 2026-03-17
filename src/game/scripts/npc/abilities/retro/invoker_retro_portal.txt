@@ -47,7 +47,7 @@
                 "Function"                                             "invoker_retro_portal_on_spell_start"
             }
         }
-        "ReduxFlags"                                                           "support | mobility"
-        "ReduxPerks"                                                           "support | mobility"
+        "ReduxFlags"                                                           "support"
+        "ReduxPerks"                                                           "support"
     }
 }
