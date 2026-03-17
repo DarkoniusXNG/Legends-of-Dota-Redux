@@ -42,7 +42,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "stun_duration"                                     "2.5 2.75 3.0"
-      "damage"                                            "300 500 700"
+      "damage"                                            "280 410 540"
       "minimum_range"                                     "0"
       "cooldown_scepter"
       {

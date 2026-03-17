@@ -180,7 +180,7 @@
 			"burn_damage_conversion"	"50"
 		}
 
-		"ReduxFlags"                                                           "attack_modifier | physical"
+		"ReduxFlags"                                                           "attack_modifier | physical | mana"
 		"ReduxPerks"                                                           "attack_modifier | physical | neutral"
 	}
 
@@ -198,11 +198,11 @@
 				"value"		"1200"
 				"affected_by_aoe_increase"	"1"
 			}
-			"ms_bonus"			"5"
+			"ms_bonus"			"5 10 15 20"
 			"as_bonus"			"10 15 20 25"
 		}
 
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | aura | neutral"
+		"ReduxFlags"                                                           "support | mobility"
+		"ReduxPerks"                                                           "support | aura | neutral | mobility"
 	}
 }
