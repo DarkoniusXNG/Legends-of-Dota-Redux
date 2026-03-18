@@ -610,6 +610,7 @@ function Force( keys )
 	local creeps = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, force_aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
 	local heroes = FindUnitsInRadius(caster:GetTeamNumber(), tower_loc, nil, force_aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
 
+	local go_on_cd = true
 	-- Check if the ability should be cast
 	if #creeps >= min_creeps or #heroes >= 1 then
 
@@ -634,31 +635,37 @@ function Force( keys )
 			enemy:AddNewModifier(caster, nil, "modifier_knockback", knockback_param)
 		end
 		-- Pull heroes IN
-		for _, enemy in pairs(heroes) do
-			-- Calculate distance from tower
-			local distance = (enemy:GetAbsOrigin() - tower_loc):Length2D()
-			local direction = (enemy:GetAbsOrigin() - tower_loc):Normalized()
-			local knockback_source_loc = enemy:GetAbsOrigin() + direction * 150
+		if (caster:IsBuilding() and (caster:GetHealth() / caster:GetMaxHealth()) <= 75/100) or caster:IsRealHero() then
+			for _, enemy in pairs(heroes) do
+				-- Calculate distance from tower
+				local distance = (enemy:GetAbsOrigin() - tower_loc):Length2D()
+				local direction = (enemy:GetAbsOrigin() - tower_loc):Normalized()
+				local knockback_source_loc = enemy:GetAbsOrigin() + direction * 150
 
-			-- Set up knockback parameters
-			knockback_param =
-			{	should_stun = 0,
-				knockback_duration = force_duration,
-				duration = force_duration,
-				knockback_distance = distance-180,
-				knockback_height = 0,
-				center_x = knockback_source_loc.x,
-				center_y = knockback_source_loc.y,
-				center_z = knockback_source_loc.z
-			}
+				-- Set up knockback parameters
+				knockback_param =
+				{	should_stun = 0,
+					knockback_duration = force_duration,
+					duration = force_duration,
+					knockback_distance = distance-180,
+					knockback_height = 0,
+					center_x = knockback_source_loc.x,
+					center_y = knockback_source_loc.y,
+					center_z = knockback_source_loc.z
+				}
 
-			enemy:RemoveModifierByName("modifier_knockback")
-			enemy:AddNewModifier(caster, nil, "modifier_knockback", knockback_param)
-			enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
+				enemy:RemoveModifierByName("modifier_knockback")
+				enemy:AddNewModifier(caster, nil, "modifier_knockback", knockback_param)
+				enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
+			end
+		elseif #creeps < 1 then
+			go_on_cd = false
 		end
 
 		-- Put the ability on cooldown
-		ability:StartCooldown(ability:GetCooldown(ability_level))
+		if go_on_cd then
+			ability:StartCooldown(ability:GetCooldown(ability_level))
+		end
 	end
 end
 
