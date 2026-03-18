@@ -2226,11 +2226,12 @@ function modifier_imba_tower_essence_drain_aura_buff:OnAttackLanded( keys )
 			local total_duration = self.duration + self.duration_per_protective * protective_instinct_stacks
 
 			-- Add debuff modifier to the enemy Increment stack count and refresh
+			local drain_debuff_handler
 			if not target:HasModifier(self.modifier_debuff) then
-				target:AddNewModifier(self.caster, self.ability, self.modifier_debuff, {duration = total_duration})
+				drain_debuff_handler = target:AddNewModifier(self.caster, self.ability, self.modifier_debuff, {duration = total_duration})
+			else
+				drain_debuff_handler = target:FindModifierByName(self.modifier_debuff)
 			end
-
-			local drain_debuff_handler = target:FindModifierByName(self.modifier_debuff)
 
 			-- Increase stacks and refresh
 			drain_debuff_handler:IncrementStackCount()
