@@ -27,7 +27,7 @@
 	{
 		"ReduxFlags"		"aoe_attack | attack_modifier | physical"
 		"ReduxPerks"		"attack_modifier | physical"
-		"ReduxCost"			"10"
+		"ReduxCost"			"20"
 	}
 
 	//=================================================================================================================
