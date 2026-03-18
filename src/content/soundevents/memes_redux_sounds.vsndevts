@@ -17,7 +17,7 @@
                             "value0"        "sounds/darude.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "5.00000"  }
+                    "volume"            {   "value"     "4.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -49,7 +49,7 @@
                             "value0"        "sounds/hook1.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "5.00000"  }
+                    "volume"            {   "value"     "4.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -350,7 +350,7 @@
                             "value0"        "sounds/hadouken.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "6.00000"   }
+                    "volume"            {   "value"     "3.00000"   }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -382,7 +382,7 @@
                             "value0"        "sounds/unlimitedpower.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "6.00000"   }
+                    "volume"            {   "value"     "3.00000"   }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -542,7 +542,7 @@
                             "value0"        "sounds/dropthebass1.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "6.00000"   }
+                    "volume"            {   "value"     "3.00000"   }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -574,7 +574,7 @@
                             "value0"        "sounds/snipe1.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "6.00000"   }
+                    "volume"            {   "value"     "3.00000"   }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -606,7 +606,7 @@
                             "value0"        "sounds/hitmarker.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "6.00000"   }
+                    "volume"            {   "value"     "3.00000"   }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -638,7 +638,7 @@
                             "value0"        "sounds/6-rich.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "6.00000"   }
+                    "volume"            {   "value"     "3.00000"   }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -711,7 +711,7 @@
                             "value9"        "sounds/holdit.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "6.00000"   }
+                    "volume"            {   "value"     "3.00000"   }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -745,7 +745,7 @@
                             "value2"        "sounds/noscope2.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "5.00000"   }
+                    "volume"            {   "value"     "4.00000"   }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -777,7 +777,7 @@
                             "value0"        "sounds/blackhole.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "6.00000"   }
+                    "volume"            {   "value"     "3.00000"   }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -810,7 +810,7 @@
                             "value0"        "sounds/WAOW.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "6.00000"  }
+                    "volume"            {   "value"     "4.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -842,7 +842,7 @@
                             "value0"        "sounds/charge1.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "4.00000"  }
+                    "volume"            {   "value"     "2.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -942,7 +942,7 @@
                             "value3"        "sounds/duel4.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "5.00000"  }
+                    "volume"            {   "value"     "3.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -976,7 +976,7 @@
                             "value2"        "sounds/duelwin3.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "5.00000"  }
+                    "volume"            {   "value"     "3.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -1009,7 +1009,7 @@
                             "value1"        "sounds/duellose2.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "5.00000"  }
+                    "volume"            {   "value"     "3.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -1138,7 +1138,7 @@
                             "value0"        "sounds/bkb1.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "6.00000"  }
+                    "volume"            {   "value"     "4.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -1170,7 +1170,7 @@
                             "value0"        "sounds/fly1.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "5.00000"  }
+                    "volume"            {   "value"     "3.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -1265,7 +1265,7 @@
                             "value0"        "sounds/chemicalrage1.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "5.00000"  }
+                    "volume"            {   "value"     "3.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -1309,12 +1309,10 @@
                             "value12"        "sounds/WAOW.vsnd"
                             "value13"        "sounds/ppd-gg.vsnd"
                             "value14"        "sounds/ku-gman.vsnd"
-                            "value15"        "sounds/bigchina.vsnd"
-                            "value16"        "sounds/english.vsnd"
-                            "value17"        "sounds/mexicanpeople.vsnd"
+                            "value15"        "sounds/english.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "4.00000"  }
+                    "volume"            {   "value"     "3.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -1383,7 +1381,7 @@
                             "value5"        "sounds/powerup6.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "4.00000"  }
+                    "volume"            {   "value"     "3.00000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }

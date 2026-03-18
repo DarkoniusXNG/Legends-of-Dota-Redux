@@ -84,6 +84,8 @@
 	{
 		"ReduxFlags"                    "support | doNotRandom"
 		"ReduxPerks"                    "support | undead"
+		"ReduxCost"                     "10"
+
 		"MaxLevel"						"4"
 		"AbilityCastRange"				"150 250 350 450"
 		"AbilityCastPoint"				"0.2"
@@ -152,7 +154,9 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "custom/npc_dota_hero_life_stealer_perk"
 
-		"ReduxPerks"		"undead"
+		"ReduxPerks"                    "undead"
+		"ReduxCost"                     "10"
+
 		"MaxLevel"						"4"
 
 		"AbilityValues"

@@ -3173,6 +3173,8 @@
 	{
 		"BaseClass"                    "npc_dota_creature"    // Class of entity of link to.
 
+		"Ability1"                    "global_mutator"    // Ability 1.
+
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"  "DOTA_UNIT_CAP_NO_ATTACK"
@@ -3927,7 +3929,7 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
-		"MovementSpeed"				"400"		// Speed.
+		"MovementSpeed"				"350"		// Speed.
 		"MovementTurnRate"			"0.9"		// Turning rate.
 
 		// Status

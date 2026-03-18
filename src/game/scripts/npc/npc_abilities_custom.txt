@@ -164,7 +164,6 @@
 #base "abilities\dota\keeper_of_the_light_chakra_magic_cooldown.txt"
 #base "abilities\dota\leshrac_pulse_nova.txt"
 #base "abilities\dota\lone_druid_savage_roar_op.txt"
-#base "abilities\dota\lone_druid_spirit_bear_return_lod.txt"
 #base "abilities\dota\marksmanship_int.txt"
 #base "abilities\dota\marksmanship_str.txt"
 #base "abilities\dota\mirana_starfall_lod.txt"

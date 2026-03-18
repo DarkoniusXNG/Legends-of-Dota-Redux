@@ -12,6 +12,7 @@
 
 				"States" {
 					"MODIFIER_STATE_INVISIBLE" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"EffectName" "particles/items2_fx/ward_true_sight.vpcf"
 				"EffectAttachType" "follow_origin"

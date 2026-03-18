@@ -6,7 +6,6 @@
 		"AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "sniper_shrapnel_muh_keen_gun"
-		"AbilitySharedWithTeammates"                                           "1"
 		"IsBreakable"                                                          "1"
 
 		"AbilityValues"

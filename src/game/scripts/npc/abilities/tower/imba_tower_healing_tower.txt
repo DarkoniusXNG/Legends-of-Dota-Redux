@@ -12,7 +12,6 @@
         "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityType"                           "ABILITY_TYPE_ULTIMATE"
         "AbilityTextureName"                    "custom/tower_healing_wave"
-        "AbilitySharedWithTeammates"            "1"
         "AbilityCastRange"                      "%search_radius"
         "AbilityCooldown"                       "6"
         "IsBreakable"                                                          "1"

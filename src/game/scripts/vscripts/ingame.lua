@@ -1868,10 +1868,7 @@ function Ingame:initGlobalMutator()
     ListenToGameEvent('game_rules_state_change', function(keys)
         local newState = GameRules:State_Get()
         if newState == DOTA_GAMERULES_STATE_PRE_GAME then
-            local globalUnit = CreateUnitByName("npc_global_mutator", Vector(0, 0, 0), false, nil, nil, 20)
-            Timers:CreateTimer(function()
-                local globalAbility = globalUnit:AddAbility("global_mutator")
-            end, DoUniqueString('addGlobalMutator'), 0.5)
+            local globalUnit = CreateUnitByName("npc_global_mutator", Vector(0, 0, 0), false, nil, nil, DOTA_TEAM_NEUTRALS)
         end
     end, nil)
 end

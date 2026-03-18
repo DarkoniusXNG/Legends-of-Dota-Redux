@@ -16,19 +16,19 @@
         
         "AbilityValues"
         {
-            "observer_ward_duration" "600"
-            "observer_ward_radius" "1600"
-            "observer_ward_max_stack" "3 4 5 6"
-            "sentry_ward_cooldown" "90 80 70 60"
-            "sentry_ward_duration" "240"
-            "sentry_ward_radius" "900"
-            "sentry_ward_max_stack" "3 4 5 6"
-            "observer_ward_cooldown" "90 80 70 60"
+            "observer_ward_duration"     "180"
+            "observer_ward_radius"       "1600"
+            "observer_ward_max_stack"    "3 4 5 6"
+            "observer_ward_cooldown"     "135 125 115 105"
+            "sentry_ward_cooldown"       "80 70 60 50"
+            "sentry_ward_duration"       "240"
+            "sentry_ward_radius"         "1050"
+            "sentry_ward_max_stack"      "3 4 5 6"
         }
         "ReduxFlags"                                                           "dota_custom"
-        "ReduxCost"                                                            "0"
-        "ReduxBans"                                                             "ability_wards_op"
+        "ReduxBans"                                                            "ability_wards_op"
     }
+
     "ability_wards_op"
     {
         "BaseClass"                                                            "ability_lua"
@@ -43,14 +43,14 @@
         
        "AbilityValues"
         {
-            "observer_ward_duration" "3000"
-            "observer_ward_radius" "1600"
-            "observer_ward_max_stack" "7"
-            "sentry_ward_cooldown" "80 60 40 20"
-            "sentry_ward_duration" "3000"
-            "sentry_ward_radius" "1000"
-            "sentry_ward_max_stack" "7"
-            "observer_ward_cooldown" "80 60 40 20"
+            "observer_ward_duration"     "3000"
+            "observer_ward_radius"       "1600"
+            "observer_ward_max_stack"    "4 5 6 7"
+            "observer_ward_cooldown"     "100 90 80 70"
+            "sentry_ward_cooldown"       "50 40 30 20"
+            "sentry_ward_duration"       "3000"
+            "sentry_ward_radius"         "1050"
+            "sentry_ward_max_stack"      "5 6 7 8"
         }
         "ReduxFlags"                                                           "dota_custom"
         "ReduxCost"                                                            "120"

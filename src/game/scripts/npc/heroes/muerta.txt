@@ -17,7 +17,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier | semi_passive"
 		"ReduxPerks"                                                           "attack_modifier"
-		"ReduxCost"                                                            "20"
+		"ReduxCost"                                                            "30"
 	}
 
 	"muerta_pierce_the_veil"

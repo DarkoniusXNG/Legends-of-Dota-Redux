@@ -26,7 +26,7 @@
 	"spectre_dispersion"
 	{
 		"ReduxFlags"                                                           "tank"
-		"ReduxCost"                                                            "40"
+		"ReduxCost"                                                            "50"
 		"ReduxBans"                                                            "centaur_return | nyx_assassin_burrow | nyx_assassin_burrow_redux | huskar_life_break"
 	}
 

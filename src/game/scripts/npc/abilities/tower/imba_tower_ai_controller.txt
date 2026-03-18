@@ -4,7 +4,6 @@
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName" "life_stealer_control"
 		"MaxLevel" "1"
-		"AbilitySharedWithTeammates" "1"
 		"AbilityCastRange" "1200"
 		"AbilityCooldown" "1"
 		"IsBreakable"                                                          "1"

@@ -37,11 +37,6 @@ require('ingame')
 
 -- Precaching
 function Precache(context)
-    local soundList = LoadKeyValues('scripts/kv/sounds.kv')
-    -- Precache sounds
-    for soundPath,_ in pairs(soundList["precache_sounds"]) do
-        PrecacheResource("soundfile", soundPath, context)
-    end
     -- COMMENT THE BELOW OUT IF YOU DO NOT WANT TO COMPILE ASSETS
     if IsInToolsMode() then
         local abilities = LoadKeyValues('scripts/npc/npc_abilities_custom.txt')
@@ -59,15 +54,17 @@ function Precache(context)
     end
     -- COMMENT THE ABOVE OUT IF YOU DO NOT WANT TO COMPILE ASSETS
     PrecacheResource("particle","particles/econ/events/battlecup/battle_cup_fall_destroy_flash.vpcf",context)
-    PrecacheResource("particle","particles/world_tower/tower_upgrade/ti7_radiant_tower_proj.vpcf",context)
-    PrecacheResource("particle","particles/world_tower/tower_upgrade/ti7_dire_tower_projectile.vpcf",context)
+    --PrecacheResource("particle","particles/world_tower/tower_upgrade/ti7_radiant_tower_proj.vpcf",context)
+    --PrecacheResource("particle","particles/world_tower/tower_upgrade/ti7_dire_tower_projectile.vpcf",context)
+    PrecacheResource("soundfile","soundevents/lod_game_sounds.vsndevts",context)
     PrecacheResource("soundfile","soundevents/memes_redux_sounds.vsndevts",context)
     --PrecacheUnitByNameSync("npc_dota_lucifers_claw_doomling", context)
     --PrecacheUnitByNameSync("npc_bot_spirit_sven", context)
 
     -- Precache all hero sounds here as some sounds end up not working
-    for k, _ in pairs(soundList["hero_sounds"]) do
-        PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_" .. k .. ".vsndevts", context)
+    local soundList = LoadKeyValues('scripts/kv/sounds.kv')
+    for hero_name, _ in pairs(soundList["hero_sounds"]) do
+        PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_" .. hero_name .. ".vsndevts", context)
     end
 
 	-- Precache bots

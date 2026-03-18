@@ -10,6 +10,7 @@
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "dragon | ice | skillshot"
+		"ReduxCost"                                                            "10"
 	}
 
 	"jakiro_liquid_fire"

@@ -4,123 +4,116 @@
 if modifier_memes_redux ~= "" then modifier_memes_redux = class({}) end
 ----------------------------------------------------------------------------------------------------------
 if IsServer() then
-----------------------------------------------------------------------------------------------------------
-function modifier_memes_redux:OnCreated()
-  InitiateMemes()
-end
-----------------------------------------------------------------------------------------------------------
-function modifier_memes_redux:DeclareFunctions()
-  return { 
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-    MODIFIER_EVENT_ON_DEATH 
-  }
-end
-----------------------------------------------------------------------------------------------------------
-function modifier_memes_redux:OnAbilityFullyCast(event)
-  local caster = event.unit
-  local ability = event.ability
-
-  if ability:GetName() == "satyr_hellcaller_shockwave" then
-    caster:EmitSound("Memes.Hadouken")
-  elseif ability:GetName() == "juggernaut_omni_slash" then
-    caster:EmitSound("Memes.OmniSwords")
-  elseif ability:GetName() == "earthshaker_enchant_totem" then
-    caster:EmitSound("Memes.PowerUp")
-  elseif ability:GetName() == "earthshaker_enchant_totem" then
-    caster:EmitSound("Memes.PowerUp")
-  elseif ability:GetName() == "lone_druid_spirit_bear_return_lod" then
-  	
-  	if not self.FlahshTracker then
-  		self.FlahshTracker = 1
-  	else
-  		self.FlahshTracker = self.FlahshTracker + 1
-  	end
-
-  	if self.FlahshTracker >= 5 and RollPercentage(10) then
-  		caster:EmitSound("Memes.FlashLong")
-  	elseif self.FlahshTracker >= 20 then
-  		caster:EmitSound("Memes.FlashEnd")
-  		self.FlahshTracker = 0
-  	else
-    	caster:EmitSound("Memes.FlashShort")
-	end
-  elseif ability:GetName() == "earthshaker_enchant_totem" then
-    caster:EmitSound("Memes.PowerUp")
-  elseif ability:GetName() == "shadow_shaman_shackles" then
-    caster:EmitSound("Memes.UnlimitedPower")
-  elseif ability:GetName() == "crystal_maiden_freezing_field" then
-    caster:EmitSound("Memes.LetItGo")
-    Timers:CreateTimer(function()
-      if not caster:IsChanneling() then
-        caster:StopSound("Memes.LetItGo")
-        return nil
-      else
-        return 0.2
-      end
-    end, DoUniqueString("LetItGo"),0.2)
-  elseif ability:GetName() == "item_blade_mail" then
-    caster:EmitSound("Memes.Blademail")
-  elseif ability:GetName() == "sven_gods_strength" then
-    caster:EmitSound("Memes.Strength")
-  elseif ability:GetName() == "centaur_stampede" then
-    EmitGlobalSound("Memes.Stampede")
-  elseif ability:GetName() == "witch_doctor_death_ward" then
-    caster:EmitSound("Memes.DropTheBass")
-    Timers:CreateTimer(function()
-      if not caster:IsChanneling() then
-        caster:StopSound("Memes.DropTheBass")
-        return nil
-      else
-        return 0.2
-      end
-    end, DoUniqueString("DropTheBass"),0.2)
-  elseif ability:GetName() == "sniper_assassinate" then
-    EmitGlobalSound("Memes.Snipe")
-  elseif ability:GetName() == "puck_phase_shift" and RollPercentage(25) then
-    caster:EmitSound("Memes.WAOW")
-  elseif ability:GetName() == "spirit_breaker_charge_of_darkness" or ability:GetName() == "huskar_life_break" then
-    caster:EmitSound("Memes.Charge")
-  elseif ability:GetName() == "techies_suicide" then
-    caster:EmitSound("Memes.Explode")
-  elseif ability:GetName() == "enigma_black_hole" then
-    caster:EmitSound("Memes.Blackhole")
-  elseif ability:GetName() == "techies_land_mines" or ability:GetName() == "techies_remote_mines" then
-    if RollPercentage(20) then caster:EmitSound("Memes.Bomb") end
-  elseif ability:GetName() == "legion_commander_duel" then
-    caster:EmitSound("Memes.Duel")
-    caster.duel_target = event.target
-    Timers:CreateTimer(function()
-      if not caster:HasModifier("modifier_legion_commander_duel") then
-        caster:StopSound("Memes.Duel")
-        if not caster.duel_target:IsAlive() then 
-          caster:EmitSound("Memes.Duel_Victory")
-        elseif not caster:IsAlive() then
-          caster:EmitSound("Memes.Duel_Defeat")
-        end
-        return nil
-      else
-        return 0.1
-      end
-    end, DoUniqueString("DDDDDUEL"),0.1)
-  elseif ability:GetName() == "item_black_king_bar" then
-    caster:EmitSound("Memes.BKB")
-  elseif ability:GetName() == "monkey_king_tree_dance" and RollPercentage(20) then
-    caster:EmitSound("Memes.TreeJump")
-  elseif ability:GetName() == "alchemist_chemical_rage" then
-    caster:EmitSound("Memes.ChemicalRage")
+  function modifier_memes_redux:OnCreated()
+    InitiateMemes()
   end
-end
-----------------------------------------------------------------------------------------------------------
-function modifier_memes_redux:OnDeath(event)
-  local target = event.unit
-  local attacker = event.attacker
-  if target:IsRealHero() then
-    if RollPercentage(4.20) then
-      target:EmitSound("Memes.Death")
+  ----------------------------------------------------------------------------------------------------------
+  function modifier_memes_redux:DeclareFunctions()
+    return { 
+      MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
+      MODIFIER_EVENT_ON_DEATH 
+    }
+  end
+  ----------------------------------------------------------------------------------------------------------
+  function modifier_memes_redux:OnAbilityFullyCast(event)
+    local caster = event.unit
+    local ability = event.ability
+
+    if ability:GetName() == "satyr_hellcaller_shockwave" then
+      caster:EmitSound("Memes.Hadouken")
+    elseif ability:GetName() == "juggernaut_omni_slash" then
+      caster:EmitSound("Memes.OmniSwords")
+    elseif ability:GetName() == "earthshaker_enchant_totem" then
+      caster:EmitSound("Memes.PowerUp")
+    elseif ability:GetName() == "item_blink" then
+      if not self.FlahshTracker then
+        self.FlahshTracker = 1
+      else
+        self.FlahshTracker = self.FlahshTracker + 1
+      end
+
+      if self.FlahshTracker >= 5 and RollPercentage(10) then
+        caster:EmitSound("Memes.FlashLong")
+      elseif self.FlahshTracker >= 20 then
+        caster:EmitSound("Memes.FlashEnd")
+        self.FlahshTracker = 0
+      else
+        caster:EmitSound("Memes.FlashShort")
+      end
+    elseif ability:GetName() == "shadow_shaman_shackles" then
+      caster:EmitSound("Memes.UnlimitedPower")
+    elseif ability:GetName() == "crystal_maiden_freezing_field" then
+      caster:EmitSound("Memes.LetItGo")
+      Timers:CreateTimer(function()
+        if not caster:IsChanneling() then
+          caster:StopSound("Memes.LetItGo")
+          return nil
+        else
+          return 0.2
+        end
+      end, DoUniqueString("LetItGo"),0.2)
+    elseif ability:GetName() == "item_blade_mail" then
+      caster:EmitSound("Memes.Blademail")
+    elseif ability:GetName() == "sven_gods_strength" then
+      caster:EmitSound("Memes.Strength")
+    elseif ability:GetName() == "centaur_stampede" then
+      EmitGlobalSound("Memes.Stampede")
+    elseif ability:GetName() == "witch_doctor_death_ward" then
+      caster:EmitSound("Memes.DropTheBass")
+      Timers:CreateTimer(function()
+        if not caster:IsChanneling() then
+          caster:StopSound("Memes.DropTheBass")
+          return nil
+        else
+          return 0.2
+        end
+      end, DoUniqueString("DropTheBass"),0.2)
+    elseif ability:GetName() == "sniper_assassinate" then
+      EmitGlobalSound("Memes.Snipe")
+    elseif ability:GetName() == "puck_phase_shift" and RollPercentage(25) then
+      caster:EmitSound("Memes.WAOW")
+    elseif ability:GetName() == "spirit_breaker_charge_of_darkness" or ability:GetName() == "huskar_life_break" then
+      caster:EmitSound("Memes.Charge")
+    elseif ability:GetName() == "techies_suicide" then
+      caster:EmitSound("Memes.Explode")
+    elseif ability:GetName() == "enigma_black_hole" then
+      caster:EmitSound("Memes.Blackhole")
+    elseif ability:GetName() == "techies_land_mines" or ability:GetName() == "techies_remote_mines" then
+      if RollPercentage(20) then caster:EmitSound("Memes.Bomb") end
+    elseif ability:GetName() == "legion_commander_duel" then
+      caster:EmitSound("Memes.Duel")
+      caster.duel_target = event.target
+      Timers:CreateTimer(function()
+        if not caster:HasModifier("modifier_legion_commander_duel") then
+          caster:StopSound("Memes.Duel")
+          if not caster.duel_target:IsAlive() then 
+            caster:EmitSound("Memes.Duel_Victory")
+          elseif not caster:IsAlive() then
+            caster:EmitSound("Memes.Duel_Defeat")
+          end
+          return nil
+        else
+          return 0.1
+        end
+      end, DoUniqueString("DDDDDUEL"),0.1)
+    elseif ability:GetName() == "item_black_king_bar" then
+      caster:EmitSound("Memes.BKB")
+    elseif ability:GetName() == "monkey_king_tree_dance" and RollPercentage(20) then
+      caster:EmitSound("Memes.TreeJump")
+    elseif ability:GetName() == "alchemist_chemical_rage" then
+      caster:EmitSound("Memes.ChemicalRage")
     end
   end
-end
-----------------------------------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------------------------------
+  function modifier_memes_redux:OnDeath(event)
+    local target = event.unit
+    local attacker = event.attacker
+    if target:IsRealHero() then
+      if RollPercentage(4) then
+        target:EmitSound("Memes.Death")
+      end
+    end
+  end
 end
 ----------------------------------------------------------------------------------------------------------
 function InitiateMemes()

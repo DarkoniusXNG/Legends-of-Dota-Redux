@@ -24,6 +24,7 @@
 		"ReduxFlags"                                                           "support | upgradeable"
 		"ReduxPerks"                                                           "support"
 		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
+		"ReduxCost"                                                            "30"
 	}
 
 	"oracle_rain_of_destiny"

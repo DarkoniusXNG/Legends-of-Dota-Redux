@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Ability: Antimage Mana Break
+	// Anti Mage: Mana Break
 	//=================================================================================================================
 	"antimage_mana_break"
 	{
 		"ReduxFlags"                    "attack_modifier | physical | mana"
 		"ReduxPerks"                    "attack_modifier | physical"
-		"ReduxCost"                     "10"
+		"ReduxCost"                     "20"
 	}
 
 	//=================================================================================================================
@@ -21,13 +21,13 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Antimage Blink
+	// Anti Mage: Blink
 	//=================================================================================================================
 	"antimage_blink"
 	{
 		"ReduxFlags"                    "mobility"
 		"ReduxPerks"                    "mobility | blink"
-		"ReduxCost"                     "80"
+		"ReduxCost"                     "90"
 	}
 
 	//=================================================================================================================
@@ -43,7 +43,8 @@
 	//=================================================================================================================
 	"antimage_counterspell"
 	{
-		"ReduxFlags"                     "semi_passive | tank"
+		"ReduxFlags"                    "illusion | semi_passive | tank"
+		"ReduxPerks"                    "illusion"
 	}
 
 	//=================================================================================================================
@@ -76,12 +77,22 @@
 			"does_reflect"
 			{
 				"value"						"1"
-				"special_bonus_facet_antimage_magebanes_mirror"	"=1"
 			}
 			"reflected_spell_amp"
 			{
-				"value"											"40"
-				"special_bonus_facet_antimage_magebanes_mirror"	"+40"
+				"value"											"0"
+			}
+			"mana_drain_percent"
+			{
+				"special_bonus_facet_antimage_magebanes_mirror"	"=300"
+			}
+			"damage_from_mana_drain_percent"
+			{
+				"special_bonus_facet_antimage_magebanes_mirror" "100"
+			}
+			"max_damage_from_mana_drain"
+			{
+				"special_bonus_facet_antimage_magebanes_mirror" "400"
 			}
 		}
 	}

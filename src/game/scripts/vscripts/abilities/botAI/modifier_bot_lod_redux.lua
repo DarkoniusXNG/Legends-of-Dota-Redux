@@ -45,8 +45,6 @@ local item_builds = {
 		"item_ultimate_scepter",
 	},
 	npc_dota_hero_bane = {
-		"item_bracer",
-		"item_wraith_band",
 		"item_arcane_boots",
 		"item_glimmer_cape",
 		"item_aether_lens",
@@ -97,7 +95,6 @@ local item_builds = {
 		--"item_ultimate_scepter", -- lags the game
 	},
 	npc_dota_hero_crystal_maiden = {
-		"item_bracer",
 		"item_tranquil_boots",
 		"item_glimmer_cape",
 		"item_ghost",
@@ -108,20 +105,16 @@ local item_builds = {
 		"item_mystic_staff",
 	},
 	npc_dota_hero_dazzle = {
-		"item_bracer",
-		"item_wraith_band",
+		"item_magic_wand",
 		"item_arcane_boots",
 		"item_glimmer_cape",
 		"item_aether_lens",
-		"item_magic_wand",
 		"item_force_staff",
 		"item_soul_booster",
 		"item_ultimate_scepter",
 		"item_mystic_staff",
 	},
 	npc_dota_hero_death_prophet = {
-		"item_bracer",
-		"item_wraith_band",
 		"item_power_treads",
 		"item_cyclone",
 		"item_black_king_bar",
@@ -143,7 +136,6 @@ local item_builds = {
 	},
 	npc_dota_hero_drow_ranger = {
 		"item_wraith_band",
-		"item_orb_of_corrosion",
 		"item_power_treads",
 		"item_dragon_lance",
 		"item_yasha",
@@ -163,10 +155,9 @@ local item_builds = {
 		"item_soul_booster",
 	},
 	npc_dota_hero_jakiro = {
-		"item_bracer",
 		"item_arcane_boots",
-		--"item_glimmer_cape",
-		"item_aether_lens",
+		"item_glimmer_cape",
+		--"item_aether_lens",
 		"item_cyclone",
 		"item_ultimate_scepter",
 		"item_rod_of_atos",
@@ -194,7 +185,6 @@ local item_builds = {
 		"item_lesser_crit",
 	},
 	npc_dota_hero_lich = {
-		"item_bracer",
 		"item_tranquil_boots",
 		"item_glimmer_cape",
 		"item_ghost",
@@ -213,7 +203,6 @@ local item_builds = {
 		"item_satanic",
 	},
 	npc_dota_hero_lion = {
-		"item_bracer",
 		"item_tranquil_boots",
 		"item_blink",
 		"item_aether_lens",
@@ -256,23 +245,20 @@ local item_builds = {
 		"item_ultimate_scepter",
 	},
 	npc_dota_hero_omniknight = {
-		--"item_relic",
-		"item_bracer",
+		"item_magic_wand",
 		"item_soul_ring",
 		"item_phase_boots",
 		"item_aether_lens",
-		"item_magic_wand",
 		"item_sange",
 		"item_echo_sabre",
 		"item_ultimate_scepter",
 		"item_mystic_staff",
 	},
 	npc_dota_hero_oracle = {
-		"item_null_talisman",
+		"item_magic_wand",
 		"item_arcane_boots",
 		--"item_glimmer_cape",
 		"item_aether_lens",
-		"item_magic_wand",
 		"item_aeon_disk",
 		"item_mystic_staff",
 		"item_ultimate_scepter",
@@ -320,11 +306,11 @@ local item_builds = {
 	npc_dota_hero_skeleton_king = {
 		"item_bracer",
 		"item_power_treads",
-		"item_helm_of_iron_will",
-		--"item_relic",
+		"item_armlet",
+		"item_radiance",
 		"item_sange",
-		"item_hyperstone",
-		"item_ultimate_scepter",
+		"item_assault",
+		--"item_ultimate_scepter",
 		"item_blade_mail",
 	},
 	npc_dota_hero_skywrath_mage = {
@@ -366,7 +352,6 @@ local item_builds = {
 		"item_lesser_crit",
 	},
 	npc_dota_hero_vengefulspirit = {
-		"item_wraith_band",
 		"item_power_treads",
 		"item_ultimate_scepter",
 		"item_dragon_lance",
@@ -378,7 +363,6 @@ local item_builds = {
 	npc_dota_hero_viper = {
 		"item_wraith_band",
 		"item_null_talisman",
-		"item_orb_of_corrosion",
 		"item_power_treads",
 		"item_dragon_lance",
 		"item_yasha_and_kaya",
@@ -387,11 +371,10 @@ local item_builds = {
 		"item_witch_blade",
 	},
 	npc_dota_hero_warlock = {
-		"item_null_talisman",
+		"item_magic_wand",
 		"item_arcane_boots",
 		"item_glimmer_cape",
 		"item_aether_lens",
-		"item_magic_wand",
 		"item_ultimate_scepter",
 		"item_refresher",
 		"item_wind_waker",
@@ -454,7 +437,7 @@ local upgrade_map = {
 	item_platemail = "item_shivas_guard",
 	--item_power_treads = "item_travel_boots_2",
 	item_reaver = "item_heart",
-	item_relic = "item_radiance",
+	--item_relic = "item_radiance",
 	item_rod_of_atos = "item_gungir",
 	item_sange = "item_sange_and_yasha",
 	item_soul_booster = "item_octarine_core",
@@ -484,6 +467,7 @@ local low_lvl_boots = {
 
 local early_game_items = {
 	item_bracer = 1,
+	item_magic_wand = 1,
 	item_null_talisman = 1,
 	item_orb_of_corrosion = 1,
 	item_soul_ring = 1,
@@ -684,12 +668,116 @@ local forbidden_ranged = {
 	item_heavens_halberd = 1,
 	item_manta = 1, -- lags
 	item_meteor_hammer = 1, -- bots never use this
+	item_radiance = 1,
 	item_recipe_abyssal_blade = 1,
 	item_recipe_crimson_guard = 1,
 	item_recipe_harpoon = 1,
 	item_recipe_heavens_halberd = 1,
 	item_silver_edge = 1, -- there are better items
 	item_vanguard = 1,
+}
+
+local forbidden_strength = {
+	item_butterfly = 1,
+	item_diffusal_blade = 1,
+	item_disperser = 1,
+}
+
+local forbidden_rightclick_carry = {
+	item_aeon_disk = 1,
+	item_aether_lens = 1,
+	--item_blade_mail = 1,
+	item_bloodstone = 1,
+	item_crimson_guard = 1,
+	item_cyclone = 1,
+	item_eternal_shroud = 1,
+	item_ethereal_blade = 1,
+	item_ghost = 1,
+	item_glimmer_cape = 1,
+	item_gungir = 1,
+	item_holy_locket = 1,
+	item_kaya_and_sange = 1,
+	item_lotus_orb = 1,
+	item_mekansm = 1,
+	item_octarine_core = 1,
+	item_pavise = 1,
+	item_pipe = 1,
+	item_rod_of_atos = 1,
+	item_solar_crest = 1,
+	item_spirit_vessel = 1,
+	item_tranquil_boots = 1,
+	item_urn_of_shadows = 1,
+	item_wind_waker = 1,
+}
+
+local rightclick_carries = {
+	npc_dota_hero_bloodseeker = 1,
+	npc_dota_hero_chaos_knight = 1,
+	--npc_dota_hero_dragon_knight = 1,
+	npc_dota_hero_drow_ranger = 1,
+	npc_dota_hero_juggernaut = 1,
+	--npc_dota_hero_lina = 1,
+	npc_dota_hero_luna = 1,
+	--npc_dota_hero_nevermore = 1,
+	npc_dota_hero_phantom_assassin = 1,
+	--npc_dota_hero_razor = 1,
+	npc_dota_hero_skeleton_king = 1,
+	npc_dota_hero_sniper = 1,
+	npc_dota_hero_sven = 1,
+	--npc_dota_hero_tiny = 1,
+}
+
+local forbidden_support = {
+	item_abyssal_blade = 1,
+	item_armlet = 1,
+	item_assault = 1,
+	item_basher = 1,
+	item_butterfly = 1,
+	item_crimson_guard = 1,
+	item_desolator = 1,
+	item_devastator = 1,
+	item_diffusal_blade = 1,
+	item_disperser = 1,
+	item_dragon_lance = 1,
+	item_echo_sabre = 1,
+	item_eternal_shroud = 1,
+	item_greater_crit = 1,
+	item_harpoon = 1,
+	item_heart = 1,
+	item_invis_sword = 1,
+	item_lesser_crit = 1,
+	item_maelstrom = 1,
+	item_mage_slayer = 1,
+	item_mask_of_madness = 1,
+	item_mjollnir = 1,
+	item_monkey_king_bar = 1,
+	item_phase_boots = 1,
+	item_power_treads = 1,
+	item_radiance = 1,
+	item_revenants_brooch = 1,
+	item_sange_and_yasha = 1,
+	item_satanic = 1,
+	item_skadi = 1,
+	item_travel_boots = 1,
+	item_travel_boots_2 = 1,
+	item_vanguard = 1,
+	item_witch_blade = 1,
+}
+
+local supports = {
+	npc_dota_hero_bane = 1,
+	--npc_dota_hero_bounty_hunter = 1,
+	npc_dota_hero_crystal_maiden = 1,
+	npc_dota_hero_dazzle = 1,
+	--npc_dota_hero_earthshaker = 1,
+	npc_dota_hero_jakiro = 1,
+	npc_dota_hero_lich = 1,
+	npc_dota_hero_lion = 1,
+	npc_dota_hero_oracle = 1,
+	npc_dota_hero_skywrath_mage = 1,
+	npc_dota_hero_warlock = 1,
+	npc_dota_hero_witch_doctor = 1,
+	npc_dota_hero_zuus = 1,
 }
 
 function modifier_bot_lod_redux:OnIntervalThink()
@@ -874,6 +962,20 @@ function modifier_bot_lod_redux:OnIntervalThink()
           parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
           item:RemoveSelf()
         end
+      end
+    end
+  end
+  
+   -- Remove more bad items
+  for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+    local item = parent:GetItemInSlot(slot)
+    if item then
+      local item_name = item:GetAbilityName()
+      if (forbidden_strength[item_name] and parent:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH) or (forbidden_rightclick_carry[item_name] and rightclick_carries[name]) or (forbidden_support[item_name] and supports[name]) then
+        print("Removing bad item: "..tostring(item_name).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
+        local gold_value = math.floor(GetItemCost(item_name))
+        parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
+        item:RemoveSelf()
       end
     end
   end

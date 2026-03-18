@@ -5,7 +5,6 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/mana_flare"
-        "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%burn_aoe"
         "AbilityCooldown"                                                      "6 5 4"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"

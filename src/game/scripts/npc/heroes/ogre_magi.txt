@@ -20,7 +20,7 @@
 
 	"ogre_magi_multicast"
 	{
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "10" // because it works for items
 		"ReduxFlags"                                                           "doNotRandom"
 	}
 

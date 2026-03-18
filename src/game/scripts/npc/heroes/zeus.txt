@@ -77,7 +77,7 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
 		"ReduxPerks"                                                           "lightning"
-		"ReduxCost"                                                            "40"
+		"ReduxCost"                                                            "30" // works only for attacks and Zeus abilities
 	}
 
 	"special_bonus_unique_zeus"

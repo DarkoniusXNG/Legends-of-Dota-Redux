@@ -5,7 +5,6 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/imba_tower_mindblast"
-        "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%silence_radius"
         "AbilityCooldown"                                                      "9 8 7"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"

@@ -3,7 +3,6 @@
 		"BaseClass" "ability_datadriven"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel" "1"
-		"AbilitySharedWithTeammates" "1"
 		"AbilityType" "ABILITY_TYPE_ULTIMATE"
 		"AbilityTextureName" "custom/anti-rat"
 

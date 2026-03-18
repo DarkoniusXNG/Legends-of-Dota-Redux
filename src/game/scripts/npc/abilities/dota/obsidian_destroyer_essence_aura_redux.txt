@@ -67,6 +67,6 @@
 
         "ReduxFlags"                                                           "dota_custom | mana | support | underpowered"
         "ReduxPerks"                                                           "aura | support"
-        "ReduxBans"                                                            "obsidian_destroyer_essence_aura_lod"
+        "ReduxBans"                                                            "obsidian_destroyer_essence_aura_lod | medusa_mana_shield | storm_spirit_ball_lightning"
     }
 }

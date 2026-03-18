@@ -5,7 +5,6 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/imba_tower_plasma_field"
-        "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%radius"
         "AbilityCooldown"                                                      "15 14 13"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"

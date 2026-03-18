@@ -29,7 +29,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | ranger"
-		"ReduxCost"                                                            "120"
+		"ReduxCost"                                                            "10"
 	}
 
 	"drow_ranger_glacier"
@@ -70,7 +70,7 @@
 
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support | aura | ranger"
-		"ReduxCost"                                                            "20"
+		"ReduxCost"                                                            "40"
 	}
 
 	"drow_ranger_vantage_point"

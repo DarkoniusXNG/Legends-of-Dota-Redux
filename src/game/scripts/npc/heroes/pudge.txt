@@ -5,6 +5,7 @@
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "enemymoving | skillshot"
+		"ReduxCost"                                                            "10"
 	}
 
 	"pudge_rot"
@@ -12,6 +13,7 @@
 		"ReduxFlags"                                                           "upgradeable"
 		"ReduxPerks"                                                           "poison | self_damage | undead"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
+		"ReduxCost"                                                            "10"
 	}
 
 	"pudge_flesh_heap"

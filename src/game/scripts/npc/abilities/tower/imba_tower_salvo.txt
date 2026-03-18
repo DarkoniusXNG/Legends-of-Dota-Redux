@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
-    "imba_tower_salvo"
+    "imba_tower_salvo" // Cannon Tower
     {
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/imba_tower_salvo"
-        "AbilitySharedWithTeammates"                                           "1"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "IsBreakable"                                                          "1"

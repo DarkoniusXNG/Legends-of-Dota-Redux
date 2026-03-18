@@ -2003,7 +2003,7 @@ function modifier_imba_tower_grievous_wounds_aura_buff:OnAttackLanded(keys)
 			return
 		end
 
-		-- Only apply if the parent is the victim and the attacker is on the opposite team
+		-- Only apply if the parent is the attacker and the attacker is on the opposite team
 		if self.parent == attacker and attacker:GetTeamNumber() ~= target:GetTeamNumber() then
 
 			local grievous_debuff_handler

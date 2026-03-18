@@ -73,7 +73,7 @@
 
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | ranger"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "10" // free attack range but dependent on Assassinate
 	}
 
 	"special_bonus_unique_sniper_1"

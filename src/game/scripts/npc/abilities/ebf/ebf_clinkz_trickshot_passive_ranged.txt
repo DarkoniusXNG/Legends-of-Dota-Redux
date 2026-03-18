@@ -20,5 +20,6 @@
 
         "ReduxFlags"                                                           "aoe_attack | upgradeable | doNotRandom"
         "ReduxPerks"                                                           "ranger"
+        "ReduxCost"                                                            "120"
     }
 }

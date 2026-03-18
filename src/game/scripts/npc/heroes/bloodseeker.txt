@@ -12,14 +12,14 @@
 	{
 		"ReduxFlags"                                                           "mobility | semi_passive"
 		"ReduxPerks"                                                           "mobility | blood"
-		"ReduxCost"                                                            "20"
+		"ReduxCost"                                                            "30"
 	}
 
 	"bloodseeker_bloodrage"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | rage | blood"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "10" // does too much to be bad
 	}
 
 	"bloodseeker_blood_bath"

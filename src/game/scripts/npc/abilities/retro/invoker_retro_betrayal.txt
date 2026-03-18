@@ -22,7 +22,6 @@
         "AbilityValues"
         {
             "duration" "3 6 9"
-            "pip_current" "1"
         }
         "OnSpellStart"
         {

@@ -8,7 +8,7 @@
 		"AbilityTextureName"            "custom/nightshadow"
 		"AbilityCooldown"				"0"
 
-		"ReduxCost"                     "10"
+		"ReduxCost"                     "20"
 		"ReduxFlags"                    "attack_modifier | cooldown"
 		"ReduxPerks"                    "attack_modifier"
 
@@ -60,6 +60,7 @@
 
 		"ReduxFlags"                    "attack_modifier"
 		"ReduxPerks"                    "attack_modifier | lightning"
+		"ReduxCost"                     "10"
 
 		"AbilityValues"
         {

@@ -25,6 +25,10 @@ function ouichi(keys)
 
 	if caster:PassivesDisabled() then return end
 
+	if not target:IsBaseNPC() then return end
+	
+	if target:IsBuilding() or target:IsOther() then return end
+
 	local targethp = target:GetHealthPercent()
 
 	local damage = keys.dmg
@@ -36,8 +40,6 @@ function ouichi(keys)
 	local fd = agi*damage
 
 	if targethp > t then return end
-
-	--if CheckClass(target,"npc_dota_building") then return end
 
 	if caster:IsIllusion() then fd = fd * 0.25 end
 

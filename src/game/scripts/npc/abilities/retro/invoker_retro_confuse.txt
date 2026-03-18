@@ -17,7 +17,6 @@
             "duration" "10 12 14 16"
             "cast_range" "1500 2000 2500 3000"
             "incoming_damage_percent" "160 140 120 100"
-            "pip_current" "1"
         }
         "OnSpellStart"
         {

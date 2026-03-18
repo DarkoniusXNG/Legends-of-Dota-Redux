@@ -5,7 +5,6 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"                                                   "custom/imba_tower_death_pulse"
-        "AbilitySharedWithTeammates"                                           "1"
         "AbilityCastRange"                                                     "%area_of_effect"
         "AbilityCooldown"                                                      "6"
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"

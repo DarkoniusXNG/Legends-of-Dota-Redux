@@ -56,7 +56,8 @@ function modifier_global_mutator:CheckState()
 		[MODIFIER_STATE_NOT_ON_MINIMAP] = true,
 		[MODIFIER_STATE_ATTACK_IMMUNE] = true,
 		[MODIFIER_STATE_OUT_OF_GAME] = true,
-		[MODIFIER_STATE_NO_HEALTH_BAR] = true
+		[MODIFIER_STATE_NO_HEALTH_BAR] = true,
+		[MODIFIER_STATE_INVULNERABLE] = true,
 	}
 	return states
 end
@@ -66,21 +67,21 @@ if IsServer() then
 	function modifier_global_mutator:OnCreated()
 		-- Gotta Go Fast
 		if OptionManager:GetOption("gottaGoFast") == 1 then
-			local thinker = CreateModifierThinker(self:GetParent(),self:GetAbility(),"modifier_gottagoquick_aura",{},Vector(0,0,0),20,false)
+			local thinker = CreateModifierThinker(self:GetParent(),self:GetAbility(),"modifier_gottagoquick_aura",{},Vector(0,0,0),DOTA_TEAM_NEUTRALS,false)
 		elseif OptionManager:GetOption("gottaGoFast") == 2 then
-			local thinker = CreateModifierThinker(self:GetParent(),self:GetAbility(),"modifier_gottagofast_aura",{},Vector(0,0,0),20,false)
+			local thinker = CreateModifierThinker(self:GetParent(),self:GetAbility(),"modifier_gottagofast_aura",{},Vector(0,0,0),DOTA_TEAM_NEUTRALS,false)
 		elseif OptionManager:GetOption("gottaGoFast") == 3 then
-			local thinker = CreateModifierThinker(self:GetParent(),self:GetAbility(),"modifier_gottagoreallyfast_aura",{},Vector(0,0,0),20,false)
+			local thinker = CreateModifierThinker(self:GetParent(),self:GetAbility(),"modifier_gottagoreallyfast_aura",{},Vector(0,0,0),DOTA_TEAM_NEUTRALS,false)
 		elseif OptionManager:GetOption("gottaGoFast") == 4 then
-			local thinker = CreateModifierThinker(self:GetParent(),self:GetAbility(),"modifier_gottagoslow_aura",{},Vector(0,0,0),20,false)
+			local thinker = CreateModifierThinker(self:GetParent(),self:GetAbility(),"modifier_gottagoslow_aura",{},Vector(0,0,0),DOTA_TEAM_NEUTRALS ,false)
 		end
 		-- Memes Redux
 		if OptionManager:GetOption("memesRedux") == 1 then
-			local memer = CreateModifierThinker(self:GetParent(),self:GetAbility(),"modifier_memes_redux",{},Vector(0,0,0),20,false)
+			local memer = CreateModifierThinker(self:GetParent(),self:GetAbility(),"modifier_memes_redux",{},Vector(0,0,0),DOTA_TEAM_NEUTRALS,false)
 		end
 		-- Battle Thirst
 		if OptionManager:GetOption("battleThirst") == 1 then
-			local battler = CreateModifierThinker(self:GetParent(),self:GetAbility(),"modifier_battle_thirst",{},Vector(0,0,0),20,false)
+			local battler = CreateModifierThinker(self:GetParent(),self:GetAbility(),"modifier_battle_thirst",{},Vector(0,0,0),DOTA_TEAM_NEUTRALS,false)
 		end
 	end
 end

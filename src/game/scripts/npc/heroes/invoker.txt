@@ -255,6 +255,7 @@
 	{
 		"ReduxFlags"					"summon"
 		"ReduxPerks"                    "fire | ice | summon_non_ult"
+		"ReduxCost"                     "30"
 
 		"AbilityTextureName"            "invoker_forge_spirit_ad_png"
 		"AbilityCooldown"				"27 25 23 21"
