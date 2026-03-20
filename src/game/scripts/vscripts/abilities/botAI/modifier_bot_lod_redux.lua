@@ -44,7 +44,7 @@ local item_builds = {
 		"item_lotus_orb",
 		"item_ultimate_scepter",
 	},
-	npc_dota_hero_bane = {
+	npc_dota_hero_bane = { -- support
 		"item_arcane_boots",
 		"item_glimmer_cape",
 		"item_aether_lens",
@@ -54,7 +54,7 @@ local item_builds = {
 		"item_soul_booster",
 		"item_mystic_staff",
 	},
-	npc_dota_hero_bloodseeker = {
+	npc_dota_hero_bloodseeker = { -- rightclick carry
 		"item_wraith_band",
 		"item_phase_boots",
 		"item_maelstrom",
@@ -84,7 +84,7 @@ local item_builds = {
 		"item_hyperstone",
 		"item_black_king_bar",
 	},
-	npc_dota_hero_chaos_knight = {
+	npc_dota_hero_chaos_knight = { -- rightclick carry
 		"item_bracer",
 		"item_power_treads",
 		"item_helm_of_iron_will",
@@ -94,7 +94,7 @@ local item_builds = {
 		"item_reaver",
 		--"item_ultimate_scepter", -- lags the game
 	},
-	npc_dota_hero_crystal_maiden = {
+	npc_dota_hero_crystal_maiden = { -- support
 		"item_tranquil_boots",
 		"item_glimmer_cape",
 		"item_ghost",
@@ -104,7 +104,7 @@ local item_builds = {
 		"item_sphere",
 		"item_mystic_staff",
 	},
-	npc_dota_hero_dazzle = {
+	npc_dota_hero_dazzle = { -- support
 		"item_magic_wand",
 		"item_arcane_boots",
 		"item_glimmer_cape",
@@ -114,7 +114,7 @@ local item_builds = {
 		"item_ultimate_scepter",
 		"item_mystic_staff",
 	},
-	npc_dota_hero_death_prophet = {
+	npc_dota_hero_death_prophet = { -- caster carry
 		"item_power_treads",
 		"item_cyclone",
 		"item_black_king_bar",
@@ -134,7 +134,7 @@ local item_builds = {
 		"item_orchid",
 		"item_ultimate_scepter",
 	},
-	npc_dota_hero_drow_ranger = {
+	npc_dota_hero_drow_ranger = { -- rightclick carry
 		"item_wraith_band",
 		"item_power_treads",
 		"item_dragon_lance",
@@ -154,7 +154,7 @@ local item_builds = {
 		"item_rod_of_atos",
 		"item_soul_booster",
 	},
-	npc_dota_hero_jakiro = {
+	npc_dota_hero_jakiro = { -- support
 		"item_arcane_boots",
 		"item_glimmer_cape",
 		--"item_aether_lens",
@@ -164,7 +164,7 @@ local item_builds = {
 		"item_mystic_staff",
 		"item_soul_booster",
 	},
-	npc_dota_hero_juggernaut = {
+	npc_dota_hero_juggernaut = { -- rightclick carry
 		"item_wraith_band",
 		"item_phase_boots",
 		"item_bfury",
@@ -184,7 +184,7 @@ local item_builds = {
 		"item_reaver",
 		"item_lesser_crit",
 	},
-	npc_dota_hero_lich = {
+	npc_dota_hero_lich = { -- support
 		"item_tranquil_boots",
 		"item_glimmer_cape",
 		"item_ghost",
@@ -202,7 +202,7 @@ local item_builds = {
 		"item_lesser_crit",
 		"item_satanic",
 	},
-	npc_dota_hero_lion = {
+	npc_dota_hero_lion = { -- support
 		"item_tranquil_boots",
 		"item_blink",
 		"item_aether_lens",
@@ -212,7 +212,7 @@ local item_builds = {
 		"item_lotus_orb",
 		"item_mystic_staff",
 	},
-	npc_dota_hero_luna = {
+	npc_dota_hero_luna = { -- rightclick carry
 		"item_wraith_band",
 		"item_power_treads",
 		"item_mask_of_madness",
@@ -222,7 +222,7 @@ local item_builds = {
 		--"item_ultimate_scepter",
 		"item_eagle",
 	},
-	npc_dota_hero_necrolyte = {
+	npc_dota_hero_necrolyte = { -- caster carry
 		"item_null_talisman",
 		"item_arcane_boots",
 		"item_reaver",
@@ -254,7 +254,7 @@ local item_builds = {
 		"item_ultimate_scepter",
 		"item_mystic_staff",
 	},
-	npc_dota_hero_oracle = {
+	npc_dota_hero_oracle = { -- support
 		"item_magic_wand",
 		"item_arcane_boots",
 		--"item_glimmer_cape",
@@ -264,7 +264,7 @@ local item_builds = {
 		"item_ultimate_scepter",
 		"item_soul_booster",
 	},
-	npc_dota_hero_phantom_assassin = {
+	npc_dota_hero_phantom_assassin = { -- rightclick carry
 		"item_wraith_band",
 		"item_orb_of_corrosion",
 		"item_power_treads",
@@ -274,7 +274,7 @@ local item_builds = {
 		"item_nullifier",
 		"item_satanic",
 	},
-	npc_dota_hero_pudge = {
+	npc_dota_hero_pudge = { -- caster carry
 		"item_bracer",
 		"item_phase_boots",
 		"item_vanguard",
@@ -303,17 +303,17 @@ local item_builds = {
 		"item_revenants_brooch",
 		"item_veil_of_discord",
 	},
-	npc_dota_hero_skeleton_king = {
+	npc_dota_hero_skeleton_king = { -- rightclick carry
 		"item_bracer",
 		"item_power_treads",
 		"item_armlet",
-		"item_radiance",
+		--"item_radiance",
 		"item_sange",
 		"item_assault",
 		--"item_ultimate_scepter",
 		"item_blade_mail",
 	},
-	npc_dota_hero_skywrath_mage = {
+	npc_dota_hero_skywrath_mage = { -- support
 		"item_null_talisman",
 		"item_arcane_boots",
 		"item_rod_of_atos",
@@ -323,7 +323,7 @@ local item_builds = {
 		"item_mystic_staff",
 		"item_wind_waker",
 	},
-	npc_dota_hero_sniper = {
+	npc_dota_hero_sniper = { -- rightclick carry
 		"item_wraith_band",
 		"item_power_treads",
 		"item_maelstrom",
@@ -333,7 +333,7 @@ local item_builds = {
 		"item_mask_of_madness",
 		"item_ultimate_scepter",
 	},
-	npc_dota_hero_sven = {
+	npc_dota_hero_sven = { -- rightclick carry
 		"item_bracer",
 		"item_power_treads",
 		"item_echo_sabre",
@@ -370,7 +370,7 @@ local item_builds = {
 		"item_veil_of_discord",
 		"item_witch_blade",
 	},
-	npc_dota_hero_warlock = {
+	npc_dota_hero_warlock = { -- support
 		"item_magic_wand",
 		"item_arcane_boots",
 		"item_glimmer_cape",
@@ -380,7 +380,7 @@ local item_builds = {
 		"item_wind_waker",
 		"item_mystic_staff",
 	},
-	npc_dota_hero_windrunner = {
+	npc_dota_hero_windrunner = { -- rightclick carry
 		"item_null_talisman",
 		"item_power_treads",
 		"item_maelstrom",
@@ -390,7 +390,7 @@ local item_builds = {
 		"item_satanic",
 		"item_ultimate_scepter",
 	},
-	npc_dota_hero_witch_doctor = {
+	npc_dota_hero_witch_doctor = { -- support
 		"item_magic_wand",
 		"item_arcane_boots",
 		"item_glimmer_cape",
@@ -400,7 +400,7 @@ local item_builds = {
 		"item_aeon_disk",
 		"item_ghost",
 	},
-	npc_dota_hero_zuus = {
+	npc_dota_hero_zuus = { -- support
 		"item_null_talisman",
 		"item_arcane_boots",
 		"item_kaya",
@@ -472,6 +472,7 @@ local early_game_items = {
 	item_orb_of_corrosion = 1,
 	item_soul_ring = 1,
 	item_wraith_band = 1,
+	item_bottle = 1,
 }
 
 local items_to_sell = {
@@ -530,11 +531,11 @@ local junk_to_sell = {
 	--item_blade_of_alacrity = 1,
 	--item_blades_of_attack = 1,
 	--item_blight_stone = 1,
-	--item_blitz_knuckles = 1,
+	item_blitz_knuckles = 1,
 	--item_boots = 1,
 	--item_boots_of_elves = 1,
 	--item_broadsword = 1,
-	item_buckler = 1,
+	--item_buckler = 1,
 	--item_chainmail = 1,
 	--item_claymore = 1,
 	--item_crown = 1,
@@ -725,6 +726,7 @@ local rightclick_carries = {
 	npc_dota_hero_sniper = 1,
 	npc_dota_hero_sven = 1,
 	--npc_dota_hero_tiny = 1,
+	npc_dota_hero_windrunner = 1,
 }
 
 local forbidden_support = {
@@ -780,19 +782,40 @@ local supports = {
 	npc_dota_hero_zuus = 1,
 }
 
+local forbidden_casters = {
+	item_armlet = 1,
+	--item_assault = 1,
+	item_butterfly = 1,
+	item_desolator = 1,
+	item_devastator = 1,
+	item_diffusal_blade = 1,
+	item_disperser = 1,
+	item_dragon_lance = 1,
+	item_echo_sabre = 1,
+	item_greater_crit = 1,
+	item_harpoon = 1,
+	item_invis_sword = 1,
+	item_lesser_crit = 1,
+	item_maelstrom = 1, --
+	item_mage_slayer = 1,
+	item_mask_of_madness = 1,
+	item_mjollnir = 1, --
+	item_monkey_king_bar = 1,
+	item_satanic = 1,
+	item_skadi = 1,
+	item_witch_blade = 1,
+}
+
+local caster_carries = {
+	npc_dota_hero_death_prophet = 1,
+	--npc_dota_hero_earthshaker = 1,
+	npc_dota_hero_necrolyte = 1,
+	npc_dota_hero_pudge = 1,
+	--npc_dota_hero_sand_king = 1,
+}
+
 function modifier_bot_lod_redux:OnIntervalThink()
   local parent = self:GetParent()
-  -- local playerID
-  -- if parent.GetPlayerID then
-    -- playerID = parent:GetPlayerID()
-  -- elseif parent.GetPlayerOwnerID then
-    -- playerID = parent:GetPlayerOwnerID()
-  -- end
-  --local gold2 = PlayerResource:GetGold(playerID)
-  --if parent:GetGold() < 200 then
-    -- Bots are actually spending their gold then
-    --return
-  --end
 
   if (self.difficulty == 1 or (self.difficulty == 5 and parent:HasModifier("modifier_easybot"))) then
     self:StartIntervalThink(-1)
@@ -813,7 +836,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
         local item_name = item:GetAbilityName()
         if items_to_sell[item_name] then
           print("Removing to make room: "..tostring(item_name).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
-          local gold_value = math.floor(GetItemCost(item_name))
+          local gold_value = GetItemCost(item_name)
           parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
           item:RemoveSelf()
           break
@@ -825,27 +848,26 @@ function modifier_bot_lod_redux:OnIntervalThink()
   local purchased = false
   for _, item_name in ipairs(item_builds[name]) do
     local item = parent:FindItemByName(item_name)
+    local item_cost = GetItemCost(item_name)
     if not item then
       -- Doesnt have the item -> purchase it if possible
       if (GameRules:GetDOTATime(false, false) >= 7*60 and early_game_items[item_name]) or (item_name == "item_ultimate_scepter" and parent:HasModifier("modifier_item_ultimate_scepter_consumed")) then
-        -- Do not purchase early game items after the laning stage or dont purchase aghs if they have the buff
+        -- Do not purchase early game items after the laning stage AND dont purchase aghs if they have the consumed aghs buff
       elseif upgrade_map[item_name] then
         -- Check if we have the upgraded item first
         local upgraded_item = parent:FindItemByName(upgrade_map[item_name])
         if not upgraded_item then
           -- We dont have the upgrade for this item, so purchase the item
-          local gold_cost = GetItemCost(item_name)
-          if parent:GetGold() >= gold_cost and self:HasRoomForItemCustom() then
-            parent:ModifyGold(-gold_cost, true, DOTA_ModifyGold_PurchaseItem)
+          if parent:GetGold() >= item_cost and self:HasRoomForItemCustom() then
+            parent:ModifyGold(-item_cost, true, DOTA_ModifyGold_PurchaseItem)
             parent:AddItemByName(item_name)
             purchased = true
           end
         end
       else
         -- We dont have the upgrade for this item and it's not an early game item -> purchase the item
-        local gold_cost = GetItemCost(item_name)
-        if parent:GetGold() >= gold_cost and (self:HasRoomForItemCustom() or item_name == "item_ultimate_scepter") then
-          parent:ModifyGold(-gold_cost, true, DOTA_ModifyGold_PurchaseItem)
+        if parent:GetGold() >= item_cost and (self:HasRoomForItemCustom() or item_name == "item_ultimate_scepter") then
+          parent:ModifyGold(-item_cost, true, DOTA_ModifyGold_PurchaseItem)
           parent:AddItemByName(item_name)
           purchased = true
         end
@@ -855,15 +877,10 @@ function modifier_bot_lod_redux:OnIntervalThink()
       if GameRules:GetDOTATime(false, false) >= 7*60 and early_game_items[item_name] and not self:HasRoomForItemCustom() and IsNearFriendlyClass(parent, 1200, "ent_dota_fountain") then
         print("Removing early game item: "..tostring(item_name).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
         -- Has the early game item, it's 7 min or after then we can sell it if we dont have a free slot
-        local gold_value = math.floor(GetItemCost(item_name) / 2)
+        local gold_value = math.floor(item_cost / 2)
         parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
         parent:RemoveItemByName(item_name)
       end
-      -- if item_name == "item_magic_wand" and parent:FindItemByName("item_magic_stick") then
-        -- local gold_value = math.floor(GetItemCost("item_magic_stick") / 2)
-        -- parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
-        -- parent:RemoveItemByName("item_magic_stick")
-      -- end
       if item_name == "item_ultimate_scepter" and (GameRules:GetDOTATime(false, false) >= 20*60 or not self:HasRoomForItemCustom()) and IsNearFriendlyClass(parent, 1200, "ent_dota_fountain") then
         -- Consume aghs if possible after 20 min or if no room
         local recipe_name = "item_recipe_ultimate_scepter_2"
@@ -883,7 +900,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
         if not upgraded_item then
           -- We dont have the upgraded item, so simulate the purchase of other components of the upgraded item
           local gold_cost_upgrade = GetItemCost(upgrade_map[item_name])
-          local gold_cost_base = GetItemCost(item_name)
+          local gold_cost_base = item_cost
           local diff = gold_cost_upgrade - gold_cost_base
           if sell_first[item_name] then
             local diff2 = gold_cost_upgrade - (gold_cost_base/2)
@@ -904,8 +921,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
         else
           -- Has the item and the upgrade for that item -> remove the item
           print("Removing duplicate item: "..tostring(item_name).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
-          local gold_value = math.floor(GetItemCost(item_name))
-          parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
+          parent:ModifyGold(item_cost, true, DOTA_ModifyGold_SellItem)
           item:RemoveSelf()
         end
       end
@@ -927,7 +943,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
             local item_name2 = item2:GetAbilityName()
             if item_name1 == item_name2 and duplicates[item_name1] then
               print("Removing duplicate item: "..tostring(item_name1).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
-              local gold_value = math.floor(GetItemCost(item_name1))
+              local gold_value = GetItemCost(item_name1)
               parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
               item2:RemoveSelf()
             end
@@ -936,61 +952,63 @@ function modifier_bot_lod_redux:OnIntervalThink()
       end
     end
   end
-
-  -- Remove bad items
-  if parent:IsRangedAttacker() then
-    for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
-      local item = parent:GetItemInSlot(slot)
-      if item then
-        local item_name = item:GetAbilityName()
-        if forbidden_ranged[item_name] and name ~= "npc_dota_hero_vengefulspirit" then
-          print("Removing bad item: "..tostring(item_name).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
-          local gold_value = math.floor(GetItemCost(item_name))
-          parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
-          item:RemoveSelf()
-        end
-      end
-    end
-  else
-    for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
-      local item = parent:GetItemInSlot(slot)
-      if item then
-        local item_name = item:GetAbilityName()
-        if (forbidden_melee[item_name] and name ~= "npc_dota_hero_vengefulspirit" and name ~= "npc_dota_hero_dragon_knight") or (name == "npc_dota_hero_dragon_knight" and forbidden_ranged[item_name]) then
-          print("Removing bad item: "..tostring(item_name).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
-          local gold_value = math.floor(GetItemCost(item_name))
-          parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
-          item:RemoveSelf()
-        end
-      end
-    end
-  end
   
-   -- Remove more bad items
+   -- Remove bad items (bots have some freedom with their builds, we don't want to block them entirely because meta changes often)
   for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
     local item = parent:GetItemInSlot(slot)
     if item then
       local item_name = item:GetAbilityName()
-      if (forbidden_strength[item_name] and parent:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH) or (forbidden_rightclick_carry[item_name] and rightclick_carries[name]) or (forbidden_support[item_name] and supports[name]) then
+      local gold_value = GetItemCost(item_name)
+      local condition1 = forbidden_strength[item_name] and parent:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH -- prevent Strength heroes having stupid items
+      local condition2 = forbidden_rightclick_carry[item_name] and rightclick_carries[name] -- prevent carries having tank and support items
+      local condition3 = forbidden_support[item_name] and supports[name] -- prevent supports having tank and carry items
+      local condition4 = parent:IsRangedAttacker() and forbidden_ranged[item_name] and name ~= "npc_dota_hero_vengefulspirit" -- prevent ranged heroes having stupid items, Vengeful Spirit exception
+      local condition5 = not parent:IsRangedAttacker() and forbidden_melee[item_name] and name ~= "npc_dota_hero_dragon_knight" -- prevent melee heroes having stupid items, Dragon Knight exception
+      local condition6 = name == "npc_dota_hero_dragon_knight" and forbidden_ranged[item_name] -- prevent Dragon Knight from having stupid items
+      local condition7 = forbidden_casters[item_name] and caster_carries[name] -- prevent caster carries from having rightclick carry items 
+      if condition1 or condition2 or condition3 or condition4 or condition5 or condition6 or condition7 then
         print("Removing bad item: "..tostring(item_name).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
-        local gold_value = math.floor(GetItemCost(item_name))
         parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
         item:RemoveSelf()
+      end
+      -- Check if aghs scepter is actually a part of the build
+      if item_name == "item_ultimate_scepter" then
+        local has_it_in_build = false
+        for _, item_name_in_build in ipairs(item_builds[name]) do
+          if item_name_in_build == "item_ultimate_scepter" then
+            has_it_in_build = true
+            break
+          end
+        end
+        if not has_it_in_build then
+          print("Removing item: item_ultimate_scepter at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
+          parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
+          item:RemoveSelf()
+        end
       end
     end
   end
 
-  -- Sell all low lvl boots, do this rarely
+  -- Remove duplicate boots, do this rarely
   if GameRules:GetDOTATime(false, false) >= 10*60 and not self.alreadyfixedmultipleboots then
     for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
       local item = parent:GetItemInSlot(slot)
       if item then
         local item_name = item:GetAbilityName()
         if low_lvl_boots[item_name] then
-          print("Removing low lvl boots: "..tostring(item_name).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
-          local gold_value = math.floor(GetItemCost(item_name))
-          parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
-          item:RemoveSelf()
+          local has_it_in_build = false
+          for _, item_name_in_build in ipairs(item_builds[name]) do
+            if item_name_in_build == item_name then
+              has_it_in_build = true
+              break
+            end
+          end
+          if not has_it_in_build then
+            print("Removing duplicate boots: "..tostring(item_name).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
+            local gold_value = GetItemCost(item_name)
+            parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
+            item:RemoveSelf()
+          end
         end
       end
     end
@@ -1003,11 +1021,29 @@ function modifier_bot_lod_redux:OnIntervalThink()
       local item = parent:GetItemInSlot(slot)
       if item then
         local item_name = item:GetAbilityName()
+        local gold_value = GetItemCost(item_name)
         if junk_to_sell[item_name] then
           print("Removing junk to make room: "..tostring(item_name).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
-          local gold_value = math.floor(GetItemCost(item_name))
           parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
           item:RemoveSelf()
+        end
+        if item_name == "item_mithril_hammer" then
+          local javelin = parent:FindItemByName("item_javelin")
+          if javelin then
+            print("Fixing bot trying to make maelstrom, Removing: "..tostring(item_name).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
+            print("Fixing bot trying to make maelstrom, Removing: item_javelin at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
+            local gold_value_javelin = GetItemCost("item_javelin")
+            parent:ModifyGold(gold_value + gold_value_javelin, true, DOTA_ModifyGold_SellItem)
+            item:RemoveSelf()
+            javelin:RemoveSelf()
+          end
+        end
+        if item_name == "item_hyperstone" or item_name == "item_recipe_mjollnir" then
+          if parent:FindItemByName("item_maelstrom") or parent:FindItemByName("item_mjollnir") then
+            print("Fixing bot trying to make mjollnir, Removing: "..tostring(item_name).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
+            parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
+            item:RemoveSelf()
+          end
         end
       end
     end

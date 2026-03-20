@@ -1,21 +1,23 @@
 --Taken from the spelllibrary, credits go to valve
 
-modifier_slark_shadow_dance_ai = class({})
-
-
---------------------------------------------------------------------------------
+modifier_slark_shadow_dance_ai = modifier_slark_shadow_dance_ai or class({})
 
 function modifier_slark_shadow_dance_ai:IsHidden()
     return not IsInToolsMode()
 end
 
---------------------------------------------------------------------------------
+function modifier_slark_shadow_dance_ai:IsPurgable()
+	return false
+end
 
 function modifier_slark_shadow_dance_ai:RemoveOnDeath()
     return false
 end
 
---------------------------------------------------------------------------------
+function modifier_slark_shadow_dance_ai:IsPermanent()
+	return true
+end
+
 function modifier_slark_shadow_dance_ai:DeclareFunctions()
 	return {
 		MODIFIER_EVENT_ON_TAKEDAMAGE,
@@ -52,11 +54,16 @@ if IsServer() then
 			end
 			--caster:CastAbilityImmediately(ability, caster:GetPlayerOwnerID())
 			ability:OnSpellStart()
-			ability:StartCooldown( cooldown )
+			--ability:StartCooldown( cooldown )
+			ability:UseResources(true, true, false, true)
 			caster:AddNewModifier(caster, ability, "modifier_slark_shadow_dance_custom_redux", {duration = duration})
 			caster:EmitSound("Hero_Slark.ShadowDance")
 		end
 	end
+end
+
+function modifier_slark_shadow_dance_ai:GetTexture()
+	return "slark_shadow_dance"
 end
 
 -- Slark Shadow Dance % bonus regen
@@ -77,10 +84,10 @@ function modifier_slark_shadow_dance_custom_redux:IsPurgable()
 end
 
 function modifier_slark_shadow_dance_custom_redux:OnCreated()
-  self.regen = 4
+  self.regen = 1
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.regen = 4 + ability:GetLevel()
+    self.regen = 1 + ability:GetLevel()
   end
 end
 

@@ -32,7 +32,8 @@ function item_desolator_consumable:OnSpellStart()
 		caster:AddNewModifier(caster, self, "modifier_item_desolator_lod_consumed", table_to_send)
 		caster:EmitSound("DOTA_Item.IronTalon.Activate")
 		caster.desolator_stacks_lod = nil -- since we gave max stacks when consumed, remove the counter
-		self:SpendCharge(0.1)
+		--self:SpendCharge(0.1)
+		self:RemoveSelf()
 	end
 end
 
@@ -125,16 +126,25 @@ end
 
 function modifier_item_desolator_lod_passive:GetModifierPreAttack_BonusDamage()
 	local parent = self:GetParent()
+	local ability = self:GetAbility()
 	if IsServer() then
 		if not parent.desolator_stacks_lod then
 			parent.desolator_stacks_lod = 0
 		end
-	else
-		if not parent.desolator_stacks_lod then
-			parent.desolator_stacks_lod = self:GetStackCount()
+		if not self:IsFirstItemInInventory() then
+			self:SetStackCount(0)
+			if ability and not ability:IsNull() then
+				ability:SetCurrentCharges(0)
+			end
+		else
+			self:SetStackCount(parent.desolator_stacks_lod)
+			if ability and not ability:IsNull() then
+				ability:SetCurrentCharges(parent.desolator_stacks_lod)
+			end
 		end
 	end
-	return self.bonus_damage + parent.desolator_stacks_lod
+	
+	return self.bonus_damage + self:GetStackCount()
 end
 
 if IsServer() then
@@ -174,6 +184,10 @@ if IsServer() then
 
 		-- Doesn't work when attacking wards
 		if target:IsOther() then
+			return
+		end
+		
+		if not ability or ability:IsNull() then
 			return
 		end
 
@@ -333,7 +347,8 @@ if IsServer() then
 
 		caster.desolator_stacks_lod = math.min(caster.desolator_stacks_lod + stacks_increase, max_stacks)
 
-		caster:SetModifierStackCount("modifier_item_desolator_lod_passive", caster, caster.desolator_stacks_lod)
+		--caster:SetModifierStackCount("modifier_item_desolator_lod_passive", caster, caster.desolator_stacks_lod)
+		ability:SetCurrentCharges(caster.desolator_stacks_lod)
 	end
 end
 
