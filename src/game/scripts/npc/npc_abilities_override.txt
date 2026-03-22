@@ -2509,6 +2509,10 @@
 
 	"tinker_heat_seeking_missile"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"MaxLevel"						"4"
+		
 		"ReduxPerks"                                                           "scientific | explosive"
 
 		"AbilityCastRange"				"1500 2000 2500 3000"
@@ -2524,7 +2528,7 @@
 			}
 			"targets"
 			{
-				"value"	"2 3 4 5"
+				"value"	"2"
 			}
 			"speed"				"700"
 			"radius_explosion"				"200"
