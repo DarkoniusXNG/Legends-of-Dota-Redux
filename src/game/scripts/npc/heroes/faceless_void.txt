@@ -1,0 +1,212 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Faceless Void: Time Walk
+	//=================================================================================================================
+	"faceless_void_time_walk"
+	{
+		"ReduxFlags"		"mobility | upgradeable"
+		"ReduxPerks"		"blink | mobility"
+		"ReduxCost"			"40"
+	}
+
+	//=================================================================================================================
+	// Faceless Void: Innate Distortion Field		// innate
+	//=================================================================================================================
+	"faceless_void_distortion_field"
+	{
+		"ReduxFlags"		"support"
+		"ReduxPerks"		"support"
+	}
+
+	//=================================================================================================================
+	// Faceless Void: Backtrack
+	//=================================================================================================================
+	"faceless_void_backtrack"
+	{
+		"ReduxFlags"					"tank"
+		"ReduxCost"						"40"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"4"
+		"IsBreakable"					"1"
+		"AbilityValues"
+		{
+			"dodge_chance_pct"		"20 25 30 35"
+		}
+	}
+
+	//=================================================================================================================
+	// Faceless Void: Time Walk Reverse (Shard)
+	//=================================================================================================================
+	"faceless_void_time_walk_reverse"
+	{
+		"ReduxFlags"		"mobility | upgradeable | doNotRandom"
+		"ReduxPerks"		"blink | mobility"
+	}
+	
+	
+
+	//=================================================================================================================
+	// Faceless Void: Time Lock
+	//=================================================================================================================
+	"faceless_void_time_lock"
+	{
+		"ReduxFlags"		"bash | attack_modifier"
+		"ReduxPerks"		"bash | attack_modifier"
+		"ReduxBans"			"weaver_geminate_attack"
+		"ReduxCost"			"120"
+	}
+
+	//=================================================================================================================
+	// Faceless Void: Time Dilation
+	//=================================================================================================================
+	"faceless_void_time_dilation"
+	{
+		"ReduxCost"			"0"
+	}
+
+	//=================================================================================================================
+	// Faceless Void: Chronosphere
+	//=================================================================================================================
+	"faceless_void_chronosphere"
+	{
+		"ReduxFlags"		"stun"
+		"ReduxCost"			"20"
+		"ReduxBans"			"tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+
+	//=================================================================================================================
+	// Faceless Void: Time Zone			// non-ultimate version
+	//=================================================================================================================
+	"faceless_void_time_zone"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"MaxLevel" 						"4"
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.35 0.35 0.35"
+		"AbilityCooldown"				"45"			// can accelerate itself
+		"AbilityManaCost"				"125"
+		"AbilityValues"
+		{
+			"radius"				
+			{
+				"value"		"400"
+				"affected_by_aoe_increase"	"1"
+			}
+			"duration"				
+			{
+				"value"			"5"
+			}
+			"vision_radius"			
+			{
+				"value"	"400"				
+				"affected_by_aoe_increase"	"1"
+			}
+			"bonus_attack_speed"
+			{					
+				"value"									"40 50 60 70"				
+			}
+			"bonus_move_speed"
+			{					
+				"value" "40 50 60 70"				
+			}
+			"bonus_cast_speed"
+			{					
+				"value" "40 50 60 70"
+			}
+			"bonus_turn_speed"
+			{					
+				"value" "50"
+			}
+			"bonus_projectile_speed"
+			{					
+				"value" "40"
+			}
+			"yaw"				"45"
+			"cooldown_acceleration"						// base is 100% = 1x = normal cooldown progression. 400 = 4x = +300% cooldown acceleration
+			{
+				"value"				"200 250 300 350"				// values <= 100 will do nothing currently and progress cooldowns normally
+			}
+		}
+	}
+	
+	
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_faceless_void"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"faceless_void_chronosphere"
+	}
+	"special_bonus_unique_faceless_void_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"faceless_void_chronosphere"
+	}
+	"special_bonus_unique_faceless_void_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"faceless_void_time_lock"
+	}
+	"special_bonus_unique_faceless_void_4"   // Backtrack talent, still exists
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+		"TalentRequiredAbility"         "faceless_void_chronosphere"
+		"AbilityValues"
+		{
+			"dodge_chance_pct"
+			{
+				"value" "20"
+			}
+		}
+	}
+	"special_bonus_unique_faceless_void_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"faceless_void_time_walk"
+	}
+	"special_bonus_unique_faceless_void_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"faceless_void_time_dilation"
+	}
+	"special_bonus_unique_faceless_void_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"faceless_void_time_walk"
+	}
+	"special_bonus_unique_faceless_void_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"faceless_void_time_walk"
+	}
+	
+}
