@@ -78,7 +78,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "doom_bringer_scorched_earth"
+		"TalentRequiredAbility"                                                   "doom_bringer_doom"
 	}
 	"special_bonus_unique_doom_10"
 	{
@@ -94,6 +94,6 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "doom_bringer_doom"
+		"TalentRequiredAbility"                                                   "doom_bringer_scorched_earth"
 	}
 }
