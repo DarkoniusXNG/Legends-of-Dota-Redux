@@ -31,11 +31,11 @@
 		"ReduxCost"                                                            "20"
 	}
 
-	"dawnbreaker_break_of_dawn"
+	"dawnbreaker_break_of_dawn" // current Innate
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
-		"ReduxFlags"                                                           "doNotRandom | support"
+		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "light | support"
 	}
 

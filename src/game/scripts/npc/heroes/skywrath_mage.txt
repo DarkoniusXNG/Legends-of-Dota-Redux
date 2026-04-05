@@ -27,33 +27,24 @@
 	}
 
 	//=================================================================================================================
-	// Shield of the Scion (Facet)
+	// Shield of the Scion (current Innate)
 	//=================================================================================================================
 	"skywrath_mage_shield_of_the_scion"
 	{
 		"ReduxFlags"                                                           "tank | doNotRandom"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"4"
-		"AbilityValues"
-		{
-			"stack_duration"			"25 30 35 40"
-			"bonus_intelligence"		"0"
-			"damage_barrier_base"		"10"
-			"damage_barrier_per_level"	"1"
-			"barrier_duration"			"12 18 24 30"
-		}
 	}
 
 	//=================================================================================================================
-	// Staff of the Scion (Facet)
+	// Staff of the Scion (old Facet)
 	//=================================================================================================================
 	"skywrath_mage_staff_of_the_scion"
 	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"MaxLevel"                                                             "4"
+
 		"ReduxFlags"                                                           "cooldown | doNotRandom"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"4"
 		"AbilityValues"
 		{
 			"cooldown_reduction"		"0.1 0.15 0.2 0.25"
@@ -61,13 +52,24 @@
 	}
 
 	//=================================================================================================================
-	// Ruin And Restoration (Innate)
+	// Ruin And Restoration (old Innate)
 	//=================================================================================================================
 	"skywrath_mage_ruin_and_restoration"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_skywrath_mage_perk"
 
-		"ReduxFlags"                                                           "tank"
+		"MaxLevel"                                                             "4"
+
+		"ReduxFlags"                                                           "tank | doNotRandom"
+
+		"AbilityValues"
+		{
+			"spell_lifesteal"
+			{
+				"value"		"25 30 35 40"
+			}
+		}
 	}
 
 	"special_bonus_unique_skywrath"

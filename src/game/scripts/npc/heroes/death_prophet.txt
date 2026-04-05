@@ -35,21 +35,29 @@
 	}
 
 	//=================================================================================================================
-	// Mourning Ritual (Facet)
+	// Mourning Ritual (old Facet)
 	//=================================================================================================================
 	"death_prophet_mourning_ritual"
 	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires Exorcism
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_death_prophet_perk"
 
+		"MaxLevel"                                                             "4"
 		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "tank | doNotRandom"
 		"ReduxPerks"                                                           "undead"
+
+		"AbilityValues"
+		{
+			"delay_pct"					"15 25 35 45"
+			"delay_time"				"5"
+			"damage_interval"			"1"
+		}
 	}
 
 	//=================================================================================================================
-	// Spirit Collector (Facet)
+	// Spirit Collector (old Facet)
 	//=================================================================================================================
 	"death_prophet_spirit_collector"
 	{
@@ -59,12 +67,6 @@
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "undead"
 	}
-
-	// "death_prophet_innate_healing_mastery"
-	// {
-		// "ReduxFlags"                                                           "doNotRandom | support"
-		// "ReduxPerks"                                                           "support | undead"
-	// }
 
 	"special_bonus_unique_death_prophet"
 	{

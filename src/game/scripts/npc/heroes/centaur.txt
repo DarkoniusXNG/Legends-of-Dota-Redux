@@ -1,0 +1,139 @@
+// Abilities for centaur
+"DOTAAbilities"
+{
+	"centaur_hoof_stomp"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "earth"
+		"ReduxCost"                                                            "10"
+	}
+
+	"centaur_double_edge"
+	{
+		"ReduxPerks"                                                           "blades | blood | self_damage"
+	}
+
+	"centaur_return"
+	{
+		"ReduxFlags"                                                           "tank | physical"
+		"ReduxPerks"                                                           "physical"
+		"ReduxCost"                                                            "40"
+	}
+
+	"centaur_stampede"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | earth | rage"
+	}
+
+	"centaur_work_horse"
+	{
+		"ReduxFlags"                    "support | doNotRandom | upgradeable"
+		"ReduxPerks"                    "support"
+
+		"MaxLevel"						"4"
+
+		"AbilityCooldown"				"35 30 25 20"
+		"AbilityManaCost"				"75"
+
+		"AbilityValues"
+		{
+			"duration"					"7"
+			"melee_attack_range"		"200"
+			"air_duration"		"0.5"
+			"air_height"		"450"
+			"break_distance"		"600"
+		}
+	}
+
+	"centaur_mount" // sub-ability for centaur_work_horse
+	{
+		"ReduxFlags"                    "support | doNotRandom | upgradeable"
+		"ReduxPerks"                    "support"
+	}
+
+	"centaur_rawhide" // old Innate
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_centaur_perk"
+
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+
+		"AbilityValues"
+		{
+			"health_per_upgrade"		"25 35 45 55"
+			"upgrade_rate"				"120.0"
+			"bonus_hp_total"
+			{
+				"dynamic_value"			"true"
+			}
+		}
+	}
+
+	"centaur_horsepower" // current Innate
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility"
+	}
+
+	// talents
+	"special_bonus_unique_centaur_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "centaur_return"
+	}
+	"special_bonus_unique_centaur_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "centaur_hoof_stomp"
+	}
+	"special_bonus_unique_centaur_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "centaur_return"
+	}
+	"special_bonus_unique_centaur_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "centaur_double_edge"
+	}
+	"special_bonus_unique_centaur_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "centaur_stampede"
+	}
+	"special_bonus_unique_centaur_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "centaur_stampede"
+	}
+	"special_bonus_unique_centaur_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "centaur_stampede"
+	}
+}

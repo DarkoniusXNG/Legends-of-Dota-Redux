@@ -1,0 +1,167 @@
+// Abilities for beastmaster
+"DOTAAbilities"
+{
+	"beastmaster_wild_axes"
+	{
+		"ReduxPerks"                                                           "blades | skillshot"
+	}
+
+	"beastmaster_summon_razorback" // Summon Boar
+	{
+		"ReduxFlags"                                                           "summon"
+		"ReduxPerks"                                                           "summon_non_ult"
+		"ReduxBans"                                                            "tinker_rearm"
+	}
+
+	"beastmaster_summon_raptor" // Summon Hawk
+	{
+		"ReduxFlags"                                                           "summon"
+		"ReduxPerks"                                                           "summon_non_ult"
+		"ReduxBans"                                                            "tinker_rearm"
+	}
+
+	"beastmaster_primal_roar"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "enemymoving | rage"
+	}
+
+	"beastmaster_inner_beast" // current Innate
+	{
+		"ReduxFlags"                                                           "semi_passive | support"
+		"ReduxPerks"                                                           "aura | support"
+		"ReduxCost"                                                            "10"
+	}
+
+	"beastmaster_rugged" // old Innate
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_beastmaster_perk"
+
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom | tank"
+	}
+
+	"beastmaster_drums_of_slom"
+	{
+		"MaxLevel"                                                             "4"
+
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "aura"
+
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"		"600"
+				"affected_by_aoe_increase"	"1"
+			}
+			"max_stacks"					"20"
+			"stack_decay_time"				"1.0"
+			"min_drum_hit_interval"			"0.5 0.45 0.4 0.35"
+			"max_drum_hit_interval"			"3"
+
+			"base_damage"
+			{
+				"value"			"85"
+				"CalculateSpellDamageTooltip" "1"
+			}
+			"heal_pct"						"20 24 28 32"
+			"creep_heal_pct"				"5 8 11 13"
+			"aura_radius"
+			{
+				"value"			"1200"
+				"affected_by_aoe_increase"	"1"
+			}
+		}
+	}
+
+	"beastmaster_hawk_perch"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityTextureName"                                                   "beastmaster_hawk_dive"
+
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "neutral | mobility"
+	}
+
+	"beastmaster_boar_poison"
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | poison"
+	}
+
+	"beastmaster_greater_boar_poison"
+	{
+		"MaxLevel"                                                             "1"
+
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | neutral | poison"
+	}
+
+	"beastmaster_mark_of_the_beast"
+	{
+		"MaxLevel"                                                             "4"
+
+		"ReduxFlags"                                                           "crit"
+
+		"AbilityCooldown"				"16.0 15.0 14.0 13.0"
+		"AbilityManaCost"				"75"
+		"AbilityValues"
+		{
+			"duration"		"6"
+			"target_crit_multiplier"	"160 200 240 280"
+		}
+	}
+
+	// talents
+	"special_bonus_unique_beastmaster_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "beastmaster_inner_beast"
+	}
+	"special_bonus_unique_beastmaster_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "beastmaster_primal_roar"
+	}
+	"special_bonus_unique_beastmaster_5" // still exists
+	{
+		"TalentRequiredAbility"                                                   "beastmaster_inner_beast"
+	}
+	"special_bonus_unique_beastmaster_6" // still exists
+	{
+		"TalentRequiredAbility"                                                   "beastmaster_inner_beast"
+	}
+	"special_bonus_unique_beastmaster_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "beastmaster_primal_roar"
+	}
+	"special_bonus_unique_beastmaster_9"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "beastmaster_wild_axes"
+	}
+	"special_bonus_unique_beastmaster_wild_axe_cooldown"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "beastmaster_wild_axes"
+	}
+}

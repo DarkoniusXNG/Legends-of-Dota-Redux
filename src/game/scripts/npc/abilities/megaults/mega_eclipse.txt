@@ -3,7 +3,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                    "luna_eclipse"
+        "BaseClass"                     "luna_eclipse"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityType"                   "ABILITY_TYPE_ULTIMATE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -36,8 +36,7 @@
 			}
 			"beam_interval" // this needs to be improved
 			{
-				"value"					"0.15"
-				"special_bonus_scepter"	"-0.1"
+				"value"					"0.05"
 			}
 			"beam_interval_scepter"		"0.05" // purely for the tooltip Note, since the scepter tooltip doesn't show this.
 			"radius" // this needs to be improved
@@ -54,7 +53,7 @@
 				"value"					"0"
 				"special_bonus_scepter"	"+2500"
 			}
-			"AbilityDuration" // this needs to be improved, beams * beam_interval
+			"AbilityDuration" // this needs to be improved, beams * beam_interval + 1
 			{
 				"value"					"6"
 			}
@@ -64,8 +63,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"							"105"
-				"special_bonus_unique_luna_6"	"-40"
+				"value"							"60"
 			}
 		}
     }

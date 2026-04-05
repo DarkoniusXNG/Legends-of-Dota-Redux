@@ -36,12 +36,10 @@
 	}
 
 	//=================================================================================================================
-	// Lifestealer: Feast (Innate)
+	// Lifestealer: Feast
 	//=================================================================================================================
 	"life_stealer_feast"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-
 		"ReduxFlags"					"attack_modifier | physical"
 		"ReduxPerks"					"attack_modifier | physical | blood | undead"
 		"ReduxCost"						"80"
@@ -58,12 +56,12 @@
 	}
 
 	//=================================================================================================================
-	// Lifestealer: Ghoul Frenzy
+	// Lifestealer: Ghoul Frenzy (current Innate)
 	//=================================================================================================================
 	"life_stealer_ghoul_frenzy"
 	{
-		"ReduxFlags"		"attack_modifier"
-		"ReduxPerks"		"attack_modifier | rage | undead"
+		"ReduxPerks"                                                           "rage | undead"
+		"ReduxCost"                                                            "10"
 	}
 
 	//=================================================================================================================
@@ -154,14 +152,14 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "custom/npc_dota_hero_life_stealer_perk"
 
+		"MaxLevel"						"4"
+
 		"ReduxPerks"                    "undead"
 		"ReduxCost"                     "10"
 
-		"MaxLevel"						"4"
-
 		"AbilityValues"
 		{
-			"bonus_hp_per_hero"			"15 25 35 45"
+			"bonus_hp_per_hero"			"15 20 25 30"
 			"bonus_hp_per_creep"		"1"
 		}
 
@@ -180,15 +178,6 @@
 		}
 	}
 
-	"special_bonus_unique_lifestealer_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"			"life_stealer_ghoul_frenzy"
-	}
-
 	"special_bonus_unique_lifestealer_3"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -205,15 +194,6 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"			"life_stealer_open_wounds"
-	}
-
-	"special_bonus_unique_lifestealer_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"			"life_stealer_ghoul_frenzy"
 	}
 
 	"special_bonus_unique_lifestealer_6"

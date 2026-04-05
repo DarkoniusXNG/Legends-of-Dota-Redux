@@ -26,20 +26,32 @@
 		"ReduxBans"                                                            "tinker_rearm"
 	}
 
-	"winter_wyvern_eldwurm_scholar"
+	"winter_wyvern_eldwurm_scholar" // old Innate
 	{
-		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		//"AbilityTextureName"                                                   "winter_wyvern_winters_curse"
 
-		"ReduxFlags"                                                           "doNotRandom | support"
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
+
+		"AbilityValues"
+		{
+			"share_percentage"			"0"
+			"three_tooltip"				"0"
+			"mana_to_xp_percentage"		"25 50 75 100"
+			"xp_gain_range"				"1200"
+		}
+
+		"ReduxFlags"                                                           "doNotRandom | mana | support"
 		"ReduxPerks"                                                           "support"
 	}
 
-	"winter_wyvern_essence_of_the_blueheart"
+	"winter_wyvern_essence_of_the_blueheart" // old Facet
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/winter_wyvern_essence_of_the_blueheart"
 
-		"MaxLevel"						"4"
+		"MaxLevel"                                                             "4"
 
 		"ReduxFlags"                                                           "doNotRandom | mana | support"
 		"ReduxPerks"                                                           "support"
@@ -50,13 +62,38 @@
 		}
 	}
 
-	"winter_wyvern_dragon_sight"
+	"winter_wyvern_dragon_sight" // old Facet
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires Winters Curse
 		"AbilityTextureName"                                                   "custom/winter_wyvern_dragon_sight"
 
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "dragon"
+	}
+
+	"winter_wyvern_eldwurms_edda" // current Innate
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxCost"                                                            "30"
+	}
+
+	"winter_wyvern_accelerated_learning" // unknown
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		//"AbilityTextureName"                                                   "winter_wyvern_eldwurms_edda"
+
+		"MaxLevel"                                                             "1"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+
+		"AbilityValues"
+		{
+			"levels_between_upgrades"
+			{
+				"value"				"5"
+			}
+		}
 	}
 
 	"special_bonus_unique_winter_wyvern_1"

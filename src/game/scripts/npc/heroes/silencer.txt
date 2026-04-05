@@ -35,16 +35,7 @@
 		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
 		"ReduxPerks"                                                           "drain"
-		"ReduxCost"                                                            "30"
-	}
-
-	//=================================================================================================================
-	// Oppressive Silence (Facet)
-	//=================================================================================================================
-	"silencer_oppressive_silence"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires Global Silence
-		"AbilityTextureName"            "custom/npc_dota_hero_silencer_perk"
+		"ReduxCost"                                                            "40"
 	}
 
 	//=================================================================================================================

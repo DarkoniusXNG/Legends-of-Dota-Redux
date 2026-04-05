@@ -5,9 +5,8 @@
         "BaseClass"                     "shredder_reactive_armor"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"HasScepterUpgrade"				"1"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
         "AbilityTextureName"                                                   "custom/shredder_reactive_armor_op"
+		"IsBreakable"					"1"
 
         "AbilityValues"
 		{
@@ -24,7 +23,7 @@
 			}
 			"stack_duration" // this needs to be improved
 			{
-				"value"				"16 18 20 22"
+				"value"				"18 20 22 24"
 			}
 			"stacks_per_hero_attack"
 			{
@@ -41,7 +40,7 @@
 			}
 			"initial_shield"
 			{
-				"special_bonus_scepter"  		"200"
+				"special_bonus_scepter"  		"150"
 			}
 			"shield_per_sec"
 			{
@@ -61,12 +60,12 @@
 			}
 			"radius"
 			{
-				"special_bonus_scepter"	"600"
+				"special_bonus_scepter"	"450"
 				"affected_by_aoe_increase"	"1"
 			}
 			"explosion_radius"
 			{
-				"special_bonus_scepter"	"600"
+				"special_bonus_scepter"	"450"
 				"affected_by_aoe_increase"	"1"
 			}
 			"base_explosion"

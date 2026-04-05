@@ -46,12 +46,35 @@
 		}
 	}
 
-	"windrunner_easy_breezy"
+	"windrunner_easy_breezy" // old Innate
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_windrunner_perk"
 
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "mobility | doNotRandom"
+		"ReduxPerks"                                                           "mobility | ranger"
+
+		"AbilityValues"
+		{
+			"min_movespeed"
+			{
+				"value"						"240 250 260 270"
+			}
+			"max_movespeed"
+			{
+				"value"						"600 650 700 750"
+			}
+		}
+	}
+
+	"windrunner_tailwind" // current Innate
+	{
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility | ranger"
+		"ReduxCost"                                                            "10"
 	}
 
 	"special_bonus_unique_windranger_2"

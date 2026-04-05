@@ -80,11 +80,31 @@
 		}
 	}
 
-	"hoodwink_mistwoods_wayfarer"
+	"hoodwink_mistwoods_wayfarer" // current Innate
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
 		"ReduxPerks"                                                           "ranger"
+	}
+
+	"hoodwink_tomokan_tracker" // unknown
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "ranger"
+	}
+
+	"hoodwink_forager" // unknown
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "nature"
 	}
 
 	"special_bonus_unique_hoodwink_acorn_shot_charges"

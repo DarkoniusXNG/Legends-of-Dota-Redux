@@ -28,24 +28,33 @@
 	}
 
 	//=================================================================================================================
-	// Vanquisher (Innate)
+	// Vanquisher (old Innate)
 	//=================================================================================================================
 	"sven_vanquisher"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_sven_perk"
 
-		"ReduxFlags"                                                           "attack_modifier"
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "attack_modifier | stun"
 		"ReduxPerks"                                                           "attack_modifier"
+
+		"AbilityValues"
+		{
+			"bonus_damage_pct"
+			{
+				"value"						"20 22 24 26"
+			}
+		}
 	}
 
 	//=================================================================================================================
-	// Wrath of God (Facet)
+	// Wrath of God (current Innate)
 	//=================================================================================================================
 	"sven_wrath_of_god"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires God's Strength
-		"AbilityTextureName"            "custom/npc_dota_hero_sven_perk"
-
 		"ReduxFlags"                                                           "attack_modifier | doNotRandom"
 		"ReduxPerks"                                                           "attack_modifier | rage"
 	}

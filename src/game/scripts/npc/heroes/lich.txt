@@ -18,13 +18,6 @@
 		"ReduxPerks"                                                           "channeled | drain | enemymoving | undead"
 	}
 
-	// "lich_dark_ritual"
-	// {
-		// "ReduxFlags"                                                           "support | mana"
-		// "ReduxPerks"                                                           "support | ice | drain"
-		// "ReduxCost"                                                            "10"
-	// }
-
 	"lich_chain_frost"
 	{
 		"ReduxPerks"                                                           "ice"
@@ -53,14 +46,13 @@
 	}
 
 	//=================================================================================================================
-	// Death Charge (Innate)
+	// Sacrifice (current Innate)
 	//=================================================================================================================
 	"lich_death_charge"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-
-		"ReduxFlags"                                                           "doNotRandom | mana"
-		"ReduxPerks"                                                           "undead"
+		"ReduxFlags"                                                           "doNotRandom | mana | support"
+		"ReduxPerks"                                                           "drain | ice | support | undead"
+		//"ReduxCost"                                                            "10"
 	}
 
 	"lich_frost_armor"

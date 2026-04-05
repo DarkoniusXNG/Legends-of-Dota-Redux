@@ -43,48 +43,34 @@
 	}
 
 	//=================================================================================================================
-	// Duelist (Innate)
+	// Duelist (old Innate)
 	//=================================================================================================================
 	"juggernaut_duelist"
-	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-	}
-
-	//=================================================================================================================
-	// Bladeform (Facet)
-	//=================================================================================================================
-	"juggernaut_bladeform"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_juggernaut_perk"
 
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "blades | mobility"
+		"ReduxPerks"                                                           "blades"
 
-		"MaxLevel"						"4"
+		"MaxLevel"                                                             "4"
 
 		"AbilityValues"
 		{
-			"max_stacks"				"10"
-			"stack_gain_time"			"2.0"
-			"agi_bonus_pct_per_stack"	"2.0 2.5 3.0 3.5"
-			"movement_speed_pct_per_stack"		"1"
-			"linger_duration"			"2 3 4 5"
+			"front_angle"				"55"
+			"front_damage_increase"
+			{
+				"value"			"12 14 16 18"
+			}
 		}
 	}
 
-	"juggernaut_innate_mask_spin_crit"
+	//=================================================================================================================
+	// Bladeform (current Innate)
+	//=================================================================================================================
+	"juggernaut_bladeform"
 	{
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_juggernaut_perk"
-
-		"ReduxFlags"                                                           "doNotRandom"
-	}
-
-	"juggernaut_innate_mask_crit_lifesteal"
-	{
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_juggernaut_perk"
-
-		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "blades | mobility"
 	}
 
 	"special_bonus_unique_juggernaut"

@@ -6,13 +6,10 @@
 		"ReduxPerks"                                                           "light"
 	}
 
-	"chen_summon_convert"
+	"chen_zealot" // current Innate
 	{
 		"ReduxFlags"                                                           "summon | doNotRandom"
 		"ReduxPerks"                                                           "summon_non_ult"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityCooldown"				"30 25 20 15 10"
 	}
 
 	"chen_holy_persuasion"
@@ -53,14 +50,6 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "chen_hand_of_god"
-	}
-	"special_bonus_unique_chen_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "chen_summon_convert"
 	}
 	"special_bonus_unique_chen_4"
 	{

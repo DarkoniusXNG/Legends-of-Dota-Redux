@@ -28,17 +28,17 @@
 	}
 
 	//=================================================================================================================
-	// Phantasmagoria (Facet)
+	// Phantasmagoria (old Facet)
 	//=================================================================================================================
 	"chaos_knight_phantasmagoria"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/npc_dota_hero_chaos_knight_perk"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_chaos_knight_perk"
 
 		"ReduxFlags"                                                           "illusion"
 		"ReduxPerks"                                                           "illusion"
 
-		"MaxLevel"						"4"
+		"MaxLevel"                                                             "4"
 
 		"AbilityValues"
 		{
@@ -52,33 +52,35 @@
 	}
 
 	//=================================================================================================================
-	// Reins of Chaos (Innate)
+	// Reins of Chaos (old Innate)
 	//=================================================================================================================
 	"chaos_knight_reins_of_chaos"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_chaos_knight_perk"
+
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "illusion"
 		"ReduxPerks"                                                           "illusion"
-	}
-
-	//=================================================================================================================
-	// Fundamental Forging (Facet)
-	//=================================================================================================================
-	"chaos_knight_fundamental_forging"
-	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/npc_dota_hero_chaos_knight_perk"
-
-		"ReduxFlags"                                                           "doNotRandom"
-
-		"MaxLevel"						"4"
 
 		"AbilityValues"
 		{
-			"trinket_options_current"	"2 3 4 5"
-			"trinket_options_next"		"2 3 4 5"
+			"bonus_illusion_chance"		"50 55 60 65"
+			"bonus_illusion_count"		"1"
 		}
+	}
+
+	//=================================================================================================================
+	// Fundamental Forging (current Innate)
+	//=================================================================================================================
+	"chaos_knight_fundamental_forging"
+	{
+		//"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		//"AbilityTextureName"            "custom/npc_dota_hero_chaos_knight_perk"
+
+		"ReduxFlags"                                                           "doNotRandom"
 	}
 
 	"special_bonus_unique_chaos_knight"

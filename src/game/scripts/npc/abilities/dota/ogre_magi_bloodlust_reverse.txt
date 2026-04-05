@@ -11,10 +11,10 @@
         "AbilityTextureName"                                                   "custom/ogre_magi_bloodlust_reverse"
         "SpellDispellableType"                                                 "SPELL_DISPELLABLE_YES"
         "MaxLevel"                                                             "4"
-        "AbilityCastRange"                                                     "800"
-        "AbilityCastPoint"                                                     "0.25"
+        "AbilityCastRange"                                                     "650"
+        "AbilityCastPoint"                                                     "0.45"
         "AbilityCooldown"                                                      "10 9 8 7"
-        "AbilityManaCost"                                                      "50"
+        "AbilityManaCost"                                                      "40 50 60 70"
         "AbilityValues"
         {
             "modelscale" "-20 -30 -40 -50"
@@ -31,7 +31,7 @@
 			}
         }
         "ReduxCost"                                                            "120"
-        "ReduxFlags"                                                           ""
-        "ReduxPerks"                                                           "blood"
+        //"ReduxFlags"                                                           ""
+        "ReduxPerks"                                                           "rage | blood"
     }
 }

@@ -14,27 +14,27 @@
 			"duration"				"120"
 			"bonus_gold"			"2 3 4 5"
 			"bonus_bonus_gold"		"2 3 4 5"
+			"bonus_gold_per_scepter" "6"
 			"bounty_multiplier"		"2 3 4 5"
 			"damage"
 			{
-				"special_bonus_unique_alchemist_7"	"+2"
+				"special_bonus_unique_alchemist_7"	"+3"
 			}
 			"bonus_gold_cap"
 			{
 				"value"				"69420"
 			}
-			"starting_gold_bonus"
+			"scepter_bonus_damage"
 			{
-				"special_bonus_facet_alchemist_seed_money"	"=250"
+				"value"						"25"
 			}
-			"scepter_bonus_damage"	"25"
+			"scepter_bonus_damage_tooltip"
+			{
+				"special_bonus_scepter"		"+25"
+			}
 			"scepter_spell_amp"
 			{
 				"special_bonus_scepter"		"0"
-			}
-			"gpm_increase_per_stack"
-			{
-				"special_bonus_facet_alchemist_dividends"	"+70"
 			}
 		}
 

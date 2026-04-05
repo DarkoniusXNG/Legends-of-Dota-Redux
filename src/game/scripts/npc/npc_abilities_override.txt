@@ -6,10 +6,12 @@
 #base "heroes\axe.txt"
 #base "heroes\bane.txt"
 #base "heroes\batrider.txt"
+#base "heroes\beastmaster.txt"
 #base "heroes\bloodseeker.txt"
 #base "heroes\bounty_hunter.txt"
 #base "heroes\brewmaster.txt"
 #base "heroes\bristleback.txt"
+#base "heroes\centaur.txt"
 #base "heroes\chaos_knight.txt"
 #base "heroes\chen.txt"
 #base "heroes\clockwerk.txt"
@@ -52,6 +54,7 @@
 #base "heroes\phantom_assassin.txt"
 #base "heroes\primal_beast.txt"
 #base "heroes\pudge.txt"
+#base "heroes\razor.txt"
 #base "heroes\ringmaster.txt"
 #base "heroes\sand_king.txt"
 #base "heroes\shadow_fiend.txt"
@@ -63,9 +66,11 @@
 #base "heroes\spectre.txt"
 #base "heroes\storm_spirit.txt"
 #base "heroes\sven.txt"
+#base "heroes\tidehunter.txt"
 #base "heroes\tiny.txt"
 #base "heroes\underlord.txt"
 #base "heroes\vengeful_spirit.txt"
+#base "heroes\venomancer.txt"
 #base "heroes\viper.txt"
 #base "heroes\warlock.txt"
 #base "heroes\windranger.txt"
@@ -76,6 +81,261 @@
 
 "DOTAAbilities"
 {
+	"dark_willow_pixie_dust"
+	{
+		"ReduxFlags"                                                           "mana | tank"
+	}
+
+	"faceless_void_time_zone"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"MaxLevel"                                                             "3"
+
+		"AbilityCastRange"				"500"
+
+		"AbilityCooldown"				"120 110 100"
+
+		"AbilityManaCost"				"125 200 275"
+
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"		"700"
+				"affected_by_aoe_increase"	"1"
+			}
+			"duration"
+			{
+				"value"			"3.75 4.25 4.75"
+			}
+			"vision_radius"
+			{
+				"value"	"700"
+				"affected_by_aoe_increase"	"1"
+			}
+			"bonus_attack_speed"
+			{
+				"value"									"0"
+			}
+			"bonus_move_speed"
+			{
+				"value" "50"
+			}
+			"bonus_cast_speed"
+			{
+				"value" "50"
+			}
+			"bonus_turn_speed"
+			{
+				"value" "50"
+			}
+			"bonus_projectile_speed"
+			{
+				"value" "40"
+			}
+			"yaw"				"45"
+			"cooldown_acceleration"
+			{
+				"value"				"200"
+			}
+		}
+	}
+
+	"grimstroke_ink_trail"
+	{
+		"ReduxFlags"                                                           "tank"
+		"ReduxCost"                                                            "10"
+	}
+
+	"gyrocopter_afterburner"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility"
+	}
+
+	"gyrocopter_chop_shop"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_gyrocopter_perk"
+
+		"MaxLevel"                                                             "1"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"keeper_of_the_light_special_reserve"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_keeper_of_the_light_perk"
+
+		"MaxLevel"                                                             "1"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+
+		"AbilityValues"
+		{
+			"minimum_mana"				"75"
+		}
+	}
+
+	"legion_commander_intimidate" // unknown
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"legion_commander_outfight_them"
+	{
+		"ReduxFlags"                                                           "tank"
+		"ReduxCost"                                                            "30" // works for any spell
+	}
+
+	"mars_immovable" // unknown
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"MaxLevel"                                                             "1"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"mirana_celestial_quiver"
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | ranger"
+	}
+
+	"mirana_nightveil" // unknown
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_mirana_perk"
+
+		"MaxLevel"                                                             "1"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"naga_siren_slithereen_cutlass" // unknown
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_naga_siren_perk"
+
+		"MaxLevel"                                                             "1"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "water"
+	}
+
+	"nyx_assassin_neuro_sting" // current Innate
+	{
+		"ReduxFlags"                                                           "mana"
+		"ReduxPerks"                                                           "fire"
+		"ReduxCost"                                                            "30"
+	}
+
+	"nyx_assassin_nyxth_sense" // old Innate
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_nyx_assassin_perk"
+
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "support | doNotRandom"
+		"ReduxPerks"                                                           "support"
+
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"		"400 500 600 700"
+				"affected_by_aoe_increase"	"1"
+			}
+		}
+	}
+
+	"obsidian_destroyer_objurgation"
+	{
+		"ReduxFlags"                                                           "mana | tank"
+		"ReduxCost"                                                            "10"
+	}
+
+	"obsidian_destroyer_ominous_discernment" // old Innate
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_obsidian_destroyer_perk"
+
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "mana"
+
+		"AbilityValues"
+		{
+			"bonus_max_mana_per_int"
+			{
+				"value"						"2.5 3.0 3.5 4.0"
+			}
+		}
+	}
+
+	"rubick_might_and_magus"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_rubick_perk"
+
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
+
+		"AbilityValues"
+		{
+			"aoe_bonus"					"10 15 20 25"
+			"magic_resist_bonus"		"2 3 4 5"
+			"aoe_bonus_duration"		"20"
+		}
+	}
+
+	"spirit_breaker_bull_rush"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility"
+	}
+
+	"spirit_breaker_herd_mentality"
+	{
+		"AbilityBehavior"				                                       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_spirit_breaker_perk"
+
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
+
+		"AbilityValues"
+		{
+			"xp_gain_rate"				"50 55 60 65"
+		}
+	}
+
+	"techies_mutually_assured_destruction"
+	{
+		"ReduxFlags"                                                           "mana"
+		"ReduxPerks"                                                           "scientific | trap | explosive"
+	}
+
+	"tinker_deploy_turrets"
+	{
+		"ReduxFlags"                                                           "upgradeable"
+		"ReduxPerks"                                                           "enemymoving | scientific"
+	}
+
 	"courier_burst"
 	{
 		"ReduxFlags"                                                           "mobility"
@@ -116,44 +376,15 @@
 		"ReduxPerks"                                                           "mobility | support | physical"
 	}
 
-	"venomancer_sepsis"
-	{
-		"ReduxPerks"                                                           "poison"
-	}
-
-	"venomancer_noxious_plague"
-	{
-		"ReduxPerks"                                                           "poison"
-	}
-
-	"centaur_horsepower"
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_centaur_perk"
-
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility"
-
-		"MaxLevel"						"4"
-		"Innate"						"0"
-
-		"AbilityValues"
-		{
-			"strength_to_movement_pct"			"30 35 40 45"
-			"move_speed_limit"					"575 600 625 650"
-			"base_move_speed_penalty"			"0"
-		}
-	}
-
 	"templar_assassin_third_eye"
 	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_templar_assassin_perk"
+
+		"Innate"                                                               "0"
+
 		"ReduxFlags"                                                           "doNotRandom | support"
 		"ReduxPerks"                                                           "support"
-	}
-
-	"meepo_sticky_fingers"
-	{
-		"ReduxFlags"                                                           "doNotRandom"
 	}
 
 	"meepo_pack_rat"
@@ -177,27 +408,10 @@
 		"ReduxCost"                                                            "120"
 	}
 
-	"wisp_sight_seer"
+	"wisp_essence_conduction"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_wisp_perk"
-
-		"ReduxFlags"                                                           "doNotRandom | support"
-		"ReduxPerks"                                                           "support"
-
-		"Innate"						"0"
-		"MaxLevel"						"4"
-
-		"AbilityValues"
-		{
-			"bonus_vision"	"300 500 700 900"
-			"bonus_channel_speed"	"1"
-		}
-	}
-
-	"wisp_essence_conduction" // Io's current innate
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
 		"ReduxFlags"                                                           "doNotRandom"
 	}
@@ -231,14 +445,6 @@
 		}
 	}
 
-	"tidehunter_krill_eater"
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_tidehunter_perk"
-
-		"ReduxFlags"                                                           "doNotRandom"
-	}
-
 	// "templar_assassin_hidden_gates"
 	// {
 		// "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
@@ -267,11 +473,30 @@
 
 	"shadow_demon_shadow_servant"
 	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE" // requires Disruption
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_shadow_demon_perk"
+
+		"MaxLevel"						"4"
+		"Innate"						"0"
 
 		"ReduxFlags"                                                           "doNotRandom | illusion"
 		"ReduxPerks"                                                           "illusion"
+
+		"AbilityValues"
+		{
+			"health_lost"			"1"
+			"health_regain_pct"		"50 45 40 35"
+			"debuff_duration"		"10"
+			"illusion_outgoing_damage"	"-60 -50 -40 -30"
+			"illusion_outgoing_damage_tooltip"	"40 50 60 70"
+			"radius"
+			{
+				"value"		"1500"
+				"affected_by_aoe_increase"	"1"
+			}
+			"illusion_incoming_damage"	"100 90 80 70"
+			"illusion_incoming_damage_tooltip"	"200 190 180 170"
+		}
 	}
 
 	"queenofpain_bondage"
@@ -279,13 +504,14 @@
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_queenofpain_perk"
 
-		"MaxLevel"						"4"
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "tank"
 
 		"AbilityValues"
 		{
-			"spell_reflect_pct"			"16 22 28 34"
+			"spell_reflect_pct"			"20 22 24 26"
 			"radius"
 			{
 				"value"			"1200 1400 1600 1800"
@@ -299,57 +525,27 @@
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_queenofpain_perk"
 
-		"MaxLevel"						"4"
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
 
 		"ReduxPerks"                                                           "self_damage"
 
 		"AbilityValues"
 		{
 			"spell_amplification"			"14 18 22 26"
-			"spell_amplification_per_level"	"0.0"
-			"damage_reflected_to_self"		"27 25 23 21"
+			"damage_reflected_to_self"		"21 20 19 18"
 		}
 	}
 
-	"phoenix_dying_light"
+	"phoenix_dying_light" // current Innate
 	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_phoenix_perk"
-
 		"ReduxPerks"                                                           "fire | light"
-
-		"MaxLevel"						"4"
-
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"			"400 450 500 550"
-				"affected_by_aoe_increase"	"1"
-			}
-			"damage_pct"				"4.5 5.0 5.5 6.0"
-		}
 	}
 
-	"morphling_flow"
+	"morphling_flow" // old Facet
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_morphling_perk"
-	}
-
-	"medusa_venomed_volley"
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE" // requires Split Shot
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_medusa_perk"
-
-		"AbilityValues"
-		{
-			"duration"				"1.5 2.0 2.5 3.0"
-			"move_slow"				"15 20 25 30 35"
-			"attack_slow"			"20 35 50 65 80"
-			"cast_slow"				"0"
-			"attack_count"			"6"
-		}
 	}
 
 	"spirit_breaker_knockback_amp"
@@ -546,27 +742,7 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
 		"ReduxPerks"                    "ice"
-		"ReduxCost"                     "10" // really good but dependent on Walrus Punch
-	}
-
-	"razor_dynamo"
-	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/npc_dota_hero_razor_perk"
-
-		"ReduxBans"                     "rubick_might_and_magus" // because it crashes the game
-
-		"MaxLevel"                      "4"
-
-		"AbilityValues"
-		{
-			"spell_amp_damage_divisor"	"20"
-			"spell_amp_mult"			"1.25 1.5 1.75 2.0"
-			"total_spell_amp"
-			{
-				"dynamic_value"			"true"
-			}
-		}
+		"ReduxCost"                     "20" // really good
 	}
 
 	"frogmen_riverborn_aura"
@@ -664,10 +840,28 @@
 		}
 	}
 
-	"visage_lurker"
+	"visage_lurker" // old Innate
 	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_visage_perk"
+
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
+
 		"ReduxFlags"                                                           "cooldown"
 		"ReduxPerks"                                                           "undead"
+
+		"AbilityValues"
+		{
+			"max_stacks"
+			{
+				"value"									"8 10 12 14"
+			}
+
+			"stack_gain_time"			"2.0"
+			"cooldown_speed_per_stack"	"2.0"
+			"linger_duration"			"2"
+		}
 	}
 
 	"visage_soul_assumption"
@@ -778,28 +972,31 @@
 
 		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"MaxLevel"						"4"
-		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"14 13 12 11"
+
 		"AbilityManaCost"				"120"
 		"AbilityCastRange"				"850"
 		"AbilityValues"
 		{
 			"duration"					"6"
 			"slow"						"10 12 14 16"
-			"magic_resistance"			"20 30 40 50"
-			"stun_duration"
+			"magic_resistance"			
+			{
+				"value"				"20 30 40 50"
+				"special_bonus_unique_keeper_of_the_light_3"			"+10"
+			}
+			"stun_duration"			
 			{
 				"value"			"0"
 			}
-			"AbilityCooldown"
+			"AbilityCooldown"			
 			{
 				"value"					"14 13 12 11"
 				"special_bonus_shard"		"=0"
 			}
-			"AbilityChargeRestoreTime"
+			"AbilityChargeRestoreTime"			
 			{
 				"value"					"0"
-				"special_bonus_shard"		"14 13 12 11"
+				"special_bonus_shard"		"=14 =13 =12 =11"
 			}
 			"AbilityCharges"
 			{
@@ -828,15 +1025,6 @@
 				"dynamic_value"			"true"
 			}
 		}
-	}
-
-	"beastmaster_hawk_perch"
-	{
-		"ReduxFlags"					"mobility"
-		"ReduxPerks"                    "neutral | mobility"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityTextureName"			"beastmaster_hawk_dive"
 	}
 
 	"magnus_strength_of_joelrak"
@@ -886,28 +1074,6 @@
 			"damage_growth"		"10"
 			"disarm_duration"	"2 3 4 5"
 			"windup_time"		"0.5"
-		}
-	}
-
-	"tidehunter_dead_in_the_water"
-	{
-		"ReduxFlags"					"stun"
-		"ReduxPerks"                    "water"
-
-		"MaxLevel"						"4"
-		"AbilityCastRange"				"350"
-		"AbilityCastPoint"				"0.3"
-		"AbilityCooldown"				"35 30 25 20"
-
-		"AbilityDamage"					"100 140 180 220"
-		"AbilityManaCost"				"110"
-		"AbilityValues"
-		{
-			"attacks_to_destroy"			"4"
-			"max_movement_speed"			"100"
-			"chain_length"					"350"
-			"duration"						"10"
-			"projectile_speed"				"1000"
 		}
 	}
 
@@ -966,27 +1132,6 @@
 		}
 	}
 
-	"venomancer_poison_nova"
-	{
-		"ReduxPerks"                   	"poison"
-
-		"MaxLevel"						"4"
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"		"900 1000 1100 1200"
-				"affected_by_aoe_increase"	"1"
-			}
-			"start_radius"				"255"
-			"duration"					"10"
-			"damage"					"3 4 5 6"
-			"magic_resist"				"-15 -20 -25 -30"
-			"speed"						"550"
-			"trigger_cd"				"10 9 8 7"
-		}
-	}
-
 	"courier_shield"
 	{
 		"ReduxFlags"                                                           "tank | doNotRandom"
@@ -1034,66 +1179,6 @@
 	{
 		"ReduxPerks"                    "water | attack_modifier | autocast_basic"
 		"ReduxFlags"					"attack_modifier | semi_passive"
-	}
-
-
-	"beastmaster_drums_of_slom"
-	{
-		"ReduxFlags"                    "doNotRandom"
-		"ReduxPerks"                    "aura"
-
-		"MaxLevel"						"4"
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"		"600"
-				"affected_by_aoe_increase"	"1"
-			}
-			"max_stacks"					"20"
-			"stack_decay_time"				"1.0"
-			"min_drum_hit_interval"			"0.5 0.45 0.4 0.35"
-			"max_drum_hit_interval"			"3"
-
-			"base_damage"
-			{
-				"value"			"85"
-				"CalculateSpellDamageTooltip" "1"
-			}
-			"heal_pct"						"20 24 28 32"
-			"creep_heal_pct"				"5 8 11 13"
-			"aura_radius"
-			{
-				"value"			"1200"
-				"affected_by_aoe_increase"	"1"
-			}
-		}
-	}
-
-	"centaur_mount" // sub-ability for centaur_work_horse
-	{
-		"ReduxFlags"                    "support | doNotRandom | upgradeable"
-		"ReduxPerks"                    "support"
-	}
-
-	"centaur_work_horse"
-	{
-		"ReduxFlags"                    "support | doNotRandom | upgradeable"
-		"ReduxPerks"                    "support"
-
-		"MaxLevel"						"4"
-
-		"AbilityCooldown"				"35 30 25 20"
-		"AbilityManaCost"				"75"
-
-		"AbilityValues"
-		{
-			"duration"					"7"
-			"melee_attack_range"		"200"
-			"air_duration"		"0.5"
-			"air_height"		"450"
-			"break_distance"		"600"
-		}
 	}
 
 	"tornado_tempest"
@@ -1162,14 +1247,6 @@
 				"value"	"90"
 			}
 		}
-	}
-
-	"beastmaster_greater_boar_poison"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | neutral | poison"
-
-		"MaxLevel"                                                             "1"
 	}
 
 	"black_dragon_fireball"
@@ -1915,7 +1992,9 @@
 
 		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
 		"MaxLevel"						"4"
+
 		"AbilityCooldown"				"12 11 10 9"
+
 		"AbilityValues"
 		{
 			"air_time"					"1.0"
@@ -2362,30 +2441,6 @@
 		"ReduxCost"                                                            "120"
 	}
 
-	"beastmaster_primal_roar"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "enemymoving | rage"
-	}
-
-	"beastmaster_mark_of_the_beast"
-	{
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"16.0 15.0 14.0 13.0"
-		"AbilityManaCost"				"75"
-		"AbilityValues"
-		{
-			"duration"		"6"
-			"target_crit_multiplier"	"160 200 240 280"
-		}
-	}
-
-	"centaur_stampede"
-	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility | earth | rage"
-	}
-
 	"earth_spirit_geomagnetic_grip"
 	{
 		"ReduxFlags"                                                           "silence"
@@ -2457,15 +2512,10 @@
 		"ReduxPerks"                                                           "support | drain | self_damage | channeled | undead"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
+
 	"queenofpain_sonic_wave"
 	{
 		"ReduxPerks"                                                           "skillshot | enemymoving"
-	}
-	"razor_eye_of_the_storm"
-	{
-		"ReduxFlags"                                                           "upgradeable | physical | wtfAutoBan"
-		"ReduxPerks"                                                           "lightning | physical"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 
 	"shadow_demon_demonic_purge"
@@ -2496,11 +2546,7 @@
 		"ReduxPerks"                                                           "scientific | trap | explosive"
 		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand"
 	}
-	"tidehunter_gush"
-	{
-		"ReduxFlags"                                                           "upgradeable"
-		"ReduxPerks"                                                           "water"
-	}
+
 	"tinker_laser"
 	{
 		"ReduxFlags"                                                           "upgradeable"
@@ -2512,7 +2558,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
 		"MaxLevel"						"4"
-		
+
 		"ReduxPerks"                                                           "scientific | explosive"
 
 		"AbilityCastRange"				"1500 2000 2500 3000"
@@ -2528,11 +2574,11 @@
 			}
 			"targets"
 			{
-				"value"	"2"
+				"value"	"2 2 3 3"
 			}
 			"speed"				"700"
-			"radius_explosion"				"200"
-			"splash_pct"		"50"
+			"radius_explosion"				"0"
+			"splash_pct"		"0"
 		}
 	}
 
@@ -3009,12 +3055,6 @@
 		"ReduxPerks"                                                           "mobility | water | skillshot"
 	}
 
-	"centaur_return"
-	{
-		"ReduxFlags"                                                           "tank | physical"
-		"ReduxPerks"                                                           "physical"
-		"ReduxCost"                                                            "40"
-	}
 	"morphling_morph_str"
 	{
 		"ReduxFlags"                                                           "tank | doNotRandom"
@@ -3046,12 +3086,6 @@
 		"ReduxCost"                                                            "10"
 	}
 
-	"tidehunter_kraken_shell"
-	{
-		"ReduxFlags"                                                           "tank"
-		"ReduxPerks"                                                           "water"
-		"ReduxCost"                                                            "10"
-	}
 	"slardar_bash"
 	{
 		"ReduxFlags"                                                           "bash | attack_modifier | physical"
@@ -3166,12 +3200,6 @@
 		"ReduxCost"                                                            "80"
 		"ReduxBans"                                                            "ursa_fury_swipes_lod"
 	}
-	"meepo_geostrike"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | earth | gold"
-		"ReduxCost"                                                            "10"
-	}
 
 	"clinkz_searing_arrows"
 	{
@@ -3195,12 +3223,6 @@
 	"broodmother_insatiable_hunger"
 	{
 		"ReduxPerks"                                                           "rage"
-		"ReduxCost"                                                            "10"
-	}
-	"venomancer_poison_sting"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | poison"
 		"ReduxCost"                                                            "10"
 	}
 
@@ -3230,11 +3252,7 @@
 		"ReduxCost"                                                            "20" // why people think this is bad?
 	}
 
-	"beastmaster_boar_poison"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | poison"
-	}
+	
 
 	"undying_tombstone_zombie_deathstrike"
 	{
@@ -3306,12 +3324,7 @@
 			}
 		}
 	}
-	"centaur_hoof_stomp"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "earth"
-		"ReduxCost"                                                            "10"
-	}
+
 	"magnataur_reverse_polarity"
 	{
 		"ReduxFlags"                                                           "stun"
@@ -3328,15 +3341,6 @@
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "scientific | trap"
 		"ReduxBans"                                                            "arc_warden_tempest_double"
-	}
-
-
-
-	"tidehunter_ravage"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "water"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
 	}
 
 	"rubick_arcane_supremacy"
@@ -3367,26 +3371,6 @@
 	{
 		"ReduxFlags"                                                           "summon"
 		"ReduxCost"                                                            "10"
-		"ReduxBans"                                                            "tinker_rearm"
-	}
-
-	"beastmaster_call_of_the_wild"
-	{
-		"ReduxFlags"                                                           "summon"
-		"ReduxPerks"                                                           "summon_non_ult"
-	}
-
-	"beastmaster_call_of_the_wild_boar"
-	{
-		"ReduxFlags"                                                           "summon"
-		"ReduxPerks"                                                           "summon_non_ult"
-		"ReduxBans"                                                            "tinker_rearm"
-	}
-
-	"beastmaster_call_of_the_wild_hawk"
-	{
-		"ReduxFlags"                                                           "summon"
-		"ReduxPerks"                                                           "summon_non_ult"
 		"ReduxBans"                                                            "tinker_rearm"
 	}
 
@@ -3555,34 +3539,12 @@
 		"ReduxBans"                                                            "tinker_rearm"
 	}
 
-	"venomancer_plague_ward"
-	{
-		"ReduxPerks"                                                           "poison | summon_non_ult"
-		"ReduxFlags"                                                           "summon"
-	}
-	"venomancer_venomous_gale"
-	{
-		"ReduxPerks"                                                           "poison | skillshot"
-	}
 	"shadow_demon_shadow_poison"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "poison | skillshot | demon"
 	}
 
-	"razor_plasma_field"
-	{
-		"ReduxPerks"                                                           "lightning"
-	}
-	"razor_static_link"
-	{
-		"ReduxPerks"                                                           "lightning | drain"
-	}
-	"razor_unstable_current"
-	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "lightning | mobility"
-	}
 	"rubick_fade_bolt"
 	{
 		"ReduxPerks"                                                           "lightning"
@@ -3607,11 +3569,6 @@
 	{
 		"ReduxPerks"                                                           "water | self_damage"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
-	}
-	"tidehunter_anchor_smash"
-	{
-		"ReduxFlags"                                                           "physical | aoe_attack"
-		"ReduxPerks"                                                           "water | physical"
 	}
 
 	"earth_spirit_magnetize"
@@ -3774,16 +3731,6 @@
 		"ReduxPerks"                                                           "support"
 	}
 
-	"centaur_double_edge"
-	{
-		"ReduxPerks"                                                           "blades | blood | self_damage"
-	}
-	"beastmaster_inner_beast"
-	{
-		"ReduxFlags"                                                           "semi_passive"
-		"ReduxPerks"                                                           "aura | support"
-	}
-
 	"necronomicon_warrior_sight"
 	{
 		"ReduxFlags"                                                           "support"
@@ -3923,11 +3870,6 @@
 		"ReduxFlags"														   "mobility | aoe_attack | upgradeable"
 		"ReduxPerks"                                                           "channeled | mobility"
 		"ReduxBans"                                                            "dazzle_bad_juju_redux"
-	}
-
-	"beastmaster_wild_axes"
-	{
-		"ReduxPerks"                                                           "blades | skillshot"
 	}
 
 	"magnataur_shockwave"
@@ -4266,8 +4208,39 @@
 
 	"tinker_defense_matrix"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+
+		"MaxLevel"						"4"
+
 		"ReduxFlags"                                                           "support | tank"
-		"ReduxPerks"                                                           "support"
+		"ReduxPerks"                                                           "support | scientific"
+
+		"AbilityCooldown"				"20 18 16 14"
+
+		"AbilityValues"
+		{
+			"damage_absorb"
+			{
+				"value"							"90 160 230 300"
+			}
+			"status_resistance"
+			{
+				"value"															"20 25 30 35"
+			}
+			"barrier_duration"
+			{
+				"value"							"15"
+			}
+			"cooldown_reduction"
+			{
+				"value"						"0"
+			}
+			"flicker_range"
+			{
+				"value"								"0"
+			}
+			"flicker_angle"							"90"
+		}
 	}
 
 	"mars_spear"
@@ -4405,63 +4378,29 @@
 		"ReduxFlags"                                                           "doNotRandom | upgradeable"
 		"ReduxPerks"                                                           "scientific | trap | explosive"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"MaxLevel"						"4"
 		"AbilityCastRange"				"10"
-		"AbilityCastPoint"				"1.5"
-		"AbilityManaCost"				"0"
+		"AbilityCastPoint"				"1.25"
+		"AbilityCooldown"               "60 50 40 30"
+
 		"AbilityValues"
 		{
 			"aura_radius"
 			{
-				"value"					"500 600 700 800"
-				"special_bonus_scepter"	"+500"
+				"value"					"1000"
 				"affected_by_aoe_increase"	"1"
 			}
-			"AbilityCooldown"
-			{
-				"value"					"60.0 50.0 40.0 30.0"
-			}
-			"lifetime"
-			{
-				"value"					"60"
-				"special_bonus_scepter" "+180"
-			}
+			"lifetime"					"240"
 			"minefield_duration"		"10"
 			"trigger_radius"
 			{
-				"value"                  "200"
+				"value"	"200"
 				"affected_by_aoe_increase"	"1"
 			}
-			"scepter_move_damage"
-			{
-				"value"					"300"
-				"RequiresScepter"		"1"
-			}
-			"scepter_move_amt"
-			{
-				"value"					"200"
-				"RequiresScepter"		"1"
-			}
-		}
-	}
-
-	"tidehunter_arm_of_the_deep"
-	{
-		"ReduxFlags"                    "stun | doNotRandom"
-		"ReduxPerks"                	"water"
-
-		"MaxLevel"						"4"
-		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0.3 0.3 0.3"
-		"AbilityCooldown"				"20 19 18 17"
-		"AbilityManaCost"				"80"
-		"AbilityValues"
-		{
-			"projectile_width"				"150 175 200 225"
-			"damage_pct"					"50 55 60 65"
-			"duration_pct"					"50 55 60 65"
-			"range_pct"						"75 80 85 90"
+			"scepter_move_damage"		"300"
+			"scepter_move_amt"			"200"
+			"bonus_mine_damage_pct"		"15"
 		}
 	}
 
@@ -4495,20 +4434,23 @@
 
 	"tinker_warp_grenade"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_ALERT_TARGET"
+
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "enemymoving | scientific"
 
 		"MaxLevel"                      "4"
 		"AbilityCastRange"              "700"
 		"AbilityCooldown"               "15 14 13 12"
-		"AbilityManaCost"               "80"
+
 		"AbilityValues"
 		{
 			"damage"					"150 180 210 240"
-			"bonus_distance"			"100"
 			"max_distance"				"2000"
-			"range_reduction"		"40 50 60 70"
-			"debuff_duration"		"2 2.5 3 3.5"
+			"warp_distance_factor"		"0.6"
+			"warp_distance_pct_tooltip"	"60"
+			"range_reduction"           "40 45 50 55"
+			"debuff_duration"           "2 2.5 3 3.5"
 		}
 	}
 
@@ -4764,32 +4706,6 @@
 		"ReduxPerks"                                                           "scientific | explosive | skillshot"
 	}
 
-	"venomancer_latent_poison"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "poison"
-
-		"MaxLevel"						"4"
-		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"20 18 16 14"
-		"AbilityManaCost"				"75"
-		"AbilityValues"
-		{
-			"duration_damage"
-			{
-				"value"					"20 28 36 44"
-				"CalculateSpellDamageTooltip"	"1"
-			}
-			"movement_slow"			"-10 -15 -20 -25"
-			"projectile_speed"		"1800"
-			"damage_interval"		"1.0"
-			"duration"				"7 9 11 13"
-			"explosion_damage"		"300 350 400 450"
-			"explosion_stun_duration"	"1.6 1.9 2.2 2.5"
-		}
-	}
-
 	"pangolier_rollup"
 	{
 		"ReduxFlags"					"stun | doNotRandom"
@@ -4830,7 +4746,7 @@
 	}
 
 	// Talents
-
+	// Mars
 	"special_bonus_unique_mars_spear_bonus_damage"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -4894,127 +4810,6 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "mars_dauntless"
-	}
-
-
-	// Beastmaster
-	"special_bonus_unique_beastmaster_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "beastmaster_inner_beast"
-	}
-	"special_bonus_unique_beastmaster_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"
-		{
-			"1"                                                                   "beastmaster_call_of_the_wild_boar"
-			"2"                                                                   "beastmaster_call_of_the_wild_hawk"
-		}
-	}
-	"special_bonus_unique_beastmaster_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "beastmaster_inner_beast"
-	}
-	"special_bonus_unique_beastmaster_5" // still exists
-	{
-		"TalentRequiredAbility"                                                   "beastmaster_inner_beast"
-	}
-	"special_bonus_unique_beastmaster_6" // still exists
-	{
-		"TalentRequiredAbility"                                                   "beastmaster_inner_beast"
-	}
-	"special_bonus_unique_beastmaster_7"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "beastmaster_primal_roar"
-	}
-	"special_bonus_unique_beastmaster_9"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "beastmaster_wild_axes"
-	}
-	"special_bonus_unique_beastmaster_wild_axe_cooldown"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "beastmaster_wild_axes"
-	}
-
-	// Centaur
-	"special_bonus_unique_centaur_1"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "centaur_return"
-	}
-	"special_bonus_unique_centaur_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "centaur_hoof_stomp"
-	}
-	"special_bonus_unique_centaur_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "centaur_return"
-	}
-	"special_bonus_unique_centaur_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "centaur_double_edge"
-	}
-	"special_bonus_unique_centaur_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "centaur_stampede"
-	}
-	"special_bonus_unique_centaur_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "centaur_stampede"
-	}
-	"special_bonus_unique_centaur_7"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "centaur_stampede"
 	}
 
 	// Earth Spirit
@@ -5215,11 +5010,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"
-		{
-			"1"	"faceless_void_chronosphere"
-			"2" "faceless_void_time_zone"
-		}
+		"TalentRequiredAbility"                                                "faceless_void_chronosphere"
 	}
 	"special_bonus_unique_faceless_void_2"
 	{
@@ -5227,11 +5018,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"
-		{
-			"1"	"faceless_void_chronosphere"
-			"2" "faceless_void_time_zone"
-		}
+		"TalentRequiredAbility"                                                "faceless_void_chronosphere"
 	}
 	"special_bonus_unique_faceless_void_3"
 	{
@@ -5243,11 +5030,7 @@
 	}
 	"special_bonus_unique_faceless_void_4"   // Backtrack talent, still exists
 	{
-		"TalentRequiredAbility"
-		{
-			"1"	"faceless_void_chronosphere"
-			"2" "faceless_void_time_zone"
-		}
+		"TalentRequiredAbility"                                                "faceless_void_chronosphere"
 	}
 	"special_bonus_unique_faceless_void_5"
 	{
@@ -6019,14 +5802,6 @@
 
 		"TalentRequiredAbility"                                                   "phoenix_icarus_dive"
 	}
-	"special_bonus_unique_phoenix_blinding_sun_misschance"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "phoenix_blinding_sun"
-	}
 
 	// Puck
 	"special_bonus_unique_puck"
@@ -6202,56 +5977,6 @@
 		"TalentRequiredAbility"                                                   "queenofpain_sonic_wave"
 	}
 
-	// Razor
-	"special_bonus_unique_razor"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "razor_static_link"
-	}
-	"special_bonus_unique_razor_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "razor_eye_of_the_storm"
-	}
-	"special_bonus_unique_razor_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "razor_plasma_field"
-	}
-	"special_bonus_unique_razor_plasmafield_second_ring"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "razor_plasma_field"
-	}
-	"special_bonus_unique_razor_static_link_aspd"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "razor_static_link"
-	}
-	"special_bonus_unique_razor_storm_surge_damage_and_slow"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "razor_storm_surge"
-	}
-
 	// Riki
 	"special_bonus_unique_riki_1"
 	{
@@ -6326,14 +6051,6 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "rubick_telekinesis"
-	}
-	"special_bonus_unique_rubick_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "rubick_might_and_magus"
 	}
 	"special_bonus_unique_rubick_3"
 	{
@@ -6890,76 +6607,6 @@
 		"TalentRequiredAbility"                                                   "terrorblade_metamorphosis"
 	}
 
-	// Tidehunter
-	"special_bonus_unique_tidehunter"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "tidehunter_gush"
-	}
-	"special_bonus_unique_tidehunter_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "tidehunter_gush"
-	}
-	"special_bonus_unique_tidehunter_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "tidehunter_anchor_smash"
-	}
-	"special_bonus_unique_tidehunter_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "tidehunter_gush"
-	}
-	"special_bonus_unique_tidehunter_7"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "tidehunter_ravage"
-	}
-	"special_bonus_unique_tidehunter_10"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "tidehunter_anchor_smash"
-	}
-	"special_bonus_unique_tidehunter_ravage_cooldown"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "tidehunter_ravage"
-	}
-	"special_bonus_unique_tidehunter_smash_on_blubber"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"
-		{
-			"1"	"tidehunter_blubber"
-			"2"	"tidehunter_anchor_smash"
-		}
-	}
-
 	// Timbersaw
 	"special_bonus_unique_timbersaw"
 	{
@@ -7031,14 +6678,6 @@
 
 		"TalentRequiredAbility"                                                   "tinker_laser"
 	}
-	"special_bonus_unique_tinker_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "tinker_defense_matrix"
-	}
 	"special_bonus_unique_tinker_4"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -7055,14 +6694,6 @@
 
 		"TalentRequiredAbility"                                                   "tinker_keen_teleport"
 	}
-	"special_bonus_unique_tinker_7"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "tinker_defense_matrix"
-	}
 	"special_bonus_unique_tinker_march_duration"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -7070,14 +6701,6 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "tinker_march_of_the_machines"
-	}
-	"special_bonus_unique_tinker_defense_matrix_status_resistance"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "tinker_defense_matrix"
 	}
 
 	// Treant Protector
@@ -7402,64 +7025,6 @@
 		"TalentRequiredAbility"                                                   "ursa_maul"
 	}
 
-	// Venomancer
-	"special_bonus_unique_venomancer"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "venomancer_plague_ward"
-	}
-	"special_bonus_unique_venomancer_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "venomancer_poison_sting"
-	}
-	"special_bonus_unique_venomancer_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "venomancer_venomous_gale"
-	}
-	"special_bonus_unique_venomancer_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "venomancer_noxious_plague"
-	}
-	"special_bonus_unique_venomancer_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "venomancer_noxious_plague"
-	}
-	"special_bonus_unique_venomancer_8"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "venomancer_plague_ward"
-	}
-	"special_bonus_unique_venomancer_poisonsting_regen_reduction"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "venomancer_poison_sting"
-	}
-
 	// Visage
 	"special_bonus_unique_visage_1"
 	{
@@ -7500,14 +7065,6 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "visage_summon_familiars"
-	}
-	"special_bonus_unique_visage_8"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "visage_lurker"
 	}
 	"special_bonus_unique_visage_grave_chill_duration"
 	{

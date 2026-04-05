@@ -24,19 +24,31 @@
 	}
 
 	//=================================================================================================================
-	// Buckshot (Innate)
+	// Buckshot (old Innate)
 	//=================================================================================================================
 	"snapfire_buckshot"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "snapfire_boomstick"
 
-		"ReduxFlags"                                                           "attack_modifier"
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "attack_modifier | doNotRandom"
 		"ReduxPerks"                                                           "attack_modifier | scientific"
+	}
+
+	//=================================================================================================================
+	// Boomstick (current Innate)
+	//=================================================================================================================
+	"snapfire_boomstick"
+	{
+		"ReduxPerks"                                                           "explosive | scientific"
 	}
 
 	"snapfire_gobble_up"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 
 		"ReduxFlags"                                                           "doNotRandom | support | stun | upgradeable"
 		"ReduxPerks"                                                           "dragon | fire | skillshot | support"

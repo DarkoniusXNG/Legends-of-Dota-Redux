@@ -42,7 +42,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                    "jakiro_macropyre"
+        "BaseClass"                     "jakiro_macropyre"
         "AbilityType"                   "ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -76,7 +76,6 @@
 			"path_width"
 			{
 				"value"	"500"
-				"special_bonus_scepter"			"+70"
 				"affected_by_aoe_increase"	"1"
 			}
 			"duration"

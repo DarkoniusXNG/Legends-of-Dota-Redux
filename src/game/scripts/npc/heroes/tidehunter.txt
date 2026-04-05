@@ -1,0 +1,173 @@
+// Abilities for tidehunter
+"DOTAAbilities"
+{
+	"tidehunter_gush"
+	{
+		"ReduxFlags"                                                           "upgradeable"
+		"ReduxPerks"                                                           "water"
+	}
+
+	"tidehunter_kraken_shell"
+	{
+		"ReduxFlags"                                                           "tank"
+		"ReduxPerks"                                                           "water"
+		"ReduxCost"                                                            "10"
+	}
+
+	"tidehunter_anchor_smash"
+	{
+		"ReduxFlags"                                                           "physical | aoe_attack"
+		"ReduxPerks"                                                           "water | physical"
+		"ReduxCost"                                                            "10"
+	}
+
+	"tidehunter_ravage"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "water"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
+	}
+
+	"tidehunter_dead_in_the_water"
+	{
+		"ReduxFlags"					"stun"
+		"ReduxPerks"                    "water"
+
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"35 30 25 20"
+
+		"AbilityDamage"					"100 140 180 220"
+		"AbilityManaCost"				"110"
+		"AbilityValues"
+		{
+			"attacks_to_destroy"			"4"
+			"max_movement_speed"			"100"
+			"chain_length"					"350"
+			"duration"						"10"
+			"projectile_speed"				"1000"
+		}
+	}
+
+	"tidehunter_arm_of_the_deep"
+	{
+		"ReduxFlags"                    "stun | doNotRandom"
+		"ReduxPerks"                	"water"
+
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.3 0.3 0.3"
+		"AbilityCooldown"				"20 19 18 17"
+		"AbilityManaCost"				"80"
+		"AbilityValues"
+		{
+			"projectile_width"				"150 175 200 225"
+			"damage_pct"					"50 55 60 65"
+			"duration_pct"					"50 55 60 65"
+			"range_pct"						"75 80 85 90"
+		}
+	}
+
+	"tidehunter_blubber" // old Innate
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_tidehunter_perk"
+
+		"Innate"                                                               "0"
+		"MaxLevel"                                                             "4"
+
+		"ReduxFlags"                                                           "tank"
+		"ReduxPerks"                                                           "water"
+
+		"AbilityValues"
+		{
+			"damage_cleanse"
+			{
+				"value"		"500 450 400 350"
+			}
+			"smash_on_purge"
+			{
+				"special_bonus_unique_tidehunter_smash_on_blubber"		"50"
+			}
+			"damage_reset_interval"	"7.0"
+		}
+	}
+
+	"tidehunter_krill_eater" // current Innate
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "water"
+		"ReduxCost"                                                            "30"
+	}
+
+	// talents
+	"special_bonus_unique_tidehunter"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "tidehunter_gush"
+	}
+	"special_bonus_unique_tidehunter_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "tidehunter_gush"
+	}
+	"special_bonus_unique_tidehunter_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "tidehunter_anchor_smash"
+	}
+	"special_bonus_unique_tidehunter_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "tidehunter_gush"
+	}
+	"special_bonus_unique_tidehunter_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "tidehunter_ravage"
+	}
+	"special_bonus_unique_tidehunter_10"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "tidehunter_anchor_smash"
+	}
+	"special_bonus_unique_tidehunter_ravage_cooldown"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "tidehunter_ravage"
+	}
+	"special_bonus_unique_tidehunter_smash_on_blubber"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"
+		{
+			"1"	"tidehunter_kraken_shell"
+			"2"	"tidehunter_anchor_smash"
+		}
+	}
+}

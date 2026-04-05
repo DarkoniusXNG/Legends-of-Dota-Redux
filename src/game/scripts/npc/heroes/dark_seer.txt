@@ -30,43 +30,51 @@
 	}
 
 	//=================================================================================================================
-	// Aggrandize (Innate)
+	// Aggrandize (current Innate)
 	//=================================================================================================================
 	"dark_seer_aggrandize"
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
 		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxCost"                                                            "10"
 	}
 
 	//=================================================================================================================
-	// Quick Wit (Facet)
+	// Quick Wit (old Facet)
 	//=================================================================================================================
 	"dark_seer_quick_wit"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/npc_dota_hero_dark_seer_perk"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_dark_seer_perk"
 
-		"MaxLevel"						"4"
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
 
 		"AbilityValues"
 		{
 			"int_to_atkspd"				"1.0 1.2 1.4 1.6"
+			"attack_speed_tooltip"
+			{
+				"dynamic_value"						"true"
+			}
 		}
 	}
 
 	//=================================================================================================================
-	// Heart of Battle (Facet)
+	// Heart of Battle (old Facet)
 	//=================================================================================================================
 	"dark_seer_heart_of_battle"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/npc_dota_hero_dark_seer_perk"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_dark_seer_perk"
+
+		"MaxLevel"                                                             "4"
 
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility"
-
-		"MaxLevel"						"4"
 
 		"AbilityValues"
 		{
@@ -84,10 +92,10 @@
 	//=================================================================================================================
 	"dark_seer_mental_fortitude"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/npc_dota_hero_dark_seer_perk"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_dark_seer_perk"
 
-		"Innate"						"0"
+		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "doNotRandom"
 	}

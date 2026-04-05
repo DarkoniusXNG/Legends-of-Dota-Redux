@@ -46,7 +46,7 @@
 
 		"AbilityValues"
 		{
-				"fissure_radius"			"75 150 225 300"
+			"fissure_radius"			"75 150 225 300"
 		}
 	}
 

@@ -3,7 +3,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                    "juggernaut_omni_slash"
+        "BaseClass"                     "juggernaut_omni_slash"
         "AbilityType"                   "ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -23,10 +23,6 @@
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"              "0.3"
-
-        // Time
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "60" // this needs to be improved
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
@@ -56,6 +52,10 @@
 			"dispel"
 			{
 				"value"		"0"
+			}
+            "AbilityCooldown" // this needs to be improved
+			{
+				"value"			"60"
 			}
         }
     }

@@ -22,7 +22,7 @@
 	}
 
 	//=================================================================================================================
-	// Level ? Pain (Innate)
+	// Level ? Pain (current Innate)
 	//=================================================================================================================
 	"doom_bringer_lvl_pain"
 	{
@@ -30,26 +30,6 @@
 
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | demon"
-	}
-
-	//=================================================================================================================
-	// Devil's Bargain (Facet)
-	//=================================================================================================================
-	"doom_bringer_devils_bargain"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/npc_dota_hero_doom_bringer_perk"
-
-		"ReduxFlags"                                                           "doNotRandom"
-		"ReduxPerks"                                                           "demon | gold"
-
-		"MaxLevel"				"4"
-
-		"AbilityValues"
-		{
-			"buyback_penalty"	"20 15 10 5"
-			"item_sellback_percent"	"85 90 95 100"
-		}
 	}
 
 	"special_bonus_unique_doom_1"

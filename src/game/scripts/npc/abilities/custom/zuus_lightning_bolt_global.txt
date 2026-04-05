@@ -9,14 +9,18 @@
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
 
-        "AbilityCastRange"                                                     "0"
-        "AbilityCastPoint"                                                     "0.3 0.3 0.3 0.3"
-        "AbilityDamage"                                                        "140 220 300 380"
+        "AbilityCastRange"                                                     "0" // global cast range
+        "AbilityCastPoint"                                                     "0.3"
+
         "AbilityCooldown"                                                      "6.0"
         "AbilityManaCost"                                                      "120 125 130 135"
 
         "AbilityValues"
         {
+            "damage"
+            {
+                "value"				"140 220 300 380"
+            }
             "true_sight_radius"
             {
                 "value"		"1500"
@@ -35,12 +39,12 @@
             "sight_duration"		"5"
             "spread_aoe"
             {
-                "value"			"500"
+                "value"			"325"
                 "affected_by_aoe_increase"	"1"
             }
             "ministun_duration"
             {
-                "value"			"0.5 0.7 0.9 1.1"
+                "value"			"0.35"
                 "special_bonus_unique_zeus_3" "+0.5"
             }
             "creep_damage_bonus_pct"		"0"

@@ -125,6 +125,50 @@
 		}
 	}
 
+	//=================================================================================================================
+	// Anti-Mage: Mana Thirst (Unknown)
+	//=================================================================================================================
+	"antimage_mana_thirst"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"MaxLevel"						"1"
+		"Innate"						"0"
+
+		"ReduxFlags"                    "mana"
+
+		"AbilityValues"
+		{
+			"thirst_range"
+			{
+				"value"						"2000"
+				"affected_by_aoe_increase"	"1"
+			}
+			"threshold_pct"
+			{
+				"value"						"15"
+			}
+			"min_bonus_pct"
+			{
+				"value"						"60"
+			}
+			"max_bonus_pct"
+			{
+				"value"						"15"
+			}
+			"bonus_attack_damage"
+			{
+				"hero_levelup"						"+3"
+				"CalculateSpellDamageTooltip"		"0"
+				"DamageTypeTooltip"					"DAMAGE_TYPE_PHYSICAL"
+			}
+			"linger_duration"
+			{
+				"value"						"4.0"
+			}
+		}
+	}
+
 	"special_bonus_unique_antimage_2"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
