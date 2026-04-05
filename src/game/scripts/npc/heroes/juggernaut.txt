@@ -95,7 +95,15 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "juggernaut_duelist"
+		"TalentRequiredAbility"                                                   "juggernaut_bladeform"
+	}
+	"special_bonus_unique_juggernaut_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "juggernaut_blade_dance"
 	}
 	"special_bonus_unique_juggernaut_5"
 	{
@@ -136,5 +144,13 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "juggernaut_healing_ward"
+	}
+	"special_bonus_unique_juggernaut_omnislash_cooldown"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "juggernaut_omni_slash"
 	}
 }
