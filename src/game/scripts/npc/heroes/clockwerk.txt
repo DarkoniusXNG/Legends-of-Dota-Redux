@@ -33,19 +33,26 @@
 		"AbilityCooldown"				"50 45 40 35"
 		"AbilityValues"
 		{
-			"buff_duration"					"13"
+			"buff_duration"					"18"
 			"bonus_movement_speed"			"0"
-			"bonus_attack_speed"			"250 275 300 325"
-			"debuff_duration"				"3.0 2.5 2.0 1.5"
+			"bonus_attack_speed"			"0"
+			"debuff_duration"				"3"
+			"bonus_armor_pct"				"25 35 45 55"
+			"battery_assault_radius"		"330"			//note - currently implemented as tooltip only, change in actual ability
+			"cogs_radius"					"330"			//note - currently implemented as tooltip only, change in actual ability
+
 			"hookshot_damage_bonus_pct"		"0"
 			"hookshot_radius_bonus_pct"		"50 60 70 80"
 			"hookshot_duration_bonus_pct"	"50 60 70 80"
 			"rocket_flare_interval"				"0.15"
-			"rocket_flare_offset_pct"		"125 110 95 80"
-			"rocket_flare_rockets"				"2 3 4 5"
-			"rocket_flare_cooldown"				"3.5"
+			"rocket_flare_offset_pct"		"125"
+			"rocket_flare_rockets"				"2"
+			//"rocket_flare_cooldown"				"4.0"
+			"rocket_flare_duration_pct"			"35 45 55 65"
+			"rocket_flare_damage_pct"			"35 45 55 65"
+			
 			"jetpack_bonus_speed"			"40"
-			"jetpack_turn_rate"				"75 100 125 150"
+			"jetpack_turn_rate"				"75"
 		}
 	}
 
@@ -96,6 +103,7 @@
 
 		"TalentRequiredAbility"                                                   "rattletrap_battery_assault"
 	}
+
 	"special_bonus_unique_clockwerk_2"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -104,6 +112,7 @@
 
 		"TalentRequiredAbility"                                                   "rattletrap_power_cogs"
 	}
+
 	"special_bonus_unique_clockwerk_3"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -112,6 +121,7 @@
 
 		"TalentRequiredAbility"                                                   "rattletrap_battery_assault"
 	}
+
 	"special_bonus_unique_clockwerk_4"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -120,14 +130,16 @@
 
 		"TalentRequiredAbility"                                                   "rattletrap_rocket_flare"
 	}
+
 	"special_bonus_unique_clockwerk_5"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "rattletrap_power_cogs"
+		"TalentRequiredAbility"                                                   "rattletrap_hookshot"
 	}
+
 	"special_bonus_unique_clockwerk_6"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -136,6 +148,7 @@
 
 		"TalentRequiredAbility"                                                   "rattletrap_power_cogs"
 	}
+
 	"special_bonus_unique_clockwerk_7"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -144,6 +157,7 @@
 
 		"TalentRequiredAbility"                                                   "rattletrap_rocket_flare"
 	}
+
 	"special_bonus_unique_clockwerk_hookshot_damage"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -151,5 +165,23 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "rattletrap_hookshot"
+	}
+
+	"special_bonus_unique_clockwerk_flare_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rattletrap_rocket_flare"
+	}
+
+	"special_bonus_unique_clockwerk_rocket_flare_charges"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rattletrap_rocket_flare"
 	}
 }
