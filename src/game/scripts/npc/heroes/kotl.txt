@@ -1,0 +1,345 @@
+"DOTAAbilities"
+{
+ 	//=================================================================================================================
+	// Keeper of the Light: Illuminate
+	//=================================================================================================================
+	"keeper_of_the_light_illuminate"
+	{
+		"ReduxPerks"                  	"light | channeled | skillshot"
+	}
+
+	//=================================================================================================================
+	// Keeper of the Light: Mana Leak
+	//=================================================================================================================
+	"keeper_of_the_light_mana_leak"
+	{
+		"ReduxFlags"                   	"stun | mana"
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"13 12 11 10"
+		"AbilityManaCost"				"120"
+		"AbilityCastRange"				"650 700 750 800"
+		"AbilityValues"
+		{
+			"duration"
+			{
+				"value" "5.0"
+			}
+			"mana_leak_pct"
+			{
+				"value" "6 6.5 7 7.5"
+			}
+			"stun_duration"
+			{
+				"value" "2 2.25 2.5 2.75"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Keeper of the Light: Radiant Bind
+	//=================================================================================================================
+	"keeper_of_the_light_radiant_bind"
+	{
+		"ReduxPerks"                    "light"
+
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"MaxLevel"						"4"
+
+		"AbilityManaCost"				"120"
+		"AbilityCastRange"				"850"
+		"AbilityValues"
+		{
+			"duration"					"6"
+			"slow"						"10 12 14 16"
+			"magic_resistance"			
+			{
+				"value"				"20 30 40 50"
+				"special_bonus_unique_keeper_of_the_light_3"			"+10"
+			}
+			"stun_duration"			
+			{
+				"value"			"0"
+			}
+			"AbilityCooldown"			
+			{
+				"value"					"14 13 12 11"
+				"special_bonus_shard"		"=0"
+			}
+			"AbilityChargeRestoreTime"			
+			{
+				"value"					"0"
+				"special_bonus_shard"		"=14 =13 =12 =11"
+			}
+			"AbilityCharges"
+			{
+				"value"					"0"
+				"special_bonus_shard"		"=2"
+			}
+		}
+	}	
+
+	//=================================================================================================================
+	// Keeper of the Light: Will-O-Wisp
+	//=================================================================================================================
+	"keeper_of_the_light_will_o_wisp"
+	{
+		"ReduxFlags"                    "upgradeable"
+		"ReduxPerks"                    "light | enemymoving"
+		"MaxLevel"						"4"
+		"IsGrantedByScepter"			"1"
+		"HasScepterUpgrade"				"1"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"150"		
+		"AbilityCastRange"				"800"
+		"AbilityValues"
+		{
+				"on_count"					"5"
+				"radius"					
+				{
+					"value"					"725"
+					"affected_by_aoe_increase"	"1"
+				}
+				"hit_count"					"7 8 9 10"
+				"wisp_damage"				"85 95 105 115"
+				"off_duration"				"1.85 1.7 1.55 1.4"
+				"on_duration"				"1.0"
+				"off_duration_initial"		"1.0"
+				"fixed_movement_speed"		"60"
+				"bounty"		"100"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}	
+
+	//=================================================================================================================
+	// Keeper of the Light: Chakra Magic
+	//=================================================================================================================
+	"keeper_of_the_light_chakra_magic"
+	{
+		"ReduxFlags"          		"support | cooldown | mana"
+		"ReduxPerks"                "support"
+	}
+
+	//=================================================================================================================
+	// Keeper of the Light: Empty 1
+	//=================================================================================================================
+	"keeper_of_the_light_empty1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"0"
+	}
+
+	//=================================================================================================================
+	// Keeper of the Light: Empty 2
+	//=================================================================================================================
+	"keeper_of_the_light_empty2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"0"
+	}
+
+	//=================================================================================================================
+	// Keeper of the Light: Spirit Form
+	//=================================================================================================================
+	"keeper_of_the_light_spirit_form"
+	{
+		"ReduxPerks"           	"light"
+		"ReduxFlags"            "doNotRandom"
+	}
+
+	//=================================================================================================================
+	// Keeper of the Light: Recall
+	//=================================================================================================================
+	"keeper_of_the_light_recall"
+	{
+		"ReduxFlags"               		"support | doNotRandom"
+		"ReduxPerks"                   	"support | light | teleport"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"MaxLevel"						"4"
+		"AbilityManaCost"				"150"
+		"AbilityValues"
+		{
+			"teleport_delay"
+			{
+				"value"							"6 5 4 3"
+			}
+			"movespeed_bonus_duration"			"4 5 6 7"
+			"ally_movespeed_pct"
+			{
+				"value"							"12 16 20 24"
+			}
+			"AbilityCooldown"
+			{
+				"value"							"30 27 24 21"
+			}
+			"AbilityChargeRestoreTime"
+			{
+				"value"							"0 0 0"
+			}
+			"AbilityCharges"
+			{
+				"value"							"0"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Keeper of the Light: Blinding Light
+	//=================================================================================================================
+	"keeper_of_the_light_blinding_light"
+	{
+		"ReduxPerks"           		"light | enemymoving"
+	}
+
+	//=================================================================================================================
+	// Keeper of the Light: Illuminate End
+	//=================================================================================================================
+	"keeper_of_the_light_illuminate_end"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+ 		"AbilityCastAnimation"			"ACT_INVALID"
+	}
+
+	
+	//=================================================================================================================
+	// Keeper of the Light: Illuminate End
+	//=================================================================================================================
+	"keeper_of_the_light_mana_magnifier"
+	{
+		"ReduxFlags"                    "mana | support"
+		"ReduxPerks"                    "aura | support"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_keeper_of_the_light_perk"
+		"MaxLevel"						"4"
+		"Innate"						"0"
+
+		"AbilityValues"
+		{
+			"aura_radius"	
+			{
+				"value"		"900"
+				"affected_by_aoe_increase"	"1"
+			}
+			"bonus_mana_pct"	"15 20 25 30"
+		}
+	}
+
+	//=================================================================================================================
+	// Keeper of the Light: Special Reserve
+	//=================================================================================================================
+	"keeper_of_the_light_special_reserve"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_keeper_of_the_light_perk"
+
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+
+		"AbilityValues"
+		{
+			"minimum_mana"				"75 85 95 105"
+		}
+	}
+
+	//=================================================================================================================
+	// Keeper of the Light: Bright Speed
+	//=================================================================================================================
+	"keeper_of_the_light_bright_speed"
+	{
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"MaxLevel"						"1"
+		"Innate"						"1"
+
+		"AbilityValues"
+		{
+			"intelligence_per_speed"				"2.5"
+			"movement_per_vision"					"300"
+			"vision_radius"							"400"
+			"vision_duration"						"3.0"
+			"current_speed"
+			{
+				"dynamic_value"		"true"
+			}
+		}
+	}
+	
+	// KOTL
+	"special_bonus_unique_keeper_of_the_light"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "keeper_of_the_light_illuminate"
+	}
+	"special_bonus_unique_keeper_of_the_light_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "keeper_of_the_light_chakra_magic"
+	}
+	"special_bonus_unique_keeper_of_the_light_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "keeper_of_the_light_blinding_light"
+	}
+	"special_bonus_unique_keeper_of_the_light_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "keeper_of_the_light_chakra_magic"
+	}
+	"special_bonus_unique_keeper_of_the_light_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "keeper_of_the_light_blinding_light"
+	}
+	"special_bonus_unique_keeper_of_the_light_11"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "keeper_of_the_light_spirit_form"
+	}
+	"special_bonus_unique_keeper_of_the_light_14"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "keeper_of_the_light_chakra_magic"
+	}
+	"special_bonus_unique_keeper_of_the_light_illuminate_cooldown"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "keeper_of_the_light_illuminate"
+	}
+}
