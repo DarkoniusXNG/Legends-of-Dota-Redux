@@ -10,7 +10,7 @@
         {
 			"burn_amount"
 			{
-				"value" "35 40 45 50"
+				"value" "30 40 50 60"
 			}
 			"burn_damage_conversion"
 			{

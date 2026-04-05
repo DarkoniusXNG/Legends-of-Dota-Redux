@@ -37,25 +37,35 @@
 	}
 
 	//=================================================================================================================
-	// Cutpurse (Facet)
+	// Cutpurse (old Facet)
 	//=================================================================================================================
 	"bounty_hunter_cutpurse"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires Track
-		"AbilityTextureName"            "custom/npc_dota_hero_bounty_hunter_perk"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_bounty_hunter_perk"
 
+		"MaxLevel"                                                             "4"
 		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "gold"
+
+		"AbilityValues"
+		{
+			"gold_steal"
+			{
+				"value"							"10 15 20 25"
+				"hero_levelup"					"+1"
+			}
+		}
 	}
 
 	//=================================================================================================================
-	// Big Game Hunter (Innate)
+	// Big Game Hunter (current Innate)
 	//=================================================================================================================
 	"bounty_hunter_big_game_hunter"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		//"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "gold"

@@ -9,9 +9,10 @@
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitTargetFlags"                                               "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"                                                 "SPELL_DISPELLABLE_NO"
 
         "AbilityCastPoint"                                                     "0.05"
-        "AbilityManaCost"                                                      "70"
+        "AbilityManaCost"                                                      "70 85 100 115"
         "AbilityCastRange"                                                     "1200 2000 2800 3600"
         "AbilityValues"
 		{
@@ -21,7 +22,6 @@
 			"AbilityCooldown"
 			{
 				"value"									"18 16 14 12"
-				"special_bonus_unique_disruptor_4"		"-12"
 			}
 			"min_damage"				"75 150 225 300"
 			"max_damage"
@@ -32,7 +32,7 @@
 			"damage_to_distance_pct"
 			{
 				"value"					"30 45 60 75"
-				"special_bonus_unique_disruptor_9"				"+10"
+				"special_bonus_unique_disruptor_9"				"+15"
 			}
 		}
 

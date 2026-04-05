@@ -3,7 +3,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                            "skywrath_mage_mystic_flare"
+        "BaseClass"                     "skywrath_mage_mystic_flare"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
@@ -41,8 +41,7 @@
 			"duration"				"2.0"
 			"damage"
 			{
-				"value"			"3200"
-				"special_bonus_unique_skywrath_5" "+400"
+				"value"			"8000"
 			}
 			"damage_interval"		"0.1"
 			"scepter_radius"

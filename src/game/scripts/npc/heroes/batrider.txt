@@ -11,7 +11,7 @@
 	}
 
 	//=================================================================================================================
-	// Batrider: Smoldering Resin (Innate)
+	// Batrider: Smoldering Resin (current Innate)
 	//=================================================================================================================
 	"batrider_smoldering_resin"
 	{
@@ -22,15 +22,17 @@
 	}
 
 	//=================================================================================================================
-	// Batrider: Stoked (Facet)
+	// Batrider: Stoked (old Facet)
 	//=================================================================================================================
 	"batrider_stoked"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE" // it requires Flaming Lasso
-		"AbilityTextureName"            "custom/npc_dota_hero_batrider_perk"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_batrider_perk"
 
-		"ReduxFlags"                    "doNotRandom | mobility"
-		"ReduxPerks"                    "enemymoving | mobility"
+		"MaxLevel"                                                             "4"
+
+		"ReduxFlags"                                                           "doNotRandom | mobility"
+		"ReduxPerks"                                                           "enemymoving | mobility"
 
 		"AbilityValues"
 		{

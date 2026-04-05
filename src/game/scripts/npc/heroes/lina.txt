@@ -43,44 +43,49 @@
 	}
 
 	//=================================================================================================================
-	// Slow Burn (Facet)
+	// Slow Burn (current Innate)
 	//=================================================================================================================
 	"lina_slow_burn"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/npc_dota_hero_lina_perk"
-
-		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "fire"
-		//"ReduxBans"                                                            "batrider_sticky_napalm"
-		"ReduxCost"                                                            "30"
-
-		"MaxLevel"						"4"
-
-		"AbilityValues"
-		{
-			"impact_damage_pct"						"60 65 70 75"
-			"burn_damage_pct"						"65 70 75 80"
-			"total_damage_tooltip"					"125 135 145 155"
-
-			"burn_duration" // changing this to be independed from the facet made it work for other heroes
-			{
-				"value"		"3"
-			}
-		}
+		"ReduxBans"                                                            "batrider_sticky_napalm"
+		"ReduxCost"                                                            "40"
 	}
 
 	//=================================================================================================================
-	// Combustion (Innate)
+	// Combustion (old Innate)
 	//=================================================================================================================
 	"lina_combustion"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_lina_perk"
+
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "aoe_attack"
 		"ReduxPerks"                                                           "explosive | fire"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 		"ReduxCost"                                                            "30"
+
+		"AbilityValues"
+		{
+			"damage_threshold"			"175"
+			"damage"
+			{
+				"value"							"15 35 55 75"
+			}
+			"damage_illusions"
+			{
+				"value"							"10 15 20 25"
+			}
+			"damage_aoe"
+			{
+				"value"					"400"
+				"affected_by_aoe_increase"	"1"
+			}
+			"duration"					"6"
+		}
 	}
 
 	"special_bonus_unique_lina_1"

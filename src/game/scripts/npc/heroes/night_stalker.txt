@@ -19,7 +19,7 @@
 	}
 
 	//=================================================================================================================
-	// Night Stalker: Hunter in the Night
+	// Night Stalker: Hunter in the Night (current Innate)
 	//=================================================================================================================
 	"night_stalker_hunter_in_the_night"
 	{
@@ -37,25 +37,58 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Heart of Darkness (Innate)
+	// Night Stalker: Midnight Feast
 	//=================================================================================================================
-	"night_stalker_heart_of_darkness"
+	"night_stalker_midnight_feast"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-
-		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxFlags"                                                           "attack_modifier | mana"
+		"ReduxPerks"                                                           "attack_modifier | demon | drain"
 	}
 
 	//=================================================================================================================
-	// Ability: Night Reign (Facet) - do not change, it can mess up Roshan
+	// Ability: Heart of Darkness (old Innate)
+	//=================================================================================================================
+	"night_stalker_heart_of_darkness"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_night_stalker_perk"
+
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom | mana | tank"
+
+		"AbilityValues"
+		{
+			"hp_regen_during_night_pct"
+			{
+				"value"								"20 25 30 35"
+			}
+			"hp_regen_during_day_pct"				"10 5 0 0"
+			"affects_mana_regen"
+			{
+				"special_bonus_shard"				"1"
+			}
+			"nighttime_increase"
+			{
+				"special_bonus_shard"				"45"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Night Reign (old Facet) - do not change, it can mess up Roshan
 	//=================================================================================================================
 	"night_stalker_night_reign"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/npc_dota_hero_night_stalker_perk"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_night_stalker_perk"
+
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "doNotRandom"
-		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"daytime_start" 	".75"

@@ -1,0 +1,166 @@
+// Abilities for venomancer
+"DOTAAbilities"
+{
+	"venomancer_venomous_gale"
+	{
+		"ReduxPerks"                                                           "poison | skillshot"
+	}
+
+	"venomancer_plague_ward"
+	{
+		"ReduxPerks"                                                           "poison | summon_non_ult"
+		"ReduxFlags"                                                           "summon"
+	}
+
+	"venomancer_noxious_plague"
+	{
+		"ReduxPerks"                                                           "poison"
+	}
+
+	"venomancer_poison_sting" // current Innate
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | poison"
+		"ReduxCost"                                                            "10"
+	}
+
+	"venomancer_sepsis" // old Innate
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_venomancer_perk"
+
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "upgradeable"
+		"ReduxPerks"                                                           "poison"
+
+		"AbilityValues"
+		{
+			"bonus_dmg_per_debuff_pct"
+			{
+				"value"						"8 9 10 11"
+				"special_bonus_scepter"		"+15"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
+			}
+			"apply_from_ward_attacks"
+			{
+				"value"												"0"
+				"special_bonus_shard"		"=1"
+			}
+		}
+	}
+
+	"venomancer_poison_nova"
+	{
+		"ReduxPerks"                                                           "poison"
+
+		"MaxLevel"                                                             "3"
+
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"		"950 1050 1150"
+				"affected_by_aoe_increase"	"1"
+			}
+			"start_radius"				"255"
+			"damage_base"				"35 50 65"
+			"hp_damage"
+			{	
+				"value"					"3 3.5 4"
+			}
+			"magic_resist_reduce"		"0"
+			"duration"					"12"
+			"speed"						"550"
+			"attack_slow"
+			{
+				"value"					"0"
+			}
+		}
+	}
+
+	"venomancer_latent_poison"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "poison"
+
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"20 18 16 14"
+		"AbilityManaCost"				"75"
+		"AbilityValues"
+		{
+			"duration_damage"
+			{
+				"value"					"20 28 36 44"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"movement_slow"			"-10 -15 -20 -25"
+			"projectile_speed"		"1800"
+			"damage_interval"		"1.0"
+			"duration"				"7 9 11 13"
+			"explosion_damage"		"300 350 400 450"
+			"explosion_stun_duration"	"1.6 1.9 2.2 2.5"
+		}
+	}
+
+	// talents
+	"special_bonus_unique_venomancer"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "venomancer_plague_ward"
+	}
+	"special_bonus_unique_venomancer_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "venomancer_poison_sting"
+	}
+	"special_bonus_unique_venomancer_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "venomancer_venomous_gale"
+	}
+	"special_bonus_unique_venomancer_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "venomancer_noxious_plague"
+	}
+	"special_bonus_unique_venomancer_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "venomancer_noxious_plague"
+	}
+	"special_bonus_unique_venomancer_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "venomancer_plague_ward"
+	}
+	"special_bonus_unique_venomancer_poisonsting_regen_reduction"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "venomancer_poison_sting"
+	}
+}

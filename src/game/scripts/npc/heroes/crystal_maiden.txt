@@ -72,13 +72,13 @@
 	}
 
 	//=================================================================================================================
-	// Blueheart Floe (Innate)
+	// Glacial Guard (current Innate)
 	//=================================================================================================================
-	"crystal_maiden_blueheart_floe"
+	"crystal_maiden_glacial_guard"
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
-		"ReduxFlags"                                                           "doNotRandom | mana"
+		"ReduxFlags"                                                           "mana | tank"
 		"ReduxPerks"                                                           "ice"
 	}
 

@@ -11,7 +11,7 @@
 		"AbilityCastRange" "300"
 		"AbilityCastPoint" "0.3"
 
-		"ReduxPerks"                                                           "demon | gold"
+		"ReduxPerks"                                                           "demon | drain | gold"
 
 		"precache"
 		{

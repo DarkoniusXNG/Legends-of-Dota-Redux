@@ -1047,7 +1047,7 @@ function modifier_imba_guardian_angel_shield:OnTakeDamage(keys)
 
             -- If the damage was magical, reduce damage according to magical resistance
             elseif damage_type == DAMAGE_TYPE_MAGICAL then
-                local magic_res = self.parent:Script_GetMagicalArmorValue(false, self.ability)
+                local magic_res = self.parent:Script_GetMagicalArmorValue(self.ability)
                 damage = original_damage * (1 - magic_res)
 
             -- Physical damage

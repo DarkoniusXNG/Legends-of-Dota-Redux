@@ -3,7 +3,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                    "crystal_maiden_freezing_field"
+        "BaseClass"                     "crystal_maiden_freezing_field"
         "AbilityType"                   "ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
@@ -68,11 +68,11 @@
 			}
 			"self_cast_range_bonus"
 			{
-				"special_bonus_facet_crystal_maiden_frozen_expanse"		"75"
+				"value"						"0"
 			}
 			"aoe_bonus"
 			{
-				"special_bonus_facet_crystal_maiden_frozen_expanse"		"6"
+				"value"						"0"
 			}
 		}
     }

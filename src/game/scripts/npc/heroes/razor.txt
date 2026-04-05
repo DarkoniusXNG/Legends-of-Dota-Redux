@@ -1,0 +1,94 @@
+"DOTAAbilities"
+{
+	"razor_plasma_field"
+	{
+		"ReduxPerks"                                                           "lightning"
+	}
+
+	"razor_static_link"
+	{
+		"ReduxPerks"                                                           "lightning | drain"
+	}
+
+	"razor_storm_surge"
+	{
+		"ReduxPerks"                                                           "lightning"
+	}
+
+	"razor_eye_of_the_storm"
+	{
+		"ReduxFlags"                                                           "upgradeable | physical | wtfAutoBan"
+		"ReduxPerks"                                                           "lightning | physical"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	"razor_unstable_current" // current Innate
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "lightning | mobility"
+	}
+
+	"razor_dynamo" // old Facet
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_razor_perk"
+
+		"MaxLevel"                                                             "4"
+
+		"AbilityValues"
+		{
+			"spell_amp_damage_divisor"	"20"
+			"spell_amp_mult"			"1.25 1.5 1.75 2.0"
+		}
+	}
+
+	// talents
+	"special_bonus_unique_razor"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "razor_static_link"
+	}
+	"special_bonus_unique_razor_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "razor_eye_of_the_storm"
+	}
+	"special_bonus_unique_razor_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "razor_plasma_field"
+	}
+	"special_bonus_unique_razor_plasmafield_second_ring"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "razor_plasma_field"
+	}
+	"special_bonus_unique_razor_static_link_aspd"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "razor_static_link"
+	}
+	"special_bonus_unique_razor_storm_surge_damage_and_slow"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "razor_storm_surge"
+	}
+}

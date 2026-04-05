@@ -12,16 +12,16 @@
         "SpellDispellableType"                                                 "SPELL_DISPELLABLE_NO"
         "AbilityCastRange"                                                     "0"
         "AbilityCastPoint"                                                     "0.6"
-        "AbilityCooldown"                                                      "60 40 20"
-        "AbilityManaCost"                                                      "100"
+        "AbilityCooldown"                                                      "60 40 20" // this needs to be improved
+        "AbilityManaCost"                                                      "100 200 300"
         "AbilityValues"
         {
-            "radius"
+            "radius" // this needs to be improved
             {
                 "value"                     "3000"
                 "affected_by_aoe_increase"	"1"
             }
-            "teleport_delay"				"3 2 1"
+            "teleport_delay"				"3 2 1" // this needs to be improved
             "scepter_health_bonus"
             {
                 "special_bonus_scepter"	"+1000 +1500 +2000"

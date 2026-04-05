@@ -25,19 +25,21 @@
 	}
 
 	//=================================================================================================================
-	// Soul Strike (Facet)
+	// Soul Strike (old Facet)
 	//=================================================================================================================
 	"vengefulspirit_soul_strike"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_vengefulspirit_perk"
 
+		"Innate"                                                               "0"
+
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | undead"
 	}
 
 	//=================================================================================================================
-	// Retribution (Innate)
+	// Retribution (current Innate)
 	//=================================================================================================================
 	"vengefulspirit_retribution"
 	{

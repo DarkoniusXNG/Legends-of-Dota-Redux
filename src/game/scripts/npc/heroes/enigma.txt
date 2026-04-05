@@ -26,12 +26,31 @@
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 
-	"enigma_gravity_well"
+	"enigma_gravity_well" // old Innate
 	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_enigma_perk"
+
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "aura | support"
+
+		"AbilityValues"
+		{
+			"max_dist"
+			{
+				"value"		"500"
+				"affected_by_aoe_increase"	"1"
+			}
+			"min_dist"
+			{
+				"value"		"200"
+				"affected_by_aoe_increase"	"1"
+			}
+			"damage_reduction"	"11 13 15 17"
+		}
 	}
 
 	"enigma_splitting_image" // Requires enigma_demonic_conversion to work
@@ -39,10 +58,10 @@
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_enigma_perk"
 
+		"MaxLevel"                                                             "4"
+
 		"ReduxFlags"                                                           "doNotRandom | summon"
 		"ReduxPerks"                                                           "summon_non_ult | demon"
-
-		"MaxLevel"						"4"
 
 		"AbilityValues"
 		{
@@ -53,11 +72,8 @@
 		}
 	}
 
-	"enigma_event_horizon"
+	"enigma_event_horizon" // current Innate
 	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_enigma_perk"
-
 		"ReduxPerks"                                                           "aura"
 	}
 

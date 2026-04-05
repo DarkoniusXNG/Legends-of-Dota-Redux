@@ -4,74 +4,28 @@
     {
         "BaseClass"                                                            "dragon_knight_dragon_blood"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/dragon_knight_dragon_blood_OP"
+
         "MaxLevel"                                                             "4"
-        "AbilityTextureName"                                                   "custom/dragon_knight_dragon_blood_OP"
+		"Innate"                                                               "0"
+
         "AbilityValues"
 		{
-			// GREEN DRAGON
-			"is_green_dragon"
+			"health_regen"
 			{
-				"value"							"0"
-				"special_bonus_facet_dragon_knight_corrosive_dragon"		"+1"
+				"value"							"4"
+				"hero_levelup"					"+1"
+				"special_bonus_unique_dragon_knight" "+12"
 			}
-			"corrosive_breath_damage"
+			"armor"
 			{
-				"value"							"10 20 30 40"
-				"RequiresFacet"				"dragon_knight_corrosive_dragon"
+				"value"							"4"
+				"hero_levelup"					"+1"
+				"special_bonus_unique_dragon_knight" "+12"
 			}
-			"corrosive_breath_duration"
+			"regen_and_armor_multiplier_during_dragon_form"
 			{
-				"value"							"3"
-				"RequiresFacet"				"dragon_knight_corrosive_dragon"
-			}
-			"corrosive_breath_armor_reduction"
-			{
-				"value"							"2 4 6 8"
-				"RequiresFacet"				"dragon_knight_corrosive_dragon"
-			}
-
-			// RED DRAGON
-			"is_red_dragon"
-			{
-				"value"							"0"
-				"special_bonus_facet_dragon_knight_fire_dragon"		"+1"
-			}
-			"magic_damage"
-			{
-				"value"			"20 30 40 50"
-				"RequiresFacet"				"dragon_knight_fire_dragon"
-			}
-			"bonus_aoe"
-			{
-				"value"							"75 100 125 150"
-				"RequiresFacet"				"dragon_knight_fire_dragon"
-			}
-
-			// BLUE DRAGON
-			"is_blue_dragon"
-			{
-				"value"							"0"
-				"special_bonus_facet_dragon_knight_frost_dragon"		"+1"
-			}
-			"frost_bonus_movement_speed"	
-			{
-				"value"				"-20 -25 -30 -35"
-				"RequiresFacet"	"dragon_knight_frost_dragon"
-			}
-			"frost_bonus_attack_speed"		
-			{
-				"value"				"-20 -30 -40 -50"
-				"RequiresFacet"	"dragon_knight_frost_dragon"
-			}
-			"frost_duration"
-			{
-				"value"				"3.0"
-				"RequiresFacet"	"dragon_knight_frost_dragon"
-			}
-			"frost_healing_reduction"		
-			{
-				"value"				"20 30 40 50"
-				"RequiresFacet"	"dragon_knight_frost_dragon"
+				"value"							"50"
 			}
 		}
 

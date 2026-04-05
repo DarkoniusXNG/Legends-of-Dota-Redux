@@ -21,29 +21,7 @@
 	}
 
 	//=================================================================================================================
-	// Abaddon: The Quickening (Facet)
-	//=================================================================================================================
-	"abaddon_the_quickening"
-	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/npc_dota_hero_abaddon_perk"
-		"MaxLevel"						"4"
-		"ReduxFlags"                    "cooldown"
-
-		"AbilityValues"
-		{
-			"cooldown_reduction_creeps"		"0.2 0.3 0.4 0.5"
-			"cooldown_reduction_heroes"		"5.0 6.0 7.0 8.0"
-			"radius"
-			{
-				"value"		"900"
-				"affected_by_aoe_increase"	"1"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Abaddon: Withering Mist (Innate)
+	// Abaddon: Withering Mist (current Innate)
 	//=================================================================================================================
 	"abaddon_withering_mist"
 	{

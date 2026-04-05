@@ -28,11 +28,13 @@
 
 	"tiny_tree_channel"
 	{
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+
+		"MaxLevel"						"4"
+
 		"ReduxFlags"					"aoe_attack"
 		"ReduxPerks"					"nature | channeled"
 
-		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"MaxLevel"						"4"
 		"AbilityChannelTime"			"2.5 2.75 3.0 3.25"
 		"AbilityCooldown"				"17 16 15 14"
 		"AbilityManaCost"				"200"
@@ -55,14 +57,26 @@
 	}
 
 	//=================================================================================================================
-	// Craggy Exterior (Innate)
+	// Craggy Exterior (old Innate)
 	//=================================================================================================================
 	"tiny_craggy_exterior"
 	{
-		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		//"AbilityTextureName"                                                   "custom/npc_dota_hero_tiny_perk"
+
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "tank"
 		"ReduxPerks"                                                           "earth"
+
+		"AbilityValues"
+		{
+			"debuff_duration"						"5"
+			"damage"								"0"
+			"max_stacks"							"10"
+			"damage_reduction_per_stack"					"2 3 4 5"
+		}
 	}
 
 	//=================================================================================================================
@@ -73,11 +87,11 @@
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_tiny_perk"
 
+		"MaxLevel"                                                             "4"
 		"Innate"                                                               "0"
 
+		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "earth"
-
-		"MaxLevel"			"4"
 
 		"AbilityValues"
 		{
@@ -87,24 +101,11 @@
 	}
 
 	//=================================================================================================================
-	// Insurmountable (Facet)
+	// Insurmountable (current Innate)
 	//=================================================================================================================
 	"tiny_insurmountable"
 	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_tiny_perk"
-
-		"Innate"                                                               "0"
-
 		"ReduxPerks"                                                           "earth"
-
-		"MaxLevel"						"4"
-
-		"AbilityValues"
-		{
-			"str_to_slow_resist_pct"			"20 25 30 35"
-			"str_to_status_resist_pct"			"10 12 14 16"
-		}
 	}
 
 	"special_bonus_unique_tiny"

@@ -15,8 +15,8 @@
 
 	"sniper_take_aim"
 	{
-		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "ranger"
+		"ReduxCost"                                                            "30"
 	}
 
 	"sniper_assassinate"
@@ -73,7 +73,7 @@
 
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | ranger"
-		"ReduxCost"                                                            "10" // free attack range but dependent on Assassinate
+		"ReduxCost"                                                            "10"
 	}
 
 	"special_bonus_unique_sniper_1"

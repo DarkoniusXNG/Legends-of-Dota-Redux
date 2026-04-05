@@ -9,10 +9,10 @@
         "AbilityTextureName"                                                   "custom/disruptor_kinetic_field_OP"
         "AbilityCastPoint"                                                     "0.05"
         "AbilityManaCost"                                                      "70"
-        "AbilityCastRange"                                                     "99999"
+        "AbilityCastRange"                                                     "0" // global cast range
 		"AbilityValues"
 		{
-			"AbilityCooldown"
+			"AbilityCooldown" // this needs to be improved
 			{
 				"value"	"16 14 12 10"
 				"special_bonus_unique_disruptor_2"				"-3"
@@ -22,16 +22,35 @@
 				"value"			"350"
 				"affected_by_aoe_increase"	"1"
 			}
-			"formation_time"
+			"formation_time" // this needs to be near instant
 			{
 				"value"				"0.1"
 			}
-			"duration"
+			"duration" // this needs to be improved
 			{
 				"value"				"3 3.5 4 4.5"
 				"special_bonus_unique_disruptor_5" "+1"
 			}
-			"damage_per_second"			"40 60 80 100"
+			"damage_per_second"
+			{
+				"value"			"0"
+				"special_bonus_unique_disruptor_kinetic_damage"	"+50"
+			}
+			"wall_thickness"
+			{
+				"value"			"100"
+			}
+			"tick_rate"			"0.1"
+			"cooldown_share"
+			{
+				"value"			"0"
+				"special_bonus_shard"	"=0"
+			}
+			"strike_on_touch"
+			{
+				"value"			"0"
+				"special_bonus_shard"	"0"
+			}
 		}
         "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           "support"

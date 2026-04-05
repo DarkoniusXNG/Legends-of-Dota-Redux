@@ -10,14 +10,14 @@
 		"AbilityCastPoint"				"0.2"
 		"AbilityCastRange"				"0" // global
 		"AbilityCooldown"				"20 18 16 14"
-		"AbilityManaCost"				"150"
+		"AbilityManaCost"				"125"
 		"AbilityValues"
 		{
-			"duration"			"4 6 8 10"
+			"duration"			"4 5 6 7"
 			"wind_strength"		"400"
 			"radius"
 			{
-				"value"		"3000 6000 9000 12000"
+				"value"		"1800 2800 3800 4800"
 				"affected_by_aoe_increase"	"1"
 			}
 		}
