@@ -29,7 +29,7 @@
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 
-	"furion_spirit_of_the_forest"
+	"furion_spirit_of_the_forest"		// innate
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
@@ -117,7 +117,7 @@
 		"MaxLevel"						"4"
 		"AbilityCastRange"				"850 900 950 1000"
 		"AbilityCastPoint"				"0.35"
-		"AbilityCooldown"				"30 25 20 15"
+		"AbilityCooldown"				"17 15 13 11"
 		"AbilityManaCost"				"130"
 		"AbilityValues"
 		{
@@ -133,6 +133,7 @@
 	}
 
 
+	// Talents
 	"special_bonus_unique_furion"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -200,5 +201,14 @@
 			"1" "furion_sprout"
 			"2" "furion_natures_profit"
 		}
+	}
+
+	"special_bonus_unique_furion_teleportation_barrier"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "furion_teleportation"
 	}
 }
