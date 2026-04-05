@@ -169,6 +169,16 @@
 		}
 	}
 
+	"special_bonus_unique_antimage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"antimage_blink"
+	}
+
+
 	"special_bonus_unique_antimage_2"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
