@@ -69,6 +69,19 @@
 		"ReduxCost"                     "10"
 	}
 
+
+	// Talents
+
+
+	"special_bonus_unique_batrider_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"batrider_flaming_lasso"
+	}
+
 	"special_bonus_unique_batrider_2"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -84,7 +97,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"			"batrider_flamebreak"
+		"TalentRequiredAbility"			"batrider_firefly"
 	}
 
 	"special_bonus_unique_batrider_4"
@@ -93,7 +106,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"			"batrider_sticky_napalm"
+		"TalentRequiredAbility"			"batrider_firefly"
 	}
 
 	"special_bonus_unique_batrider_5"
@@ -111,7 +124,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"			"batrider_flaming_lasso"
+		"TalentRequiredAbility"			"batrider_sticky_napalm"
 	}
 
 	"special_bonus_unique_batrider_7"
