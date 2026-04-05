@@ -26,12 +26,18 @@
 #base "heroes\drow_ranger.txt"
 #base "heroes\earthshaker.txt"
 #base "heroes\elder_titan.txt"
+#base "heroes\ember.txt"
+#base "heroes\enchantress.txt"
 #base "heroes\enigma.txt"
+#base "heroes\faceless_void.txt"
+#base "heroes\grimstroke.txt"
+#base "heroes\gyro.txt"
 #base "heroes\hoodwink.txt"
 #base "heroes\huskar.txt"
 #base "heroes\invoker.txt"
 #base "heroes\jakiro.txt"
 #base "heroes\juggernaut.txt"
+#base "heroes\kotl.txt"
 #base "heroes\kez.txt"
 #base "heroes\kunkka.txt"
 #base "heroes\largo.txt"
@@ -84,101 +90,6 @@
 	"dark_willow_pixie_dust"
 	{
 		"ReduxFlags"                                                           "mana | tank"
-	}
-
-	"faceless_void_time_zone"
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-
-		"MaxLevel"                                                             "3"
-
-		"AbilityCastRange"				"500"
-
-		"AbilityCooldown"				"120 110 100"
-
-		"AbilityManaCost"				"125 200 275"
-
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"		"700"
-				"affected_by_aoe_increase"	"1"
-			}
-			"duration"
-			{
-				"value"			"3.75 4.25 4.75"
-			}
-			"vision_radius"
-			{
-				"value"	"700"
-				"affected_by_aoe_increase"	"1"
-			}
-			"bonus_attack_speed"
-			{
-				"value"									"0"
-			}
-			"bonus_move_speed"
-			{
-				"value" "50"
-			}
-			"bonus_cast_speed"
-			{
-				"value" "50"
-			}
-			"bonus_turn_speed"
-			{
-				"value" "50"
-			}
-			"bonus_projectile_speed"
-			{
-				"value" "40"
-			}
-			"yaw"				"45"
-			"cooldown_acceleration"
-			{
-				"value"				"200"
-			}
-		}
-	}
-
-	"grimstroke_ink_trail"
-	{
-		"ReduxFlags"                                                           "tank"
-		"ReduxCost"                                                            "10"
-	}
-
-	"gyrocopter_afterburner"
-	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility"
-	}
-
-	"gyrocopter_chop_shop"
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_gyrocopter_perk"
-
-		"MaxLevel"                                                             "1"
-		"Innate"                                                               "0"
-
-		"ReduxFlags"                                                           "doNotRandom"
-	}
-
-	"keeper_of_the_light_special_reserve"
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_keeper_of_the_light_perk"
-
-		"MaxLevel"                                                             "1"
-		"Innate"                                                               "0"
-
-		"ReduxFlags"                                                           "doNotRandom"
-
-		"AbilityValues"
-		{
-			"minimum_mana"				"75"
-		}
 	}
 
 	"legion_commander_intimidate" // unknown
@@ -564,28 +475,6 @@
 		}
 	}
 
-	"keeper_of_the_light_mana_magnifier"
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_keeper_of_the_light_perk"
-
-		"MaxLevel"						"4"
-		"Innate"						"0"
-
-		"ReduxFlags"                                                           "mana | support"
-		"ReduxPerks"                                                           "aura | support"
-
-		"AbilityValues"
-		{
-			"aura_radius"
-			{
-				"value"		"1200"
-				"affected_by_aoe_increase"	"1"
-			}
-			"bonus_mana_pct"	"15 20 25 30"
-		}
-	}
-
 	"treant_super_bloom"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -869,10 +758,7 @@
 		"ReduxPerks"                                                           "undead"
 	}
 
-	"grimstroke_ink_creature"
-	{
-		"ReduxPerks"                                                           "undead"
-	}
+	
 
 	"undying_ceaseless_dirge"
 	{
@@ -964,46 +850,6 @@
 		"ReduxPerks"                                                           "blades | scientific | skillshot"
 
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-	}
-
-	"keeper_of_the_light_radiant_bind"
-	{
-		"ReduxPerks"                    "light"
-
-		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"MaxLevel"						"4"
-
-		"AbilityManaCost"				"120"
-		"AbilityCastRange"				"850"
-		"AbilityValues"
-		{
-			"duration"					"6"
-			"slow"						"10 12 14 16"
-			"magic_resistance"			
-			{
-				"value"				"20 30 40 50"
-				"special_bonus_unique_keeper_of_the_light_3"			"+10"
-			}
-			"stun_duration"			
-			{
-				"value"			"0"
-			}
-			"AbilityCooldown"			
-			{
-				"value"					"14 13 12 11"
-				"special_bonus_shard"		"=0"
-			}
-			"AbilityChargeRestoreTime"			
-			{
-				"value"					"0"
-				"special_bonus_shard"		"=14 =13 =12 =11"
-			}
-			"AbilityCharges"
-			{
-				"value"					"0"
-				"special_bonus_shard"		"=2"
-			}
-		}
 	}
 
 	"flagbearer_creep_aura_effect"
@@ -2447,29 +2293,6 @@
 		"ReduxPerks"                                                           "earth | silence"
 	}
 
-	"enchantress_impetus"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | nature"
-		"ReduxCost"                                                            "20"
-	}
-
-	"faceless_void_chronosphere"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxCost"                                                            "20"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
-	}
-	"faceless_void_backtrack"
-	{
-		"ReduxFlags"                                                           "tank"
-		"ReduxCost"                                                            "40"
-	}
-
-	"keeper_of_the_light_illuminate"
-	{
-		"ReduxPerks"                                                           "light | channeled | skillshot"
-	}
 	"legion_commander_duel"
 	{
 		"ReduxFlags"                                                           "upgradeable | silence"
@@ -2608,12 +2431,6 @@
 		"ReduxPerks"                                                           "mobility | support"
 	}
 
-	"enchantress_natures_attendants"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | nature"
-	}
-
 	"rubick_null_field"
 	{
 		"ReduxFlags"                                                           "support"
@@ -2647,11 +2464,6 @@
 	"legion_commander_press_the_attack"
 	{
 		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
-	}
-	"keeper_of_the_light_chakra_magic"
-	{
-		"ReduxFlags"                                                           "support | cooldown | mana"
 		"ReduxPerks"                                                           "support"
 	}
 
@@ -2806,12 +2618,7 @@
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility | scientific | skillshot"
 	}
-	"faceless_void_time_walk"
-	{
-		"ReduxFlags"                                                           "mobility | upgradeable"
-		"ReduxPerks"                                                           "blink | mobility"
-		"ReduxCost"                                                            "40"
-	}
+	
 	"morphling_waveform"
 	{
 		"ReduxFlags"                                                           "mobility"
@@ -3012,43 +2819,6 @@
 		"ReduxPerks"                                                           "mobility"
 	}
 
-	"keeper_of_the_light_recall"
-	{
-		"ReduxFlags"                                                           "support | doNotRandom"
-		"ReduxPerks"                                                           "support | light | teleport"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-		"MaxLevel"						"4"
-		"AbilityManaCost"				"150"
-		"AbilityValues"
-		{
-			"teleport_delay"
-			{
-				"value"							"6 5 4 3"
-			}
-			"movespeed_bonus_duration"			"4 5 6 7"
-			"ally_movespeed_pct"
-			{
-				"value"							"12 16 20 24"
-			}
-			"AbilityCooldown"
-			{
-				"value"							"21 18 15 12"
-				"special_bonus_shard"			"=0"
-			}
-			"AbilityChargeRestoreTime"
-			{
-				"value"							"0 0 0"
-				"special_bonus_shard"			"21 18 15 12"
-			}
-			"AbilityCharges"
-			{
-				"value"							"0"
-				"special_bonus_shard"			"=2"
-			}
-		}
-	}
-
 	"slark_pounce"
 	{
 		"ReduxFlags"                                                           "mobility | upgradeable"
@@ -3079,12 +2849,7 @@
 		"ReduxPerks"                                                           "attack_modifier | rage"
 		"ReduxCost"                                                            "10"
 	}
-	"enchantress_untouchable"
-	{
-		"ReduxFlags"                                                           "tank"
-		"ReduxPerks"                                                           "nature"
-		"ReduxCost"                                                            "10"
-	}
+	
 
 	"slardar_bash"
 	{
@@ -3098,13 +2863,7 @@
 		"ReduxPerks"                                                           "bash | attack_modifier | enemymoving"
 		"ReduxCost"                                                            "120"
 	}
-	"faceless_void_time_lock"
-	{
-		"ReduxFlags"                                                           "bash | attack_modifier"
-		"ReduxPerks"                                                           "bash | attack_modifier"
-		"ReduxBans"                                                            "weaver_geminate_attack"
-		"ReduxCost"                                                            "120"
-	}
+	
 	"troll_warlord_berserkers_rage"
 	{
 		"ReduxFlags"                                                           "attack_modifier | semi_passive"
@@ -3134,12 +2893,7 @@
 		"ReduxPerks"                                                           "attack_modifier | blades"
 		"ReduxCost"                                                            "10"
 	}
-	"gyrocopter_flak_cannon"
-	{
-		"ReduxFlags"                                                           "aoe_attack | attack_modifier | upgradeable"
-		"ReduxPerks"                                                           "attack_modifier | scientific"
-		"ReduxCost"                                                            "30"
-	}
+	
 
 	"monkey_king_jingu_mastery"
 	{
@@ -3285,12 +3039,6 @@
 		"ReduxPerks"                                                           "water | physical"
 	}
 
-	"gyrocopter_homing_missile"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "scientific | explosive"
-	}
-
 	"rubick_telekinesis"
 	{
 		"ReduxFlags"                                                           "stun"
@@ -3300,29 +3048,6 @@
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "earth | skillshot"
-	}
-	"keeper_of_the_light_mana_leak"
-	{
-		"ReduxFlags"                                                           "stun | mana"
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"13 12 11 10"
-		"AbilityManaCost"				"120"
-		"AbilityCastRange"				"650 700 750 800"
-		"AbilityValues"
-		{
-			"duration"
-			{
-				"value" "5.0 5.5 6.0 6.5"
-			}
-			"mana_leak_pct"
-			{
-				"value" "6 6.5 7 7.5"
-			}
-			"stun_duration"
-			{
-				"value" "2 2.25 2.5 2.75"
-			}
-		}
 	}
 
 	"magnataur_reverse_polarity"
@@ -3354,10 +3079,7 @@
 		"ReduxPerks"                                                           "teleport | channeled"
 	}
 
-	"ember_spirit_searing_chains"
-	{
-		"ReduxPerks"                                                           "fire"
-	}
+	
 	"meepo_earthbind"
 	{
 		"ReduxPerks"                                                           "earth | skillshot"
@@ -3479,17 +3201,6 @@
 		// "ReduxPerks"                                                           "fire"
 	// }
 
-	"ember_spirit_fire_remnant"
-	{
-		"ReduxFlags"                                                           "doNotRandom | mobility | upgradeable"
-		"ReduxPerks"                                                           "fire | skillshot | mobility"
-	}
-	"ember_spirit_flame_guard"
-	{
-		"ReduxFlags"                                                           "tank"
-		"ReduxPerks"                                                           "fire"
-		"ReduxBans"                                                            "batrider_sticky_napalm"
-	}
 
 	"phoenix_fire_spirits"
 	{
@@ -3597,17 +3308,6 @@
 	{
 		"ReduxPerks"                                                           "earth"
 	}
-	"gyrocopter_call_down"
-	{
-		"ReduxPerks"                                                           "scientific | skillshot | explosive"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
-		"ReduxFlags"                                                           "wtfAutoBan"
-	}
-	"gyrocopter_rocket_barrage"
-	{
-		"ReduxPerks"                                                           "scientific | explosive"
-		"ReduxBans"                                                            "batrider_sticky_napalm"
-	}
 
 	"shredder_chakram"
 	{
@@ -3637,15 +3337,6 @@
 		"ReduxBans"                                                            "dazzle_shallow_grave | lich_absolute_zero | arc_warden_tempest_double"
 	}
 
-	"keeper_of_the_light_blinding_light"
-	{
-		"ReduxPerks"                                                           "light | enemymoving"
-	}
-	"keeper_of_the_light_spirit_form"
-	{
-		"ReduxPerks"                                                           "light"
-		"ReduxFlags"                                                           "doNotRandom"
-	}
 	"puck_illusory_orb"
 	{
 		"ReduxFlags"                                                           "doNotRandom | mobility"
@@ -4016,12 +3707,7 @@
 		}
 	}
 
-	"ember_spirit_sleight_of_fist"
-	{
-		"ReduxFlags"                                                           "aoe_attack"
-		"ReduxPerks"                                                           "fire | skillshot"
-		"ReduxCost"                                                            "10"
-	}
+	
 	"templar_assassin_refraction"
 	{
 		"ReduxFlags"                                                           "tank | physical"
@@ -4029,30 +3715,9 @@
 		"ReduxCost"                                                            "20"
 	}
 
-	"enchantress_enchant"
-	{
-		"ReduxFlags"                                                           "summon"
-		"ReduxPerks"                                                           "nature"
-	}
+	
 
-	"enchantress_bunny_hop"
-	{
-		"ReduxFlags"		"mobility | doNotRandom"
-		"ReduxPerks"        "nature | mobility"
-
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"10 9 8 7"
-		"AbilityManaCost"				"60 55 50 45"
-
-		"AbilityValues"
-		{
-			"hop_distance"				"500"
-			"hop_duration"				"0.4"
-			"hop_height"				"150"
-			"attack_targets"			"2 3 4 5"
-			"bonus_attack_range"		"100"
-		}
-	}
+	
 
 	"techies_focused_detonate"
 	{
@@ -4069,11 +3734,7 @@
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "blades | scientific | skillshot"
 	}
-	"ember_spirit_activate_fire_remnant"
-	{
-		"ReduxFlags"                                                           "doNotRandom | mobility"
-		"ReduxPerks"                                                           "fire | mobility | skillshot"
-	}
+	
 	"shadow_demon_shadow_poison_release"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
@@ -4095,75 +3756,6 @@
 		"ReduxFlags"                                                           "aoe_attack | doNotRandom | upgradeable | physical"
 		"ReduxPerks"                                                           "physical"
 		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand"
-	}
-	"grimstroke_soul_chain"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxCost"                                                            "40"
-	}
-
-	"grimstroke_dark_portrait"
-	{
-		"ReduxFlags"	"illusion | upgradeable"
-		"ReduxPerks"	"illusion"
-
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"35 30 25 20"
-		"AbilityManaCost"				"200"
-
-		"AbilityValues"
-		{
-			"illusion_duration"
-			{
-				"value" "25"
-			}
-			"images_do_damage_percent"
-			{
-				"value" "50 75 100 125"
-			}
-			"images_do_damage_percent_tooltip"
-			{
-				"value" "150 175 200 225"
-			}
-			"images_take_damage_percent"
-			{
-				"value" "250 200 150 100"
-			}
-			"images_take_damage_percent_tooltip"
-			{
-				"value" "350 300 250 200"
-			}
-			"images_movespeed_bonus"
-			{
-				"value" "30 35 40 45"
-			}
-		}
-	}
-
-	"grimstroke_ink_over"
-	{
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"14 13 12 11"
-		"AbilityValues"
-		{
-			"duration"
-			{
-				"value" "6"
-			}
-			"total_damage"
-			{
-				"value" "320 360 400 440"
-				"DamageTypeTooltip"	"DAMAGE_TYPE_MAGICAL"
-			}
-			"attack_speed"
-			{
-				"value" "50 70 90 110"
-			}
-			"move_speed"
-			{
-				"value" "25 35 45 55"
-			}
-		}
 	}
 
 	"neutral_spell_immunity"
@@ -4276,31 +3868,6 @@
 		}
 	}
 
-	"keeper_of_the_light_will_o_wisp"
-	{
-		"ReduxFlags"                    "upgradeable"
-		"ReduxPerks"                    "light | enemymoving"
-
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"60 55 50 45"
-		"AbilityValues"
-		{
-			"on_count"					"5 6 7 8"
-			"radius"
-			{
-				"value"					"725 750 775 800"
-				"affected_by_aoe_increase"	"1"
-			}
-			"hit_count"					"7"
-			"wisp_damage"				"75"
-			"off_duration"				"1.85 1.75 1.65 1.55"
-			"on_duration"				"1.0"
-			"off_duration_initial"		"1.0"
-			"fixed_movement_speed"		"60 70 80 90"
-			"bounty"		"100"
-		}
-	}
-
 	"tusk_tag_team"
 	{
 		"ReduxFlags"                                                           "physical | support"
@@ -4340,17 +3907,6 @@
 	{
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support | demon | self_damage"
-	}
-
-	"grimstroke_spirit_walk"
-	{
-		"ReduxFlags"                                                           "mobility | stun | support"
-		"ReduxPerks"                                                           "mobility | support"
-	}
-
-	"grimstroke_dark_artistry"
-	{
-		"ReduxPerks"                                                           "skillshot"
 	}
 
 	"spirit_breaker_planar_pocket"
@@ -4482,30 +4038,6 @@
 		}
 	}
 
-	"enchantress_little_friends"
-	{
-		"ReduxFlags"                    "doNotRandom | upgradeable"
-		"ReduxPerks"                    "nature"
-
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"20 19 18 17"
-		"AbilityCastRange"				"750 800 850 900"
-		"AbilityManaCost"				"75"
-		"AbilityValues"
-		{
-			"duration"					"6"
-			"bonus_attack_speed"		"70 80 90 100"
-			"bonus_move_speed"			"100 125 150 175"
-			"radius"
-			{
-				"value"		"1200"
-				"affected_by_aoe_increase"	"1"
-			}
-			"root_base_duration"	"2.0 2.5 3.0 3.5"
-			"root_per_target"		"0.5"
-			"max_root"		"5 5.5 6 6.5"
-		}
-	}
 
 	"troll_warlord_rampage"
 	{
@@ -4877,317 +4409,6 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "earth_spirit_rolling_boulder"
-	}
-
-	// Ember Spirit
-	"special_bonus_unique_ember_spirit_1"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "ember_spirit_flame_guard"
-	}
-	"special_bonus_unique_ember_spirit_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "ember_spirit_searing_chains"
-	}
-	"special_bonus_unique_ember_spirit_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "ember_spirit_flame_guard"
-	}
-	"special_bonus_unique_ember_spirit_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "ember_spirit_sleight_of_fist"
-	}
-	"special_bonus_unique_ember_spirit_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "ember_spirit_fire_remnant"
-	}
-	"special_bonus_unique_ember_spirit_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "ember_spirit_sleight_of_fist"
-	}
-	"special_bonus_unique_ember_spirit_chains_dps"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "ember_spirit_searing_chains"
-	}
-
-
-	// Enchantress
-	"special_bonus_unique_enchantress_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "enchantress_natures_attendants"
-	}
-	"special_bonus_unique_enchantress_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "enchantress_untouchable"
-	}
-	"special_bonus_unique_enchantress_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "enchantress_impetus"
-	}
-	"special_bonus_unique_enchantress_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "enchantress_natures_attendants"
-	}
-	"special_bonus_unique_enchantress_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "enchantress_natures_attendants"
-	}
-	"special_bonus_unique_enchantress_enchant_health_damage"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "enchantress_enchant"
-	}
-	"special_bonus_unique_enchantress_enchant_armor"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "enchantress_enchant"
-	}
-	"special_bonus_unique_enchantress_enchant_attackspeed"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "enchantress_enchant"
-	}
-
-	// Faceless Void
-	"special_bonus_unique_faceless_void"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                "faceless_void_chronosphere"
-	}
-	"special_bonus_unique_faceless_void_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                "faceless_void_chronosphere"
-	}
-	"special_bonus_unique_faceless_void_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "faceless_void_time_lock"
-	}
-	"special_bonus_unique_faceless_void_4"   // Backtrack talent, still exists
-	{
-		"TalentRequiredAbility"                                                "faceless_void_chronosphere"
-	}
-	"special_bonus_unique_faceless_void_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "faceless_void_time_walk"
-	}
-	"special_bonus_unique_faceless_void_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "faceless_void_time_dilation"
-	}
-	"special_bonus_unique_faceless_void_7"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "faceless_void_time_walk"
-	}
-	"special_bonus_unique_faceless_void_8"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "faceless_void_time_dilation"
-	}
-
-	// Gyrocopter
-	"special_bonus_unique_gyrocopter_1"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "gyrocopter_flak_cannon"
-	}
-	"special_bonus_unique_gyrocopter_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "gyrocopter_flak_cannon"
-	}
-	"special_bonus_unique_gyrocopter_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "gyrocopter_rocket_barrage"
-	}
-	"special_bonus_unique_gyrocopter_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "gyrocopter_call_down"
-	}
-	"special_bonus_unique_gyrocopter_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "gyrocopter_homing_missile"
-	}
-	"special_bonus_unique_gyrocopter_flak_cannon_bonus_damage"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "gyrocopter_flak_cannon"
-	}
-	"special_bonus_unique_gyrocopter_homing_missile_damage"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "gyrocopter_homing_missile"
-	}
-
-	// KOTL
-	"special_bonus_unique_keeper_of_the_light"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_illuminate"
-	}
-	"special_bonus_unique_keeper_of_the_light_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_chakra_magic"
-	}
-	"special_bonus_unique_keeper_of_the_light_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_blinding_light"
-	}
-	"special_bonus_unique_keeper_of_the_light_7"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_chakra_magic"
-	}
-	"special_bonus_unique_keeper_of_the_light_8"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_blinding_light"
-	}
-	"special_bonus_unique_keeper_of_the_light_11"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_spirit_form"
-	}
-	"special_bonus_unique_keeper_of_the_light_14"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_chakra_magic"
-	}
-	"special_bonus_unique_keeper_of_the_light_illuminate_cooldown"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_illuminate"
 	}
 
 	// LC
@@ -7316,71 +6537,7 @@
 		"TalentRequiredAbility"                                                   "broodmother_spin_web"
 	}
 
-	// Grimstroke
-	"special_bonus_unique_grimstroke_1"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" 					"grimstroke_spirit_walk"
-	}
-	"special_bonus_unique_grimstroke_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" 					"grimstroke_dark_artistry"
-	}
-	"special_bonus_unique_grimstroke_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" 					"grimstroke_dark_artistry"
-	}
-	"special_bonus_unique_grimstroke_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" 					"grimstroke_ink_creature"
-	}
-	"special_bonus_unique_grimstroke_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" 					"grimstroke_spirit_walk"
-	}
-	"special_bonus_unique_grimstroke_7"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" 					"grimstroke_spirit_walk"
-	}
-	"special_bonus_unique_grimstroke_8"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" 					"grimstroke_ink_creature"
-	}
-	"special_bonus_unique_grimstroke_soul_chain_reflect_damage"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" 					"grimstroke_soul_chain"
-	}
+	
 
 	// Void Spirit
 	"special_bonus_unique_void_spirit_1"
