@@ -100,7 +100,7 @@ local item_builds = {
 		"item_ghost",
 		"item_black_king_bar",
 		"item_ultimate_scepter",
-		"item_rod_of_atos",
+		"item_platemail",
 		"item_sphere",
 		"item_mystic_staff",
 	},
@@ -151,7 +151,7 @@ local item_builds = {
 		"item_cyclone",
 		"item_kaya",
 		"item_black_king_bar",
-		"item_rod_of_atos",
+		"item_platemail",
 		"item_soul_booster",
 	},
 	npc_dota_hero_jakiro = { -- support
@@ -231,7 +231,7 @@ local item_builds = {
 		"item_pipe",
 		"item_sange",
 		--"item_black_king_bar",
-		"item_veil_of_discord",
+		"item_platemail",
 		"item_mystic_staff",
 	},
 	npc_dota_hero_nevermore = {
@@ -282,7 +282,7 @@ local item_builds = {
 		"item_ultimate_scepter",
 		"item_kaya",
 		"item_black_king_bar",
-		"item_bloodstone",
+		"item_veil_of_discord",
 	},
 	npc_dota_hero_razor = {
 		"item_power_treads",
@@ -301,7 +301,7 @@ local item_builds = {
 		"item_yasha_and_kaya",
 		"item_ultimate_scepter",
 		"item_revenants_brooch",
-		"item_veil_of_discord",
+		"item_platemail",
 	},
 	npc_dota_hero_skeleton_king = { -- rightclick carry
 		"item_bracer",
@@ -444,7 +444,7 @@ local upgrade_map = {
 	item_tranquil_boots = "item_boots_of_bearing",
 	item_urn_of_shadows = "item_spirit_vessel",
 	item_vanguard = "item_crimson_guard",
-	item_veil_of_discord = "item_shivas_guard",
+	item_veil_of_discord = "item_bloodstone",
 	item_witch_blade = "item_devastator",
 	item_yasha = "item_sange_and_yasha", --"item_manta",
 }
@@ -588,7 +588,7 @@ local duplicates = {
 	item_disperser = 1,
 	item_dragon_lance = 1,
 	item_echo_sabre = 1,
-	item_eternal_shroud = 1,
+	--item_eternal_shroud = 1,
 	item_ethereal_blade = 1,
 	item_force_staff = 1,
 	item_ghost = 1,
@@ -653,10 +653,12 @@ local duplicates = {
 local forbidden_melee = {
 	item_dragon_lance = 1,
 	item_hurricane_pike = 1,
+	item_hydras_breath = 1,
 	item_manta = 1, -- lags
 	item_meteor_hammer = 1, -- bots never use this
 	item_recipe_hurricane_pike = 1,
 	item_silver_edge = 1, -- there are better items
+	item_specialists_array = 1,
 }
 
 local forbidden_ranged = {
@@ -666,14 +668,12 @@ local forbidden_ranged = {
 	item_crimson_guard = 1,
 	item_echo_sabre = 1,
 	item_harpoon = 1,
-	item_heavens_halberd = 1,
 	item_manta = 1, -- lags
 	item_meteor_hammer = 1, -- bots never use this
 	item_radiance = 1,
 	item_recipe_abyssal_blade = 1,
 	item_recipe_crimson_guard = 1,
 	item_recipe_harpoon = 1,
-	item_recipe_heavens_halberd = 1,
 	item_silver_edge = 1, -- there are better items
 	item_vanguard = 1,
 }
@@ -691,7 +691,7 @@ local forbidden_rightclick_carry = {
 	item_bloodstone = 1,
 	item_crimson_guard = 1,
 	item_cyclone = 1,
-	item_eternal_shroud = 1,
+	--item_eternal_shroud = 1,
 	item_ethereal_blade = 1,
 	item_ghost = 1,
 	item_glimmer_cape = 1,
@@ -742,7 +742,7 @@ local forbidden_support = {
 	item_disperser = 1,
 	item_dragon_lance = 1,
 	item_echo_sabre = 1,
-	item_eternal_shroud = 1,
+	--item_eternal_shroud = 1,
 	item_greater_crit = 1,
 	item_harpoon = 1,
 	item_heart = 1,
