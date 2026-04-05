@@ -69,6 +69,16 @@
 		"Innate"                                                               "0"
 	}
 
+
+	"special_bonus_unique_bristleback"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"bristleback_bristleback"
+	}
+
 	"special_bonus_unique_bristleback_2"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
