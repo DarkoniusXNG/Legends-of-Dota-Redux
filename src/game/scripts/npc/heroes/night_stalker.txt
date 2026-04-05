@@ -42,7 +42,7 @@
 	"night_stalker_midnight_feast"
 	{
 		"ReduxFlags"                                                           "attack_modifier | mana"
-		"ReduxPerks"                                                           "attack_modifier | demon"
+		"ReduxPerks"                                                           "attack_modifier | demon | drain"
 	}
 
 	//=================================================================================================================
