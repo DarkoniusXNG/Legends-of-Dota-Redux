@@ -29,7 +29,7 @@
 	"snapfire_buckshot"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "snapfire_boomstick"
+		"AbilityTextureName"                                                   "snapfire_lil_shredder"
 
 		"MaxLevel"                                                             "4"
 		"Innate"                                                               "0"

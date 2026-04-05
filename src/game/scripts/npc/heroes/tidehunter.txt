@@ -94,7 +94,7 @@
 		}
 	}
 
-	"tidehunter_krill_eater" // current Innate
+	"tidehunter_leviathans_catch" // current Innate
 	{
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "water"

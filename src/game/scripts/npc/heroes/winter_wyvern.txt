@@ -29,7 +29,7 @@
 	"winter_wyvern_eldwurm_scholar" // old Innate
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		//"AbilityTextureName"                                                   "winter_wyvern_winters_curse"
+		"AbilityTextureName"                                                   "winter_wyvern_winters_curse"
 
 		"MaxLevel"                                                             "4"
 		"Innate"                                                               "0"
@@ -80,7 +80,7 @@
 	"winter_wyvern_accelerated_learning" // unknown
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		//"AbilityTextureName"                                                   "winter_wyvern_eldwurms_edda"
+		"AbilityTextureName"                                                   "winter_wyvern_eldwurms_edda"
 
 		"MaxLevel"                                                             "1"
 		"Innate"                                                               "0"

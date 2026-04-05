@@ -4332,6 +4332,7 @@
 
 	"shadow_demon_soul_catcher"
 	{
+		"AbilityTextureName"                                                   "shadow_demon_menace"
 		"ReduxPerks"                                                           "demon | drain"
 	}
 

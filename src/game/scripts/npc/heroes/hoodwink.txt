@@ -90,6 +90,7 @@
 	"hoodwink_tomokan_tracker" // unknown
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "bounty_hunter_track"
 
 		"Innate"                                                               "0"
 
@@ -100,6 +101,7 @@
 	"hoodwink_forager" // unknown
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "hoodwink_acorn_shot"
 
 		"Innate"                                                               "0"
 
