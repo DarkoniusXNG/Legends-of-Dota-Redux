@@ -116,4 +116,14 @@
 
 		"TalentRequiredAbility"                                                   "disruptor_thunder_strike"
 	}
+
+	"special_bonus_unique_disruptor_thunder_strike_strikes"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "disruptor_thunder_strike"
+	}
+
 }
