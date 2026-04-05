@@ -2772,7 +2772,7 @@ function modifier_imba_tower_barrier_aura_buff:OnTakeDamage(keys)
 				damage = damage * (1 - self.parent:GetPhysicalArmorReduction() * 0.01)
 
 			elseif damage_type == DAMAGE_TYPE_MAGICAL then
-				damage = damage * (1- self.parent:Script_GetMagicalArmorValue(false, self.ability) * 0.01)
+				damage = damage * (1- self.parent:Script_GetMagicalArmorValue(self.ability) * 0.01)
 			end
 
 			-- Increase the damage that the barrier had blocked

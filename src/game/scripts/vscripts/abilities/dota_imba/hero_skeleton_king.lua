@@ -1661,7 +1661,7 @@ function modifier_imba_reincarnation_wraith_form:OnTakeDamage( keys )
 		self.damage_pool = self.damage_pool + actually_dmg
 	elseif keys.damage_type == DAMAGE_TYPE_MAGICAL then
 		local source_dmg = keys.original_damage
-		local multiplier = 1 - self:GetParent():Script_GetMagicalArmorValue(false, self.ability)
+		local multiplier = 1 - self:GetParent():Script_GetMagicalArmorValue(self.ability)
 		local actually_dmg = source_dmg * multiplier
 		self.damage_pool = self.damage_pool + actually_dmg
 	elseif keys.damage_type ~= DAMAGE_TYPE_PHYSICAL and keys.damage_type ~= DAMAGE_TYPE_MAGICAL then

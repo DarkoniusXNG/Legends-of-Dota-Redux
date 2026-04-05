@@ -76,7 +76,7 @@ function TaxReturn( keys )
 
 --[[		local amount = goldModify * dmgPerGold
 
-		    amount = amount - (amount * target:Script_GetMagicalArmorValue(false, ability))
+		    amount = amount - (amount * target:Script_GetMagicalArmorValue(ability))
 
 		    local lens_count = 0
 		    for i=0,5 do

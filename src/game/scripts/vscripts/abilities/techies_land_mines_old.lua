@@ -173,7 +173,7 @@ function modifier_techies_custom_land_mine:OnIntervalThink()
 							if TableContains(enemies_partial_radius, enemy) then
 								mine_dmg = small_radius_dmg
 							end
-							local enemy_magic_resist = enemy:Script_GetMagicalArmorValue(false, ability)
+							local enemy_magic_resist = enemy:Script_GetMagicalArmorValue(ability)
 							local composite_dmg = mine_dmg * (1 - enemy_magic_resist)
 							damage_table.damage = composite_dmg
 							if enemy:IsBuilding() or enemy:IsBarracks() or enemy:IsTower() or enemy:IsFort() then

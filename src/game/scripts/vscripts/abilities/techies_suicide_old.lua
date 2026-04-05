@@ -131,7 +131,7 @@ function techies_custom_suicide:PrimaryEffect(point)
 			if TableContains(enemies_small_radius, enemy) then
 				dmg = small_radius_dmg
 			end
-			local enemy_magic_resist = enemy:Script_GetMagicalArmorValue(false, self)
+			local enemy_magic_resist = enemy:Script_GetMagicalArmorValue(self)
 			local composite_dmg = dmg * (1 - enemy_magic_resist)
 			damage_table.damage = composite_dmg
 			if enemy:IsBuilding() or enemy:IsBarracks() or enemy:IsTower() or enemy:IsFort() then
@@ -161,7 +161,7 @@ function techies_custom_suicide:PrimaryEffect(point)
 	if has_shard and caster:IsAlive() then
 		-- self damage instead of suicide
 		damage_table.victim = caster
-		local magic_resist = caster:Script_GetMagicalArmorValue(false, self)
+		local magic_resist = caster:Script_GetMagicalArmorValue(self)
 		local self_dmg = big_radius_dmg * (1 - magic_resist)
 		damage_table.damage = self_dmg
 		damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
