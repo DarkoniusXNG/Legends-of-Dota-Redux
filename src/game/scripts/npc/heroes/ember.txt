@@ -1,0 +1,101 @@
+"DOTAAbilities"
+{
+	"ember_spirit_searing_chains"
+	{
+		"ReduxPerks"		"fire"
+	}
+
+	"ember_spirit_sleight_of_fist"
+	{
+		"ReduxFlags"		"aoe_attack"
+		"ReduxPerks"		"fire"
+		"ReduxCost"			"10"
+	}
+
+	"ember_spirit_flame_guard"
+	{
+		"ReduxFlags"		"tank"
+		"ReduxPerks"		"fire"
+		"ReduxBans"			"batrider_sticky_napalm"
+	}
+
+	"ember_spirit_immolation"
+	{
+		"ReduxPerks"		"fire"
+		"ReduxBans"			"batrider_sticky_napalm"
+	}
+
+
+	"ember_spirit_fire_remnant"
+	{
+		"ReduxFlags"		"doNotRandom | mobility | upgradeable"
+		"ReduxPerks"		"fire | skillshot | mobility"
+	}
+
+	"ember_spirit_activate_fire_remnant"
+	{
+		"ReduxFlags"		"doNotRandom | mobility"
+		"ReduxPerks"		"fire | mobility | skillshot"
+	}
+
+
+
+	// Talents
+	"special_bonus_unique_ember_spirit_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"ember_spirit_flame_guard"
+	}
+	"special_bonus_unique_ember_spirit_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"ember_spirit_searing_chains"
+	}
+	"special_bonus_unique_ember_spirit_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"ember_spirit_flame_guard"
+	}
+	"special_bonus_unique_ember_spirit_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"ember_spirit_sleight_of_fist"
+	}
+	"special_bonus_unique_ember_spirit_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"ember_spirit_fire_remnant"
+	}
+	"special_bonus_unique_ember_spirit_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"ember_spirit_sleight_of_fist"
+	}
+	"special_bonus_unique_ember_spirit_chains_dps"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"ember_spirit_searing_chains"
+	}
+
+}
