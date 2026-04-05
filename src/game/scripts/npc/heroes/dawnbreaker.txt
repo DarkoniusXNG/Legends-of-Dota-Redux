@@ -110,4 +110,22 @@
 
 		"TalentRequiredAbility"                                                "dawnbreaker_luminosity"
 	}
+
+	"special_bonus_unique_dawnbreaker_celestial_hammer_damage"
+	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
+		"TalentRequiredAbility"                                                "dawnbreaker_celestial_hammer"
+	}
+
+	"special_bonus_unique_dawnbreaker_celestial_hammer_targets_allies"
+	{
+		"AbilityType"                                                          "ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                                            "special_bonus_base"
+
+		"TalentRequiredAbility"                                                "dawnbreaker_celestial_hammer"
+	}
 }
