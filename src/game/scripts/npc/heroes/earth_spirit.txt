@@ -1,0 +1,143 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Earth Spirit: Boulder Smash
+	//=================================================================================================================
+	"earth_spirit_boulder_smash"
+	{
+		"ReduxFlags"		"stun | doNotRandom"
+		"ReduxPerks"		"earth | skillshot | enemymoving"
+	}
+
+	//=================================================================================================================
+	// Earth Spirit: Rolling Boulder
+	//=================================================================================================================
+	"earth_spirit_rolling_boulder"
+	{
+		"ReduxPerks"		"earth | skillshot | mobility"
+		"ReduxFlags"		"stun | mobility"
+		"ReduxBans"			"tinker_rearm | dazzle_bad_juju_redux"
+	}
+	
+	//=================================================================================================================
+	// Earth Spirit: Geomagnetic Grip
+	//=================================================================================================================
+	"earth_spirit_geomagnetic_grip"
+	{
+		"ReduxFlags"		"silence"
+		"ReduxPerks"		"earth | silence | skillshot"
+	}
+
+	//=================================================================================================================
+	// Earth Spirit: Stone Caller
+	//=================================================================================================================
+	"earth_spirit_stone_caller"
+	{
+		"ReduxPerks"		"earth"
+		"ReduxFlags"		"doNotRandom"
+	}
+
+	//=================================================================================================================
+	// Earth Spirit: Petrify ( Enchant Remnant scepter ability )
+	//=================================================================================================================
+	"earth_spirit_petrify"
+	{
+		"ReduxCost"                     "20"
+		"ReduxFlags"                    "stun | doNotRandom | support | upgradeable"
+		"ReduxPerks"					"earth | support | transformation"
+		"ReduxBans"                     "tinker_rearm | dazzle_bad_juju_redux"
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"175"
+		"AbilityCooldown"				"45 35 25 15"
+		"AbilityValues"
+		{
+				"duration"		"2.4"
+				"damage"
+				{
+					"value"			"450"
+					"CalculateSpellDamageTooltip" "1"
+				}
+				"aoe"		
+				{
+					"value"		"450 500 550 600"
+					"affected_by_aoe_increase"	"1"		
+				}
+				"ally_cast_range"	"500 700 900 1100"
+		}
+	}
+
+	//=================================================================================================================
+	// Earth Spirit: Magnetize
+	//=================================================================================================================
+	"earth_spirit_magnetize"
+	{
+		"ReduxPerks"		"earth"
+		"ReduxFlags"		"doNotRandom"
+	}
+	
+	// Earth Spirit
+	"special_bonus_unique_earth_spirit"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "earth_spirit_rolling_boulder"
+	}
+	"special_bonus_unique_earth_spirit_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "earth_spirit_magnetize"
+	}
+	"special_bonus_unique_earth_spirit_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "earth_spirit_rolling_boulder"
+	}
+	"special_bonus_unique_earth_spirit_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "earth_spirit_geomagnetic_grip"
+	}
+	"special_bonus_unique_earth_spirit_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "earth_spirit_boulder_smash"
+	}
+	"special_bonus_unique_earth_spirit_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "earth_spirit_boulder_smash"
+	}
+	"special_bonus_unique_earth_spirit_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "earth_spirit_magnetize"
+	}
+	"special_bonus_unique_earth_spirit_rolling_boulder_stun"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "earth_spirit_rolling_boulder"
+	}
+}
