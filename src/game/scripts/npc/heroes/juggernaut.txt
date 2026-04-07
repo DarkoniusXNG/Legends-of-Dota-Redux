@@ -34,7 +34,7 @@
 		"ReduxPerks"                                                           "blades | physical"
 
 		"MaxLevel"                      "4"
-		"AbilityCooldown"               "20 18 16 14"
+		"AbilityCooldown"               "25 22 19 16"
 		"AbilityManaCost"               "150"
 		"AbilityValues"
 		{
