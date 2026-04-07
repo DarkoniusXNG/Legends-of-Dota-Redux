@@ -67,7 +67,7 @@
 			}
 			"damage"				"200 225 250 275"
 			"mark_duration"			"7.0"
-			"slow_pct"				"20 25 30 35"
+			"slow_pct"				"25 30 35 40"
 			"spell_amp"				"20 25 30 35"
 			"status_resistance"		"0"
 			"spread"
