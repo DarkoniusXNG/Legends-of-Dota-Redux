@@ -25,6 +25,7 @@
 #base "heroes\dragon_knight.txt"
 #base "heroes\drow_ranger.txt"
 #base "heroes\earthshaker.txt"
+#base "heroes\earth_spirit.txt"
 #base "heroes\elder_titan.txt"
 #base "heroes\ember.txt"
 #base "heroes\enchantress.txt"
@@ -41,6 +42,7 @@
 #base "heroes\kez.txt"
 #base "heroes\kunkka.txt"
 #base "heroes\largo.txt"
+#base "heroes\legion_commander.txt"
 #base "heroes\leshrac.txt"
 #base "heroes\lich.txt"
 #base "heroes\life_stealer.txt"
@@ -90,21 +92,6 @@
 	"dark_willow_pixie_dust"
 	{
 		"ReduxFlags"                                                           "mana | tank"
-	}
-
-	"legion_commander_intimidate" // unknown
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
-
-		"Innate"                                                               "0"
-
-		"ReduxFlags"                                                           "doNotRandom"
-	}
-
-	"legion_commander_outfight_them"
-	{
-		"ReduxFlags"                                                           "tank"
-		"ReduxCost"                                                            "30" // works for any spell
 	}
 
 	"mars_immovable" // unknown
@@ -2287,20 +2274,6 @@
 		"ReduxCost"                                                            "120"
 	}
 
-	"earth_spirit_geomagnetic_grip"
-	{
-		"ReduxFlags"                                                           "silence"
-		"ReduxPerks"                                                           "earth | silence"
-	}
-
-	"legion_commander_duel"
-	{
-		"ReduxFlags"                                                           "upgradeable | silence"
-		"ReduxPerks"                                                           "silence"
-		"ReduxCost"                                                            "80"
-		"ReduxBans"                                                            "spell_lab_symbiotic"
-	}
-
 	"magnataur_empower"
 	{
 		"ReduxFlags"                                                           "support | aoe_attack | attack_modifier | physical"
@@ -2459,12 +2432,6 @@
 	{
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support | drain | undead"
-	}
-
-	"legion_commander_press_the_attack"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
 	}
 
 	"tusk_ice_shards"
@@ -2843,14 +2810,7 @@
 		"ReduxFlags"                                                           "tank | mana"
 		"ReduxCost"                                                            "40"
 	}
-	"legion_commander_moment_of_courage"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | rage"
-		"ReduxCost"                                                            "10"
-	}
 	
-
 	"slardar_bash"
 	{
 		"ReduxFlags"                                                           "bash | attack_modifier | physical"
@@ -3056,11 +3016,7 @@
 		"ReduxPerks"                                                           "enemymoving"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
 	}
-	"earth_spirit_boulder_smash"
-	{
-		"ReduxFlags"                                                           "stun | doNotRandom"
-		"ReduxPerks"                                                           "earth | skillshot | enemymoving"
-	}
+	
 	"techies_stasis_trap"
 	{
 		"ReduxFlags"                                                           "stun"
@@ -3282,22 +3238,6 @@
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
 
-	"earth_spirit_magnetize"
-	{
-		"ReduxPerks"                                                           "earth"
-		"ReduxFlags"                                                           "doNotRandom"
-	}
-	"earth_spirit_rolling_boulder"
-	{
-		"ReduxPerks"                                                           "earth | skillshot | mobility"
-		"ReduxFlags"														   "stun | mobility"
-		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
-	}
-	"earth_spirit_stone_caller"
-	{
-		"ReduxPerks"                                                           "earth"
-		"ReduxFlags"                                                           "doNotRandom"
-	}
 	"meepo_poof"
 	{
 		"ReduxFlags"                                                           "mobility"
@@ -3685,29 +3625,6 @@
 		"ReduxPerks"                                                           "demon | transformation"
 	}
 
-	"earth_spirit_petrify"
-	{
-		"ReduxCost"                     "20"
-		"ReduxFlags"                    "stun | doNotRandom | support | upgradeable"
-		"ReduxPerks"					"earth | support | transformation"
-		"ReduxBans"                     "tinker_rearm | dazzle_bad_juju_redux"
-		"MaxLevel"						"4"
-		"AbilityCastRange"				"175"
-		"AbilityCooldown"				"45 35 25 15"
-		"AbilityValues"
-		{
-			"duration"		"2.4"
-			"damage"
-			{
-				"value"			"450"
-				"CalculateSpellDamageTooltip" "1"
-			}
-			"aoe"		"450"
-			"ally_cast_range"	"500 600 700 800"
-		}
-	}
-
-	
 	"templar_assassin_refraction"
 	{
 		"ReduxFlags"                                                           "tank | physical"
@@ -4343,138 +4260,6 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "mars_dauntless"
-	}
-
-	// Earth Spirit
-	"special_bonus_unique_earth_spirit"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "earth_spirit_rolling_boulder"
-	}
-	"special_bonus_unique_earth_spirit_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "earth_spirit_magnetize"
-	}
-	"special_bonus_unique_earth_spirit_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "earth_spirit_rolling_boulder"
-	}
-	"special_bonus_unique_earth_spirit_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "earth_spirit_geomagnetic_grip"
-	}
-	"special_bonus_unique_earth_spirit_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "earth_spirit_boulder_smash"
-	}
-	"special_bonus_unique_earth_spirit_7"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "earth_spirit_boulder_smash"
-	}
-	"special_bonus_unique_earth_spirit_8"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "earth_spirit_magnetize"
-	}
-	"special_bonus_unique_earth_spirit_rolling_boulder_stun"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "earth_spirit_rolling_boulder"
-	}
-
-	// LC
-	"special_bonus_unique_legion_commander_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "legion_commander_moment_of_courage"
-	}
-	"special_bonus_unique_legion_commander_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "legion_commander_overwhelming_odds"
-	}
-	"special_bonus_unique_legion_commander_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "legion_commander_press_the_attack"
-	}
-	"special_bonus_unique_legion_commander_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "legion_commander_press_the_attack"
-	}
-	"special_bonus_unique_legion_commander_7"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "legion_commander_moment_of_courage"
-	}
-	"special_bonus_unique_legion_commander_8"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "legion_commander_press_the_attack"
-	}
-	"special_bonus_unique_legion_commander_9"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "legion_commander_overwhelming_odds"
-	}
-	"special_bonus_unique_legion_commander_pta_movespeed"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "legion_commander_press_the_attack"
 	}
 
 	// Magnus
