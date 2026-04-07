@@ -22,7 +22,7 @@
 	"drow_ranger_multishot"
 	{
 		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"                                                           "skillshot | ranger | channeled | physical"
+		"ReduxPerks"                                                           "ranger | channeled | physical"
 	}
 
 	"drow_ranger_marksmanship"
