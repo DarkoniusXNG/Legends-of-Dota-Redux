@@ -292,7 +292,15 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "keeper_of_the_light_chakra_magic"
+		"TalentRequiredAbility"                                                   "keeper_of_the_light_spirit_form"
+	}
+	"special_bonus_unique_keeper_of_the_light_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "keeper_of_the_light_radiant_bind"
 	}
 	"special_bonus_unique_keeper_of_the_light_5"
 	{
