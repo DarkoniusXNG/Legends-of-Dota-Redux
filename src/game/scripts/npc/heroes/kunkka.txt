@@ -8,6 +8,7 @@
 		"MaxLevel"                      "4"
 
 		"AbilityCooldown"               "12 11 10 9"
+		"AbilityManaCost"				"75"
 
 		"AbilityValues"
 		{
@@ -19,6 +20,7 @@
 			}
 			"damage"		"180 220 260 300"
 			"duration"		"1.0 1.25 1.5 1.75"
+			"wave_distance_tooltip"		"1800"
 			"knockback_distance"		"600"
 		}
 
@@ -129,16 +131,24 @@
 			"damage_threshold"			"65"
 			"ghostship_absorb"
 			{
-				"value"					"20 25 30 35"
-				"special_bonus_unique_kunkka_rum" "+15"
+				"value"					"18 22 26 30"
+				"special_bonus_unique_kunkka_rum" "+8"
 			}
 
-			"buff_duration"				"6"
-			"movespeed_bonus"			"10 12 14 16"
+			"buff_duration"				
+			{
+				"value"					"5"
+				"special_bonus_unique_kunkka_rum_duration" "+1"
+			}
+			"movespeed_bonus"			
+			{
+				"value"					"7.75"
+				"hero_levelup"			"+0.25"
+			}
 			"AbilityCooldown"
 			{
-				"value"							"60 50 40 30"
-				"special_bonus_unique_kunkka_3"	"-15"
+				"value"							"60.5"
+				"hero_levelup"					"-0.5"
 			}
 		}
 	}
@@ -224,11 +234,42 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"
-		{
-			"1" "kunkka_x_marks_the_spot"
-			"2" "kunkka_ghostship"
-			"3" "kunkka_admirals_rum"
-		}
+		"TalentRequiredAbility"			"kunkka_admirals_rum"
+	}
+
+	"special_bonus_unique_kunkka_rum_duration"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"kunkka_admirals_rum"
+	}
+
+	"special_bonus_unique_kunkka_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "kunkka_tidebringer"
+	}
+
+	"special_bonus_unique_kunkka_tidebringer_charges"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "kunkka_tidebringer"
+	}
+
+	"special_bonus_unique_kunkka_tidebringer_armor_pierce"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "kunkka_tidebringer"
 	}
 }
