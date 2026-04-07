@@ -29,13 +29,13 @@
 	"ember_spirit_fire_remnant"
 	{
 		"ReduxFlags"		"doNotRandom | mobility | upgradeable"
-		"ReduxPerks"		"fire | skillshot | mobility"
+		"ReduxPerks"		"fire | mobility"
 	}
 
 	"ember_spirit_activate_fire_remnant"
 	{
 		"ReduxFlags"		"doNotRandom | mobility"
-		"ReduxPerks"		"fire | mobility | skillshot"
+		"ReduxPerks"		"fire | mobility"
 	}
 
 
