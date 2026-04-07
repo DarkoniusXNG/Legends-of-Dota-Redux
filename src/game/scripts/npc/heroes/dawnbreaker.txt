@@ -15,7 +15,7 @@
 	"dawnbreaker_fire_wreath" // Starbreaker
 	{
 		"ReduxFlags"                                                           "aoe_attack | stun | physical"
-		"ReduxPerks"                                                           "light | physical | skillshot"
+		"ReduxPerks"                                                           "light | physical"
 	}
 
 	"dawnbreaker_luminosity"
