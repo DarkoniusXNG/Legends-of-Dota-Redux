@@ -1507,6 +1507,8 @@ function Pregame:onThink()
             --Tutorial:StartTutorialMode()
             Convars:SetBool('dota_bot_mode', true)
             Convars:SetBool('dota_bot_disable', false)
+            Convars:SetBool('dota_bot_use_machine_learned_weights', true)
+            Convars:SetBool('dota_bot_allow_human_control', false) -- does not work
         end, DoUniqueString('pregamestart'), 1)
 
         -- Hook bot stuff

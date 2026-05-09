@@ -155,8 +155,6 @@ function duskDota:_CaptureduskDota()
     -- mode:SetCustomHeroMaxLevel ( MAX_LEVEL )
     -- mode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
 
-    -- --mode:SetBotThinkingEnabled( USE_STANDARD_DOTA_BOT_THINKING )
-
     -- mode:SetFogOfWarDisabled(DISABLE_FOG_OF_WAR_ENTIRELY)
     -- mode:SetGoldSoundDisabled( DISABLE_GOLD_SOUNDS )
     -- mode:SetRemoveIllusionsOnDeath( REMOVE_ILLUSIONS_ON_DEATH )
