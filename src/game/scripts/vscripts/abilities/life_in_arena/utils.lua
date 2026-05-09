@@ -114,14 +114,6 @@ function CleanUnitsOnMap()
     end
 end
 
-function PrintTable(title,table)
-	print(title)
-	for k,v in pairs(table) do
-		print(k,v)
-	end
-	print("--------------------End of table--------------------------")
-end
-
 
 function StartTimer(text, number, time)
 	LiA.nCOUNTDOWNTIMER = time

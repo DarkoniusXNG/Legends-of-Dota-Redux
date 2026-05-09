@@ -100,7 +100,7 @@ end
 function spell_lab_symbiotic_modifier:OnSetLocation (kv)
 	if IsServer() then
 		if kv.unit ~= self:GetParent() then return end
-    --DeepPrintTable(kv)
+
 		local nCasterID = self:GetCaster():GetPlayerOwnerID()
 		local nTargetID = self:GetParent():GetPlayerOwnerID()
 		if PlayerResource:IsDisableHelpSetForPlayerID(nTargetID,nCasterID) then
@@ -127,14 +127,7 @@ function spell_lab_symbiotic_modifier:OnSpentMana (kv)
 			end
 		else
 	    local hParent = self:GetParent()
-	    
-	    -- Tether semi-nerf, prevent players having hearts and giving massive health regen constantly
-	  --  local tether = hParent:FindAbilityByName("wisp_tether")
-	  --  if tether then
-	  --  	tether:StartCooldown(60)
-	  --  end
 
-			--DeepPrintTable(kv)
 			local mana = self.hHost:GetMana()
 			if self.hHost:GetMana() >= kv.cost then
 				self.hHost:SpendMana(kv.cost, kv.ability)

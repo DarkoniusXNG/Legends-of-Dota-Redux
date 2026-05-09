@@ -66,7 +66,6 @@ function duskDota:_InitduskDota()
   --     SetTeamCustomHealthbarColor(team, color[1], color[2], color[3])
   --   end
   -- end
-  DebugPrint('[DUSKDOTA] GameRules set')
 
   --InitLogFile( "log/duskdota.txt","")
 
@@ -133,7 +132,6 @@ function duskDota:_InitduskDota()
   self.bSeenWaitForPlayers = false
   self.vUserIds = {}
 
-  DebugPrint('[DUSKDOTA] Done loading duskDota duskdota!\n\n')
   duskDota._reentrantCheck = true
   duskDota:InitduskDota()
   duskDota._reentrantCheck = false

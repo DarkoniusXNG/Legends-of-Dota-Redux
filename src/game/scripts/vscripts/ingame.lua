@@ -1879,7 +1879,6 @@ end
     --
 
 --[[function Ingame:FilterProjectiles(filterTable)
-    --DeepPrintTable(projectile)
     local targetIndex = filterTable["entindex_target_const"]
     local target = EntIndexToHScript(targetIndex)
     local casterIndex = filterTable["entindex_source_const"]

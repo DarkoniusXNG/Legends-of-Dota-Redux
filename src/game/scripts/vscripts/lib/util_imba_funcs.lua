@@ -309,14 +309,6 @@ function RemoveWearables( hero )
 	end)
 end
 
-function ShowWearables( event )
-  local hero = event.caster
-
-  for i,v in pairs(hero.hiddenWearables) do
-	v:RemoveEffects(EF_NODRAW)
-  end
-end
-
 function ChangeAttackProjectileImba(unit)
 
 	local particle_deso = "particles/items_fx/desolator_projectile.vpcf"

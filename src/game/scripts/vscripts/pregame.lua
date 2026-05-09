@@ -3969,11 +3969,6 @@ function Pregame:processOptions()
             OptionManager:SetOption('startingLevel', OptionManager:GetOption('maxHeroLevel'))
         end
 
-        -- Enable easy mode
-        --[[if this.optionStore['lodOptionCrazyEasymode'] == 1 then
-            Convars:SetInt('dota_easy_mode', 1)
-        end]]
-
         -- Gold per interval
         --GameRules:SetGoldPerTick(this.optionStore['lodOptionGameSpeedGoldTickRate'])
         --OptionManager:SetOption('goldPerTick', this.optionStore['lodOptionGameSpeedGoldTickRate'])
@@ -4152,11 +4147,7 @@ function Pregame:processOptions()
             GameRules:SetRuneSpawnTime(30)
         end
 
-        -- Enable All Vision
-        --Convars:SetBool('dota_all_vision', true)
-
         if this.optionStore['lodOptionBlackForest'] == 1 then
-            --Convars:SetBool('dota_all_vision', true)
             SendToServerConsole('dota_spawn_neutrals')
             local dummy = CreateUnitByName( "dummy_unit", Vector(0,0,0), false, nil, nil, 1 )
             dummy:AddNewModifier(caster, nil, "modifier_kill", {duration = 120})
@@ -4847,44 +4838,6 @@ function Pregame:onPlayerSelectAllRandomBuild(eventSourceIndex, args)
         self.selectedRandomBuilds[playerID].hero = buildID
         network:setSelectedAllRandomBuild(playerID, self.selectedRandomBuilds[playerID])
     end
-end
-
-function PrintTable(t, indent, done)
-  --print ( string.format ('PrintTable type %s', type(keys)) )
-  if type(t) ~= "table" then return end
-
-  done = done or {}
-  done[t] = true
-  indent = indent or 0
-
-  local l = {}
-  for k, v in pairs(t) do
-    table.insert(l, k)
-  end
-
-  table.sort(l)
-  for k, v in ipairs(l) do
-    -- Ignore FDesc
-    if v ~= 'FDesc' then
-      local value = t[v]
-
-      if type(value) == "table" and not done[value] then
-        done [value] = true
-        print(string.rep ("\t", indent)..tostring(v)..":")
-        PrintTable (value, indent + 2, done)
-      elseif type(value) == "userdata" and not done[value] then
-        done [value] = true
-        print(string.rep ("\t", indent)..tostring(v)..": "..tostring(value))
-        PrintTable ((getmetatable(value) and getmetatable(value).__index) or getmetatable(value), indent + 2, done)
-      else
-        if t.FDesc and t.FDesc[v] then
-          print(string.rep ("\t", indent)..tostring(t.FDesc[v]))
-        else
-          print(string.rep ("\t", indent)..tostring(v)..": "..tostring(value))
-        end
-      end
-    end
-  end
 end
 
 -- Player wants to ready up
@@ -6030,7 +5983,6 @@ end
 
 -- Player wants to select a new ability
 function Pregame:onPlayerSelectAbility(eventSourceIndex, args)
-    --PrintTable(args)
     -- Grab data
     local playerID = args.PlayerID
     local player = PlayerResource:GetPlayer(playerID)

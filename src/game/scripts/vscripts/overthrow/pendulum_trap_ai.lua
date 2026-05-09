@@ -4,22 +4,6 @@
 -- AI for the Pendulum Trap
 ---------------------------------------------------------------------------
 
-function PrintTable( t, indent )
-	if type(t) ~= "table" then return end
-
-	for k,v in pairs( t ) do
-		if type( v ) == "table" then
-			if ( v ~= t ) then
-				print( indent .. tostring( k ) .. ":\n" .. indent .. "{" )
-				PrintTable( v, indent .. "  " )
-				print( indent .. "}" )
-			end
-		else
-		print( indent .. tostring( k ) .. ":" .. tostring(v) )
-		end
-	end
-end
-
 function Fire(trigger)
 	print("Pendulum has hit a hero!")
 	local triggerName = thisEntity:GetName()
