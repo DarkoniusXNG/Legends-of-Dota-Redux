@@ -1882,7 +1882,7 @@ function imba_techies_remote_mine_pinpoint_detonation:OnSpellStart()
 			end
 
 			-- Kill self
-			caster:ForceKill(true)
+			caster:ForceKill(false)
 	end)
 end
 

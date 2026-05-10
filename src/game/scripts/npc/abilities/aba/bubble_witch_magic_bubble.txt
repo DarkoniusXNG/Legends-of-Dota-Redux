@@ -4,13 +4,18 @@
   {
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/aba/bubble_witch_magic_bubble.lua"
-    "AbilityTextureName"                                  "abaddon_aphotic_shield"
+    "AbilityTextureName"                                  "custom/bubble_witch_w"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "ReduxFlags"                                          "mobility | support | upgradeable"
+    "ReduxPerks"                                          "mobility | support | water"
+
+    "HasShardUpgrade"                                     "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -21,7 +26,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
-    "AbilityChargeRestoreTime"                            "12 10 9 8"
+    "AbilityChargeRestoreTime"                            "13 11 9 7"
 
     // Mana Cost + Magic Stick/Wand
     //-------------------------------------------------------------------------------------------------------------
@@ -32,35 +37,52 @@
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      //"particle"                                          "particles/neutral_fx/frogmen_water_bubble.vpcf" // does not work
       "particle"                                          "particles/neutral_fx/frogmen_water_bubble_explosion.vpcf"
       "particle"                                          "particles/econ/taunts/snapfire/snapfire_taunt_bubble.vpcf"
+      "soundfile"                                         "soundevents/hero_bubble_witch.vsndevts"
     }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCharges" // can be improved with talent
+      "AbilityCharges"
       {
         "value"                                           "1"
-        "special_bonus_shard"                             "+1"
       }
-      "duration"                                          "3 4 5 6" // buff duration; grants free pathing
+      "duration"                                          "3.5 4.0 4.5 5.0" // buff duration; grants free pathing
       "turn_speed_reduction"                              "0" // percentage
-      "move_speed_reduction"                              "10" // percentage
-      "base_dmg"                                          "50 100 150 200" // base explode dmg
-      "damage_taken_as_explode_damage" // like Pyrrhic cloak; percentage
+      "move_speed_reduction"                              "0" // percentage
+      "base_dmg"                                          "50 75 100 125" // base explode dmg
+      "damage_taken_as_explode_damage" // percentage
       {
         "value"                                           "75"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "explode_damage_cap"                                "150 250 350 450"
-      "explode_dmg_radius"				
+      "explode_damage_cap"
+      {
+        "value"                                           "120 220 320 420"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
+      "explode_dmg_radius"
       {
         "value"                                           "675"
         "affected_by_aoe_increase"                        "1"
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
+      "applies_basic_dispel"
+      {
+        "value"                                           "1"
+      }
+      "applies_strong_dispel"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "=1"
+      }
+      "healing_dmg_ratio"
+      {
+        "value"                                           "75"
       }
     }
   }

@@ -14,7 +14,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     //"ReduxFlags"                                          ""
-    "ReduxPerks"                                          "demon | drain | fire | undead"
+    "ReduxPerks"                                          "demon | drain | fire | transformation | undead"
 
 	"AbilityCastPoint"                                    "0.5"
 

@@ -209,7 +209,7 @@ function HexAura( keys )
 		-- Hex enemies
 		for _,enemy in pairs(creeps) do
 			if enemy:IsIllusion() then
-				enemy:ForceKill(true)
+				enemy:ForceKill(false)
 			else
 				enemy:AddNewModifier(hero_owner, ability, "modifier_sheepstick_debuff", {duration = hex_duration})
 				ability:ApplyDataDrivenModifier(caster, enemy, modifier_slow, {})
@@ -217,7 +217,7 @@ function HexAura( keys )
 		end
 		for _,enemy in pairs(heroes) do
 			if enemy:IsIllusion() then
-				enemy:ForceKill(true)
+				enemy:ForceKill(false)
 			else
 				enemy:AddNewModifier(hero_owner, ability, "modifier_sheepstick_debuff", {duration = hex_duration})
 				ability:ApplyDataDrivenModifier(caster, enemy, modifier_slow, {})

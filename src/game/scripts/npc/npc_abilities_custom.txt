@@ -524,6 +524,7 @@
 #base "abilities\aba\bubble_witch_bubble_of_protection.txt"
 #base "abilities\aba\bubble_witch_cavitation.txt"
 #base "abilities\aba\bubble_witch_magic_bubble.txt"
+#base "abilities\aba\bubble_witch_innate.txt"
 #base "abilities\oaa\abyssal_underlord_cancel_dark_rift_oaa.txt"
 #base "abilities\oaa\abyssal_underlord_dark_rift_oaa.txt"
 #base "abilities\oaa\sohei_dash_oaa.txt"

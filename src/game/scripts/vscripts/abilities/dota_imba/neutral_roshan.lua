@@ -464,7 +464,9 @@ function modifier_imba_roshan_ai_diretide:OnAttackLanded(keys)
 		local attacker = keys.attacker
 		
 		if roshan == target then
-			if attacker:IsIllusion() then attacker:ForceKill(true) end
+			if attacker:IsIllusion() then 
+				attacker:ForceKill(false)
+			end
 		elseif roshan == attacker then
 			
 			-- Emit hit sound
@@ -473,13 +475,15 @@ function modifier_imba_roshan_ai_diretide:OnAttackLanded(keys)
 
 			-- check bash chance
 			if math.random() <= self.bashChance then
-				local knockback = {	center_x = target.x,
-									center_y = target.y,
-									center_z = target.z,
-									duration = self.bashDuration,
-									knockback_distance = 200,
-									knockback_height = self.bashDistance,
-									knockback_duration = self.bashDuration * 0.67,	}
+				local knockback = {	
+					center_x = target.x,
+					center_y = target.y,
+					center_z = target.z,
+					duration = self.bashDuration,
+					knockback_distance = 200,
+					knockback_height = self.bashDistance,
+					knockback_duration = self.bashDuration * 0.67,
+				}
 				target:AddNewModifier(roshan, self:GetAbility(), "modifier_knockback", knockback)
 				target:EmitSound("Roshan.Bash")
 			end

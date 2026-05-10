@@ -10,7 +10,7 @@ function spell_lab_ggs:OnSpellStart()
 	-- Remove previous instance
 	if self.npc_point then
 		if self.npc_point:IsAlive() then
-			self.npc_point:ForceKill(true)
+			self.npc_point:ForceKill(false)
 			self.npc_point = nil
 		end
 	end
@@ -75,7 +75,7 @@ function spell_lab_ggs:Explosion(vPos)
 end
 
 function spell_lab_ggs:OnChannelFinish (bInterrupt)
-	self.npc_point:ForceKill(true)
+	self.npc_point:ForceKill(false)
 	self.npc_point = nil
 end
 

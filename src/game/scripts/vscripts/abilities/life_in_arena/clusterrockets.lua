@@ -54,6 +54,7 @@ function FireClusterRocket( event )
 
     Timers:CreateTimer(2,function() 
         if dummy and not dummy:IsNull() then
+            dummy:ForceKill(false)
             UTIL_Remove(dummy)
         end
     end)

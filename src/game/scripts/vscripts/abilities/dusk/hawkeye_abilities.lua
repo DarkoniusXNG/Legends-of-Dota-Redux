@@ -252,7 +252,7 @@ function hawkeye_double_tap_end(event)
   
   print("END")
   
-  target:ForceKill(true)
+  target:ForceKill(false)
 end
 
 function hawkeye_ricochet_propagate(event)

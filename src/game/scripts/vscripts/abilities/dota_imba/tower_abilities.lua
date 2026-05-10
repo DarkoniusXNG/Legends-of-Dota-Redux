@@ -47,7 +47,7 @@ function Reality( keys )
 	local ability_used = false
 	for _,enemy in pairs(heroes) do
 		if enemy:IsIllusion() then
-			enemy:ForceKill(true)
+			enemy:ForceKill(false)
 			ability_used = true
 		end
 	end

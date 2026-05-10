@@ -4,7 +4,7 @@
   {
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/aba/bubble_witch_bubble_of_protection.lua"
-    "AbilityTextureName"                                  "custom/mercy_heroes_never_die"
+    "AbilityTextureName"                                  "custom/bubble_witch_r"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
@@ -12,12 +12,15 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
+    "ReduxFlags"                                          "support | tank | upgradeable"
+    "ReduxPerks"                                          "support | water"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.4"
-    "AbilityCastRange"                                    "500"
+    "AbilityCastRange"                                    "550"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
     // Time
@@ -33,7 +36,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"                                          "particles/units/heroes/mercy/heroes_never_die.vpcf"
+      "particle"                                          "particles/hero/bubble_witch/protection_bubble.vpcf"
+      "soundfile"                                         "soundevents/hero_bubble_witch.vsndevts"
     }
 
     // Special
@@ -45,6 +49,7 @@
         "value"                                           "225"
         "affected_by_aoe_increase"                        "1"
       }
+      "damage_reduction"                                  "75" // percentage
       "duration"                                          "3 4 5"
     }
   }
