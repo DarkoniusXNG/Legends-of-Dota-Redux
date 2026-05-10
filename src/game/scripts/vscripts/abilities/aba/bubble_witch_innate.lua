@@ -70,6 +70,7 @@ if IsServer() then
       modifier_bubble_witch_innate_immune_oaa = 1, -- to prevent a loop
       modifier_bubble_witch_magic_bubble_buff = 1, -- to prevent multiple proccing, duration isn't constant
       --modifier_generic_dead_tracker_oaa = 1, -- not intended, not a buff
+      modifier_dark_seer_surge_trail = 1,
       modifier_illusion = 1, -- not intended, not a buff
       modifier_invisible = 1, -- not intended, to prevent multiple proccing
       modifier_item_assault_positive = 1, -- not intended, aura
@@ -95,11 +96,12 @@ if IsServer() then
     }
 
     local exceptions = {
-      modifier_item_preemptive_bubble_aura_block = 1,
+      --modifier_item_preemptive_bubble_aura_block = 1,
+      modifier_bubble_witch_bubble_of_protection_thinker = 1,
     }
 
     local name = mod:GetName()
-    if black_list[name] or (string.find(name, "_aura") and not exceptions[name]) then
+    if black_list[name] or ((string.find(name, "_aura") or string.find(name, "_thinker")) and not exceptions[name]) then
       return
     end
 
