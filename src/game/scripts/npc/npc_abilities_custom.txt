@@ -518,6 +518,7 @@
 #base "abilities\aba\mana_eater_mystic_bolt.txt"
 #base "abilities\aba\oracle_will_to_live.txt"
 #base "abilities\aba\perun_ion_blast.txt"
+#base "abilities\aba\swain_demonic_ascension.txt"
 #base "abilities\aba\warp_beast_warp.txt"
 #base "abilities\aba\bubble_witch_blow_bubbles.txt"
 #base "abilities\aba\bubble_witch_bubble_of_protection.txt"
