@@ -10,15 +10,16 @@ if CDOTA_BaseNPC then
 
 	function CDOTA_BaseNPC:IsLeashedCustom()
 		local normal_leashes = {
-			"modifier_furion_sprout_tether",
+			--"modifier_furion_sprout_tether",                            -- not in the game anymore
+			--"modifier_enigma_black_hole_pull",                          -- primarily a stun
+			--"modifier_faceless_void_chronosphere_freeze",               -- primarily a stun
 			"modifier_grimstroke_soul_chain",
+			--"modifier_legion_commander_duel",                           -- primarily a taunt
 			"modifier_puck_coiled",
-			"modifier_rattletrap_cog_leash", -- not sure if this modifier exists
 			"modifier_slark_pounce_leash",
-			"modifier_tidehunter_anchor_clamp",
-			--"modifier_mars_arena_of_blood_leash",
-			--"modifier_faceless_void_time_zone_effect",
+			"modifier_tidehunter_dead_in_the_water",
 			-- custom:
+			"modifier_bubble_witch_cavitation_debuff",
 		}
 
 		-- Check for Leash immunities first
@@ -54,68 +55,76 @@ if CDOTA_BaseNPC then
 			end
 		end
 
-		local power_cogs_mod = self:FindModifierByName("modifier_rattletrap_cog_marker")
-		if power_cogs_mod then
-			local power_cogs_ab = power_cogs_mod:GetAbility()
-			if power_cogs_ab then
-				local check = power_cogs_ab:GetSpecialValueFor("leash") == 1
-				if check then
-					return true
-				end
-			end
-		end
 		return false
 	end
 
 	function CDOTA_BaseNPC:DispelUndispellableDebuffs()
 		local undispellable_item_debuffs = {
-			"modifier_heavens_halberd_debuff",               -- Heaven's Halberd debuff
-			"modifier_item_bloodstone_drained",              -- Bloodstone drained debuff
+			--"modifier_heavens_halberd_debuff",               -- Heaven's Halberd debuff
 			"modifier_item_nullifier_mute",                  -- Nullifier debuff
 			"modifier_item_skadi_slow",
 			"modifier_silver_edge_debuff",                   -- Silver Edge debuff
+			"modifier_item_angels_demise_break",             -- Khanda Break
 			-- custom:
 		}
 
 		local undispellable_ability_debuffs = {
+			"modifier_antimage_empowered_mana_break_debuff",              -- Anti-Mage scepter debuff
 			"modifier_axe_berserkers_call",
 			"modifier_bloodseeker_rupture",
-			"modifier_bristleback_quill_spray",       -- Quill Spray stacks
-			"modifier_dazzle_bad_juju_armor",         -- Bad Juju stacks
+			"modifier_dazzle_innate_weave_armor_counter",                 -- same modifier used as a buff and debuff
 			"modifier_doom_bringer_doom",
-			"modifier_earthspirit_petrify",           -- Earth Spirit Enchant Remnant debuff
+			"modifier_doom_bringer_doom_aura_enemy",
+			"modifier_doom_bringer_doom_break",
+			--"modifier_earth_spirit_magnetize",                          -- Magnetize becomes undispellable with the talent
+			"modifier_earthspirit_petrify",                               -- Earth Spirit Enchant Remnant debuff
+			"modifier_enchantress_little_friends_aura",                   -- Enchantress scepter aura that affects neutral creeps
+			"modifier_enchantress_little_friends_kill_credit",            -- Enchantress scepter debuff that allows her to take credit for the kill made with neutrals
 			"modifier_forged_spirit_melting_strike_debuff",
 			"modifier_grimstroke_soul_chain",
-			"modifier_huskar_burning_spear_debuff",   -- Burning Spear stacks
+			"modifier_huskar_burning_spear_debuff",                       -- Burning Spear stacks
+			"modifier_huskar_life_break_taunt",                           -- Huskar Life Break scepter taunt
 			"modifier_ice_blast",
 			"modifier_invoker_deafening_blast_disarm",
 			"modifier_maledict",
+			"modifier_monkey_king_quadruple_tap_counter",                 -- Jingu Mastery stacks on enemies
 			"modifier_obsidian_destroyer_astral_imprisonment_prison",
+			"modifier_obsidian_destroyer_equilibrium_debuff_counter",     -- Astral Imprisonment stolen mana counter
 			"modifier_queenofpain_sonic_wave_damage",
 			"modifier_queenofpain_sonic_wave_knockback",
-			"modifier_razor_eye_of_the_storm_armor",  -- Eye of the Storm stacks
+			"modifier_razor_eye_of_the_storm_armor",                      -- Eye of the Storm stacks
 			"modifier_razor_static_link_debuff",
-			"modifier_sand_king_caustic_finale_orb",  -- Caustic Finale initial debuff
+			"modifier_rooted_undispellable",                              -- generic undispellable root - Enchantress scepter uses this
+			"modifier_sand_king_caustic_finale_orb",                      -- Caustic Finale initial debuff
 			"modifier_shadow_demon_disruption",
-			"modifier_shadow_demon_purge_slow",
-			"modifier_shadow_demon_shadow_poison",
-			"modifier_silencer_curse_of_the_silent",  -- Arcane Curse becomes undispellable with the talent
-			"modifier_slardar_amplify_damage",        -- Corrosive Haze becomes undispellable with the talent
+			"modifier_shadow_demon_purge_slow",                           -- same modifier used as a buff and debuff
+			"modifier_shadow_demon_shadow_poison",                        -- Shadow Poison stacks
+			--"modifier_silencer_curse_of_the_silent",                    -- Arcane Curse becomes undispellable with the talent
+			"modifier_slardar_amplify_damage",                            -- Corrosive Haze becomes undispellable with the talent
 			"modifier_slark_pounce_leash",
-			"modifier_treant_overgrowth",             -- Overgrowth becomes undispellable with the talent
+			--"modifier_treant_overgrowth",                               -- Overgrowth becomes undispellable with the talent
 			"modifier_tusk_walrus_kick_slow",
 			"modifier_tusk_walrus_punch_slow",
 			"modifier_ursa_fury_swipes_damage_increase",
 			"modifier_venomancer_poison_nova",
+			"modifier_venomancer_noxious_plague_primary",
+			"modifier_venomancer_noxious_plague_secondary",
+			"modifier_venomancer_snakebite",                              -- Snakebite becomes undispellable with the talent
 			"modifier_viper_viper_strike_slow",
 			"modifier_windrunner_windrun_slow",
-			"modifier_winter_wyvern_winters_curse",
-			"modifier_winter_wyvern_winters_curse_aura",
+			"modifier_winter_wyvern_winters_curse",                       -- Winter's Curse taunt
+			"modifier_winter_wyvern_winters_curse_aura",                  -- Winter's Curse Target
+			-- debuffs_with_multiple_instances:
+			"modifier_bristleback_quill_spray",                           -- Quill Spray stacks
+			"modifier_dazzle_innate_weave_armor",                         -- same modifier used as a buff and debuff
+			"modifier_huskar_burning_spear_counter",                      -- these stacks do not do dmg without modifier_huskar_burning_spear_debuff
+			"modifier_lina_slow_burn",
+			"modifier_obsidian_destroyer_equilibrium_debuff",             -- Astral Imprisonment stolen mana
 		}
 
 		local function RemoveTableOfModifiersFromUnit(unit, t)
 			for i = 1, #t do
-				unit:RemoveModifierByName(t[i])
+				unit:RemoveAllModifiersOfName(t[i])
 			end
 		end
 
@@ -379,7 +388,7 @@ if CDOTA_BaseNPC then
 		end
 		return nil
 	end
-	
+
 	function CDOTA_BaseNPC:RemoveItemByName(item_name)
 		for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
 			local item = self:GetItemInSlot(i)
@@ -474,9 +483,12 @@ if CDOTA_BaseNPC then
 			"modifier_brewmaster_primal_split_duration",
 			"modifier_dragon_knight_dragon_form",             -- transformation modifier and an ultimate,
 			"modifier_earthspirit_petrify",
+			"modifier_keeper_of_the_light_spirit_form",       -- transformation modifier and an ultimate
 			"modifier_lone_druid_true_form",                  -- transformation modifier and an ultimate
 			"modifier_lycan_shapeshift",                      -- transformation modifier and an ultimate
 			"modifier_lycan_shapeshift_speed",                -- transformation modifier and an ultimate
+			"modifier_lycan_wolf_bite_attack_range",
+			"modifier_lycan_wolf_bite_lifesteal",
 			"modifier_monkey_king_transform",
 			"modifier_morphling_replicate_manager",
 			"modifier_morphling_replicate_timer",
@@ -491,9 +503,11 @@ if CDOTA_BaseNPC then
 			"modifier_sven_gods_strength_child",              -- transformation modifier and an ultimate
 			"modifier_terrorblade_metamorphosis",             -- transformation modifier
 			"modifier_terrorblade_metamorphosis_transform_aura_applier",  -- transformation modifier
+			"modifier_treant_super_bloom",
 			"modifier_troll_warlord_battle_trance",           -- transformation modifier and an ultimate
 			"modifier_undying_flesh_golem",                   -- transformation modifier and an ultimate
 			"modifier_undying_flesh_golem_plague_aura",       -- transformation modifier and an ultimate
+			"modifier_ursa_enrage",                           -- transformation modifier and an ultimate
 			--"modifier_batrider_firefly",
 			--"modifier_death_prophet_exorcism",
 			--"modifier_sand_king_epicenter",
@@ -501,7 +515,9 @@ if CDOTA_BaseNPC then
 			-- custom:
 			"metamorphosis_mod",
 			"modifier_demonic",
+			"modifier_giant_form_oaa",
 			"modifier_siege_mode",
+			"modifier_swain_demonic_ascension_buff",
 			"night_wolf_mod",
 			"spectral_form_mod",
 		}
@@ -518,6 +534,21 @@ if CDOTA_BaseNPC then
 
 		return false
 	end
+
+	function CDOTA_BaseNPC:IsStrongIllusionCustom()
+		local strong_illus = {
+			"modifier_vengefulspirit_hybrid_special",
+			"modifier_chaos_knight_phantasmagoria",
+			"modifier_morphling_replicate_illusion",
+			"modifier_grimstroke_scepter_buff",
+		}
+		for _, v in pairs(strong_illus) do
+			if self:HasModifier(v) then
+				return true
+			end
+		end
+		return false
+	end
 end
 
 if C_DOTA_BaseNPC then
@@ -531,15 +562,16 @@ if C_DOTA_BaseNPC then
 
 	function C_DOTA_BaseNPC:IsLeashedCustom()
 		local normal_leashes = {
-			"modifier_furion_sprout_tether",
+			--"modifier_furion_sprout_tether",                            -- not in the game anymore
+			--"modifier_enigma_black_hole_pull",                          -- primarily a stun
+			--"modifier_faceless_void_chronosphere_freeze",               -- primarily a stun
 			"modifier_grimstroke_soul_chain",
+			--"modifier_legion_commander_duel",                           -- primarily a taunt
 			"modifier_puck_coiled",
-			"modifier_rattletrap_cog_leash", -- not sure if this modifier exists
 			"modifier_slark_pounce_leash",
-			"modifier_tidehunter_anchor_clamp",
-			--"modifier_mars_arena_of_blood_leash",
-			--"modifier_faceless_void_time_zone_effect",
+			"modifier_tidehunter_dead_in_the_water",
 			-- custom:
+			"modifier_bubble_witch_cavitation_debuff",
 		}
 
 		-- Check for Leash immunities first
@@ -553,6 +585,8 @@ if C_DOTA_BaseNPC then
 			if self:HasModifier("modifier_grimstroke_soul_chain") then
 				return true
 			end
+
+			-- FindModifierByName is not available on the client so can't check for other stuff
 
 			return false
 		end
@@ -590,9 +624,12 @@ if C_DOTA_BaseNPC then
 			"modifier_brewmaster_primal_split_duration",
 			"modifier_dragon_knight_dragon_form",             -- transformation modifier and an ultimate,
 			"modifier_earthspirit_petrify",
+			"modifier_keeper_of_the_light_spirit_form",       -- transformation modifier and an ultimate
 			"modifier_lone_druid_true_form",                  -- transformation modifier and an ultimate
 			"modifier_lycan_shapeshift",                      -- transformation modifier and an ultimate
 			"modifier_lycan_shapeshift_speed",                -- transformation modifier and an ultimate
+			"modifier_lycan_wolf_bite_attack_range",
+			"modifier_lycan_wolf_bite_lifesteal",
 			"modifier_monkey_king_transform",
 			"modifier_morphling_replicate_manager",
 			"modifier_morphling_replicate_timer",
@@ -607,9 +644,11 @@ if C_DOTA_BaseNPC then
 			"modifier_sven_gods_strength_child",              -- transformation modifier and an ultimate
 			"modifier_terrorblade_metamorphosis",             -- transformation modifier
 			"modifier_terrorblade_metamorphosis_transform_aura_applier",  -- transformation modifier
+			"modifier_treant_super_bloom",
 			"modifier_troll_warlord_battle_trance",           -- transformation modifier and an ultimate
 			"modifier_undying_flesh_golem",                   -- transformation modifier and an ultimate
 			"modifier_undying_flesh_golem_plague_aura",       -- transformation modifier and an ultimate
+			"modifier_ursa_enrage",                           -- transformation modifier and an ultimate
 			--"modifier_batrider_firefly",
 			--"modifier_death_prophet_exorcism",
 			--"modifier_sand_king_epicenter",
@@ -617,7 +656,9 @@ if C_DOTA_BaseNPC then
 			-- custom:
 			"metamorphosis_mod",
 			"modifier_demonic",
+			"modifier_giant_form_oaa",
 			"modifier_siege_mode",
+			"modifier_swain_demonic_ascension_buff",
 			"night_wolf_mod",
 			"spectral_form_mod",
 		}
@@ -632,6 +673,21 @@ if C_DOTA_BaseNPC then
 			return true
 		end
 
+		return false
+	end
+
+	function C_DOTA_BaseNPC:IsStrongIllusionCustom()
+		local strong_illus = {
+			"modifier_vengefulspirit_hybrid_special",
+			"modifier_chaos_knight_phantasmagoria",
+			"modifier_morphling_replicate_illusion",
+			"modifier_grimstroke_scepter_buff",
+		}
+		for _, v in pairs(strong_illus) do
+			if self:HasModifier(v) then
+				return true
+			end
+		end
 		return false
 	end
 end

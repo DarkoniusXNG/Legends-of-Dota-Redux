@@ -198,7 +198,7 @@ function util:IsVanillaInnate(ability)
     return false
 end
 
--- Tells you if given spell is an innate
+-- Tells you if given spell is supposed to be hidden
 function util:IsSupposedToBeHidden(ability)
     local ability_name
     if type(ability) == "string" then

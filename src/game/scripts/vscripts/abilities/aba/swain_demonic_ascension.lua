@@ -248,6 +248,11 @@ if IsServer() then
       return
     end
 
+    -- Don't trigger on Meepo Clones, Tempest Doubles and Spirit Bears
+    if dead:IsClone() or dead:IsTempestDouble() or dead:IsSpiritBearCustom() then
+      return
+    end
+
 	local max_demonic_energy = ability:GetSpecialValueFor("max_demonic_energy") -- 50
 	self:SetStackCount(max_demonic_energy)
   end

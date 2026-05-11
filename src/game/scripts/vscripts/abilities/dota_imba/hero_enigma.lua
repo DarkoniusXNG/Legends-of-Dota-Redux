@@ -660,7 +660,7 @@ function imba_enigma_black_hole:OnChannelFinish( bInterrupted )
 		
 		-- Wait a frame to check for any disables that have been added on I guess...
 		Timers:CreateTimer(FrameTime(), function()
-			if caster:IsRooted() or caster:IsSilenced() or caster:IsStunned() or caster:IsHexed() or caster:IsCommandRestricted() or not caster:IsAlive() then
+			if caster:IsRooted() or caster:IsLeashedCustom() or caster:IsSilenced() or caster:IsStunned() or caster:IsHexed() or caster:IsCommandRestricted() or not caster:IsAlive() then
 				singularity:SetStackCount(math.floor(singularity:GetStackCount() * (100 - d_pct) * 0.01))
 			else
 				singularity:SetStackCount(math.floor(singularity:GetStackCount() * (100 - m_pct) * 0.01))

@@ -1989,12 +1989,11 @@ function modifier_imba_gyroshell_roll:GetMotionControllerPriority() return DOTA_
 
 
 function modifier_imba_gyroshell_roll:OnIntervalThink()
-
+	local caster = self:GetCaster()
 	--Interrupt if Pangolier has been stunned, rooted or taunted
-	if self:GetCaster():IsStunned() or self:GetCaster():IsRooted() or self:GetCaster():GetForceAttackTarget() then
-
-		 return self:Destroy()
-		
+	if caster:IsStunned() or caster:IsRooted() or caster:IsLeashedCustom() or caster:GetForceAttackTarget() then
+		self:Destroy()
+		return
 	end
 
 	--center particles on Pangolier

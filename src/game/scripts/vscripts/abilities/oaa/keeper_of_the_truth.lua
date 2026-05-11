@@ -1,0 +1,161 @@
+-- Keeper of the Truth
+LinkLuaModifier("modifier_true_sight_strike_oaa", "abilities/oaa/keeper_of_the_truth.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_truesight_aura_effect_oaa", "abilities/oaa/keeper_of_the_truth.lua", LUA_MODIFIER_MOTION_NONE)
+
+keeper_of_the_truth_oaa = class({})
+
+function keeper_of_the_truth_oaa:GetIntrinsicModifierName()
+	return "modifier_true_sight_strike_oaa"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_true_sight_strike_oaa = class({})
+
+function modifier_true_sight_strike_oaa:IsHidden()
+  return true
+end
+
+function modifier_true_sight_strike_oaa:IsDebuff()
+  return false
+end
+
+function modifier_true_sight_strike_oaa:IsPurgable()
+  return false
+end
+
+function modifier_true_sight_strike_oaa:RemoveOnDeath()
+  return false
+end
+
+function modifier_true_sight_strike_oaa:IsAura()
+  return true
+end
+
+function modifier_true_sight_strike_oaa:GetModifierAura()
+  return "modifier_truesight_aura_effect_oaa"
+end
+
+function modifier_true_sight_strike_oaa:GetAuraSearchTeam()
+  return DOTA_UNIT_TARGET_TEAM_ENEMY
+end
+
+function modifier_true_sight_strike_oaa:GetAuraSearchType()
+  return DOTA_UNIT_TARGET_ALL --bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
+end
+
+function modifier_true_sight_strike_oaa:GetAuraSearchFlags()
+  return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS)
+end
+
+function modifier_true_sight_strike_oaa:GetAuraRadius()
+  return self:GetParent():GetCurrentVisionRange() or 800
+end
+
+function modifier_true_sight_strike_oaa:CheckState()
+  return {
+    [MODIFIER_STATE_CANNOT_MISS] =  true,
+  }
+end
+
+--function modifier_true_sight_strike_oaa:GetTexture()
+  --return "custom/keeper_of_the_truth"
+--end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_truesight_aura_effect_oaa = class({})
+
+function modifier_truesight_aura_effect_oaa:IsHidden()
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+
+  -- Check if caster exists
+  if not caster or caster:IsNull() then
+    return true
+  end
+
+  -- Check for True Sight immunities
+  if parent.HasModifier and (parent:HasModifier("modifier_slark_shadow_dance") or parent:HasModifier("modifier_slark_depth_shroud")) then
+    return true
+  end
+
+  -- Only reveal when within 900 radius
+  if parent.GetAbsOrigin and (parent:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 900 then
+    return true
+  end
+
+  return false
+end
+
+function modifier_truesight_aura_effect_oaa:IsDebuff()
+  return true
+end
+
+function modifier_truesight_aura_effect_oaa:IsPurgable()
+  return false
+end
+
+function modifier_truesight_aura_effect_oaa:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA
+end
+
+function modifier_truesight_aura_effect_oaa:CheckState()
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+
+  -- Check if caster exists
+  if not caster or caster:IsNull() then
+    return {}
+  end
+
+  if parent.HasModifier and (parent:HasModifier("modifier_slark_shadow_dance") or parent:HasModifier("modifier_slark_depth_shroud")) then
+    return {}
+  end
+
+  -- Only reveal when within 900 radius
+  if parent.GetAbsOrigin and (parent:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 900 then
+    return {}
+  end
+
+  return {
+    [MODIFIER_STATE_INVISIBLE] = false
+  }
+end
+
+function modifier_truesight_aura_effect_oaa:GetEffectName()
+  local parent = self:GetParent()
+
+  if parent.IsRealHero and parent:IsRealHero() then
+    return "particles/generic_gameplay/generic_has_quest.vpcf"
+  end
+
+  return
+end
+
+function modifier_truesight_aura_effect_oaa:GetEffectAttachType()
+  return PATTACH_OVERHEAD_FOLLOW
+end
+
+--[[ -- doesn't work
+function modifier_truesight_aura_effect_oaa:GetStatusEffectName()
+  local parent = self:GetParent()
+  if parent.IsIllusion and parent:IsIllusion() then
+    return "particles/status_fx/status_effect_dark_seer_illusion.vpcf"
+  end
+  return
+end
+
+function modifier_truesight_aura_effect_oaa:StatusEffectPriority()
+  local parent = self:GetParent()
+  if parent.IsIllusion and parent:IsIllusion() then
+    return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
+  else
+    return MODIFIER_PRIORITY_LOW
+  end
+end
+]]
+
+function modifier_truesight_aura_effect_oaa:GetTexture()
+  return "custom/keeper_of_the_truth"
+end
