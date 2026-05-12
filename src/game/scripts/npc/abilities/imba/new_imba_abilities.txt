@@ -2284,28 +2284,6 @@
             "scepter_cooldown" "60 50 40"
         }
 	}
-
-	//=================================================================================================================
-	// Night Stalker's Stalker in the Night
-	//=================================================================================================================
-	"imba_night_stalker_stalker_in_the_night"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"custom/stalker_in_the_night"
-		"MaxLevel"						"1"
-		"ScriptFile"					"abilities/dota_imba/hero_night_stalker.lua"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-        {
-            "vision_day_loss" "200"
-            "vision_night_gain" "600"
-        }
-	}
 	
 	//=================================================================================================================
 	// Night Stalker's Void
@@ -2486,10 +2464,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"night_stalker_hunter_in_the_night"
+		"AbilityTextureName"			"custom/stalker_in_the_night" //"night_stalker_hunter_in_the_night"
 		"ScriptFile"					"abilities/dota_imba/hero_night_stalker.lua"
-//		"AbilityManaCost"				"80"
-		"AbilityCooldown"				"28 24 20 16"
+
+		"AbilityCooldown"				"26 22 18 14"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -2505,12 +2483,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "base_bonus_ms_pct" "32 38 44 50"
-            "base_bonus_as" "90 110 130 150"
-            "night_vision_bonus" "100 200 300 400"
-            "ms_increase_per_stack" "3"
-            "as_increase_per_stack" "10"
-            "flying_duration" "5 6 7 8"
+            "base_bonus_ms_pct"         "22 28 34 40"
+            "base_bonus_as"             "40 70 100 130"
+            "night_vision_bonus"        "700 800 900 1000"
+            "ms_increase_per_stack"     "2"
+            "as_increase_per_stack"     "10"
+            "flying_duration"           "5 6 7 8"
         }
 	}
 

@@ -66,9 +66,9 @@ if IsServer() then
     end
 
     -- Ignore self damage
-    if damaged_unit == attacker then
-      return
-    end
+    --if damaged_unit == attacker then
+      --return
+    --end
 
     -- Check if entity is an item, rune or something weird
     if damaged_unit.GetUnitName == nil then

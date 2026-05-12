@@ -157,20 +157,6 @@ function PrecacheUnitWithQueue( unit_name )
 	end)
 end
 
--- Initializes heroes' innate abilities
-function InitializeInnateAbilities( hero )	
-
-	-- Cycle through all of the heroes' abilities, and upgrade the innates ones
-	for i = 0, hero:GetAbilityCount() - 1 do		
-		local current_ability = hero:GetAbilityByIndex(i)		
-		if current_ability and current_ability.IsInnateAbility then
-			if current_ability:IsInnateAbility() then
-				current_ability:SetLevel(1)
-			end
-		end
-	end
-end
-
 function IndexAllTowerAbilities()
 	local ability_table = {}
 	local tier_one_abilities = {}
