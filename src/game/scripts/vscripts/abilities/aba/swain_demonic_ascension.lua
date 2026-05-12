@@ -15,6 +15,9 @@ function swain_demonic_ascension:OnSpellStart()
 
   -- Apply buff
   caster:AddNewModifier(caster, self, "modifier_swain_demonic_ascension_buff", {duration = max_buff_duration})
+  
+  -- Sound
+  caster:EmitSound("Hero_Nightstalker.Trickling_Fear")
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -30,7 +33,7 @@ function modifier_swain_demonic_ascension_buff:IsDebuff()
 end
 
 function modifier_swain_demonic_ascension_buff:IsPurgable()
-  return false -- TODO: Check
+  return false -- League of Legends does not have dispels; it's an ultimate and transformation
 end
 
 function modifier_swain_demonic_ascension_buff:OnCreated()
@@ -44,6 +47,11 @@ function modifier_swain_demonic_ascension_buff:OnCreated()
   -- KVs that are needed
   local max_demonic_energy = ability:GetSpecialValueFor("max_demonic_energy") -- 50
   local interval = ability:GetSpecialValueFor("interval") -- 0.5
+  local radius = ability:GetSpecialValueFor("radius") -- 650
+  
+  -- AoE particle
+  self.particle = ParticleManager:CreateParticle("particles/units/heroes/hero_night_stalker/nightstalker_crippling_fear_aura.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+  ParticleManager:SetParticleControl(self.particle, 2, Vector(radius, radius, radius))
 
   self:SetStackCount(max_demonic_energy)
   self:OnIntervalThink()
@@ -100,7 +108,6 @@ function modifier_swain_demonic_ascension_buff:OnIntervalThink()
 
   -- Sound
   if found_enemy then
-    EmitSoundOnLocationWithCaster(caster_location, "Hero_DeathProphet.SpiritSiphon.Cast", caster)
     if self:GetElapsedTime() >= first_demon_flare_time and not caster:HasModifier("modifier_swain_demon_flare_cd") then
       self:DemonFlare()
     end
@@ -139,6 +146,14 @@ function modifier_swain_demonic_ascension_buff:OnDestroy()
   if not IsServer() then
     return
   end
+
+  -- Remove particle
+  if self.particle then
+    ParticleManager:DestroyParticle(self.particle, true)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
+  end
+
   local caster = self:GetParent()
   local ability = self:GetAbility()
 
@@ -151,7 +166,9 @@ function modifier_swain_demonic_ascension_buff:OnDestroy()
     return
   end
 
-  self:DemonFlare()
+  if not caster:HasModifier("modifier_swain_demon_flare_cd") then
+    self:DemonFlare()
+  end
 end
 
 function modifier_swain_demonic_ascension_buff:DeclareFunctions()
@@ -271,7 +288,7 @@ function modifier_swain_demonic_ascension_debuff:IsDebuff()
 end
 
 function modifier_swain_demonic_ascension_debuff:IsPurgable()
-  return false -- TODO: Check
+  return false -- League of Legends does not have dispels; it would get reapplied anyway
 end
 
 function modifier_swain_demonic_ascension_debuff:OnCreated()
@@ -296,15 +313,23 @@ function modifier_swain_demonic_ascension_debuff:OnCreated()
   -- KVs that are needed
   local interval = ability:GetSpecialValueFor("interval") -- 0.5
   local max_buff_duration = ability:GetSpecialValueFor("max_buff_duration") -- 100
+  
+  local caster_location = caster:GetAbsOrigin()
 
   -- Particle
   self.nFX = ParticleManager:CreateParticle("particles/units/heroes/hero_death_prophet/death_prophet_spiritsiphon.vpcf", PATTACH_CUSTOMORIGIN, caster)
-  ParticleManager:SetParticleControlEnt(self.nFX, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+  ParticleManager:SetParticleControlEnt(self.nFX, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster_location, true)
   ParticleManager:SetParticleControlEnt(self.nFX, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
   ParticleManager:SetParticleControl(self.nFX, 5, Vector(max_buff_duration, 0, 0)) -- particle does not work without a duration (0 or -1 is not supported)
 
-  -- Sound
-  parent:EmitSound("Hero_DeathProphet.SpiritSiphon.Target")
+  -- Sound (only if hero)
+  if parent:IsRealHero() then
+    self.sound_is_played = true
+    -- Sound on the caster
+    EmitSoundOnLocationWithCaster(caster_location, "Hero_DeathProphet.SpiritSiphon.Cast", caster)
+    -- Sound on the parent
+    parent:EmitSound("Hero_DeathProphet.SpiritSiphon.Target")
+  end
 
   -- Start thinking
   self:StartIntervalThink(interval)
@@ -388,7 +413,7 @@ function modifier_swain_demonic_ascension_debuff:OnDestroy()
   if IsServer() then
     -- Stop sound
     local parent = self:GetParent()
-    if parent and not parent:IsNull() then
+    if parent and not parent:IsNull() and self.sound_is_played then
       parent:StopSound("Hero_DeathProphet.SpiritSiphon.Target")
     end
     -- Remove particle
@@ -412,7 +437,7 @@ function modifier_swain_demon_flare_debuff:IsDebuff()
 end
 
 function modifier_swain_demon_flare_debuff:IsPurgable()
-  return true -- TODO: Check
+  return true -- League of Legends does not have dispels
 end
 
 function modifier_swain_demon_flare_debuff:OnCreated()
@@ -453,7 +478,7 @@ function modifier_swain_demon_flare_cd:IsHidden()
 end
 
 function modifier_swain_demon_flare_cd:IsDebuff()
-  return false
+  return false -- it needs to be false because of Debuff Immunity
 end
 
 function modifier_swain_demon_flare_cd:IsPurgable()
