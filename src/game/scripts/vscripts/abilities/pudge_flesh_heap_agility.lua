@@ -13,11 +13,11 @@ function pudge_flesh_heap_agility:Spawn()
 end
 
 function pudge_flesh_heap_agility:GetIntrinsicModifierName()
-  return "modifier_flesh_heap_agi"
+	return "modifier_flesh_heap_agi"
 end
 
 function pudge_flesh_heap_agility:GetCastRange(location, target)
-  return self:GetSpecialValueFor("flesh_heap_range")
+	return self:GetSpecialValueFor("flesh_heap_range")
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -63,12 +63,12 @@ function modifier_flesh_heap_agi:OnRefresh()
 end
 
 function modifier_flesh_heap_agi:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-  }
+	return {
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+	}
 end
 
 function modifier_flesh_heap_agi:GetModifierBonusStats_Agility()
-  local parent = self:GetParent()
-  return parent:GetModifierStackCount("modifier_pudge_custom_flesh_heap_kill_tracker", parent) * self.flesh_heap_amount
+	local parent = self:GetParent()
+	return parent:GetModifierStackCount("modifier_pudge_custom_flesh_heap_kill_tracker", parent) * self.flesh_heap_amount
 end

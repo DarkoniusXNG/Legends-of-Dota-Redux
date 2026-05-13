@@ -106,7 +106,7 @@ function modifier_astralise:OnIntervalThink()
 			end
 
 			for k,v in pairs(allies) do
-				v:Heal(heal, self:GetAbility():GetCaster())
+				v:HealWithParams(heal, self:GetAbility(), false, true, self:GetAbility():GetCaster(), false)
 			end
 
 			local p = ParticleManager:CreateParticle("particles/units/heroes/hero_ptomely/astralise_pulse.vpcf", PATTACH_WORLDORIGIN, nil)
@@ -164,7 +164,7 @@ end
 function FindEnemies(caster,point,radius,targets,flags)
   local targets = targets or DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_CREEP
   local flags = flags or DOTA_UNIT_TARGET_FLAG_NONE
-  return FindUnitsInRadius( 
+  return FindUnitsInRadius(
     caster:GetTeamNumber(),
     point,
     nil,
@@ -179,7 +179,7 @@ end
 
 function FindAllies(caster,point,radius,targets)
   local targets = targets or DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_CREEP
-  return FindUnitsInRadius( 
+  return FindUnitsInRadius(
     caster:GetTeamNumber(),
     point,
     nil,

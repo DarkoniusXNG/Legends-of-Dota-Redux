@@ -8,9 +8,9 @@ function OnKilled(keys)
 	if not caster or not unit then return end
 
 	if caster:IsIllusion() or unit:IsIllusion() then return end
-	
-	local day = GameRules:IsDaytime() 
-	local unit_health = unit:GetMaxHealth() 
+
+	local day = GameRules:IsDaytime()
+	local unit_health = unit:GetMaxHealth()
 	local heal = 0
 
 	if day then
@@ -19,11 +19,5 @@ function OnKilled(keys)
 		heal = unit_health*bonus_night
 	end
 
-	caster:Heal(heal, ability) 
-	--[[
-	print("IsDay:", day)
-	print("Heal:", heal)
-
-	for i,x in pairs(keys) do print(i, x) end
-	]]
+	caster:Heal(heal, ability)
 end

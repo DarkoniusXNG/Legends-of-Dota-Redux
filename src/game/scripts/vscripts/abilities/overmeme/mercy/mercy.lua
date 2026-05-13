@@ -56,7 +56,7 @@ function CaduceusHealHit(keys)
 	local instant_heal = ability:GetLevelSpecialValueFor("instant_heal", ability_level)
 
 	-- Apply healing and regen
-	target:Heal(instant_heal, caster)
+	target:Heal(instant_heal, ability)
 	SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, target, instant_heal, nil)
 	ability:ApplyDataDrivenModifier(caster, target, modifier_regen, {})
 
@@ -202,7 +202,7 @@ function HeroesNeverDie(keys)
 	-- Heal all nearby allies
 	local nearby_allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, effect_radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 	for _, ally in pairs(nearby_allies) do
-		ally:Heal(ally:GetMaxHealth(), caster)
+		ally:Heal(ally:GetMaxHealth(), ability)
 		SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, ally:GetMaxHealth(), nil)
 	end
 

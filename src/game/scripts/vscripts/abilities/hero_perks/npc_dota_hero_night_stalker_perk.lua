@@ -28,7 +28,7 @@ function modifier_npc_dota_hero_night_stalker_perk:OnCreated()
     self.lifesteal = 30
     self.spell_lifesteal = 20
 	self.lifesteal_penalty_against_creeps = 40
-	self.spell_lifesteal_against_creeps = 80
+	self.spell_lifesteal_penalty_against_creeps = 80
     --if IsServer() then
         --self:StartIntervalThink(0.3)
     --end
@@ -99,8 +99,8 @@ if IsServer() then
 			return
 		end
 
-		-- Buildings and wards can't lifesteal
-		if attacker:IsTower() or attacker:IsBarracks() or attacker:IsBuilding() or attacker:IsOther() then
+		-- Buildings, wards and illusions can't lifesteal
+		if attacker:IsTower() or attacker:IsBarracks() or attacker:IsBuilding() or attacker:IsOther() or attacker:IsIllusion() then
 			return
 		end
 
@@ -151,9 +151,9 @@ if IsServer() then
 		end
 
 		-- Ignore damage with no-spell-amplification flag
-		if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
-			return
-		end
+		--if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
+			--return
+		--end
 
 		-- Don't heal while dead
 		if not attacker:IsAlive() then
@@ -176,7 +176,7 @@ if IsServer() then
 			else
 				-- Illusions are treated as creeps too
 				lifesteal_amount = damage * (self.lifesteal / 100) * (1 - self.lifesteal_penalty_against_creeps / 100)
-				spell_lifesteal_amount = damage * (self.spell_lifesteal / 100) * (1 - self.spell_lifesteal_against_creeps / 100)
+				spell_lifesteal_amount = damage * (self.spell_lifesteal / 100) * (1 - self.spell_lifesteal_penalty_against_creeps / 100)
 			end
 
 			-- Particle and health restoration

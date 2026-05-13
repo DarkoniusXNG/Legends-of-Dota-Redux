@@ -26,7 +26,7 @@ end
 
 function modifier_npc_dota_hero_leshrac_perk:OnCreated()
 	self.bonusPerLevel = 1
-	self.spell_lifesteal_against_creeps = 80
+	self.spell_lifesteal_penalty_against_creeps = 80
 	if IsServer() then
 		self:StartIntervalThink(0.1)
 	end
@@ -92,8 +92,8 @@ if IsServer() then
 			return
 		end
 
-		-- Buildings and wards can't lifesteal
-		if attacker:IsTower() or attacker:IsBarracks() or attacker:IsBuilding() or attacker:IsOther() then
+		-- Buildings, wards and illusions can't lifesteal
+		if attacker:IsTower() or attacker:IsBarracks() or attacker:IsBuilding() or attacker:IsOther() or attacker:IsIllusion() then
 			return
 		end
 
@@ -101,7 +101,7 @@ if IsServer() then
 		if damaged_unit:IsTower() or damaged_unit:IsBarracks() or damaged_unit:IsBuilding() or damaged_unit:IsOther() or damaged_unit:IsInvulnerable() then
 			return
 		end
-		
+
 		-- If there is no inflictor, damage is not dealt by a spell or item
 		if not inflictor or inflictor:IsNull() then
 			return
@@ -113,7 +113,7 @@ if IsServer() then
 		if isSuccubus then
 			spellLifestealReflected = succubus:GetSpecialValueFor("lifesteal_reflected") == 1
 		end
-		
+
 		-- Ignore pure damage
 		--if dmg_type == DAMAGE_TYPE_PURE then
 			--if not isSuccubus then
@@ -149,9 +149,9 @@ if IsServer() then
 		end
 
 		-- Ignore damage with no-spell-amplification flag
-		if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
-			return
-		end
+		--if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
+			--return
+		--end
 
 		-- Don't heal while dead
 		if not attacker:IsAlive() then
@@ -169,7 +169,7 @@ if IsServer() then
 			spell_lifesteal_amount = damage * self:GetStackCount() / 100
 		else
 			-- Illusions are treated as creeps too
-			spell_lifesteal_amount = damage * (self:GetStackCount() / 100) * (1 - self.spell_lifesteal_against_creeps / 100)
+			spell_lifesteal_amount = damage * (self:GetStackCount() / 100) * (1 - self.spell_lifesteal_penalty_against_creeps / 100)
 		end
 
 		-- Particle and spell lifesteal

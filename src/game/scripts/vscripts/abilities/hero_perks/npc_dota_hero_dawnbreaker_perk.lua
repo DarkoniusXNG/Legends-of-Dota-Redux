@@ -87,7 +87,6 @@ if IsServer() then
 
     -- Imitate heal amp and health restoration amp
     self.flag = true
-    --parent:Heal(extra_health, nil)
     parent:HealWithParams(extra_health, nil, false, false, parent, false)
     self.flag = false
   end

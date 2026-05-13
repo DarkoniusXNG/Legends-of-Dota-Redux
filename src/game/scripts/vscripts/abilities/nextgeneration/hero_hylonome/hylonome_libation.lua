@@ -15,9 +15,10 @@ function CheckDistance(keys)
 			damage = ability:GetSpecialValueFor("damage_per_second") * ability:GetSpecialValueFor("interval"),
 			damage_type = DAMAGE_TYPE_PURE,
 		}
-		ApplyDamage(damageTable)
+		local damageDone = ApplyDamage(damageTable)
 		
-		caster:Heal(ability:GetSpecialValueFor("damage_per_second")*ability:GetSpecialValueFor("lifesteal")*0.01 * ability:GetSpecialValueFor("interval"),caster)
+		local heal_amount = damageDone * ability:GetSpecialValueFor("lifesteal") * 0.01
+		caster:HealWithParams(heal_amount, ability, false, true, caster, true)
 	end
 end
 
