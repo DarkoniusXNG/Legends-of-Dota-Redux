@@ -182,14 +182,14 @@ if IsServer() then
 			-- Particle and health restoration
 			if inflictor and spell_lifesteal_amount > 0 then
 				-- Spell Lifesteal
-				attacker:HealWithParams(heal_amount, nil, false, true, attacker, true)
+				attacker:HealWithParams(spell_lifesteal_amount, inflictor, false, true, attacker, true)
 				local particle1 = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
 				ParticleManager:SetParticleControl(particle1, 0, attacker:GetAbsOrigin())
 				ParticleManager:ReleaseParticleIndex(particle1)
 			end
 			if not inflictor and lifesteal_amount > 0 then
 				-- Normal Lifesteal
-				attacker:HealWithParams(heal_amount, nil, true, true, attacker, false)
+				attacker:HealWithParams(lifesteal_amount, nil, true, true, attacker, false)
 				local particle2 = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
 				ParticleManager:ReleaseParticleIndex(particle2)
 			end

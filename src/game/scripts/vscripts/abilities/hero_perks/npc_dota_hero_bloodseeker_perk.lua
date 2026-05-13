@@ -26,6 +26,7 @@ end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_bloodseeker_perk:OnCreated()
 	self.bonusPerLevel = 1
+	self.lifesteal_penalty_against_creeps = 40
 	if IsServer() then
 		self:StartIntervalThink(0.1)
 	end
@@ -113,19 +114,25 @@ if IsServer() then
       return
     end
 
-    -- Normal lifesteal should not work for spells and magic damage attacks
-    if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK or event.damage_type ~= DAMAGE_TYPE_PHYSICAL or event.inflictor then
+    -- This lifesteal should not work for spells but should work for any attack
+    if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK or event.inflictor then
       return
     end
 
-    -- Calculate the lifesteal (heal) amount
-    local heal_amount = damage * self:GetStackCount() * 0.01
+	-- Calculate the lifesteal (heal) amount
+	local lifesteal_amount = 0
+	if damaged_unit:IsRealHero() or damaged_unit:IsStrongIllusionCustom() then
+		lifesteal_amount = damage * self:GetStackCount() / 100
+	else
+		-- Illusions are treated as creeps too
+		lifesteal_amount = damage * (self:GetStackCount() / 100) * (1 - self.lifesteal_penalty_against_creeps / 100)
+	end
 
-    if heal_amount > 0 then
-      -- Normal Lifesteal
-      attacker:HealWithParams(heal_amount, nil, true, true, attacker, false)
-      local particle2 = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
-      ParticleManager:ReleaseParticleIndex(particle2)
-    end
+	if lifesteal_amount > 0 then
+		-- Normal Lifesteal
+		attacker:HealWithParams(lifesteal_amount, nil, true, true, attacker, false)
+		local particle2 = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
+		ParticleManager:ReleaseParticleIndex(particle2)
+	end
   end
 end
