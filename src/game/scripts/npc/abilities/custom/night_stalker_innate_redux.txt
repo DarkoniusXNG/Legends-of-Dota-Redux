@@ -6,14 +6,16 @@
         "AbilityTextureName"                                                   "custom/night_stalker_innate_redux"
         "ScriptFile"                                                           "abilities/night_stalker_innate.lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"IsBreakable"                                                          "1"
 
         "HasScepterUpgrade"                                                    "1"
 
         "AbilityValues"
         {
-            "vision_radius" "500 600 700 800"
-            "scepter_bonus" "1000"
+            "vision_radius"                                                    "500 600 700 800"
+            "scepter_bonus"                                                    "200 300 400 500" // Total unobstructed nighttime vision: this + owner's nighttime vision
         }
-        "ReduxFlags"                                                           "doNotRandom"
+
+        "ReduxFlags"                                                           "doNotRandom | dota_custom | upgradeable"
     }
 }

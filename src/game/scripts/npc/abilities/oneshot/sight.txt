@@ -1,5 +1,5 @@
 "DOTAAbilities" {
-	"sight"
+	"beast_ninja_sight"
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"custom/sight"
@@ -9,70 +9,31 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
 		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"60 45 30"
-		"AbilityManaCost"	"150"
+		"AbilityCooldown"	"40 35 30"
+		"AbilityManaCost"	"75"
 		"AbilityCastRange"	"1200"
-		"ReduxPerks"                                                           "nature"
+
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "nature | support"
+
 		"OnSpellStart"
 		{
-			"ApplyModifier"
-			{
-				"Target"	"TARGET"
-				"ModifierName"	"modifier_sight"
-			}
 			"RunScript"
 			{
 				"Target"	"TARGET"
-				"ScriptFile"	"scripts/vscripts/abilities/oneshotonekill/beast_ninja.lua"
+				"ScriptFile"	"abilities/oneshotonekill/beast_ninja.lua"
 				"Function"	"sight"
-				"radius_d"	"%radius_d"
-				"radius_n"	"%radius_n"
 			}
 		}
-		"Modifiers"
-		{
-			"modifier_sight"
-			{
-				"Duration"	"%duration"
-				"OnCreated"
-				{
-					"ApplyModifier"
-					{
-						"Target"	"TARGET"
-						"ModifierName"	"modifier_tower_truesight_aura"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"Target"	"TARGET"
-						"ModifierName"	"modifier_tower_truesight_aura"
-					}
-				}
-				"OnDeath"
-				{
-					"RemoveModifier"
-					{
-						"Target"	"CASTER"
-						"ModifierName"	"modifier_tower_truesight_aura"
-					}
-				}
-			}
-		}
+
 		"AbilityValues"
         {
-            "radius_d"
+            "true_sight_range"
 			{
-				"value"			"1400 1600 1800"
+				"value"			"1200 1400 1600"
 				"affected_by_aoe_increase"	"1"
 			}
-            "radius_n"
-			{
-				"value"			"1000 1200 1400"
-				"affected_by_aoe_increase"	"1"
-			}
-            "duration" "30 45 60"
+            "duration" "30 35 40"
         }
 	}
 }

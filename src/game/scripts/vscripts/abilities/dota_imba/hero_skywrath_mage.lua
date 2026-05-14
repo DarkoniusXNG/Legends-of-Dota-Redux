@@ -223,11 +223,7 @@ function imba_skywrath_mage_arcane_bolt:OnProjectileHit(target, location)
 	end
 
 	-- Add flying vision in the impact area
-	AddFOWViewer(caster:GetTeamNumber(),
-				 location,
-				 vision_radius,
-				 impact_vision_duration,
-				 false)
+	AddFOWViewer(caster:GetTeamNumber(), location, vision_radius, impact_vision_duration, false)
 
 	-- Play impact sound
 	EmitSoundOn(sound_impact, caster)
