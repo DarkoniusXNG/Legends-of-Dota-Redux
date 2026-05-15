@@ -105,134 +105,6 @@ function util:DeepCopy(orig)
     return copy
 end
 
--- Tells you if a given spell is channelled or not
-function util:isChannelled(name)
-    local ability_data = GetAbilityKeyValuesByName(name)
-    if not ability_data then
-        print("util:isChannelled: Ability "..name.." does not exist!")
-        return
-    end
-    local behavior = ability_data.AbilityBehavior
-    if not behavior then
-        print("util:isChannelled: Ability "..name.." does not have a behavior!")
-        return
-    end
-    return string.find(behavior, "DOTA_ABILITY_BEHAVIOR_CHANNELLED")
-end
-
--- Tells you if a given spell is target based one or not
-function util:isTargetSpell(name)
-    local ability_data = GetAbilityKeyValuesByName(name)
-    if not ability_data then
-        print("util:isTargetSpell: Ability "..name.." does not exist!")
-        return
-    end
-    local behavior = ability_data.AbilityBehavior
-    if not behavior then
-        print("util:isTargetSpell: Ability "..name.." does not have a behavior!")
-        return
-    end
-    return string.find(behavior, "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET")
-end
-
--- Tells you if given spell is a talent
-function util:IsTalent(ability)
-    local ability_name
-    if type(ability) == "string" then
-        ability_name = ability
-        if ability_name == "" or ability_name == 'generic_hidden' or ability_name == "ability_base" then
-            return false
-        end
-        local ability_data = GetAbilityKeyValuesByName(ability_name)
-        if not ability_data then
-            print("util:IsTalent: Ability "..ability_name.." does not exist!")
-            return false
-        end
-    else
-        if not ability or ability:IsNull() then
-            print("util:IsTalent: Passed parameter does not exist!")
-            return false
-        end
-        if not ability.GetAbilityName then
-            print("util:IsTalent: Passed parameter is not an ability!")
-            return false
-        end
-        ability_name = ability:GetAbilityName()
-    end
-
-    return string.find(ability_name, "special_bonus_") and ability_name ~= "special_bonus_attributes"
-end
-
--- Tells you if given spell is an innate
-function util:IsVanillaInnate(ability)
-    local ability_name
-    if type(ability) == "string" then
-        ability_name = ability
-    else
-        if not ability or ability:IsNull() then
-            print("util:IsVanillaInnate: Passed parameter does not exist!")
-            return false
-        end
-        if not ability.GetAbilityName then
-            print("util:IsVanillaInnate: Passed parameter is not an ability!")
-            return false
-        end
-        ability_name = ability:GetAbilityName()
-    end
-
-    if ability_name == "" or ability_name == 'special_bonus_attributes' or ability_name == 'generic_hidden' or DONOTREMOVE[ability_name] or ability_name == "ability_base" then
-        return false
-    end
-
-    local ability_data = GetAbilityKeyValuesByName(ability_name)
-    if not ability_data then
-        print("util:IsVanillaInnate: Ability "..ability_name.." does not exist!")
-        return false
-    end
-
-    if ability_data.Innate ~= nil then
-        if tonumber(ability_data.Innate) == 1 then
-            return true
-        end
-    end
-    return false
-end
-
--- Tells you if given spell is supposed to be hidden
-function util:IsSupposedToBeHidden(ability)
-    local ability_name
-    if type(ability) == "string" then
-        ability_name = ability
-    else
-        if not ability or ability:IsNull() then
-            print("util:IsSupposedToBeHidden: Passed parameter does not exist!")
-            return true
-        end
-        if not ability.GetAbilityName then
-            print("util:IsSupposedToBeHidden: Passed parameter is not an ability!")
-            return true
-        end
-        ability_name = ability:GetAbilityName()
-    end
-
-    if ability_name == "" or ability_name == 'special_bonus_attributes' or ability_name == 'generic_hidden' or DONOTREMOVE[ability_name] or ability_name == "ability_base" then
-        return true
-    end
-
-    local ability_data = GetAbilityKeyValuesByName(ability_name)
-    if not ability_data then
-        print("util:IsSupposedToBeHidden: Ability "..ability_name.." does not exist!")
-        return true
-    end
-
-    local behavior = ability_data.AbilityBehavior
-    if not behavior then
-        print("util:IsSupposedToBeHidden: Ability "..ability_name.." does not have a behavior!")
-        return true
-    end
-    return string.find(behavior, "DOTA_ABILITY_BEHAVIOR_HIDDEN")
-end
-
 function util:sortTable(input)
     local array = {}
     for heroName in pairs(input) do
@@ -259,7 +131,6 @@ function util:swapTable(input)
     end
     return array
 end
-
 
 -- Returns true if a player is premium
 function util:playerIsPremium(playerID)
@@ -684,21 +555,6 @@ function util:isCoop()
     end
 end
 
-function IsCustomAbilityByName(name)
-    if not name then
-        return false
-    end
-    if name == "" then
-        return false
-    end
-    local ability_kvs = GetAbilityKeyValuesByName(name)
-    if not ability_kvs then
-        print("IsCustomAbilityByName: Ability "..name.." does not exist.")
-        return false
-    end
-    return ability_kvs.BaseClass ~= nil and not util:IsTalent(name)
-end
-
 function GetRandomAbilityFromListForPerk(flag)
     local numberOfValues = 0
     local localTable = {}
@@ -888,117 +744,6 @@ function util:EmitSoundOnClient(pid, sound)
     end
 end
 
--- Abilities ignored for custom Essence Aura abilities
-function util:IsIgnoredForEssenceAura(ability)
-	local essence_aura_ignore_list = { -- should contain 0s cd non-toggle spells that have mana cost
-		storm_spirit_ball_lightning = true,
-		winter_wyvern_arctic_burn = true,
-	}
-
-	if not ability or ability:IsNull() then
-		print("util:IsIgnoredForEssenceAura: Passed parameter does not exist!")
-		return true
-	end
-	if not ability.GetAbilityKeyValues then
-		print("util:IsIgnoredForEssenceAura: Passed parameter is not an ability!")
-		return true
-	end
-
-	local ability_data = ability:GetAbilityKeyValues()
-	local ability_mana_cost = ability:GetManaCost(-1)
-	--local ability_cooldown = ability:GetCooldown(-1)
-
-	-- Ignore items
-	if ability:IsItem() then
-		return true
-	end
-
-	if not ability_data then
-		print("util:IsIgnoredForEssenceAura: Ability "..ability:GetAbilityName().." does not exist!")
-		return true
-	end
-
-	-- Ignore toggle abilities
-	local ability_behavior = ability_data.AbilityBehavior
-	if string.find(ability_behavior, "DOTA_ABILITY_BEHAVIOR_TOGGLE") then
-		return true
-	end
-
-	-- Ignore abilities that cost no mana
-	if ability_mana_cost == 0 then
-		return true
-	end
-
-	-- Ignore abilities that have no cooldown (but not attack-based spells)
-	--if ability_cooldown == 0 and not string.find(ability_behavior, "DOTA_ABILITY_BEHAVIOR_ATTACK") then
-		--return true
-	--end
-
-	-- Ignore abilities on the list
-	if essence_aura_ignore_list[ability:GetAbilityName()] then
-		return true
-	end
-
-	return false
-end
-
--- Abilities ignored for custom Aftershock Redux
-function util:IsIgnoredForAftershock(ability)
-	local aftershock_ignore_list = { -- should contain 0 mana cost spells with low cd that is not 0
-		shadow_demon_shadow_poison_release = true,
-		spectre_reality = true,
-		techies_focused_detonate = true,
-		winter_wyvern_arctic_burn = true,
-		--eat_tree_eldri = true, -- actually has mana cost that increases with each cast
-	}
-
-	if not ability or ability:IsNull() then
-		print("util:IsIgnoredForAftershock: Passed parameter does not exist!")
-		return true
-	end
-	if not ability.GetAbilityKeyValues then
-		print("util:IsIgnoredForAftershock: Passed parameter is not an ability!")
-		return true
-	end
-
-	local ability_data = ability:GetAbilityKeyValues()
-	--local ability_mana_cost = ability:GetManaCost(-1)
-	local ability_cooldown = ability:GetCooldown(-1)
-
-	-- Ignore items
-	if ability:IsItem() then
-		return true
-	end
-
-	if not ability_data then
-		print("util:IsIgnoredForAftershock: Ability "..ability:GetAbilityName().." does not exist!")
-		return true
-	end
-
-	-- Ignore toggle abilities
-	local ability_behavior = ability_data.AbilityBehavior
-	if string.find(ability_behavior, "DOTA_ABILITY_BEHAVIOR_TOGGLE") then
-		return true
-	end
-
-	-- Ignore abilities that cost no mana
-	--if ability_mana_cost == 0 then
-		--return true
-	--end
-
-	-- Ignore abilities that have no cooldown (but not attack-based spells)
-	if ability_cooldown == 0 and not string.find(ability_behavior, "DOTA_ABILITY_BEHAVIOR_ATTACK") then
-		return true
-	end
-
-	-- Ignore abilities on the list
-	if aftershock_ignore_list[ability:GetAbilityName()] then
-		return true
-	end
-
-	return false
-end
-
 function util:getAbilityKV(ability, key)
     if key then
         if self.abilityKVs[ability] then
@@ -1062,6 +807,103 @@ function IsNearFriendlyClass(unit, radius, class)
 	end
 	
 	return false
+end
+
+-- caster is needed for debuff amplification
+function GetValueChangedByStatusResistance(value, victim, caster)
+	if victim and value then
+		local status_resist = victim:GetStatusResistance() -- if this stops working, bring back GetTenacity
+		local other_debuff_duration_decrease = 0
+		local debuff_amplifications = 0
+		if caster and not caster:IsNull() then
+			local ursa_debuff_amp = caster:FindAbilityByName("ursa_bear_down")
+			local lion_debuff_amp = caster:HasModifier("modifier_lion_to_hell_and_back_buff")
+			local bristle_debuff_amp = caster:FindAbilityByName("bristleback_prickly")
+			local rubick_debuff_amp = caster:FindAbilityByName("rubick_curiosity")
+			local timeless_debuff_amp = caster:HasModifier("modifier_item_enhancement_timeless")
+			if ursa_debuff_amp and not ursa_debuff_amp:IsNull() then
+				if ursa_debuff_amp:GetLevel() > 0 then
+					local bear_down_debuff_amp = ursa_debuff_amp:GetSpecialValueFor("debuff_amp")
+					debuff_amplifications = (1 + debuff_amplifications) * (1 + bear_down_debuff_amp / 100) - 1
+				end
+			end
+			if lion_debuff_amp then
+				local to_hell_and_back_mod = caster:FindModifierByNameAndCaster("modifier_lion_to_hell_and_back_buff", caster)
+				if to_hell_and_back_mod then
+					local to_hell_and_back_ability = to_hell_and_back_mod:GetAbility()
+					if to_hell_and_back_ability and not to_hell_and_back_ability:IsNull() then
+						if to_hell_and_back_ability:GetLevel() > 0 then
+							local to_hell_and_back_debuff_amp = to_hell_and_back_ability:GetSpecialValueFor("debuff_amp")
+							debuff_amplifications = (1 + debuff_amplifications) * (1 + to_hell_and_back_debuff_amp / 100) - 1
+						end
+					end
+				end
+			end
+			if bristle_debuff_amp and not bristle_debuff_amp:IsNull() then
+				if bristle_debuff_amp:GetLevel() > 0 then
+					local prickly_debuff_amp = bristle_debuff_amp:GetSpecialValueFor("amp_pct")
+					local angle = bristle_debuff_amp:GetSpecialValueFor("angle")
+					-- The y value of the angles vector contains the angle we actually want: where units are directionally facing in the world.
+					local bristle_angle = caster:GetAnglesAsVector().y
+					local origin_difference = caster:GetAbsOrigin() - victim:GetAbsOrigin()
+					-- Get the radian of the origin difference between the victim and Bristleback. We use this to figure out at what angle the victim is at relative to Bristleback.
+					local origin_difference_radian = math.atan2(origin_difference.y, origin_difference.x)
+					-- Convert the radian to degrees.
+					origin_difference_radian = origin_difference_radian * 180
+					local victim_angle = origin_difference_radian / math.pi
+					victim_angle = victim_angle + 180.0
+					-- Finally, get the angle at which Bristleback is facing the attacker.
+					local result_angle = victim_angle - bristle_angle
+					result_angle = math.abs(result_angle)
+					if result_angle >= (180 - (angle / 2)) and result_angle <= (180 + (angle / 2)) then
+						debuff_amplifications = (1 + debuff_amplifications) * (1 + prickly_debuff_amp / 100) - 1
+					end
+				end
+			end
+			if rubick_debuff_amp and not rubick_debuff_amp:IsNull() then
+				if rubick_debuff_amp:GetLevel() > 0 then
+					local base_curiosity_debuff_amp = rubick_debuff_amp:GetSpecialValueFor("curiosity_modifier_amp")
+					local curiosity_factor = rubick_debuff_amp:GetSpecialValueFor("curiosity_factor")
+					local hero_lvl = caster:GetLevel()
+					local curiosity_from_spell_casts = caster:FindModifierByName("modifier_rubick_curiosity")
+					local curiosity_from_kills = caster:FindModifierByName("modifier_rubick_curiosity_from_heroes_tracker")
+					local total_curiosity = hero_lvl
+					if curiosity_from_spell_casts then
+						total_curiosity = total_curiosity + curiosity_from_spell_casts:GetStackCount()
+					end
+					if curiosity_from_kills then
+						total_curiosity = total_curiosity + curiosity_from_kills:GetStackCount()
+					end
+					-- Calculating total curiosity debuff amp
+					local curiosity_debuff_amp
+					if curiosity_factor ~= 0 then
+						curiosity_debuff_amp = total_curiosity * base_curiosity_debuff_amp * curiosity_factor
+					else
+						curiosity_debuff_amp = total_curiosity * base_curiosity_debuff_amp
+					end
+					debuff_amplifications = (1 + debuff_amplifications) * (1 + curiosity_debuff_amp / 100) - 1
+				end
+			end
+			if timeless_debuff_amp then
+				local timeless_mod = caster:FindModifierByNameAndCaster("modifier_item_enhancement_timeless", caster)
+				if timeless_mod then
+					local timeless_item = timeless_mod:GetAbility()
+					if timeless_item and not timeless_item:IsNull() then
+						local timeless_amp = timeless_item:GetSpecialValueFor("debuff_amp")
+						debuff_amplifications = (1 + debuff_amplifications) * (1 + timeless_amp / 100) - 1
+					end
+				end
+			end
+		end
+
+		-- Capping max status resistance
+		local new_value = value * (1 - status_resist) * (1 - other_debuff_duration_decrease) * (1 + debuff_amplifications)
+		if new_value <= 0.01 or status_resist >= 1 or other_debuff_duration_decrease >= 1 or debuff_amplifications < 0 then
+			return value*0.01
+		end
+
+		return new_value
+	end
 end
 
 (function()

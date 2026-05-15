@@ -547,10 +547,6 @@ function modifier_imba_roshan_death_buff:GetModifierAttackSpeedBonus_Constant()
 function modifier_imba_roshan_death_buff:GetModifierPhysicalArmorBonus()
 	return self.bonusArmor * GAME_ROSHAN_KILLS end
 
---	function modifier_imba_roshan_death_buff:GetCustomTenacityUnique()
---		return self.bonusTenacity * GAME_ROSHAN_KILLS
---	end
-
 ------------------------------------------
 --				APOCALYPSE				--
 ------------------------------------------

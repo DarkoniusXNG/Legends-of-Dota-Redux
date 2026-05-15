@@ -199,7 +199,7 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
                                 local playerID = hero:GetPlayerID()
 
                                 -- Handle channelled spells
-                                if util:isChannelled(keys.abilityname) then
+                                if IsChannelledCustom(keys.abilityname) then
                                     -- Cleanup
                                     if multicastChannel[playerID] ~= nil then
                                         while #multicastChannel[playerID].units > 0 do
@@ -296,7 +296,7 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
                                     local multUnits
 
                                     local targets
-                                    if target and util:isTargetSpell(keys.abilityname) then
+                                    if target and IsTargetSpellCustom(keys.abilityname) then
                                         isaTargetSpell = true
 
                                         targets = FindUnitsInRadius(target:GetTeam(),

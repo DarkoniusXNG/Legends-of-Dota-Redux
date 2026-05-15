@@ -3332,7 +3332,20 @@ function modifier_imba_tower_tenacity_aura_buff:IsHidden()
 	return false
 end
 
-function modifier_imba_tower_tenacity_aura_buff:GetCustomTenacity()
+function modifier_imba_tower_tenacity_aura_buff:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+		MODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING,
+	}
+end
+
+function modifier_imba_tower_tenacity_aura_buff:GetModifierStatusResistanceStacking()
+	local protective_instinct_stacks = self.caster:GetModifierStackCount("modifier_imba_tower_protective_instinct", self.caster)
+	local tenacity = self.base_tenacity_pct + self.tenacity_per_protective * protective_instinct_stacks
+	return tenacity
+end
+
+function modifier_imba_tower_tenacity_aura_buff:GetModifierSlowResistance_Stacking()
 	local protective_instinct_stacks = self.caster:GetModifierStackCount("modifier_imba_tower_protective_instinct", self.caster)
 	local tenacity = self.base_tenacity_pct + self.tenacity_per_protective * protective_instinct_stacks
 	return tenacity

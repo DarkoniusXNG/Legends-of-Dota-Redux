@@ -243,7 +243,7 @@ function Commands:OnPlayerChat(keys)
                 for i = 0, hero:GetAbilityCount() - 1 do
                     if hero:GetAbilityByIndex(i) then
                         local ability = hero:GetAbilityByIndex(i)
-                        if ability and util:IsTalent(ability) then
+                        if ability and IsTalentCustom(ability) then
                             local abName = ability:GetName()
                             table.insert(talents, abName)
                             hero:RemoveAbility(abName)

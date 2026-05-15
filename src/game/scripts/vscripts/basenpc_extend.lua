@@ -195,15 +195,6 @@ if CDOTA_BaseNPC then
 	--     original_duration = duration,
 	--     modifier_name = modifier_name,
 	-- }
-	function CDOTA_BaseNPC:GetTenacity(modifierEventTable)
-		local tenacity = 1
-		for _, parent_modifier in pairs(self:FindAllModifiers()) do
-			if parent_modifier.GetTenacity then
-				tenacity = tenacity * (1- (parent_modifier:GetTenacity(modifierEventTable)/100))
-			end
-		end
-		return tenacity
-	end
 
 	function CDOTA_BaseNPC:GetWillPower(modifierEventTable)
 		local willpower = 1

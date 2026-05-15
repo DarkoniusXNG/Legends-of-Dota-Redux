@@ -113,7 +113,7 @@ end
 -- Create the game mode when we activate
 function Activate()
     -- Print LoD version header
-    local versionNumber = "3.1.2"
+    local versionNumber = "7.41.3"
     print('\n\nDota 2 Redux is activating! (v'..versionNumber..')')
 
    -- Load specific modules

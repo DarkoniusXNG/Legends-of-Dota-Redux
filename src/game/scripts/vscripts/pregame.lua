@@ -1776,7 +1776,7 @@ function Pregame:networkHeroes()
                     flags["imba"] = flags["imba"] or {}
                     flags["imba"][k] = 1
                 end
-                if SkillManager:isPassive(k) or util:IsVanillaInnate(k) then
+                if IsPassiveCustomByName(k) or IsInnateCustom(k) then
                     flags["passive"] = flags["passive"] or {}
                     flags["passive"][k] = 1
                 end
@@ -1819,7 +1819,7 @@ function Pregame:networkHeroes()
             flagsInverse[abilityName].group = abilityGroup
         end
 
-        if SkillManager:isUlt(abilityName) then
+        if IsUltimateCustomByName(abilityName) then
             flagsInverse[abilityName].isUlt = true
             --self:banAbility(abilityName)
         end
@@ -1979,7 +1979,7 @@ function Pregame:networkHeroes()
                 if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
                     theData['Ability' .. sn] = abName
                     sn = sn + 1
-                    if util:IsVanillaInnate(abName) then
+                    if IsInnateCustom(abName) then
                         self.vanillaInnates[heroName] = abName
                     end
                 end
@@ -1998,7 +1998,7 @@ function Pregame:networkHeroes()
             local talentStartIndex = heroData.AbilityTalentStart or baseHero.AbilityTalentStart
             for i = tonumber(talentStartIndex), DOTA_MAX_ABILITIES do
                 local abName = heroData['Ability' .. i]
-                if abName and util:IsTalent(abName) then
+                if abName and IsTalentCustom(abName) then
                     theData['SpecialBonus'..tostring(math.ceil(sb / 2))] = theData['SpecialBonus'..tostring(math.ceil(sb / 2))] or {}
                     table.insert(theData['SpecialBonus'..tostring(math.ceil(sb / 2))], abName)
                     sb = sb + 1
@@ -5612,7 +5612,7 @@ function Pregame:setSelectedAbility(playerID, slot, abilityName, dontNetwork)
 
     -- Validate that the ability is allowed in this slot (ulty count)
     if SkillManager:hasTooMany(newBuild, maxUlts, function(ab)
-        return SkillManager:isUlt(ab)
+        return IsUltimateCustomByName(ab)
     end) then
         -- Invalid ability name
         network:sendNotification(player, {
@@ -5629,7 +5629,7 @@ function Pregame:setSelectedAbility(playerID, slot, abilityName, dontNetwork)
 
     -- Validate that the ability is allowed in this slot (regular count)
     if SkillManager:hasTooMany(newBuild, maxRegulars, function(ab)
-        return SkillManager:isValidBasic(ab)
+        return IsValidBasicByName(ab)
     end) then
         -- Invalid ability name
         network:sendNotification(player, {
@@ -5752,7 +5752,7 @@ function Pregame:setSelectedAbility(playerID, slot, abilityName, dontNetwork)
         for _,buildAbility in pairs(newBuild) do
             -- Check that ability is passive and is powerful ability
             -- Temporarily limit all passives, indepedent of their power
-            if SkillManager:isPassive(buildAbility) or self.flags["semi_passive"][buildAbility] ~= nil then -- and self.spellCosts[buildAbility] ~= nil and self.spellCosts[buildAbility] >= 60 then
+            if IsPassiveCustomByName(buildAbility) or self.flags["semi_passive"][buildAbility] ~= nil then -- and self.spellCosts[buildAbility] ~= nil and self.spellCosts[buildAbility] >= 60 then
                 powerfulPassives = powerfulPassives + 1
             end
         end
@@ -6129,9 +6129,9 @@ function Pregame:findRandomSkill(build, slotNumber, playerID, optionalFilter)
 
     for slotID,abilityName in pairs(build) do
         if slotID ~= slotNumber then
-            if SkillManager:isUlt(abilityName) then
+            if IsUltimateCustomByName(abilityName) then
                 totalUlts = totalUlts + 1
-            elseif SkillManager:isValidBasic(abilityName) then
+            elseif IsValidBasicByName(abilityName) then
                 totalNormal = totalNormal + 1
             end
         end
@@ -6154,11 +6154,11 @@ function Pregame:findRandomSkill(build, slotNumber, playerID, optionalFilter)
 
         -- consider ulty count
         if shouldAdd then
-            if SkillManager:isUlt(abilityName) then
+            if IsUltimateCustomByName(abilityName) then
                 if totalUlts >= maxUlts then
                     shouldAdd = false
                 end
-            elseif SkillManager:isValidBasic(abilityName) then
+            elseif IsValidBasicByName(abilityName) then
                 if totalNormal >= maxRegulars then
                     shouldAdd = false
                 end
@@ -6230,13 +6230,13 @@ function Pregame:findRandomSkill(build, slotNumber, playerID, optionalFilter)
         if not (util:isSinglePlayerMode() or util:isCoop()) then
             local powerfulPassives = 0
             for _,buildAbility in pairs(build) do
-                if SkillManager:isPassive(buildAbility) or self.flags["semi_passive"][buildAbility] ~= nil then -- and self.spellCosts[buildAbility] ~= nil and self.spellCosts[buildAbility] >= 60 then
+                if IsPassiveCustomByName(buildAbility) or self.flags["semi_passive"][buildAbility] ~= nil then -- and self.spellCosts[buildAbility] ~= nil and self.spellCosts[buildAbility] >= 60 then
                     powerfulPassives = powerfulPassives + 1
                 end
             end
 
 
-            if (SkillManager:isPassive(abilityName) or self.flags["semi_passive"][abilityName] ~= nil) then
+            if (IsPassiveCustomByName(abilityName) or self.flags["semi_passive"][abilityName] ~= nil) then
                 powerfulPassives = powerfulPassives + 1
             end
 
@@ -7148,7 +7148,7 @@ function Pregame:getSkillforBot( botInfo, botSkills )
     while skillID <= maxSlots do
         -- Attempt to pick a high priority skill, otherwise pick any passive, otherwise pick any
         local newAb = self:findRandomSkill(build, skillID, playerID, function(abilityName)
-            return SkillManager:isPassive(abilityName)
+            return IsPassiveCustomByName(abilityName)
         end) or self:findRandomSkill(build, skillID, playerID)
 
         if newAb ~= nil then
@@ -7224,19 +7224,19 @@ function Pregame:isValidSkill( build, playerID, abilityName, slotNumber )
     local totalNormal = 0
 
     for _,theAbility in pairs(build) do
-        if SkillManager:isUlt(theAbility) then
+        if IsUltimateCustomByName(theAbility) then
             totalUlts = totalUlts + 1
-        elseif SkillManager:isValidBasic(theAbility) then
+        elseif IsValidBasicByName(theAbility) then
             totalNormal = totalNormal + 1
         end
     end
 
     -- consider ulty count
-    if SkillManager:isUlt(abilityName) then
+    if IsUltimateCustomByName(abilityName) then
         if totalUlts >= maxUlts then
             return false
         end
-    elseif SkillManager:isValidBasic(abilityName) then
+    elseif IsValidBasicByName(abilityName) then
         if totalNormal >= maxRegulars then
             return false
         end
@@ -7336,7 +7336,7 @@ function Pregame:levelUpAbilities(hero)
     for i = 0, hero:GetAbilityCount() - 1 do
         local ability = hero:GetAbilityByIndex(i)
         if ability then
-            if util:IsTalent(ability) then
+            if IsTalentCustom(ability) then
                 talent_10_1 = ability
                 talent_10_2 = hero:GetAbilityByIndex(i+1)
                 talent_15_1 = hero:GetAbilityByIndex(i+2)
@@ -7360,7 +7360,7 @@ function Pregame:levelUpAbilities(hero)
                 local ability = hero:GetAbilityByIndex(i)
                 if ability then
                     local function attemptUpgrade( ability )
-                        if ability and ability:GetLevel() < ability:GetMaxLevel() and not ability:IsHidden() and not util:IsTalent(ability) and upgrades < points then
+                        if ability and ability:GetLevel() < ability:GetMaxLevel() and not ability:IsHidden() and not IsTalentCustom(ability) and upgrades < points then
                             ability:UpgradeAbility(false)
                             upgrades = upgrades + 1
                             attemptUpgrade( ability )
@@ -7502,7 +7502,7 @@ function Pregame:hookBotStuff()
                                     if abLevel < ab:GetMaxLevel() then
                                         -- Work out what level we need to be to legally skill this ability
                                         local nextUpgrade = abLevel * 2 + 1
-                                        if SkillManager:isUlt(abilityName) then
+                                        if IsUltimateCustomByName(abilityName) then
                                             nextUpgrade = 6 + 6 * abLevel
                                         end
 
@@ -7761,7 +7761,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     -- For debugging
 	-- local talent_or_empty = spawnedUnit:GetAbilityByIndex(talentStartIndex-1)
     -- if talent_or_empty then
-        -- if not util:IsTalent(talent_or_empty) then
+        -- if not IsTalentCustom(talent_or_empty) then
             -- GameRules:SendCustomMessage(spawnedUnit:GetUnitName().." HAS TOO MANY ABILITIES, THERE MIGHT BE ISSUES!", 0, 0)
             -- print(spawnedUnit:GetUnitName().." HAS TOO MANY ABILITIES, THERE MIGHT BE ISSUES!")
             -- print(talent_or_empty:GetName())

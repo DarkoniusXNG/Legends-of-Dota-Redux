@@ -1,6 +1,6 @@
 function TryAftershock(keys)
 	local trigger_ability = keys.event_ability
-	if util:IsIgnoredForAftershock(trigger_ability) then return end
+	if IsIgnoredForAftershock(trigger_ability) then return end
 
 	local target = keys.unit
 	local ability = keys.ability

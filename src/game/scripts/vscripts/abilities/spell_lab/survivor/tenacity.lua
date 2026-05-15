@@ -18,14 +18,23 @@ if spell_lab_survivor_tenacity_modifier == nil then
 end
 
 function spell_lab_survivor_tenacity_modifier:DeclareFunctions()
-	local funcs = {
-		
-    MODIFIER_EVENT_ON_DEATH
+	return {
+		MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+		MODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING,
+    	MODIFIER_EVENT_ON_DEATH,
 	}
-	return funcs
 end
 
-function spell_lab_survivor_tenacity_modifier:GetTenacity()
-if self:GetParent():PassivesDisabled() then return 0 end
-return (100-math.pow(1-(0.01), self:GetStackCount()) * 100) 
+function spell_lab_survivor_tenacity_modifier:GetModifierStatusResistanceStacking()
+	if self:GetParent():PassivesDisabled() then
+		return 0
+	end
+	return math.min(math.floor(self:GetStackCount()), 100)
+end
+
+function spell_lab_survivor_tenacity_modifier:GetModifierSlowResistance_Stacking()
+	if self:GetParent():PassivesDisabled() then
+		return 0
+	end
+	return math.min(math.floor(self:GetStackCount()), 100)
 end

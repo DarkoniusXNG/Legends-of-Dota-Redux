@@ -252,7 +252,7 @@ function Ingame:OnPlayerLearnedAbility(keys)
             end
         end)
         -- Custom stat bonus talents
-        if util:IsTalent(abilityName) and string.find(abilityName, "redux") then
+        if IsTalentCustom(abilityName) and string.find(abilityName, "redux") then
             local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
             if hero then
                 LinkLuaModifier("modifier_" .. abilityName, "abilities/talents" .. abilityName .. ".lua", LUA_MODIFIER_MOTION_NONE)
@@ -2053,27 +2053,21 @@ function Ingame:FilterModifiers(filterTable)
         modifier_name = modifier_name,
     }
 
-    -- Tenacity
-    if caster:GetTeamNumber() ~= parent:GetTeamNumber() and filterTable["duration"] > 0 then
-        filterTable["duration"] = filterTable["duration"] * parent:GetTenacity(modifierEventTable)
-        if parent.GetIMBATenacity then
-            local original_duration = filterTable.duration
-            local actually_duration = original_duration
-            local tenacity = parent:GetIMBATenacity()
-            if parent:GetTeam() ~= caster:GetTeam() and filterTable.duration > 0 then --and tenacity ~= 0 then
-                actually_duration = actually_duration * (100 - tenacity) * 0.01
-            end
+    -- Tenacity (Status Resistance for custom spells)
+    if caster:GetTeamNumber() ~= parent:GetTeamNumber() and filterTable.duration > 0 and IsCompletelyCustomAbility(ability) then
+        local original_duration = filterTable.duration
+        local actual_duration = GetValueChangedByStatusResistance(original_duration, parent, caster)
 
-            local modifier_handler = parent:FindModifierByName(modifier_name)
-            if modifier_handler then
-                if modifier_handler.IgnoreTenacity then
-                    if modifier_handler:IgnoreTenacity() then
-                        actually_duration = original_duration
-                    end
+        -- Check if this modifier ignores status resistance
+        local modifier_handler = parent:FindModifierByName(modifier_name)
+        if modifier_handler then
+            if modifier_handler.IgnoreTenacity then
+                if modifier_handler:IgnoreTenacity() then
+                    actual_duration = original_duration
                 end
             end
-            filterTable.duration = actually_duration
         end
+        filterTable.duration = actual_duration
     end
 
 
