@@ -55,6 +55,9 @@
             }
             "modifier_frost_lord_freezing_block"
             {
+                "IsDebuff"                                         "1"
+                "IsStunDebuff"                                     "1"
+                "IsPurgable"                                       "1"
                 "EffectName"                                           "particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
                 "States"
                 {

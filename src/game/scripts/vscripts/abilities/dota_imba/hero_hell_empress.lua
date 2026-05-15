@@ -288,6 +288,10 @@ function modifier_imba_hurl_through_hell:IsHidden() return true end
 function modifier_imba_hurl_through_hell:IsPurgable() return false end
 function modifier_imba_hurl_through_hell:IsDebuff() return true end
 
+function modifier_imba_hurl_through_hell:IsStunDebuff()
+	return true
+end
+
 function modifier_imba_hurl_through_hell:CheckState()
 	local state = {
 		[MODIFIER_STATE_INVULNERABLE] = true,

@@ -651,9 +651,19 @@ end
 -- Ice path freeze debuff (applies stun to enemies and used as indicator for base_modifier_dot_debuff to deal more damage)
 modifier_imba_ice_path_freeze_debuff = class({
 	IsHidden				= function(self) return false end,
-	IsPurgable	  			= function(self) return true end,
-	IsDebuff	  			= function(self) return true end,
 })
+
+function modifier_imba_ice_path_freeze_debuff:IsDebuff()
+	return true
+end
+
+function modifier_imba_ice_path_freeze_debuff:IsStunDebuff()
+	return true
+end
+
+function modifier_imba_ice_path_freeze_debuff:IsPurgable()
+	return true
+end
 
 function modifier_imba_ice_path_freeze_debuff:OnCreated()
 	if IsServer() then

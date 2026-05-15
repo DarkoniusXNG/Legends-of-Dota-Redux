@@ -1209,6 +1209,10 @@ function modifier_imba_rain_of_chaos_stun:IsHidden() return false end
 function modifier_imba_rain_of_chaos_stun:IsPurgeException() return true end
 function modifier_imba_rain_of_chaos_stun:IsStunDebuff() return true end
 
+function modifier_imba_rain_of_chaos_stun:IsDebuff()
+	return true
+end
+
 -- Golem attack speed bonus modifier
 modifier_imba_rain_of_chaos_golem_as = class({})
 

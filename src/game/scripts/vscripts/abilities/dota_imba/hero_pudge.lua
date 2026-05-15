@@ -1149,6 +1149,14 @@ modifier_imba_dismember = class({})
 function modifier_imba_dismember:IsDebuff() return true end
 function modifier_imba_dismember:IsHidden() return false end
 
+function modifier_imba_dismember:IsStunDebuff()
+	return true
+end
+
+function modifier_imba_dismember:IsPurgable()
+	return false
+end
+
 function modifier_imba_dismember:OnCreated()
 	-- Elfansoer: fix missing dismember sound
 	-- self:StartIntervalThink(1.0)

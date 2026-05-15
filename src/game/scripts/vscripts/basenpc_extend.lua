@@ -196,16 +196,6 @@ if CDOTA_BaseNPC then
 	--     modifier_name = modifier_name,
 	-- }
 
-	function CDOTA_BaseNPC:GetWillPower(modifierEventTable)
-		local willpower = 1
-		for _, parent_modifier in pairs(self:FindAllModifiers()) do
-			if parent_modifier.GetWillPower then
-				willpower = willpower * (1+ (parent_modifier:GetWillPower(modifierEventTable)/100))
-			end
-		end
-		return willpower
-	end
-
 	function CDOTA_BaseNPC:GetSummonersBoost(modifierEventTable)
 		local boost = 1
 		for _, parent_modifier in pairs(self:FindAllModifiers()) do

@@ -331,6 +331,7 @@ function util:fetchPlayerData()
     end
 end
 
+-- There are 2 splits
 function util:split(pString, pPattern)
     local Table = {}  -- NOTE: use {n = 0} in Lua-5.0
     local fpat = '(.-)' .. pPattern
@@ -494,12 +495,13 @@ function util:RandomChoice(input)
     return input[temp[math.random(#temp)]]
 end
 
+-- There are 2 splits
 function util:split(s, delimiter)
-    local result = {};
+    local result = {}
     for match in (s..delimiter):gmatch("(.-)"..delimiter) do
         table.insert(result, match)
     end
-    return result;
+    return result
 end
 
 function util:anyBots()
@@ -810,7 +812,7 @@ function IsNearFriendlyClass(unit, radius, class)
 end
 
 -- caster is needed for debuff amplification
-function GetValueChangedByStatusResistance(value, victim, caster)
+function GetValueChangedByStatusResistance(value, victim, caster, ability)
 	if victim and value then
 		local status_resist = victim:GetStatusResistance() -- if this stops working, bring back GetTenacity
 		local other_debuff_duration_decrease = 0
@@ -821,6 +823,7 @@ function GetValueChangedByStatusResistance(value, victim, caster)
 			local bristle_debuff_amp = caster:FindAbilityByName("bristleback_prickly")
 			local rubick_debuff_amp = caster:FindAbilityByName("rubick_curiosity")
 			local timeless_debuff_amp = caster:HasModifier("modifier_item_enhancement_timeless")
+			local willpower_debuff_amp = true
 			if ursa_debuff_amp and not ursa_debuff_amp:IsNull() then
 				if ursa_debuff_amp:GetLevel() > 0 then
 					local bear_down_debuff_amp = ursa_debuff_amp:GetSpecialValueFor("debuff_amp")
@@ -894,6 +897,13 @@ function GetValueChangedByStatusResistance(value, victim, caster)
 					end
 				end
 			end
+			if willpower_debuff_amp then
+				for _, parent_modifier in pairs(caster:FindAllModifiers()) do
+					if parent_modifier.GetWillPower then
+						debuff_amplifications = (1 + debuff_amplifications) * (1 + parent_modifier:GetWillPower() / 100) - 1
+					end
+				end
+			end
 		end
 
 		-- Capping max status resistance
@@ -905,6 +915,70 @@ function GetValueChangedByStatusResistance(value, victim, caster)
 		return new_value
 	end
 end
+
+function GetValueChangedByBuffAmplification(value, victim, caster, ability)
+	if victim and value then
+		local buff_amplifications = 0
+		if caster and not caster:IsNull() then
+			local largo_buff_amp = caster:FindAbilityByName("largo_encore")
+			local rubick_buff_amp = caster:FindAbilityByName("rubick_curiosity")
+			local willpower_buff_amp = true
+			if largo_buff_amp and not largo_buff_amp:IsNull() and IsCompletelyCustomAbility(ability) then
+				if largo_buff_amp:GetLevel() > 0 then
+					local largo_encore_buff_amp = largo_buff_amp:GetSpecialValueFor("buff_amplification")
+					buff_amplifications = (1 + buff_amplifications) * (1 + largo_encore_buff_amp / 100) - 1
+				end
+			end
+			if rubick_buff_amp and not rubick_buff_amp:IsNull() and IsCompletelyCustomAbility(ability) then
+				if rubick_buff_amp:GetLevel() > 0 then
+					local base_curiosity_buff_amp = rubick_buff_amp:GetSpecialValueFor("curiosity_modifier_amp")
+					local curiosity_factor = rubick_buff_amp:GetSpecialValueFor("curiosity_factor")
+					local hero_lvl = caster:GetLevel()
+					local curiosity_from_spell_casts = caster:FindModifierByName("modifier_rubick_curiosity")
+					local curiosity_from_kills = caster:FindModifierByName("modifier_rubick_curiosity_from_heroes_tracker")
+					local total_curiosity = hero_lvl
+					if curiosity_from_spell_casts then
+						total_curiosity = total_curiosity + curiosity_from_spell_casts:GetStackCount()
+					end
+					if curiosity_from_kills then
+						total_curiosity = total_curiosity + curiosity_from_kills:GetStackCount()
+					end
+					-- Calculating total curiosity buff amp
+					local curiosity_buff_amp
+					if curiosity_factor ~= 0 then
+						curiosity_buff_amp = total_curiosity * base_curiosity_buff_amp * curiosity_factor
+					else
+						curiosity_buff_amp = total_curiosity * base_curiosity_buff_amp
+					end
+					buff_amplifications = (1 + buff_amplifications) * (1 + curiosity_buff_amp / 100) - 1
+				end
+			end
+			if willpower_buff_amp then
+				for _, parent_modifier in pairs(caster:FindAllModifiers()) do
+					if parent_modifier.GetWillPower then
+                        local should_it_be_affected = false
+                        if not parent_modifier.WillPowerDebuffAmpOnly then
+						    should_it_be_affected = true
+                        else
+                            should_it_be_affected = not parent_modifier:WillPowerDebuffAmpOnly()
+                        end
+                        if should_it_be_affected then
+                            buff_amplifications = (1 + buff_amplifications) * (1 + parent_modifier:GetWillPower() / 100) - 1
+                        end
+					end
+				end
+			end
+		end
+
+		local new_value = value * (1 + buff_amplifications)
+		if buff_amplifications <= -1 then
+			return value
+		end
+
+		return new_value
+	end
+end
+
 
 (function()
     util.abilityKVs = LoadKeyValues('scripts/npc/npc_abilities.txt')

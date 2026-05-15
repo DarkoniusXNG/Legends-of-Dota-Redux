@@ -1238,11 +1238,9 @@ function modifier_imba_kinetic_field_knockback:GetEffectAttachType()
 end
 
 function modifier_imba_kinetic_field_knockback:CheckState()
-	local state = 
-	{
-		[MODIFIER_STATE_STUNNED] = IsServer()
+	return {
+		[MODIFIER_STATE_STUNNED] = true,
 	}
-	return state
 end
 
 function modifier_imba_kinetic_field_knockback:OnIntervalThink()
@@ -1324,11 +1322,9 @@ function modifier_imba_kinetic_field_pull:HorizontalMotion()
 end
 
 function modifier_imba_kinetic_field_pull:CheckState()
-	local state = 
-	{
-		[MODIFIER_STATE_STUNNED] = IsServer()
+	return {
+		[MODIFIER_STATE_STUNNED] = true,
 	}
-	return state
 end
 ---------------------------------------------------
 --			Static Storm

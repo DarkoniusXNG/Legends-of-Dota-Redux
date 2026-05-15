@@ -35,13 +35,29 @@ function modifier_debuff_duration_oaa:DeclareFunctions()
 end
 
 if IsServer() then
-  function modifier_debuff_duration_oaa:GetModifierStatusResistanceCaster()
-    return -25
+  function modifier_debuff_duration_oaa:GetModifierStatusResistanceCaster() -- Debuff Amp for vanilla spells
+    local parent = self:GetParent()
+	if parent:PassivesDisabled() then
+		return 0
+	end
+	return -25
   end
 end
 
 function modifier_debuff_duration_oaa:GetModifierSpellAmplify_Percentage()
   return 25
+end
+
+function modifier_debuff_duration_oaa:GetWillPower() -- Debuff Amp for custom spells
+	local parent = self:GetParent()
+	if parent:PassivesDisabled() then
+		return 0
+	end
+	return self:GetAbility():GetSpecialValueFor("debuff_amp")
+end
+
+function modifier_debuff_duration_oaa:WillPowerDebuffAmpOnly()
+	return true
 end
 
 --function modifier_debuff_duration_oaa:GetTexture()

@@ -165,7 +165,17 @@ end
 ---------------------
 -- VACUUM MODIFIER --
 ---------------------
+function modifier_imba_dark_seer_vacuum:IsDebuff()
+	return true
+end
 
+function modifier_imba_dark_seer_vacuum:IsStunDebuff()
+	return true
+end
+
+function modifier_imba_dark_seer_vacuum:IsPurgable()
+	return true
+end
 function modifier_imba_dark_seer_vacuum:IgnoreTenacity()	return true end
 
 function modifier_imba_dark_seer_vacuum:OnCreated(params)
@@ -351,7 +361,17 @@ end
 -----------------------
 -- WORMHOLE MODIFIER --
 -----------------------
+function modifier_imba_dark_seer_wormhole:IsDebuff()
+	return true
+end
 
+function modifier_imba_dark_seer_wormhole:IsStunDebuff()
+	return true
+end
+
+function modifier_imba_dark_seer_wormhole:IsPurgable()
+	return true
+end
 function modifier_imba_dark_seer_wormhole:IgnoreTenacity()	return true end
 
 function modifier_imba_dark_seer_wormhole:OnCreated(params)

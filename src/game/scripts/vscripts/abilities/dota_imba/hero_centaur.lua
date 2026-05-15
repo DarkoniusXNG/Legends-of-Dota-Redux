@@ -1151,6 +1151,18 @@ end
 -- Trample stun modifier
 modifier_imba_stampede_trample_stun = class({})
 
+function modifier_imba_stampede_trample_stun:IsDebuff()
+	return true
+end
+
+function modifier_imba_stampede_trample_stun:IsStunDebuff()
+	return true
+end
+
+function modifier_imba_stampede_trample_stun:IsPurgable()
+	return true
+end
+
 function modifier_imba_stampede_trample_stun:CheckState()
 	local state = {[MODIFIER_STATE_STUNNED] = true}
 

@@ -1846,6 +1846,14 @@ function modifier_imba_assassinate_ministun:IsHidden() return false end
 function modifier_imba_assassinate_ministun:IsPurgeException() return true end
 function modifier_imba_assassinate_ministun:IsStunDebuff() return true end
 
+function modifier_imba_assassinate_ministun:IsDebuff()
+	return true
+end
+
+function modifier_imba_assassinate_ministun:IsPurgable()
+	return true
+end
+
 function modifier_imba_assassinate_ministun:CheckState()
 	local state = {[MODIFIER_STATE_STUNNED] = true}
 	return state

@@ -326,10 +326,18 @@ modifier_imba_earthspike_stun = class({})
 function modifier_imba_earthspike_stun:IsHidden() return false end
 function modifier_imba_earthspike_stun:IsPurgeException() return true end
 function modifier_imba_earthspike_stun:IsStunDebuff() return true end
+function modifier_imba_earthspike_stun:IsDebuff()
+	return true
+end
+
+function modifier_imba_earthspike_stun:IsPurgable()
+	return true
+end
 
 function modifier_imba_earthspike_stun:CheckState()
-	local state = {[MODIFIER_STATE_STUNNED] = true}
-	return state
+	return {
+		[MODIFIER_STATE_STUNNED] = true
+	}
 end
 
 function modifier_imba_earthspike_stun:GetEffectName()

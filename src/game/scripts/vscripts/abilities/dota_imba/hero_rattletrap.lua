@@ -1072,6 +1072,14 @@ end
 -- ROCKET FLARE CRITICAL MODIFIER --
 ------------------------------------
 
+function modifier_imba_rattletrap_rocket_flare_critical:IsDebuff()
+	return true
+end
+
+function modifier_imba_rattletrap_rocket_flare_critical:IsStunDebuff()
+	return true
+end
+
 function modifier_imba_rattletrap_rocket_flare_critical:IsPurgable()	return false end
 
 function modifier_imba_rattletrap_rocket_flare_critical:GetStatusEffectName()

@@ -42,7 +42,7 @@ function generic_lua_stun:IsStunDebuff()
 end
 
  function generic_lua_stun:IsPurgable() 
-	return false
+	return true
 end
 
 function generic_lua_stun:IsPurgeException()

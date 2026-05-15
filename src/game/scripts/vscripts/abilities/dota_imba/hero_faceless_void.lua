@@ -271,12 +271,11 @@ function modifier_imba_faceless_void_time_walk_cast:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW end
 
 function modifier_imba_faceless_void_time_walk_cast:CheckState()
-	if IsServer() then
-		local state = {	[MODIFIER_STATE_STUNNED] = true,
-			[MODIFIER_STATE_INVULNERABLE] = true,
-			[MODIFIER_STATE_NO_UNIT_COLLISION] = true, }
-		return state
-	end
+	return {
+		[MODIFIER_STATE_STUNNED] = true,
+		[MODIFIER_STATE_INVULNERABLE] = true,
+		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+	}
 end
 
 function modifier_imba_faceless_void_time_walk_cast:OnCreated(params)
@@ -941,11 +940,10 @@ function modifier_imba_faceless_void_time_lock_stun:OnDestroy()
 	if IsServer() then self:GetParent():SetRenderColor(255,255,255) end end
 
 function modifier_imba_faceless_void_time_lock_stun:CheckState()
-	if IsServer() then
-		local state = {	[MODIFIER_STATE_STUNNED] = true,
-			[MODIFIER_STATE_FROZEN ] = true	}
-		return state
-	end
+	return {
+		[MODIFIER_STATE_STUNNED] = true,
+		[MODIFIER_STATE_FROZEN] = true,
+	}
 end
 
 ----------------------------------------------------------------
@@ -1257,18 +1255,24 @@ function modifier_imba_faceless_void_chronosphere_handler:CheckState()
 
 	if stacks == 0 then
 		if self:GetParent():HasModifier("modifier_slark_shadow_dance") then
-			state = {[MODIFIER_STATE_STUNNED] = true,
-				[MODIFIER_STATE_FROZEN] = true}
+			state = {
+				[MODIFIER_STATE_STUNNED] = true,
+				[MODIFIER_STATE_FROZEN] = true
+			}
+		else
+			state = {
+				[MODIFIER_STATE_FROZEN] = true,
+				[MODIFIER_STATE_ROOTED] = true,
+				[MODIFIER_STATE_STUNNED] = true,
+				[MODIFIER_STATE_SILENCED] = true,
+				[MODIFIER_STATE_INVISIBLE] = false,
+			}
 		end
-
-		state = {	[MODIFIER_STATE_FROZEN] = true,
-			[MODIFIER_STATE_ROOTED] = true,
-			[MODIFIER_STATE_STUNNED] = true,
-			[MODIFIER_STATE_SILENCED] = true,
-			[MODIFIER_STATE_INVISIBLE] = false,}
 	elseif stacks == 1 or stacks == 4 then
-		state = {	[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-			[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true, }
+		state = {
+			[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+			[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
+		}
 	end
 	return state
 end
@@ -1501,9 +1505,17 @@ end
 ----------------------------------------------
 -- TIME LOCK FREEZE MODIFIER (7.20 Version) --
 ----------------------------------------------
+function modifier_imba_faceless_void_time_lock_720_freeze:IsDebuff()
+	return true
+end
 
-function modifier_imba_faceless_void_time_lock_720_freeze:IsPurgable()		return false end
-function modifier_imba_faceless_void_time_lock_720_freeze:IsPurgeException()	return true end
+function modifier_imba_faceless_void_time_lock_720_freeze:IsStunDebuff()
+	return true
+end
+
+function modifier_imba_faceless_void_time_lock_720_freeze:IsPurgable()
+	return true
+end
 
 function modifier_imba_faceless_void_time_lock_720_freeze:GetEffectName()
 	return "particles/generic_gameplay/generic_stunned.vpcf"

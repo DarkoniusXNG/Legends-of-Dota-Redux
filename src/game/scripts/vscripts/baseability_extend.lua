@@ -383,19 +383,19 @@ if IsServer() then
 			ability_name = ability:GetAbilityName()
 		end
 
-		if not IsCustomAbilityByName(ability_name) then
-			print("IsCompletelyCustomAbility: Ability "..ability_name.." is not even a candidate to be a completely custom ability!")
-			return false
-		end
-
 		local ability_data = GetAbilityKeyValuesByName(ability_name)
 		if not ability_data then
 			print("IsCompletelyCustomAbility: Ability "..ability_name.." does not exist!")
 			return false
 		end
 
+		if not IsCustomAbilityByName(ability_name) then
+			--print("IsCompletelyCustomAbility: Ability "..ability_name.." is not even a candidate to be a completely custom ability!")
+			return false
+		end
+
 		local baseclass = ability_data.BaseClass
-		if baseclass == nil or baseclass == "" then
+		if not baseclass or baseclass == "" then
 			return false
 		end
 

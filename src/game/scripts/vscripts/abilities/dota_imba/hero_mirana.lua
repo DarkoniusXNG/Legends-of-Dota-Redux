@@ -625,6 +625,14 @@ function modifier_imba_sacred_arrow_stun:IsHidden() return false end
 function modifier_imba_sacred_arrow_stun:IsStunDebuff() return true end
 function modifier_imba_sacred_arrow_stun:IsPurgeException() return true end
 
+function modifier_imba_sacred_arrow_stun:IsDebuff()
+	return true
+end
+
+function modifier_imba_sacred_arrow_stun:IsPurgable()
+	return true
+end
+
 function modifier_imba_sacred_arrow_stun:CheckState()
 	local state = {[MODIFIER_STATE_STUNNED] = true}
 	return state
