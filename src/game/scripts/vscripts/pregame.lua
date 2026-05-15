@@ -3553,6 +3553,7 @@ function Pregame:MultiplyLaneUnit( unit, mult )
 		-- Random lane creeps
 		if unit:HasModifier("modifier_random_lane_creep_mutator_ai") then
 			clone:AddNewModifier(clone, nil, "modifier_random_lane_creep_mutator_ai", {})
+            clone:AddNewModifier(clone, nil, "modifier_phased", {duration = 2.5})
 		end
 	end
 end

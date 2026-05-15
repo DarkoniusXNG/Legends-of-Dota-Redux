@@ -58,14 +58,9 @@ end
 
 function modifier_npc_dota_hero_necrolyte_perk:DeclareFunctions()
 	return {
-		--MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 	}
 end
-
---function modifier_npc_dota_hero_necrolyte_perk:GetModifierHPRegenAmplify_Percentage()
-	--return self:GetStackCount()
---end
 
 function modifier_npc_dota_hero_necrolyte_perk:GetModifierConstantHealthRegen()
 	return self:GetStackCount()

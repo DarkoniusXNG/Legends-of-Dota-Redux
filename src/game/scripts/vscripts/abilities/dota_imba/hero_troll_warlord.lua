@@ -814,7 +814,7 @@ end
 
 function imba_troll_warlord_battle_trance:GetBehavior()
 	if IsServer() and self:GetAutoCastState() then
-		return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_AUTOCAST +DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE
+		return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_AUTOCAST + DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE
 	else
 		return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_AUTOCAST	
 	end
@@ -836,7 +836,7 @@ function imba_troll_warlord_battle_trance:OnSpellStart()
 					sound = "Imba.TrollAK47"
 				--end
 			end
-			local allies = FindUnitsInRadius(caster:GetTeamNumber(), Vector(0,0,0), nil, 25000, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), self:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
+			local allies = FindUnitsInRadius(caster:GetTeamNumber(), Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), self:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
 			caster:EmitSound(sound)
 			for _,ally in ipairs(allies) do
 				local mod = ally:AddNewModifier(caster, self, "modifier_imba_battle_trance", {duration = duration})
@@ -953,9 +953,11 @@ function modifier_imba_battle_trance_720:OnCreated()
 	self.movement_speed	= self.ability:GetSpecialValueFor("movement_speed")
 	self.range			= self.ability:GetSpecialValueFor("range")
 	
-	self.bonus_bat 		= min(self.ability:GetSpecialValueFor("bonus_bat"), self.parent:GetBaseAttackTime())
+	self.bonus_bat 		= math.min(self.ability:GetSpecialValueFor("bonus_bat"), self.parent:GetBaseAttackTime())
 
 	if not IsServer() then return end
+
+	self.lifesteal_penalty_against_creeps = 40
 	
 	-- Keep track of a target (otherwise caster keeps switching if target goes out of range)
 	self.target = nil
@@ -967,48 +969,69 @@ end
 
 -- Kinda convoluted...
 function modifier_imba_battle_trance_720:OnIntervalThink()
-	if not IsServer() or self.ability:IsNull() then return end
-
 	-- If there's already a valid target, don't do anything else
 	if self.target and self.target:IsAlive() and not self.target:IsAttackImmune() and not self.target:IsInvulnerable() and self.caster:CanEntityBeSeenByMyTeam(self.target) then
-			
-		if self:GetStackCount() ~= 1 then
-			self:SetStackCount(1)
-		end
 		
-		self.caster:MoveToTargetToAttack(self.target)
+		--self.caster:MoveToTargetToAttack(self.target)
+		if self.caster:GetForceAttackTarget() ~= self.target then
+			self.caster:SetForceAttackTarget(self.target)
+		end
 	
 		if not self.target:HasModifier("modifier_imba_battle_trance_vision_720") and (self.target:GetAbsOrigin() - self.caster:GetAbsOrigin()):Length2D() <= self.range then
 			self.target:AddNewModifier(self.caster, self.ability, "modifier_imba_battle_trance_vision_720", {})
 		elseif self.target:HasModifier("modifier_imba_battle_trance_vision_720") and (self.target:GetAbsOrigin() - self.caster:GetAbsOrigin()):Length2D() > self.range then
 			self.target:RemoveModifierByName("modifier_imba_battle_trance_vision_720")
 		end
+
+		self:SetStackCount(1)
 		
 		-- Target found; don't need to continue logic
 		return
 	-- If there is a target but they failed the above check, remove any vision modifier they may have because they shouldn't be the target anymore
-	elseif self.target and self.target:HasModifier("modifier_imba_battle_trance_vision_720") then
-		self.target:RemoveModifierByName("modifier_imba_battle_trance_vision_720")
+	elseif self.target then
+		if self.target:HasModifier("modifier_imba_battle_trance_vision_720") then
+			self.target:RemoveModifierByName("modifier_imba_battle_trance_vision_720")
+		end
+
+		self.target	= nil
 	end
 
-		self.caster:MoveToTargetToAttack(self.target)
 	-- If the caster is targetting someone but they aren't set in the variable, do so
-	if self.caster:GetAttackTarget() and self.caster:GetAttackTarget():IsAlive() and not self.caster:GetAttackTarget():IsAttackImmune() and not self.caster:GetAttackTarget():IsInvulnerable() and self.caster:CanEntityBeSeenByMyTeam(self.caster:GetAttackTarget()) then
-		self.target = self.caster:GetAttackTarget()
-		self.caster:MoveToTargetToAttack(self.target)
+	local attack_target = self.caster:GetAttackTarget()
+	if attack_target and attack_target:IsAlive() and not attack_target:IsAttackImmune() and not attack_target:IsInvulnerable() and self.caster:CanEntityBeSeenByMyTeam(attack_target) then
+		self.target = attack_target
+		--self.caster:MoveToTargetToAttack(self.target)
+		if self.caster:GetForceAttackTarget() ~= self.target then
+			self.caster:SetForceAttackTarget(self.target)
+		end
 		
+		self:SetStackCount(1)
 		-- Target found; don't need to continue logic
 		return
 	end
 	
 	-- Otherwise, find a target
-	local hero_enemies = FindUnitsInRadius(self.caster:GetTeamNumber(), self.caster:GetAbsOrigin(), nil, self.range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, FIND_CLOSEST, false)
+	local hero_enemies = FindUnitsInRadius(
+		self.caster:GetTeamNumber(),
+		self.caster:GetAbsOrigin(),
+		nil,
+		self.range,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE,
+		FIND_CLOSEST,
+		false
+	)
 
 	if #hero_enemies > 0 then
 		for enemy = 1, #hero_enemies do
 			if self.caster:CanEntityBeSeenByMyTeam(hero_enemies[enemy]) then
-				self.caster:MoveToTargetToAttack(hero_enemies[enemy])
 				self.target = hero_enemies[enemy]
+				--self.caster:MoveToTargetToAttack(hero_enemies[enemy])
+				if self.caster:GetForceAttackTarget() ~= self.target then
+					self.caster:SetForceAttackTarget(self.target)
+				end
+				
 				self:SetStackCount(1)
 				
 				-- Target found; don't need to continue logic
@@ -1018,13 +1041,27 @@ function modifier_imba_battle_trance_720:OnIntervalThink()
 	end
 
 	-- If there's no heroes around, check for creeps
-	local non_hero_enemies = FindUnitsInRadius(self.caster:GetTeamNumber(), self.caster:GetAbsOrigin(), nil, self.range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, FIND_CLOSEST, false)
+	local non_hero_enemies = FindUnitsInRadius(
+		self.caster:GetTeamNumber(),
+		self.caster:GetAbsOrigin(),
+		nil,
+		self.range,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_BASIC,
+		DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE,
+		FIND_CLOSEST,
+		false
+	)
 	
 	if #non_hero_enemies > 0 then
 		for enemy = 1, #non_hero_enemies do
-			if self.caster:CanEntityBeSeenByMyTeam(non_hero_enemies[enemy]) and non_hero_enemies[enemy]:GetUnitName()~="npc_dota_roshan" then
-				self.caster:MoveToTargetToAttack(non_hero_enemies[enemy])
+			if self.caster:CanEntityBeSeenByMyTeam(non_hero_enemies[enemy]) and non_hero_enemies[enemy]:GetUnitName() ~= "npc_dota_roshan" then
 				self.target = non_hero_enemies[enemy]
+				--self.caster:MoveToTargetToAttack(non_hero_enemies[enemy])
+				if self.caster:GetForceAttackTarget() ~= self.target then
+					self.caster:SetForceAttackTarget(self.target)
+				end
+
 				self:SetStackCount(1)
 				
 				-- Target found; don't need to continue logic
@@ -1034,21 +1071,26 @@ function modifier_imba_battle_trance_720:OnIntervalThink()
 	end
 	
 	-- If the function has gotten this far, then no one is around for the caster to wail on...return full control of hero
-	if self.target then
-		if self.target:HasModifier("modifier_imba_battle_trance_vision_720") then
-			self.target:RemoveModifierByName("modifier_imba_battle_trance_vision_720")
-		end	
-	
-		self.target	= nil
-	end
-	
 	self:SetStackCount(0)
 end
 
 function modifier_imba_battle_trance_720:OnDestroy()
-	if self.target and self.target:HasModifier("modifier_imba_battle_trance_vision_720") then
-		self.target:RemoveModifierByName("modifier_imba_battle_trance_vision_720")
-	end	
+	if self.caster and IsServer() then
+		if self.caster:GetForceAttackTarget() ~= nil then
+			self.caster:SetForceAttackTarget(nil)
+		end
+		self:SetStackCount(0)
+	end
+	
+	if self.target then
+		if self.target:HasModifier("modifier_imba_battle_trance_vision_720") then
+			if IsServer() then
+				self.target:RemoveModifierByName("modifier_imba_battle_trance_vision_720")
+			end
+		end	
+	
+		self.target	= nil
+	end
 end
 
 function modifier_imba_battle_trance_720:GetPriority()
@@ -1086,30 +1128,89 @@ function modifier_imba_battle_trance_720:DeclareFunctions()
 		MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
 
 		-- elfansoer: fix lifesteal not working due to missing custom library
-		MODIFIER_EVENT_ON_ATTACK_LANDED,
-
+		MODIFIER_EVENT_ON_TAKEDAMAGE,
 	}
 	
 	return decFuns
 end
 
--- elfansoer: fix lifesteal not working due to missing custom library
-function modifier_imba_battle_trance_720:OnAttackLanded( params )
-	if not IsServer() then return end
-	if params.attacker~=self:GetParent() then return end
+if IsServer() then
+	function modifier_imba_battle_trance_720:OnTakeDamage(event)
+		local parent = self:GetParent()
+		local ability = self:GetAbility()
+		local attacker = event.attacker
+		local damaged_unit = event.unit
+		local damage = event.damage
 
-	local heal = params.damage * self.lifesteal/100
-	self:GetParent():Heal( heal, self:GetAbility() )
+		-- Check if attacker exists
+		if not attacker or attacker:IsNull() then
+			return
+		end
 
-	-- play effects
-	local particle_cast = "particles/generic_gameplay/generic_lifesteal.vpcf"
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
-	ParticleManager:ReleaseParticleIndex( effect_cast )
-end
+		if parent:IsIllusion() then
+			return
+		end
 
--- Custom function made in IMBA library and not in DeclareFunctions
-function modifier_imba_battle_trance_720:GetModifierLifesteal()
-	return self.lifesteal
+		-- Check if attacker has this modifier
+		if attacker ~= parent then
+			return
+		end
+
+		-- Don't heal while dead
+		if not attacker:IsAlive() then
+			return
+		end
+
+		-- Check if damaged entity exists
+		if not damaged_unit or damaged_unit:IsNull() then
+			return
+		end
+
+		-- Ignore self damage
+		if damaged_unit == attacker then
+			return
+		end
+
+		-- Check if entity is an item, rune or something weird
+		if damaged_unit.GetUnitName == nil then
+			return
+		end
+
+		-- Don't affect buildings, wards and invulnerable units.
+		if damaged_unit:IsTower() or damaged_unit:IsBarracks() or damaged_unit:IsBuilding() or damaged_unit:IsOther() or damaged_unit:IsInvulnerable() then
+			return
+		end
+
+		-- Check damage if 0 or negative
+		if damage <= 0 then
+			return
+		end
+
+		-- Normal lifesteal should not work for spells and magic damage attacks
+		if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK or event.damage_type ~= DAMAGE_TYPE_PHYSICAL or event.inflictor then
+			return
+		end
+
+		if not self.lifesteal_penalty_against_creeps then
+			self.lifesteal_penalty_against_creeps = 40
+		end
+
+		-- Calculate the lifesteal (heal) amount
+		local lifesteal_amount = 0
+		if damaged_unit:IsRealHero() or damaged_unit:IsStrongIllusionCustom() then
+			lifesteal_amount = damage * self.lifesteal / 100
+		else
+			-- Illusions are treated as creeps too
+			lifesteal_amount = damage * (self.lifesteal / 100) * (1 - self.lifesteal_penalty_against_creeps / 100)
+		end
+
+		if lifesteal_amount > 0 then
+			-- Normal Lifesteal
+			attacker:HealWithParams(lifesteal_amount, ability, true, true, attacker, false)
+			local particle2 = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
+			ParticleManager:ReleaseParticleIndex(particle2)
+		end
+	end
 end
 
 function modifier_imba_battle_trance_720:GetModifierAttackSpeedBonus_Constant()

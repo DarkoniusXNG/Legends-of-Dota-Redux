@@ -34,11 +34,10 @@ end
 function modifier_oracle_will_to_live:OnCreated()
 	local ability = self:GetAbility()
 	if ability and not ability:IsNull() then
-		self.delay = self:GetAbility():GetSpecialValueFor("damage_delay")
-		--self.hp_regen_amp = ability:GetSpecialValueFor("heal_amp_pct")
-		--self.lifesteal_amp = ability:GetSpecialValueFor("heal_amp_pct")
+		self.dot_pct = ability:GetSpecialValueFor("damage_delay")
 		self.heal_amp = ability:GetSpecialValueFor("heal_amp_pct")
-		--self.spell_lifesteal_amp = ability:GetSpecialValueFor("heal_amp_pct")
+		self.delay = ability:GetSpecialValueFor("delay")
+		self.damage_interval = ability:GetSpecialValueFor("damage_interval")
 	end
 end
 
@@ -47,10 +46,8 @@ modifier_oracle_will_to_live.OnRefresh = modifier_oracle_will_to_live.OnCreated
 function modifier_oracle_will_to_live:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_AVOID_DAMAGE,
-		--MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-		--MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-		--MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+		--MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+		MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION,
 	}
 end
 
@@ -94,7 +91,7 @@ if IsServer() then
 		local kvs = {}
 		kvs.damage = damage
 		kvs.source = attacker:GetEntityIndex()
-		if ability then
+		if ability and not ability:IsNull() then
 			kvs.inflictor = ability:GetEntityIndex()
 		else
 			return 0
@@ -102,9 +99,11 @@ if IsServer() then
 		kvs.type = damage_type
 		kvs.flags = damage_flags -- OnTakeDamage event ignores hp removal flag
 		kvs.delay = self.delay
-		local max_dmg_instance = damage * self.delay / 100
-		local max_duration = damage / max_dmg_instance + 1
+		kvs.dot_pct = self.dot_pct -- percentage of original damage turned into damage per second
+		local dps = damage * self.dot_pct / 100
+		local max_duration = damage / dps + self.delay
 		kvs.duration = max_duration
+		kvs.damage_interval = self.damage_interval
 
 		-- Delayed damage modifier
 		parent:AddNewModifier(parent, ability, "modifier_oracle_will_to_live_delay", kvs)
@@ -124,21 +123,13 @@ if IsServer() then
 	end
 end
 
---function modifier_oracle_will_to_live:GetModifierHPRegenAmplify_Percentage()
-  --return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("heal_amp_pct")
+--function modifier_oracle_will_to_live:GetModifierHealAmplify_PercentageTarget()
+  --return self.heal_amp or self:GetAbility():GetSpecialValueFor("heal_amp_pct")
 --end
 
-function modifier_oracle_will_to_live:GetModifierHealAmplify_PercentageTarget()
+function modifier_oracle_will_to_live:GetModifierPropertyRestorationAmplification()
   return self.heal_amp or self:GetAbility():GetSpecialValueFor("heal_amp_pct")
 end
-
---function modifier_oracle_will_to_live:GetModifierLifestealRegenAmplify_Percentage()
-  --return self.lifesteal_amp or self:GetAbility():GetSpecialValueFor("heal_amp_pct")
---end
-
---function modifier_oracle_will_to_live:GetModifierSpellLifestealRegenAmplify_Percentage()
-  --return self.spell_lifesteal_amp or self:GetAbility():GetSpecialValueFor("heal_amp_pct")
---end
 
 function modifier_oracle_will_to_live:GetEffectName()
 	return "particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf"
@@ -166,17 +157,17 @@ end
 
 function modifier_oracle_will_to_live_delay:OnCreated(kv)
 	if IsServer() then
-		local interval = 1
-
+		self.damage_interval = kv.damage_interval
 		self.attacker = EntIndexToHScript(kv.source)
 		self.inflictor = EntIndexToHScript(kv.inflictor)
 		self.type = kv.type
 		self.flags = kv.flags
 		self.damage_left = kv.damage
-		self.damage_tick = kv.damage * kv.delay / 100
+		self.damage_tick = kv.damage * (kv.dot_pct / 100) * self.damage_interval
 
-		-- Start interval
-		self:StartIntervalThink(interval)
+		-- Start thinking after a delay (Delay the damage over time start)
+		self.first_interval = true
+		self:StartIntervalThink(kv.delay)
 	end
 end
 
@@ -226,7 +217,14 @@ if IsServer() then
 		-- Remaining damage
 		self.damage_left = self.damage_left - self.damage_tick
 		if self.damage_left <= 0 then
+			self:StartIntervalThink(-1)
 			self:Destroy()
+		end
+
+		if self.first_interval then
+			-- Change thinking time to damage interval
+			self:StartIntervalThink(self.damage_interval)
+			self.first_interval = false
 		end
 	end
 end

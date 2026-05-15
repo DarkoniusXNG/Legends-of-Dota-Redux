@@ -49,7 +49,6 @@ end
 function modifier_npc_dota_hero_bloodseeker_perk:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-		--MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
 		MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
 		MODIFIER_EVENT_ON_TAKEDAMAGE,
 	}
@@ -58,10 +57,6 @@ end
 function modifier_npc_dota_hero_bloodseeker_perk:GetModifierSpellAmplify_Percentage()
 	return self:GetStackCount()
 end
-
---function modifier_npc_dota_hero_bloodseeker_perk:GetModifierLifestealRegenAmplify_Percentage()
-	--return self:GetStackCount()
---end
 
 function modifier_npc_dota_hero_bloodseeker_perk:GetModifierMPRegenAmplify_Percentage()
 	return self:GetStackCount()

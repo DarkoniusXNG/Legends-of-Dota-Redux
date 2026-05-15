@@ -547,28 +547,6 @@ end
 -- "Custom" modifier value fetching
 ----------------------------------------------------------------
 
--- Spell lifesteal
-function CDOTA_BaseNPC:GetSpellLifesteal()
-	local lifesteal = 0
-	for _, parent_modifier in pairs(self:FindAllModifiers()) do
-		if parent_modifier.GetModifierSpellLifesteal then
-			lifesteal = lifesteal + parent_modifier:GetModifierSpellLifesteal()
-		end
-	end
-	return lifesteal
-end
-
--- Autoattack lifesteal
-function CDOTA_BaseNPC:GetLifesteal()
-	local lifesteal = 0
-	for _, parent_modifier in pairs(self:FindAllModifiers()) do
-		if parent_modifier.GetModifierLifesteal then
-			lifesteal = lifesteal + parent_modifier:GetModifierLifesteal()
-		end
-	end
-	return lifesteal
-end
-
 -- Health regeneration % amplification
 function CDOTA_BaseNPC:GetHealthRegenAmp()
 	local regen_increase = 0
