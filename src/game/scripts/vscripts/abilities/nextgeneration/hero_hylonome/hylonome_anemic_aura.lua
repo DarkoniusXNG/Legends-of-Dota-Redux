@@ -115,7 +115,7 @@ if IsServer() then
     if attacker.IsHero == nil then
       return
     end
-	
+
     if not attacker:IsHero() then
       return
     end
@@ -124,7 +124,7 @@ if IsServer() then
     if not damaged_unit or damaged_unit:IsNull() then
       return
     end
-	
+
     -- Check if damaged_unit has this modifier
     if damaged_unit ~= parent then
       return
@@ -134,12 +134,12 @@ if IsServer() then
     if damage <= 0 then
       return
     end
-	
+
     -- Ignore damage from Anemic Aura
     if inflictor == ability then
       return
     end
-	
+
     if RandomInt(1, 100) <= self.bleed_chance then
       parent:AddNewModifier(caster, ability, "modifier_hylonome_anemic_aura_thinker", {duration = self.bleed_duration})
     end
@@ -212,7 +212,7 @@ end
 
 function modifier_hylonome_anemic_aura_thinker:OnCreated()
   self:OnRefresh()
-  
+
   if IsServer() then
     self:StartIntervalThink(1)
   end
@@ -226,7 +226,7 @@ function modifier_hylonome_anemic_aura_thinker:OnRefresh()
   self.bleed_dmg = ability:GetSpecialValueFor("bleed_damage")
   if IsServer() then
 	self:OnIntervalThink()
-  ned
+  end
 end
 
 function modifier_hylonome_anemic_aura_thinker:OnIntervalThink()

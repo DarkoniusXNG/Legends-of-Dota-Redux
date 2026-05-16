@@ -1,38 +1,5 @@
 modifier_creep_power = class({})
- 
-function modifier_creep_power:DeclareFunctions()
-	local funcs = {
-		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
-	}
-	return funcs
-end
 
-function modifier_creep_power:OnIntervalThink()
-	local parent = self:GetParent()
-    local ability = self:GetAbility()
-
-    if ability then
-		self.level = self:GetStackCount()
-		self.hp_scaling = self.level * ability:GetSpecialValueFor("health_per_level")
-		self.damage_scaling = self.level * ability:GetSpecialValueFor("damage_per_level")
-		self.bounty_scaling = self.level * (ability:GetSpecialValueFor("coef") / 100)
-		--self.resist_scaling = self.level * ability:GetSpecialValueFor("resist_per_level")
-
-		if IsServer() then
-			--parent:SetBaseMagicalResistanceValue(math.ceil(parent:GetBaseMagicalResistanceValue() + self.resist_scaling))
-
-			parent:SetMinimumGoldBounty(parent:GetMinimumGoldBounty() + (parent:GetMinimumGoldBounty() * self.bounty_scaling))
-			parent:SetMaximumGoldBounty(parent:GetMaximumGoldBounty() + (parent:GetMaximumGoldBounty() * self.bounty_scaling))
-
-			parent:SetModelScale(parent:GetModelScale() + (parent:GetModelScale() * 0.01 * math.min(12, self.level)))
-
-			parent:AddNewModifier(self:GetCaster(), ability, "modifier_creep_power_hp", {duration = self:GetDuration()})
-
-			self:StartIntervalThink(-1)
-		end
-    end
-end
- 
 function modifier_creep_power:IsHidden()
     return false
 end
@@ -40,42 +7,64 @@ end
 function modifier_creep_power:IsPurgable()
     return false
 end
- 
+
 function modifier_creep_power:OnCreated()
-	self:StartIntervalThink(0.03)
+	if IsServer() then
+		self:StartIntervalThink(0.3) -- add a delay before action, OnIntervalThink happens only once
+	end
 end
 
-function modifier_creep_power:GetModifierPreAttack_BonusDamage(params)
-	return self.damage_scaling
+function modifier_creep_power:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
+	}
 end
 
+function modifier_creep_power:OnIntervalThink()
+	local parent = self:GetParent()
+    local ability = self:GetAbility()
 
-modifier_creep_power_hp = {
-	IsHidden = function() return true end,
-	IsPurgable = function() return false end,
-	OnRefresh = function(self, kv) self:OnCreated(kv) end,
-	OnCreated = function(self, kv)
-		if not IsServer() then return end
-		self.hp = self.hp or self:GetParent():GetMaxHealth()
-		local level = self:GetParent():GetModifierStackCount("modifier_creep_power", self:GetCaster()) or 0
-		--"bonus_hp" "20 50 80 110 140 170 200 230 260 290 320 350 380 410 440 470 500 530 560 590"
-		local bonus = (level>3 and 20 or 0) + 10 * (level/3)
-		if self:GetParent().SetMaxHealth then
-			self:GetParent():SetMaxHealth(self.hp + self.hp * bonus * 0.01)
+	if not parent or parent:IsNull() then
+		self:StartIntervalThink(-1)
+		self:Destroy()
+		return
+	end
+
+	if not parent:IsAlive() then
+		self:StartIntervalThink(-1)
+		self:Destroy()
+		return
+	end
+
+    if ability then
+		local level = self:GetStackCount()
+		local hp_scaling = math.min(120, level) * ability:GetSpecialValueFor("health_per_level")
+		local bounty_scaling = level * (ability:GetSpecialValueFor("coef") / 100)
+		--local resist_scaling = level * ability:GetSpecialValueFor("resist_per_level")
+
+		--parent:SetBaseMagicalResistanceValue(math.ceil(parent:GetBaseMagicalResistanceValue() + resist_scaling))
+
+		parent:SetMinimumGoldBounty(parent:GetMinimumGoldBounty() + (parent:GetMinimumGoldBounty() * bounty_scaling))
+		parent:SetMaximumGoldBounty(parent:GetMaximumGoldBounty() + (parent:GetMaximumGoldBounty() * bounty_scaling))
+
+		parent:SetModelScale(parent:GetModelScale() + (parent:GetModelScale() * 0.01 * math.min(12, level)))
+
+		local should_upgrade_current_hp = true
+		local max_hp = parent:GetMaxHealth()
+		if parent:GetHealth() ~= max_hp then
+			should_upgrade_current_hp = false
 		end
-		if self:GetParent().SetBaseMaxHealth then
-			self:GetParent():SetBaseMaxHealth(self.hp + self.hp * bonus * 0.01)
+
+		parent:SetBaseMaxHealth(max_hp + hp_scaling)
+		parent:SetMaxHealth(max_hp + hp_scaling)
+		if should_upgrade_current_hp then
+			parent:SetHealth(max_hp + hp_scaling)
 		end
-		if self:GetParent().SetHealth then
-			self:GetParent():SetHealth(self.hp + self.hp * bonus * 0.01)
-		end
-	end,
-	OnDestroy = function(self)
-		if self:GetParent().SetMaxHealth then
-			self:GetParent():SetMaxHealth(self.hp)
-		end
-		if self:GetParent().SetBaseMaxHealth then
-			self:GetParent():SetBaseMaxHealth(self.hp)
-		end
-	end,
-}
+
+		self:StartIntervalThink(-1)
+    end
+end
+
+function modifier_creep_power:GetModifierPreAttack_BonusDamage()
+	return self:GetAbility():GetSpecialValueFor("damage_per_level") * math.min(120, self:GetStackCount())
+end

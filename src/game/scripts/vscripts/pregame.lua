@@ -28,9 +28,6 @@ require('abilities/angel_arena_reborn/duels')
 
 require('abilities/mutators/convertable_tower_mutator')
 
--- Creep power modifier
-LinkLuaModifier("modifier_neutral_power", "abilities/modifiers/modifier_neutral_power.lua", LUA_MODIFIER_MOTION_NONE)
-
 -- Mutator modifiers
 
 LinkLuaModifier("modifier_vampirism_mutator","abilities/mutators/modifier_vampirism_mutator.lua",LUA_MODIFIER_MOTION_NONE)
@@ -8291,9 +8288,9 @@ function Pregame:fixSpawningIssues()
                     elseif pickedAbility == 8 then
                         self.freeCreepAbility = "shredder_reactive_armor"
                     elseif pickedAbility == 9 then
-                        self.freeCreepAbility = "brewmaster_drunken_brawler"
+                        self.freeCreepAbility = "skeleton_king_mortal_strike" -- brewmaster_drunken_brawler
                     elseif pickedAbility == 10 then
-                        self.freeCreepAbility = "imba_dazzle_shallow_grave"
+                        self.freeCreepAbility = "phantom_assassin_coup_de_grace" -- imba_dazzle_shallow_grave
                     elseif pickedAbility == 11 then
                         self.freeCreepAbility = "troll_warlord_fervor"
                     elseif pickedAbility == 12 then
