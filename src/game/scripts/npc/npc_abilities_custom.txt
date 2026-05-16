@@ -137,7 +137,6 @@
 #base "abilities\dota\batrider_flamebreak_op.txt"
 #base "abilities\dota\bloodseeker_blood_bath2.txt"
 #base "abilities\dota\bloodseeker_thirst_lod.txt"
-#base "abilities\dota\bloodseeker_thirst_lod_op.txt"
 #base "abilities\dota\dark_seer_vacuum_op.txt"
 #base "abilities\dota\dazzle_bad_juju_redux.txt"
 #base "abilities\dota\death_prophet_witchcraft_op.txt"

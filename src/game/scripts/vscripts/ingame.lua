@@ -2084,6 +2084,7 @@ function Ingame:FilterModifiers(filterTable)
 			modifier_enchantress_bunny_hop = true,
 			modifier_enraged_wildkin_hurricane = true,
 			modifier_eul_cyclone = true,
+			modifier_force_dash = true,
 			modifier_illusion = true,
 			modifier_invisible = true,
 			modifier_invoker_sun_strike = true,
