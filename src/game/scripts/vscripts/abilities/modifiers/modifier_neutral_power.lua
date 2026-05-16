@@ -88,9 +88,16 @@ function CalculateNewStats(unit, stacks, firstInstance)
 		unit:SetModelScale(unit:GetModelScale() + model_scale_per_stack)
 
 		-- Modify Health
-		unit:SetBaseMaxHealth(unit:GetBaseMaxHealth() + health_per_stack)
-		unit:SetMaxHealth(unit:GetMaxHealth() + health_per_stack)
-		unit:SetHealth(unit:GetHealth() + health_per_stack)
+		local should_upgrade_current_hp = true
+		local max_hp = unit:GetMaxHealth()
+		if unit:GetHealth() ~= max_hp then
+			should_upgrade_current_hp = false
+		end
+		unit:SetBaseMaxHealth(max_hp + health_per_stack)
+		unit:SetMaxHealth(max_hp + health_per_stack)
+		if should_upgrade_current_hp then
+			unit:SetHealth(max_hp + health_per_stack)
+		end
 
 		-- Bounties
 	    unit:SetDeathXP(unit:GetDeathXP() + extra_exp_per_stack)

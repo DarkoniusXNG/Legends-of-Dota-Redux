@@ -146,6 +146,7 @@ if CDOTA_BaseNPC then
 			"modifier_imba_shallow_grave",
 			"modifier_imba_spiked_carapace",
 			"modifier_oracle_will_to_live",
+			"modifier_imba_battle_trance_720",
 		}
 
 		local function RemoveTableOfModifiersFromUnit(unit, t)

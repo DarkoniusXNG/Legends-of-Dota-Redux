@@ -786,8 +786,8 @@ end
 -------------------------------------------
 --			  BATTLE TRANCE
 -------------------------------------------
-LinkLuaModifier("modifier_imba_battle_trance", "abilities/dota_imba/hero_troll_warlord", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_imba_battle_trance_720", "abilities/dota_imba/hero_troll_warlord", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_imba_battle_trance", "abilities/dota_imba/hero_troll_warlord", LUA_MODIFIER_MOTION_NONE) -- needs tooltip
+LinkLuaModifier("modifier_imba_battle_trance_720", "abilities/dota_imba/hero_troll_warlord", LUA_MODIFIER_MOTION_NONE) -- needs tooltip
 LinkLuaModifier("modifier_imba_battle_trance_vision_720", "abilities/dota_imba/hero_troll_warlord", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_battle_trance_restricted", "abilities/dota_imba/hero_troll_warlord", LUA_MODIFIER_MOTION_NONE)
 
@@ -985,13 +985,14 @@ function modifier_imba_battle_trance_720:OnIntervalThink()
 				-- Find a nearest attackable unit for the caster
 				self:FindNewUnitToAttack(caster, ability)
 			else
-				-- local order = {
-					-- UnitIndex = caster:entindex(),
-					-- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-					-- TargetIndex = old_target:entindex(),
-					-- Queue = false,
-				-- }
-				-- ExecuteOrderFromTable(order)
+				-- It might not work because it is an attack order but it doesnt hurt
+				local order = {
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+					TargetIndex = old_target:entindex(),
+					Queue = false,
+				}
+				ExecuteOrderFromTable(order)
 			end
 		end
 	else
@@ -1099,10 +1100,11 @@ function modifier_imba_battle_trance_720:DeclareFunctions()
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 		MODIFIER_PROPERTY_MIN_HEALTH,
-		MODIFIER_PROPERTY_TOOLTIP,
+		MODIFIER_PROPERTY_TOOLTIP, -- for the lifesteal
 		MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
 		-- elfansoer: fix lifesteal not working due to missing custom library
 		MODIFIER_EVENT_ON_TAKEDAMAGE,
+		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
 		MODIFIER_PROPERTY_DISABLE_AUTOATTACK,
 	}
 end
@@ -1184,6 +1186,33 @@ if IsServer() then
 			ParticleManager:ReleaseParticleIndex(particle2)
 		end
 	end
+	
+	function modifier_imba_battle_trance_720:OnAbilityFullyCast(event)
+		local parent = self:GetParent()
+		local ability = self:GetAbility()
+		local cast_ability = event.ability
+		--local target = event.target
+		local caster = event.unit
+		
+		if not cast_ability or cast_ability:IsNull() or not caster or caster:IsNull() then
+			return
+		end
+		
+		-- Check if caster of the ability has this modifier
+		if caster ~= parent then
+			return
+		end
+
+		-- Check if old target exists
+		if self.target then
+			-- Find new target for parent to attack but remove revealed modifier from the old target first
+			self.target:RemoveModifierByName("modifier_imba_battle_trance_vision_720")
+			-- Stop parent from trying to attack the unit that is un-attackable or out of range
+			self.target = nil
+			-- The rest will happen in the next OnIntervalThink loop
+			-- Doesnt work for some spells like Faceless Void Time Walk, maybe because parent becomes invulnerable?
+		end
+	end
 end
 
 function modifier_imba_battle_trance_720:GetModifierAttackSpeedBonus_Constant()
@@ -1247,9 +1276,9 @@ end
 
 function modifier_imba_battle_trance_restricted:CheckState()
 	return {
-		[MODIFIER_STATE_IGNORING_MOVE_AND_ATTACK_ORDERS] = true, -- does nothing?
-		[MODIFIER_STATE_IGNORING_STOP_ORDERS] = true, -- does nothing?
-		[MODIFIER_STATE_IGNORING_MOVE_ORDERS] = true, -- does nothing?
+		[MODIFIER_STATE_IGNORING_MOVE_AND_ATTACK_ORDERS] = true,
+		[MODIFIER_STATE_IGNORING_STOP_ORDERS] = true,
+		[MODIFIER_STATE_IGNORING_MOVE_ORDERS] = true,
 		--[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
 	}
 end
