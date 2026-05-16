@@ -21,6 +21,7 @@
         }
 
 		"ReduxFlags"                                                           "dota_custom | tank"
+		"ReduxPerks"                                                           "undead"
 		"ReduxBans"                                                            "pudge_innate_graft_flesh"
 		"ReduxCost"                                                            "30"
 	}

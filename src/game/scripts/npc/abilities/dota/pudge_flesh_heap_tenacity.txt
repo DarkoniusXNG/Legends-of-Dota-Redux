@@ -3,9 +3,10 @@
     "pudge_flesh_heap_tenacity"
     {
         "BaseClass"                                                            "ability_lua"
-        "AbilityTextureName"                                                   "custom/flesh_heap_evasion"
+        "AbilityTextureName"                                                   "custom/flesh_heap_tenacity"
         "ScriptFile"                                                           "abilities/pudge_flesh_heap_tenacity.lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"IsBreakable"                                                          "1"
 
         "precache"
         {
@@ -20,7 +21,9 @@
               "affected_by_aoe_increase"                                       "1"
             }
         }
+
         "ReduxFlags"                                                           "dota_custom | tank"
+		"ReduxPerks"                                                           "undead"
         "ReduxCost"                                                            "40"
     }
 }

@@ -8,19 +8,20 @@
 
         "precache"
         {
-            "particle"                                                     "particles/units/heroes/hero_pudge/pudge_fleshheap_count.vpcf"
+            "particle"                                                         "particles/units/heroes/hero_pudge/pudge_fleshheap_count.vpcf"
         }
         "AbilityValues"
         {
-            "flesh_heap_value_buff_amount" "1 2 3 4"
+            "flesh_heap_value_buff_amount"                                     "1 2 3 4"
             "flesh_heap_range"
             {
-              "value"		"450"
-              "affected_by_aoe_increase"	"1"
+              "value"                                                          "450"
+              "affected_by_aoe_increase"                                       "1"
             }
         }
+
         "ReduxFlags"                                                           "dota_custom | support | doNotRandom"
-        "ReduxPerks"                                                           "support"
+        "ReduxPerks"                                                           "support | undead"
         "ReduxCost"                                                            "40"
     }
 }

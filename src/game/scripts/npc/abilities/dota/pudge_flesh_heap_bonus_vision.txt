@@ -20,7 +20,9 @@
               "affected_by_aoe_increase"	"1"
             }
         }
-        "ReduxFlags"                                                           "dota_custom"
+
+        "ReduxFlags"                                                           "dota_custom | doNotRandom"
+		"ReduxPerks"                                                           "undead"
         "ReduxCost"                                                            "10"
     }
 }
