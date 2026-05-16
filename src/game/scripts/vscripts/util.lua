@@ -446,30 +446,6 @@ function util:getTableLength(t)
   return length
 end
 
-function DebugCalls()
-    if not debug then
-        print("debug not available!")
-        return
-    end
-    if not GameRules.DebugCalls then
-        print("Starting DebugCalls")
-        GameRules.DebugCalls = true
-
-        debug.sethook(function(...)
-            local info = debug.getinfo(2)
-            local src = tostring(info.short_src)
-            local name = tostring(info.name)
-            if name ~= "__index" then
-                print("Call: ".. src .. " -- " .. name .. " -- " .. info.currentline)
-            end
-        end, "c")
-    else
-        print("Stopped DebugCalls")
-        GameRules.DebugCalls = false
-        debug.sethook(nil, "c")
-    end
-end
-
 function ShuffleArray(input)
   local rand = math.random
     local iterations = #input
