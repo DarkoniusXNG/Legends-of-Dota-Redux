@@ -217,6 +217,7 @@
 #base "abilities\dota\sniper_assassinate_redux.txt"
 #base "abilities\dota\superOPdefaults.txt"
 #base "abilities\dota\techies_land_mines_old.txt"
+#base "abilities\dota\techies_spoons_stash_old.txt"
 #base "abilities\dota\techies_stasis_trap_old.txt"
 #base "abilities\dota\techies_suicide_old.txt"
 #base "abilities\dota\tiny_grow_lod.txt"

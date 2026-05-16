@@ -177,7 +177,7 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
 
                             -- If we failed to find it, it might have been an item
                             if not ab and (hero:HasModifier('modifier_item_ultimate_scepter') or multicastMadness) then
-                                for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+                                for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
                                     -- Grab the slot item
                                     local slotItem = hero:GetItemInSlot(i)
 

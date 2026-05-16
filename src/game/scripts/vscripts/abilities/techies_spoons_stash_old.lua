@@ -8,8 +8,6 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
--- Note: Doesnt work for Meepo: Boots placed in backpack are not copied to clones.
-
 modifier_spoons_stash_oaa = class({})
 
 function modifier_spoons_stash_oaa:IsHidden()

@@ -659,11 +659,18 @@ end
 -- Called every 0.1 second to check and convert consumable items into actual consumable items
 function Ingame:CheckConsumableItems()
     local itemTable = LoadKeyValues('scripts/kv/consumable_items.kv')
+    local max_slot = DOTA_ITEM_SLOT_6
+
     for i = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:IsValidTeamPlayerID(i) and not util:isPlayerBot(i) then
             local hero = PlayerResource:GetSelectedHeroEntity(i)
             if hero and IsValidEntity(hero) then
-                for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+                if hero:HasModifier("modifier_spoons_stash_oaa") then
+                    max_slot = DOTA_ITEM_SLOT_9
+                else
+                    max_slot = DOTA_ITEM_SLOT_6
+                end
+                for i = DOTA_ITEM_SLOT_1, max_slot do
                     local hItem = hero:GetItemInSlot(i)
                     if hItem then
                         local name = hItem:GetAbilityName()

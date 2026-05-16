@@ -645,7 +645,7 @@ function Commands:OnPlayerChat(keys)
                     end
                 end
 
-                for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+                for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
                     local item = hero:GetItemInSlot( i )
                     if item then
                         item:EndCooldown()
@@ -656,16 +656,16 @@ function Commands:OnPlayerChat(keys)
         elseif IsCommand("-fortify_dire") then
             Timers:CreateTimer(function()
                 fortify_dire(playerID)
-            end, DoUniqueString('cheatrefresh'), .2)
+            end, DoUniqueString('fortify_dire'), .2)
         elseif IsCommand("-fortify_rad") then
             Timers:CreateTimer(function()
                 fortify_rad(playerID)
-            end, DoUniqueString('cheatrefresh'), .2)
+            end, DoUniqueString('fortify_rad'), .2)
         elseif IsCommand("-fortify") then
             Timers:CreateTimer(function()
                 fortify_dire(playerID)
                 fortify_rad(playerID)
-            end, DoUniqueString('cheatrefresh'), .2)
+            end, DoUniqueString('fortify_both'), .2)
         end
     end
 end

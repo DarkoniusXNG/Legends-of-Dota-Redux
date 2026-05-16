@@ -10207,6 +10207,8 @@
 "DOTA_Tooltip_modifier_swain_demon_flare_debuff"                              "Demon Flare"
 "DOTA_Tooltip_modifier_swain_demon_flare_debuff_Description"                  "Move speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed slowed by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 "DOTA_Tooltip_modifier_swain_demon_flare_cd"                                  "Demon Flare Cooldown"
+"DOTA_Tooltip_ability_techies_spoons_stash_old"              "Spoon's Stash (pre 7.38)"
+"DOTA_Tooltip_ability_techies_spoons_stash_old_Description"  "Techies' backpack is now part of their inventory! They can use and benefit from backpack items as if the items were in their inventory."
 
 "duel_10_sec_to_begin" "10 seconds before start of duel!"
 "duel_10_sec_to_end" "10 seconds to draw!"

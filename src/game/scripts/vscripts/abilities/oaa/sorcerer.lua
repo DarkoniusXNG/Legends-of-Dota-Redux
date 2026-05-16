@@ -155,18 +155,10 @@ if IsServer() then
 
     if RandomInt(1, 100) <= self.chance_for_items_on_kill then
       -- Reset cooldown for items
-      for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+      for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
         local item = parent:GetItemInSlot(i)
         if item and item:IsRefreshable() and not self.exempt_item_table[item:GetAbilityName()] then
           item:EndCooldown()
-        end
-      end
-
-      -- Reset cooldown for items that are in backpack
-      for j = DOTA_ITEM_SLOT_7, DOTA_ITEM_SLOT_9 do
-        local backpack_item = parent:GetItemInSlot(j)
-        if backpack_item and not self.exempt_item_table[backpack_item:GetAbilityName()] then
-          backpack_item:EndCooldown()
         end
       end
 
