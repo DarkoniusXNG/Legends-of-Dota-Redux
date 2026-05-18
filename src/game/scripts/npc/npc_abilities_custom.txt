@@ -536,6 +536,7 @@
 #base "abilities\oaa\sohei_quivering_palm_oaa.txt"
 #base "abilities\oaa\tinkerer_oil_spill.txt"
 #base "abilities\oaa\tinkerer_smart_missiles.txt"
+#base "abilities\oaa\blood_magic_oaa.txt"
 
 "DOTAAbilities" {
 

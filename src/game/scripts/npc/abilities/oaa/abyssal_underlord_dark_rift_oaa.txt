@@ -9,6 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa/oaa_dark_rift.lua"
+	"AbilityTextureName"                                  "abyssal_underlord_dark_rift"
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -16,7 +17,9 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityTextureName"                                  "abyssal_underlord_dark_rift"
+
+	"ReduxPerks"                                          "channeled | teleport | demon | blink | skillshot | mobility"
+    "ReduxFlags"                                          "mobility | stun | upgradeable"
 
     "HasScepterUpgrade"                                   "1"
 
@@ -70,8 +73,5 @@
     {
       "particle"                                          "particles/units/heroes/heroes_underlord/abyssal_underlord_dark_rift_portal.vpcf"
     }
-
-    "ReduxPerks"                                          "channeled | teleport | demon | blink | skillshot | mobility"
-    "ReduxFlags"                                          "mobility | stun | upgradeable"
   }
 }

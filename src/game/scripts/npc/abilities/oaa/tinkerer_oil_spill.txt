@@ -15,6 +15,9 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+	
+	//"ReduxFlags"                                          ""
+    "ReduxPerks"                                          "fire | skillshot | scientific"
 
     "HasScepterUpgrade"                                   "1"
 
@@ -63,8 +66,5 @@
         "RequiresScepter"                                 "1"
       }
     }
-
-    "ReduxFlags"                                          "upgradeable"
-    "ReduxPerks"                                          "skillshot"
   }
 }

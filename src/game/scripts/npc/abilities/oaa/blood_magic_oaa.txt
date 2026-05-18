@@ -1,0 +1,29 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Blood Magic (OAA version)
+  //=================================================================================================================
+  "blood_magic_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa/blood_magic.lua"
+    "AbilityTextureName"                                  "custom/blood_magic_oaa"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+	"IsBreakable"                                         "1"
+
+    "ReduxFlags"                                          "doNotRandom"
+    "ReduxPerks"                                          "blood | self_damage"
+	"ReduxCost"                                           "120"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "health_cost_multiplier"                            "2.2 1.8 1.4 1.0"
+	  "spell_lifesteal"                                   "15 17 19 21"
+    }
+  }
+}

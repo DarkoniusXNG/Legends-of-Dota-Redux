@@ -12,7 +12,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "ReduxFlags"                                          "mobility | support | upgradeable"
+    "ReduxFlags"                                          "mobility | support"
     "ReduxPerks"                                          "mobility | support | water"
 
     "HasShardUpgrade"                                     "1"

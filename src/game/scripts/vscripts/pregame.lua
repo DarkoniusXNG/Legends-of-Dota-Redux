@@ -1786,6 +1786,18 @@ function Pregame:networkHeroes()
                     end
                 end
             end
+            if v["HasScepterUpgrade"] then
+                if tonumber(v["HasScepterUpgrade"]) ~= 0 then
+                    flags["upgradeable"] = flags["upgradeable"] or {}
+                    flags["upgradeable"][k] = 1
+                end
+            end
+            if v["HasShardUpgrade"] then
+                if tonumber(v["HasShardUpgrade"]) ~= 0 then
+                    flags["upgradeablewithshard"] = flags["upgradeablewithshard"] or {}
+                    flags["upgradeablewithshard"][k] = 1
+                end
+            end
         end
     end
 

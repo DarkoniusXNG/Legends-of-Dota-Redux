@@ -16,7 +16,7 @@
             "flesh_heap_range"                                                 "450"
         }
 
-        "ReduxFlags"                                                           "aoe_attack | dota_custom"
+        "ReduxFlags"                                                           "dota_custom"
 		"ReduxPerks"                                                           "undead"
         "ReduxCost"                                                            "80"
     }
