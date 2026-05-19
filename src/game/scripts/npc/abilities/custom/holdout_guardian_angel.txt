@@ -1,5 +1,6 @@
 "DOTAAbilities" {
-	"holdout_guardian_angel" {
+	"holdout_guardian_angel" // TODO: Wraith Night ability
+	{
 		"BaseClass" "ability_datadriven"
 		"AbilityTextureName" "custom/omniknight_guardian_angel"
 		"ItemBaseLevel" "0"

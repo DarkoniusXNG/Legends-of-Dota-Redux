@@ -3,77 +3,46 @@
     "cherub_explosive_spore"
     {
         "BaseClass"                                                            "ability_datadriven"
-        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityTextureName"                                                   "custom/cherub_explosive_spore"
-        "AbilityProcsMagicStick"                                               "1"
+
+		"ReduxPerks"                                                           "nature | explosive"
+
+        "AbilityCastPoint"                                                     "0.1"
+        "AbilityCastRange"                                                     "300"
+		"AbilityProcsMagicStick"                                               "1"
         "AbilityCooldown"                                                      "6.0"
         "AbilityManaCost"                                                      "90 105 120 135"
-        "AbilityCastPoint"                                                     "0.1"
+
         "AbilityValues"
         {
-            "spawn_distance" "250"
-            "radius"		
+            "radius"
             {
-                "value"			"350"
-                "affected_by_aoe_increase"	"1"
+                "value"                                                        "350"
+                "affected_by_aoe_increase"                                     "1"
             }
-            "delay" "10.0"
-            "damage" "125 200 275 350"
-            "lifesteal_hero" "40"
-            "lifesteal_creep" "10"
-            "spore_health" "150"
-            "spore_movespeed" "500"
-            "heal_hero" "40 70 100 130"
-            "heal_creep" "10 17.5 25 32.5"
+            "delay"                                                            "10.0" // spore duration
+            "damage"                                                           "125 200 275 350"
+            "lifesteal_hero"                                                   "40"
+            "spore_health"                                                     "150" // needs to be changed for explosive_spore unit too
+            "spore_movespeed"                                                  "500" // needs to be changed for explosive_spore unit too
         }
         "precache"
         {
-            "particle"                                                     "particles/cherub_explosive_spore.vpcf"
+            "model"                                                            "models/items/pugna/ward/weta_call_of_the_nether_lotus_ward/weta_call_of_the_nether_lotus_ward.vmdl"
+            "particle"                                                         "particles/cherub_explosive_spore.vpcf" // "particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
         }
         "OnSpellStart"
         {
-            "SpawnUnit"
+            "RunScript"
             {
-                "UnitName"                                             "explosive_spore"
-                "UnitCount"                                            "1"
-                "SpawnRadius"                                          "10"
-                "Duration"                                             "10.03"
-                "Target"
-                {
-                    "Center"                                       "CASTER"
-                    "ScriptSelectPoints"
-                    {
-                        "ScriptFile"                           "abilities/cherub_explosive_spore.lua"
-                        "Function"                             "GetSummonPoints"
-                        "Target"                               "CASTER"
-                        "Count"                                "1"
-                        "distance"                             "%spawn_distance"
-                    }
-                }
-                "OnSpawn"
-                {
-                    "FireSound"
-                    {
-                        "EffectName"                           "Hero_Broodmother.SpawnSpiderlings"
-                        "Target"                               "TARGET"
-                    }
-                    "ApplyModifier"
-                    {
-                        "ModifierName"                         "modifier_explosive_spore"
-                        "Target"                               "TARGET"
-                    }
-                    "RunScript"
-                    {
-                        "ScriptFile"                           "abilities/cherub_explosive_spore.lua"
-                        "Function"                             "SetForwardVector"
-                    }
-                }
-                "GrantsGold"                                           "1"
-                "GrantsXP"                                             "1"
+                "ScriptFile"                                           "abilities/cherub_explosive_spore.lua"
+                "Function"                                             "CreateExplosiveSpore"
+                //"Target"                                               "POINT"
             }
         }
         "Modifiers"
@@ -83,32 +52,36 @@
                 "Passive"                                              "0"
                 "IsHidden"                                             "0"
                 "IsDebuff"                                             "0"
+				"IsPurgable"                                           "0"
+
                 "States"
                 {
                     "MODIFIER_STATE_FLYING"                        "MODIFIER_STATE_VALUE_ENABLED"
                     "MODIFIER_STATE_NO_UNIT_COLLISION"             "MODIFIER_STATE_VALUE_ENABLED"
                     "MODIFIER_STATE_DISARMED"                      "MODIFIER_STATE_VALUE_ENABLED"
                 }
-                "OnDeath"
+
+                "OnDestroy"
                 {
-                    "CreateThinker"
-                    {
-                        "ModifierName"                         "modifier_spore_thinker"
-                        "Target"                               "UNIT"
-                    }
                     "FireEffect"
                     {
-                        "EffectName"                           "particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
+                        "EffectName"                           "particles/cherub_explosive_spore.vpcf" //"particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
                         "EffectAttachType"                     "follow_hitloc"
                         "Target"
                         {
-                            "Center"                       "UNIT"
+                            "Center"                       "TARGET"
                             "Flags"                        "DOTA_UNIT_TARGET_FLAG_DEAD"
                         }
                     }
-                }
-                "OnDestroy"
-                {
+                    "FireSound"
+                    {
+                        "EffectName"                           "Hero_Techies.StickyBomb.Detonate"
+                        "Target"
+                        {
+                            "Center"                       "TARGET"
+                            "Flags"                        "DOTA_UNIT_TARGET_FLAG_DEAD"
+                        }
+                    }
                     "ActOnTargets"
                     {
                         "Target"
@@ -123,42 +96,13 @@
                         {
                             "RunScript"
                             {
-                                "ScriptFile"           "lib/popups.lua"
-                                "Function"             "PopupSporeDamage"
-                                "Damage"               "%damage"
+                                "ScriptFile"                           "abilities/cherub_explosive_spore.lua"
+                                "Function"                             "ExplosiveSporeDamageAndHeal"
                             }
-                            "Damage"
-                            {
-                                "Target"               "TARGET"
-                                "Type"                 "DAMAGE_TYPE_MAGICAL"
-                                "Damage"               "%damage"
-                            }
-                            "Heal"
-                            {
-                                "Target"               "CASTER"
-                                "HealAmount"           "%heal_hero"
-                            }
-                        }
-                    }
-                }
-            }
-            "modifier_spore_thinker"
-            {
-                "Duration"                                             "0.03"
-                "OnCreated"
-                {
-                    "FireSound"
-                    {
-                        "EffectName"                           "Hero_Techies.LandMine.Detonate"
-                        "Target"
-                        {
-                            "Center"                       "TARGET"
-                            "Flags"                        "DOTA_UNIT_TARGET_FLAG_DEAD"
                         }
                     }
                 }
             }
         }
-        "ReduxPerks"                                                           "nature | explosive"
     }
 }

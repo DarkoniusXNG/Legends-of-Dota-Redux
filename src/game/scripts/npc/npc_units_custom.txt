@@ -2651,12 +2651,6 @@
 		"Level"                        "1"
 		"ModelScale"                 "1.2"
 
-		"precache"
-		{
-			"particle"        "particles/units/heroes/hero_techies/techies_land_mine.vpcf"
-			"particle"        "particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
-			"model"           "models/items/pugna/ward/weta_call_of_the_nether_lotus_ward/weta_call_of_the_nether_lotus_ward.vmdl"
-		}
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"                    ""            // Ability 1.
@@ -2688,7 +2682,7 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"        "DOTA_UNIT_CAP_MOVE_FLY"            // Type of locomotion - ground, air
-		"MovementSpeed"                "450"            // Speed
+		"MovementSpeed"                "500"            // Speed
 		"MovementTurnRate"            "1.5"        // Turning rate.
 		"FollowRange"				"-10"
 
@@ -5099,8 +5093,8 @@
 
 	        // Vision
 	        //----------------------------------------------------------------
-	        "VisionDaytimeRange"        "1800"
-	        "VisionNighttimeRange"      "1800"
+	        "VisionDaytimeRange"        "800"
+	        "VisionNighttimeRange"      "800"
 
 	        // Team
 	        //----------------------------------------------------------------
@@ -5110,8 +5104,6 @@
 	        // Bots
 	        //----------------------------------------------------------------
 	        "AttackDesire"          "1.5"
-
-	        "IdleSoundLoop"             ""
 	    }
 
 	// Made by BMD

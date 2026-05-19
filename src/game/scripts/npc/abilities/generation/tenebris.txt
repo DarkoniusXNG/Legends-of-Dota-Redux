@@ -17,42 +17,43 @@
     //=================================================================================================================
     "tenebris_blood_ward"
     {
-        "BaseClass"         "ability_datadriven"
-        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-        "SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_NO"
-        "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+        "BaseClass"                                                            "ability_datadriven"
+		"AbilityTextureName"                                                   "custom/tenebris_blood_ward"
+        "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+        "SpellImmunityType"                                                    "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
 
-        "ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | blood"
-
-        "AbilityTextureName"        "custom/tenebris_blood_ward"
+        "ReduxFlags"                                                           "physical | support"
+		"ReduxPerks"                                                           "physical | support | blood"
 
         //Casting
-        "AbilityCastPoint"      "0.3"
-        "AbilityCastRange"      "400"
-        "AbilityCooldown"       "36.0 34.0 32.0 30.0"
-        "AbilityManaCost"       "100"
-        "AOERadius"         "%radius"
+        "AbilityCastPoint"                                                     "0.3"
+        "AbilityCastRange"                                                     "400"
+        "AbilityCooldown"                                                      "36 34 32 30"
+        "AbilityManaCost"                                                      "100"
+        "AOERadius"                                                            "%radius"
 
         // Special
         "AbilityValues"
         {
-            "dps" "30 45 60 75"
-            "reflect" "80"
-            "radius"				
+            "dps"                                                              "30 45 60 75"
+            "reflect"                                                          "80"
+            "radius"
             {
-                "value"			"1600"
-                "affected_by_aoe_increase"	"1"
+                "value"                                                        "1600"
+                "affected_by_aoe_increase"                                     "1"
             }
-            "duration" "40"
-            "maximum_reflections" "6 10 14 18" // Must be double attacks_to_destroy
-            "attacks_to_destroy" "3 5 7 9"
-            "hero_value" "2"
+            "duration"                                                         "40"
+            "hero_maximum_reflections"                                         "6 10 14 18" // hero_maximum_reflections should be > hero_attacks_to_destroy
+            "creep_maximum_reflections"                                        "36"
+            "hero_attacks_to_destroy"                                          "3 5 7 9"
+            "creep_attacks_to_destroy"                                         "6 10 14 18"
         }
 
         "precache"
         {
-            "particle"  "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_dot.vpcf"
+            "model"                                                            "models/heroes/visage/visage_familiar.vmdl"
+			"particle"                                                         "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_dot.vpcf"
         }
 
         "OnSpellStart"
@@ -100,8 +101,15 @@
                 "Aura_Radius"       "%radius"
                 "Aura_Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
                 "Aura_Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-             // "Aura_Flags"     "DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED"
-                "Aura_ApplyToCaster" "1"
+                "Aura_ApplyToCaster" "0"
+
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL"  "1"
+                    "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL"   "1"
+                    "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"      "1"
+					"MODIFIER_PROPERTY_DISABLE_HEALING"              "1"
+                }
 
                 "States"
                 {
@@ -118,7 +126,7 @@
                     }
                 }
 
-                "OnTakeDamage"
+                "OnAttacked"
                 {
                     "RunScript"
                     {
@@ -130,8 +138,7 @@
             "tenebris_blood_ward_modifier_debuff"
             {
                 "IsDebuff"  "1"
-                "IsPurgable"    "1"
-                "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+                "IsPurgable"    "0"
 
                 "ThinkInterval"     "0.1"
                 "OnIntervalThink"
@@ -148,8 +155,8 @@
                     "RunScript"
                     {
                         "ScriptFile"    "abilities/nextgeneration/hero_tenebris/tenebris.lua"
-                        "Function"  "BloodWard_OnAttackLanded"
-                        "damage"    "%attack_damage"
+                        "Function"      "BloodWard_OnAttackLanded"
+                        "damage"        "%attack_damage"
                     }
                 }
             }
@@ -372,7 +379,7 @@
         "AbilityValues"
         {
             "ias" "1.1 1.3 1.5 1.7"
-            "radius"				
+            "radius"
 			{
 				"value"			"900"
 				"affected_by_aoe_increase"	"1"
