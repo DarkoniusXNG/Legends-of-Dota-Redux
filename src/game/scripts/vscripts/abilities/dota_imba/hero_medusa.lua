@@ -17,7 +17,11 @@
 -- Editors:
 --     Elfansoer, 10.08.2019
 
-CreateEmptyTalents("medusa")
+if IsClient() then
+    require('lib/util_imba_client')
+end
+
+--CreateEmptyTalents("medusa")
 
 LinkLuaModifier("modifier_imba_medusa_split_shot", "abilities/dota_imba/hero_medusa", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_medusa_serpent_shot", "abilities/dota_imba/hero_medusa", LUA_MODIFIER_MOTION_NONE)

@@ -24,7 +24,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("lina")
+--CreateEmptyTalents("lina")
 
 -------------------------------------------
 -- 	#8 Talent - Blazing strike

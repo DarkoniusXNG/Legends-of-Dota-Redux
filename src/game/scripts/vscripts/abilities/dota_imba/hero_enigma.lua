@@ -1,6 +1,12 @@
 -- Editors:
 --     MouJiaoZi, 15.12.2017
 
+if IsClient() then
+    require('lib/util_imba_client')
+end
+
+--CreateEmptyTalents("enigma")
+
 LinkLuaModifier("modifier_imba_enigma_generic_pull","abilities/dota_imba/hero_enigma", LUA_MODIFIER_MOTION_NONE)
 
 function CalculatePullLength(caster, target, length)
@@ -532,7 +538,7 @@ function modifier_imba_enigma_midnight_pulse_thinker:OnIntervalThink()
 		FIND_ANY_ORDER,
 		false)
 	for _, enemy in pairs(enemies) do
-	    if not enemy:IsRoshan() then
+	    if not enemy:IsRoshanCustom() then
 	    	local dmg = enemy:GetMaxHealth() * dmg_pct
 		    local damageTable = {victim = enemy,
 	    		attacker = caster,
@@ -779,7 +785,7 @@ function modifier_imba_enigma_black_hole_thinker:OnIntervalThink()
 	-- Pull effect
 	local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, self.pull_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	for _,enemy in pairs(enemies) do
-		if not enemy:IsRoshan() then
+		if not enemy:IsRoshanCustom() then
 			enemy:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_imba_enigma_black_hole_pull", {})
 		end
 	end
@@ -800,7 +806,7 @@ function modifier_imba_enigma_black_hole_thinker:OnIntervalThink()
 		
 		local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		for _, enemy in pairs(enemies) do
-			if not enemy:IsRoshan() then
+			if not enemy:IsRoshanCustom() then
 				ApplyDamage({victim = enemy, attacker = self:GetCaster(), damage = self.dmg, damage_type = DAMAGE_TYPE_PURE, ability = self:GetAbility()})
 				
 				if self.scepter then
@@ -851,7 +857,7 @@ function modifier_imba_enigma_black_hole:CheckState()
 	if not IsServer() then return end
 	local state = {}
 	--Does not affect Roshan
-	if not self:GetParent():IsRoshan() then
+	if not self:GetParent():IsRoshanCustom() then
 		state =
 			{
 				[MODIFIER_STATE_DISARMED] = true,
@@ -865,7 +871,7 @@ end
 
 function modifier_imba_enigma_black_hole:OnCreated()
 	if not IsServer() then return end
-	if self:GetParent() and self:GetParent():IsRoshan() then self:Destroy() end  --Roshan is immune to Black Hole
+	if self:GetParent() and self:GetParent():IsRoshanCustom() then self:Destroy() end  --Roshan is immune to Black Hole
 	self:StartIntervalThink(FrameTime())
 	local ability = self:GetAbility()
 	self.radius = self:GetAbility().radius
@@ -920,7 +926,7 @@ function modifier_imba_enigma_black_hole_pull:OnCreated()
 	self.ms_reduction	= self:GetAbility():GetSpecialValueFor("ms_reduction")
 
 	if not IsServer() then return end
-	if self:GetParent():IsRoshan() then self:Destroy() end  --Roshan is immune to Black Hole
+	if self:GetParent():IsRoshanCustom() then self:Destroy() end  --Roshan is immune to Black Hole
 	self:StartIntervalThink(FrameTime())
 	local ability = self:GetAbility()
 	self.pull_radius = self:GetAbility().pull_radius

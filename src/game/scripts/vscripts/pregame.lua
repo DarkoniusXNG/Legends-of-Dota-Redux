@@ -6568,7 +6568,7 @@ function Pregame:darkMoonDrops()
                     local chance = 5
 
                     -- If its a hero that got killed, it has much higher chance to spawn items
-                    if ent:IsRealHero() or ent:IsBuilding() or ent:GetUnitName() == "npc_dota_roshan" then
+                    if ent:IsRealHero() or ent:IsBuilding() or ent:IsRoshanCustom() then
                         chance = 50
                     end
 
@@ -6838,13 +6838,13 @@ function Pregame:generateBotBuilds(singleID)
     -- List of bots that are borked
     if IsInToolsMode() then
         brokenBots = {
-            npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
+            --npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
             --npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_vengefulspirit = true, -- Crashes
         }
     else
         brokenBots = {
-            npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
+            --npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
             --npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_vengefulspirit = true, -- Crashes
         }
@@ -8366,7 +8366,7 @@ function Pregame:fixSpawningIssues()
             end
 
             if spawnedUnit:GetTeam() == DOTA_TEAM_NEUTRALS then
-                if OptionManager:GetOption('stacking') == 1 and spawnedUnit:GetUnitName() ~= "npc_dota_roshan" and spawnedUnit:GetUnitName() ~= "npc_dota_miniboss" then
+                if OptionManager:GetOption('stacking') == 1 and not spawnedUnit:IsRoshanCustom() and spawnedUnit:GetUnitName() ~= "npc_dota_miniboss" then
                     if IsValidEntity(spawnedUnit) then
                         -- Have to delete creeps after time or game will crash because of too many creeps
                         spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_kill", {duration = 150})

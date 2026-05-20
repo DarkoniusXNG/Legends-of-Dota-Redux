@@ -17,6 +17,12 @@
 --     suthernfriend, 03.02.2018
 --     Elfansoer, 24.06.2019
 
+if IsClient() then
+    require('lib/util_imba_client')
+end
+
+--CreateEmptyTalents("clinkz")
+
 -----------------------------
 --         STRAFE          --
 -----------------------------
@@ -1600,7 +1606,7 @@ function modifier_imba_death_pact_spirit_aura:OnAttackLanded(keys)
 	if target == self:GetParent() then
 
 		-- If the attacker is not a creep, deal damage.
-		if attacker:IsHero() or attacker:IsTower() or attacker:IsRoshan() then
+		if attacker:IsHero() or attacker:IsTower() or attacker:IsRoshanCustom() then
 			-- If the damage is enough to kill the spirit, destroy it 
 			if self:GetParent():GetHealth() <= 1 then 
 				self:GetParent():Kill(self:GetAbility(), attacker)

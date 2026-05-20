@@ -55,7 +55,7 @@ end
 -- Checks if the attacker's damage is classified as "hero damage".	 More `or`s may need to be added.
 function IsHeroDamage(attacker, damage)
 	if damage > 0 then
-		if(attacker:GetName() == "npc_dota_roshan" or attacker:IsControllableByAnyPlayer() or attacker:GetName() == "npc_dota_shadowshaman_serpentward") then
+		if(attacker:IsRoshanCustom() or attacker:IsControllableByAnyPlayer() or attacker:GetName() == "npc_dota_shadowshaman_serpentward") then
 			return true
 		else
 			return false
@@ -207,15 +207,6 @@ function TrueKill(caster, target, ability)
 	-- Kills the target
 	if not target:HasModifier("modifier_imba_reincarnation_wraith_form") then
 		target:Kill(ability, caster)
-	end
-end
-
--- Checks if a given unit is Roshan
-function IsRoshan(unit)
-	if unit:GetName() == "npc_imba_roshan" or unit:GetName() == "npc_dota_roshan" then
-		return true
-	else
-		return false
 	end
 end
 
@@ -747,7 +738,7 @@ function RollPseudoRandom(base_chance, entity)
 	end
 
 	if not prngBase then
-		print("The chance was not found! Make sure to add it to the table or change the value.")
+		--print("The chance was not found! Make sure to add it to the table or change the value.")
 		local unit
 		if entity.HasModifier ~= nil then
 			unit = entity

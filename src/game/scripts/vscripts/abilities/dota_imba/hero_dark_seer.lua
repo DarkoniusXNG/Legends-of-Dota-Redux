@@ -17,6 +17,12 @@
 -- Editors:
 --     Elfansoer, 04.07.2019
 
+if IsClient() then
+    require('lib/util_imba_client')
+end
+
+--CreateEmptyTalents("dark_seer")
+
 -- for vacuum ability
 local function IsNearFountain( location, radius )
 	local buildings = FindUnitsInRadius(

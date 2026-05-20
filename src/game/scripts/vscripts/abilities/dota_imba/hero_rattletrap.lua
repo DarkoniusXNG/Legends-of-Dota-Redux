@@ -17,6 +17,12 @@
 -- Editors:
 --     Elfansoer, 24.06.2019
 
+if IsClient() then
+    require('lib/util_imba_client')
+end
+
+--CreateEmptyTalents("rattletrap")
+
 LinkLuaModifier("modifier_imba_rattletrap_battery_assault", "abilities/dota_imba/hero_rattletrap", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_rattletrap_battery_assault_fragmentation_rend", "abilities/dota_imba/hero_rattletrap", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_rattletrap_battery_assault_percussive_maint_aura", "abilities/dota_imba/hero_rattletrap", LUA_MODIFIER_MOTION_NONE)

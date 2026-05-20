@@ -20,7 +20,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("chaos_knight")
+--CreateEmptyTalents("chaos_knight")
 
 LinkLuaModifier("modifier_reality_rift_armor_reduction_debuff", "abilities/dota_imba/hero_chaos_knight", LUA_MODIFIER_MOTION_NONE)
 

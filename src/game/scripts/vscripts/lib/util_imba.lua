@@ -1583,15 +1583,6 @@ function SwapToItem(caster, removed_item, added_item)
 	end
 end
 
--- Checks if a given unit is Roshan
-function CDOTA_BaseNPC:IsRoshan()
-	if self:GetName() == "npc_imba_roshan" or self:GetName() == "npc_dota_roshan" or self:GetUnitLabel() == "npc_diretide_roshan" then
-		return true
-	else
-		return false
-	end
-end
-
 -- Checks if a given unit is a ward, or Techies bomb
 function IsWardOrBomb(unit)
 
@@ -2685,7 +2676,7 @@ function TriggerWraithKingReincarnation(caster, ability)
 		for _,enemy in pairs(enemies) do
 			
 			-- If this is a real hero, damage and stun it
-			if enemy:IsRealHero() or IsRoshan(enemy) then
+			if enemy:IsRealHero() or enemy:IsRoshanCustom() then
 				ApplyDamage({attacker = caster, victim = enemy, ability = ability, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
 				enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
 

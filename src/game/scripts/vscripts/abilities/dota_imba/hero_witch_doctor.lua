@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("witch_doctor")
+--CreateEmptyTalents("witch_doctor")
 
 -------------------------------------------
 --			PARALYZING CASK
@@ -87,7 +87,7 @@ function imba_witch_doctor_paralyzing_cask:OnProjectileHit_ExtraData(hTarget, vL
 	EmitSoundOn("Hero_WitchDoctor.Paralyzing_Cask_Bounce", hTarget)
 
 	if hTarget then
-		if hTarget:IsRealHero() or hTarget:IsConsideredHero() or hTarget:GetUnitName()=="npc_dota_roshan" then
+		if hTarget:IsRealHero() or hTarget:IsConsideredHero() or hTarget:IsRoshanCustom() then
 			if hTarget:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() then
 				if not hTarget:IsMagicImmune() and (ExtraData.bFirstCast == 0 or not hTarget:TriggerSpellAbsorb(self)) then
 					-- #4 TALENT: Casket applies maledict if previous target was maledicted
@@ -933,7 +933,12 @@ end
 
 function modifier_imba_death_ward:OnDestroy()
 	if IsServer() then
-		self:GetAbility()[self:GetParent().index] = nil
+		local ability = self:GetAbility()
+		local parent = self:GetParent()
+		if not parent or parent:IsNull() then
+			return
+		end
+		ability[parent.index] = nil
 	end
 end
 

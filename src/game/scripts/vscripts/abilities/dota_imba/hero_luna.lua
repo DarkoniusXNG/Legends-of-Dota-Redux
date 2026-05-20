@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("luna")
+--CreateEmptyTalents("luna")
 
 LinkLuaModifier("modifier_imba_luna_moon_glaive", "abilities/dota_imba/hero_luna", LUA_MODIFIER_MOTION_NONE)
 

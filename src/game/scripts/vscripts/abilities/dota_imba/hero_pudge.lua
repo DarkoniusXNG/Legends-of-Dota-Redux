@@ -45,7 +45,7 @@ local function IsNearFountain( location, radius )
 	return found
 end
 
-CreateEmptyTalents("pudge")
+--CreateEmptyTalents("pudge")
 
 --------------------------------------------------------
 ---- PUDGE'S HOOK

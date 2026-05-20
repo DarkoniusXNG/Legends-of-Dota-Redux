@@ -21,6 +21,8 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
+--CreateEmptyTalents("bounty_hunter")
+
 local LinkedModifiers = {}
 -------------------------------------------
 --			SHURIKEN TOSS

@@ -20,7 +20,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("earth_spirit")
+--CreateEmptyTalents("earth_spirit")
 
 ---------------------------------------------------------------------
 -------------------------	Stone Remnant	-------------------------

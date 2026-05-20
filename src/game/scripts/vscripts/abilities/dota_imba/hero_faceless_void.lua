@@ -22,7 +22,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("faceless_void")
+--CreateEmptyTalents("faceless_void")
 
 LinkLuaModifier("modifier_imba_faceless_void_chronocharges", "abilities/dota_imba/hero_faceless_void.lua", LUA_MODIFIER_MOTION_NONE)	-- Chronocharges counter
 if modifier_imba_faceless_void_chronocharges == nil then modifier_imba_faceless_void_chronocharges = class({}) end
@@ -47,11 +47,9 @@ function imba_faceless_void_timelord:IsInnateAbility()
 	return true
 end
 
-function imba_faceless_void_timelord:GetBehavior()
-	return DOTA_ABILITY_BEHAVIOR_PASSIVE + DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE end
-
 function imba_faceless_void_timelord:GetIntrinsicModifierName()
-	return "modifier_imba_faceless_void_timelord" end
+	return "modifier_imba_faceless_void_timelord"
+end
 
 ----------------------------------
 -----	Timelord Modifier	  ----
@@ -62,8 +60,9 @@ function modifier_imba_faceless_void_timelord:IsDebuff()	return false end
 function modifier_imba_faceless_void_timelord:IsHidden()	return true end
 
 function modifier_imba_faceless_void_timelord:DeclareFunctions()
-	local funcs = { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,}
-	return funcs
+	return {
+		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+	}
 end
 
 function modifier_imba_faceless_void_timelord:OnCreated()
@@ -1441,7 +1440,7 @@ function modifier_imba_faceless_void_time_lock_720:ApplyTimeLock(target)
 	target:EmitSound("Hero_FacelessVoid.TimeLockImpact")
 
 	-- Hero stun duration
-	if target:IsConsideredHero() or target:IsRoshan() then
+	if target:IsConsideredHero() or target:IsRoshanCustom() then
 		target:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_imba_faceless_void_time_lock_720_freeze", {duration = duration}):SetDuration(duration * (1 - target:GetStatusResistance()), true)
 	-- Creep stun duration
 	else

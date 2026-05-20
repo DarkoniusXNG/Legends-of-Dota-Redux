@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("enchantress")
+--CreateEmptyTalents("enchantress")
 -----------------
 -- Untouchable --
 -----------------
@@ -290,11 +290,8 @@ function imba_enchantress_enchant:OnSpellStart()
 	end
 	
 	self.caster:EmitSound("Hero_Enchantress.EnchantCast")
-	
-	-- Elfansoer: Fix missing IsRoshan function
-	print("unit is creep",(not self.target:IsConsideredHero() or self.target:IsIllusion()), self.target:GetUnitName(), self.target:GetUnitName()~="npc_dota_roshan" )
 
-	if (not self.target:IsConsideredHero() or self.target:IsIllusion()) and self.target:GetUnitName()~="npc_dota_roshan" then
+	if (not self.target:IsConsideredHero() or self.target:IsIllusion()) and not self.target:IsRoshanCustom() then
 		-- Basic dispel (buffs and debuffs)
 		self.target:Purge(true, true, false, false, false)
 		

@@ -18,6 +18,12 @@
 --     suthernfriend, 03.02.2018
 --     Elfansoer, 17.08.2019
 
+if IsClient() then
+    require('lib/util_imba_client')
+end
+
+--CreateEmptyTalents("troll_warlord")
+
 -------------------------------------------
 --			  BESERKERS RAGE
 -------------------------------------------
@@ -1026,7 +1032,7 @@ function modifier_imba_battle_trance_720:FindNewUnitToAttack(caster, ability)
 	if not target then
 		-- Find the closest creep
 		for _, creep in ipairs(enemy_creeps) do
-			if creep:IsAlive() and creep:GetUnitName() ~= "npc_dota_roshan" then
+			if creep:IsAlive() and not creep:IsRoshanCustom() then
 				target = creep
 				break
 			end

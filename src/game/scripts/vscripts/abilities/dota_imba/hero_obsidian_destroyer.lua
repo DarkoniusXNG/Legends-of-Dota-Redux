@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("obsidian_destroyer")
+--CreateEmptyTalents("obsidian_destroyer")
 
 ---------------------------
 --       ARCANE ORB      --

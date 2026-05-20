@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("drow_ranger")
+--CreateEmptyTalents("drow_ranger")
 
 ----------------------------
 --		FROST ARROWS      --
@@ -549,7 +549,7 @@ end
 ----------------------------
 
 imba_drow_ranger_deadeye = class({})
-LinkLuaModifier("modifier_imba_deadeye_aura", "abilities/dota_imba/hero_drow_ranger", LUA_MODIFIER_MOTION_NONE)
+
 LinkLuaModifier("modifier_imba_deadeye_vision", "abilities/dota_imba/hero_drow_ranger", LUA_MODIFIER_MOTION_NONE)
 
 function imba_drow_ranger_deadeye:IsInnateAbility()
@@ -557,109 +557,19 @@ function imba_drow_ranger_deadeye:IsInnateAbility()
 end
 
 function imba_drow_ranger_deadeye:GetIntrinsicModifierName()
-	return "modifier_imba_deadeye_aura"
-end
-
--- Aura modifier
-modifier_imba_deadeye_aura = class({})
-
-function modifier_imba_deadeye_aura:OnCreated()
-	self.caster = self:GetCaster()
-	self.modifier_active = "modifier_imba_trueshot_active"
-end
-
-function modifier_imba_deadeye_aura:GetAttributes()
-	return MODIFIER_ATTRIBUTE_PERMANENT
-end
-
-function modifier_imba_deadeye_aura:GetAuraEntityReject(target)
-	if IsServer() then
-		-- Never reject caster
-		if target == self.caster then
-			return false
-		end
-
-		-- #7 Talent: Deadeye becomes an aura
-		if self.caster:HasTalent("special_bonus_imba_drow_ranger_7") then
-			if target:IsHero() then
-				return false
-			end
-		end
-
-		return true
-	end
-end
-
-function modifier_imba_deadeye_aura:GetAuraRadius()
-	return 25000 --global
-end
-
-function modifier_imba_deadeye_aura:GetAuraSearchFlags()
-	return DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD + DOTA_UNIT_TARGET_FLAG_INVULNERABLE
-end
-
-function modifier_imba_deadeye_aura:GetAuraSearchTeam()
-	return DOTA_UNIT_TARGET_TEAM_FRIENDLY
-end
-
-function modifier_imba_deadeye_aura:GetAuraSearchType()
-	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
-end
-
-function modifier_imba_deadeye_aura:GetModifierAura()
 	return "modifier_imba_deadeye_vision"
 end
 
-function modifier_imba_deadeye_aura:IsAura()
-	-- Stops working when the caster is Broken
-	if self.caster:IsNull() or self.caster:PassivesDisabled() then
-		return false
-	end
-
-	return true
-end
-
-function modifier_imba_deadeye_aura:IsDebuff()
-	return false
-end
-
-function modifier_imba_deadeye_aura:IsHidden()
-	return true
-end
-
-function modifier_imba_deadeye_aura:IsPurgable()
-	return false
-end
+---------------------------------------------------------------------------------------------------
 
 -- Vision modifier
 modifier_imba_deadeye_vision = class({})
 
-function modifier_imba_deadeye_vision:OnCreated()
-	self.caster = self:GetCaster()
-	self.ability = self:GetAbility()
-
-	self.day_vision = self.ability:GetSpecialValueFor("day_vision")
-	self.night_vision = self.ability:GetSpecialValueFor("night_vision")
-end
-
-function modifier_imba_deadeye_vision:DeclareFunctions()
-	local decFunc = {MODIFIER_PROPERTY_BONUS_DAY_VISION,
-		MODIFIER_PROPERTY_BONUS_NIGHT_VISION}
-
-	return decFunc
-end
-
-function modifier_imba_deadeye_vision:GetBonusDayVision()
-	local day_vision = self.day_vision
-	return day_vision
-end
-
-function modifier_imba_deadeye_vision:GetBonusNightVision()
-	local night_vision = self.night_vision
-	return night_vision
-end
-
 function modifier_imba_deadeye_vision:IsHidden()
+	return true
+end
+
+function modifier_imba_deadeye_vision:IsDebuff()
 	return false
 end
 
@@ -667,11 +577,42 @@ function modifier_imba_deadeye_vision:IsPurgable()
 	return false
 end
 
-function modifier_imba_deadeye_vision:IsDebuff()
-	return false
+function modifier_imba_deadeye_vision:OnCreated()
+	self.ability = self:GetAbility()
+
+	self.day_vision = self.ability:GetSpecialValueFor("day_vision")
+	self.night_vision = self.ability:GetSpecialValueFor("night_vision")
 end
 
+function modifier_imba_deadeye_vision:OnRefresh()
+	self.ability = self.ability or self:GetAbility()
 
+	self.day_vision = self.ability:GetSpecialValueFor("day_vision")
+	self.night_vision = self.ability:GetSpecialValueFor("night_vision")
+end
+
+function modifier_imba_deadeye_vision:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_BONUS_DAY_VISION,
+		MODIFIER_PROPERTY_BONUS_NIGHT_VISION
+	}
+end
+
+function modifier_imba_deadeye_vision:GetBonusDayVision()
+	local parent = self:GetParent()
+	if parent:PassivesDisabled() then
+		return 0
+	end
+	return self.day_vision
+end
+
+function modifier_imba_deadeye_vision:GetBonusNightVision()
+	local parent = self:GetParent()
+	if parent:PassivesDisabled() then
+		return 0
+	end
+	return self.night_vision
+end
 
 ----------------------------
 --			GUST 		  --
@@ -1062,7 +1003,7 @@ function modifier_imba_trueshot_aura:GetAuraDuration()
 end
 
 function modifier_imba_trueshot_aura:GetAuraRadius()
-	return 25000 --global
+	return FIND_UNITS_EVERYWHERE
 end
 
 function modifier_imba_trueshot_aura:GetAuraSearchFlags()
@@ -1192,10 +1133,6 @@ function modifier_imba_trueshot:GetModifierPreAttack_BonusDamage()
 	end
 
 	return bonus_damage
-end
-
-function modifier_imba_trueshot:GetModifierAttackSpeedBonus_Constant()
-	return nil
 end
 
 -- Elfansoer: Fix trueshot aura not working (mainly due to Custom Nettables not exist)
@@ -1522,16 +1459,10 @@ function modifier_imba_marksmanship:GetModifierTotalDamageOutgoing_Percentage( p
 		if not self.caster:IsIllusion() and params.target and not params.inflictor and self:GetStackCount() == 1 then
 			if params.target:IsBuilding() or params.target:IsOther() or params.attacker:GetTeamNumber() == params.target:GetTeamNumber() then
 				-- ignore buildings and allies
-			--[[Elfansoer: Hotfixed 'IsRoshan' is nil
-			elseif params.target:IsConsideredHero() or params.target:IsRoshan() then
-			]]
-			elseif params.target:IsConsideredHero() or params.target:GetUnitName()=="npc_dota_roshan" then
+			elseif params.target:IsConsideredHero() or params.target:IsRoshanCustom() then
 
 				if params.target:GetHealthPercent() <= self:GetAbility():GetSpecialValueFor("instakill_threshold") and not params.target:HasModifier("modifier_oracle_false_promise_timer") then
-					--[[Elfansoer: Hotfixed 'IsRoshan' is nil
-					if not params.target:IsRoshan() then
-					]]
-					if not params.target:GetUnitName()=="npc_dota_roshan" then
+					if not params.target:IsRoshanCustom() then
 						params.target:Kill(self:GetAbility(), params.attacker)
 					end
 				else

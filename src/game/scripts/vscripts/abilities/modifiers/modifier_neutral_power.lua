@@ -16,7 +16,7 @@ function modifier_neutral_power:OnCreated(kv)
 	if IsServer() then
 		local unit = self:GetParent()
 
-		if unit:GetUnitName() == "npc_dota_roshan" or unit:GetUnitName() == "npc_dota_miniboss" then
+		if unit:IsRoshanCustom() or unit:GetUnitName() == "npc_dota_miniboss" then
 			self:Destroy()
 			return
 		end

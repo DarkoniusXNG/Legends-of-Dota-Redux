@@ -531,6 +531,10 @@ if CDOTA_BaseNPC then
 		end
 		return false
 	end
+	
+	function CDOTA_BaseNPC:IsRoshanCustom()
+		return self:GetUnitName() == "npc_imba_roshan" or self:GetUnitName() == "npc_dota_roshan" or self:GetUnitLabel() == "npc_diretide_roshan"
+	end
 end
 
 if C_DOTA_BaseNPC then
@@ -671,5 +675,9 @@ if C_DOTA_BaseNPC then
 			end
 		end
 		return false
+	end
+	
+	function C_DOTA_BaseNPC:IsRoshanCustom()
+		return self:GetUnitName() == "npc_imba_roshan" or self:GetUnitName() == "npc_dota_roshan" or self:GetUnitLabel() == "npc_diretide_roshan"
 	end
 end

@@ -17,8 +17,11 @@
 --     AtroCty, 20.04.2017
 --     suthernfriend, 03.02.2018
 --     Elfansoer, 17.08.2019
+if IsClient() then
+    require('lib/util_imba_client')
+end
 
-CreateEmptyTalents("vengefulspirit")
+--CreateEmptyTalents("vengefulspirit")
 
 LinkLuaModifier("modifier_special_bonus_imba_vengefulspirit_4", "abilities/dota_imba/hero_vengefulspirit.lua", LUA_MODIFIER_MOTION_NONE)
 

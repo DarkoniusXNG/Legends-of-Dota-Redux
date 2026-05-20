@@ -23,7 +23,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("queenofpain")
+--CreateEmptyTalents("queenofpain")
 
 -------------------------------------------
 --			DELIGHTFUL TORMENT

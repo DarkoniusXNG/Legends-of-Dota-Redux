@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("night_stalker")
+--CreateEmptyTalents("night_stalker")
 
 ----------------------------------
 --            VOID              --

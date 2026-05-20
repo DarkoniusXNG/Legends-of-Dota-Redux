@@ -20,7 +20,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("ember_spirit")
+--CreateEmptyTalents("ember_spirit")
 
 LinkLuaModifier("modifier_imba_flame_guard_aura", "abilities/dota_imba/hero_ember.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_flame_guard_talent", "abilities/dota_imba/hero_ember.lua", LUA_MODIFIER_MOTION_NONE)

@@ -20,7 +20,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("slardar")
+--CreateEmptyTalents("slardar")
 
 ---------------------------------------------------
 --			Slardar's Guardian Sprint

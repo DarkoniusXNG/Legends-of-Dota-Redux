@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("pugna")
+--CreateEmptyTalents("pugna")
 
 --------------------------------
 --       NETHER BLAST         --
@@ -626,7 +626,7 @@ function modifier_imba_nether_ward_aura:OnAttackLanded(keys)
 		local damage
 
 		-- If the attacker is a real hero, a tower or Roshan, deal hero damage
-		if attacker:IsRealHero() or attacker:IsTower() or attacker:IsRoshan() then
+		if attacker:IsRealHero() or attacker:IsTower() or attacker:IsRoshanCustom() then
 			damage = self.hero_damage
 		else
 			-- Assign creep or illusion damage

@@ -20,7 +20,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("phantom_lancer")
+--CreateEmptyTalents("phantom_lancer")
 
 --------------------------------------
 --			SPIRIT LANCE            --

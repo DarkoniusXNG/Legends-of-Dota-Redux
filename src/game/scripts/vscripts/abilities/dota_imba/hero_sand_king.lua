@@ -45,7 +45,7 @@ local function IsNearFountain( location, radius )
     return found
 end
 
-CreateEmptyTalents("sand_king")
+--CreateEmptyTalents("sand_king")
 
 -------------------------------
 --       BURROWSTRIKE        --

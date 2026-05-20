@@ -22,7 +22,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("sven")
+--CreateEmptyTalents("sven")
 
 -------------------------------------------
 --            STORM BOLT

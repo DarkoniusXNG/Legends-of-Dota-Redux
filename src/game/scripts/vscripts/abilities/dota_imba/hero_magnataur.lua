@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("magnataur")
+--CreateEmptyTalents("magnataur")
 
 -- util
 -- Checks if a unit is near units of a certain class not on its team

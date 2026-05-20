@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("tinker")
+--CreateEmptyTalents("tinker")
 
 -- #7 Talent - Decreased cast-animations
 function modifier_special_bonus_imba_tinker_7:DeclareFunctions()

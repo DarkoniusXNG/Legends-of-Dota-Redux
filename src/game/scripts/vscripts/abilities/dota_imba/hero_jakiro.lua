@@ -21,6 +21,8 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
+--CreateEmptyTalents("jakiro")
+
 -- utils
 -- Sets level of the ability with [ability_name] to [level] for [caster] if the caster has this ability
 local function SetAbilityLevelIfPresent(caster, ability_name, level)

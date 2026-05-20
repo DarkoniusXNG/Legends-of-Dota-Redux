@@ -19,6 +19,8 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
+--CreateEmptyTalents("spectre")
+
 imba_spectre_haunt = imba_spectre_haunt or class({})
 
 LinkLuaModifier("modifier_imba_spectre_haunt_illusion", "abilities/dota_imba/hero_spectre", LUA_MODIFIER_MOTION_NONE)

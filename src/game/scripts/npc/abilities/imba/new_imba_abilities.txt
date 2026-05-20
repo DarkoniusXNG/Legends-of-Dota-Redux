@@ -10037,9 +10037,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"witch_doctor_death_ward"
 		"ScriptFile"				"abilities/dota_imba/hero_witch_doctor"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"3"
-		"LevelsBetweenUpgrades"			"6"
+
 		"HasScepterUpgrade"				"1"
 
 		"precache"

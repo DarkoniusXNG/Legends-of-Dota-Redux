@@ -20,6 +20,8 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
+--CreateEmptyTalents("beastmaster")
+
 -- HELPER FUNCTION
 
 local function UpgradeBeastsSummons(caster, ability)
