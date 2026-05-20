@@ -18,8 +18,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
+	"ReduxFlags"                                          "mobility | stun"
 	"ReduxPerks"                                          "channeled | teleport | demon | blink | skillshot | mobility"
-    "ReduxFlags"                                          "mobility | stun | upgradeable"
 
     "HasScepterUpgrade"                                   "1"
 

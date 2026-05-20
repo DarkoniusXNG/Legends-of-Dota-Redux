@@ -12,7 +12,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "ReduxFlags"                                          "support | tank | upgradeable"
+    "ReduxFlags"                                          "support | tank"
     "ReduxPerks"                                          "support | water"
 
     "HasScepterUpgrade"                                   "1"
