@@ -1178,6 +1178,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"4 3.5 3 2.5"
 
+		"precache"
+        {
+            "particle"                  "particles/units/heroes/hero_luna/luna_base_attack.vpcf"
+			"particle"                  "particles/units/heroes/hero_luna/luna_ambient_moon_glaive.vpcf"
+        }
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
