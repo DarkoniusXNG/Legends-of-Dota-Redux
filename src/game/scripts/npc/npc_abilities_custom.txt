@@ -225,6 +225,7 @@
 #base "abilities\dota\tusk_walrus_kick_op.txt"
 #base "abilities\dota\undying_decay_agi.txt"
 #base "abilities\dota\undying_decay_int.txt"
+#base "abilities\dota\undying_soul_rip_op.txt"
 #base "abilities\dota\ursa_enrage_old.txt"
 #base "abilities\dota\ursa_fury_swipes_lod.txt"
 #base "abilities\dota\windrunner_gale_force_op.txt"
