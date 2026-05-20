@@ -6,7 +6,7 @@ fates_madness_oaa = class({})
 function fates_madness_oaa:OnSpellStart()
   local caster = self:GetCaster()
 
-  -- Apply Giant Form buff to caster
+  -- Apply buff to the caster
   caster:AddNewModifier(caster, self, "modifier_mr_phys_weak_oaa", {duration = self:GetSpecialValueFor("duration")})
 
   -- Activation Sound

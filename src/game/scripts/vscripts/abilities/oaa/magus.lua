@@ -29,9 +29,7 @@ function modifier_magus_oaa:RemoveOnDeath()
 end
 
 function modifier_magus_oaa:OnCreated()
-  self.chance = 25
-  self.penalty_chance = 5
-  self.cooldown = 0.5
+  self:OnRefresh()
   self.ignore_abilities = {
     abaddon_borrowed_time = 1,                           -- invulnerability
     alchemist_unstable_concoction = 1,                   -- self grief
@@ -53,16 +51,17 @@ function modifier_magus_oaa:OnCreated()
     elder_titan_return_spirit = 1,                       -- self grief
     ember_spirit_activate_fire_remnant = 1,              -- self grief
     enchantress_enchant = 1,                             -- dominating every creep on attack
-    eul_tornado_collector_oaa = 1,                       -- self grief
+    --eul_tornado_collector_oaa = 1,                       -- self grief
     faceless_void_time_walk_reverse = 1,                 -- self grief
     furion_teleportation = 1,                            -- self grief
-    --furion_wrath_of_nature = 1,                        -- powerful (but needs vision)
+    furion_wrath_of_nature = 1,                          -- powerful, trolling (but needs vision)
     hoodwink_sharpshooter_release = 1,                   -- self grief
     --invoker_sun_strike = 1,                            -- powerful, trolling (doesn't need vision), uncomment if Cataclysm procs
     keeper_of_the_light_illuminate_end = 1,              -- self grief
     keeper_of_the_light_spirit_form_illuminate_end = 1,  -- self grief
     kez_raptor_dance = 1,                                -- bugs out
     kunkka_return = 1,                                   -- self grief
+	largo_amphibian_rhapsody = 1,                        -- self grief
     life_stealer_consume = 1,                            -- self grief
     life_stealer_infest = 1,                             -- self grief and maybe instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM
     meepo_megameepo_fling = 1,                           -- self grief
@@ -91,7 +90,7 @@ function modifier_magus_oaa:OnCreated()
     --riki_blink_strike = 1,                             -- uncomment if there are issues, DOTA_UNIT_TARGET_TEAM_CUSTOM
     riki_tricks_of_the_trade = 1,                        -- invulnerability and looping
     ringmaster_the_box = 1,                              -- grief
-    rubick_spell_steal = 1,                              -- stealing boss spells
+    --rubick_spell_steal = 1,                              -- 
     rubick_telekinesis_land_self = 1,                    -- self grief
     shadow_demon_shadow_poison_release = 1,              -- self grief
     skeleton_king_reincarnation = 1,                     -- self grief
@@ -102,7 +101,6 @@ function modifier_magus_oaa:OnCreated()
     --storm_spirit_ball_lightning = 1,                   -- self grief
     techies_reactive_tazer_stop = 1,                     -- self grief
     templar_assassin_trap = 1,                           -- self grief
-    terrorblade_conjure_image = 1,                       -- lag
     --tiny_toss = 1,                                     -- uncomment if there are issues, DOTA_UNIT_TARGET_TEAM_CUSTOM
     tiny_toss_tree = 1,                                  -- self grief
     tiny_tree_grab = 1,                                  -- bugged, DOTA_UNIT_TARGET_TEAM_CUSTOM
@@ -131,11 +129,11 @@ function modifier_magus_oaa:OnCreated()
     dark_willow_bramble_maze = 1,                        -- lag
     dawnbreaker_fire_wreath = 1,                         -- looping
     doom_bringer_doom = 1,                               -- powerful
-    electrician_electric_shield = 1,                     -- self grief in most cases
+    --electrician_electric_shield = 1,                     -- self grief in most cases
     ember_spirit_sleight_of_fist = 1,                    -- invulnerability and looping
     enigma_black_hole = 1,                               -- powerful
     enigma_demonic_conversion = 1,                       -- lag
-    eul_typhoon_oaa = 1,                                 -- lag
+    --eul_typhoon_oaa = 1,                                 -- lag
     faceless_void_chronosphere = 1,                      -- powerful
     faceless_void_time_dilation = 1,                     -- powerful
     faceless_void_time_walk = 1,                         -- invulnerability and looping with scepter
@@ -144,8 +142,10 @@ function modifier_magus_oaa:OnCreated()
     hoodwink_acorn_shot = 1,                             -- looping
     hoodwink_decoy = 1,                                  -- lag
     invoker_chaos_meteor = 1,                            -- lag and maybe crash
+	invoker_chaos_meteor_ad = 1,                         -- lag and maybe crash
     invoker_exort = 1,                                   -- self grief in most cases
     invoker_forge_spirit = 1,                            -- self grief in most cases
+	invoker_forge_spirit_ad = 1,                         -- self grief in most cases
     invoker_invoke = 1,                                  -- self grief in most cases
     invoker_quas = 1,                                    -- self grief in most cases
     invoker_wex = 1,                                     -- self grief in most cases
@@ -183,6 +183,7 @@ function modifier_magus_oaa:OnCreated()
     slark_depth_shroud = 1,                              -- untargettable melee hero, powerful
     slark_shadow_dance = 1,                              -- untargettable melee hero, powerful
     sniper_take_aim = 1,                                 -- self grief in most cases
+	terrorblade_conjure_image = 1,                       -- lag
     tidehunter_anchor_smash = 1,                         -- looping
     tidehunter_kraken_shell = 1,                         -- self grief in most cases
     troll_warlord_battle_trance = 1,                     -- self grief or unkillable
@@ -199,6 +200,18 @@ function modifier_magus_oaa:OnCreated()
   }
 end
 
+function modifier_magus_oaa:OnRefresh()
+  local ability = self:GetAbility()
+  self.chance = 25
+  self.penalty_chance = 5
+  self.cooldown = 0.5
+  if ability and not ability:IsNull() then
+	self.chance = ability:GetSpecialValueFor("chance_to_proc")
+	self.penalty_chance = ability:GetSpecialValueFor("reduced_chance_to_proc")
+	self.cooldown = ability:GetSpecialValueFor("cooldown")
+  end
+end
+
 function modifier_magus_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
@@ -208,11 +221,17 @@ end
 if IsServer() then
   function modifier_magus_oaa:OnAttackLanded(event)
     local parent = self:GetParent()
+    local ability = self:GetAbility()
     local attacker = event.attacker
     local target = event.target
 
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if parent is broken or an illusion
+    if parent:PassivesDisabled() or parent:IsIllusion() then
       return
     end
 
@@ -255,7 +274,10 @@ if IsServer() then
 
       -- Start cooldown by adding a modifier
       if go_on_cd then
-        attacker:AddNewModifier(attacker, nil, "modifier_magus_cooldown_oaa", {duration = self.cooldown})
+        attacker:AddNewModifier(attacker, ability, "modifier_magus_cooldown_oaa", {duration = self.cooldown})
+        if ability and not ability:IsNull() then
+          ability:StartCooldown(self.cooldown) -- not affected by cdr on purpose
+        end
       end
     end
   end
@@ -328,7 +350,7 @@ function modifier_magus_oaa:CastASpell(caster, target, lucky)
   if real_target then
     local real_caster = caster or ability:GetCaster()
 
-    if isUnitTargetting then
+    if isUnitTargetting and not real_target:IsBuilding() then
       -- Spell Block check
       if real_target:TriggerSpellAbsorb(ability) and real_target:GetTeamNumber() ~= real_caster:GetTeamNumber() then
         return true
@@ -352,7 +374,7 @@ function modifier_magus_oaa:CastASpell(caster, target, lucky)
 
       -- Checking cast range like this just in case if 'GetEffectiveCastRange' is not working
       -- and setting new target location to prevent global stuff
-      if (distance > (base_cast_range + real_caster:GetCastRangeBonus()) and base_cast_range > 0) or (distance >= (real_caster:GetAttackRange() + buffer)) or (distance > eff_cast_range and eff_cast_range > 0) then
+      if (distance > (base_cast_range + real_caster:GetCastRangeBonus()) and base_cast_range > 0) or (distance >= (real_caster:Script_GetAttackRange() + buffer)) or (distance > eff_cast_range and eff_cast_range > 0) then
         target_loc = caster_loc + real_caster:GetForwardVector() * buffer
       end
       real_caster:SetCursorPosition(target_loc)
@@ -443,10 +465,6 @@ function modifier_magus_oaa:FindRandomEnemy(ability, target)
 
   return random_enemy
 end
-
---function modifier_magus_oaa:GetTexture()
-  --return "warlock_golem_flaming_fists"
---end
 
 ---------------------------------------------------------------------------------------------------
 

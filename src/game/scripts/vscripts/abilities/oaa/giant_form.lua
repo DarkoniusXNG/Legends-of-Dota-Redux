@@ -96,11 +96,21 @@ function modifier_giant_form_oaa:OnIntervalThink()
     damage_flags = DOTA_DAMAGE_FLAG_NONE,
   }
 
+  local play_trample_particle = false
+  
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
-      damage_table.victim = enemy
+      play_trample_particle = true
+	  damage_table.victim = enemy
       ApplyDamage(damage_table)
     end
+  end
+  
+  -- Particle (displayed only if enemies nearby)
+  if play_trample_particle then
+    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControl(particle, 1, Vector(radius, radius, radius))
+    ParticleManager:ReleaseParticleIndex(particle)
   end
 end
 

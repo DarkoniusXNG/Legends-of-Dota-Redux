@@ -342,7 +342,7 @@ if IsServer() then
 
             -- Checking cast range like this just in case if 'GetEffectiveCastRange' is not working
             -- and setting new target location to prevent global stuff
-            if (distance > (base_cast_range + parent:GetCastRangeBonus()) and base_cast_range > 0) or (distance >= (parent:GetAttackRange() + buffer)) or (distance > eff_cast_range and eff_cast_range > 0) then
+            if (distance > (base_cast_range + parent:GetCastRangeBonus()) and base_cast_range > 0) or (distance >= (parent:Script_GetAttackRange() + buffer)) or (distance > eff_cast_range and eff_cast_range > 0) then
               real_pos = caster_loc + parent:GetForwardVector() * buffer
             end
           end

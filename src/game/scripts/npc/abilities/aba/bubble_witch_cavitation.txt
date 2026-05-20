@@ -13,7 +13,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
 	"ReduxFlags"                                          "disarm_break | silence | stun"
-    "ReduxPerks"                                          "enemymoving | water"
+    "ReduxPerks"                                          "enemymoving | silence | water"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

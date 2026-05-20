@@ -113,7 +113,7 @@ if IsServer() then
     local unit_loc = damaged_unit:GetAbsOrigin()
     local distance = (attacker_loc - unit_loc):Length2D()
     local inflictor = event.inflictor
-    local attack_range = attacker:GetAttackRange()
+    local attack_range = attacker:Script_GetAttackRange()
     local vision_range = attacker:GetCurrentVisionRange()
     local spell_cast_range = 0
     if inflictor then
