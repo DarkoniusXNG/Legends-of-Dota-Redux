@@ -1,5 +1,6 @@
 "DOTAAbilities" {
-	"holdout_gladiators_unite" {
+	"holdout_gladiators_unite" // TODO: Wraith Night ability
+	{
 		"AbilityTextureName" "custom/holdout_gladiators_unite_lod"
 		"AbilityType" "ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"

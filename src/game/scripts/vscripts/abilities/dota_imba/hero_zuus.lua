@@ -24,7 +24,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("zuus")
+--CreateEmptyTalents("zuus")
 
 --------------------------------------
 --			Arc Lightning			--
@@ -651,7 +651,7 @@ function modifier_imba_zuus_static_field:OnAbilityExecuted(keys)
 			damage_table.damage_type 	= ability:GetAbilityDamageType() 
 
 			for _,unit in pairs(nearby_enemy_units) do
-				if unit:IsAlive() and unit ~= caster and unit:GetUnitName()~="npc_dota_roshan" then
+				if unit:IsAlive() and unit ~= caster and not unit:IsRoshanCustom() then
 					local current_health = unit:GetHealth()
 					damage_table.damage	 = (current_health / 100) * damage_health_pct
 					damage_table.victim  = unit
@@ -671,8 +671,7 @@ end
 function modifier_imba_zuus_static_field:Apply(target)
 	if not IsServer() then return end	
 	-- elfansoer: fix static field not working
-	-- if not target:IsAlive() or target == caster or unit:GetUnitName()=="npc_dota_roshan" then return end
-	if not target:IsAlive() or target == caster or target:GetUnitName()=="npc_dota_roshan" then return end
+	if not target:IsAlive() or target == caster or target:IsRoshanCustom() then return end
 	
 	local ability			= self:GetAbility()
 	local caster			= self:GetCaster()

@@ -441,12 +441,9 @@ function modifier_item_skadi_lod_debuff:DeclareFunctions()
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 		--MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE,
-		--MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-		--MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-		--MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-		--MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION,
 		MODIFIER_PROPERTY_TOOLTIP,
-		MODIFIER_EVENT_ON_HEALTH_GAINED,
+		--MODIFIER_EVENT_ON_HEALTH_GAINED,
 	}
 end
 
@@ -477,21 +474,10 @@ function modifier_item_skadi_lod_debuff:GetModifierAttackSpeedPercentage()
 	end
 end
 
---function modifier_item_skadi_lod_debuff:GetModifierHPRegenAmplify_Percentage()
-	--return 0 - math.abs(self.heal_reduction)
---end
+function modifier_item_skadi_lod_debuff:GetModifierPropertyRestorationAmplification()
+  return 0 - math.abs(self.heal_reduction)
+end
 
---function modifier_item_skadi_lod_debuff:GetModifierHealAmplify_PercentageTarget()
-	--return 0 - math.abs(self.heal_reduction)
---end
-
---function modifier_item_skadi_lod_debuff:GetModifierLifestealRegenAmplify_Percentage()
-	--return 0 - math.abs(self.heal_reduction)
---end
-
---function modifier_item_skadi_lod_debuff:GetModifierSpellLifestealRegenAmplify_Percentage()
-	--return 0 - math.abs(self.heal_reduction)
---end
 if IsServer() then
   function modifier_item_skadi_lod_debuff:OnHealthGained(event)
     local caster = self:GetCaster()

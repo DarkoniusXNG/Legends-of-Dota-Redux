@@ -28,9 +28,6 @@ require('abilities/angel_arena_reborn/duels')
 
 require('abilities/mutators/convertable_tower_mutator')
 
--- Creep power modifier
-LinkLuaModifier("modifier_neutral_power", "abilities/modifiers/modifier_neutral_power.lua", LUA_MODIFIER_MOTION_NONE)
-
 -- Mutator modifiers
 
 LinkLuaModifier("modifier_vampirism_mutator","abilities/mutators/modifier_vampirism_mutator.lua",LUA_MODIFIER_MOTION_NONE)
@@ -1507,6 +1504,8 @@ function Pregame:onThink()
             --Tutorial:StartTutorialMode()
             Convars:SetBool('dota_bot_mode', true)
             Convars:SetBool('dota_bot_disable', false)
+            Convars:SetBool('dota_bot_use_machine_learned_weights', true)
+            Convars:SetBool('dota_bot_allow_human_control', false) -- does not work
         end, DoUniqueString('pregamestart'), 1)
 
         -- Hook bot stuff
@@ -1774,7 +1773,7 @@ function Pregame:networkHeroes()
                     flags["imba"] = flags["imba"] or {}
                     flags["imba"][k] = 1
                 end
-                if SkillManager:isPassive(k) or util:IsVanillaInnate(k) then
+                if IsPassiveCustomByName(k) or IsInnateCustom(k) then
                     flags["passive"] = flags["passive"] or {}
                     flags["passive"][k] = 1
                 end
@@ -1785,6 +1784,18 @@ function Pregame:networkHeroes()
                         flags["OPSkillsList"] = flags["OPSkillsList"] or {}
                         flags["OPSkillsList"][k] = 1
                     end
+                end
+            end
+            if v["HasScepterUpgrade"] then
+                if tonumber(v["HasScepterUpgrade"]) ~= 0 then
+                    flags["upgradeable"] = flags["upgradeable"] or {}
+                    flags["upgradeable"][k] = 1
+                end
+            end
+            if v["HasShardUpgrade"] then
+                if tonumber(v["HasShardUpgrade"]) ~= 0 then
+                    flags["upgradeablewithshard"] = flags["upgradeablewithshard"] or {}
+                    flags["upgradeablewithshard"][k] = 1
                 end
             end
         end
@@ -1817,7 +1828,7 @@ function Pregame:networkHeroes()
             flagsInverse[abilityName].group = abilityGroup
         end
 
-        if SkillManager:isUlt(abilityName) then
+        if IsUltimateCustomByName(abilityName) then
             flagsInverse[abilityName].isUlt = true
             --self:banAbility(abilityName)
         end
@@ -1977,7 +1988,7 @@ function Pregame:networkHeroes()
                 if abName and abName ~= '' and abName ~= 'special_bonus_attributes' then -- and abName ~= 'generic_hidden' then
                     theData['Ability' .. sn] = abName
                     sn = sn + 1
-                    if util:IsVanillaInnate(abName) then
+                    if IsInnateCustom(abName) then
                         self.vanillaInnates[heroName] = abName
                     end
                 end
@@ -1996,7 +2007,7 @@ function Pregame:networkHeroes()
             local talentStartIndex = heroData.AbilityTalentStart or baseHero.AbilityTalentStart
             for i = tonumber(talentStartIndex), DOTA_MAX_ABILITIES do
                 local abName = heroData['Ability' .. i]
-                if abName and util:IsTalent(abName) then
+                if abName and IsTalentCustom(abName) then
                     theData['SpecialBonus'..tostring(math.ceil(sb / 2))] = theData['SpecialBonus'..tostring(math.ceil(sb / 2))] or {}
                     table.insert(theData['SpecialBonus'..tostring(math.ceil(sb / 2))], abName)
                     sb = sb + 1
@@ -3551,6 +3562,7 @@ function Pregame:MultiplyLaneUnit( unit, mult )
 		-- Random lane creeps
 		if unit:HasModifier("modifier_random_lane_creep_mutator_ai") then
 			clone:AddNewModifier(clone, nil, "modifier_random_lane_creep_mutator_ai", {})
+            clone:AddNewModifier(clone, nil, "modifier_phased", {duration = 2.5})
 		end
 	end
 end
@@ -3969,11 +3981,6 @@ function Pregame:processOptions()
             OptionManager:SetOption('startingLevel', OptionManager:GetOption('maxHeroLevel'))
         end
 
-        -- Enable easy mode
-        --[[if this.optionStore['lodOptionCrazyEasymode'] == 1 then
-            Convars:SetInt('dota_easy_mode', 1)
-        end]]
-
         -- Gold per interval
         --GameRules:SetGoldPerTick(this.optionStore['lodOptionGameSpeedGoldTickRate'])
         --OptionManager:SetOption('goldPerTick', this.optionStore['lodOptionGameSpeedGoldTickRate'])
@@ -4152,11 +4159,7 @@ function Pregame:processOptions()
             GameRules:SetRuneSpawnTime(30)
         end
 
-        -- Enable All Vision
-        --Convars:SetBool('dota_all_vision', true)
-
         if this.optionStore['lodOptionBlackForest'] == 1 then
-            --Convars:SetBool('dota_all_vision', true)
             SendToServerConsole('dota_spawn_neutrals')
             local dummy = CreateUnitByName( "dummy_unit", Vector(0,0,0), false, nil, nil, 1 )
             dummy:AddNewModifier(caster, nil, "modifier_kill", {duration = 120})
@@ -4847,44 +4850,6 @@ function Pregame:onPlayerSelectAllRandomBuild(eventSourceIndex, args)
         self.selectedRandomBuilds[playerID].hero = buildID
         network:setSelectedAllRandomBuild(playerID, self.selectedRandomBuilds[playerID])
     end
-end
-
-function PrintTable(t, indent, done)
-  --print ( string.format ('PrintTable type %s', type(keys)) )
-  if type(t) ~= "table" then return end
-
-  done = done or {}
-  done[t] = true
-  indent = indent or 0
-
-  local l = {}
-  for k, v in pairs(t) do
-    table.insert(l, k)
-  end
-
-  table.sort(l)
-  for k, v in ipairs(l) do
-    -- Ignore FDesc
-    if v ~= 'FDesc' then
-      local value = t[v]
-
-      if type(value) == "table" and not done[value] then
-        done [value] = true
-        print(string.rep ("\t", indent)..tostring(v)..":")
-        PrintTable (value, indent + 2, done)
-      elseif type(value) == "userdata" and not done[value] then
-        done [value] = true
-        print(string.rep ("\t", indent)..tostring(v)..": "..tostring(value))
-        PrintTable ((getmetatable(value) and getmetatable(value).__index) or getmetatable(value), indent + 2, done)
-      else
-        if t.FDesc and t.FDesc[v] then
-          print(string.rep ("\t", indent)..tostring(t.FDesc[v]))
-        else
-          print(string.rep ("\t", indent)..tostring(v)..": "..tostring(value))
-        end
-      end
-    end
-  end
 end
 
 -- Player wants to ready up
@@ -5657,7 +5622,7 @@ function Pregame:setSelectedAbility(playerID, slot, abilityName, dontNetwork)
 
     -- Validate that the ability is allowed in this slot (ulty count)
     if SkillManager:hasTooMany(newBuild, maxUlts, function(ab)
-        return SkillManager:isUlt(ab)
+        return IsUltimateCustomByName(ab)
     end) then
         -- Invalid ability name
         network:sendNotification(player, {
@@ -5674,7 +5639,7 @@ function Pregame:setSelectedAbility(playerID, slot, abilityName, dontNetwork)
 
     -- Validate that the ability is allowed in this slot (regular count)
     if SkillManager:hasTooMany(newBuild, maxRegulars, function(ab)
-        return SkillManager:isValidBasic(ab)
+        return IsValidBasicByName(ab)
     end) then
         -- Invalid ability name
         network:sendNotification(player, {
@@ -5797,7 +5762,7 @@ function Pregame:setSelectedAbility(playerID, slot, abilityName, dontNetwork)
         for _,buildAbility in pairs(newBuild) do
             -- Check that ability is passive and is powerful ability
             -- Temporarily limit all passives, indepedent of their power
-            if SkillManager:isPassive(buildAbility) or self.flags["semi_passive"][buildAbility] ~= nil then -- and self.spellCosts[buildAbility] ~= nil and self.spellCosts[buildAbility] >= 60 then
+            if IsPassiveCustomByName(buildAbility) or self.flags["semi_passive"][buildAbility] ~= nil then -- and self.spellCosts[buildAbility] ~= nil and self.spellCosts[buildAbility] >= 60 then
                 powerfulPassives = powerfulPassives + 1
             end
         end
@@ -6030,7 +5995,6 @@ end
 
 -- Player wants to select a new ability
 function Pregame:onPlayerSelectAbility(eventSourceIndex, args)
-    --PrintTable(args)
     -- Grab data
     local playerID = args.PlayerID
     local player = PlayerResource:GetPlayer(playerID)
@@ -6175,9 +6139,9 @@ function Pregame:findRandomSkill(build, slotNumber, playerID, optionalFilter)
 
     for slotID,abilityName in pairs(build) do
         if slotID ~= slotNumber then
-            if SkillManager:isUlt(abilityName) then
+            if IsUltimateCustomByName(abilityName) then
                 totalUlts = totalUlts + 1
-            elseif SkillManager:isValidBasic(abilityName) then
+            elseif IsValidBasicByName(abilityName) then
                 totalNormal = totalNormal + 1
             end
         end
@@ -6200,11 +6164,11 @@ function Pregame:findRandomSkill(build, slotNumber, playerID, optionalFilter)
 
         -- consider ulty count
         if shouldAdd then
-            if SkillManager:isUlt(abilityName) then
+            if IsUltimateCustomByName(abilityName) then
                 if totalUlts >= maxUlts then
                     shouldAdd = false
                 end
-            elseif SkillManager:isValidBasic(abilityName) then
+            elseif IsValidBasicByName(abilityName) then
                 if totalNormal >= maxRegulars then
                     shouldAdd = false
                 end
@@ -6276,13 +6240,13 @@ function Pregame:findRandomSkill(build, slotNumber, playerID, optionalFilter)
         if not (util:isSinglePlayerMode() or util:isCoop()) then
             local powerfulPassives = 0
             for _,buildAbility in pairs(build) do
-                if SkillManager:isPassive(buildAbility) or self.flags["semi_passive"][buildAbility] ~= nil then -- and self.spellCosts[buildAbility] ~= nil and self.spellCosts[buildAbility] >= 60 then
+                if IsPassiveCustomByName(buildAbility) or self.flags["semi_passive"][buildAbility] ~= nil then -- and self.spellCosts[buildAbility] ~= nil and self.spellCosts[buildAbility] >= 60 then
                     powerfulPassives = powerfulPassives + 1
                 end
             end
 
 
-            if (SkillManager:isPassive(abilityName) or self.flags["semi_passive"][abilityName] ~= nil) then
+            if (IsPassiveCustomByName(abilityName) or self.flags["semi_passive"][abilityName] ~= nil) then
                 powerfulPassives = powerfulPassives + 1
             end
 
@@ -6604,7 +6568,7 @@ function Pregame:darkMoonDrops()
                     local chance = 5
 
                     -- If its a hero that got killed, it has much higher chance to spawn items
-                    if ent:IsRealHero() or ent:IsBuilding() or ent:GetUnitName() == "npc_dota_roshan" then
+                    if ent:IsRealHero() or ent:IsBuilding() or ent:IsRoshanCustom() then
                         chance = 50
                     end
 
@@ -6874,13 +6838,13 @@ function Pregame:generateBotBuilds(singleID)
     -- List of bots that are borked
     if IsInToolsMode() then
         brokenBots = {
-            npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
+            --npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
             --npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_vengefulspirit = true, -- Crashes
         }
     else
         brokenBots = {
-            npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
+            --npc_dota_hero_tidehunter = true, -- Stays at foutain and doesnt do anything in workshop version
             --npc_dota_hero_razor = true, -- Stays at foutain and doesnt do anything in workshop version
             npc_dota_hero_vengefulspirit = true, -- Crashes
         }
@@ -7194,7 +7158,7 @@ function Pregame:getSkillforBot( botInfo, botSkills )
     while skillID <= maxSlots do
         -- Attempt to pick a high priority skill, otherwise pick any passive, otherwise pick any
         local newAb = self:findRandomSkill(build, skillID, playerID, function(abilityName)
-            return SkillManager:isPassive(abilityName)
+            return IsPassiveCustomByName(abilityName)
         end) or self:findRandomSkill(build, skillID, playerID)
 
         if newAb ~= nil then
@@ -7270,19 +7234,19 @@ function Pregame:isValidSkill( build, playerID, abilityName, slotNumber )
     local totalNormal = 0
 
     for _,theAbility in pairs(build) do
-        if SkillManager:isUlt(theAbility) then
+        if IsUltimateCustomByName(theAbility) then
             totalUlts = totalUlts + 1
-        elseif SkillManager:isValidBasic(theAbility) then
+        elseif IsValidBasicByName(theAbility) then
             totalNormal = totalNormal + 1
         end
     end
 
     -- consider ulty count
-    if SkillManager:isUlt(abilityName) then
+    if IsUltimateCustomByName(abilityName) then
         if totalUlts >= maxUlts then
             return false
         end
-    elseif SkillManager:isValidBasic(abilityName) then
+    elseif IsValidBasicByName(abilityName) then
         if totalNormal >= maxRegulars then
             return false
         end
@@ -7382,7 +7346,7 @@ function Pregame:levelUpAbilities(hero)
     for i = 0, hero:GetAbilityCount() - 1 do
         local ability = hero:GetAbilityByIndex(i)
         if ability then
-            if util:IsTalent(ability) then
+            if IsTalentCustom(ability) then
                 talent_10_1 = ability
                 talent_10_2 = hero:GetAbilityByIndex(i+1)
                 talent_15_1 = hero:GetAbilityByIndex(i+2)
@@ -7406,7 +7370,7 @@ function Pregame:levelUpAbilities(hero)
                 local ability = hero:GetAbilityByIndex(i)
                 if ability then
                     local function attemptUpgrade( ability )
-                        if ability and ability:GetLevel() < ability:GetMaxLevel() and not ability:IsHidden() and not util:IsTalent(ability) and upgrades < points then
+                        if ability and ability:GetLevel() < ability:GetMaxLevel() and not ability:IsHidden() and not IsTalentCustom(ability) and upgrades < points then
                             ability:UpgradeAbility(false)
                             upgrades = upgrades + 1
                             attemptUpgrade( ability )
@@ -7548,7 +7512,7 @@ function Pregame:hookBotStuff()
                                     if abLevel < ab:GetMaxLevel() then
                                         -- Work out what level we need to be to legally skill this ability
                                         local nextUpgrade = abLevel * 2 + 1
-                                        if SkillManager:isUlt(abilityName) then
+                                        if IsUltimateCustomByName(abilityName) then
                                             nextUpgrade = 6 + 6 * abLevel
                                         end
 
@@ -7807,7 +7771,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
     -- For debugging
 	-- local talent_or_empty = spawnedUnit:GetAbilityByIndex(talentStartIndex-1)
     -- if talent_or_empty then
-        -- if not util:IsTalent(talent_or_empty) then
+        -- if not IsTalentCustom(talent_or_empty) then
             -- GameRules:SendCustomMessage(spawnedUnit:GetUnitName().." HAS TOO MANY ABILITIES, THERE MIGHT BE ISSUES!", 0, 0)
             -- print(spawnedUnit:GetUnitName().." HAS TOO MANY ABILITIES, THERE MIGHT BE ISSUES!")
             -- print(talent_or_empty:GetName())
@@ -8336,9 +8300,9 @@ function Pregame:fixSpawningIssues()
                     elseif pickedAbility == 8 then
                         self.freeCreepAbility = "shredder_reactive_armor"
                     elseif pickedAbility == 9 then
-                        self.freeCreepAbility = "brewmaster_drunken_brawler"
+                        self.freeCreepAbility = "skeleton_king_mortal_strike" -- brewmaster_drunken_brawler
                     elseif pickedAbility == 10 then
-                        self.freeCreepAbility = "imba_dazzle_shallow_grave"
+                        self.freeCreepAbility = "phantom_assassin_coup_de_grace" -- imba_dazzle_shallow_grave
                     elseif pickedAbility == 11 then
                         self.freeCreepAbility = "troll_warlord_fervor"
                     elseif pickedAbility == 12 then
@@ -8402,7 +8366,7 @@ function Pregame:fixSpawningIssues()
             end
 
             if spawnedUnit:GetTeam() == DOTA_TEAM_NEUTRALS then
-                if OptionManager:GetOption('stacking') == 1 and spawnedUnit:GetUnitName() ~= "npc_dota_roshan" and spawnedUnit:GetUnitName() ~= "npc_dota_miniboss" then
+                if OptionManager:GetOption('stacking') == 1 and not spawnedUnit:IsRoshanCustom() and spawnedUnit:GetUnitName() ~= "npc_dota_miniboss" then
                     if IsValidEntity(spawnedUnit) then
                         -- Have to delete creeps after time or game will crash because of too many creeps
                         spawnedUnit:AddNewModifier(spawnedUnit, nil, "modifier_kill", {duration = 150})

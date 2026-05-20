@@ -49,13 +49,13 @@ function StasisThink( event )
 						end
 						for _,ally in pairs(allies) do
 							if ally:GetUnitName() == 'fire_trap_unit' then
-								ally:ForceKill(true)
+								ally:ForceKill(false)
 							end
 						end
 						stasis:EmitSound('Hero_Techies.StasisTrap.Stun')
 						local particle = ParticleManager:CreateParticle("particles/firelord_fire_trap_explode_custom.vpcf", 1, stasis)
 						ParticleManager:ReleaseParticleIndex(particle)
-						stasis:ForceKill(true)
+						stasis:ForceKill(false)
 					end
 				end
 				)

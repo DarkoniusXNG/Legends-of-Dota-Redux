@@ -1,0 +1,52 @@
+"DOTAAbilities"
+{
+  "bubble_witch_innate" // Innate - Bubbly
+  {
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/aba/bubble_witch_innate.lua"
+    "AbilityTextureName"                                  "custom/water_bubble"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "IsBreakable"                                         "1"
+	
+    "ReduxFlags"                                          "support"
+    "ReduxPerks"                                          "support | water"
+    "ReduxBans"                                           "skywrath_mage_shield_of_the_scion"
+    "ReduxCost"                                           "40"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/neutral_fx/frogmen_water_bubble_explosion.vpcf"
+      "soundfile"                                         "soundevents/hero_bubble_witch.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "base_dmg"
+      {
+        "value"                                           "50 70 90 110"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
+      "explode_dmg_radius"
+      {
+        "value"                                           "675"
+        "affected_by_aoe_increase"                        "1"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
+      "immune_time"
+      {
+        "value"                                           "0.1"
+      }
+      "always_explode_on_owner"
+      {
+        "value"                                           "1"
+      }
+    }
+  }
+}

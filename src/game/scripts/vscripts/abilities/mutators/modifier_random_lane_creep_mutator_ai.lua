@@ -129,7 +129,7 @@ function modifier_random_lane_creep_mutator_ai.IsHidden(self)
     return true
 end
 
-function modifier_random_lane_creep_mutator_ai.OnCreated(self,kv)
+function modifier_random_lane_creep_mutator_ai:OnCreated(kv)
     if IsClient() then
         return
     end
@@ -147,7 +147,7 @@ function modifier_random_lane_creep_mutator_ai.OnCreated(self,kv)
     self:StartIntervalThink(1)
 end
 
-function modifier_random_lane_creep_mutator_ai.OnIntervalThink(self)
+function modifier_random_lane_creep_mutator_ai:OnIntervalThink()
 	local unit = self:GetParent()
 	if not unit or unit:IsNull() then
 		self:StartIntervalThink(-1)
@@ -155,8 +155,8 @@ function modifier_random_lane_creep_mutator_ai.OnIntervalThink(self)
 		return
 	end
 	if self:GetElapsedTime() > 30 and ((unit:GetAbsOrigin()-self.initPos):Length2D() < 100) then
-		print("modifier_random_lane_creep_mutator_ai: UNIT IS STUCK, last attack time: ", unit:GetLastAttackTime())
-		UTIL_Remove(unit)
+		print("modifier_random_lane_creep_mutator_ai: UNIT IS STUCK, didnt move from spawn location")
+		unit:ForceKill(false)
 		self:StartIntervalThink(-1)
 		self:Destroy()
 		return

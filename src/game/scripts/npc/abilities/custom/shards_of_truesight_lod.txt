@@ -7,6 +7,9 @@
         "AbilityTextureName"                                                   "custom/shards_of_truesight_lod"
         "SpellDispellableType"                                                 "SPELL_DISPELLABLE_NO"
 
+        "ReduxFlags"                                                           "mobility | support"
+        "ReduxPerks"                                                           "mobility | support"
+
         "AbilityCooldown"                                                      "30 25 20 15"
         "AbilityManaCost"                                                      "50"
         "AbilityCastRange"                                                     "%radius"
@@ -25,7 +28,7 @@
         {
             "ApplyModifier"
             {
-                "ModifierName"                                         "truesight_aura"
+                "ModifierName"                                         "modifier_shard_truesight_aura"
                 "Target"                                               "CASTER"
                 "Duration"                                             "%duration"
             }
@@ -46,13 +49,13 @@
         }
         "Modifiers"
         {
-            "truesight_aura"
+            "modifier_shard_truesight_aura"
             {
                 "IsHidden"                                             "0"
                 "IsPurgable"                                           "0"
                 "EffectName"                                           "particles/true_sight/true_sight_debuff.vpcf"
                 "EffectAttachType"                                     "follow_overhead"
-                "Aura"                                                 "truesight_aura_debuff"
+                "Aura"                                                 "modifier_shard_truesight_aura_debuff"
                 "Aura_Radius"                                          "%radius"
                 "Aura_Teams"                                           "DOTA_UNIT_TARGET_TEAM_ENEMY"
                 "Aura_Types"                                           "DOTA_UNIT_TARGET_ALL"
@@ -62,7 +65,7 @@
                     "MODIFIER_PROPERTY_TOOLTIP"                    "%radius"
                 }
             }
-            "truesight_aura_debuff"
+            "modifier_shard_truesight_aura_debuff"
             {
                 "IsDebuff"                                             "1"
                 "IsPurgable"                                           "0"
@@ -73,7 +76,5 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "support"
-        "ReduxPerks"                                                           "support"
     }
 }

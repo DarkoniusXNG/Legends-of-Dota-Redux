@@ -316,7 +316,7 @@
             "particle"              "particles/bellatrix/bellatrix_bloodrake2.vpcf"
             "particle"              "particles/bellatrix/bellatrix_bloodrake3.vpcf"
             "particle"              "particles/bellatrix/bellatrix_bloodrake4.vpcf"
-            "particle"              "particles/bloodrakemarker.vpcf"
+            "particle"              "particles/bellatrix/bloodrakemarker.vpcf"
             "particle"              "particles/bellatrix_bloodrake_cut.vpcf"
         }
         "AbilityValues"
@@ -433,7 +433,7 @@
                 {
                     "AttachEffect"
                     {
-                        "EffectName"        "particles/bloodrakemarker.vpcf"
+                        "EffectName"        "particles/bellatrix/bloodrakemarker.vpcf"
                         "EffectAttachType"  "attach_origin"
                         "Target"            "TARGET"
                     }

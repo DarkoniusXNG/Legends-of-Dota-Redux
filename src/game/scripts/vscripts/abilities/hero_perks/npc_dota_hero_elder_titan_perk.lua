@@ -44,7 +44,11 @@ function modifier_npc_dota_hero_elder_titan_perk:OnIntervalThink()
 			end
 		end
 
-		for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do 
+		local max_slot = DOTA_ITEM_SLOT_6
+		if caster:HasModifier("modifier_spoons_stash_oaa") then
+            max_slot = DOTA_ITEM_SLOT_9
+        end
+		for i = DOTA_ITEM_SLOT_1, max_slot do 
 			local item = caster:GetItemInSlot(i)
 			local addItem = true
 			if item and item:HasAbilityFlag("aura") then

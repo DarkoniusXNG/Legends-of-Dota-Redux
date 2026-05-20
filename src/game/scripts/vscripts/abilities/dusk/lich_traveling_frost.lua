@@ -103,6 +103,18 @@ end
 
 modifier_traveling_frost = class({})
 
+function modifier_traveling_frost:IsDebuff()
+	return true
+end
+
+function modifier_traveling_frost:IsStunDebuff()
+	return true
+end
+
+function modifier_traveling_frost:IsPurgable()
+	return true
+end
+
 function modifier_traveling_frost:CheckState()
 	local state = {
 		[MODIFIER_STATE_STUNNED] = true,

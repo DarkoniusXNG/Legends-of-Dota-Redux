@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("pangolier")
+--CreateEmptyTalents("pangolier")
 
 LinkLuaModifier("modifier_special_bonus_imba_pangolier_3", "abilities/dota_imba/hero_pangolier.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -1393,11 +1393,6 @@ function modifier_imba_heartpiercer_passive:OnAttackLanded(kv)
 				return nil
 			end
 
-			--Won't work on Roshan
-			--if target:IsRoshan() then
-			--	return nil
-			--  end
-
 			--Roll for the pierce chance, won't work on magic immune enemies or if it would proc from Talent #5 attacks
 			if self:GetCaster().allow_heartpiercer and not target:IsMagicImmune() and RollPercentage(self.chance_pct) then
 				--heartpiercer procced
@@ -1989,12 +1984,11 @@ function modifier_imba_gyroshell_roll:GetMotionControllerPriority() return DOTA_
 
 
 function modifier_imba_gyroshell_roll:OnIntervalThink()
-
+	local caster = self:GetCaster()
 	--Interrupt if Pangolier has been stunned, rooted or taunted
-	if self:GetCaster():IsStunned() or self:GetCaster():IsRooted() or self:GetCaster():GetForceAttackTarget() then
-
-		 return self:Destroy()
-		
+	if caster:IsStunned() or caster:IsRooted() or caster:IsLeashedCustom() or caster:GetForceAttackTarget() then
+		self:Destroy()
+		return
 	end
 
 	--center particles on Pangolier

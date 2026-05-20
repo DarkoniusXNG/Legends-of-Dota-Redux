@@ -23,7 +23,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("huskar")
+--CreateEmptyTalents("huskar")
 
 
 LinkLuaModifier("modifier_imba_huskar_inner_fire_knockback", "abilities/dota_imba/hero_huskar", LUA_MODIFIER_MOTION_HORIZONTAL)

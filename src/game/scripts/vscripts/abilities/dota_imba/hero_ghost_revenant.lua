@@ -210,7 +210,6 @@ end
 function modifier_ghost_revenant_blackjack_debuff:IsHidden() return false end
 function modifier_ghost_revenant_blackjack_debuff:IsDebuff() return true end
 function modifier_ghost_revenant_blackjack_debuff:IsPurgable() return true end
-function modifier_ghost_revenant_blackjack_debuff:IsPurgable() return false end
 function modifier_ghost_revenant_blackjack_debuff:IsStunDebuff() return true end
 function modifier_ghost_revenant_blackjack_debuff:GetEffectName() return "particles/generic_gameplay/generic_stunned.vpcf" end
 function modifier_ghost_revenant_blackjack_debuff:GetEffectAttachType() return PATTACH_OVERHEAD_FOLLOW end

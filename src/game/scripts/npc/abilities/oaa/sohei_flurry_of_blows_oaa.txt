@@ -16,6 +16,10 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" // this is for UI tooltip
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // this is for UI tooltip
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" // this is for UI tooltip
+	"SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+	"ReduxFlags"						                  "mobility"
+	"ReduxPerks"                                          "mobility"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -58,8 +62,5 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
     }
-
-    "ReduxPerks"                                          "mobility"
-	"ReduxFlags"						                  "mobility"
   }
 }

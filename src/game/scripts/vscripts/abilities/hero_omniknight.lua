@@ -8,7 +8,7 @@ function PurificationDeath( keys )
     local ability_level = ability:GetLevel() - 1
 
     if not caster:IsRealHero() then return nil end
-    
+
     -- If fatal damage was not dealt, do nothing
     if caster:GetHealth() >= 2 or not ability:IsCooldownReady() then
         return nil
@@ -28,7 +28,7 @@ function PurificationDeath( keys )
     local damage_factor = ability:GetLevelSpecialValueFor("damage_factor", ability_level) * 0.01
     local radius = ability:GetLevelSpecialValueFor("radius", ability_level)
     local passive_modifier = keys.passive_modifier
-    
+
     local caster_pos = caster:GetAbsOrigin()
     local passive_cooldown = ability:GetTrueCooldown()
 
@@ -36,7 +36,7 @@ function PurificationDeath( keys )
     local heal = heal_base + caster:GetMaxHealth() * heal_pct
 
     -- Heal the caster
-    caster:Heal(heal, caster)
+    caster:Heal(heal, ability)
     SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, caster, heal, nil)
 
     -- Play cast sound and particles
@@ -58,7 +58,7 @@ function PurificationDeath( keys )
     for _,enemy in pairs(enemies) do
         ApplyDamage({attacker = caster, victim = enemy, ability = ability, damage = damage, damage_type = DAMAGE_TYPE_PURE})
 
-        -- Play particle    
+        -- Play particle
         local hit_pfx = ParticleManager:CreateParticle(hit_particle, PATTACH_ABSORIGIN_FOLLOW, enemy)
         ParticleManager:SetParticleControlEnt(hit_pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster_pos, true)
         ParticleManager:SetParticleControlEnt(hit_pfx, 1, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
@@ -73,7 +73,7 @@ end
 function DisplayManager(keys)
     local caster = keys.caster
     local ability = keys.ability
-    
+
     if caster:HasModifier("modifier_phoenix_supernova_hiding") then
         ability:StartCooldown(2)
     end
@@ -91,12 +91,12 @@ function DegenAura( keys )
     local ability = keys.ability
     local ability_level = ability:GetLevel() - 1
     local modifier_stacks = keys.modifier_stacks
-	
+
 	if caster:PassivesDisabled() then return end
 
     -- Parameters
     local stack_reduction_pct = ability:GetLevelSpecialValueFor("stack_reduction_pct", ability_level)
-    
+
     -- Refreshes the debuff and adds stacks
     AddStacks(ability, caster, target, modifier_stacks, stack_reduction_pct, true)
 end

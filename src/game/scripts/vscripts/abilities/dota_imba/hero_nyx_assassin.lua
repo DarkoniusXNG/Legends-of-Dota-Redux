@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("nyx_assassin")
+--CreateEmptyTalents("nyx_assassin")
 
 -------------------------------------------------
 --                  IMPALE                     --
@@ -420,6 +420,14 @@ end
 function modifier_imba_impale_stun:IsHidden() return false end
 function modifier_imba_impale_stun:IsPurgeException() return true end
 function modifier_imba_impale_stun:IsStunDebuff() return true end
+
+function modifier_imba_impale_stun:IsDebuff()
+	return true
+end
+
+function modifier_imba_impale_stun:IsPurgable()
+	return true
+end
 
 
 -- Impale afterstun slow modifier (talent)
@@ -1207,6 +1215,14 @@ end
 function modifier_imba_spiked_carapace_stun:IsHidden() return false end
 function modifier_imba_spiked_carapace_stun:IsPurgeException() return true end
 function modifier_imba_spiked_carapace_stun:IsStunDebuff() return true end
+
+function modifier_imba_spiked_carapace_stun:IsDebuff()
+	return true
+end
+
+function modifier_imba_spiked_carapace_stun:IsPurgable()
+	return true
+end
 
 function modifier_imba_spiked_carapace_stun:CheckState()
 	local state = {[MODIFIER_STATE_STUNNED] = true}

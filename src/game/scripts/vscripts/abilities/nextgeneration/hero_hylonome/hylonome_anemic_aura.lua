@@ -86,30 +86,15 @@ modifier_hylonome_anemic_aura_debuff.OnRefresh = modifier_hylonome_anemic_aura_d
 
 function modifier_hylonome_anemic_aura_debuff:DeclareFunctions()
   return {
-    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-    --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
-    MODIFIER_EVENT_ON_HEALTH_GAINED,
+    --MODIFIER_EVENT_ON_HEALTH_GAINED,
   }
 end
 
---function modifier_hylonome_anemic_aura_debuff:GetModifierHPRegenAmplify_Percentage()
-  --return 0 - math.abs(self.heal_reduction)
---end
-
---function modifier_hylonome_anemic_aura_debuff:GetModifierHealAmplify_PercentageTarget()
-  --return 0 - math.abs(self.heal_reduction)
---end
-
---function modifier_hylonome_anemic_aura_debuff:GetModifierLifestealRegenAmplify_Percentage()
-  --return 0 - math.abs(self.heal_reduction)
---end
-
---function modifier_hylonome_anemic_aura_debuff:GetModifierSpellLifestealRegenAmplify_Percentage()
-  --return 0 - math.abs(self.heal_reduction)
---end
+function modifier_hylonome_anemic_aura_debuff:GetModifierPropertyRestorationAmplification()
+  return 0 - math.abs(self.heal_reduction)
+end
 
 if IsServer() then
   function modifier_hylonome_anemic_aura_debuff:OnTakeDamage(event)
@@ -130,7 +115,7 @@ if IsServer() then
     if attacker.IsHero == nil then
       return
     end
-	
+
     if not attacker:IsHero() then
       return
     end
@@ -139,7 +124,7 @@ if IsServer() then
     if not damaged_unit or damaged_unit:IsNull() then
       return
     end
-	
+
     -- Check if damaged_unit has this modifier
     if damaged_unit ~= parent then
       return
@@ -149,12 +134,12 @@ if IsServer() then
     if damage <= 0 then
       return
     end
-	
+
     -- Ignore damage from Anemic Aura
     if inflictor == ability then
       return
     end
-	
+
     if RandomInt(1, 100) <= self.bleed_chance then
       parent:AddNewModifier(caster, ability, "modifier_hylonome_anemic_aura_thinker", {duration = self.bleed_duration})
     end
@@ -226,19 +211,23 @@ function modifier_hylonome_anemic_aura_thinker:IsPurgable()
 end
 
 function modifier_hylonome_anemic_aura_thinker:OnCreated()
-  local ability = self:GetAbility()
-  if not ability or ability:IsNull() then
-    return
-  end
+  self:OnRefresh()
 
-  self.bleed_dmg = ability:GetSpecialValueFor("bleed_damage")
-  
   if IsServer() then
     self:StartIntervalThink(1)
   end
 end
 
-modifier_hylonome_anemic_aura_thinker.OnRefresh = modifier_hylonome_anemic_aura_thinker.OnCreated
+function modifier_hylonome_anemic_aura_thinker:OnRefresh()
+  local ability = self:GetAbility()
+  if not ability or ability:IsNull() then
+    return
+  end
+  self.bleed_dmg = ability:GetSpecialValueFor("bleed_damage")
+  if IsServer() then
+	self:OnIntervalThink()
+  end
+end
 
 function modifier_hylonome_anemic_aura_thinker:OnIntervalThink()
   local caster = self:GetCaster()
@@ -252,7 +241,7 @@ function modifier_hylonome_anemic_aura_thinker:OnIntervalThink()
     attacker = parent
   end
 
-  local actual_dmg = math.floor(self.bleed_dmg * parent:GetHealth() * 0.01)
+  local actual_dmg = math.ceil(self.bleed_dmg * parent:GetHealth() * 0.01)
 
   local damageTable = {
     victim = parent,

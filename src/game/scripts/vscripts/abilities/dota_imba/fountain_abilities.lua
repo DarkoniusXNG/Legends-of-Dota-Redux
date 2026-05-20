@@ -166,16 +166,22 @@ function modifier_imba_fountain_relief_aura_buff:IsHidden()
 	return false
 end
 
-function modifier_imba_fountain_relief_aura_buff:GetCustomTenacity()
+function modifier_imba_fountain_relief_aura_buff:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+		MODIFIER_EVENT_ON_ATTACK,
+		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
+		MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+		MODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING,
+	}
+end
+
+function modifier_imba_fountain_relief_aura_buff:GetModifierStatusResistanceStacking()
 	return self.tenacity
 end
 
-function modifier_imba_fountain_relief_aura_buff:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
-		MODIFIER_EVENT_ON_ATTACK,
-		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST}
-
-	return decFuncs
+function modifier_imba_fountain_relief_aura_buff:GetModifierSlowResistance_Stacking()
+	return self.tenacity
 end
 
 function modifier_imba_fountain_relief_aura_buff:GetModifierIncomingDamage_Percentage()

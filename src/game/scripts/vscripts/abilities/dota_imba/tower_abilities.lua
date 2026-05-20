@@ -47,7 +47,7 @@ function Reality( keys )
 	local ability_used = false
 	for _,enemy in pairs(heroes) do
 		if enemy:IsIllusion() then
-			enemy:ForceKill(true)
+			enemy:ForceKill(false)
 			ability_used = true
 		end
 	end
@@ -850,6 +850,14 @@ end
 imba_tower_observatory = imba_tower_observatory or class({})
 LinkLuaModifier("modifier_imba_tower_observatory_vision", "abilities/dota_imba/tower_abilities", LUA_MODIFIER_MOTION_NONE)
 
+function imba_tower_observatory:Spawn()
+	if not IsServer() then return end
+	local caster = self:GetCaster()
+	if not caster:HasModifier("modifier_imba_tower_protective_instinct") then
+		caster:AddNewModifier(caster, nil, "modifier_imba_tower_protective_instinct", {})
+	end
+end
+
 function imba_tower_observatory:GetIntrinsicModifierName()
 	return "modifier_imba_tower_observatory_vision"
 end
@@ -882,17 +890,16 @@ function modifier_imba_tower_observatory_vision:IsHidden()
 end
 
 function modifier_imba_tower_observatory_vision:CheckState()
-	local state = {[MODIFIER_STATE_FLYING] = true,
-		[MODIFIER_STATE_ROOTED] = true}
-
-	return state
+	return {
+		[MODIFIER_STATE_FORCED_FLYING_VISION] = true,
+	}
 end
 
 function modifier_imba_tower_observatory_vision:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_BONUS_DAY_VISION,
-		MODIFIER_PROPERTY_BONUS_NIGHT_VISION}
-
-	return decFuncs
+	return {
+		MODIFIER_PROPERTY_BONUS_DAY_VISION,
+		MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
+	}
 end
 
 
@@ -3325,7 +3332,20 @@ function modifier_imba_tower_tenacity_aura_buff:IsHidden()
 	return false
 end
 
-function modifier_imba_tower_tenacity_aura_buff:GetCustomTenacity()
+function modifier_imba_tower_tenacity_aura_buff:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+		MODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING,
+	}
+end
+
+function modifier_imba_tower_tenacity_aura_buff:GetModifierStatusResistanceStacking()
+	local protective_instinct_stacks = self.caster:GetModifierStackCount("modifier_imba_tower_protective_instinct", self.caster)
+	local tenacity = self.base_tenacity_pct + self.tenacity_per_protective * protective_instinct_stacks
+	return tenacity
+end
+
+function modifier_imba_tower_tenacity_aura_buff:GetModifierSlowResistance_Stacking()
 	local protective_instinct_stacks = self.caster:GetModifierStackCount("modifier_imba_tower_protective_instinct", self.caster)
 	local tenacity = self.base_tenacity_pct + self.tenacity_per_protective * protective_instinct_stacks
 	return tenacity

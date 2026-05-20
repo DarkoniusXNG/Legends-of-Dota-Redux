@@ -17,6 +17,12 @@
 --     suthernfriend, 03.02.2018
 --     Elfansoer, 22.06.2019
 
+if IsClient() then
+    require('lib/util_imba_client')
+end
+
+--CreateEmptyTalents("centaur")
+
 ---------------------------------
 -- 		   Thick Hide          --
 ---------------------------------
@@ -1150,6 +1156,18 @@ end
 
 -- Trample stun modifier
 modifier_imba_stampede_trample_stun = class({})
+
+function modifier_imba_stampede_trample_stun:IsDebuff()
+	return true
+end
+
+function modifier_imba_stampede_trample_stun:IsStunDebuff()
+	return true
+end
+
+function modifier_imba_stampede_trample_stun:IsPurgable()
+	return true
+end
 
 function modifier_imba_stampede_trample_stun:CheckState()
 	local state = {[MODIFIER_STATE_STUNNED] = true}

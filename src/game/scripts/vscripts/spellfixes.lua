@@ -177,7 +177,7 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
 
                             -- If we failed to find it, it might have been an item
                             if not ab and (hero:HasModifier('modifier_item_ultimate_scepter') or multicastMadness) then
-                                for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+                                for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
                                     -- Grab the slot item
                                     local slotItem = hero:GetItemInSlot(i)
 
@@ -199,7 +199,7 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
                                 local playerID = hero:GetPlayerID()
 
                                 -- Handle channelled spells
-                                if util:isChannelled(keys.abilityname) then
+                                if IsChannelledCustom(keys.abilityname) then
                                     -- Cleanup
                                     if multicastChannel[playerID] ~= nil then
                                         while #multicastChannel[playerID].units > 0 do
@@ -296,7 +296,7 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
                                     local multUnits
 
                                     local targets
-                                    if target and util:isTargetSpell(keys.abilityname) then
+                                    if target and IsTargetSpellCustom(keys.abilityname) then
                                         isaTargetSpell = true
 
                                         targets = FindUnitsInRadius(target:GetTeam(),

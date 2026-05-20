@@ -15,6 +15,10 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+	//"ReduxFlags"                                          ""
+	"ReduxPerks"                                          "scientific | explosive | skillshot"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -71,7 +75,5 @@
       "rocket_explode_vision"                             "400"
       "vision_duration"                                   "1.5"
     }
-
-    "ReduxPerks"                                          "scientific | explosive | skillshot"
   }
 }

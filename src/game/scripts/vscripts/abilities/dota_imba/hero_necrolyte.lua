@@ -20,7 +20,11 @@
 --	   AltiV, 08.08.2018
 --     Elfansoer, 10.08.2019
 
-CreateEmptyTalents("necrolyte")
+if IsClient() then
+    require('lib/util_imba_client')
+end
+
+--CreateEmptyTalents("necrolyte")
 
 -------------------------------------------
 --				SADIST

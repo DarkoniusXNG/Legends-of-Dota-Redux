@@ -24,7 +24,7 @@ function KillPuppetsOnSpawn( keys )
 	local targets = caster.skeletons or {}
 	for _,unit in pairs(targets) do	
 		if unit and IsValidEntity(unit) then
-			unit:ForceKill(true)
+			unit:ForceKill(false)
 		end
 		table.remove(caster.skeletons, 1)
 	end

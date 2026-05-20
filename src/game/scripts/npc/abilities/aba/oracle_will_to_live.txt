@@ -37,8 +37,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_delay"                                      "50 40 30 20"
-      "heal_amp_pct"                                      "20 30 40 50"
+      "delay"                                             "2" // delay time
+	  "damage_delay"                                      "50 40 30 20" // percentage of original damage turned into damage per second
+	  "damage_interval"                                   "1"
+      "heal_amp_pct"                                      "20 30 40 50" // health restoration amp
       "duration"                                          "3.5 4.0 4.5 5.0"
     }
 

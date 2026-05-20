@@ -8,7 +8,7 @@
         "AbilityUnitTargetTeam"                                                "DOTA_UNIT_TARGET_TEAM_BOTH"
         "AbilityUnitTargetType"                                                "DOTA_UNIT_TARGET_HERO"
         "AbilityCooldown"                                                      "10.0"
-        "AbilityManaCost"                                                      "10"
+        "AbilityManaCost"                                                      "0"
         "OnSpellStart"
         {
             "ApplyModifier"
@@ -76,6 +76,6 @@
             "self_mana_regen" "3.0 4.5 6.0 7.5"
         }   
         "ReduxFlags"                                                           "support | mana | semi_passive"
-        "ReduxPerks"                                                           "support"
+        "ReduxPerks"                                                           "support | aura"
     }
 }

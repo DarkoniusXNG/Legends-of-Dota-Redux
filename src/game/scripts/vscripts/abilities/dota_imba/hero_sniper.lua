@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("sniper")
+--CreateEmptyTalents("sniper")
 
 --------------------------------
 --         SHRAPNEL           --
@@ -240,12 +240,12 @@ function modifier_imba_shrapnel_attack:OnOrder(keys)
 		if unit == self.parent then
 
 			-- If the target is a Roshan, do nothing.
-			-- elfansoer: fix missing reference
-			-- if target and target:IsRoshan() then
-			if target and target:GetUnitName()=="npc_dota_roshan" then
-				self.current_target = nil
-				self.global_distance = false
-				return nil
+			if target and not target:IsNull() then 
+				if target:IsRoshanCustom() then
+					self.current_target = nil
+					self.global_distance = false
+					return nil
+				end
 			end
 
 			-- If the caster issued an attack on a target with the shrapnel debuff, apply global range
@@ -1845,6 +1845,14 @@ modifier_imba_assassinate_ministun = class({})
 function modifier_imba_assassinate_ministun:IsHidden() return false end
 function modifier_imba_assassinate_ministun:IsPurgeException() return true end
 function modifier_imba_assassinate_ministun:IsStunDebuff() return true end
+
+function modifier_imba_assassinate_ministun:IsDebuff()
+	return true
+end
+
+function modifier_imba_assassinate_ministun:IsPurgable()
+	return true
+end
 
 function modifier_imba_assassinate_ministun:CheckState()
 	local state = {[MODIFIER_STATE_STUNNED] = true}

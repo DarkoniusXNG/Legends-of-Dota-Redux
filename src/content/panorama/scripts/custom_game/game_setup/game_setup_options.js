@@ -341,8 +341,8 @@ var basicOptions = {
                             'lodMutatorTakeaim': 6,
                             'lodMutatorSideGunner':7,
                             'lodMutatorReactive':8,
-                            'lodMutatorBrawler':9,
-                            'lodMutatorNothl':10,
+                            'lodMutatorMortalStrike': 9, // 'lodMutatorBrawler':9,
+                            'lodMutatorCoup': 10, // 'lodMutatorNothl':10,
                             'lodMutatorFervor':11,
                             'lodMutatorNether':12,
                             'lodMutatorTimeLock':13,
@@ -1616,11 +1616,11 @@ var advancedOptions = {
                         value: 8
                     },
                     {
-                        text: 'lodMutatorBrawler',
+                        text: 'lodMutatorMortalStrike', //'lodMutatorBrawler',
                         value: 9
                     },
                     {
-                        text: 'lodMutatorNothl',
+                        text: 'lodMutatorCoup', //'lodMutatorNothl',
                         value: 10
                     },
                     {

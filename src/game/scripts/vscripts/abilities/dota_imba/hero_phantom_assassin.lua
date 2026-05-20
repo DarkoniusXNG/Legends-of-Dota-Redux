@@ -21,14 +21,10 @@
 
 if IsClient() then
     require('lib/util_imba_client')
-else
-	function CDOTA_BaseNPC:IsRoshan()
-		return self:GetUnitName()=="npc_dota_roshan"
-	end
 end
 
 
-CreateEmptyTalents("phantom_assassin")
+--CreateEmptyTalents("phantom_assassin")
 
 -------------------------------------------
 -- Stifling Dagger
@@ -1063,7 +1059,7 @@ function modifier_imba_coup_de_grace:OnAttackLanded(keys)
 
 			-- Elfansoer: switched algorithm order ( previously crit particle->fatality ) so that crit particles always appear
 			-- Prevent Fatality on buildings
-			if target:IsBuilding() or target:IsRoshan() then return end
+			if target:IsBuilding() or target:IsRoshanCustom() then return end
 
 			-- Roll for fatality
 			if RandomInt(1, 100) <= fatality then

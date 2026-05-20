@@ -193,8 +193,7 @@ if IsServer() then
 
 		-- Calculate duration of the debuff
 		local armor_reduction_duration = ability:GetSpecialValueFor("corruption_duration")
-		-- Calculate duration while keeping status resistance in mind
-		--local armor_reduction_duration = target:GetValueChangedByStatusResistance(armor_reduction_duration)
+
 		-- Apply passive debuff
 		target:AddNewModifier(parent, ability, "modifier_item_desolator_lod_debuff", {duration = armor_reduction_duration})
 	end
@@ -447,8 +446,7 @@ if IsServer() then
 
 		-- Calculate duration of the debuff
 		local armor_reduction_duration = self.dur
-		-- Calculate duration while keeping status resistance in mind
-		--local armor_reduction_duration = target:GetValueChangedByStatusResistance(armor_reduction_duration)
+
 		-- Apply passive debuff
 		target:AddNewModifier(parent, nil, "modifier_item_desolator_lod_debuff", {duration = armor_reduction_duration, armor = self.armor})
 	end

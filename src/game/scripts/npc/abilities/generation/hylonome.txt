@@ -506,7 +506,7 @@
         "AbilityTextureName"            "custom/hylonome_anemic_aura"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "IsBreakable"                   "1"
-		
+
         "ReduxPerks"                    "aura | blood"
 
         "precache"
@@ -520,7 +520,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
         {
-            "radius"		
+            "radius"
 			{
 				"value"			"700"
 				"affected_by_aoe_increase"	"1"
@@ -564,13 +564,13 @@
 
         "AbilityValues"
         {
-            "damage_per_second" "80 120 160"
+            "damage_per_second" "60 100 140" // Pure damage type!
             "movement_slow" "-15 -20 -25"
             "interval" "0.1"
-            "lifesteal" "50"
+            "lifesteal" "50" // spell lifesteal
             "distance"	"750" // break distance
             "duration" "12.0"
-            "radius_scepter"		
+            "radius_scepter"
             {
                 "value"			"0"
                 "special_bonus_scepter"     "=500"
@@ -659,7 +659,6 @@
                 }
 
                 "OnAttackLanded"
-                // "%attack_damage" is set to the damage value before mitigation
                 {
                     "ApplyModifier"
                     {
@@ -706,17 +705,6 @@
                 "ThinkInterval"  "%interval"
                 "OnIntervalThink"
                 {
-                    //"Damage"
-                    //{
-                    //    "Target"        "TARGET"
-                    //    "Type"          "DAMAGE_TYPE_PURE"
-                    //    "Damage"        "%damage_per_second * %interval"
-                    //}
-                    //"Heal"
-                    //{
-                    //    "Target"        "CASTER"
-                    //    "HealAmount"    "%damage_per_second * %interval * %lifesteal / 100"
-                    //} THIS GETS DONE INSIDE THE SCRIPT NOW
                     "RunScript"
                     {
                         "ScriptFile"    "abilities/nextgeneration/hero_hylonome/hylonome_libation.lua"

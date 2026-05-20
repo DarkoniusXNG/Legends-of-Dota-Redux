@@ -52,7 +52,6 @@ function fury_swipes_attack( keys )
 	local ability = keys.ability
 	local modifierName = "modifier_fury_swipes_target_lod"
 	local damageType = ability:GetAbilityDamageType()
-	local exceptionName = "npc_dota_roshan"
 
 	if target:IsBuilding() then return end
 	if not caster:IsRealHero() then return end
@@ -63,7 +62,7 @@ function fury_swipes_attack( keys )
 	local duration = ability:GetLevelSpecialValueFor( "bonus_reset_time", ability:GetLevel() - 1 )
 	-- Modifies damage bonus if ranged attacker
 
-	if target:GetName() == exceptionName then   -- Put exception here
+	if target:IsRoshanCustom() then   -- Put exceptions here
 		duration = ability:GetLevelSpecialValueFor( "bonus_reset_time_roshan", ability:GetLevel() - 1 )
 	end
 	

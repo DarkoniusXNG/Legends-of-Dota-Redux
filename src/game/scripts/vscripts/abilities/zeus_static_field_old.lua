@@ -105,24 +105,26 @@ if IsServer() then
 			ParticleManager:ReleaseParticleIndex(particle_caster)
 		end
 		for _, enemy in pairs(enemies) do
-			if enemy and not enemy:IsNull() and enemy:GetUnitName() ~= "npc_dota_roshan" then
-				-- Particle on enemy
-				local particle_enemy = ParticleManager:CreateParticle(particle_effect, PATTACH_ABSORIGIN_FOLLOW, enemy)
-				ParticleManager:SetParticleControl(particle_enemy, 0, enemy:GetAbsOrigin())
-				ParticleManager:ReleaseParticleIndex(particle_enemy)
-				
-				-- Sound
-				enemy:EmitSound("Hero_Zuus.StaticField")
-				
-				-- Apply damage
-				ApplyDamage({
-					victim = enemy,
-					attacker = parent,
-					damage = enemy:GetHealth() * dmg_per_hp / 100,
-					damage_type = ability:GetAbilityDamageType(),
-					damage_flags = DOTA_DAMAGE_FLAG_HPLOSS,
-					ability = ability,
-				})
+			if enemy and not enemy:IsNull() then
+				if not enemy:IsRoshanCustom() then
+					-- Particle on enemy
+					local particle_enemy = ParticleManager:CreateParticle(particle_effect, PATTACH_ABSORIGIN_FOLLOW, enemy)
+					ParticleManager:SetParticleControl(particle_enemy, 0, enemy:GetAbsOrigin())
+					ParticleManager:ReleaseParticleIndex(particle_enemy)
+					
+					-- Sound
+					enemy:EmitSound("Hero_Zuus.StaticField")
+					
+					-- Apply damage
+					ApplyDamage({
+						victim = enemy,
+						attacker = parent,
+						damage = enemy:GetHealth() * dmg_per_hp / 100,
+						damage_type = ability:GetAbilityDamageType(),
+						damage_flags = DOTA_DAMAGE_FLAG_HPLOSS,
+						ability = ability,
+					})
+				end
 			end
 		end
 	end

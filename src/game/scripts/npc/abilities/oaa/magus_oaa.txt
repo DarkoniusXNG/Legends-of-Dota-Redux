@@ -1,0 +1,31 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Magus (Attacks cast spells OAA version)
+  //=================================================================================================================
+  "magus_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa/magus.lua"
+    "AbilityTextureName"                                  "warlock_golem_flaming_fists"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+	"IsBreakable"                                         "1"
+
+    "ReduxFlags"                                          "attack_modifier"
+    "ReduxPerks"                                          "attack_modifier"
+	"ReduxCost"                                           "120"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "chance_to_proc"                                    "24 26 28 30"
+      "reduced_chance_to_proc"                            "10" // for attack-based spells to prevent looping, spells that cause lag, powerful spells
+      "cooldown"                                          "0.5"
+    }
+  }
+}

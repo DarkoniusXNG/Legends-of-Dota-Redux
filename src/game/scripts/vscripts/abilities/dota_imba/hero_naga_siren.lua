@@ -20,6 +20,8 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
+--CreateEmptyTalents("naga_siren")
+
 -------------------------------
 --       MIRROR IMAGE        --
 -------------------------------
@@ -79,6 +81,14 @@ modifier_imba_naga_siren_mirror_image_invulnerable = modifier_imba_naga_siren_mi
 
 function modifier_imba_naga_siren_mirror_image_invulnerable:IsHidden()
 	return true
+end
+
+function modifier_imba_naga_siren_mirror_image_invulnerable:IsDebuff()
+	return false
+end
+
+function modifier_imba_naga_siren_mirror_image_invulnerable:IsPurgable()
+	return false
 end
 
 function modifier_imba_naga_siren_mirror_image_invulnerable:CheckState()

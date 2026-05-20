@@ -20,13 +20,9 @@
 
 if IsClient() then
     require('lib/util_imba_client')
-else
-	function CDOTA_BaseNPC:IsRoshan()
-		return self:GetUnitName()=="npc_dota_roshan"
-	end
 end
 
-CreateEmptyTalents("spiritbreaker")
+--CreateEmptyTalents("spiritbreaker")
 
 LinkLuaModifier("modifier_imba_spirit_breaker_charge_of_darkness", "abilities/dota_imba/hero_spirit_breaker", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_imba_spirit_breaker_charge_of_darkness_vision", "abilities/dota_imba/hero_spirit_breaker", LUA_MODIFIER_MOTION_NONE)
@@ -218,7 +214,7 @@ function modifier_imba_spirit_breaker_charge_of_darkness:UpdateHorizontalMotion(
 	
 	for _, enemy in pairs(enemies) do
 		-- IMBAfication: Clothesline
-		if self:GetAbility():GetAutoCastState() and not self.clothesline_target and enemy ~= self.target and not enemy:IsRoshan() then
+		if self:GetAbility():GetAutoCastState() and not self.clothesline_target and enemy ~= self.target and not enemy:IsRoshanCustom() then
 			self.clothesline_target = enemy
 			enemy:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_imba_spirit_breaker_charge_of_darkness_clothesline", {duration = self.clothesline_duration})
 			self.bashed_enemies[enemy] = true
@@ -816,7 +812,7 @@ function imba_spirit_breaker_greater_bash:Bash(target, parent, bUltimate)
 	ParticleManager:ReleaseParticleIndex(bash_particle)
 	
 	-- "Can proc on Roshan, putting it on cooldown and applying the damage, but Roshan is neither knocked back nor stunned."
-	if not target:IsRoshan() then
+	if not target:IsRoshanCustom() then
 		-- Stacking knockback modifiers causes the target to get stuck in place, so the previous modifier before reapplying
 		local knockback_modifier = target:FindModifierByNameAndCaster("modifier_knockback", parent)
 		

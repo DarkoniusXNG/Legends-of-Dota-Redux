@@ -13,7 +13,7 @@ function CycloneCheck( keys )
 				individual_unit:EmitSound("DOTA_Item.Cyclone.Activate")
 				ability:ApplyDataDrivenModifier(caster, individual_unit, "modifier_cyclone_immunity", {} )
 				ability:ApplyDataDrivenModifier(caster, individual_unit, "modifier_eul_cyclone", {Duration = 2.5} )
-				thinker:ForceKill(true)
+				thinker:ForceKill(false)
 				break
 			end
 		end

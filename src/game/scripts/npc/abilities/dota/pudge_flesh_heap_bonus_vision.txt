@@ -13,14 +13,16 @@
         }
         "AbilityValues"
         {
-            "flesh_heap_bonus_vision_buff_amount" "20 30 40 50"
+            "flesh_heap_bonus_vision_buff_amount" "10 20 30 40"
             "flesh_heap_range"
             {
               "value"		"450"
               "affected_by_aoe_increase"	"1"
             }
         }
-        "ReduxFlags"                                                           "dota_custom"
+
+        "ReduxFlags"                                                           "dota_custom | doNotRandom"
+		"ReduxPerks"                                                           "undead"
         "ReduxCost"                                                            "10"
     }
 }

@@ -5,15 +5,24 @@ LinkLuaModifier("modifier_bubble_witch_magic_bubble_buff", "abilities/aba/bubble
 function bubble_witch_magic_bubble:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
-  
-  -- Remove previous instance
-  target:RemoveModifierByName("modifier_bubble_witch_magic_bubble_buff")
+
+  local applies_basic_dispel = self:GetSpecialValueFor("applies_basic_dispel")
+  if applies_basic_dispel > 0 then
+    -- Basic Dispel for allies
+    target:Purge(false, true, false, false, false)
+  end
+
+  local applies_strong_dispel = self:GetSpecialValueFor("applies_strong_dispel")
+  if applies_strong_dispel > 0 then
+    -- Strong Dispel for allies
+    target:Purge(false, true, false, true, true)
+  end
 
   -- Buff
   target:AddNewModifier(caster, self, "modifier_bubble_witch_magic_bubble_buff", {duration = self:GetSpecialValueFor("duration")})
 
   -- Bubble Form Sound
-  target:EmitSound("n_frogs.WaterBubble.Target")
+  target:EmitSound("Bubble_Witch.Magic_Bubble.Target")
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -111,6 +120,10 @@ if IsServer() then
     local ability = self:GetAbility()
     local parent_pos = parent:GetAbsOrigin()
 
+    if not caster or caster:IsNull() then
+      return
+    end
+
     local enemies = FindUnitsInRadius(
       caster:GetTeamNumber(),
       parent_pos,
@@ -139,17 +152,41 @@ if IsServer() then
         end
       end
     end
-	
-    -- Bubble pop particle
-    local pfx = ParticleManager:CreateParticle("particles/neutral_fx/frogmen_water_bubble_explosion.vpcf", PATTACH_WORLDORIGIN, parent)
-    ParticleManager:SetParticleControl(pfx, 0, parent_pos)
-    ParticleManager:ReleaseParticleIndex(pfx)
 
-    -- Bubble pop sound
+    if not parent or parent:IsNull() then
+      return
+    end
+
+    -- Healing the parent
+    local heal_amount = total_dmg * ability:GetSpecialValueFor("healing_dmg_ratio") * 0.01
+    if heal_amount > 0 and parent:IsAlive() then
+      --parent:Heal(heal_amount, ability) -- not affected by heal amp for some reason
+      parent:HealWithParams(heal_amount, ability, false, true, caster, false)
+    end
+
+    local innate = caster:FindAbilityByName("bubble_witch_innate")
+    if not innate or innate:IsNull() then
+      -- Bubble pop particle
+      local pfx = ParticleManager:CreateParticle("particles/neutral_fx/frogmen_water_bubble_explosion.vpcf", PATTACH_WORLDORIGIN, parent)
+      ParticleManager:SetParticleControl(pfx, 0, parent_pos)
+      ParticleManager:ReleaseParticleIndex(pfx)
+
+      -- Bubble pop sound
+      if parent:IsAlive() then
+        parent:EmitSound("Bubble_Witch.Bubble.Pop")
+      else
+        EmitSoundOnLocationWithCaster(parent_pos, "Bubble_Witch.Bubble.Pop", caster)
+      end
+	  return
+    end
+
+    -- If owner is affected by break, do nothing
+    if caster:PassivesDisabled() then
+      return
+    end
+
     if parent:IsAlive() then
-      parent:EmitSound("n_frogs.WaterBubble.Destroy")
-    else
-      EmitSoundOnLocationWithCaster(parent_pos, "n_frogs.WaterBubble.Destroy", caster)
+      parent:AddNewModifier(caster, innate, "modifier_bubble_witch_innate_buff_oaa", {duration = 0.1})
     end
   end
 end

@@ -203,6 +203,18 @@ end
 
 modifier_zanmato_main_target = class({})
 
+function modifier_zanmato_main_target:IsDebuff()
+	return true
+end
+
+function modifier_zanmato_main_target:IsStunDebuff()
+	return true
+end
+
+function modifier_zanmato_main_target:IsPurgable()
+	return false
+end
+
 function modifier_zanmato_main_target:CheckState()
 	local state = {
 		[MODIFIER_STATE_STUNNED] = true,

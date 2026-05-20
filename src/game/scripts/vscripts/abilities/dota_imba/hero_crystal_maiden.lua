@@ -18,6 +18,12 @@
 --     suthernfriend, 03.02.2018
 --     Elfansoer, 24.06.2019
 
+if IsClient() then
+    require('lib/util_imba_client')
+end
+
+--CreateEmptyTalents("crystal_maiden")
+
 ---------------------------------
 -- 		   Arcane Dynamo       --
 ---------------------------------
@@ -58,6 +64,10 @@ function modifier_imba_arcane_dynamo:OnCreated()
 	self:StartIntervalThink(0.2)
 end
 
+function modifier_imba_arcane_dynamo:OnRefresh()
+	self.max_stacks = self.ability:GetSpecialValueFor("max_stacks")
+end
+
 function modifier_imba_arcane_dynamo:OnIntervalThink()
 	if IsServer() then
 		-- If the caster is broken, reset the stacks
@@ -77,12 +87,12 @@ function modifier_imba_arcane_dynamo:OnIntervalThink()
 end
 
 function modifier_imba_arcane_dynamo:DeclareFunctions()
-	local decFuncs = {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+	return {
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
 		--Highjacking the modifier with no remorse
-		MODIFIER_EVENT_ON_TAKEDAMAGE}
-
-	return decFuncs
+		MODIFIER_EVENT_ON_TAKEDAMAGE
+	}
 end
 
 function modifier_imba_arcane_dynamo:GetModifierMoveSpeedBonus_Percentage()
@@ -503,10 +513,7 @@ function imba_crystal_maiden_frostbite:OnSpellStart()
 
 		-- Applies root and damage to attacking unit according to its type, then triggers the cooldown accordingly
 		if target:GetTeam() ~= caster:GetTeam() then
-			--[[Elfansoer: Fix import problem: isroshan missing
-			if target:IsHero() or target:IsRoshan() or target:IsAncient() then
-			]]
-			if target:IsHero() or target:GetUnitName()=="npc_dota_roshan" or target:IsAncient() then
+			if target:IsHero() or target:IsRoshanCustom() or target:IsAncient() then
 				target:AddNewModifier(caster, self, "modifier_stunned", {duration = duration_stun})
 				target:AddNewModifier(caster, self, "modifier_imba_crystal_maiden_frostbite_enemy", { duration = duration })
 			else

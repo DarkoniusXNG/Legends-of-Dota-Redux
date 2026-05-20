@@ -1,24 +1,3 @@
-function DebugPrint(...)
-	--local spew = Convars:GetInt('barebones_spew') or -1
-	--if spew == -1 and BAREBONES_DEBUG_SPEW then
-	--spew = 1
-	--end
-
-	--if spew == 1 then
-	--print(...)
-	--end
-end
-
-function DebugPrintTable(...)
-	--local spew = Convars:GetInt('barebones_spew') or -1
-	--if spew == -1 and BAREBONES_DEBUG_SPEW then
-	--spew = 1
-	--end
-
-	--if spew == 1 then
-	--PrintTable(...)
-	--end
-end
 
 function PrintAll(t)
 	for k,v in pairs(t) do
@@ -35,44 +14,6 @@ end
 function AddTableToTable( t1, t2)
 	for k,v in pairs(t2) do
 		table.insert(t1, v)
-	end
-end
-
-function PrintTable(t, indent, done)
-	--print ( string.format ('PrintTable type %s', type(keys)) )
-	if type(t) ~= "table" then return end
-
-	done = done or {}
-	done[t] = true
-	indent = indent or 0
-
-	local l = {}
-	for k, v in pairs(t) do
-	table.insert(l, k)
-	end
-
-	table.sort(l)
-	for k, v in ipairs(l) do
-	-- Ignore FDesc
-	if v ~= 'FDesc' then
-		local value = t[v]
-
-		if type(value) == "table" and not done[value] then
-		done [value] = true
-		print(string.rep ("\t", indent)..tostring(v)..":")
-		PrintTable (value, indent + 2, done)
-		elseif type(value) == "userdata" and not done[value] then
-		done [value] = true
-		print(string.rep ("\t", indent)..tostring(v)..": "..tostring(value))
-		PrintTable ((getmetatable(value) and getmetatable(value).__index) or getmetatable(value), indent + 2, done)
-		else
-		if t.FDesc and t.FDesc[v] then
-			print(string.rep ("\t", indent)..tostring(t.FDesc[v]))
-		else
-			print(string.rep ("\t", indent)..tostring(v)..": "..tostring(value))
-		end
-		end
-	end
 	end
 end
 
@@ -214,20 +155,6 @@ function PrecacheUnitWithQueue( unit_name )
 			end)
 		end
 	end)
-end
-
--- Initializes heroes' innate abilities
-function InitializeInnateAbilities( hero )	
-
-	-- Cycle through all of the heroes' abilities, and upgrade the innates ones
-	for i = 0, hero:GetAbilityCount() - 1 do		
-		local current_ability = hero:GetAbilityByIndex(i)		
-		if current_ability and current_ability.IsInnateAbility then
-			if current_ability:IsInnateAbility() then
-				current_ability:SetLevel(1)
-			end
-		end
-	end
 end
 
 function IndexAllTowerAbilities()
@@ -1656,15 +1583,6 @@ function SwapToItem(caster, removed_item, added_item)
 	end
 end
 
--- Checks if a given unit is Roshan
-function CDOTA_BaseNPC:IsRoshan()
-	if self:GetName() == "npc_imba_roshan" or self:GetName() == "npc_dota_roshan" or self:GetUnitLabel() == "npc_diretide_roshan" then
-		return true
-	else
-		return false
-	end
-end
-
 -- Checks if a given unit is a ward, or Techies bomb
 function IsWardOrBomb(unit)
 
@@ -2338,14 +2256,6 @@ function RemoveWearables( hero )
 	end)
 end
 
-function ShowWearables( event )
-  local hero = event.caster
-
-  for i,v in pairs(hero.hiddenWearables) do
-    v:RemoveEffects(EF_NODRAW)
-  end
-end
-
 -- Skeleton king cosmetics
 function SkeletonKingWearables( hero )
 
@@ -2766,7 +2676,7 @@ function TriggerWraithKingReincarnation(caster, ability)
 		for _,enemy in pairs(enemies) do
 			
 			-- If this is a real hero, damage and stun it
-			if enemy:IsRealHero() or IsRoshan(enemy) then
+			if enemy:IsRealHero() or enemy:IsRoshanCustom() then
 				ApplyDamage({attacker = caster, victim = enemy, ability = ability, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
 				enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
 

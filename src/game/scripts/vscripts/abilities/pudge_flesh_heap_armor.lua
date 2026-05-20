@@ -69,6 +69,9 @@ function modifier_flesh_heap_armor:DeclareFunctions()
 end
 
 function modifier_flesh_heap_armor:GetModifierPhysicalArmorBonus()
-  local parent = self:GetParent()
-  return parent:GetModifierStackCount("modifier_pudge_custom_flesh_heap_kill_tracker", parent) * self.flesh_heap_amount
+	local parent = self:GetParent()
+	if parent:PassivesDisabled() then
+		return 0
+	end
+	return parent:GetModifierStackCount("modifier_pudge_custom_flesh_heap_kill_tracker", parent) * self.flesh_heap_amount
 end

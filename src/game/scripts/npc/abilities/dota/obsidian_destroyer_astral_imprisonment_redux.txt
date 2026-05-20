@@ -123,6 +123,7 @@
 				"Duration"	"%prison_duration"
 				"IsDebuff"	"1"
 				"IsHidden"	"0"
+				"IsStunDebuff" "1"
 
 				"States"
 				{

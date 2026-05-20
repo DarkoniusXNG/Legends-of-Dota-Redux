@@ -45,7 +45,7 @@ local function IsNearFountain( location, radius )
     return found
 end
 
-CreateEmptyTalents("sand_king")
+--CreateEmptyTalents("sand_king")
 
 -------------------------------
 --       BURROWSTRIKE        --
@@ -268,6 +268,14 @@ end
 function modifier_imba_burrowstrike_stun:IsHidden() return false end
 function modifier_imba_burrowstrike_stun:IsPurgeException() return true end
 function modifier_imba_burrowstrike_stun:IsStunDebuff() return true end
+
+function modifier_imba_burrowstrike_stun:IsDebuff()
+	return true
+end
+
+function modifier_imba_burrowstrike_stun:IsPurgable()
+	return true
+end
 
 
 -- Burrowstrike burrow modifier

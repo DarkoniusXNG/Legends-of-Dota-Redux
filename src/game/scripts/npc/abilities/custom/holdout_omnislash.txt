@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-    "holdout_omnislash"
+    "holdout_omnislash" // TODO: Wraith Night ability
     {
         "AbilityTextureName"                                                   "custom/holdout_omnislash_lod"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"

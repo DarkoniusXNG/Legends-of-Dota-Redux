@@ -8,6 +8,9 @@
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "SpellDispellableType"                                                 "SPELL_DISPELLABLE_YES"
 
+        "ReduxFlags"                                                           "silence"
+        "ReduxPerks"                                                           "silence"
+
         "precache"
         {
             "particle"                                                     "particles/units/heroes/hero_siren/naga_siren_song_debuff.vpcf"
@@ -78,7 +81,5 @@
                 "EffectAttachType"                                     "follow_origin"
             }
         }
-        "ReduxPerks"                                                           "support | silence"
-        "ReduxFlags"                                                           "support | silence"
     }
 }

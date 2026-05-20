@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("storm_spirit")
+--CreateEmptyTalents("storm_spirit")
 
 imba_storm_spirit_static_remnant = imba_storm_spirit_static_remnant or class({})
 LinkLuaModifier("modifier_imba_static_remnant", "abilities/dota_imba/hero_storm_spirit.lua", LUA_MODIFIER_MOTION_NONE)

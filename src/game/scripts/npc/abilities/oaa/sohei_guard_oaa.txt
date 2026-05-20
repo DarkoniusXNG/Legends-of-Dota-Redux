@@ -11,8 +11,11 @@
     "ScriptFile"                                          "abilities/oaa/sohei_guard.lua"
     "AbilityTextureName"                                  "custom/sohei_guard"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+	"SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+	
+	"ReduxFlags"						                  "tank"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

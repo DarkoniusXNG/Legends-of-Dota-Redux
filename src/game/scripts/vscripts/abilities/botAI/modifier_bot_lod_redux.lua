@@ -342,6 +342,15 @@ local item_builds = {
 		"item_mask_of_madness",
 		"item_abyssal_blade",
 	},
+	npc_dota_hero_tidehunter = {
+		"item_bracer",
+		"item_phase_boots",
+		"item_mage_slayer",
+		"item_blink",
+		"item_vladmir",
+		"item_platemail",
+		"item_reaver",
+	},
 	npc_dota_hero_tiny = {
 		"item_bracer",
 		"item_phase_boots",

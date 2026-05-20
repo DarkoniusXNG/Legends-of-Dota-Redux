@@ -9,7 +9,8 @@
         {
             "coef" "5"
             "damage_per_level" "2"
-            "resist_per_level" "0.1"
+            "resist_per_level" "0"
+			"health_per_level" "20"
         }
 	}
 }

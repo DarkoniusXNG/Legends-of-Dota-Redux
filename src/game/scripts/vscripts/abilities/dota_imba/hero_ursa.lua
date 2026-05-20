@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("ursa")
+--CreateEmptyTalents("ursa")
 
 ---------------------------------------------------
 --			Ursa's Earthshock
@@ -817,7 +817,7 @@ function modifier_imba_fury_swipes:GetModifierProcAttack_BonusDamage_Physical( k
 
 		if keys.attacker == caster then
 			-- Adjust duration if target is Roshan
-			if target:GetUnitName()=="npc_dota_roshan" then
+			if target:IsRoshanCustom() then
 				stack_duration = roshan_stack_duration
 			end
 

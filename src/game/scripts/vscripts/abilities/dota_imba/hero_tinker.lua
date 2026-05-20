@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("tinker")
+--CreateEmptyTalents("tinker")
 
 -- #7 Talent - Decreased cast-animations
 function modifier_special_bonus_imba_tinker_7:DeclareFunctions()
@@ -1471,6 +1471,15 @@ function modifier_imba_march_flame_damage:IsHidden()
 end
 
 modifier_imba_march_tesla_stun = class({})
+
+function modifier_imba_march_tesla_stun:IsDebuff()
+	return true
+end
+
+function modifier_imba_march_tesla_stun:IsPurgable()
+	return true
+end
+
 function modifier_imba_march_tesla_stun:IsStunDebuff()
 	return true
 end

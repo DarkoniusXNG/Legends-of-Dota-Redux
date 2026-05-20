@@ -27,37 +27,70 @@ function modifier_bloodseeker_blood_bath_t:IsPassive()
 end
 
 function modifier_bloodseeker_blood_bath_t:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_DEATH,
   }
-  return funcs
 end
 
-function modifier_bloodseeker_blood_bath_t:OnDeath(keys)
-  if IsServer() and keys.unit:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then
-    local attacker = keys.attacker
-    local victim = keys.unit
-    local unit = self:GetParent()
+if IsServer()
+  function modifier_bloodseeker_blood_bath_t:OnDeath(keys)
+    local killer = keys.attacker
+    local dead = keys.unit
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
 
-    if unit:PassivesDisabled() or victim:IsBuilding() or unit:IsIllusion() then
-      return 
+    -- Check if parent exists
+    if not parent or parent:IsNull() then
+      return
     end
 
-    local healRadius = self:GetAbility():GetSpecialValueFor("heal_radius")
-    local heal
-    if unit:GetRangeToUnit(victim) <= healRadius or attacker == unit then
-      if victim:IsRealHero() then
-        local percentOfMaxHealth = self:GetAbility():GetSpecialValueFor("hero_max_hp_heal") * 0.01
-        heal = percentOfMaxHealth * victim:GetMaxHealth()
+    -- Dont proc when affected by break, on illusions or when dead
+    if parent:PassivesDisabled() or parent:IsIllusion() or not parent:IsAlive() then
+      return
+    end
+
+    -- Check if ability exists
+    if not ability or ability:IsNull() then
+      return
+    end
+
+    -- Check if entity is an item, rune or something weird
+    if dead.GetUnitName == nil then
+      return
+    end
+
+    -- Ignore allied deaths
+    if dead:GetTeamNumber() == parent:GetTeamNumber() then
+      return
+    end
+
+    -- Don't affect buildings, wards, illusions and invulnerable units.
+    if dead:IsTower() or dead:IsBarracks() or dead:IsBuilding() or dead:IsOther() or dead:IsInvulnerable() or dead:IsIllusion() then
+      return
+    end
+
+    local healRadius = ability:GetSpecialValueFor("heal_radius")
+    local heal_amount = 0
+    local lifesteal_bool = false -- considered lifesteal when killed by parent
+    if parent:GetRangeToUnit(dead) <= healRadius or killer == parent then
+      if dead:IsRealHero() then
+        local percentOfMaxHealth = ability:GetSpecialValueFor("hero_max_hp_heal") * 0.01
+        heal_amount = percentOfMaxHealth * dead:GetMaxHealth()
       else
-        local percentOfMaxHealth = self:GetAbility():GetSpecialValueFor("non_hero_max_hp_heal") * 0.01
-        heal = percentOfMaxHealth * victim:GetMaxHealth()
+        local percentOfMaxHealth = ability:GetSpecialValueFor("non_hero_max_hp_heal") * 0.01
+        heal_amount = percentOfMaxHealth * dead:GetMaxHealth()
       end
-      unit:Heal(heal,unit)
-      SendOverheadEventMessage(unit:GetPlayerOwner(),OVERHEAD_ALERT_HEAL,unit,heal,nil)
-      local healParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_bloodbath.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
-      ParticleManager:SetParticleControl(healParticle, 1, Vector(radius, radius, radius))
-      ParticleManager:ReleaseParticleIndex(healParticle)
+      if killer == parent then
+        lifesteal_bool = true -- considered lifesteal when killed by parent
+      end
+      if heal_amount > 0 then
+        --parent:Heal(heal_amount, ability) -- not affected by heal amp or heal reduction
+        parent:HealWithParams(heal_amount, ability, lifesteal_bool, true, parent, false)
+        -- Particles
+        SendOverheadEventMessage(parent:GetPlayerOwner(), OVERHEAD_ALERT_HEAL, parent, heal_amount, nil)
+        local healParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_bloodbath.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+        ParticleManager:ReleaseParticleIndex(healParticle)
+      end
     end
   end
 end

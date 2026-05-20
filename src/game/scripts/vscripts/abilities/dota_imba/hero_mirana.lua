@@ -19,15 +19,9 @@
 
 if IsClient() then
     require('lib/util_imba_client')
-else
-	-- elfansoer: fix missing IsRoshan reference
-	function CDOTA_BaseNPC:IsRoshan()
-		return self:GetUnitName()=="npc_dota_roshan"
-	end
 end
 
-
-CreateEmptyTalents("mirana")
+--CreateEmptyTalents("mirana")
 
 -------------------------------
 --        STARSTORM          --
@@ -529,13 +523,13 @@ function imba_mirana_arrow:OnProjectileHit_ExtraData(target, location, extra_dat
 	local vision_linger_duration = ability:GetSpecialValueFor("vision_linger_duration")
 
 	-- Cast response for creeps
-	if target:IsCreep() and not target:IsRoshan() then
+	if target:IsCreep() and not target:IsRoshanCustom() then
 		local chosen_response = cast_response_creep[math.random(1, 5)]
 		EmitSoundOn(chosen_response, caster)
 	end
 
 	-- Cast response for Roshan
-	if target:IsRoshan() then
+	if target:IsRoshanCustom() then
 		local chosen_response = cast_response_roshan[math.random(1,4)]
 		EmitSoundOn(chosen_response, caster)
 	end
@@ -547,7 +541,7 @@ function imba_mirana_arrow:OnProjectileHit_ExtraData(target, location, extra_dat
 	AddFOWViewer(caster:GetTeamNumber(), location, vision_radius, vision_linger_duration, false)
 
 	-- If target was a creep, kill it immediately and exit
-	if target:IsCreep() and not target:IsRoshan() and not target:IsAncient() then
+	if target:IsCreep() and not target:IsRoshanCustom() and not target:IsAncient() then
 		target:Kill(ability, caster)
 		return true
 	end
@@ -624,6 +618,14 @@ end
 function modifier_imba_sacred_arrow_stun:IsHidden() return false end
 function modifier_imba_sacred_arrow_stun:IsStunDebuff() return true end
 function modifier_imba_sacred_arrow_stun:IsPurgeException() return true end
+
+function modifier_imba_sacred_arrow_stun:IsDebuff()
+	return true
+end
+
+function modifier_imba_sacred_arrow_stun:IsPurgable()
+	return true
+end
 
 function modifier_imba_sacred_arrow_stun:CheckState()
 	local state = {[MODIFIER_STATE_STUNNED] = true}

@@ -21,6 +21,8 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
+--CreateEmptyTalents("bristleback")
+
 LinkLuaModifier("modifier_imba_bristleback_viscous_nasal_goo", "abilities/dota_imba/hero_bristleback.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_bristleback_viscous_nasal_goo_autocaster", "abilities/dota_imba/hero_bristleback.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_bristleback_quillspray_thinker", "abilities/dota_imba/hero_bristleback.lua", LUA_MODIFIER_MOTION_NONE)

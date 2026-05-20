@@ -21,6 +21,8 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
+--CreateEmptyTalents("axe")
+
 local LinkedModifiers = {}
 -------------------------------------------
 --			     Berserker's Call            --
@@ -394,9 +396,7 @@ function imba_axe_battle_hunger:ApplyBattleHunger(caster, target)
 
 	-- Roshan Battle Hunger doesn't pause due to no damage done, sorry, no cheesing
 	-- feel free to cast on creeps, though
-	--[[Elfansoer: Fix portability problem]]
-	-- if target:IsRoshan() then
-	if target:GetUnitName() == "npc_dota_roshan" then
+	if target:IsRoshanCustom() then
 		target:AddNewModifier(caster, self, target_modifier, {duration = duration, no_pause = true})
 	else
 		target:AddNewModifier(caster, self, target_modifier, {duration = duration, no_pause = false})

@@ -2590,7 +2590,7 @@
 	"ursa_enrage"
 	{
 		"ReduxFlags"                                                           "upgradeable | tank"
-		"ReduxPerks"                                                           "rage"
+		"ReduxPerks"                                                           "rage | transformation"
 		"ReduxCost"                                                            "10"
 		"ReduxBans"                                                            "dazzle_bad_juju_redux"
 	}
@@ -3643,7 +3643,7 @@
 	}
 	"keeper_of_the_light_spirit_form"
 	{
-		"ReduxPerks"                                                           "light"
+		"ReduxPerks"                                                           "light | transformation"
 		"ReduxFlags"                                                           "doNotRandom"
 	}
 	"puck_illusory_orb"

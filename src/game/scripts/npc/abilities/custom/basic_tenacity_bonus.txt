@@ -6,12 +6,13 @@
         "ScriptFile"                                                           "abilities/basic_tenacity_bonus.lua"
         "AbilityTextureName"                                                   "custom/basic_tenacity_bonus"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        
+
         "AbilityValues"
         {
-            "tenacity_bonus" "10 15 20 25"
+            "status_resist"                                                    "10 15 20 25"
+            "slow_resist"                                                      "10 15 20 25"
         }
-        "ReduxFlags"                                                           "dota_custom"
+        "ReduxFlags"                                                           "dota_custom | tank"
         "ReduxCost"                                                            "0"
     }
 
@@ -21,12 +22,13 @@
         "ScriptFile"                                                           "abilities/basic_tenacity_bonus.lua"
         "AbilityTextureName"                                                   "custom/basic_tenacity_bonus_op"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        
+
         "AbilityValues"
         {
-            "tenacity_bonus" "35 50 75 95"
+            "status_resist"                                                    "25 35 45 55"
+            "slow_resist"                                                      "25 35 45 55"
         }
-        "ReduxFlags"                                                           "dota_custom"
+        "ReduxFlags"                                                           "dota_custom | tank"
         "ReduxCost"                                                            "120"
     }
 }

@@ -6,13 +6,14 @@
         "ScriptFile"                                                           "abilities/basic_willpower_bonus.lua"
         "AbilityTextureName"                                                   "custom/basic_willpower_bonus"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "IsBreakable"                                                          "1"
         
         "AbilityValues"
         {
-            "willpower_bonus" "16 24 32 40"
+            "willpower_bonus"                                                  "10 15 20 25"
         }
-        "ReduxFlags"                                                           "dota_custom"
-        "ReduxCost"                                                            "0"
+        "ReduxFlags"                                                           "dota_custom | stun"
+        "ReduxCost"                                                            "40"
     }
 
     "basic_willpower_bonus_op"
@@ -21,12 +22,13 @@
         "ScriptFile"                                                           "abilities/basic_willpower_bonus.lua"
         "AbilityTextureName"                                                   "custom/basic_willpower_bonus_op"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "IsBreakable"                                                          "1"
         
         "AbilityValues"
         {
-            "willpower_bonus" "35 50 75 95"
+            "willpower_bonus"                                                  "25 35 45 55"
         }
-        "ReduxFlags"                                                           "dota_custom"
+        "ReduxFlags"                                                           "dota_custom | stun"
         "ReduxCost"                                                            "120"
     }
 }
