@@ -1,144 +1,146 @@
-// Abilities for batrider
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Batrider: Sticky Napalm
+	// Earth Spirit: Boulder Smash
 	//=================================================================================================================
-	"batrider_sticky_napalm"
+	"earth_spirit_boulder_smash"
 	{
-		"ReduxPerks"                    "fire"
-		"ReduxCost"                     "50"
+		"ReduxFlags"		"stun | doNotRandom"
+		"ReduxPerks"		"earth | skillshot | enemymoving"
 	}
 
 	//=================================================================================================================
-	// Batrider: Smoldering Resin (current Innate)
+	// Earth Spirit: Rolling Boulder
 	//=================================================================================================================
-	"batrider_smoldering_resin"
+	"earth_spirit_rolling_boulder"
 	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-
-		"ReduxFlags"                    "attack_modifier"
-		"ReduxPerks"                    "attack_modifier | fire"
+		"ReduxFlags"		"stun | mobility"
+		"ReduxPerks"		"earth | skillshot | mobility"
+		"ReduxBans"			"dazzle_bad_juju_redux"
 	}
 
 	//=================================================================================================================
-	// Batrider: Stoked (old Facet)
+	// Earth Spirit: Geomagnetic Grip
 	//=================================================================================================================
-	"batrider_stoked"
+	"earth_spirit_geomagnetic_grip"
 	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_batrider_perk"
+		"ReduxFlags"		"silence"
+		"ReduxPerks"		"earth | silence | skillshot"
+	}
 
-		"MaxLevel"                                                             "4"
+	//=================================================================================================================
+	// Earth Spirit: Stone Remnant
+	//=================================================================================================================
+	"earth_spirit_stone_caller" // current innate
+	{
+		"ReduxFlags"		"doNotRandom"
+		"ReduxPerks"		"earth"
+	}
 
-		"ReduxFlags"                                                           "doNotRandom | mobility"
-		"ReduxPerks"                                                           "enemymoving | mobility"
+	//=================================================================================================================
+	// Earth Spirit: Petrify ( Enchant Remnant scepter ability )
+	//=================================================================================================================
+	"earth_spirit_petrify"
+	{
+		"ReduxFlags"                    "stun | doNotRandom | support | upgradeable"
+		"ReduxPerks"					"earth | support | transformation"
+		"ReduxBans"                     "tinker_rearm | dazzle_bad_juju_redux"
+		"ReduxCost"                     "20"
+
+		"MaxLevel"						"4"
+
+		"AbilityCastRange"				"175"
+		"AbilityCooldown"				"45 35 25 15"
 
 		"AbilityValues"
 		{
-			"duration"					"7.0"
-			"movement_speed_pct"		"4 8 12 16"
-			"spell_amplification"		"4 8 12 16"
+			"duration"		"2.4"
+			"damage"
+			{
+				"value"			"450"
+				"CalculateSpellDamageTooltip" "1"
+			}
+			"aoe"
+			{
+				"value"		"450 500 550 600"
+				"affected_by_aoe_increase"	"1"
+			}
+			"ally_cast_range"	"500 600 700 800"
 		}
 	}
 
 	//=================================================================================================================
-	// Batrider: Flamebreak
+	// Earth Spirit: Magnetize
 	//=================================================================================================================
-	"batrider_flamebreak"
+	"earth_spirit_magnetize"
 	{
-		"ReduxPerks"                    "fire | skillshot | enemymoving | explosive"
+		"ReduxFlags"		"doNotRandom"
+		"ReduxPerks"		"earth"
 	}
 
-	//=================================================================================================================
-	// Batrider: Firefly
-	//=================================================================================================================
-	"batrider_firefly"
-	{
-		"ReduxFlags"                "mobility"
-		"ReduxPerks"                "mobility | fire"
-	}
-
-	//=================================================================================================================
-	// Batrider: Flaming Lasso
-	//=================================================================================================================
-	"batrider_flaming_lasso"
-	{
-		"ReduxFlags"                    "upgradeable | stun"
-		"ReduxPerks"                    "fire | enemymoving"
-		"ReduxCost"                     "10"
-	}
-
-	// Talents
-	"special_bonus_unique_batrider_1"
+	// Earth Spirit
+	"special_bonus_unique_earth_spirit"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"			"batrider_flaming_lasso"
+		"TalentRequiredAbility"                                                   "earth_spirit_rolling_boulder"
 	}
-
-	"special_bonus_unique_batrider_2"
+	"special_bonus_unique_earth_spirit_2"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"			"batrider_flamebreak"
+		"TalentRequiredAbility"                                                   "earth_spirit_magnetize"
 	}
-
-	"special_bonus_unique_batrider_3"
+	"special_bonus_unique_earth_spirit_4"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"			"batrider_firefly"
+		"TalentRequiredAbility"                                                   "earth_spirit_rolling_boulder"
 	}
-
-	"special_bonus_unique_batrider_4"
+	"special_bonus_unique_earth_spirit_5"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"			"batrider_firefly"
+		"TalentRequiredAbility"                                                   "earth_spirit_geomagnetic_grip"
 	}
-
-	"special_bonus_unique_batrider_5"
+	"special_bonus_unique_earth_spirit_6"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"			"batrider_flamebreak"
+		"TalentRequiredAbility"                                                   "earth_spirit_boulder_smash"
 	}
-
-	"special_bonus_unique_batrider_6"
+	"special_bonus_unique_earth_spirit_7"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"			"batrider_sticky_napalm"
+		"TalentRequiredAbility"                                                   "earth_spirit_boulder_smash"
 	}
-
-	"special_bonus_unique_batrider_7"
+	"special_bonus_unique_earth_spirit_8"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"			"batrider_sticky_napalm"
+		"TalentRequiredAbility"                                                   "earth_spirit_magnetize"
 	}
-
-	"special_bonus_unique_batrider_smoldering_resin_ticks"
+	"special_bonus_unique_earth_spirit_rolling_boulder_stun"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"			"batrider_smoldering_resin"
+		"TalentRequiredAbility"                                                   "earth_spirit_rolling_boulder"
 	}
 }

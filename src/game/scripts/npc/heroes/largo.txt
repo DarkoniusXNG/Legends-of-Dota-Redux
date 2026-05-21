@@ -10,7 +10,7 @@
 	"largo_frogstomp"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "earth | skillshot | water"
+		"ReduxPerks"                                                           "earth | water"
 	}
 
 	"largo_croak_of_genius"
@@ -27,13 +27,14 @@
 
 	"largo_song_fight_song"
 	{
-		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxFlags"                                                           "doNotRandom | support"
+		"ReduxPerks"                                                           "support"
 	}
 
 	"largo_song_double_time"
 	{
-		"ReduxFlags"                                                           "doNotRandom | mobility"
-		"ReduxPerks"                                                           "mobility"
+		"ReduxFlags"                                                           "doNotRandom | mobility | support"
+		"ReduxPerks"                                                           "mobility | support"
 	}
 
 	"largo_song_good_vibrations"
@@ -49,7 +50,7 @@
 	{
 		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
-		"ReduxFlags"                                                           "support | upgradeable"
+		"ReduxFlags"                                                           "support | upgradeablewithshard"
 		"ReduxPerks"                                                           "support"
 	}
 

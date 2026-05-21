@@ -149,7 +149,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "arc_warden_tempest_double"
+		"TalentRequiredAbility"                                                   "arc_warden_runic_infusion"
 	}
 
 	//=================================================================================================================

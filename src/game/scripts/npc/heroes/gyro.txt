@@ -1,0 +1,145 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Gyrocopter: Rocket Barrage
+	//=================================================================================================================
+	"gyrocopter_rocket_barrage"
+	{
+		"ReduxPerks"		"scientific | explosive"
+		"ReduxBans"			"batrider_sticky_napalm"
+	}
+
+	//=================================================================================================================
+	// Gyrocopter: Homing Missile
+	//=================================================================================================================
+	"gyrocopter_homing_missile"
+	{
+		"ReduxFlags"		"stun"
+		"ReduxPerks"		"scientific | explosive"
+	}
+
+	//=================================================================================================================
+	// Gyrocopter: Flak Cannon
+	//=================================================================================================================
+	"gyrocopter_flak_cannon"
+	{
+		"ReduxFlags"		"aoe_attack | attack_modifier | upgradeable"
+		"ReduxPerks"		"attack_modifier | scientific"
+		"ReduxCost"			"30"
+	}
+
+	//=================================================================================================================
+	// Gyrocopter: Call Down
+	//=================================================================================================================
+	"gyrocopter_call_down"
+	{
+		"ReduxFlags"		"wtfAutoBan"
+		"ReduxPerks"		"scientific | skillshot | explosive"
+		"ReduxBans"			"tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	//=================================================================================================================
+	// Gyrocopter: Side Gunner
+	//=================================================================================================================
+	"gyrocopter_side_gunner_spawn_ability"
+	{
+		"ReduxFlags"		"aoe_attack | upgradeable"
+
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"MaxLevel"						"4"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"double_target"			"1"
+			"sidegunner_fire_rate"		"1.3 1.2 1.1 1.0"
+		}
+	}
+
+	//=================================================================================================================
+	// Gyrocopter: Chop Shop (old Innate)
+	//=================================================================================================================
+	"gyrocopter_chop_shop"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_gyrocopter_perk"
+
+		"MaxLevel"                                                             "1"
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	//=================================================================================================================
+	// Gyrocopter: Innate Afterburner
+	//=================================================================================================================
+	"gyrocopter_afterburner"
+	{
+		"ReduxFlags"		"mobility"
+		"ReduxPerks"		"mobility | fire"
+	}
+
+	// Talents
+	"special_bonus_unique_gyrocopter_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"gyrocopter_flak_cannon"
+	}
+	"special_bonus_unique_gyrocopter_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"   		"gyrocopter_flak_cannon"
+	}
+	"special_bonus_unique_gyrocopter_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"     	"gyrocopter_rocket_barrage"
+	}
+	"special_bonus_unique_gyrocopter_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"     	"gyrocopter_call_down"
+	}
+	"special_bonus_unique_gyrocopter_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"     	"gyrocopter_homing_missile"
+	}
+	"special_bonus_unique_gyrocopter_flak_cannon_bonus_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"gyrocopter_flak_cannon"
+	}
+	"special_bonus_unique_gyrocopter_homing_missile_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"      	"gyrocopter_homing_missile"
+	}
+}
+
+

@@ -31,11 +31,11 @@
 	"bristleback_hairball"
 	{
 		"ReduxFlags"                                                           "doNotRandom | physical"
-		"ReduxPerks"                                                           "physical | skillshot"
+		"ReduxPerks"                                                           "physical"
 
 		"MaxLevel"                      "4"
-		"AbilityCooldown"               "16 15 14 13"
-		"AbilityManaCost"               "70 60 50 40"
+		"AbilityCooldown"               "15 14 13 12"
+		"AbilityManaCost"               "60 55 50 45"
 		"AbilityValues"
 		{
 			"projectile_speed"		"1200"
@@ -45,7 +45,7 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"quill_stacks"		"1"
-			"goo_stacks"		"2"
+			"goo_stacks"		"2 3 4 5"
 		}
 	}
 
@@ -65,8 +65,34 @@
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_bristleback_perk"
 
-		"MaxLevel"                                                             "1"
+		"MaxLevel"                                                             "4"
 		"Innate"                                                               "0"
+
+		"AbilityValues"
+		{
+			"duration"					"8.0 9.0 10.0 11.0"
+			"max_stacks"				"4 5 6 7"
+			"status_resist_pct"
+			{
+				"value"				"5.7"
+				"hero_levelup"		"+0.3"
+			}
+			"debuff_amp_pct"
+			{
+				"value"				"2.9"
+				"hero_levelup"		"+0.1"
+			}
+		}
+	}
+
+
+	"special_bonus_unique_bristleback"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"bristleback_bristleback"
 	}
 
 	"special_bonus_unique_bristleback_2"

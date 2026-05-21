@@ -22,7 +22,7 @@
 	"drow_ranger_multishot"
 	{
 		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"                                                           "skillshot | ranger | channeled | physical"
+		"ReduxPerks"                                                           "ranger | channeled | physical"
 	}
 
 	"drow_ranger_marksmanship"
@@ -40,7 +40,7 @@
 
 		"AbilityCastRange"				"400"
 		"AbilityCastPoint"				"0.1"
-		"AbilityCooldown"				"20 18 16 14"
+		"AbilityCooldown"				"25 22 19 16"
 		"AbilityManaCost"				"50"
 
 		"AbilityValues"
@@ -50,17 +50,18 @@
 			"shard_speed"				"1200.0"
 			"shard_duration"			"8 9 10 11"
 			"shard_angle_step"			"40.0"
-			"shard_distance"			"125"
+			"shard_distance"			"155"
 			"turn_rate_slow"			"0"
 			"end_height"				"128"
-			"hilltop_offset"			"150 175 200 225"
-			"ramp_radius"				"150 175 200 225"
+			"hilltop_offset"			"200"
+			"ramp_radius"				"150 200 250 300"
 			"attack_range_bonus"		"200 225 250 275"
-			"multishot_arrow_bonus"		"1 2 3 4"
+			"multishot_arrow_bonus"		"0"
 			"knockback_duration"		"0.1"
-			"knockback_distance"		"175"
+			"knockback_distance"		"225"
 			"knockback_height"			"50"
 			"z_speed_override"			"800"
+			"damage_bonus"				"25 30 35 40"
 		}
 	}
 

@@ -151,4 +151,13 @@
 
 		"TalentRequiredAbility"		"elder_titan_ancestral_spirit"
 	}
+
+	"special_bonus_unique_elder_titan_momentum_attack_speed"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"		"elder_titan_momentum"
+	}
 }
