@@ -26,11 +26,12 @@
 		"ReduxPerks"	"illusion"
 
 		"MaxLevel"						"4"
-		"IsGrantedByScepter"			"1"
+
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"35 30 25 20"
 		"AbilityManaCost"				"200"
+
 		"AbilityValues"
 		{
 			"illusion_duration"
@@ -68,7 +69,9 @@
 	"grimstroke_ink_over"
 	{
 		"MaxLevel"						"4"
+
 		"AbilityCooldown"				"14 13 12 11"
+
 		"AbilityValues"
 		{
 			"duration"
@@ -114,8 +117,8 @@
 	//=================================================================================================================
 	"grimstroke_ink_trail"
 	{
-		"ReduxFlags"	"tank | support"
-		"ReduxPerks"	"support"
+		"ReduxFlags"	"tank"
+		//"ReduxPerks"	""
 		"ReduxCost"		"10"
 	}
 

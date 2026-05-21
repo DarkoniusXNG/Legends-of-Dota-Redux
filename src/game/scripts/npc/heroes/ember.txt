@@ -2,6 +2,7 @@
 {
 	"ember_spirit_searing_chains"
 	{
+		"ReduxFlags"		"stun"
 		"ReduxPerks"		"fire"
 	}
 

@@ -28,6 +28,7 @@
 		"ReduxCost"						"40"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"MaxLevel"						"4"
 
 		"AbilityValues"
@@ -79,7 +80,8 @@
 	//=================================================================================================================
 	"faceless_void_time_zone"
 	{
-		"ReduxFlags"		"cooldown"
+		"ReduxFlags"                                      "cooldown | support"
+		"ReduxPerks"                                      "support"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityType"					"ABILITY_TYPE_BASIC"
@@ -90,49 +92,49 @@
 
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.35"
-		"AbilityCooldown"				"45"			// can accelerate itself
-		"AbilityManaCost"				"125"
+		"AbilityCooldown"				"60" // can accelerate itself !!! ultimate version: 120 110 100
+		"AbilityManaCost"				"125" // ultimate version: 125 200 275
 
 		"AbilityValues"
 		{
 			"radius"
 			{
-				"value"		"400"
-				"affected_by_aoe_increase"	"1"
+				"value"                                   "400" // ultimate version: 700
+				"affected_by_aoe_increase"                "1"
 			}
 			"duration"
 			{
-				"value"			"5"
+				"value"                                   "5" // ultimate version: 3.75 4.25 4.75
 			}
 			"vision_radius"
 			{
-				"value"	"400"
-				"affected_by_aoe_increase"	"1"
+				"value"                                   "400" // ultimate version: 700
+				"affected_by_aoe_increase"                "1"
 			}
-			"bonus_attack_speed"
+			"bonus_attack_speed" // also slow
 			{
-				"value"									"40 50 60 70"
+				"value"                                   "35 40 45 50"
 			}
-			"bonus_move_speed"
+			"bonus_move_speed" // also slow
 			{
-				"value" "35 40 45 50"
+				"value"                                   "35 40 45 50"
 			}
-			"bonus_cast_speed"
+			"bonus_cast_speed" // also slow
 			{
-				"value" "35 40 45 50"
+				"value"                                   "35 40 45 50"
 			}
-			"bonus_turn_speed"
+			"bonus_turn_speed" // also slow
 			{
-				"value" "50"
+				"value"                                   "50"
 			}
-			"bonus_projectile_speed"
+			"bonus_projectile_speed" // also slow
 			{
-				"value" "40"
+				"value"                                   "40"
 			}
-			"yaw"				"45"
-			"cooldown_acceleration"						// base is 100% = 1x = normal cooldown progression. 400 = 4x = +300% cooldown acceleration
+			"yaw"                                         "45"
+			"cooldown_acceleration" // base is 100% = 1x = normal cooldown progression. 400 = 4x = +300% cooldown acceleration; values <= 100 will do nothing currently and progress cooldowns normally
 			{
-				"value"				"200 250 300 350"				// values <= 100 will do nothing currently and progress cooldowns normally
+				"value"                                   "200 250 300 350" // ultimate version: 400
 			}
 		}
 	}

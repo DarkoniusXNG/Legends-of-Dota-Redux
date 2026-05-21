@@ -13,6 +13,7 @@
 		"ReduxPerks"        "nature | mobility"
 
 		"MaxLevel"						"4"
+
 		"AbilityCooldown"				"10 9 8 7"
 		"AbilityManaCost"				"60 55 50 45"
 
@@ -32,9 +33,11 @@
 		"ReduxPerks"                    "nature"
 
 		"MaxLevel"						"4"
+
 		"AbilityCooldown"				"20 19 18 17"
 		"AbilityCastRange"				"750 800 850 900"
 		"AbilityManaCost"				"75"
+
 		"AbilityValues"
 		{
 			"duration"					"6"
@@ -42,19 +45,19 @@
 			"bonus_move_speed"			"100 125 150 175"
 			"radius"
 			{
-				"value"		"1200"
+				"value"                 "1200"
 				"affected_by_aoe_increase"	"1"
 			}
-			"root_base_duration"	"2.0 2.5 3.0 3.5"
-			"root_per_target"		"0.5"
-			"max_root"		"5 5.5 6 6.5"
+			"root_base_duration"        "2.0 2.2 2.4 2.6"
+			"root_per_target"           "0.5"
+			"max_root"                  "5 5.5 6 6.5"
 		}
 	}
 
 	"enchantress_enchant"
 	{
 		"ReduxFlags"		"summon"
-		"ReduxPerks"		"nature"
+		"ReduxPerks"		"nature" // no summon_non_ult because it does not summon
 	}
 
 	"enchantress_natures_attendants"

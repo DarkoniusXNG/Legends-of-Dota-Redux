@@ -21,14 +21,14 @@
 
 	"largo_amphibian_rhapsody"
 	{
-		"ReduxFlags"                                                           "doNotRandom | tank | upgradeable | support"
-		"ReduxPerks"                                                           "water | support"
+		"ReduxFlags"                                                           "doNotRandom | tank | upgradeable"
+		"ReduxPerks"                                                           "water"
 	}
 
 	"largo_song_fight_song"
 	{
-		"ReduxPerks"                                                           "support"
 		"ReduxFlags"                                                           "doNotRandom | support"
+		"ReduxPerks"                                                           "support"
 	}
 
 	"largo_song_double_time"
@@ -50,7 +50,7 @@
 	{
 		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
-		"ReduxFlags"                                                           "support | upgradeable"
+		"ReduxFlags"                                                           "support | upgradeablewithshard"
 		"ReduxPerks"                                                           "support"
 	}
 

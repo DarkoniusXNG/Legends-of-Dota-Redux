@@ -34,7 +34,7 @@
 		"ReduxPerks"                                                           "physical"
 
 		"MaxLevel"                      "4"
-		"AbilityCooldown"               "13 12 11 10"
+		"AbilityCooldown"               "15 14 13 12"
 		"AbilityManaCost"               "60 55 50 45"
 		"AbilityValues"
 		{
