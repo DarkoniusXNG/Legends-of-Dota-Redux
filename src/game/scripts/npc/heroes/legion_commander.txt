@@ -43,7 +43,8 @@
 	//=================================================================================================================
 	"legion_commander_outfight_them"
 	{
-		"ReduxFlags"                    "tank"
+		"ReduxFlags"                    "tank | support"
+		"ReduxPerks"                    "support | aura"
 		"ReduxCost"                     "30" // works for any spell
 	}
 
