@@ -14,8 +14,8 @@
 	//=================================================================================================================
 	"earth_spirit_rolling_boulder"
 	{
-		"ReduxPerks"		"earth | skillshot | mobility"
 		"ReduxFlags"		"stun | mobility"
+		"ReduxPerks"		"earth | skillshot | mobility"
 		"ReduxBans"			"tinker_rearm | dazzle_bad_juju_redux"
 	}
 	
@@ -29,12 +29,12 @@
 	}
 
 	//=================================================================================================================
-	// Earth Spirit: Stone Caller
+	// Earth Spirit: Stone Remnant
 	//=================================================================================================================
-	"earth_spirit_stone_caller"
+	"earth_spirit_stone_caller" // current innate
 	{
-		"ReduxPerks"		"earth"
 		"ReduxFlags"		"doNotRandom"
+		"ReduxPerks"		"earth"
 	}
 
 	//=================================================================================================================
@@ -42,27 +42,29 @@
 	//=================================================================================================================
 	"earth_spirit_petrify"
 	{
-		"ReduxCost"                     "20"
 		"ReduxFlags"                    "stun | doNotRandom | support | upgradeable"
 		"ReduxPerks"					"earth | support | transformation"
 		"ReduxBans"                     "tinker_rearm | dazzle_bad_juju_redux"
+		"ReduxCost"                     "20"
+
 		"MaxLevel"						"4"
+
 		"AbilityCastRange"				"175"
 		"AbilityCooldown"				"45 35 25 15"
 		"AbilityValues"
 		{
-				"duration"		"2.4"
-				"damage"
-				{
-					"value"			"450"
-					"CalculateSpellDamageTooltip" "1"
-				}
-				"aoe"		
-				{
-					"value"		"450 500 550 600"
-					"affected_by_aoe_increase"	"1"		
-				}
-				"ally_cast_range"	"500 700 900 1100"
+			"duration"		"2.4"
+			"damage"
+			{
+				"value"			"450"
+				"CalculateSpellDamageTooltip" "1"
+			}
+			"aoe"		
+			{
+				"value"		"450 500 550 600"
+				"affected_by_aoe_increase"	"1"		
+			}
+			"ally_cast_range"	"500 700 900 1100"
 		}
 	}
 
@@ -71,8 +73,8 @@
 	//=================================================================================================================
 	"earth_spirit_magnetize"
 	{
-		"ReduxPerks"		"earth"
 		"ReduxFlags"		"doNotRandom"
+		"ReduxPerks"		"earth"
 	}
 	
 	// Earth Spirit

@@ -19,12 +19,11 @@
 		"ReduxBans"			"batrider_sticky_napalm"
 	}
 
-	"ember_spirit_immolation"
+	"ember_spirit_immolation" // current innate
 	{
 		"ReduxPerks"		"fire"
 		"ReduxBans"			"batrider_sticky_napalm"
 	}
-
 
 	"ember_spirit_fire_remnant"
 	{
@@ -37,8 +36,6 @@
 		"ReduxFlags"		"doNotRandom | mobility"
 		"ReduxPerks"		"fire | mobility"
 	}
-
-
 
 	// Talents
 	"special_bonus_unique_ember_spirit_1"
@@ -97,5 +94,4 @@
 
 		"TalentRequiredAbility"			"ember_spirit_searing_chains"
 	}
-
 }

@@ -40,7 +40,6 @@
 			"bonus_armor_pct"				"25 35 45 55"
 			"battery_assault_radius"		"330"			//note - currently implemented as tooltip only, change in actual ability
 			"cogs_radius"					"330"			//note - currently implemented as tooltip only, change in actual ability
-
 			"hookshot_damage_bonus_pct"		"0"
 			"hookshot_radius_bonus_pct"		"50 60 70 80"
 			"hookshot_duration_bonus_pct"	"50 60 70 80"
@@ -50,7 +49,6 @@
 			//"rocket_flare_cooldown"				"4.0"
 			"rocket_flare_duration_pct"			"35 45 55 65"
 			"rocket_flare_damage_pct"			"35 45 55 65"
-			
 			"jetpack_bonus_speed"			"40"
 			"jetpack_turn_rate"				"75"
 		}

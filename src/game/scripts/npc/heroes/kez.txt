@@ -73,7 +73,7 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 
-		"ReduxFlags"                                                           "attack_modifier | crit | doNotRandom"
+		"ReduxFlags"                                                           "attack_modifier | crit | stun | doNotRandom"
 		"ReduxPerks"                                                           "attack_modifier | blades | dagger"
 	}
 

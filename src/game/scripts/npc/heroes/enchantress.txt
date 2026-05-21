@@ -6,7 +6,7 @@
 		"ReduxPerks"		"nature"
 		"ReduxCost"			"10"
 	}
-	
+
 	"enchantress_bunny_hop"
 	{
 		"ReduxFlags"		"mobility | doNotRandom"
@@ -28,7 +28,7 @@
 
 	"enchantress_little_friends"
 	{
-		"ReduxFlags"                    "doNotRandom | upgradeable"
+		"ReduxFlags"                    "stun | doNotRandom | upgradeable"
 		"ReduxPerks"                    "nature"
 
 		"MaxLevel"						"4"
@@ -51,7 +51,6 @@
 		}
 	}
 
-	
 	"enchantress_enchant"
 	{
 		"ReduxFlags"		"summon"
@@ -63,7 +62,7 @@
 		"ReduxFlags"		"support"
 		"ReduxPerks"		"support | nature"
 	}
-	
+
 	"enchantress_impetus"
 	{
 		"ReduxFlags"		"attack_modifier"
@@ -71,13 +70,13 @@
 		"ReduxCost"			"20"
 	}
 
-	"enchantress_rabblerouser"		// innate
+	"enchantress_rabblerouser" // current innate
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
 		"ReduxPerks"		"nature"
 	}
-	
-	
+
 	// Talents
 	"special_bonus_unique_enchantress_2"
 	{
@@ -101,7 +100,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility			"enchantress_impetus"
+		"TalentRequiredAbility"			"enchantress_impetus"
 	}
 	"special_bonus_unique_enchantress_5"
 	{

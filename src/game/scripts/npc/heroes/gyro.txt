@@ -7,7 +7,7 @@
 	{
 		"ReduxPerks"		"scientific | explosive"
 		"ReduxBans"			"batrider_sticky_napalm"
-	}	
+	}
 
 	//=================================================================================================================
 	// Gyrocopter: Homing Missile
@@ -17,7 +17,7 @@
 		"ReduxFlags"		"stun"
 		"ReduxPerks"		"scientific | explosive"
 	}
-	
+
 	//=================================================================================================================
 	// Gyrocopter: Flak Cannon
 	//=================================================================================================================
@@ -33,9 +33,9 @@
 	//=================================================================================================================
 	"gyrocopter_call_down"
 	{
+		"ReduxFlags"		"wtfAutoBan"
 		"ReduxPerks"		"scientific | skillshot | explosive"
-		// "ReduxBans"			"tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
-		// "ReduxFlags"		"wtfAutoBan"
+		"ReduxBans"			"tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 
 	//=================================================================================================================
@@ -46,50 +46,20 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilitySound"					"Hero_Gyrocopter.FlackCannon"
-		"IsBreakable"					"1"
-		"IsGrantedByScepter"			"1"
+
 		"MaxLevel"						"4"
 
-		"AbilityCastRange"				"700"
-		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			"double_target"			"1"
-			"sidegunner_fire_rate"		"1.3 1.15 1.0 0.85"
+			"sidegunner_fire_rate"		"1.3 1.2 1.1 1.0"
 		}
-	}	
-
-	//=================================================================================================================
-	// Gyrocopter Lock On
-	//=================================================================================================================
-	"gyrocopter_lock_on"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-
-		"MaxLevel"						"1"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
- 		"AbilityCastAnimation"			"ACT_INVALID"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.0 0.0 0.0"
 	}
 
 	//=================================================================================================================
-	// Gyrocopter: Innate Disassemble anything
+	// Gyrocopter: Chop Shop (old Innate)
 	//=================================================================================================================
 	"gyrocopter_chop_shop"
 	{
@@ -110,7 +80,6 @@
 		"ReduxFlags"		"mobility"
 		"ReduxPerks"		"mobility | fire"
 	}
-
 
 	// Talents
 	"special_bonus_unique_gyrocopter_1"

@@ -69,10 +69,7 @@
 		"ReduxCost"                     "10"
 	}
 
-
 	// Talents
-
-
 	"special_bonus_unique_batrider_1"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"

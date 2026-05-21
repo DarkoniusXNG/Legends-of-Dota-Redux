@@ -43,12 +43,12 @@
 
 		"AbilityValues"
 		{
-			"radius"			
+			"radius"
 			{
 				"value"		"275 300 325 350"
 				"affected_by_aoe_increase"	"1"
 			}
-			"damage"			
+			"damage"
 			{
 				"value"			"85 95 105 115"
 				"CalculateSpellDamageTooltip" "1"
