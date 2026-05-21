@@ -1,0 +1,192 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Legion Commander: Overwhelming Odds
+	//=================================================================================================================
+	//"legion_commander_overwhelming_odds"
+	//{
+
+	//}
+
+	//=================================================================================================================
+	// Legion Commander: Press the Attack
+	//=================================================================================================================
+	"legion_commander_press_the_attack"
+	{
+		"ReduxFlags" 				"upgradeable | support | mobility"
+		"ReduxPerks"               	"support | mobility"
+	}
+
+	//=================================================================================================================
+	// Legion Commander: Moment of Courage
+	//=================================================================================================================
+	"legion_commander_moment_of_courage"
+	{
+		"ReduxFlags"             	"attack_modifier"
+		"ReduxPerks"             	"attack_modifier | rage"
+		"ReduxCost"               	"10"
+	}
+
+	//=================================================================================================================
+	// Legion Commander: Duel
+	//=================================================================================================================
+	"legion_commander_duel"
+	{
+		"ReduxFlags"		"upgradeable | silence"
+		"ReduxPerks"		"silence"
+		"ReduxCost"			"80"
+		"ReduxBans"			"spell_lab_symbiotic"
+	}
+
+	//=================================================================================================================
+	// Legion Commander: Outfight Them! (current innate)
+	//=================================================================================================================
+	"legion_commander_outfight_them"
+	{
+		"ReduxFlags"                    "tank | support"
+		"ReduxPerks"                    "support | aura"
+		"ReduxCost"                     "30" // works for any spell
+	}
+
+	//=================================================================================================================
+	// Legion Commander: Intimidate
+	//=================================================================================================================
+	"legion_commander_intimidate"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"Innate"                                                               "0"
+
+		"ReduxFlags"                                                           "doNotRandom"
+
+		"MaxLevel"						"1"
+		"AbilityCastPoint"				"0.2"
+		"AbilityManaCost"				"0"
+		"AbilityCooldown"				"15"
+
+		"AbilityValues"
+		{
+			"hp_cost_perc"				"0"
+			"angle"						"120"
+			"radius"
+			{
+				"value"							"600"
+				"affected_by_aoe_increase"		"1"
+
+			}
+			"slow_duration"				"1.0"
+			"damage"					"75 150 225 300"
+			"movement_slow"				"100" // uses the same debuff as Overwhelming Odds
+			"debuff_duration"
+			{
+				"value"					"4"
+				"hero_levelup"			"+0.1"
+			}
+			"reduction" // probably the same as Giant Wolf Intimidate
+			{
+				"value"					"20"
+				"hero_levelup"			"+1"
+			}
+			"stuns"
+			{
+				"value"						"0"
+				"special_bonus_scepter"		"0"
+			}
+			"grants_restore_amp"
+			{
+				"value"						"0"
+				"special_bonus_scepter"		"0"
+			}
+		}
+	}
+
+	// Talents
+	"special_bonus_unique_legion_commander_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"      	"legion_commander_moment_of_courage"
+	}
+	"special_bonus_unique_legion_commander_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"         "legion_commander_overwhelming_odds"
+	}
+	"special_bonus_unique_legion_commander_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"      	"legion_commander_press_the_attack"
+	}
+	"special_bonus_unique_legion_commander_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"     	"legion_commander_press_the_attack"
+	}
+	"special_bonus_unique_legion_commander_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"legion_commander_moment_of_courage"
+	}
+	"special_bonus_unique_legion_commander_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"legion_commander_press_the_attack"
+	}
+	"special_bonus_unique_legion_commander_9"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"legion_commander_overwhelming_odds"
+	}
+	"special_bonus_unique_legion_commander_pta_movespeed"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"         "legion_commander_press_the_attack"
+	}
+	"special_bonus_unique_legion_commander_outfight_them_armor"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"legion_commander_outfight_them"
+	}
+	"special_bonus_unique_legion_commander_duel_duration"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"legion_commander_duel"
+	}
+	"special_bonus_unique_legion_commander_duel_refresh_on_victory"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"legion_commander_duel"
+	}
+}

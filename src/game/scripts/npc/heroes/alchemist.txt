@@ -157,4 +157,13 @@
 
 		"TalentRequiredAbility"         "alchemist_chemical_rage"
 	}
+
+	"special_bonus_unique_alchemist_weaponry_power"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"         "alchemist_corrosive_weaponry"
+	}
 }

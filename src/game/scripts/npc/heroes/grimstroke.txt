@@ -1,0 +1,190 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Grimstroke: Stroke of Fate
+	//=================================================================================================================
+	"grimstroke_dark_artistry"
+	{
+		"ReduxPerks"		"skillshot"
+	}
+
+	//=================================================================================================================
+	// Grimstroke: Phantom's Embrace
+	//=================================================================================================================
+	"grimstroke_ink_creature"
+	{
+		"ReduxFlags"    "silence"
+		"ReduxPerks"	"undead | silence"
+	}
+
+	//=================================================================================================================
+	// Grimstroke: Dark Portrait (scepter ability)
+	//=================================================================================================================
+	"grimstroke_dark_portrait"
+	{
+		"ReduxFlags"	"illusion | upgradeable"
+		"ReduxPerks"	"illusion"
+
+		"MaxLevel"						"4"
+
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"35 30 25 20"
+		"AbilityManaCost"				"200"
+
+		"AbilityValues"
+		{
+			"illusion_duration"
+			{
+				"value" "25"
+			}
+			"images_do_damage_percent"
+			{
+				"value" "25 30 35 40"
+			}
+			"images_do_damage_percent_tooltip"
+			{
+				"value" "125 130 135 140"
+			}
+			"images_take_damage_percent"
+			{
+				"value" "175 150 125 100"
+			}
+			"images_take_damage_percent_tooltip"
+			{
+				"value" "275 250 225 200"
+			}
+			"images_movespeed_bonus"
+			{
+				"value" "30 35 40 45"
+			}
+
+			"immunity_resist"	"95"
+		}
+	}
+
+	//=================================================================================================================
+	// Grimstroke: Ink Over (old shard ability)
+	//=================================================================================================================
+	"grimstroke_ink_over"
+	{
+		"MaxLevel"						"4"
+
+		"AbilityCooldown"				"14 13 12 11"
+
+		"AbilityValues"
+		{
+			"duration"
+			{
+				"value" "6"
+			}
+			"total_damage"
+			{
+				"value" "320 360 400 440"
+				"DamageTypeTooltip"	"DAMAGE_TYPE_MAGICAL"
+			}
+			"attack_speed"
+			{
+				"value" "50 70 90 110"
+			}
+			"move_speed"
+			{
+				"value" "25 35 45 55"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Grimstroke: Ink Swell
+	//=================================================================================================================
+	"grimstroke_spirit_walk"
+	{
+		"ReduxFlags"		"mobility | stun | support"
+		"ReduxPerks"		"mobility | support"
+	}
+
+	//=================================================================================================================
+	// Grimstroke: Soulbind
+	//=================================================================================================================
+	"grimstroke_soul_chain"
+	{
+		"ReduxFlags"		"stun"
+		"ReduxCost"			"40"
+	}
+
+	//=================================================================================================================
+	// Grimstroke: Ink Trail // current innate
+	//=================================================================================================================
+	"grimstroke_ink_trail"
+	{
+		"ReduxFlags"	"tank"
+		//"ReduxPerks"	""
+		"ReduxCost"		"10"
+	}
+
+	// Grimstroke
+	"special_bonus_unique_grimstroke_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 					"grimstroke_spirit_walk"
+	}
+	"special_bonus_unique_grimstroke_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 					"grimstroke_dark_artistry"
+	}
+	"special_bonus_unique_grimstroke_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 					"grimstroke_dark_artistry"
+	}
+	"special_bonus_unique_grimstroke_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 					"grimstroke_ink_creature"
+	}
+	"special_bonus_unique_grimstroke_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 					"grimstroke_spirit_walk"
+	}
+	"special_bonus_unique_grimstroke_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 					"grimstroke_spirit_walk"
+	}
+	"special_bonus_unique_grimstroke_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 					"grimstroke_ink_creature"
+	}
+	"special_bonus_unique_grimstroke_soul_chain_reflect_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 					"grimstroke_soul_chain"
+	}
+}

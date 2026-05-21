@@ -123,4 +123,14 @@
 
 		"TalentRequiredAbility"                                                   "abaddon_borrowed_time"
 	}
+
+	"special_bonus_unique_abaddon_borrowed_time_cd"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "abaddon_borrowed_time"
+	}
+	
 }

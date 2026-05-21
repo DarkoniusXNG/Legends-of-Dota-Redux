@@ -22,6 +22,29 @@
 	{
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support | light"
+
+		"AbilityCastRange"				"800"
+		"AbilityCooldown"				"15 14 13 12"
+
+		"AbilityValues"
+		{
+			"damage_min"
+			{
+				"value" "55 120 185 250"
+			}
+			"damage_max"
+			{
+				"value" "100 200 300 400"
+			}
+			"heal_min"
+			{
+				"value" "45 80 115 150"
+			}
+			"heal_max" // always applies max effect when cast on self
+			{
+				"value" "90 160 230 300"
+			}
+		}
 	}
 
 	"chen_hand_of_god"
@@ -98,5 +121,14 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "chen_divine_favor"
+	}
+
+	"special_bonus_unique_chen_zealot"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "chen_zealot"
 	}
 }

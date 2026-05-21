@@ -132,4 +132,22 @@
 
 		"TalentRequiredAbility"                                                   "ancient_apparition_ice_blast"
 	}
+
+	"special_bonus_unique_ancient_apparition_cold_feet_dps"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "ancient_apparition_cold_feet"
+	}
+
+	"special_bonus_unique_ancient_apparition_cold_feet_distance"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "ancient_apparition_cold_feet"
+	}
 }

@@ -157,7 +157,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "dark_seer_ion_shell"
+		"TalentRequiredAbility"                                                   "dark_seer_surge"
 	}
 	"special_bonus_unique_dark_seer_7"
 	{
