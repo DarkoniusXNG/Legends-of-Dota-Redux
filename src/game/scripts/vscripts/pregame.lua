@@ -1505,7 +1505,7 @@ function Pregame:onThink()
             Convars:SetBool('dota_bot_mode', true)
             Convars:SetBool('dota_bot_disable', false)
             Convars:SetBool('dota_bot_use_machine_learned_weights', true)
-            Convars:SetBool('dota_bot_allow_human_control', false) -- does not work
+            --Convars:SetBool('dota_bot_allow_human_control', false) -- does not work
         end, DoUniqueString('pregamestart'), 1)
 
         -- Hook bot stuff
@@ -7821,6 +7821,7 @@ function Pregame:fixSpawnedHero( spawnedUnit )
                         spawnedUnit:SetBotDifficulty(OptionManager:GetOption('direBotDiff'))
                     end
                 end
+                --spawnedUnit:SetControllableByAllPlayers(false) -- does not work
             end
 
             -- 'No Charges' fix for Tiny Toss
