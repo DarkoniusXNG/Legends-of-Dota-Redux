@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-    "zuus_thundergods_vengeance"
+    "zuus_thundergods_vengeance" // TODO: Wraith Night ability
     {
         "AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"

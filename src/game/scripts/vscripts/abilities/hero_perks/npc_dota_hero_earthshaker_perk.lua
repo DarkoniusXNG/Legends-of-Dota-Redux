@@ -45,7 +45,6 @@ if IsServer() then
 			parent:Heal(heal_amount, ability)
 			SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, parent, heal_amount, nil)
 			local healParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_bloodbath_heal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-			--ParticleManager:SetParticleControl(healParticle, 1, Vector(radius, radius, radius))
 			ParticleManager:ReleaseParticleIndex(healParticle)
 		end
 	end

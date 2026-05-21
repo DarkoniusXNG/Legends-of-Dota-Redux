@@ -22,7 +22,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("faceless_void")
+--CreateEmptyTalents("faceless_void")
 
 LinkLuaModifier("modifier_imba_faceless_void_chronocharges", "abilities/dota_imba/hero_faceless_void.lua", LUA_MODIFIER_MOTION_NONE)	-- Chronocharges counter
 if modifier_imba_faceless_void_chronocharges == nil then modifier_imba_faceless_void_chronocharges = class({}) end
@@ -47,11 +47,9 @@ function imba_faceless_void_timelord:IsInnateAbility()
 	return true
 end
 
-function imba_faceless_void_timelord:GetBehavior()
-	return DOTA_ABILITY_BEHAVIOR_PASSIVE + DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE end
-
 function imba_faceless_void_timelord:GetIntrinsicModifierName()
-	return "modifier_imba_faceless_void_timelord" end
+	return "modifier_imba_faceless_void_timelord"
+end
 
 ----------------------------------
 -----	Timelord Modifier	  ----
@@ -62,8 +60,9 @@ function modifier_imba_faceless_void_timelord:IsDebuff()	return false end
 function modifier_imba_faceless_void_timelord:IsHidden()	return true end
 
 function modifier_imba_faceless_void_timelord:DeclareFunctions()
-	local funcs = { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,}
-	return funcs
+	return {
+		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+	}
 end
 
 function modifier_imba_faceless_void_timelord:OnCreated()
@@ -271,12 +270,11 @@ function modifier_imba_faceless_void_time_walk_cast:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW end
 
 function modifier_imba_faceless_void_time_walk_cast:CheckState()
-	if IsServer() then
-		local state = {	[MODIFIER_STATE_STUNNED] = true,
-			[MODIFIER_STATE_INVULNERABLE] = true,
-			[MODIFIER_STATE_NO_UNIT_COLLISION] = true, }
-		return state
-	end
+	return {
+		[MODIFIER_STATE_STUNNED] = true,
+		[MODIFIER_STATE_INVULNERABLE] = true,
+		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+	}
 end
 
 function modifier_imba_faceless_void_time_walk_cast:OnCreated(params)
@@ -941,11 +939,10 @@ function modifier_imba_faceless_void_time_lock_stun:OnDestroy()
 	if IsServer() then self:GetParent():SetRenderColor(255,255,255) end end
 
 function modifier_imba_faceless_void_time_lock_stun:CheckState()
-	if IsServer() then
-		local state = {	[MODIFIER_STATE_STUNNED] = true,
-			[MODIFIER_STATE_FROZEN ] = true	}
-		return state
-	end
+	return {
+		[MODIFIER_STATE_STUNNED] = true,
+		[MODIFIER_STATE_FROZEN] = true,
+	}
 end
 
 ----------------------------------------------------------------
@@ -1257,18 +1254,24 @@ function modifier_imba_faceless_void_chronosphere_handler:CheckState()
 
 	if stacks == 0 then
 		if self:GetParent():HasModifier("modifier_slark_shadow_dance") then
-			state = {[MODIFIER_STATE_STUNNED] = true,
-				[MODIFIER_STATE_FROZEN] = true}
+			state = {
+				[MODIFIER_STATE_STUNNED] = true,
+				[MODIFIER_STATE_FROZEN] = true
+			}
+		else
+			state = {
+				[MODIFIER_STATE_FROZEN] = true,
+				[MODIFIER_STATE_ROOTED] = true,
+				[MODIFIER_STATE_STUNNED] = true,
+				[MODIFIER_STATE_SILENCED] = true,
+				[MODIFIER_STATE_INVISIBLE] = false,
+			}
 		end
-
-		state = {	[MODIFIER_STATE_FROZEN] = true,
-			[MODIFIER_STATE_ROOTED] = true,
-			[MODIFIER_STATE_STUNNED] = true,
-			[MODIFIER_STATE_SILENCED] = true,
-			[MODIFIER_STATE_INVISIBLE] = false,}
 	elseif stacks == 1 or stacks == 4 then
-		state = {	[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-			[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true, }
+		state = {
+			[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+			[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
+		}
 	end
 	return state
 end
@@ -1437,7 +1440,7 @@ function modifier_imba_faceless_void_time_lock_720:ApplyTimeLock(target)
 	target:EmitSound("Hero_FacelessVoid.TimeLockImpact")
 
 	-- Hero stun duration
-	if target:IsConsideredHero() or target:IsRoshan() then
+	if target:IsConsideredHero() or target:IsRoshanCustom() then
 		target:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_imba_faceless_void_time_lock_720_freeze", {duration = duration}):SetDuration(duration * (1 - target:GetStatusResistance()), true)
 	-- Creep stun duration
 	else
@@ -1501,9 +1504,17 @@ end
 ----------------------------------------------
 -- TIME LOCK FREEZE MODIFIER (7.20 Version) --
 ----------------------------------------------
+function modifier_imba_faceless_void_time_lock_720_freeze:IsDebuff()
+	return true
+end
 
-function modifier_imba_faceless_void_time_lock_720_freeze:IsPurgable()		return false end
-function modifier_imba_faceless_void_time_lock_720_freeze:IsPurgeException()	return true end
+function modifier_imba_faceless_void_time_lock_720_freeze:IsStunDebuff()
+	return true
+end
+
+function modifier_imba_faceless_void_time_lock_720_freeze:IsPurgable()
+	return true
+end
 
 function modifier_imba_faceless_void_time_lock_720_freeze:GetEffectName()
 	return "particles/generic_gameplay/generic_stunned.vpcf"

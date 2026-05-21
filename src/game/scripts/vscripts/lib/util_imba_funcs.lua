@@ -55,7 +55,7 @@ end
 -- Checks if the attacker's damage is classified as "hero damage".	 More `or`s may need to be added.
 function IsHeroDamage(attacker, damage)
 	if damage > 0 then
-		if(attacker:GetName() == "npc_dota_roshan" or attacker:IsControllableByAnyPlayer() or attacker:GetName() == "npc_dota_shadowshaman_serpentward") then
+		if(attacker:IsRoshanCustom() or attacker:IsControllableByAnyPlayer() or attacker:GetName() == "npc_dota_shadowshaman_serpentward") then
 			return true
 		else
 			return false
@@ -210,15 +210,6 @@ function TrueKill(caster, target, ability)
 	end
 end
 
--- Checks if a given unit is Roshan
-function IsRoshan(unit)
-	if unit:GetName() == "npc_imba_roshan" or unit:GetName() == "npc_dota_roshan" then
-		return true
-	else
-		return false
-	end
-end
-
 -- Checks if a unit is near units of a certain class not on its team
 function IsNearEnemyClass(unit, radius, class)
 	local class_units = Entities:FindAllByClassnameWithin(class, unit:GetAbsOrigin(), radius)
@@ -307,14 +298,6 @@ function RemoveWearables( hero )
 			model = model:NextMovePeer()
 		end
 	end)
-end
-
-function ShowWearables( event )
-  local hero = event.caster
-
-  for i,v in pairs(hero.hiddenWearables) do
-	v:RemoveEffects(EF_NODRAW)
-  end
 end
 
 function ChangeAttackProjectileImba(unit)
@@ -555,28 +538,6 @@ end
 -- "Custom" modifier value fetching
 ----------------------------------------------------------------
 
--- Spell lifesteal
-function CDOTA_BaseNPC:GetSpellLifesteal()
-	local lifesteal = 0
-	for _, parent_modifier in pairs(self:FindAllModifiers()) do
-		if parent_modifier.GetModifierSpellLifesteal then
-			lifesteal = lifesteal + parent_modifier:GetModifierSpellLifesteal()
-		end
-	end
-	return lifesteal
-end
-
--- Autoattack lifesteal
-function CDOTA_BaseNPC:GetLifesteal()
-	local lifesteal = 0
-	for _, parent_modifier in pairs(self:FindAllModifiers()) do
-		if parent_modifier.GetModifierLifesteal then
-			lifesteal = lifesteal + parent_modifier:GetModifierLifesteal()
-		end
-	end
-	return lifesteal
-end
-
 -- Health regeneration % amplification
 function CDOTA_BaseNPC:GetHealthRegenAmp()
 	local regen_increase = 0
@@ -735,31 +696,6 @@ function CDOTA_BaseNPC:GetIncomingDamagePct()
 	return (damage_amp - 1) * 100
 end
 
--- Tenacity
-function CDOTA_BaseNPC:GetIMBATenacity()
-
-	-- Fetch tenacity from modifiers
-	local tenacity = 1
-	local tenacity_unique = 0
-	for _, parent_modifier in pairs(self:FindAllModifiers()) do
-
-		-- Tutela Plate's tenacity does not stack with itself
-		if parent_modifier.GetCustomTenacityUnique then
-			tenacity_unique = math.max(tenacity_unique, parent_modifier:GetCustomTenacityUnique())
-		end
-
-		-- Stack all other sources multiplicatively
-		if parent_modifier.GetCustomTenacity then
-			tenacity = tenacity * (100 - parent_modifier:GetCustomTenacity()) * 0.01
-		end
-	end
-
-	-- Calculate total tenacity
-	tenacity = tenacity * (100 - tenacity_unique) * 0.01
-
-	return (1 - tenacity) * 100
-end
-
 -- Safely checks if this unit is a hero or a creep
 function IsHeroOrCreep(unit)
 	if unit.IsCreep and unit:IsCreep() then
@@ -802,7 +738,7 @@ function RollPseudoRandom(base_chance, entity)
 	end
 
 	if not prngBase then
-		print("The chance was not found! Make sure to add it to the table or change the value.")
+		--print("The chance was not found! Make sure to add it to the table or change the value.")
 		local unit
 		if entity.HasModifier ~= nil then
 			unit = entity

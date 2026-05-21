@@ -6,17 +6,17 @@
         "AbilityTextureName"                                                   "custom/keeper_of_the_light_innate_redux"
         "ScriptFile"                                                           "abilities/keeper_of_the_light_innate.lua"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"IsBreakable"                                                          "1"
 
         "HasScepterUpgrade"                                                    "1"
 
         "AbilityValues"
         {
-            "vision_radius" "500 600 700 800"
-            "scepter_bonus" "1000"
+            "vision_radius"                                                    "500 600 700 800"
+            "scepter_bonus"                                                    "200 300 400 500" // Total unobstructed daytime vision: this + owner's daytime vision
         }
 
         "ReduxFlags"                                                           "doNotRandom | dota_custom | upgradeable"
         "ReduxPerks"                                                           "light"
-        "ReduxCost"                                                            "10"
     }
 }

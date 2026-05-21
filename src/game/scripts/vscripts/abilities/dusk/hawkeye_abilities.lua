@@ -139,7 +139,7 @@ function hawkeye_double_tap_2(event)
   local speed = 3200
   local n = 1
   if caster.double_tap_target == nil then return end
---  PrintTable(caster.hitlist)
+
 --  for k,v in pairs(caster.hitlist) do
 --    print("======CHECKING ENTRY======")
 --    print("======"..k.."======")
@@ -252,7 +252,7 @@ function hawkeye_double_tap_end(event)
   
   print("END")
   
-  target:ForceKill(true)
+  target:ForceKill(false)
 end
 
 function hawkeye_ricochet_propagate(event)

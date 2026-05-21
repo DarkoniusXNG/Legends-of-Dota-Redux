@@ -745,7 +745,7 @@
 		"ReduxPerks"                                                           "undead"
 	}
 
-	
+
 
 	"undying_ceaseless_dirge"
 	{
@@ -2386,7 +2386,7 @@
 	"ursa_enrage"
 	{
 		"ReduxFlags"                                                           "upgradeable | tank"
-		"ReduxPerks"                                                           "rage"
+		"ReduxPerks"                                                           "rage | transformation"
 		"ReduxCost"                                                            "10"
 		"ReduxBans"                                                            "dazzle_bad_juju_redux"
 	}
@@ -2585,7 +2585,7 @@
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility | scientific | skillshot"
 	}
-	
+
 	"morphling_waveform"
 	{
 		"ReduxFlags"                                                           "mobility"
@@ -2810,7 +2810,7 @@
 		"ReduxFlags"                                                           "tank | mana"
 		"ReduxCost"                                                            "40"
 	}
-	
+
 	"slardar_bash"
 	{
 		"ReduxFlags"                                                           "bash | attack_modifier | physical"
@@ -2823,7 +2823,7 @@
 		"ReduxPerks"                                                           "bash | attack_modifier | enemymoving"
 		"ReduxCost"                                                            "120"
 	}
-	
+
 	"troll_warlord_berserkers_rage"
 	{
 		"ReduxFlags"                                                           "attack_modifier | semi_passive"
@@ -2853,7 +2853,7 @@
 		"ReduxPerks"                                                           "attack_modifier | blades"
 		"ReduxCost"                                                            "10"
 	}
-	
+
 
 	"monkey_king_jingu_mastery"
 	{
@@ -2966,7 +2966,7 @@
 		"ReduxCost"                                                            "20" // why people think this is bad?
 	}
 
-	
+
 
 	"undying_tombstone_zombie_deathstrike"
 	{
@@ -3016,7 +3016,7 @@
 		"ReduxPerks"                                                           "enemymoving"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
 	}
-	
+
 	"techies_stasis_trap"
 	{
 		"ReduxFlags"                                                           "stun"
@@ -3035,7 +3035,7 @@
 		"ReduxPerks"                                                           "teleport | channeled"
 	}
 
-	
+
 	"meepo_earthbind"
 	{
 		"ReduxPerks"                                                           "earth | skillshot"
@@ -3632,9 +3632,9 @@
 		"ReduxCost"                                                            "20"
 	}
 
-	
 
-	
+
+
 
 	"techies_focused_detonate"
 	{
@@ -3651,7 +3651,7 @@
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "blades | scientific | skillshot"
 	}
-	
+
 	"shadow_demon_shadow_poison_release"
 	{
 		"ReduxFlags"                                                           "doNotRandom"
@@ -6322,7 +6322,7 @@
 		"TalentRequiredAbility"                                                   "broodmother_spin_web"
 	}
 
-	
+
 
 	// Void Spirit
 	"special_bonus_unique_void_spirit_1"

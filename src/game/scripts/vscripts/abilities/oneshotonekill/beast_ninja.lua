@@ -25,23 +25,11 @@ function lang( keys )
 end
 
 function sight( keys )
-	local target=keys.target
-	local caster=keys.caster
-	local unit = CreateUnitByName("majia",target:GetOrigin(),false,caster,caster,caster:GetTeam())
-	unit:SetDayTimeVisionRange(keys.radius_d)
-	unit:SetNightTimeVisionRange(keys.radius_n)
+	local target = keys.target
+	local caster = keys.caster
+	local ability = keys.ability
 
-	GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("sight"),
-		function()
-			if target:HasModifier("modifier_sight") then
-				unit:SetAbsOrigin(target:GetAbsOrigin())
-				return 0.1
-			else
-				target:RemoveModifierByName("modifier_tower_truesight_aura")--防止偶然性的bug
-				unit:RemoveSelf()
-				return nil
-			end
-		end,0.1)
+	target:AddNewModifier(caster, ability, "modifier_beast_ninja_sight", {duration = ability:GetSpecialValueFor("duration")})
 end
 
 function wang( keys )
@@ -66,7 +54,7 @@ function wang( keys )
 				ParticleManager:DestroyParticle(p_index,true)
 				return nil
 			end
-			
+
 	end,0.03)
 end
 
@@ -104,4 +92,110 @@ function benneng( keys )
 			return nil
 		end
 	end)
+end
+
+---------------------------------------------------------------------------------------------------
+
+LinkLuaModifier("modifier_beast_ninja_sight", "abilities/oneshotonekill/beast_ninja.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_beast_ninja_sight_aura_effect", "abilities/oneshotonekill/beast_ninja.lua", LUA_MODIFIER_MOTION_NONE)
+
+modifier_beast_ninja_sight = class({})
+
+function modifier_beast_ninja_sight:IsHidden()
+  return false
+end
+
+function modifier_beast_ninja_sight:IsDebuff()
+  return false
+end
+
+function modifier_beast_ninja_sight:IsPurgable()
+  return false
+end
+
+function modifier_beast_ninja_sight:RemoveOnDeath()
+  return true
+end
+
+-- Unobstructed Vision
+function modifier_beast_ninja_sight:CheckState()
+  return {
+    [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
+  }
+end
+
+-- True Sight
+function modifier_beast_ninja_sight:IsAura()
+  return true
+end
+
+function modifier_beast_ninja_sight:GetModifierAura()
+  return "modifier_beast_ninja_sight_aura_effect"
+end
+
+function modifier_beast_ninja_sight:GetAuraSearchTeam()
+  return DOTA_UNIT_TARGET_TEAM_ENEMY
+end
+
+function modifier_beast_ninja_sight:GetAuraSearchType()
+  return DOTA_UNIT_TARGET_ALL --bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
+end
+
+function modifier_beast_ninja_sight:GetAuraSearchFlags()
+  return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE)
+end
+
+function modifier_beast_ninja_sight:GetAuraRadius()
+  return self:GetAbility():GetSpecialValueFor("true_sight_range")
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_beast_ninja_sight_aura_effect = class({})
+
+function modifier_beast_ninja_sight_aura_effect:IsHidden()
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+
+  -- Check if caster exists
+  if not caster or caster:IsNull() then
+    return true
+  end
+
+  -- Check for True Sight immunities
+  if parent.HasModifier and (parent:HasModifier("modifier_slark_shadow_dance") or parent:HasModifier("modifier_slark_depth_shroud")) then
+    return true
+  end
+
+  return false
+end
+
+function modifier_beast_ninja_sight_aura_effect:IsDebuff()
+  return true
+end
+
+function modifier_beast_ninja_sight_aura_effect:IsPurgable()
+  return false
+end
+
+function modifier_beast_ninja_sight_aura_effect:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA
+end
+
+function modifier_beast_ninja_sight_aura_effect:CheckState()
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+
+  -- Check if caster exists
+  if not caster or caster:IsNull() then
+    return {}
+  end
+
+  if parent.HasModifier and (parent:HasModifier("modifier_slark_shadow_dance") or parent:HasModifier("modifier_slark_depth_shroud")) then
+    return {}
+  end
+
+  return {
+    [MODIFIER_STATE_INVISIBLE] = false
+  }
 end

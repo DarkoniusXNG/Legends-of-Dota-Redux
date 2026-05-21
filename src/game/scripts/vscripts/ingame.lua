@@ -252,7 +252,7 @@ function Ingame:OnPlayerLearnedAbility(keys)
             end
         end)
         -- Custom stat bonus talents
-        if util:IsTalent(abilityName) and string.find(abilityName, "redux") then
+        if IsTalentCustom(abilityName) and string.find(abilityName, "redux") then
             local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
             if hero then
                 LinkLuaModifier("modifier_" .. abilityName, "abilities/talents" .. abilityName .. ".lua", LUA_MODIFIER_MOTION_NONE)
@@ -659,11 +659,18 @@ end
 -- Called every 0.1 second to check and convert consumable items into actual consumable items
 function Ingame:CheckConsumableItems()
     local itemTable = LoadKeyValues('scripts/kv/consumable_items.kv')
+    local max_slot = DOTA_ITEM_SLOT_6
+
     for i = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:IsValidTeamPlayerID(i) and not util:isPlayerBot(i) then
             local hero = PlayerResource:GetSelectedHeroEntity(i)
             if hero and IsValidEntity(hero) then
-                for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+                if hero:HasModifier("modifier_spoons_stash_oaa") then
+                    max_slot = DOTA_ITEM_SLOT_9
+                else
+                    max_slot = DOTA_ITEM_SLOT_6
+                end
+                for i = DOTA_ITEM_SLOT_1, max_slot do
                     local hItem = hero:GetItemInSlot(i)
                     if hItem then
                         local name = hItem:GetAbilityName()
@@ -1879,7 +1886,6 @@ end
     --
 
 --[[function Ingame:FilterProjectiles(filterTable)
-    --DeepPrintTable(projectile)
     local targetIndex = filterTable["entindex_target_const"]
     local target = EntIndexToHScript(targetIndex)
     local casterIndex = filterTable["entindex_source_const"]
@@ -2054,34 +2060,84 @@ function Ingame:FilterModifiers(filterTable)
         modifier_name = modifier_name,
     }
 
-    -- Tenacity
-    if caster:GetTeamNumber() ~= parent:GetTeamNumber() and filterTable["duration"] > 0 then
-        filterTable["duration"] = filterTable["duration"] * parent:GetTenacity(modifierEventTable)
-        if parent.GetIMBATenacity then
-            local original_duration = filterTable.duration
-            local actually_duration = original_duration
-            local tenacity = parent:GetIMBATenacity()
-            if parent:GetTeam() ~= caster:GetTeam() and filterTable.duration > 0 then --and tenacity ~= 0 then
-                actually_duration = actually_duration * (100 - tenacity) * 0.01
-            end
+    -- Tenacity and WillPower for Debuffs (Status Resistance and Debuff Amplification for custom spells)
+    if caster:GetTeamNumber() ~= parent:GetTeamNumber() and filterTable.duration > 0 and IsCompletelyCustomAbility(ability) then
+        local original_duration = filterTable.duration
+        local actual_duration = GetValueChangedByStatusResistance(original_duration, parent, caster, ability)
 
-            local modifier_handler = parent:FindModifierByName(modifier_name)
-            if modifier_handler then
-                if modifier_handler.IgnoreTenacity then
-                    if modifier_handler:IgnoreTenacity() then
-                        actually_duration = original_duration
-                    end
+        -- Check if this modifier ignores status resistance and debuff amplification
+        local modifier_handler = parent:FindModifierByName(modifier_name)
+        if modifier_handler then
+            if modifier_handler.IgnoreTenacity then
+                if modifier_handler:IgnoreTenacity() then
+                    actual_duration = original_duration
                 end
             end
-            filterTable.duration = actually_duration
         end
+        filterTable.duration = actual_duration
     end
 
+    -- WillPower for Buffs (Buff Amplification for all spells)
+    if caster:GetTeamNumber() == parent:GetTeamNumber() and filterTable.duration >= 0.1 then
+        local black_list = {
+			modifier_battlemage_cooldown_oaa = true,
+			modifier_black_king_bar_immune = true, -- 7.41b
+			modifier_bloodseeker_bloodbath_thinker = true,
+			modifier_bottle_regeneration = true,
+			modifier_dark_seer_surge_trail = true,
+			modifier_dark_willow_cursed_crown = true,
+			modifier_dawnbreaker_solar_guardian_air_time = true,
+			modifier_elder_titan_earth_splitter_thinker = true,
+			modifier_enchantress_bunny_hop = true,
+			modifier_enraged_wildkin_hurricane = true,
+			modifier_eul_cyclone = true,
+			modifier_force_dash = true,
+			modifier_illusion = true,
+			modifier_invisible = true,
+			modifier_invoker_sun_strike = true,
+			modifier_invoker_sun_strike_cataclysm = true,
+			modifier_item_assault_positive = true,
+			modifier_item_bloodstone_drained = true,
+			modifier_item_buckler_effect = true,
+			modifier_item_crimson_guard_nostack = true,
+			modifier_item_forcestaff_active = true,
+			modifier_item_harpoon_internal_cd = true,
+			modifier_item_harpoon_pull = true,
+			modifier_item_hurricane_pike_active = true,
+			modifier_item_hurricane_pike_active_alternate = true,
+			modifier_item_mekansm_noheal = true,
+			modifier_item_pipe_debuff = true,
+			modifier_item_psychic_headband_active = true,
+			modifier_item_ring_of_basilius_effect = true,
+			modifier_item_sphere_target = true,
+			modifier_item_ward_true_sight = true,
+			modifier_keeper_of_the_light_illuminate = true,
+			modifier_kill = true,
+			modifier_knockback = true,
+			modifier_magnataur_skewer_movement = true,
+			modifier_magus_cooldown_oaa = true,
+			modifier_mana_draught_regeneration = true,
+			modifier_manta = true,
+			modifier_marci_unleash_flurry_cooldown = true,
+			modifier_phoenix_sun = true,
+			modifier_primal_beast_onslaught_movement_adjustable = true,
+			modifier_primal_beast_onslaught_windup = true,
+			modifier_pugna_nether_blast_thinker = true,
+			modifier_shredder_reactive_armor = true,
+			modifier_spell_block_cooldown_oaa = true,
+			modifier_techies_sticky_bomb_countdown = true,
+			modifier_teleporting = true,
+			modifier_wind_waker = true,
+        }
+        local exceptions = {
+            modifier_bubble_witch_bubble_of_protection_thinker = 1,
+        }
 
-
-    -- Willpower (Shouldn't increase duration of passives like bash)
-    if filterTable["duration"] > 0 and ability.IsPassive and not ability:IsPassive() and modifier_name ~= "modifier_kill" then
-        filterTable["duration"] = filterTable["duration"] * caster:GetWillPower(modifierEventTable)
+        if not black_list[modifier_name] and not ((string.find(modifier_name, "_aura") or string.find(modifier_name, "_thinker")) and not exceptions[modifier_name]) then
+            local original_duration = filterTable.duration
+            local actual_duration = GetValueChangedByBuffAmplification(original_duration, parent, caster, ability)
+            filterTable.duration = actual_duration
+        end
     end
 
     -- Summoners boost

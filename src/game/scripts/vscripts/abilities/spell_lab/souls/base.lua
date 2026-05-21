@@ -95,8 +95,6 @@ function spell_lab_souls_base_modifier:IsPurgable()
 end
 
 function spell_lab_souls_base_modifier:OnCreated(kv)
-
-	--DeepPrintTable(kv)
 	self.bDrop = (kv.stacks ~= nil and kv.stacks > 0)
 	self.bPickedup = false
 	if IsServer() then

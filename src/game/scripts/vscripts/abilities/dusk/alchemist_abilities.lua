@@ -29,7 +29,7 @@ function PopupGoldGain(target, amount)
 end
 
 function alchemist_alchemise_transmute_target(keys)
-  if keys.target:GetName() == "npc_dota_roshan" then return end
+  if keys.target:IsRoshanCustom() then return end
   keys.caster:ModifyGold(keys.gold, true, 0)  --Give the player a flat amount of reliable gold.
   
   --Start the particle and sound.

@@ -47,7 +47,7 @@ function RazorWind( keys )
 	local healdamage = ability:GetSpecialValueFor("damage_heal")
 	--ability:ApplyDataDrivenModifier(caster, target, modifier, {})
 	if target:GetTeamNumber() == caster:GetTeamNumber() then
-		target:Heal(healdamage, caster)
+		target:Heal(healdamage, ability)
 	else
 		ApplyDamage({victim = target, attacker = caster, damage = healdamage, damage_type = ability:GetAbilityDamageType(), ability = ability})
 	end

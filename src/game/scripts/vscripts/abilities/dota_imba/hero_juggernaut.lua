@@ -17,6 +17,12 @@
 --     suthernfriend, 03.02.2018
 --     Elfansoer, 24.07.2019
 
+if IsClient() then
+    require('lib/util_imba_client')
+end
+
+--CreateEmptyTalents("juggernaut")
+
 -- Elfansoer: fix missing imba battlepass reference (throughout file)
 
 -- JUGGERNAUT SPECIFIC UTILITY FUNCTIONS --
@@ -1986,7 +1992,7 @@ function modifier_imba_omni_slash_caster:BounceAndSlaughter(first_slash)
 			end
 
 			-- If the target is not Roshan or a hero, instantly kill it
-			if enemy:IsConsideredHero() or enemy:IsRoshan() or enemy:GetUnitName() == "npc_dota_mutation_golem" then
+			if enemy:IsConsideredHero() or enemy:IsRoshanCustom() or enemy:GetUnitName() == "npc_dota_mutation_golem" then
 				if not enemy:IsAlive() then
 					self:GetAbility().omnislash_kill_count = self:GetAbility().omnislash_kill_count + 1
 				end

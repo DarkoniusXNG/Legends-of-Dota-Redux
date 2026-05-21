@@ -22,7 +22,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("sven")
+--CreateEmptyTalents("sven")
 
 -------------------------------------------
 --            STORM BOLT
@@ -139,7 +139,7 @@ end
 
 -------------------------------------------
 modifier_imba_storm_bolt_caster = class({})
-function modifier_imba_storm_bolt_caster:IsDebuff() return true end
+function modifier_imba_storm_bolt_caster:IsDebuff() return false end
 function modifier_imba_storm_bolt_caster:IsHidden() return true end
 function modifier_imba_storm_bolt_caster:IsPurgable() return false end
 function modifier_imba_storm_bolt_caster:IsPurgeException() return false end

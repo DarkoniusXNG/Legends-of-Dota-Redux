@@ -36,6 +36,6 @@ end
 	Removes the death ward entity from the game and stops its sound]]
 function DestroyWard(keys)
 	local caster = keys.caster
-	caster.death_ward:ForceKill(true)
+	caster.death_ward:ForceKill(false)
 	--UTIL_Remove(caster.death_ward)
 end

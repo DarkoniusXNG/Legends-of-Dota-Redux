@@ -26,7 +26,7 @@ function GerrymanderBuff( keys )
 			ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
 		    ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())
 		    ParticleManager:SetParticleControl(particle, 2, target:GetAbsOrigin())
-			target:Heal(heal, caster)
+			target:Heal(heal, ability)
 		end
 		return nil
 	end)
@@ -51,7 +51,7 @@ function GerrymanderDebuff( keys )
 			ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
 		    ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())
 		    ParticleManager:SetParticleControl(particle, 2, target:GetAbsOrigin())
-			target:Heal(heal, caster)
+			target:Heal(heal, ability)
 		end
 		return nil
 	end)

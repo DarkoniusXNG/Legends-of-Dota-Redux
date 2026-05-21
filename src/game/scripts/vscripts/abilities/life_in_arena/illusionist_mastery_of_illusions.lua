@@ -11,7 +11,7 @@ function AddModifier(keys)
 		return 
 	end
 	
-	if target:GetUnitName() == "npc_dota_roshan" then 
+	if target:IsRoshanCustom() then
 		return 
 	end
 		

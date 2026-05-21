@@ -19,6 +19,8 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
+--CreateEmptyTalents("doom_bringer")
+
 -------------------------------------------
 --			GOD'S STRENGTH
 -------------------------------------------

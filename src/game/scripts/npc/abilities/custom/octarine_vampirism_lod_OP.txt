@@ -10,7 +10,6 @@
         "AbilityValues"
         {
             "hero_lifesteal" "30 45 60 75"
-            "creep_lifesteal" "5 10 15 20"
             "radius"
             {
                 "value"			"1200"

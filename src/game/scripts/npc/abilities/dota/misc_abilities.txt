@@ -792,43 +792,4 @@
 			}
 		}
     }
-
-    "crystal_maiden_brilliance_aura_redux"
-    {
-        "BaseClass"                     "crystal_maiden_brilliance_aura"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "SpellImmunityType"             "SPELL_IMMUNITY_ALLIES_YES"
-        "IsBreakable"                   "1"
-
-        "ReduxFlags"                    "support | mana"
-        "ReduxPerks"                    "support | aura"
-        "ReduxCost"                     "120"
-		"ReduxBans"                     "crystal_maiden_brilliance_aura"
-
-        "AbilityTextureName"            "custom/crystal_maiden_brilliance_aura_redux"
-
-        "AbilityValues"
-		{
-			"base_mana_regen"
-			{
-				"value"										"1 2 3 4"
-			}
-			"proximity_mana_regen_tooltip"
-			{
-				"value"										"5 10 15 20"
-			}
-			"mana_regen_amp"
-			{
-				"value"				"20 40 60 80"
-			}
-			"proximity_bonus_factor"		"5"
-			"proximity_bonus_radius"
-			{
-				"value"		"1200"
-				"affected_by_aoe_increase"	"1"
-			}
-		}
-        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_3"
-    }
 }

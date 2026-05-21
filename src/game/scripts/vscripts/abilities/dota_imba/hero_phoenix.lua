@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("phoenix")
+--CreateEmptyTalents("phoenix")
 
 function imba_phoenix_check_for_canceled( caster )
 	if caster:IsStunned() or caster:IsHexed() or caster:IsNightmared() or caster:HasModifier("modifier_naga_siren_song_of_the_siren") or caster:HasModifier("modifier_eul_cyclone") or caster:IsFrozen() or caster:IsOutOfGame() then

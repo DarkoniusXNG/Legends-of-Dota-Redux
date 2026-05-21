@@ -53,7 +53,7 @@ modifier_argent_smite_passive = class({
 		local factor = keys.target:IsBuilding() and self:GetAbility():GetSpecialValueFor("Tower_Heal_Factor") or self:GetAbility():GetSpecialValueFor("Heal_Factor")
 		local heal = keys.attacker:GetAttackDamage() * factor
 
-		keys.target:Heal(heal, self:GetParent())
+		keys.target:Heal(heal, self:GetAbility())
 
 		self:GetParent():SetForceAttackTargetAlly(nil)
 		self.range = 0

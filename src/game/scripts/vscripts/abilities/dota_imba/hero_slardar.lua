@@ -20,7 +20,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("slardar")
+--CreateEmptyTalents("slardar")
 
 ---------------------------------------------------
 --			Slardar's Guardian Sprint
@@ -423,10 +423,6 @@ end
 function modifier_imba_rip_current_movement:GetMotionControllerPriority()
 	return DOTA_MOTION_CONTROLLER_PRIORITY_HIGH
 end
-
-
-
-
 
 function modifier_imba_rip_current_movement:GetEffectName()
 	return "particles/hero/slardar/slardar_foward_propel.vpcf"

@@ -9,7 +9,7 @@ end
 
 function spell_lab_survivor_base_modifier:OnDeath(kv)
   if IsServer() then
-    if kv.unit == self:GetParent() and not kv.unit:IsAlive() and not kv.unit:IsReincarnating() then
+    if kv.unit == self:GetParent() and not kv.unit:IsReincarnating() then
       self:DeathProc()
     end
   end
@@ -17,9 +17,11 @@ end
 
 function spell_lab_survivor_base_modifier:DeathProc()
 	if self.death_proc == false then
-		local third = (GameRules:GetGameTime()-self.lastdeath)/3.0
-    self.lastdeath = GameRules:GetGameTime()-third
-  	self:SetStackCount(0)
+		local bonus_per_minute = self:GetAbility():GetSpecialValueFor("bonus")
+		local stacks_on_death = self.kept_stacks + (GameRules:GetGameTime() - self.lastdeath) * bonus_per_minute / 60
+		self.kept_stacks = stacks_on_death / 3
+    	self.lastdeath = GameRules:GetGameTime()
+  		self:SetStackCount(self.kept_stacks)
 		self.death_proc = true
 	else
 		self.lastdeath = self.lastdeath + 1
@@ -44,20 +46,21 @@ function spell_lab_survivor_base_modifier:OnCreated()
 		self.death_proc = false
 		self.enemeyFoutain = false
 		self.battleThirst = 0
+		self.kept_stacks = 0
 		if not self:GetParent():IsRealHero() then
 			local hOwner = self:GetParent():GetOwner()
 			if hOwner ~= nil then
 				local hOriginModifier = hOwner:GetAssignedHero():FindModifierByName(self:GetName())
 				if hOriginModifier ~= nil then
-	      	self:SetStackCount(hOriginModifier:GetStackCount())
-	    	end
-  		end
+	      			self:SetStackCount(hOriginModifier:GetStackCount())
+	    		end
+  			end
 		else
-      if self:GetParent():GetTeam() == DOTA_TEAM_GOODGUYS then
-          self.enemeyFoutain = Entities:FindAllByName("ent_dota_fountain_bad")
-      else
-          self.enemeyFoutain = Entities:FindAllByName("ent_dota_fountain_good")
-      end
+			if self:GetParent():GetTeam() == DOTA_TEAM_GOODGUYS then
+				self.enemeyFoutain = Entities:FindAllByName("ent_dota_fountain_bad")
+			else
+				self.enemeyFoutain = Entities:FindAllByName("ent_dota_fountain_good")
+			end
 		end
 		self:StartIntervalThink( 1 )
 	end
@@ -69,25 +72,26 @@ function spell_lab_survivor_base_modifier:OnIntervalThink()
 			self:StartIntervalThink( -1 )
 			return
 		end
-    if not self:GetParent():IsAlive() and not self:GetParent():IsReincarnating() then
-			self:DeathProc()
-      return
-    end
+		if not self:GetParent():IsAlive() and not self:GetParent():IsReincarnating() then
+			self:DeathProc() -- this only increases the self.lastdeath counter
+			return
+		end
 		self.death_proc = false
-  	if self:GetAbility():GetLevel() > 0 then
+  		if self:GetAbility():GetLevel() > 0 then
 			self:CheckBattleThirst()
 			local max = self:GetAbility():GetSpecialValueFor("max")
+			local bonus_per_minute = self:GetAbility():GetSpecialValueFor("bonus")
 			local old = self:GetStackCount()
 			if (max ~= nil and max > 0 and old >= max) then
 				self.lastdeath = self.lastdeath + 1
 				return
 			end
-      local stacks = (GameRules:GetGameTime()-self.lastdeath)*self:GetAbility():GetSpecialValueFor("bonus")*0.0166667
-  		self:SetStackCount(stacks)
+      		local stacks = self.kept_stacks + (GameRules:GetGameTime() - self.lastdeath) * bonus_per_minute / 60
+  			self:SetStackCount(stacks)
 			if (old ~= self:GetStackCount()) then
 				self:GetParent():CalculateStatBonus(true)
 			end
-  	end
+  		end
 	end
 end
 function spell_lab_survivor_base_modifier:CheckBattleThirst()

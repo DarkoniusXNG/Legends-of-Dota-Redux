@@ -69,7 +69,19 @@ if IsServer() then
 	function modifier_side_gunner_redux:OnIntervalThink()
 		local parent = self:GetParent()
 
-		if parent:PassivesDisabled() or parent:IsInvisible() or parent:IsIllusion() or not parent:IsAlive() then
+		if not parent or parent:IsNull() then
+			self:StartIntervalThink(-1)
+			self:Destroy()
+			return
+		end
+
+		if parent:IsIllusion() then
+			self:StartIntervalThink(-1)
+			self:Destroy()
+			return
+		end
+
+		if parent:PassivesDisabled() or parent:IsInvisible() or not parent:IsAlive() then
 			return
 		end
 

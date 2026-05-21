@@ -9,4 +9,26 @@
 		vsnd_files = "sounds/ambient/soundscapes/diretide/diretide_owl_03.vsnd"
 		vsnd_duration = 2.210023
 	}
+  Voidwalker.VoidalFlare =
+    {
+		type = "dota_update_default"
+		volume = 1.000000
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		mixgroup = "Weapons"
+		spread_radius = 600.000000
+		vsnd_files = "sounds/voidal_flare_fire.vsnd"
+		vsnd_duration = 3.0
+	}
+  Voidwalker.VoidalFlareHit =
+    {
+		type = "dota_update_default"
+		volume = 1.000000
+		pitch = 1.000000
+		mixgroup = "misc"
+		vsnd_files = "sounds/voidal_flare_target.vsnd"
+		vsnd_duration = 5.0
+	}
 }

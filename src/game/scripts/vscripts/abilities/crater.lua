@@ -128,7 +128,8 @@ function crater.OnProjectileHit(self,target,location)
     else
         self:CreateCrater(location);
         self.dummy:EmitSound("Hero_Invoker.SunStrike.Ignite");
-        UTIL_Remove(self.dummy);
+        --UTIL_Remove(self.dummy)
+        self.dummy:ForceKill(false)
         self.dummy = nil;
         --ParticleManager:DestroyParticle(self.partic,true);
         --ParticleManager:ReleaseParticleIndex(self.partic);

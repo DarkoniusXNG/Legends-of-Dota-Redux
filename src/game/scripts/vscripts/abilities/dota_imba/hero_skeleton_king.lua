@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("skeleton_king")
+--CreateEmptyTalents("skeleton_king")
 
 -- Setting the two behavior changing talents to call for behavior again so the update works properly
 LinkLuaModifier("modifier_special_bonus_imba_skeleton_king_2", "abilities/dota_imba/hero_skeleton_king.lua", LUA_MODIFIER_MOTION_NONE)

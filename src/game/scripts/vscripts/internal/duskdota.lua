@@ -66,7 +66,6 @@ function duskDota:_InitduskDota()
   --     SetTeamCustomHealthbarColor(team, color[1], color[2], color[3])
   --   end
   -- end
-  DebugPrint('[DUSKDOTA] GameRules set')
 
   --InitLogFile( "log/duskdota.txt","")
 
@@ -133,7 +132,6 @@ function duskDota:_InitduskDota()
   self.bSeenWaitForPlayers = false
   self.vUserIds = {}
 
-  DebugPrint('[DUSKDOTA] Done loading duskDota duskdota!\n\n')
   duskDota._reentrantCheck = true
   duskDota:InitduskDota()
   duskDota._reentrantCheck = false
@@ -156,8 +154,6 @@ function duskDota:_CaptureduskDota()
     -- mode:SetUseCustomHeroLevels ( USE_CUSTOM_HERO_LEVELS )
     -- mode:SetCustomHeroMaxLevel ( MAX_LEVEL )
     -- mode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
-
-    -- --mode:SetBotThinkingEnabled( USE_STANDARD_DOTA_BOT_THINKING )
 
     -- mode:SetFogOfWarDisabled(DISABLE_FOG_OF_WAR_ENTIRELY)
     -- mode:SetGoldSoundDisabled( DISABLE_GOLD_SOUNDS )

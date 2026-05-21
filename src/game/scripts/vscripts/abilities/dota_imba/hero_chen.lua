@@ -17,6 +17,11 @@
 -- Editor:
 --    Elfansoer, 22.06.2019
 
+if IsClient() then
+    require('lib/util_imba_client')
+end
+
+--CreateEmptyTalents("chen")
 
 LinkLuaModifier("modifier_imba_chen_penitence", "abilities/dota_imba/hero_chen", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_chen_penitence_buff", "abilities/dota_imba/hero_chen", LUA_MODIFIER_MOTION_NONE)
@@ -57,22 +62,6 @@ imba_chen_test_of_faith									= class({})
 
 imba_chen_hand_of_god									= class({})
 modifier_imba_chen_hand_of_god_overheal					= class({})
-
-
-if IsClient() then
-    require('lib/util_imba_client')
-end
-
---[[Elfansoer: Temporary fix to `IsRoshan()` function]]
-if IsServer() then
-	function CDOTA_BaseNPC:IsRoshan()
-		return self:GetUnitName()=="npc_dota_roshan"
-	end
-else
-	function C_DOTA_BaseNPC:IsRoshan()
-		return self:GetUnitName()=="npc_dota_roshan"
-	end
-end
 
 ----------------
 -- PENITENCE --
@@ -370,12 +359,12 @@ function imba_chen_holy_persuasion:CastFilterResultTarget(hTarget)
 	end
 	
 	if hTarget == self:GetCaster() 
-	or (hTarget:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() and hTarget:IsCreep() and not hTarget:IsRoshan()) and hTarget:GetLevel() <= self:GetSpecialValueFor("level_req") and (not hTarget:IsAncient() or (hTarget:IsAncient() and self:GetCaster():HasAbility("imba_chen_hand_of_god") and self:GetCaster():FindAbilityByName("imba_chen_hand_of_god"):IsTrained() and self:GetCaster():HasScepter()))
+	or (hTarget:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() and hTarget:IsCreep() and not hTarget:IsRoshanCustom()) and hTarget:GetLevel() <= self:GetSpecialValueFor("level_req") and (not hTarget:IsAncient() or (hTarget:IsAncient() and self:GetCaster():HasAbility("imba_chen_hand_of_god") and self:GetCaster():FindAbilityByName("imba_chen_hand_of_god"):IsTrained() and self:GetCaster():HasScepter()))
 	or (hTarget:GetTeamNumber() == self:GetCaster():GetTeamNumber() and (hTarget:IsRealHero() or hTarget:IsClone() or hTarget:GetOwnerEntity() == self:GetCaster() or (hTarget.GetPlayerID and self:GetCaster().GetPlayerID and hTarget:GetPlayerID() == self:GetCaster():GetPlayerID()) or hTarget:IsOther())) then
 		return UF_SUCCESS
-	elseif hTarget:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() and hTarget:IsCreep() and not hTarget:IsRoshan() and hTarget:GetLevel() > self:GetSpecialValueFor("level_req") then
+	elseif hTarget:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() and hTarget:IsCreep() and not hTarget:IsRoshanCustom() and hTarget:GetLevel() > self:GetSpecialValueFor("level_req") then
 		return UF_FAIL_CUSTOM
-	elseif hTarget:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() and hTarget:IsCreep() and not hTarget:IsRoshan() and hTarget:IsAncient() then
+	elseif hTarget:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() and hTarget:IsCreep() and not hTarget:IsRoshanCustom() and hTarget:IsAncient() then
 		return UF_FAIL_ANCIENT
 	elseif hTarget:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() and hTarget:IsConsideredHero() then
 		return UF_FAIL_HERO
@@ -389,7 +378,7 @@ end
 function imba_chen_holy_persuasion:GetCustomCastErrorTarget( hTarget )
 	if not IsServer() then return end
 	
-	if hTarget:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() and hTarget:IsCreep() and not hTarget:IsRoshan() and hTarget:GetLevel() > self:GetSpecialValueFor("level_req") then
+	if hTarget:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() and hTarget:IsCreep() and not hTarget:IsRoshanCustom() and hTarget:GetLevel() > self:GetSpecialValueFor("level_req") then
 		return "#dota_hud_error_cant_cast_creep_level"
 	elseif hTarget:GetTeamNumber() == self:GetCaster():GetTeamNumber() then
 		return "#dota_hud_error_cant_cast_on_creep_not_player_controlled"
@@ -420,7 +409,7 @@ function imba_chen_holy_persuasion:OnSpellStart()
 	
 	-- Enemy logic
 	if target:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() then
-	-- if (not target:IsConsideredHero() and not target:IsRoshan() then	
+	-- if (not target:IsConsideredHero() and not target:IsRoshanCustom() then	
 		
 		-- Play the standard Holy Persuasion sounds
 		self:GetCaster():EmitSound("Hero_Chen.HolyPersuasionCast")
@@ -813,7 +802,7 @@ end
 function modifier_imba_chen_holy_persuasion_teleport:OnTakeDamage(keys)
 	if not IsServer() then return end
 	
-	if keys.unit == self:GetParent() and keys.attacker ~= self:GetParent() and (keys.attacker:IsRealHero() or keys.attacker:IsRoshan()) and keys.original_damage > 0 then
+	if keys.unit == self:GetParent() and keys.attacker ~= self:GetParent() and (keys.attacker:IsRealHero() or keys.attacker:IsRoshanCustom()) and keys.original_damage > 0 then
 		self:Destroy()
 	end
 end

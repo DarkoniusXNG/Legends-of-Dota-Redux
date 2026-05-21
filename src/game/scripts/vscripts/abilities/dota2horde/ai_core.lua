@@ -123,7 +123,6 @@ function AICore:CreateBehaviorSystem( behaviors )
 	end
 
 	function BehaviorSystem:Deactivate()
-		DebugPrint("End")
 		if self.currentBehavior.End then self.currentBehavior:End() end
 	end
 

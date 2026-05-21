@@ -21,7 +21,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("obsidian_destroyer")
+--CreateEmptyTalents("obsidian_destroyer")
 
 ---------------------------
 --       ARCANE ORB      --
@@ -1022,23 +1022,29 @@ function modifier_imba_astral_imprisonment:IsHidden() return false end
 function modifier_imba_astral_imprisonment:IsPurgable() return false end
 function modifier_imba_astral_imprisonment:IsDebuff() return true end
 
+function modifier_imba_astral_imprisonment:IsStunDebuff()
+	return true
+end
+
 function modifier_imba_astral_imprisonment:CheckState()
 	local state 
 	
 	-- Prevent the caster from being stunned, so he will able to move his prison
 	if self.parent == self.caster then
-		state = {[MODIFIER_STATE_INVULNERABLE] = true,
+		state = {
+			[MODIFIER_STATE_INVULNERABLE] = true,
 			[MODIFIER_STATE_OUT_OF_GAME] = true,
 			[MODIFIER_STATE_NO_HEALTH_BAR] = true,
 			[MODIFIER_STATE_ROOTED] = true,
 			[MODIFIER_STATE_MUTED] = true,
-			[MODIFIER_STATE_DISARMED] = true
+			[MODIFIER_STATE_DISARMED] = true,
 		}
 	else
-		state = {[MODIFIER_STATE_INVULNERABLE] = true,
+		state = {
+			[MODIFIER_STATE_INVULNERABLE] = true,
 			[MODIFIER_STATE_OUT_OF_GAME] = true,
 			[MODIFIER_STATE_NO_HEALTH_BAR] = true,
-			[MODIFIER_STATE_STUNNED] = true
+			[MODIFIER_STATE_STUNNED] = true,
 		}
 	end
 			 
@@ -1237,13 +1243,18 @@ function modifier_imba_astral_imprisonment_sucked:IsHidden() return true end
 function modifier_imba_astral_imprisonment_sucked:IsPurgable() return false end
 function modifier_imba_astral_imprisonment_sucked:IsDebuff() return true end
 
+function modifier_imba_astral_imprisonment_sucked:IsStunDebuff()
+	return true
+end
+
 function modifier_imba_astral_imprisonment_sucked:CheckState()
-	local state = {[MODIFIER_STATE_INVULNERABLE] = true,
-				   [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
-				   [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-				   [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-				   [MODIFIER_STATE_STUNNED] = true}
-	return state
+	return {
+		[MODIFIER_STATE_INVULNERABLE] = true,
+		[MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+		[MODIFIER_STATE_NO_HEALTH_BAR] = true,
+		[MODIFIER_STATE_STUNNED] = true,
+	}
 end
 
 function modifier_imba_astral_imprisonment_sucked:OnDestroy()

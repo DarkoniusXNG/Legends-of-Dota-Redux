@@ -99,6 +99,7 @@ function Precache(context)
 	PrecacheUnitByNameSync("npc_dota_hero_skywrath_mage", context)
 	PrecacheUnitByNameSync("npc_dota_hero_sniper", context)
 	PrecacheUnitByNameSync("npc_dota_hero_sven", context)
+	PrecacheUnitByNameSync("npc_dota_hero_tidehunter", context)
 	PrecacheUnitByNameSync("npc_dota_hero_tiny", context)
 	PrecacheUnitByNameSync("npc_dota_hero_vengefulspirit", context)
 	PrecacheUnitByNameSync("npc_dota_hero_viper", context)
@@ -113,7 +114,7 @@ end
 -- Create the game mode when we activate
 function Activate()
     -- Print LoD version header
-    local versionNumber = "3.1.2"
+    local versionNumber = "7.41.3"
     print('\n\nDota 2 Redux is activating! (v'..versionNumber..')')
 
    -- Load specific modules

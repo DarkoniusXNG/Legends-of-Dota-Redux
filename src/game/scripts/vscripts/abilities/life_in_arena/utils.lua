@@ -109,17 +109,9 @@ function CleanUnitsOnMap()
         if not unit:IsRealHero() and not unit.destructable then
         	--print(unit:GetUnitName())
         	unit.cleanerKilled = 1
-            unit:ForceKill(true)
+            unit:ForceKill(false)
         end
     end
-end
-
-function PrintTable(title,table)
-	print(title)
-	for k,v in pairs(table) do
-		print(k,v)
-	end
-	print("--------------------End of table--------------------------")
 end
 
 

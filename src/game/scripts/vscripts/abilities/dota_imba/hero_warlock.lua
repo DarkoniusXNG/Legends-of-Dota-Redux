@@ -22,7 +22,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("warlock")
+--CreateEmptyTalents("warlock")
 
 -----------------------------
 --      FATAL BONDS        --
@@ -1208,6 +1208,10 @@ end
 function modifier_imba_rain_of_chaos_stun:IsHidden() return false end
 function modifier_imba_rain_of_chaos_stun:IsPurgeException() return true end
 function modifier_imba_rain_of_chaos_stun:IsStunDebuff() return true end
+
+function modifier_imba_rain_of_chaos_stun:IsDebuff()
+	return true
+end
 
 -- Golem attack speed bonus modifier
 modifier_imba_rain_of_chaos_golem_as = class({})

@@ -121,6 +121,7 @@
             {
                 "IsHidden"                                             "0"
                 "IsDebuff"                                             "1"
+                "IsStunDebuff"                                         "1"
                 "EffectName"                                           "particles/cherub_sleep_status.vpcf"
                 "EffectAttachType"                                     "follow_overhead"
                 "OverrideAnimation"                                    "ACT_DOTA_DISABLED"

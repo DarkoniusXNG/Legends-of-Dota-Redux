@@ -47,6 +47,18 @@ end
 
 modifier_deep_freeze_stun = class({})
 
+function modifier_deep_freeze_stun:IsDebuff()
+	return true
+end
+
+function modifier_deep_freeze_stun:IsStunDebuff()
+	return true
+end
+
+function modifier_deep_freeze_stun:IsPurgable()
+	return true
+end
+
 function modifier_deep_freeze_stun:CheckState()
 	local state = {
 		[MODIFIER_STATE_STUNNED] = true,

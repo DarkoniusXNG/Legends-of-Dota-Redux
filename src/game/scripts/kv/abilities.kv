@@ -25,6 +25,7 @@
             "techies_custom_land_mines"           "1" // custom
             "techies_custom_stasis_trap"          "1" // custom
             "techies_custom_suicide"              "1" // custom
+			"techies_spoons_stash_old"            "1" // custom
             "pangolier_heartpiercer_old"          "1" // custom
             "doom_bringer_lvl_death_old"          "1" // custom
             "wisp_overcharge_old"                 "1" // custom
@@ -1111,15 +1112,15 @@
 			"bristleback_brawlers_grit"            "1"
 			"chen_zealot"                          "1"
 			"crystal_maiden_glacial_guard"         "1"
-			"deity_blessing_aghanim"               "1"
-			"deity_blessing_deep_ones"             "1"
-			"deity_blessing_flayed_twins"          "1"
-			"deity_blessing_fundamentals"          "1"
-			"deity_blessing_goddess_of_luck"       "1"
-			"deity_blessing_imperator"             "1"
-			"deity_blessing_omniscience"           "1"
-			"deity_blessing_seven_hells"           "1"
-			"deity_blessing_spirit_of_nature"      "1"
+			//"deity_blessing_aghanim"               "1" // disappears from skills on game start
+			//"deity_blessing_deep_ones"             "1" // disappears from skills on game start
+			//"deity_blessing_flayed_twins"          "1" // disappears from skills on game start
+			//"deity_blessing_fundamentals"          "1" // disappears from skills on game start
+			//"deity_blessing_goddess_of_luck"       "1" // disappears from skills on game start
+			//"deity_blessing_imperator"             "1" // disappears from skills on game start
+			//"deity_blessing_omniscience"           "1" // disappears from skills on game start
+			//"deity_blessing_seven_hells"           "1" // disappears from skills on game start
+			//"deity_blessing_spirit_of_nature"      "1" // disappears from skills on game start
 			"dragon_knight_wyrms_wrath"            "1"
 			"elder_titan_fundamental_fury"         "1"
 			"elder_titan_fundamental_fury_spirit"  "1"
@@ -1132,10 +1133,9 @@
 			"keeper_of_the_light_bright_speed"     "1"
 			"legion_commander_intimidate"          "1"
 			"mars_immovable"                       "1"
-			"meepo_fling"                          "1"
-			"meepo_fling_release"                  "1"
+			//"meepo_fling"                          "1" // kinda bad
+			//"meepo_fling_release"                  "1"
 			"meepo_geomancy"                       "1"
-			"miniboss_fortification"               "1"
 			"mirana_celestial_quiver"              "1"
 			"mirana_nightveil"                     "1"
 			"morphling_ebb_and_flow"               "1"
@@ -1150,12 +1150,12 @@
 			"rubick_curiosity"                     "1"
 			"shadow_shaman_urnaconda"              "1"
 			"snapfire_boomstick"                   "1"
-			"sniper_take_aim_stop"                 "1"
+			//"sniper_take_aim_stop"                 "1" // does nothing
 			"spirit_breaker_bull_rush"             "1"
 			"techies_mutually_assured_destruction" "1"
 			"techies_snare_trap"                   "1"
 			"templar_assassin_inner_peace"         "1"
-			"templar_assassin_meditation_end"      "1"
+			//"templar_assassin_meditation_end"      "1" // does nothing
 			"tinker_deploy_turrets"                "1"
 			"venomancer_snakebite"                 "1"
 			"weaver_threads_of_fate"               "1"
@@ -1204,7 +1204,7 @@
 				"necronomicon_warrior_sight"				"1"
             }
 
-            "blue_dragonspawn_group" {                          // offensive single target abilities
+            "blue_dragonspawn_group" {                          // offensive unit target abilities
 				"dark_troll_warlord_ensnare"                "1"
 				"enraged_wildkin_hurricane"					"1"
 				"fel_beast_haunt"							"1"
@@ -1236,7 +1236,7 @@
 				"ancient_golem_rockslide"                "1"
             }
 
-            "enraged_wildkin_group" {                         // allied single target abilities
+            "enraged_wildkin_group" {                         // allied unit target abilities
 				"forest_troll_high_priest_heal"          "1"
 				"ogre_magi_frost_armor"                  "1"
 				"big_thunder_lizard_frenzy"              "1"
@@ -1321,13 +1321,13 @@
                   "pudge_flesh_heap_cooldown_reduction" "1"
                   "pudge_flesh_heap_magic_resistance" "1"
                   "pudge_flesh_heap_evasion" "1"
-                  // "pudge_flesh_heap_spell_lifesteal" "1"        // not working
-                  // "pudge_flesh_heap_lifesteal" "1"              // not working
+                  "pudge_flesh_heap_spell_lifesteal" "1"
+                  "pudge_flesh_heap_lifesteal" "1"
                   "pudge_flesh_heap_armor" "1"
                   "pudge_flesh_heap_health_regeneration" "1"
                   "pudge_flesh_heap_mana_regeneration" "1"
                   "pudge_flesh_heap_minion_damage" "1"
-                  //"pudge_flesh_heap_tenacity" "1"                 // script errors when levelling up but does work ok
+                  "pudge_flesh_heap_tenacity" "1"
                   "pudge_flesh_heap_willpower" "1"
                   "pudge_flesh_heap_aoe" "1"
                   "pudge_flesh_heap_heal_amp" "1"
@@ -1373,7 +1373,7 @@
                   "jingtong"  "1"
                   "shiguanghuisu"      "1"
                   "benneng"   "1"
-                  "sight"   "1"
+                  "beast_ninja_sight"   "1"
                   "zhanhun"   "1"
             }
             "overflow" {
@@ -1419,11 +1419,11 @@
 
             "holdout" {
                 "axe_custom_cut_from_above"          "1"
-                //"zuus_thundergods_vengeance"                "1" //disappears when you pick it and start game
+                //"zuus_thundergods_vengeance"                "1" //disappears when you pick it and start game; TODO: Rewrite
                 //"holdout_omnislash"                "1"	//disappears when you pick it and start game
                 //"holdout_gods_strength"                "1" //disappears when you pick it and start game
                 "holdout_arcane_aura"                "1"
-                //"holdout_gladiators_unite"                "1" //disappears when you pick it and start game
+                //"holdout_gladiators_unite"                "1" //disappears when you pick it and start game; TODO: Rewrite
                 //"holdout_scourge_ward"          "1"     //error in log: Cannot create an entity because entity class is NULL -1
                 //"holdout_multishot"             "1"       //disappears when you pick it and start game
                 "mana_laser"					"1"
@@ -1732,7 +1732,7 @@
             "basic_abilities"
             {
                   "basic_tenacity_bonus" "1"
-                  //"basic_willpower_bonus" "1"
+                  "basic_willpower_bonus" "1"
                   "basic_mana_bonus" "1"
                   "basic_health_bonus" "1"
                   "basic_gpm_bonus" "1"
@@ -1783,22 +1783,31 @@
                 "mana_eater_mystic_bolt"     "1"
                 "oracle_will_to_live"        "1"
                 "perun_ion_blast"            "1"
+				"swain_demonic_ascension"    "1"
                 //"warp_beast_warp"            "1" // does not work thanks to monster hunter patch, will fix
-                "bubble_witch_blow_bubbles"  "1"
-                "bubble_witch_magic_bubble"  "1"
-                "bubble_witch_cavitation"    "1"
-                "bubble_witch_bubble_of_protection"    "1"
             }
-            "oaa" {
+            "oaa_misc" {
                 "abyssal_underlord_dark_rift_oaa"      "1"
+                "tinkerer_oil_spill"         "1"
+                "tinkerer_smart_missiles"    "1"
+				"blood_magic_oaa"            "1"
+				"magus_oaa"                  "1"
+            }
+			"oaa_sohei" {
                 "sohei_dash"                 "1"
                 "sohei_guard"                "1"
                 "sohei_flurry_of_blows"      "1"
                 "sohei_momentum"             "1"
                 "sohei_quivering_palm"       "1"
-                "tinkerer_oil_spill"         "1"
-                "tinkerer_smart_missiles"    "1"
             }
+			"oaa_bubble_witch"
+			{
+				"bubble_witch_blow_bubbles"  "1"
+                "bubble_witch_magic_bubble"  "1"
+                "bubble_witch_cavitation"    "1"
+                "bubble_witch_bubble_of_protection"    "1"
+				"bubble_witch_innate"        "1"
+			}
         }
         "imba"
         {
@@ -2190,7 +2199,6 @@
                 "imba_night_stalker_void"  "1"
                 "imba_night_stalker_crippling_fear_720"  "1"
                 "imba_night_stalker_hunter_in_the_night"  "1"
-                "imba_night_stalker_stalker_in_the_night"  "1"
                 "imba_night_stalker_darkness"  "1"
             }
             "hero_nyx_assassin"
@@ -2213,6 +2221,7 @@
                 "imba_omniknight_repel"  "1"
                 "imba_omniknight_hammer_of_virtue"  "1"
                 "imba_omniknight_guardian_angel"  "1"
+				"imba_omniknight_degen_aura"      "1"
             }
             "hero_pangolier"
             {
@@ -2310,7 +2319,7 @@
             {
                 "imba_slardar_corrosive_haze"  "1"
                 "imba_slardar_slithereen_crush"  "1"
-                "imba_slardar_bash_of_the_deep"  "1"      //error when not skilled, works when skilled - The chance was not found! Make sure to add it to the table or change the value.
+                "imba_slardar_bash_of_the_deep"  "1"      //error when not skilled, works when skilled
                 "imba_slardar_guardian_sprint"  "1"
                 "imba_slardar_rain_cloud"  "1"
             }
@@ -2569,7 +2578,7 @@
             "basic_abilities"
             {
                   "basic_tenacity_bonus_op"   "1"
-                  //"basic_willpower_bonus_op"   "1"
+                  "basic_willpower_bonus_op"   "1"
                   "basic_mana_bonus_op"   "1"
                   "basic_health_bonus_op" "1"
                   "basic_gpm_bonus_op" "1"
@@ -2592,13 +2601,13 @@
                   "axe_berserkers_call_op"            "1"
                   "arc_warden_tempest_double_op"      "1"
                   "batrider_flamebreak_op"            "1"
-                  //"bloodseeker_thirst_lod_op"         "1" // TODO: Make it OP
                   "dark_seer_vacuum_op"               "1"
                   "global_stun"                       "1"
                   "invoker_chaos_meteor_op"           "1"
                   "lich_chain_frost_op"               "1"
                   "tusk_walrus_kick_op"               "1"
 				  "windrunner_gale_force_op"          "1"
+				  "undying_soul_rip_op"               "1"
             }
             "singlePlayer_actives_2" {
                   "disruptor_kinetic_field_OP"              "1"
@@ -2612,7 +2621,6 @@
                   "shadow_shaman_mass_serpent_ward_redux"   "1"
                   "legion_commander_duel_redux"             "1"
                   "mirana_invis_redux"                      "1"
-                  "crystal_maiden_brilliance_aura_redux"    "1"
                   "faceless_void_chronosphere_redux"        "1"
             }
             "singlePlayer_actives_3" {
@@ -2652,20 +2660,19 @@
                   "miniboss_alleviation"                 "1"
                   "miniboss_minion_unyielding_shield"		"1"
                   "miniboss_minion_deflecting_shield"		"1"
+				  "miniboss_fortification"                  "1"
 				  "meepo_divided_we_stand"            "1"
 				  "lone_druid_bear_necessities"		  "1"
             }
 
             "singlePlayer_passive" {
                   "imba_tower_aegis_OP"                           "1"
-                  //"erra_grave_guard_op"                         "1"  //Has been deleted since we brought in the LUA versions
                   "dragon_knight_dragon_blood_OP"                 "1"
                   "alchemist_goblins_greed_op"                    "1"
                   "shredder_reactive_armor_op"                    "1"
                   "nevermore_necromastery_op"                     "1"
                   //"imba_juggernaut_healing_ward_passive_redux"  "1"
                   "obsidian_destroyer_essence_aura_lod_health"    "1"
-                  //"linkens_guard_lod"                           "1"
                   "brewmaster_earth_spell_immunity"               "1"
                   "backdoor_protection"                           "1"
                   "neutral_spell_immunity"                        "1"
@@ -3177,6 +3184,7 @@
 			"6"     "techies_custom_stasis_trap"
 			"7"     "techies_custom_suicide"
 			"8"     "techies_snare_trap"
+			"9"     "techies_spoons_stash_old"
         }
 
         "npc_dota_hero_templar_assassin" {
@@ -3247,11 +3255,11 @@
 		"npc_dota_hero_warlock" {
 			"1"          "warlock_black_grimoire"
 		}
-		
+
 		"npc_dota_hero_weaver" {
 			"1"       "weaver_rewoven"
 		}
-		
+
 		"npc_dota_hero_windrunner" {
 			"1"       "windrunner_easy_breezy"
 		}

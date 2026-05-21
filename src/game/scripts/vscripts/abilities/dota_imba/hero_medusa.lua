@@ -17,7 +17,11 @@
 -- Editors:
 --     Elfansoer, 10.08.2019
 
-CreateEmptyTalents("medusa")
+if IsClient() then
+    require('lib/util_imba_client')
+end
+
+--CreateEmptyTalents("medusa")
 
 LinkLuaModifier("modifier_imba_medusa_split_shot", "abilities/dota_imba/hero_medusa", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_medusa_serpent_shot", "abilities/dota_imba/hero_medusa", LUA_MODIFIER_MOTION_NONE)
@@ -909,6 +913,14 @@ end
 
 function modifier_imba_medusa_stone_gaze_stone:IsPurgable()			return false end
 function modifier_imba_medusa_stone_gaze_stone:IsPurgeException()	return true end
+
+function modifier_imba_medusa_stone_gaze_stone:IsDebuff()
+	return true
+end
+
+function modifier_imba_medusa_stone_gaze_stone:IsStunDebuff()
+	return true
+end
 
 function modifier_imba_medusa_stone_gaze_stone:GetEffectName()
 	return "particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_stoned.vpcf"

@@ -973,17 +973,26 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"								"ability_datadriven"
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"modifier_invulnerable"
-		"MaxLevel"								"1"
+		"AbilityTextureName"					"custom/imba_ancient_stalwart_defense" //"modifier_invulnerable"
+
+		"ReduxFlags"                                                           "support"
+        "ReduxPerks"                                                           "support | aura"
+
 		"AbilityCastRange"						"1500"
+
+		"precache"
+        {
+            "particle"                          "particles/units/heroes/hero_legion_commander/legion_commander_press.vpcf"
+            "particle"                          "particles/units/heroes/hero_legion_commander/legion_commander_press_buff.vpcf"
+        }
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
             "duration" "3.5"
-            "hp_regen" "10"
-            "damage_reduction" "-25"
+            "hp_regen" "6 7 8 9"
+            "damage_reduction" "-25 -30 -35 -40"
             "radius" "1500"
         }
 
@@ -4432,15 +4441,14 @@
 		"ScriptFile"				"abilities/dota_imba/hero_crystal_maiden"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/crystal_maiden_arcane_dynamo"
-		"MaxLevel"						"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "bonus_movespeed_percent" "15"
-            "bonus_spellpower_percent" "15"
-            "max_stacks" "10"
+            "bonus_movespeed_percent" "5 10 15 20"
+            "bonus_spellpower_percent" "5 10 15 20"
+            "max_stacks" "5 10 15 20"
         }
 	}
 	
@@ -13121,7 +13129,6 @@
 
 	//=================================================================================================================
 	// Drow Ranger's Deadeye
-	//e
 	//=================================================================================================================
 	"imba_drow_ranger_deadeye"
 	{
@@ -13130,15 +13137,15 @@
 		"BaseClass"								"ability_lua"
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"					"custom/drow_deadeye"
-		"MaxLevel"								"1"
-		"ScriptFile"				"abilities/dota_imba/hero_drow_ranger.lua"
+		"ScriptFile"                            "abilities/dota_imba/hero_drow_ranger.lua"
+		"IsBreakable"                           "1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "day_vision" "600"
-            "night_vision" "800"
+            "day_vision" "200 300 400 500"
+            "night_vision" "800 900 1000 1100"
         }
 	}
 
@@ -14031,24 +14038,22 @@
 
 	//=================================================================================================================
 	// Faceless Void's Timelord
-	//e
 	//=================================================================================================================
 	"imba_faceless_void_timelord"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"							"ability_lua"
-		"AbilityTextureName"				"custom/faceless_void_timelord"
-		"ScriptFile"				"abilities/dota_imba/hero_faceless_void.lua"
-		"MaxLevel"							"1"
-
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"				"custom/faceless_void_timelord"
+		"ScriptFile"                        "abilities/dota_imba/hero_faceless_void.lua"
+		"IsBreakable"                       "1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "as_pcnt_increase" "20"
+            "as_pcnt_increase" "10 15 20 25"
         }
 	}
 

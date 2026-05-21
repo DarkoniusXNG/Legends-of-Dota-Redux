@@ -23,7 +23,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("elder_titan")
+--CreateEmptyTalents("elder_titan")
 
 local function FindNearestPointFromLine(caster, dir, affected)
 	local castertoaffected = affected - caster

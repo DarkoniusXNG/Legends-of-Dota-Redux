@@ -62,7 +62,28 @@ function modifier_flesh_heap_willpower:OnRefresh()
 	self:OnCreated()
 end
 
-function modifier_flesh_heap_willpower:GetWillPower(params)
+function modifier_flesh_heap_willpower:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_STATUS_RESISTANCE_CASTER,
+	}
+end
+
+function modifier_flesh_heap_willpower:GetModifierStatusResistanceCaster() -- Debuff Amp for vanilla spells
+	local parent = self:GetParent()
+	if parent:PassivesDisabled() then
+		return 0
+	end
+	return 0 - math.abs(parent:GetModifierStackCount("modifier_pudge_custom_flesh_heap_kill_tracker", parent) * self.flesh_heap_amount)
+end
+
+function modifier_flesh_heap_willpower:GetWillPower() -- Buff Amp for all spells, Debuff Amp for custom spells
   local parent = self:GetParent()
+	if parent:PassivesDisabled() then
+		return 0
+	end
   return parent:GetModifierStackCount("modifier_pudge_custom_flesh_heap_kill_tracker", parent) * self.flesh_heap_amount
+end
+
+function modifier_flesh_heap_willpower:WillPowerDebuffAmpOnly()
+	return false
 end

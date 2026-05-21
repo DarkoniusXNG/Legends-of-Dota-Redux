@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------------------------------
 --
 --		Hero: Timbersaw
---		Perk: Timbersaw gains 3% health, mana whenever a nearby tree (700 radius) is cut down. 
+--		Perk: Timbersaw gains 3% health, mana whenever a nearby tree (700 radius) is cut down.
 --
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_shredder_perk = modifier_npc_dota_hero_shredder_perk or class({})
@@ -33,8 +33,8 @@ function modifier_npc_dota_hero_shredder_perk:OnCreated()
 		local treeY = keys.tree_y
 		local treeVector = Vector(treeX, treeY, 0)
 
-		local HPamount = caster:GetMaxHealth() * .03
-		local MPamount = caster:GetMaxMana() * .03
+		local HPamount = caster:GetMaxHealth() * 3 / 100
+		local MPamount = caster:GetMaxMana() * 3 / 100
 
 		if caster and (caster:GetAbsOrigin() - treeVector):Length2D() <= 700 then
 			caster:Heal(HPamount, nil)

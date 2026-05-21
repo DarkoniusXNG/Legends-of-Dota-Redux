@@ -1,11 +1,9 @@
 print("[UTIL] Loading KV files...")
-contributors = LoadKeyValues("scripts/kv/contributors.kv") --[[Returns:table
-Creates a ''table'' from the specified keyvalues text file
-]]
+
+contributors = LoadKeyValues("scripts/kv/contributors.kv")
 if contributors then print("[UTIL] Loaded Contributors, with "..#contributors.." keys.") end
-hints = LoadKeyValues("scripts/kv/hints.kv") --[[Returns:table
-Creates a ''table'' from the specified keyvalues text file
-]]
+
+hints = LoadKeyValues("scripts/kv/hints.kv") 
 if hints then print("[UTIL] Loaded Hints and Tips, with "..#hints.." keys.") end
 
 learn = LoadKeyValues("scripts/kv/learn.kv")
@@ -18,23 +16,13 @@ skills = LoadKeyValues("scripts/kv/skills.kv")
 if skills then print("[UTIL] Loaded Skillbuilds, with "..#skills.." keys.") end
 
 function DebugPrint(...)
-  local spew = Convars:GetInt('duskdota_spew') or -1
-  if spew == -1 and DUSKDOTA_DEBUG_SPEW then
-    spew = 1
-  end
-
-  if spew == 1 then
+  if IsInToolsMode() then
     print(...)
   end
 end
 
 function DebugPrintTable(...)
-  local spew = Convars:GetInt('duskdota_spew') or -1
-  if spew == -1 and DUSKDOTA_DEBUG_SPEW then
-    spew = 1
-  end
-
-  if spew == 1 then
+  if IsInToolsMode() then
     PrintTable(...)
   end
 end
@@ -138,18 +126,13 @@ function HideWearables( unit )
 end
 
 function ShowWearables( unit )
-
+  if not unit or unit:IsNull() then
+    return
+  end
   for i,v in pairs(unit.hiddenWearables) do
     v:RemoveEffects(EF_NODRAW)
   end
 end
-
-function GlobalSound(event)
-  local sound = event.sound or event
-  print("[GlobalSound] Playing global sound "..sound)
-  EmitGlobalSound(sound)
-end
-
 
 -- CheckTable(table, expression, returnall, allowpartialmatches)
 -- Goes through a table's contents to see if any of its values match the expression given.

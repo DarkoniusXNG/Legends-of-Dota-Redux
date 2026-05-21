@@ -17,7 +17,11 @@
 --     suthernfriend, 03.02.2018
 --     Elfansoer, 10.08.2019
 
-CreateEmptyTalents("lycan")
+if IsClient() then
+    require('lib/util_imba_client')
+end
+
+--CreateEmptyTalents("lycan")
 
 ---------------------------------------------------
 --			Lycan's Summon Wolves

@@ -158,7 +158,9 @@
             
             "modifier_black_hole_debuff"
             {
-                "IsPurgable"    "0"
+                "IsDebuff"                                         "1"
+                "IsStunDebuff"                                     "1"
+                "IsPurgable"                                       "0"
 
                 "OverrideAnimation"     "ACT_DOTA_FLAIL"
 

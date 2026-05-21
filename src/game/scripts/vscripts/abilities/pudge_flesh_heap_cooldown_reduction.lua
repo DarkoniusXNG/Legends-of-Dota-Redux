@@ -69,6 +69,9 @@ function modifier_flesh_heap_cooldown_reduction:DeclareFunctions()
 end
 
 function modifier_flesh_heap_cooldown_reduction:GetModifierPercentageCooldown()
-  local parent = self:GetParent()
-  return math.min(math.floor(parent:GetModifierStackCount("modifier_pudge_custom_flesh_heap_kill_tracker", parent) * self.flesh_heap_amount), 100)
+	local parent = self:GetParent()
+	if parent:PassivesDisabled() then
+		return 0
+	end
+	return math.min(math.floor(parent:GetModifierStackCount("modifier_pudge_custom_flesh_heap_kill_tracker", parent) * self.flesh_heap_amount), 100)
 end

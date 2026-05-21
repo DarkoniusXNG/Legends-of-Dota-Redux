@@ -23,7 +23,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents("winter_wyvern")
+--CreateEmptyTalents("winter_wyvern")
 
 --------------------------------------------------------------
 --			  			Arctic Burn  						--
@@ -717,6 +717,11 @@ modifier_imba_winter_wyvern_cold_embrace_freeze = class({})
 function modifier_imba_winter_wyvern_cold_embrace_freeze:IsDebuff() return true end
 function modifier_imba_winter_wyvern_cold_embrace_freeze:IsPurgable() return true end
 function modifier_imba_winter_wyvern_cold_embrace_freeze:IsHidden() return false end
+
+function modifier_imba_winter_wyvern_cold_embrace_freeze:IsStunDebuff()
+	return true
+end
+
 function modifier_imba_winter_wyvern_cold_embrace_freeze:CheckState()
 	local state = {
 		[MODIFIER_STATE_FROZEN] = true,

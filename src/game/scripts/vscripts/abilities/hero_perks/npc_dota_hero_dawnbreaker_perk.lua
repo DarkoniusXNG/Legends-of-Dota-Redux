@@ -47,19 +47,9 @@ end
 
 function modifier_npc_dota_hero_dawnbreaker_perk:DeclareFunctions()
 	return {
-		--MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-		--MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
 		MODIFIER_EVENT_ON_HEALTH_GAINED,
 	}
 end
-
---function modifier_npc_dota_hero_dawnbreaker_perk:GetModifierHPRegenAmplify_Percentage()
-	--return self:GetStackCount()
---end
-
---function modifier_npc_dota_hero_dawnbreaker_perk:GetModifierLifestealRegenAmplify_Percentage()
-	--return self:GetStackCount()
---end
 
 if IsServer() then
   function modifier_npc_dota_hero_dawnbreaker_perk:OnHealthGained(event)
@@ -87,7 +77,6 @@ if IsServer() then
 
     -- Imitate heal amp and health restoration amp
     self.flag = true
-    --parent:Heal(extra_health, nil)
     parent:HealWithParams(extra_health, nil, false, false, parent, false)
     self.flag = false
   end

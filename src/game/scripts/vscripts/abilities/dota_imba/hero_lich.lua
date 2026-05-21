@@ -47,7 +47,7 @@ local function IsNearFountain( location, radius )
 	return found
 end
 
-CreateEmptyTalents("lich")
+--CreateEmptyTalents("lich")
 
 -----------------------------------
 --          COLD FRONT           --
@@ -2062,8 +2062,7 @@ function imba_lich_sinister_gaze:OnChannelFinish(bInterrupted)
 	if not IsServer() then return end
 
 	-- IMBAfication: Remnants of Sacrifice (gain mana and kill creeps with full channel; gains health from allied creeps)
-	-- if not bInterrupted and self.target:IsCreep() and not self.target:IsRoshan() then -- Extrenuous Roshan line in case someone ruins targetting
-	if not bInterrupted and self.target:IsCreep() and self.target:GetUnitName()~="npc_dota_roshan" then -- Extrenuous Roshan line in case someone ruins targetting
+	if not bInterrupted and self.target:IsCreep() and not self.target:IsRoshanCustom() then -- Extrenuous Roshan line in case someone ruins targetting
 		local creep_health	= self.target:GetHealth()
 		local mana_gained	= creep_health * (self.sacrifice_mana_pct / 100)
 		local health_gained	= creep_health * (self.sacrifice_health_pct / 100)

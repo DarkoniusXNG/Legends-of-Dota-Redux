@@ -26,7 +26,7 @@ else
 	end
 end
 
-CreateEmptyTalents("nevermore")
+--CreateEmptyTalents("nevermore")
 
 -- utils
 -- Returns true if a hero has red hair

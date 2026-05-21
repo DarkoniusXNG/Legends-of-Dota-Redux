@@ -1,8 +1,6 @@
 --------------------------------------------------------------------------------------------------------
---
 --		Hero: Enchantress
---		Perk: Enchantress can creates plants without the health penalty. Also brief attack range bonus after attacking a hero.
---		Note: Perk code is located in the Cherub's abilities, like Flower Garden, code. 
+--		Perk: Brief attack range bonus after attacking a hero.
 --------------------------------------------------------------------------------------------------------
 if modifier_npc_dota_hero_enchantress_perk ~= "" then modifier_npc_dota_hero_enchantress_perk = class({}) end
 --------------------------------------------------------------------------------------------------------

@@ -149,6 +149,14 @@ function modifier_one_punch_air:IsHidden()
 	return true
 end
 
+function modifier_one_punch_air:IsDebuff()
+	return true
+end
+
+function modifier_one_punch_air:IsStunDebuff()
+	return true
+end
+
 function InflictDamage(target,attacker,ability,damage,damage_type,flags)
 	local flags = flags or 0
 	ApplyDamage({

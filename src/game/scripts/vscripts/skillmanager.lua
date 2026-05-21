@@ -624,7 +624,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
 
                 -- Enable it
                 if oldAb then
-                    if not util:IsSupposedToBeHidden(oldAb) then
+                    if not IsSupposedToBeHiddenCustom(oldAb) then
                         oldAb:SetHidden(false)
                     end
                 else
@@ -632,7 +632,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
                 end
             else
                 local newAb = hero:AddAbility(multV)
-                if newAb and not util:IsSupposedToBeHidden(newAb) then
+                if newAb and not IsSupposedToBeHiddenCustom(newAb) then
                     newAb:SetHidden(false)
                 end
 
@@ -710,7 +710,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
 
                 if i > 6 and not isTower then
                     local ab = hero:FindAbilityByName(seekAbility)
-                    if ab and util:IsSupposedToBeHidden(ab) then
+                    if ab and IsSupposedToBeHiddenCustom(ab) then
                         ab:SetHidden(true)
                     end
                 end
@@ -757,7 +757,7 @@ function SkillManager:ApplyBuild(hero, build, autoLevelSkills)
             hero:AddAbility(realAbility)
 
             local ab1 = hero:FindAbilityByName(realAbility)
-            if ab1 and not util:IsSupposedToBeHidden(ab1) then
+            if ab1 and not IsSupposedToBeHiddenCustom(ab1) then
                 ab1:SetHidden(false)
             end
 
@@ -833,68 +833,4 @@ function SkillManager:hasTooMany(build, maxCount, checkFunction)
 
     -- Must be a valid build
     return false
-end
-
--- Returns true if a skill is an ultimate
-function SkillManager:isUlt(name)
-    if not name then
-        return false
-    end    
-    if name == "" then
-        return false
-    end
-    local ability_data = GetAbilityKeyValuesByName(name)
-    if not ability_data then
-        print("SkillManager:isUlt: Ability "..name.." does not exist!")
-        return false
-    end
-    local ability_type = ability_data.AbilityType
-    if not ability_type then
-        -- If ability type is ommited it's usually a basic ability
-        return false
-    end
-    return string.find(ability_type, "ABILITY_TYPE_ULTIMATE")
-end
-
--- Returns true if a skill is valid and not an ultimate
-function SkillManager:isValidBasic(name)
-    if not name then
-        return false
-    end
-    if name == "" or name == 'special_bonus_attributes' or name == 'generic_hidden' or DONOTREMOVE[name] then
-        return false
-    end
-    local ability_data = GetAbilityKeyValuesByName(name)
-    if not ability_data then
-        print("SkillManager:isValidBasic: Ability "..name.." does not exist!")
-        return false
-    end
-    local ability_type = ability_data.AbilityType
-    if not ability_type then
-        -- If ability type is ommited it's usually a basic ability
-        return true
-    end
-    return string.find(ability_type, "ABILITY_TYPE_BASIC")
-end
-
--- Returns true if a skill is a passive
-function SkillManager:isPassive(name)
-    if not name then
-        return false
-    end    
-    if name == "" or name == 'special_bonus_attributes' or name == 'generic_hidden' or DONOTREMOVE[name] or name == "ability_base" then
-        return false
-    end
-    local ability_data = GetAbilityKeyValuesByName(name)
-    if not ability_data then
-        print("SkillManager:isPassive: Ability "..name.." does not exist!")
-        return false
-    end
-    local behavior = ability_data.AbilityBehavior
-    if not behavior then
-        print("SkillManager:isPassive: Ability "..name.." does not have a behavior!")
-        return
-    end
-
-    return string.find(behavior, 'DOTA_ABILITY_BEHAVIOR_PASSIVE') and not string.find(behavior, 'DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE')
 end

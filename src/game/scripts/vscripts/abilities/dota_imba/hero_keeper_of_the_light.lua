@@ -22,7 +22,7 @@ if IsClient() then
     require('lib/util_imba_client')
 end
 
-CreateEmptyTalents('keeper_of_the_light')
+--CreateEmptyTalents('keeper_of_the_light')
 
 LinkLuaModifier("modifier_imba_keeper_of_the_light_illuminate_self_thinker", "abilities/dota_imba/hero_keeper_of_the_light.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_keeper_of_the_light_illuminate", "abilities/dota_imba/hero_keeper_of_the_light.lua", LUA_MODIFIER_MOTION_NONE)

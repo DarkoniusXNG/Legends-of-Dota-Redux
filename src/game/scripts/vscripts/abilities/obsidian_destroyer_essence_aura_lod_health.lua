@@ -1,6 +1,6 @@
 function RestoreHealth(keys)
     local trigger_ability = keys.event_ability
-    if util:IsIgnoredForEssenceAura(trigger_ability) then return end
+    if IsIgnoredForEssenceAura(trigger_ability) then return end
 
     -- Grab ability
     local target = keys.unit

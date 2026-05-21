@@ -9,8 +9,9 @@
 
         "AbilityValues"
         {
-            "bonus" "1 2 3 4"
+            "bonus"                                                            "1.0 1.5 2.0 2.5"
         }
+
         "ReduxFlags"                                                           "tank"
         "ReduxCost"                                                            "120"
     }

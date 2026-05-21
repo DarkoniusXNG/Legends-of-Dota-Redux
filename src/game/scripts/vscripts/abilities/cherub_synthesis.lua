@@ -2,7 +2,7 @@ function SynthesisCreate( keys )
     local caster = keys.caster
     local ability = keys.ability
     local day = GameRules:IsDaytime()
-    
+
     if day == true then
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_synthesis_day", {})
     else
@@ -14,7 +14,7 @@ function SynthesisCheck( keys )
     local caster = keys.caster
     local ability = keys.ability
     local day = GameRules:IsDaytime()
-    
+
     if day == true then
         caster:RemoveModifierByName("modifier_synthesis_night")
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_synthesis_day", {})
@@ -29,9 +29,9 @@ function SynthesisDay( keys )
     local ability = keys.ability
     local interval = ability:GetLevelSpecialValueFor( "think_interval", ( ability:GetLevel() - 1 ) )
     local health = ability:GetLevelSpecialValueFor( "base_conversion_rate", ( ability:GetLevel() - 1 ) ) * interval
-    local mana = ability:GetLevelSpecialValueFor( "health_to_mana", ( ability:GetLevel() - 1 ) ) 
+    local mana = ability:GetLevelSpecialValueFor( "health_to_mana", ( ability:GetLevel() - 1 ) )
     local restoreAmount = (mana/100) * health
-    
+
     if caster:GetHealth() > health and caster:GetManaPercent() < 100 then
         caster:ModifyHealth( caster:GetHealth() - health, ability, false, 0 )
         caster:GiveMana( restoreAmount )
@@ -47,12 +47,12 @@ function SynthesisNight( keys )
     local interval = ability:GetLevelSpecialValueFor( "think_interval", ( ability:GetLevel() - 1 ) )
     local mana = ability:GetLevelSpecialValueFor( "base_conversion_rate", ( ability:GetLevel() - 1 ) ) * interval
     local health = ability:GetLevelSpecialValueFor( "mana_to_health", ( ability:GetLevel() - 1 ) )
-    
+
     local healAmount = (health/100) * mana
-    
+
     if caster:GetMana() >= mana and caster:GetHealthPercent() < 100 then
         caster:SpendMana( mana, ability )
-        caster:Heal( healAmount, caster )
+        caster:Heal( healAmount, ability )
     elseif caster:GetHealthPercent() == 100 then
     else
         ability:ToggleAbility()

@@ -13,11 +13,11 @@ function pudge_flesh_heap_aoe:Spawn()
 end
 
 function pudge_flesh_heap_aoe:GetIntrinsicModifierName()
-  return "modifier_flesh_heap_aoe"
+	return "modifier_flesh_heap_aoe"
 end
 
 function pudge_flesh_heap_aoe:GetCastRange(location, target)
-  return self:GetSpecialValueFor("flesh_heap_range")
+	return self:GetSpecialValueFor("flesh_heap_range")
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -63,10 +63,16 @@ function modifier_flesh_heap_aoe:OnRefresh()
 end
 
 function modifier_flesh_heap_aoe:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
-    MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
-  }
+	return {
+		--MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
+		--MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
+		MODIFIER_PROPERTY_AOE_BONUS_CONSTANT_STACKING,
+	}
+end
+
+function modifier_flesh_heap_aoe:GetModifierAoEBonusConstantStacking()
+	local parent = self:GetParent()
+	return parent:GetModifierStackCount("modifier_pudge_custom_flesh_heap_kill_tracker", parent) * self.flesh_heap_amount
 end
 
 local ignored_abilities = {

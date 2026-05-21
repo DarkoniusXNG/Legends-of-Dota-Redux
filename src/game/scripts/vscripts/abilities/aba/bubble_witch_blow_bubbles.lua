@@ -18,7 +18,8 @@ function bubble_witch_blow_bubbles:OnSpellStart()
   caster:AddNewModifier(caster, self, "modifier_bubble_witch_blow_bubbles_caster", {duration = self:GetSpecialValueFor("duration")})
 
   -- Sound
-  caster:EmitSound("Hero_Wisp.Spirits.Loop")
+  caster:EmitSound("Bubble_Witch.Blow_Bubbles.Cast")
+  caster:EmitSound("Bubble_Witch.Blow_Bubbles.Loop")
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -96,6 +97,10 @@ function modifier_bubble_witch_blow_bubbles_caster:OnCreated()
   if IsServer() then
     self:OnIntervalThink()
     self:StartIntervalThink(1)
+
+    self.particle = ParticleManager:CreateParticle("particles/hero/bubble_witch/bubbles_model.vpcf", PATTACH_ROOTBONE_FOLLOW, self:GetParent())
+    ParticleManager:SetParticleControlEnt(self.particle, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetOrigin(), true)
+    ParticleManager:SetParticleControl(self.particle, 2, Vector(0,0,0))
   end
 end
 
@@ -105,16 +110,18 @@ function modifier_bubble_witch_blow_bubbles_caster:OnIntervalThink()
   local parent_team = parent:GetTeamNumber()
   local parent_loc = parent:GetAbsOrigin()
 
-  local projectile_name = "particles/units/heroes/hero_puck/puck_illusory_orb_linear_projectile.vpcf"
+  local projectile_name = "particles/hero/bubble_witch/rainbow_bubble_linear_projectile.vpcf"
   local distance = ability:GetSpecialValueFor("cone_distance") + parent:GetCastRangeBonus()
   local start_radius = ability:GetSpecialValueFor("cone_starting_width")
   local end_radius = ability:GetSpecialValueFor("cone_ending_width")
   local extend_duration = ability:GetSpecialValueFor("extend_duration_per_hit")
+  local applies_to_caster = ability:GetSpecialValueFor("applies_to_caster")
+  local base_buff_duration = ability:GetSpecialValueFor("buff_duration")
   local speed = distance
   local direction = parent:GetForwardVector()
   direction.z = 0
   direction = direction:Normalized()
-  
+
   local perpendicular_direction = Vector(direction.y, -direction.x, 0.0)
   local start_position = parent_loc
   local end_position = start_position + direction*distance
@@ -207,7 +214,7 @@ function modifier_bubble_witch_blow_bubbles_caster:OnIntervalThink()
     if unit and not unit:IsNull() and unit ~= parent then
       if unit:GetTeamNumber() == parent_team then
         -- Ally
-        unit:AddNewModifier(parent, ability, "modifier_bubble_witch_blow_bubbles_ally", {duration = ability:GetSpecialValueFor("buff_duration")})
+        unit:AddNewModifier(parent, ability, "modifier_bubble_witch_blow_bubbles_ally", {duration = base_buff_duration})
         local magic_bubble_buff = unit:FindModifierByNameAndCaster("modifier_bubble_witch_magic_bubble_buff", parent)
         if magic_bubble_buff then
           local remain = magic_bubble_buff:GetRemainingTime()
@@ -226,11 +233,24 @@ function modifier_bubble_witch_blow_bubbles_caster:OnIntervalThink()
       end
     end
   end
+
+  if applies_to_caster > 0 then
+    parent:AddNewModifier(parent, ability, "modifier_bubble_witch_blow_bubbles_ally", {duration = base_buff_duration})
+    local magic_bubble_buff = parent:FindModifierByNameAndCaster("modifier_bubble_witch_magic_bubble_buff", parent)
+    if magic_bubble_buff then
+      local remain = magic_bubble_buff:GetRemainingTime()
+      magic_bubble_buff:SetDuration(remain + extend_duration, true)
+    end
+  end
 end
 
 function modifier_bubble_witch_blow_bubbles_caster:OnDestroy()
   if IsServer() then
-    self:GetParent():StopSound("Hero_Wisp.Spirits.Loop")
+    self:GetParent():StopSound("Bubble_Witch.Blow_Bubbles.Loop")
+    if self.particle then
+      ParticleManager:DestroyParticle(self.particle, true)
+      ParticleManager:ReleaseParticleIndex(self.particle)
+    end
   end
 end
 
@@ -249,14 +269,6 @@ end
 function modifier_bubble_witch_blow_bubbles_caster:GetModifierDisableTurning()
   return 1
 end
-
--- function modifier_bubble_witch_blow_bubbles_caster:GetEffectName()
-  -- return
--- end
-
--- function modifier_bubble_witch_blow_bubbles_caster:GetEffectAttachType()
-  -- return PATTACH_ABSORIGIN_FOLLOW
--- end
 
 ---------------------------------------------------------------------------------------------------
 
@@ -312,6 +324,35 @@ function modifier_bubble_witch_blow_bubbles_ally:OnRefresh()
       self.current_shield = math.max(self.current_shield + self.shield_increase_per_stack, self.shield_increase_per_stack * self:GetStackCount())
     end
     self:SendBuffRefreshToClients()
+  end
+end
+
+if IsServer() then
+  function modifier_bubble_witch_blow_bubbles_ally:OnDestroy()
+    local parent = self:GetParent()
+    local caster = self:GetCaster()
+
+    if not caster or caster:IsNull() then
+      return
+    end
+
+    local innate = caster:FindAbilityByName("bubble_witch_innate")
+    if not innate or innate:IsNull() then
+      return
+    end
+
+    -- If owner is affected by break, do nothing
+    if caster:PassivesDisabled() then
+      return
+    end
+
+    if not parent or parent:IsNull() then
+      return
+    end
+
+    if parent:IsAlive() then
+      parent:AddNewModifier(caster, innate, "modifier_bubble_witch_innate_buff_oaa", {duration = 0.1})
+    end
   end
 end
 
@@ -377,7 +418,7 @@ function modifier_bubble_witch_blow_bubbles_ally:GetEffectName()
 end
 
 function modifier_bubble_witch_blow_bubbles_ally:GetEffectAttachType()
-  return PATTACH_ABSORIGIN_FOLLOW
+  return PATTACH_ROOTBONE_FOLLOW
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -428,10 +469,10 @@ function modifier_bubble_witch_blow_bubbles_enemy:GetModifierMoveSpeedBonus_Perc
   return 0 - math.abs(self:GetStackCount() * self.move_speed_slow_per_stack)
 end
 
--- function modifier_bubble_witch_blow_bubbles_enemy:GetEffectName()
-  -- return
--- end
+ function modifier_bubble_witch_blow_bubbles_enemy:GetEffectName()
+  return "particles/econ/events/ti10/high_five/high_five_lvl1_overhead_soap_bubbles.vpcf"
+end
 
--- function modifier_bubble_witch_blow_bubbles_enemy:GetEffectAttachType()
-  -- return PATTACH_ABSORIGIN_FOLLOW
--- end
+ function modifier_bubble_witch_blow_bubbles_enemy:GetEffectAttachType()
+  return PATTACH_OVERHEAD_FOLLOW
+end

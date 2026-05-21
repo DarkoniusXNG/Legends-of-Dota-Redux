@@ -175,7 +175,7 @@ function Debug:init()
         for i = 0, hero:GetAbilityCount() - 1 do
             local ability = hero:GetAbilityByIndex(i)
             if ability then
-                if util:IsTalent(ability) then
+                if IsTalentCustom(ability) then
                     UTIL_Remove(ability)
                     count = count + 1
                 end

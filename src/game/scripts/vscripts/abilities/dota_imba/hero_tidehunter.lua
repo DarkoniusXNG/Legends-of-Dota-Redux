@@ -18,6 +18,12 @@
 --     AltiV, May 29th, 2019 (true IMBAfication)
 --     Elfansoer, 17.08.2019
 
+if IsClient() then
+    require('lib/util_imba_client')
+end
+
+--CreateEmptyTalents("tidehunter")
+
 LinkLuaModifier("modifier_imba_tidehunter_gush", "abilities/dota_imba/hero_tidehunter", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_tidehunter_gush_handler", "abilities/dota_imba/hero_tidehunter", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_tidehunter_gush_surf", "abilities/dota_imba/hero_tidehunter", LUA_MODIFIER_MOTION_NONE) -- Was originally gonna make this a horizontal motion controller, but seeing how those tend to cancel other controllers out, I don't think this warrants that same power so it'll just be standard intervalthink updates
@@ -596,8 +602,7 @@ function imba_tidehunter_anchor_smash:OnSpellStart()
 end
 
 function imba_tidehunter_anchor_smash:Smash(enemy, bThrown)
-	-- elfansoer: fix isroshan missing reference
-	if enemy:GetUnitName()~="npc_dota_roshan" then
+	if not enemy:IsRoshanCustom() then
 		if bThrown and enemy:IsConsideredHero() then
 			self:GetCaster():EmitSound("Hero_Tidehunter.AnchorSmash")
 		end
