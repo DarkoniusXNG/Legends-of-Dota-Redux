@@ -13,9 +13,9 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"custom/aether_reality_shift"
 
-		"ReduxFlags"                    "stun | support"
+		"ReduxFlags"                    "stun | support | wtfAutoBan"
 		"ReduxPerks"                    "enemymoving | light | support"
-		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxBans"                     "tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // invulnerability and trolling
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

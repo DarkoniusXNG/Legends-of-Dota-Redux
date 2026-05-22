@@ -5,6 +5,7 @@
 	{
 		"ReduxFlags"                                                           "summon"
 		"ReduxPerks"                                                           "summon_non_ult"
+		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand" // lag and sitting in fountain
 	}
 
 	"lycan_howl"

@@ -23,6 +23,7 @@
 	"muerta_pierce_the_veil"
 	{
 		"ReduxPerks"                                                           "transformation | undead"
+		"ReduxBans"                                                            "leshrac_greater_lightning_storm"
 	}
 
 	"muerta_parting_shot"

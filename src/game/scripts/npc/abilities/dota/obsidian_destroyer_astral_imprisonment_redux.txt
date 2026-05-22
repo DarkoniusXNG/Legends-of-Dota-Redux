@@ -16,9 +16,9 @@
 
 		"HasScepterUpgrade"				"1"
 
-		"ReduxFlags"					"dota_custom | stun | support | upgradeable"
+		"ReduxFlags"					"dota_custom | stun | support | upgradeable | wtfAutoBan"
 		"ReduxPerks"					"support"
-		"ReduxBans"						"tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxBans"						"tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // trolling and invulnerability
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"225 300 375 450"
-		"AbilityCastPoint"				"0.25 0.25 0.25 0.25"
+		"AbilityCastPoint"				"0.25"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------

@@ -14,9 +14,9 @@
 	//=================================================================================================================
 	"earth_spirit_rolling_boulder"
 	{
-		"ReduxFlags"		"stun | mobility"
+		"ReduxFlags"		"stun | mobility | wtfAutoBan"
 		"ReduxPerks"		"earth | skillshot | mobility"
-		"ReduxBans"			"dazzle_bad_juju_redux"
+		"ReduxBans"			"dazzle_bad_juju_redux" // invulnerability
 	}
 
 	//=================================================================================================================
@@ -42,9 +42,9 @@
 	//=================================================================================================================
 	"earth_spirit_petrify"
 	{
-		"ReduxFlags"                    "stun | doNotRandom | support | upgradeable"
+		"ReduxFlags"                    "stun | doNotRandom | support | upgradeable | wtfAutoBan"
 		"ReduxPerks"					"earth | support | transformation"
-		"ReduxBans"                     "tinker_rearm | dazzle_bad_juju_redux"
+		"ReduxBans"                     "tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // invulnerability and trolling
 		"ReduxCost"                     "20"
 
 		"MaxLevel"						"4"

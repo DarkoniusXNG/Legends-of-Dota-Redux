@@ -33,9 +33,8 @@
 	//=================================================================================================================
 	"gyrocopter_call_down"
 	{
-		"ReduxFlags"		"wtfAutoBan"
+		//"ReduxFlags"		""
 		"ReduxPerks"		"scientific | skillshot | explosive"
-		"ReduxBans"			"tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
 	}
 
 	//=================================================================================================================

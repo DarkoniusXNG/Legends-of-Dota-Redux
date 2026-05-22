@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --    Hero: Ancient Apparition
---    Perk: Ancient Apparition disables the health restoration of targets when a Ice ability debuff is applied.
+--    Perk: Ancient Apparition reduces health restoration of targets when a Ice ability debuff is applied.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_ancient_apparition_perk = modifier_npc_dota_hero_ancient_apparition_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -47,15 +47,21 @@ end
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_DISABLE_HEALING,
+    --MODIFIER_PROPERTY_DISABLE_HEALING,
+	MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION,
   }
 end
 
-function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:GetDisableHealing()
-  return 1
+--function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:GetDisableHealing()
+  --return 1
+--end
+
+function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:GetModifierPropertyRestorationAmplification()
+  return 0 - math.abs(self.heal_reduction)
 end
 
 function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:OnCreated(event)
+	self.heal_reduction = 80
 	if IsServer() then
 		self.linkedmod = event.linkedmod
 		self:StartIntervalThink(0.1)

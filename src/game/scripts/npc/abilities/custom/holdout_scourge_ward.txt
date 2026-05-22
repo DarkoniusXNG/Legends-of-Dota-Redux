@@ -4,17 +4,22 @@
     {
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PHYSICAL"
+
+        "ReduxFlags"                                                           "summon | wtfAutoBan"
+        "ReduxPerks"                                                           "summon_non_ult"
+        "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
+
         "AbilityCastPoint"                                                     "0.5"
         "AbilityChannelTime"                                                   "3.0"
         "AbilityCastRange"                                                     "850"
         "AbilityCooldown"                                                      "15.0"
         "AbilityManaCost"                                                      "20"
+
         "AbilityValues"
         {
             "duration" "40.0"
             "ward_hp_tooltip" "150 300 450 600"
             "ward_damage_tooltip" "20 30 40 50"
         }
-        "ReduxPerks"                                                           "summon_non_ult"
     }
 }

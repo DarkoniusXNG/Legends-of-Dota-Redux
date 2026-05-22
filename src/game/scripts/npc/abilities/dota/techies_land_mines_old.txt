@@ -10,6 +10,10 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
+    "ReduxFlags"                                          "dota_custom | invis | physical"
+    "ReduxPerks"                                          "scientific | trap | explosive | physical"
+    "ReduxBans"                                           "arc_warden_tempest_double | meepo_divided_we_stand"
+
     "AbilityCastRange"                                    "150" // old (100)
     "AbilityCastPoint"                                    "0.0"
 
@@ -47,9 +51,5 @@
 
       "building_dmg_reduction"                            "50" // old (100%); Proximity Mines (30%)
     }
-
-    "ReduxFlags"                                          "dota_custom | invis | physical"
-    "ReduxPerks"                                          "scientific | trap | explosive | physical"
-    "ReduxBans"                                           "arc_warden_tempest_double"
   }
 }

@@ -63,9 +63,9 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "support | disarm_break | dota_custom"
-        "ReduxPerks"                                                           "support"
+        "ReduxFlags"                                                           "disarm_break | dota_custom | wtfAutoBan"
+        //"ReduxPerks"                                                           ""
         "ReduxCost"                                                            "10"
-        "ReduxBans"                                                            "tinker_rearm"
+        "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain
     }
 }

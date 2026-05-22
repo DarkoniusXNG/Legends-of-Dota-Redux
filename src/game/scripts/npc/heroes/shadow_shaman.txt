@@ -21,8 +21,9 @@
 	"shadow_shaman_mass_serpent_ward"
 	{
 		"ReduxFlags"                                                           "summon | wtfAutoBan"
+		"ReduxPerks"                                                           "summon_ult"
 		"ReduxCost"                                                            "20"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 	}
 
 	"shadow_shaman_voodoo"
@@ -45,11 +46,15 @@
 
 	"shadow_shaman_serpentine"
 	{
-		"ReduxFlags"					"summon | doNotRandom | wtfAutoBan"
+		"ReduxFlags"                                                           "summon | doNotRandom | wtfAutoBan"
+		"ReduxPerks"                                                           "summon_non_ult"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 
 		"MaxLevel"						"4"
+
 		"AbilityCooldown"				"35 30 25 20"
 		"AbilityManaCost"				"100"
+
 		"AbilityValues"
 		{
 			"count"
@@ -63,6 +68,13 @@
 		}
 	}
 
+	"shadow_shaman_urnaconda"
+	{
+		"ReduxFlags"                                                           "summon | doNotRandom | wtfAutoBan"
+		"ReduxPerks"                                                           "summon_non_ult"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
+	}
+
 	//=================================================================================================================
 	// Shadow Shaman: Fowl Play (Innate but shown in UI)
 	//=================================================================================================================
@@ -72,6 +84,7 @@
 
 		"ReduxFlags"                                                           "upgradeable | wtfAutoBan"
 		"ReduxPerks"                                                           "hex | illusion | transformation"
+		"ReduxFlags"                                                           "tinker_rearm" // invulnerability
 
 		"MaxLevel"						"4"
 

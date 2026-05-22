@@ -639,6 +639,7 @@
 
         "ReduxFlags"                    "summon"
         "ReduxPerks"                    "summon_non_ult | undead"
+        "ReduxBans"                     "arc_warden_tempest_double | meepo_divided_we_stand" // lag
 
         "AbilityCastRange"              "600"
         "AbilityCastPoint"              "0.6"

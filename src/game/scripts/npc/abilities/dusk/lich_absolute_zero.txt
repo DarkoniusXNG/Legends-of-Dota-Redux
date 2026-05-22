@@ -16,12 +16,16 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/lich_absolute_zero"
 
+		//"ReduxFlags"                    ""
+		"ReduxPerks"                    "ice"
+		//"ReduxBans"                     ""
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.3"
-		
-		// Time		
+
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"60 45 30"
 
@@ -34,7 +38,7 @@
 		"AbilityValues"
         {
             "duration" "8.0"
-            "radius"				
+            "radius"
 			{
 				"value"	"800 900 1000"
 				"affected_by_aoe_increase"	"1"
@@ -45,14 +49,11 @@
             "aura_move_slow" "40 50 60"
             "aura_attack_slow" "40 60 80"
         }
-		
+
 		"precache"
 		{
 			"particle" "particles/status_fx/status_effect_frost_lich.vpcf"
 			"particle" "particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet_frozen.vpcf"
 		}
-
-		"ReduxPerks"	"ice"
-		"ReduxFlags"	""
 	}
 }

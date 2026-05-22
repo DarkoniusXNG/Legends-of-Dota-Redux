@@ -42,9 +42,9 @@
                 "Target"                                               "POINT"
             }
         }
-        "ReduxFlags"                                                           "summon"
+        "ReduxFlags"                                                           "summon | wtfAutoBan"
         "ReduxPerks"                                                           "scientific | summon_non_ult"
         "ReduxCost"                                                            "120"
-        "ReduxBans"                                                            "tinker_rearm"
+        "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain and lag
     }
 }

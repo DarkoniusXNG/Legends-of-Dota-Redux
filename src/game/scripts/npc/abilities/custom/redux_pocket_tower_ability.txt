@@ -16,8 +16,9 @@
             "particle"      "particles/dev/library/base_dust_hit_detail.vpcf"
         }
 
-        "ReduxFlags"                                                           "summon"
+        "ReduxFlags"                                                           "summon | wtfAutoBan"
         "ReduxPerks"                                                           "neutral | summon_non_ult"
+        "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
         "ReduxCost"                                                            "120"
     }
 }

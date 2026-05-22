@@ -22,9 +22,9 @@
 
 	"silencer_global_silence"
 	{
-		"ReduxFlags"                                                           "support | silence | wtfAutoBan | upgradeable"
-		"ReduxPerks"                                                           "support | silence"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxFlags"                                                           "silence | wtfAutoBan | upgradeable"
+		"ReduxPerks"                                                           "silence"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain and trolling
 	}
 
 	//=================================================================================================================

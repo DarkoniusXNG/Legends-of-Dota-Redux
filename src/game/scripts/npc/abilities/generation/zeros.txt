@@ -313,6 +313,7 @@
 
         "ReduxFlags"                    "summon"
         "ReduxPerks"                    "gold | summon_non_ult"
+        "ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 
         "AbilityCooldown"               "20"
         "AbilityManaCost"               "75"

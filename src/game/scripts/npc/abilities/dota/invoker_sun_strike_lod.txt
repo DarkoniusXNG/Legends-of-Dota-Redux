@@ -7,6 +7,11 @@
         "MaxLevel"                                                             "4"
         "AbilityUnitDamageType"                                                "DAMAGE_TYPE_PURE"
         "RequiredLevel"                                                        "1"
+
+        "ReduxFlags"                                                           "wtfAutoBan"
+        "ReduxPerks"                                                           "fire | skillshot"
+        "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain
+
         "AbilityCastRange"                                                     "0"
         "AbilityCastPoint"                                                     "0"
         "AbilityCooldown"                                                      "30"
@@ -19,9 +24,6 @@
             "vision_distance" "400"
             "vision_duration" "4.0"
         }
-        "ReduxPerks"                                                           "fire | skillshot"
-        "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
-        "ReduxFlags"                                                           "wtfAutoBan"
     }
 
     "invoker_sun_strike_lod_op" // sun death ray
@@ -52,7 +54,7 @@
 
         "ReduxFlags"                                                           "wtfAutoBan"
         "ReduxPerks"                                                           "fire | skillshot"
-        "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+        "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain
         "ReduxCost"                                                            "120"
     }
 }

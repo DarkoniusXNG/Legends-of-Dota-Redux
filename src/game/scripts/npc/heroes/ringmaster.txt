@@ -46,9 +46,9 @@
 	//=================================================================================================================
 	"ringmaster_the_box"
 	{
-		"ReduxFlags"                                                           "support | tank"
+		"ReduxFlags"                                                           "support | tank | wtfAutoBan"
 		"ReduxPerks"                                                           "support"
-		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
+		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // invulnerability and trolling
 	}
 
 	//=================================================================================================================

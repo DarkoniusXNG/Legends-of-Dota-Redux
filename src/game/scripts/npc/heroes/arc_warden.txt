@@ -56,9 +56,10 @@
 	//=================================================================================================================
 	"arc_warden_tempest_double"
 	{
+		"ReduxFlags"                                                           "summon"
 		"ReduxPerks"                                                           "lightning"
 		"ReduxCost"                                                            "120"
-		"ReduxBans"                                                            "imba_omniknight_purification | tinker_rearm"
+		"ReduxBans"                                                            "imba_omniknight_purification | tinker_rearm | meepo_divided_we_stand"
 	}
 
 	//=================================================================================================================

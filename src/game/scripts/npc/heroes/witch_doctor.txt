@@ -28,8 +28,8 @@
 
 	"witch_doctor_voodoo_switcheroo"
 	{
-		"ReduxFlags"                                                           "doNotRandom | upgradeable"
-		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
+		"ReduxFlags"                                                           "doNotRandom | upgradeable | wtfAutoBan"
+		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // invulnerability
 
 		"MaxLevel"                      "4"
 		"AbilityCooldown"               "50 40 30 20"
@@ -71,8 +71,8 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
-		"ReduxFlags"                                                           "doNotRandom | support"
-		"ReduxPerks"                                                           "support"
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "gold"
 	}
 
 	"special_bonus_unique_witch_doctor_1"

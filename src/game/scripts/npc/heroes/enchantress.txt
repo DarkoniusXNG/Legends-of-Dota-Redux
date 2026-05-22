@@ -58,6 +58,7 @@
 	{
 		"ReduxFlags"		"summon"
 		"ReduxPerks"		"nature" // no summon_non_ult because it does not summon
+		"ReduxBans"         "arc_warden_tempest_double | meepo_divided_we_stand" // lag
 	}
 
 	"enchantress_natures_attendants"

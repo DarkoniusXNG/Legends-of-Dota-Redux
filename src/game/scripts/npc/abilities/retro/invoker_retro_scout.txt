@@ -39,6 +39,7 @@
         }
         "ReduxFlags"                                                           "support | invis | summon"
         "ReduxPerks"                                                           "support | summon_non_ult"
+        "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain and lag
         "ReduxCost"                                                            "30"
     }
 }

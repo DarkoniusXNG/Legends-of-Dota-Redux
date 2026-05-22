@@ -24,14 +24,14 @@
 		"ReduxFlags"                                                           "wtfAutoBan"
 		"ReduxPerks"                                                           "lightning | rage"
 		"ReduxCost"                                                            "20"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain
 	}
 
 	"zuus_cloud"
 	{
 		"ReduxFlags"                                                           "doNotRandom | summon | upgradeable | wtfAutoBan"
-		"ReduxPerks"                                                           "lightning"
-		"ReduxBans"                                                            "tinker_rearm"
+		"ReduxPerks"                                                           "lightning | summon_non_ult"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain and lag
 
 		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityCooldown"				"45 40 35 30"
