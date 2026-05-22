@@ -22,8 +22,9 @@
 	//=================================================================================================================
 	"grimstroke_dark_portrait"
 	{
-		"ReduxFlags"	"illusion | upgradeable"
-		"ReduxPerks"	"illusion"
+		"ReduxFlags"                    "illusion | upgradeable"
+		"ReduxPerks"                    "illusion"
+		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 
 		"MaxLevel"						"4"
 

@@ -24,6 +24,7 @@
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "enemymoving | rage"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // long bkb piercing stun
 	}
 
 	"beastmaster_inner_beast" // current Innate

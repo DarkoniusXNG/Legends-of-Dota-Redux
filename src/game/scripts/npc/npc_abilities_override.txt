@@ -2934,8 +2934,9 @@
 
 	"phantom_lancer_spirit_lance"
 	{
-		"ReduxFlags"                                                           "illusion"
+		"ReduxFlags"                                                           "illusion | wtfAutoBan"
 		"ReduxPerks"                                                           "illusion | undead"
+		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand" // lag
 	}
 	"terrorblade_reflection"
 	{
