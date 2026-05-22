@@ -24,11 +24,11 @@
 		"ReduxPerks"                                                           "channeled | rage | earth | enemymoving"
 	}
 
-	"primal_beast_colossal"
+	"primal_beast_colossal" // current Innate
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
-		"ReduxCost"                                                            "30"
+		"ReduxCost"                                                            "40"
 	}
 
 	"primal_beast_innate_slow_resistance_per_time"

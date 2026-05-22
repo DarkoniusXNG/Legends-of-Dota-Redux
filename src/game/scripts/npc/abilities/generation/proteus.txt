@@ -117,6 +117,7 @@
 
         "ReduxFlags"                    "support | summon"
         "ReduxPerks"                    "support | summon_non_ult"
+        //"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 
         "precache"
         {

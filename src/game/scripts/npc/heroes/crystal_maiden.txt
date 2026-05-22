@@ -23,6 +23,7 @@
 	{
 		"ReduxFlags"                                                           "upgradeable"
 		"ReduxPerks"                                                           "ice | channeled"
+		"ReduxCost"                                                            "20"
 	}
 
 	"crystal_maiden_crystal_clone"

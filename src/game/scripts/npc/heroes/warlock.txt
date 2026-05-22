@@ -23,8 +23,8 @@
 	{
 		"ReduxFlags"                                                           "upgradeable | stun | summon | wtfAutoBan"
 		"ReduxPerks"                                                           "demon | fire"
-		"ReduxCost"                                                            "20"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxCost"                                                            "30"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain and lag
 	}
 
 	"warlock_golem_flaming_fists"

@@ -52,6 +52,7 @@
 
 		"ReduxFlags"                                                           "support | upgradeablewithshard"
 		"ReduxPerks"                                                           "support"
+		"ReduxCost"                                                            "40" // buff amp is very powerful + scales per hero lvl
 	}
 
 	"special_bonus_unique_largo_1"

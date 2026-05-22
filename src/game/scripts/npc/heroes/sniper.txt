@@ -4,6 +4,7 @@
 	"sniper_shrapnel"
 	{
 		"ReduxPerks"                                                           "explosive | scientific | skillshot"
+		"ReduxCost"                                                            "10"
 	}
 
 	"sniper_headshot"
@@ -73,7 +74,7 @@
 
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | ranger"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "40"
 	}
 
 	"special_bonus_unique_sniper_1"

@@ -5,7 +5,7 @@
 	{
 		"ReduxFlags"                                                           "tank"
 		"ReduxPerks"                                                           "blood | dragon"
-		"ReduxCost"                                                            "30"
+		"ReduxCost"                                                            "40"
 	}
 
 	"dragon_knight_wyrms_wrath"

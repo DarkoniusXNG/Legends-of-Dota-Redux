@@ -35,6 +35,7 @@
 	"axe_culling_blade"
 	{
 		"ReduxPerks"                        "blades | rage"
+		"ReduxCost"                         "10" // because of scaling per kill
 	}
 
 	//=================================================================================================================

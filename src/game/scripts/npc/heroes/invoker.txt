@@ -201,6 +201,7 @@
 	{
 		"ReduxFlags"					"upgradeable | wtfAutoBan"
 		"ReduxPerks"                    "fire | light | skillshot"
+		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain
 
 		"AbilityTextureName"            "invoker_sun_strike_ad_png"
 		"MaxLevel"						"4"
@@ -252,7 +253,8 @@
 	{
 		"ReduxFlags"					"summon"
 		"ReduxPerks"                    "fire | ice | summon_non_ult"
-		"ReduxCost"                     "30"
+		"ReduxBans"                     "arc_warden_tempest_double | meepo_divided_we_stand" // lag and sitting in fountain
+		"ReduxCost"                     "30" // falls off lategame otherwise at least 40
 
 		"AbilityTextureName"            "invoker_forge_spirit_ad_png"
 		"AbilityCooldown"				"27 25 23 21"

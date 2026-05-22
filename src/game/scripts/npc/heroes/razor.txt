@@ -19,19 +19,22 @@
 	{
 		"ReduxFlags"                                                           "upgradeable | physical | wtfAutoBan"
 		"ReduxPerks"                                                           "lightning | physical"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxBans"                                                            "tinker_rearm"
 	}
 
 	"razor_unstable_current" // current Innate
 	{
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "lightning | mobility"
+		"ReduxCost"                                                            "10"
 	}
 
 	"razor_dynamo" // old Facet
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_razor_perk"
+
+		"ReduxCost"                                                            "10"
 
 		"MaxLevel"                                                             "4"
 

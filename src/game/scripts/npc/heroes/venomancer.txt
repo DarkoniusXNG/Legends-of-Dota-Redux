@@ -8,8 +8,9 @@
 
 	"venomancer_plague_ward"
 	{
+		"ReduxFlags"                                                           "summon | wtfAutoBan"
 		"ReduxPerks"                                                           "poison | summon_non_ult"
-		"ReduxFlags"                                                           "summon"
+		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand" // lag
 	}
 
 	"venomancer_noxious_plague"
@@ -21,7 +22,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | poison"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "0"
 	}
 
 	"venomancer_sepsis" // old Innate

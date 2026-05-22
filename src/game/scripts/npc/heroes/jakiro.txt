@@ -40,6 +40,7 @@
 
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | dragon"
+		"ReduxCost"                                                            "30"
 	}
 
 	"special_bonus_unique_jakiro"

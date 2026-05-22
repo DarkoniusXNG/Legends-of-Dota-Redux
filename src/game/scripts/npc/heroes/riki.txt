@@ -1,0 +1,132 @@
+"DOTAAbilities"
+{
+	"riki_smoke_screen"
+	{
+		"ReduxFlags"                                                           "support | silence"
+		"ReduxPerks"                                                           "support | silence"
+	}
+
+	"riki_blink_strike"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | blink"
+		"ReduxCost"                                                            "10"
+		"ReduxBans"                                                            "nyx_assassin_burrow | nyx_assassin_burrow_redux"
+	}
+
+	"riki_tricks_of_the_trade"
+	{
+		"ReduxFlags"														   "mobility | aoe_attack | upgradeable | wtfAutoBan"
+		"ReduxPerks"                                                           "channeled | mobility"
+		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux" // invulnerability
+	}
+
+	"riki_permanent_invisibility" // old Ultimate
+	{
+		"ReduxFlags"                                                           "invis"
+		"ReduxPerks"                                                           "invis"
+		"ReduxCost"                                                            "120"
+	}
+
+	"riki_backstab" // Cloak and Dagger - current Ultimate
+	{
+		"ReduxFlags"                                                           "invis"
+		"ReduxPerks"                                                           "dagger | invis"
+		"ReduxCost"                                                            "120"
+	}
+
+	"riki_innate_backstab" // current Innate
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier"
+	}
+
+	"riki_poison_dart" // old Shard
+	{
+		"ReduxFlags"                    "stun"
+		"ReduxPerks"                    "sleep | poison"
+
+		"MaxLevel"                      "4"
+		"AbilityCooldown"               "15 14 13 12"
+		"AbilityManaCost"               "75"
+		"AbilityValues"
+		{
+			"duration"		"2.4 2.6 2.8 3.0"
+			"damage"
+			{
+				"value"					"150 200 250 300"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"movement_slow"		"30 35 40 45"
+			"debuff_duration"		"4"
+			"projectile_speed"		"1600"
+			"wake_damage_limit"		"200"
+		}
+	}
+
+	// talents
+	"special_bonus_unique_riki_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_innate_backstab"
+	}
+	"special_bonus_unique_riki_tricks_dmg"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_tricks_of_the_trade"
+	}
+	"special_bonus_unique_riki_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_smoke_screen"
+	}
+	"special_bonus_unique_riki_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_blink_strike"
+	}
+	"special_bonus_unique_riki_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_tricks_of_the_trade"
+	}
+	"special_bonus_unique_riki_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_smoke_screen"
+	}
+	"special_bonus_unique_riki_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_backstab"
+	}
+	"special_bonus_unique_riki_9"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "riki_blink_strike"
+	}
+}

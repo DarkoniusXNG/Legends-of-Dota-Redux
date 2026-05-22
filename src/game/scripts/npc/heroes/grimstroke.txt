@@ -119,7 +119,7 @@
 	{
 		"ReduxFlags"	"tank"
 		//"ReduxPerks"	""
-		"ReduxCost"		"10"
+		"ReduxCost"		"40" // works on any hero + dmg reduction is very powerful + scales per hero lvl
 	}
 
 	// Grimstroke

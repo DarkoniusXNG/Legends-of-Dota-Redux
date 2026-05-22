@@ -11,7 +11,7 @@
 	{
 		"ReduxFlags"                                                           "tank"
 		"ReduxPerks"                                                           "water"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "20"
 	}
 
 	"tidehunter_anchor_smash"
@@ -25,7 +25,7 @@
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "water"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
+		"ReduxCost"                                                            "20"
 	}
 
 	"tidehunter_dead_in_the_water"

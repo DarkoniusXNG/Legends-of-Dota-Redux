@@ -10,7 +10,7 @@
 
         "ReduxFlags"                                                           "attack_modifier | dota_custom | underpowered"
         "ReduxPerks"                                                           "attack_modifier | drain"
-        "ReduxCost"                                                            "30"
+        "ReduxCost"                                                            "40"
 
         "AbilityValues"
         {

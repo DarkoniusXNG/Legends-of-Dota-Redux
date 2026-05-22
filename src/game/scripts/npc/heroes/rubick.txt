@@ -1,0 +1,110 @@
+"DOTAAbilities"
+{
+	"rubick_telekinesis"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "enemymoving"
+	}
+
+	"rubick_fade_bolt"
+	{
+		"ReduxPerks"                                                           "lightning"
+	}
+
+	"rubick_arcane_supremacy" // current Passive
+	{
+		"ReduxCost"                                                            "40"
+	}
+
+	"rubick_spell_steal" // current Ultimate
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+	}
+
+	"rubick_curiosity" // current Innate
+	{
+		"ReduxCost"                                                            "40" // buff amp and debuff amp is very powerful + infinite scaling
+	}
+
+	"rubick_might_and_magus" // old Innate + old Facet
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_rubick_perk"
+
+		"ReduxCost"                                                            "40" // works for any spell
+
+		"MaxLevel"                                                             "4"
+		"Innate"                                                               "0"
+
+		"AbilityValues"
+		{
+			"aoe_bonus"					"10 15 20 25"
+			"magic_resist_bonus"		"2 3 4 5"
+			"aoe_bonus_duration"		"20"
+		}
+	}
+
+	"rubick_null_field" // old Passive
+	{
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support | aura"
+	}
+
+	// talents
+	"special_bonus_unique_rubick"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rubick_telekinesis"
+	}
+	"special_bonus_unique_rubick_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rubick_fade_bolt"
+	}
+	"special_bonus_unique_rubick_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rubick_telekinesis"
+	}
+	"special_bonus_unique_rubick_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rubick_spell_steal"
+	}
+	"special_bonus_unique_rubick_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rubick_spell_steal"
+	}
+	"special_bonus_unique_rubick_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rubick_fade_bolt"
+	}
+	"special_bonus_unique_rubick_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "rubick_telekinesis"
+	}
+}

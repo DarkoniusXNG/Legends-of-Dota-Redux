@@ -18,7 +18,7 @@
 	{
 		"ReduxFlags"                                                           "summon | wtfAutoBan"
 		"ReduxPerks"                                                           "summon_non_ult | nature"
-		"ReduxBans"                                                            "tinker_rearm"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 	}
 
 	"furion_wrath_of_nature"
@@ -26,7 +26,7 @@
 		"ReduxFlags"                                                           "upgradeable | wtfAutoBan"
 		"ReduxPerks"                                                           "nature | rage"
 		"ReduxCost"                                                            "10"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain
 	}
 
 	"furion_spirit_of_the_forest" // current innate
@@ -34,6 +34,7 @@
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
 		"ReduxPerks"                                                           "nature"
+		"ReduxCost"                                                            "30"
 	}
 
 	"furion_natures_profit" // old facet
@@ -95,7 +96,7 @@
 
 	// "furion_summon_fey"
 	// {
-		// "ReduxFlags"                                                           "summon"
+		// "ReduxFlags"                                                           "summon | wtfAutoBan"
 		// "ReduxPerks"                                                           "nature | summon_non_ult"
 	// }
 

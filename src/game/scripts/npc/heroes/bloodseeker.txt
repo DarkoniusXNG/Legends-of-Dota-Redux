@@ -12,7 +12,7 @@
 	{
 		"ReduxFlags"                                                           "mobility | semi_passive"
 		"ReduxPerks"                                                           "mobility | blood"
-		"ReduxCost"                                                            "30"
+		"ReduxCost"                                                            "40"
 	}
 
 	"bloodseeker_bloodrage"

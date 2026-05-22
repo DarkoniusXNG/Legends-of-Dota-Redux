@@ -12,7 +12,7 @@
 	{
 		"ReduxFlags"                                                           "upgradeable"
 		"ReduxPerks"                                                           "earth"
-		"ReduxCost"                                                            "30"
+		"ReduxCost"                                                            "40"
 	}
 
 	"earthshaker_aftershock"
