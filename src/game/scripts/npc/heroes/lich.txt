@@ -21,6 +21,7 @@
 	"lich_chain_frost"
 	{
 		"ReduxPerks"                                                           "ice"
+		"ReduxCost"                                                            "20"
 	}
 
 	"lich_ice_spire"

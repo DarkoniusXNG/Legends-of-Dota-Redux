@@ -36,7 +36,7 @@
 		"ReduxFlags"                    "wtfAutoBan"
 		"ReduxPerks"                    "ice | skillshot"
 		"ReduxCost"                     "20"
-		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain
 	}
 
 	//=================================================================================================================
@@ -68,6 +68,8 @@
 	{
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "ice | undead"
+		"ReduxBans"                                                            "lina_slow_burn"
+		"ReduxCost"                                                            "40" // works with all magic spell dmg instances + scales per hero lvl
 	}
 
 	"special_bonus_unique_ancient_apparition_1"

@@ -11,7 +11,7 @@
         "ReduxCost"                                                            "500"
         "ReduxFlags"                                                           "tank"
         "ReduxPerks"                                                           "rage"
-        "ReduxBans"                                                            "axe_berserkers_call"
+		"ReduxBans"                                                            "axe_berserkers_call | tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // long bkb piercing stun
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

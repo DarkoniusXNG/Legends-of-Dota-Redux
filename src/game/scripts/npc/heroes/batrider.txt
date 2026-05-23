@@ -64,9 +64,10 @@
 	//=================================================================================================================
 	"batrider_flaming_lasso"
 	{
-		"ReduxFlags"                    "upgradeable | stun"
-		"ReduxPerks"                    "fire | enemymoving"
-		"ReduxCost"                     "10"
+		"ReduxFlags"                                                           "upgradeable | stun"
+		"ReduxPerks"                                                           "fire | enemymoving"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // long bkb piercing stun
+		"ReduxCost"                                                            "0"
 	}
 
 	// Talents

@@ -17,6 +17,7 @@
 
 		"ReduxPerks"					"illusion"
 		"ReduxFlags"					"illusion"
+		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

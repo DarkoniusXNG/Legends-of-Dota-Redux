@@ -11,7 +11,7 @@
 	{
 		"ReduxFlags"                                                           "support | wtfAutoBan"
 		"ReduxPerks"                                                           "support | undead"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // invulnerability
 		"ReduxCost"                                                            "20"
 	}
 
@@ -123,7 +123,7 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
-		"ReduxCost"                                                            "50"
+		"ReduxCost"                                                            "40" // works for any hero
 	}
 
 	//=================================================================================================================

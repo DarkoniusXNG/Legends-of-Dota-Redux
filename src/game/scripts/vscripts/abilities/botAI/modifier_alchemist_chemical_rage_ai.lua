@@ -31,6 +31,15 @@ if IsServer() then
 		local attacker = event.attacker
 		local damaged_unit = event.unit
 
+		if not ability or ability:IsNull() then
+			self:Destroy()
+			return
+		end
+
+		if ability:GetLevel() < 1 then
+			return
+		end
+
 		-- Check if attacker exists
 		if not attacker or attacker:IsNull() then
 			return
@@ -45,8 +54,12 @@ if IsServer() then
 		if damaged_unit == attacker then
 			return
 		end
-		
-		if caster:GetHealthPercent() <= 75 and ability and ability:IsFullyCastable() and caster:IsRealHero() and not (caster:IsStunned() or caster:IsSilenced() or caster:IsChanneling()) then
+
+		if not caster:IsAlive() or not caster:IsRealHero() or caster:IsStunned() or caster:IsSilenced() or caster:IsChanneling() then
+			return
+		end
+
+		if caster:GetHealthPercent() <= 75 and ability:IsFullyCastable() then
 			local cooldown = ability:GetCooldown(ability:GetLevel() - 1)
 			--caster:CastAbilityImmediately(ability, caster:GetPlayerOwnerID())
 			ability:OnSpellStart()

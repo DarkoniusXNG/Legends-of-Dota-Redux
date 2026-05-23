@@ -1,0 +1,97 @@
+"DOTAAbilities"
+{
+	"dark_willow_bramble_maze"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "nature"
+	}
+
+	"dark_willow_shadow_realm"
+	{
+		"ReduxFlags"                                                           "tank | upgradeable | wtfAutoBan"
+		"ReduxPerks"                                                           "transformation"
+		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux" // invulnerability
+		"ReduxCost"                                                            "30"
+	}
+
+	"dark_willow_cursed_crown"
+	{
+		"ReduxFlags"                                                           "stun"
+	}
+
+	"dark_willow_bedlam"
+	{
+		"AbilityType"                                                          "ABILITY_TYPE_ULTIMATE"
+		//"ReduxFlags"                                                           "summon"
+		//"ReduxPerks"                                                           "summon_ult"
+	}
+
+	"dark_willow_terrorize"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "skillshot | enemymoving"
+	}
+	
+	"dark_willow_pixie_dust" // current Innate
+	{
+		"ReduxFlags"                                                           "mana | tank"
+	}
+
+	// talents
+	"special_bonus_unique_dark_willow_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_willow_shadow_realm"
+	}
+	"special_bonus_unique_dark_willow_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_willow_terrorize"
+	}
+	"special_bonus_unique_dark_willow_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_willow_bramble_maze"
+	}
+	"special_bonus_unique_dark_willow_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_willow_bedlam"
+	}
+	"special_bonus_unique_dark_willow_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_willow_bedlam"
+	}
+	"special_bonus_unique_dark_willow_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_willow_terrorize"
+	}
+	"special_bonus_unique_dark_willow_bedlam_targets"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "dark_willow_bedlam"
+	}
+}

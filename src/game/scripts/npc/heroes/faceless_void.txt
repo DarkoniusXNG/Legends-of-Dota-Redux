@@ -70,9 +70,9 @@
 	//=================================================================================================================
 	"faceless_void_chronosphere"
 	{
-		"ReduxFlags"		"stun"
+		"ReduxFlags"		"stun | wtfAutoBan"
 		"ReduxCost"			"20"
-		"ReduxBans"			"tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxBans"			"tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // trolling and long bkb piercing stun
 	}
 
 	//=================================================================================================================

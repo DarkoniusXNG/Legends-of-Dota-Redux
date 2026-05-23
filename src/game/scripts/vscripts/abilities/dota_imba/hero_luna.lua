@@ -551,7 +551,7 @@ function imba_luna_eclipse:OnSpellStart()
 		self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_imba_luna_eclipse", modifier_params)
 	end
 
-	GameRules:BeginTemporaryNight(self:GetSpecialValueFor("night_duration"))
+	GameRules:BeginTemporaryNight(self:GetSpecialValueFor("night_duration"), self:GetCaster():GetHeroID())
 end
 
 ----------------------

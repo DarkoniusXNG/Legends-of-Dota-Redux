@@ -8,22 +8,23 @@
 
 	"beastmaster_summon_razorback" // Summon Boar
 	{
-		"ReduxFlags"                                                           "summon"
+		"ReduxFlags"                                                           "summon | wtfAutoBan"
 		"ReduxPerks"                                                           "summon_non_ult"
-		"ReduxBans"                                                            "tinker_rearm"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain and lag
 	}
 
 	"beastmaster_summon_raptor" // Summon Hawk
 	{
-		"ReduxFlags"                                                           "summon"
+		"ReduxFlags"                                                           "summon | wtfAutoBan"
 		"ReduxPerks"                                                           "summon_non_ult"
-		"ReduxBans"                                                            "tinker_rearm"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 	}
 
 	"beastmaster_primal_roar"
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "enemymoving | rage"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // long bkb piercing stun
 	}
 
 	"beastmaster_inner_beast" // current Innate

@@ -112,6 +112,8 @@
 	{
 		"ReduxFlags"					"illusion"
 		"ReduxPerks"                    "blink | illusion"
+		"ReduxBans"                     "arc_warden_tempest_double | meepo_divided_we_stand" // lag
+
 		"MaxLevel"						"4"
 		"AbilityCooldown"				"0"
 		"AbilityCharges"				"2"

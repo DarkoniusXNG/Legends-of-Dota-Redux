@@ -11,8 +11,12 @@
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
 
         "MaxLevel"                      "1"
-        "ReduxCost"                                                            "150"
-        "ReduxPerks"                                                           "undead"
+
+        "ReduxFlags"                                                           "summon | wtfAutoBan"
+		"ReduxPerks"                                                           "undead | summon_non_ult"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain and lag
+		"ReduxCost"                                                            "150"
+
         "AbilityCastRange"              "800"
         "AbilityCastPoint"              "0.45"
         "AbilityCooldown"               "30"
@@ -47,7 +51,7 @@
 
         "MaxLevel"                                                             "4"
 
-        "ReduxFlags"                                                           "upgradeable"
+        //"ReduxFlags"                                                           ""
         "ReduxPerks"                                                           "scientific | explosive"
         "ReduxCost"                                                            "150"
 
@@ -84,10 +88,10 @@
 
         "AbilityTextureName"            "custom/abyssal_underlord_atrophy_aura_op"
 
-        "ReduxCost"                                                            "120"
+        //"ReduxFlags"                                                           ""
+		"ReduxPerks"                                                           "aura"
         "ReduxBans"                                                            "abyssal_underlord_atrophy_aura"
-        "ReduxPerks"                                                           "aura"
-        "ReduxFlags"                                                           "aoe_attack"
+        "ReduxCost"                                                            "120"
 
 		"AbilityValues"
 		{
@@ -162,9 +166,9 @@
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
         "AbilityTextureName"            "custom/pangolier_swashbuckle_op"
 
-        "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           "mobility"
         "ReduxPerks"                                                           "blades | mobility"
+		"ReduxCost"                                                            "120"
 
         "AbilityCastPoint"              "0.0"
         "AbilityCastRange"              "900"
@@ -226,10 +230,10 @@
         "AbilityTextureName"            "custom/faceless_void_chronosphere_op"
 
         "ReduxFlags"                                                           "upgradeable | wtfAutoBan"
+		"ReduxBans"                                                            "faceless_void_chronosphere | tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain and trolling
         "ReduxCost"                                                            "120"
-        "ReduxBans"                                                            "faceless_void_chronosphere"
 
-        "AbilityCastRange"              "30000" // effect is global
+        "AbilityCastRange"              "0" // effect is global
         "AbilityCastPoint"              "0.35"
         "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
         "AbilityCooldown"               "90 80 70"
@@ -268,7 +272,9 @@
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"            "custom/shadow_shaman_mass_serpent_ward_redux"
 
-        "ReduxFlags"                                                           "wtfAutoBan"
+        "ReduxFlags"                                                           "summon | wtfAutoBan"
+		"ReduxPerks"                                                           "summon_non_ult"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
         "ReduxCost"                                                            "120"
 
         "AbilityCastRange"              "550"
@@ -558,10 +564,10 @@
 		"MaxLevel"						"4"
         "AbilityTextureName"            "custom/clinkz_burning_army_op"
 
-        "ReduxFlags"                                                           "upgradeable | doNotRandom | summon"
+        "ReduxFlags"                                                           "upgradeable | doNotRandom | summon | wtfAutoBan"
         "ReduxPerks"                                                           "fire | summon_non_ult | undead"
         "ReduxCost"                                                            "120"
-        "ReduxBans"                                                            "clinkz_burning_army"
+        "ReduxBans"                                                            "clinkz_burning_army | tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 
         "AbilityCastRange"              "3000"
         "AbilityCastPoint"              "0"
@@ -758,8 +764,9 @@
         "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
         "AbilityTextureName"            "custom/faceless_void_chronosphere_redux"
 
-        "ReduxFlags"                                                           "stun"
+        "ReduxFlags"                                                           "stun | wtfAutoBan"
         "ReduxCost"                                                            "120"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // trolling
 
         "AbilityCastRange"              "500"
         "AbilityCastPoint"              "0.1"

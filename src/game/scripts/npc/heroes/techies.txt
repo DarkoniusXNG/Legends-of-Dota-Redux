@@ -1,0 +1,188 @@
+"DOTAAbilities"
+{
+	"techies_sticky_bomb"
+	{
+		"ReduxPerks"                                                           "scientific | explosive | skillshot"
+	}
+
+	"techies_reactive_tazer"
+	{
+		"ReduxFlags"                                                           "disarm_break | mobility | support"
+		"ReduxPerks"                                                           "mobility | scientific | explosive | support"
+	}
+
+	"techies_suicide" // Blast Off
+	{
+		"ReduxFlags"                                                           "mobility | stun"
+		"ReduxPerks"                                                           "mobility | scientific | self_damage | explosive"
+	}
+
+	"techies_land_mines" // current Ultimate - Proximity Mines
+	{
+		//"ReduxFlags"                                                         ""
+    	"ReduxPerks"                                                           "scientific | trap | explosive"
+    	"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	"techies_mutually_assured_destruction" // current Innate
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE" // maybe it breaks with Aghanim Shard
+
+		"ReduxFlags"                                                           "mana | upgradeablewithshard"
+		"ReduxPerks"                                                           "scientific | trap | explosive"
+		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	"techies_minefield_sign" // current Scepter
+	{
+		"ReduxFlags"                                                           "doNotRandom | upgradeable"
+		"ReduxPerks"                                                           "scientific | trap | explosive"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"10"
+		"AbilityCastPoint"				"1.25"
+		"AbilityCooldown"               "60 50 40 30"
+
+		"AbilityValues"
+		{
+			"aura_radius"
+			{
+				"value"					"1000"
+				"affected_by_aoe_increase"	"1"
+			}
+			"lifetime"					"240"
+			"minefield_duration"		"10"
+			"trigger_radius"
+			{
+				"value"	"200"
+				"affected_by_aoe_increase"	"1"
+			}
+			"scepter_move_damage"		"300"
+			"scepter_move_amt"			"200"
+			"bonus_mine_damage_pct"		"15"
+		}
+	}
+
+	"techies_squees_scope" // old Facet
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_techies_perk"
+
+		"MaxLevel"						"1"
+	}
+
+	"techies_spoons_stash" // old Facet
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_techies_perk"
+
+		"MaxLevel"						"1"
+	}
+
+	"techies_remote_mines" // old Ultimate
+	{
+		"ReduxFlags"                                                           "upgradeable | doNotRandom"
+		"ReduxPerks"                                                           "scientific | trap | explosive"
+		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	"techies_focused_detonate" // old sub-ability for Remote Mines
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	"techies_stasis_trap"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "scientific | trap"
+		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand"
+	}
+
+	"techies_snare_trap" // unknown
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "scientific | trap | explosive"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_AOE"
+
+		"MaxLevel"						"4"
+
+		"AbilityCastRange"				"150"
+		"AbilityCastPoint"				"0.6"
+		"AbilityCooldown"				"16 15 14 13"
+		"AbilityManaCost"				"140"
+
+		"AbilityValues"
+		{
+			"activation_radius"
+			{
+				"value"						"250"
+				"affected_by_aoe_increase" 	"1"
+			}
+
+			"effect_radius"
+			{
+				"value"						"400"
+				"affected_by_aoe_increase"	"1"
+			}
+
+			"activation_time"				"2"
+			"fade_time"						"2"
+			"duration"						"300"
+
+			"damage"						"75 150 225 300"
+			"damage_interval"				"0.25"
+			"effect_duration"				"4"
+			"move_slow_pct"					"0"
+			"cast_slow_pct"					"100"
+		}
+	}
+
+	// talents
+	"special_bonus_unique_techies"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "techies_suicide"
+	}
+	"special_bonus_unique_techies_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "techies_sticky_bomb"
+	}
+	"special_bonus_unique_techies_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "techies_land_mines"
+	}
+	"special_bonus_unique_techies_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "techies_land_mines"
+	}
+	"special_bonus_unique_techies_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "techies_suicide"
+	}
+}

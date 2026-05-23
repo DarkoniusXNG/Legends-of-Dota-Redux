@@ -5,6 +5,11 @@
         "BaseClass"                                                            "ability_datadriven"
         "AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
         "AbilityTextureName"                                                   "custom/angel_arena_summon_hawk"
+
+        "ReduxFlags"                                                           "summon | wtfAutoBan"
+        "ReduxPerks"                                                           "summon_non_ult | undead"
+        "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain and lag
+
         "AbilityCooldown"                                                      "40.0"
         "AbilityCastPoint"                                                     "0.0"
         "AbilityManaCost"                                                      "100"
@@ -27,7 +32,5 @@
                 "Function"                                             "SpawnHawk"
             }
         }
-        "ReduxFlags"                                                           "summon"
-        "ReduxPerks"                                                           "summon_non_ult | undead"
     }
 }

@@ -1,0 +1,103 @@
+"DOTAAbilities"
+{
+	"morphling_waveform"
+	{
+		"ReduxFlags"                                                           "mobility"
+		"ReduxPerks"                                                           "mobility | water"
+		"ReduxCost"                                                            "20"
+	}
+
+	"morphling_adaptive_strike_agi"
+	{
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "water | enemymoving"
+	}
+
+	"morphling_morph_agi" // Attribute Shift (Agility Gain)
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "water"
+		"ReduxCost"                                                            "10"
+	}
+
+	"morphling_morph_str" // Attribute Shift (Strength Gain)
+	{
+		"ReduxFlags"                                                           "tank | doNotRandom"
+		"ReduxPerks"                                                           "water"
+		"ReduxCost"                                                            "20"
+	}
+
+	"morphling_replicate" // Morph - current Ultimate
+	{
+		"ReduxFlags"                                                           "illusion | upgradeable" // illusion tag because of scepter
+		"ReduxPerks"                                                           "illusion | transformation | water" // illusion tag because of scepter
+		"ReduxCost"                                                            "120" // made Single Player because of bugs
+	}
+
+	"morphling_morph_replicate" // Morph sub-ability
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "transformation | water"
+	}
+
+	"morphling_hybrid" // old Scepter
+	{
+		"ReduxFlags"                                                           "illusion"
+		"ReduxPerks"                                                           "illusion | water"
+		"ReduxCost"                                                            "10"
+	}
+
+	"morphling_ebb_and_flow" // current Innate
+	{
+		"ReduxPerks"                                                           "water"
+		"ReduxCost"                                                            "30"
+	}
+
+	"morphling_flow" // old Facet
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_morphling_perk"
+
+		"ReduxPerks"                                                           "water"
+	}
+
+	"morphling_syntropy" // unknown
+	{
+		"ReduxFlags"                                                           "attack_modifier"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | water"
+	}
+
+	// talents
+	"special_bonus_unique_morphling_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "morphling_waveform"
+	}
+	"special_bonus_unique_morphling_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "morphling_adaptive_strike_agi"
+	}
+	"special_bonus_unique_morphling_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "morphling_replicate"
+	}
+	"special_bonus_unique_morphling_waveform_cooldown"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "morphling_waveform"
+	}
+}

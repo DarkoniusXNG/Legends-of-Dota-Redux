@@ -7,6 +7,7 @@
 	{
 		"ReduxFlags"                    "tank | upgradeable"
 		"ReduxPerks"                    "rage"
+		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // long bkb piercing stun
 		"ReduxCost"                     "20"
 	}
 
@@ -35,6 +36,7 @@
 	"axe_culling_blade"
 	{
 		"ReduxPerks"                        "blades | rage"
+		"ReduxCost"                         "10" // because of scaling per kill
 	}
 
 	//=================================================================================================================

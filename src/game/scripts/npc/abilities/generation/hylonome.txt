@@ -507,7 +507,7 @@
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "IsBreakable"                   "1"
 
-        "ReduxPerks"                    "aura | blood"
+        "ReduxPerks"                    "aura | blood | poison"
 
         "precache"
         {

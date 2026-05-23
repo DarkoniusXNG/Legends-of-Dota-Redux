@@ -26,7 +26,8 @@
 	"brewmaster_primal_split"
 	{
 		"ReduxFlags"                                                           "summon"
-		"ReduxPerks"                                                           "earth | fire | lightning | transformation"
+		"ReduxPerks"                                                           "earth | fire | lightning | transformation | nature"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // invulnerability and lag
 	}
 
 	"brewmaster_belligerent"
@@ -49,7 +50,7 @@
 	"brewmaster_primal_companion" // requires Primal Split and Drunken Brawler to work
 	{
 		"ReduxFlags"                                                           "summon | doNotRandom"
-		"ReduxPerks"                                                           "summon_non_ult | earth | fire | lightning"
+		"ReduxPerks"                                                           "summon_non_ult | earth | fire | lightning | nature"
 
 		"MaxLevel"						"4"
 		"AbilityCooldown"				"20 19 18 17"
@@ -110,6 +111,7 @@
 		"MaxLevel"                                                             "3"
 		"ReduxFlags"                                                           "stun | doNotRandom"
 		"ReduxPerks"                                                           "nature"
+		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // trolling
 		"ReduxCost"                                                            "120"
 	}
 

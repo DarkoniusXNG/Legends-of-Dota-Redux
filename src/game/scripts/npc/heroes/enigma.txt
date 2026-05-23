@@ -10,7 +10,7 @@
 	{
 		"ReduxFlags"                                                           "summon | wtfAutoBan"
 		"ReduxPerks"                                                           "summon_non_ult | demon"
-		"ReduxBans"                                                            "tinker_rearm"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain and lag
 	}
 
 	"enigma_midnight_pulse"
@@ -22,8 +22,8 @@
 	{
 		"ReduxFlags"                                                           "upgradeable | stun | silence"
 		"ReduxPerks"                                                           "channeled | enemymoving | silence"
-		"ReduxCost"                                                            "10"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // long bkb piercing stun
+		"ReduxCost"                                                            "20"
 	}
 
 	"enigma_gravity_well" // old Innate

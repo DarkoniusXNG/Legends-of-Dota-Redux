@@ -34,7 +34,7 @@
 	{
 		"ReduxFlags"		"upgradeable | silence"
 		"ReduxPerks"		"silence"
-		"ReduxCost"			"80"
+		"ReduxCost"			"70"
 		"ReduxBans"			"spell_lab_symbiotic"
 	}
 
@@ -56,10 +56,10 @@
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_POINT"
 
 		"Innate"                                                               "0"
+		"MaxLevel"                                                             "4"
 
 		"ReduxFlags"                                                           "doNotRandom"
 
-		"MaxLevel"						"1"
 		"AbilityCastPoint"				"0.2"
 		"AbilityManaCost"				"0"
 		"AbilityCooldown"				"15"

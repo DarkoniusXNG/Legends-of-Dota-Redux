@@ -5,13 +5,14 @@
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "demon | fire | undead"
+		"ReduxCost"                                                            "10"
 	}
 
 	"skeleton_king_bone_guard"
 	{
-		"ReduxFlags"                                                           "summon"
+		"ReduxFlags"                                                           "summon | wtfAutoBan"
 		"ReduxPerks"                                                           "summon_non_ult | undead"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag and sitting in fountain
 	}
 
 	"skeleton_king_spectral_blade"
@@ -32,7 +33,7 @@
 		"ReduxFlags"                                                           "semi_passive | upgradeable | wtfAutoBan"
 		"ReduxPerks"                                                           "undead"
 		"ReduxCost"                                                            "120"
-		"ReduxBans"                                                            "imba_dazzle_shallow_grave_passive | tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxBans"                                                            "imba_dazzle_shallow_grave_passive | tinker_rearm" // invulnerability
 	}
 
 	//=================================================================================================================

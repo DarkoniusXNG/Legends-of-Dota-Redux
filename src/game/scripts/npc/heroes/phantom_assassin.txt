@@ -25,7 +25,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier | crit"
 		"ReduxPerks"                                                           "attack_modifier"
-		"ReduxCost"                                                            "40"
+		"ReduxCost"                                                            "30"
 	}
 
 	//=================================================================================================================

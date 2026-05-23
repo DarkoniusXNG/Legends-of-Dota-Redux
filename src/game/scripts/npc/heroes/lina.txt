@@ -15,7 +15,7 @@
 	"lina_fiery_soul"
 	{
 		"ReduxPerks"                                                           "fire"
-		"ReduxCost"                                                            "60"
+		"ReduxCost"                                                            "50"
 	}
 
 	"lina_laguna_blade"
@@ -49,7 +49,7 @@
 	{
 		"ReduxPerks"                                                           "fire"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
-		"ReduxCost"                                                            "40"
+		"ReduxCost"                                                            "40" // works with all magic spell dmg
 	}
 
 	//=================================================================================================================

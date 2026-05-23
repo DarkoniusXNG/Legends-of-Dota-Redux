@@ -47,7 +47,7 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Necrolyte's Sadist (Innate)
+	// Ability: Necrolyte's Sadist (current Innate)
 	//=================================================================================================================
 	"necrolyte_sadist"
 	{
@@ -66,14 +66,13 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Necrolyte's Reaper's Scythe
+	// Necrophos: Reaper's Scythe
 	//=================================================================================================================
 	"necrolyte_reapers_scythe"
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "blades | undead"
-		"ReduxCost"                                                            "10"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxCost"                                                            "10" // because of scaling per kill
 	}
 
 	"special_bonus_unique_necrophos"

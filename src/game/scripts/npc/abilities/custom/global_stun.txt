@@ -19,9 +19,9 @@
             "hero_stun_duration" "2.0 3.0 4.0"
         }
 
-        "ReduxFlags"                                                           "stun"
+        "ReduxFlags"                                                           "stun | wtfAutoBan"
         "ReduxPerks"                                                           "earth"
         "ReduxCost"                                                            "360"
-        "ReduxBans"                                                            "tinker_rearm"
+        "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain
     }
 }

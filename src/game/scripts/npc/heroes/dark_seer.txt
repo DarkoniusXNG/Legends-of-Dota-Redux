@@ -24,9 +24,9 @@
 
 	"dark_seer_wall_of_replica"
 	{
-		"ReduxFlags"                                                           "illusion"
+		"ReduxFlags"                                                           "illusion | wtfAutoBan"
 		"ReduxPerks"                                                           "illusion"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 	}
 
 	//=================================================================================================================

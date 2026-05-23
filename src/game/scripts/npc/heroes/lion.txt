@@ -5,7 +5,7 @@
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "earth | demon"
-		"ReduxCost"                                                            "20"
+		"ReduxCost"                                                            "30"
 	}
 
 	"lion_voodoo"

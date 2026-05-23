@@ -5,7 +5,7 @@
 	{
 		"ReduxFlags"                                                           "upgradeable | attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | dragon | ice"
-		"ReduxCost"                                                            "40"
+		"ReduxCost"                                                            "50"
 	}
 
 	"winter_wyvern_splinter_blast"
@@ -15,15 +15,16 @@
 
 	"winter_wyvern_cold_embrace"
 	{
-		"ReduxFlags"                                                           "support"
+		"ReduxFlags"                                                           "support | wtfAutoBan"
 		"ReduxPerks"                                                           "support | ice"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // trolling
 	}
 
 	"winter_wyvern_winters_curse"
 	{
-		"ReduxFlags"                                                           "stun"
+		"ReduxFlags"                                                           "stun | wtfAutoBan"
 		"ReduxPerks"                                                           "ice"
-		"ReduxBans"                                                            "tinker_rearm"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // trolling and long bkb piercing stun
 	}
 
 	"winter_wyvern_eldwurm_scholar" // old Innate

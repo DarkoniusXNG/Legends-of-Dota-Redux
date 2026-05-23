@@ -64,7 +64,7 @@ function modifier_npc_dota_hero_beastmaster_perk:GetModifierAura()
 end
 
 function modifier_npc_dota_hero_beastmaster_perk:GetAuraRadius()
-	return 50000
+	return FIND_UNITS_EVERYWHERE
 end
 
 function modifier_npc_dota_hero_beastmaster_perk:GetAuraSearchTeam()

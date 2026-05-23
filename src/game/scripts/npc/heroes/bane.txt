@@ -23,7 +23,8 @@
 	{
 		"ReduxFlags"                                "upgradeable | stun | mana"
 		"ReduxPerks"                                "channeled | demon | drain"
-		"ReduxCost"                                 "10"
+		"ReduxBans"                                 "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // long bkb piercing stun
+		"ReduxCost"                                 "20"
 	}
 
 	//=================================================================================================================
@@ -32,8 +33,9 @@
 	"bane_nightmare"
 	{
 		"ReduxFlags"                                "stun"
-		"ReduxPerks"                                "demon | sleep"
-		"ReduxCost"                                 "10" // any dmg from the caster (attack or spell) does not interrupt the sleep
+		"ReduxPerks"                                "demon | sleep | enemymoving"
+		"ReduxBans"                                 "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // trolling and semi-invulnerability
+		"ReduxCost"                                 "10" // any dmg from the caster (attack or spell) does not interrupt the sleep, otherwise 0
 	}
 
 	//=================================================================================================================
@@ -45,7 +47,7 @@
 
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "demon"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "40" // works on any hero + debuff amp is very powerful
 	}
 
 	"special_bonus_unique_bane_2"

@@ -4,7 +4,7 @@
 	"chaos_knight_chaos_bolt"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "20"
 	}
 
 	"chaos_knight_reality_rift"
@@ -22,8 +22,9 @@
 
 	"chaos_knight_phantasm"
 	{
-		"ReduxFlags"                                                           "illusion | upgradeable"
+		"ReduxFlags"                                                           "illusion | upgradeable | wtfAutoBan"
 		"ReduxPerks"                                                           "illusion"
+		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 		"ReduxCost"                                                            "10"
 	}
 

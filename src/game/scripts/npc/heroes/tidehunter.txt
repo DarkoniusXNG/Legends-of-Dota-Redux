@@ -11,7 +11,7 @@
 	{
 		"ReduxFlags"                                                           "tank"
 		"ReduxPerks"                                                           "water"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "20"
 	}
 
 	"tidehunter_anchor_smash"
@@ -25,7 +25,8 @@
 	{
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "water"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double"
+		//"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxCost"                                                            "20"
 	}
 
 	"tidehunter_dead_in_the_water"

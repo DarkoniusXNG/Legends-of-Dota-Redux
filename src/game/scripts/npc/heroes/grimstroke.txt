@@ -22,8 +22,9 @@
 	//=================================================================================================================
 	"grimstroke_dark_portrait"
 	{
-		"ReduxFlags"	"illusion | upgradeable"
-		"ReduxPerks"	"illusion"
+		"ReduxFlags"                    "illusion | upgradeable"
+		"ReduxPerks"                    "illusion"
+		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 
 		"MaxLevel"						"4"
 
@@ -119,7 +120,7 @@
 	{
 		"ReduxFlags"	"tank"
 		//"ReduxPerks"	""
-		"ReduxCost"		"10"
+		"ReduxCost"		"40" // works on any hero + dmg reduction is very powerful + scales per hero lvl
 	}
 
 	// Grimstroke

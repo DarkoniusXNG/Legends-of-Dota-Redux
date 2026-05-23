@@ -52,6 +52,6 @@
 
     "ReduxFlags"                                          "dota_custom | stun | invis"
     "ReduxPerks"                                          "scientific | trap"
-    "ReduxBans"                                           "arc_warden_tempest_double"
+    "ReduxBans"                                           "arc_warden_tempest_double | meepo_divided_we_stand"
   }
 }

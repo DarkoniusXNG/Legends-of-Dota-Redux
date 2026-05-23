@@ -13,8 +13,9 @@
         {
             "maxrangedcreeps" "1 1 2 3"
         }
-        "ReduxFlags"                                                           "summon | doNotRandom"
+        "ReduxFlags"                                                           "summon | doNotRandom | wtfAutoBan"
         "ReduxPerks"                                                           "summon_non_ult"
+        "ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain and lag
         "ReduxCost"                                                            "30"
     }
 }

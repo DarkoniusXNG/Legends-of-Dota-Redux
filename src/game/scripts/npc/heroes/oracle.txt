@@ -5,12 +5,14 @@
 	{
 		"ReduxFlags"                                                           "support | stun"
 		"ReduxPerks"                                                           "channeled  | support"
+		"ReduxCost"                                                            "10"
 	}
 
 	"oracle_fates_edict"
 	{
 		"ReduxFlags"                                                           "support | disarm_break"
 		"ReduxPerks"                                                           "support"
+		//"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // trolling
 	}
 
 	"oracle_purifying_flames"
@@ -21,9 +23,9 @@
 
 	"oracle_false_promise"
 	{
-		"ReduxFlags"                                                           "support | upgradeable"
+		"ReduxFlags"                                                           "support | upgradeable | wtfAutoBan"
 		"ReduxPerks"                                                           "support"
-		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux"
+		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // invulnerability
 		"ReduxCost"                                                            "30"
 	}
 

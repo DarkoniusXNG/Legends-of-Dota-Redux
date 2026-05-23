@@ -23,7 +23,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "ranger"
-		"ReduxCost"                                                            "30"
+		"ReduxCost"                                                            "20"
 	}
 
 	"windrunner_gale_force"

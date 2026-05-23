@@ -83,12 +83,12 @@
 	{
 		"MaxLevel"                                                             "1"
 		"ReduxFlags"                                                           "noHero | doNotRandom"
-		"ReduxPerks"                                                           "channeled"
+		"ReduxPerks"                                                           "channeled | teleport"
 	}
 
 	"lone_druid_spirit_bear"
 	{
-		"ReduxFlags"                                                           "doNotRandom | summon"
+		"ReduxFlags"                                                           "doNotRandom | summon | wtfAutoBan"
 		"ReduxPerks"                                                           "self_damage | summon_non_ult"
 		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand"
 	}
