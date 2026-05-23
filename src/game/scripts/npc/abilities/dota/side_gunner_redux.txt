@@ -8,7 +8,7 @@
 
 		"HasScepterUpgrade"                                                    "1"
 
-		"ReduxFlags"                                                           "aoe_attack | dota_custom"
+		"ReduxFlags"                                                           "aoe_attack | dota_custom | underpowered"
 		"ReduxPerks"                                                           "scientific"
 		"ReduxCost"                                                            "20"
 

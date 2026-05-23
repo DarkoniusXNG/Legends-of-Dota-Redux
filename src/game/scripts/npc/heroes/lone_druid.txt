@@ -83,7 +83,7 @@
 	{
 		"MaxLevel"                                                             "1"
 		"ReduxFlags"                                                           "noHero | doNotRandom"
-		"ReduxPerks"                                                           "channeled"
+		"ReduxPerks"                                                           "channeled | teleport"
 	}
 
 	"lone_druid_spirit_bear"

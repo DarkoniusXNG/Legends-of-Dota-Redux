@@ -9,7 +9,7 @@
 	"dark_willow_shadow_realm"
 	{
 		"ReduxFlags"                                                           "tank | upgradeable | wtfAutoBan"
-		//"ReduxPerks"                                                           ""
+		"ReduxPerks"                                                           "transformation"
 		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux" // invulnerability
 		"ReduxCost"                                                            "30"
 	}

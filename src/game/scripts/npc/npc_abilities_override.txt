@@ -2235,7 +2235,7 @@
 	{
 		"ReduxFlags"                                                           "doNotRandom | tank"
 		"ReduxCost"                                                            "500"
-		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand | spell_lab_symbiotic"
+		"ReduxBans"                                                            "arc_warden_tempest_double | spell_lab_symbiotic"
 	}
 
 	"obsidian_destroyer_sanity_eclipse"
@@ -2577,8 +2577,8 @@
 
 	"slark_shadow_dance"
 	{
-		"ReduxFlags"                                                           "invis | wtfAutoBan"
-		"ReduxPerks"                                                           "invis"
+		"ReduxFlags"                                                           "mobility | invis | wtfAutoBan"
+		"ReduxPerks"                                                           "mobility | invis"
 		"ReduxCost"                                                            "90"
 		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux" // invulnerability
 	}
@@ -3425,7 +3425,7 @@
 	{
 		"ReduxFlags"                                                           "aoe_attack | doNotRandom | upgradeable | physical"
 		"ReduxPerks"                                                           "physical"
-		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand"
+		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand" // lag
 		"ReduxCost"                                                            "120" // Made single player ability because its laggy
 	}
 
