@@ -111,6 +111,7 @@
 		"MaxLevel"                                                             "3"
 		"ReduxFlags"                                                           "stun | doNotRandom"
 		"ReduxPerks"                                                           "nature"
+		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // trolling
 		"ReduxCost"                                                            "120"
 	}
 

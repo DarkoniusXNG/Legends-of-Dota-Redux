@@ -29,7 +29,7 @@
 	"witch_doctor_voodoo_switcheroo"
 	{
 		"ReduxFlags"                                                           "doNotRandom | upgradeable | wtfAutoBan"
-		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // invulnerability
+		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux" // invulnerability
 
 		"MaxLevel"                      "4"
 		"AbilityCooldown"               "50 40 30 20"
