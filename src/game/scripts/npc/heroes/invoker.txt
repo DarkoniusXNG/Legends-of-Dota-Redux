@@ -485,5 +485,13 @@
 
 		"TalentRequiredAbility"                                                   "invoker_chaos_meteor_ad"
 	}
+	"special_bonus_unique_invoker_forged_spirit_armor_reduction"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "invoker_forge_spirit_ad"
+	}
 }
 
