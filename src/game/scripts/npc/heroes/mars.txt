@@ -1,0 +1,156 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Ability: Spear of Mars
+	//=================================================================================================================
+	"mars_spear"
+	{
+		"ReduxFlags"		"stun"
+		"ReduxPerks"		"enemymoving | skillshot"
+	}
+
+	//=================================================================================================================
+	// Mars: God's Rebuke
+	//=================================================================================================================
+	"mars_gods_rebuke"
+	{
+		"ReduxFlags"	"aoe_attack | crit | physical"
+		"ReduxPerks"	"enemymoving | physical"
+	}
+
+	//=================================================================================================================
+	// Ability: Mars: Legionnaire's Resolve
+	//=================================================================================================================
+	"mars_dauntless"
+	{
+		"ReduxFlags"	"tank"
+	}
+
+	//=================================================================================================================
+	// Ability: Mars: Immovable
+	//=================================================================================================================
+	"mars_immovable" // unknown
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"MaxLevel"	"1"
+		"Innate"	"0"
+
+		"ReduxFlags"	"doNotRandom"
+	}
+
+	//=================================================================================================================
+	// Ability: Mars Bulwark
+	//=================================================================================================================
+	"mars_bulwark"
+	{
+		"ReduxFlags"	"tank"
+	}
+	
+	//=================================================================================================================
+	// Ability: Mars Arena of Blood
+	//=================================================================================================================
+	"mars_arena_of_blood"
+	{
+		"ReduxPerks"	"enemymoving | blood | undead"
+	}
+	
+	
+	// Talents
+	"special_bonus_unique_mars_spear_bonus_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"mars_spear"
+	}
+	"special_bonus_unique_mars_gods_rebuke_extra_crit"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"      	"mars_gods_rebuke"
+	}
+	"special_bonus_unique_mars_rebuke_cooldown"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"      	"mars_gods_rebuke"
+	}
+	"special_bonus_unique_mars_spear_stun_duration"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"     	"mars_spear"
+	}
+	"special_bonus_unique_mars_arena_of_blood_hp_regen"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"mars_arena_of_blood"
+	}
+	"special_bonus_unique_mars_rebuke_radius"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"mars_gods_rebuke"
+	}
+	"special_bonus_unique_mars_arena_cooldown"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"     	"mars_arena_of_blood"
+	}
+	"special_bonus_unique_mars_dauntless_hpregen"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"   		"mars_dauntless"
+	}
+	"special_bonus_unique_mars_bulwark_damage_reduction"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"   		"mars_bulwark"
+	}
+	"special_bonus_unique_mars_bulwark_redirect_chance"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"   		"mars_bulwark"
+	}
+	"special_bonus_unique_mars_bulwark_forced_movement_immunity"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"   		"mars_bulwark"
+	}
+	"special_bonus_unique_mars_arena_of_blood_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"     	"mars_arena_of_blood"
+	}
+}
