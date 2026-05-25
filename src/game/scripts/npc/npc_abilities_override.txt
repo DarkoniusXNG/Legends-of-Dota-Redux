@@ -52,6 +52,13 @@
 #base "heroes\lone_druid.txt"
 #base "heroes\luna.txt"
 #base "heroes\lycan.txt"
+#base "heroes\magnus.txt"
+#base "heroes\marci.txt"
+#base "heroes\mars.txt"
+#base "heroes\medusa.txt"
+#base "heroes\meepo.txt"
+#base "heroes\mirana.txt"
+#base "heroes\monkey_king.txt"
 #base "heroes\morphling.txt"
 #base "heroes\muerta.txt"
 #base "heroes\naga_siren.txt"
@@ -95,33 +102,6 @@
 
 "DOTAAbilities"
 {
-	"mars_immovable" // unknown
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"MaxLevel"                                                             "1"
-		"Innate"                                                               "0"
-
-		"ReduxFlags"                                                           "doNotRandom"
-	}
-
-	"mirana_celestial_quiver"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | autocast_basic | ranger"
-	}
-
-	"mirana_nightveil" // unknown
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_mirana_perk"
-
-		"MaxLevel"                                                             "1"
-		"Innate"                                                               "0"
-
-		"ReduxFlags"                                                           "doNotRandom"
-	}
-
 	"naga_siren_slithereen_cutlass" // unknown
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -256,21 +236,6 @@
 
 		"ReduxFlags"                                                           "doNotRandom | support"
 		"ReduxPerks"                                                           "support"
-	}
-
-	"meepo_pack_rat"
-	{
-		"ReduxFlags"                                                           "doNotRandom"
-	}
-
-	"meepo_megameepo"
-	{
-		"ReduxFlags"                                                           "doNotRandom | tank"
-	}
-
-	"meepo_megameepo_fling"
-	{
-		"ReduxFlags"                                                           "doNotRandom"
 	}
 
 	"creep_siege"
@@ -546,24 +511,6 @@
 		}
 	}
 
-	"magnus_magnetic_horn"
-	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/npc_dota_hero_magnataur_perk"
-
-		"ReduxFlags"                    "doNotRandom"
-		"ReduxPerks"                    "enemymoving"
-
-		"MaxLevel"						"4"
-
-		"AbilityValues"
-		{
-			"pull_duration"		"0.2"
-			"pull_distance"		"150 200 250 300"
-			"pull_radius"		"200 275 350 425"
-		}
-	}
-
 	"tusk_bitter_chill"
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
@@ -612,23 +559,6 @@
 	{
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "neutral | support | water"
-	}
-
-	"medusa_undulation"
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_medusa_perk"
-
-		"ReduxFlags"                                                           "doNotRandom | mobility"
-		"ReduxPerks"                                                           "mobility"
-		"ReduxCost"                                                            "10"
-		"MaxLevel"						"4"
-
-		"AbilityValues"
-		{
-			"fixed_movespeed"				"310 340 370 400"
-			"stone_gaze_ms_tooltip_only"	"465"
-		}
 	}
 
 	"roshan_grab_and_throw"
@@ -808,18 +738,6 @@
 			{
 				"dynamic_value"			"true"
 			}
-		}
-	}
-
-	"magnus_strength_of_joelrak"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"4"
-		"AbilityValues"
-		{
-			"strength_per_stack"				"6"
-			"max_stacks"						"10"
-			"stack_duration"					"12 16 20 24"
 		}
 	}
 
@@ -2225,19 +2143,6 @@
 		"ReduxCost"                                                            "120"
 	}
 
-	"magnataur_empower"
-	{
-		"ReduxFlags"                                                           "support | aoe_attack | attack_modifier | physical"
-		"ReduxPerks"                                                           "support | attack_modifier | rage | physical"
-		"ReduxCost"                                                            "20"
-	}
-	"meepo_divided_we_stand"
-	{
-		"ReduxFlags"                                                           "doNotRandom | tank"
-		"ReduxCost"                                                            "500"
-		"ReduxBans"                                                            "arc_warden_tempest_double | spell_lab_symbiotic"
-	}
-
 	"obsidian_destroyer_sanity_eclipse"
 	{
 		"ReduxFlags"                                                           "mana"
@@ -2365,12 +2270,7 @@
 		"ReduxPerks"                                                           "lightning | summon_non_ult"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 	}
-	"mirana_invis"
-	{
-		"ReduxFlags"                                                           "support | mobility | invis"
-		"ReduxPerks"                                                           "support | mobility | invis"
-	}
-
+	
 	"treant_living_armor"
 	{
 		"ReduxFlags"                                                           "support | tank"
@@ -2451,12 +2351,7 @@
 		"ReduxPerks"                                                           "mobility | blink"
 		"ReduxCost"                                                            "30"
 	}
-	"marci_unleash"
-	{
-		"ReduxFlags"                                                           "mobility | upgradeable"
-		"ReduxPerks"                                                           "mobility | rage"
-		"ReduxCost"                                                            "20"
-	}
+	
 
 	"void_spirit_dissimilate"
 	{
@@ -2465,16 +2360,6 @@
 		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux" // invulnerability
 	}
 
-	"monkey_king_tree_dance"
-	{
-		"ReduxFlags"                                                        "mobility"
-		"ReduxPerks"                                                        "mobility | nature"
-	}
-	"monkey_king_primal_spring"
-	{
-		"ReduxFlags"                                                        "doNotRandom | mobility"
-		"ReduxPerks"                                                        "channeled | mobility | nature"
-	}
 	"phantom_lancer_doppelwalk"
 	{
 		"ReduxFlags"                                                           "mobility | illusion | wtfAutoBan"
@@ -2616,12 +2501,7 @@
 		"ReduxPerks"                                                           "dragon | fire | mobility | self_damage"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
-	"mirana_leap"
-	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility | ranger"
-		"ReduxCost"                                                            "10"
-	}
+	
 	"nyx_assassin_spiked_carapace"
 	{
 		"ReduxFlags"                                                           "stun"
@@ -2633,11 +2513,6 @@
 	{
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility | undead"
-	}
-	"magnataur_skewer"
-	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "mobility | skillshot | enemymoving"
 	}
 
 	"puck_phase_shift"
@@ -2653,12 +2528,6 @@
 		"ReduxPerks"                                                           "mobility | water"
 	}
 
-	"medusa_stone_gaze"
-	{
-		"ReduxFlags"                                                           "mobility | stun"
-		"ReduxPerks"                                                           "mobility"
-	}
-
 	"slark_pounce"
 	{
 		"ReduxFlags"                                                           "mobility | upgradeable"
@@ -2669,12 +2538,6 @@
 	{
 		"ReduxFlags"                                                           "tank | upgradeable"
 		"ReduxPerks"                                                           "scientific"
-		"ReduxCost"                                                            "40"
-	}
-
-	"medusa_mana_shield"
-	{
-		"ReduxFlags"                                                           "tank | mana"
 		"ReduxCost"                                                            "40"
 	}
 
@@ -2706,26 +2569,11 @@
 		"ReduxCost"                                                            "40"
 	}
 
-	"medusa_split_shot"
-	{
-		"ReduxFlags"                                                           "aoe_attack | attack_modifier | semi_passive"
-		"ReduxPerks"                                                           "attack_modifier | ranger"
-		"ReduxCost"                                                            "10"
-		"ReduxBans"                                                            "holdout_multishot"
-	}
-
 	"templar_assassin_psi_blades"
 	{
 		"ReduxFlags"                                                           "aoe_attack | attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | blades"
 		"ReduxCost"                                                            "10"
-	}
-
-
-	"monkey_king_jingu_mastery"
-	{
-		"ReduxFlags"                                                           "attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | physical"
 	}
 
 	// Remove cooldown reduction talents
@@ -2842,19 +2690,6 @@
 		"ReduxPerks"                                                           "attack_modifier | undead"
 	}
 
-	"monkey_king_boundless_strike"
-	{
-		"ReduxFlags"                                                           "stun | physical | crit | aoe_attack"
-		"ReduxPerks"                                                           "physical"
-		"ReduxCost"                                                            "20"
-	}
-
-	"mirana_arrow"
-	{
-		"ReduxFlags"                                                           "stun | upgradeable"
-		"ReduxPerks"                                                           "skillshot | ranger"
-	}
-
 	"slardar_slithereen_crush"
 	{
 		"ReduxFlags"                                                           "stun | physical | upgradeable"
@@ -2867,18 +2702,6 @@
 		"ReduxPerks"                                                           "earth | skillshot"
 	}
 
-	"magnataur_reverse_polarity"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "enemymoving"
-		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // long bkb piercing stun
-		"ReduxCost"                                                            "20"
-	}
-
-	"meepo_earthbind"
-	{
-		"ReduxPerks"                                                           "earth | skillshot"
-	}
 	"treant_overgrowth"
 	{
 		"ReduxFlags"                                                           "stun | tank | upgradeable | disarm_break"
@@ -3023,12 +2846,6 @@
 	{
 		"ReduxPerks"                                                           "water | self_damage"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
-	}
-
-	"meepo_poof"
-	{
-		"ReduxFlags"                                                           "mobility"
-		"ReduxPerks"                                                           "earth | mobility"
 	}
 
 	"ursa_earthshock"
@@ -3271,11 +3088,6 @@
 		"ReduxPerks"                                                           "blades | dagger | poison"
 	}
 
-	"magnataur_shockwave"
-	{
-		"ReduxPerks"                                                           "skillshot | enemymoving | lightning"
-	}
-
 	"troll_warlord_whirling_axes_ranged"
 	{
 		"ReduxFlags"														   "upgradeable"
@@ -3415,20 +3227,6 @@
 		"ReduxFlags"                                                           "doNotRandom"
 	}
 
-	"monkey_king_mischief"
-	{
-		"ReduxFlags"                                                           "doNotRandom"
-		"ReduxPerks"                                                           "transformation"
-		"ReduxCost"                                                            "360"
-	}
-	"monkey_king_wukongs_command"
-	{
-		"ReduxFlags"                                                           "aoe_attack | doNotRandom | upgradeable | physical"
-		"ReduxPerks"                                                           "physical"
-		"ReduxBans"                                                            "arc_warden_tempest_double | meepo_divided_we_stand" // lag
-		"ReduxCost"                                                            "120" // Made single player ability because its laggy
-	}
-
 	"neutral_spell_immunity"
 	{
 		"ReduxCost"                                                            "500"
@@ -3469,39 +3267,6 @@
 		}
 	}
 
-	"mars_spear"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "enemymoving | skillshot"
-	}
-
-	"mars_gods_rebuke"
-	{
-		"ReduxPerks"                                                           "aoe_attack | crit | physical"
-		"ReduxPerks"                                                           "enemymoving | physical"
-	}
-
-	"mars_arena_of_blood"
-	{
-		"ReduxPerks"                                                           "enemymoving | blood | undead"
-	}
-
-	"meepo_petrify"
-	{
-		"ReduxFlags"                    "wtfAutoBan"
-		"ReduxPerks"					"earth"
-		"ReduxBans"                     "tinker_rearm | dazzle_bad_juju_redux" // invulnerability
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"40 35 30 25"
-		"AbilityManaCost"				"125 100 75 50"
-		"AbilityValues"
-		{
-			"duration"				"3"
-			"hp_restore"				"25 35 45 55"
-		}
-	}
 
 	"tusk_tag_team"
 	{
@@ -3625,33 +3390,6 @@
 		}
 	}
 
-	"magnataur_horn_toss"
-	{
-		"ReduxFlags"                                                           "stun | upgradeable"
-		"ReduxPerks"                                                           "enemymoving"
-
-		"MaxLevel"                      "4"
-		"AbilityCooldown"               "30 25 20 15"
-		"AbilityManaCost"               "125"
-		"AbilityValues"
-		{
-			"damage"		"300 320 340 360"
-			"radius"
-			{
-				"value"			"325 350 375 400"
-				"affected_by_aoe_increase"	"1"
-			}
-			"air_duration"		"0.6"
-			"air_height"		"300"
-			"slow_duration"		"2"
-			"pull_offset"		"75"
-			"destination_offset"		"175"
-			"pull_angle"				"230 245 260 275"
-			"horn_toss_slow_pct"		"100"
-			"stun_duration"		"0.75 1.0 1.25 1.5"
-		}
-	}
-
 	"terrorblade_demon_zeal"
 	{
 		"ReduxPerks"					"demon | self_damage | rage"
@@ -3719,19 +3457,6 @@
 		}
 	}
 
-	"medusa_cold_blooded"
-	{
-		"ReduxFlags"				    "doNotRandom"
-		"ReduxPerks"                                                           "blood"
-
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"12 8 4 2"
-		"AbilityValues"
-		{
-			"damage"		"0 70 140 210"
-		}
-	}
-
 	"visage_silent_as_the_grave"
 	{
 		"ReduxFlags"	"mobility | invis | upgradeable"
@@ -3759,31 +3484,6 @@
 				"value" "20 25 30 35"
 			}
 		}
-	}
-
-	"marci_grapple"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | enemymoving"
-	}
-
-	"marci_companion_run"
-	{
-		"ReduxFlags"                                                           "stun | support | mobility"
-		"ReduxPerks"                                                           "support | mobility"
-	}
-
-	"marci_guardian"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
-	}
-
-	"marci_bodyguard"
-	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
-		"ReduxCost"                                                            "20"
 	}
 
 	"void_spirit_aether_remnant"
@@ -3836,361 +3536,6 @@
 	}
 
 	// Talents
-	// Mars
-	"special_bonus_unique_mars_spear_bonus_damage"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "mars_spear"
-	}
-	"special_bonus_unique_mars_gods_rebuke_extra_crit"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "mars_gods_rebuke"
-	}
-	"special_bonus_unique_mars_rebuke_cooldown"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "mars_gods_rebuke"
-	}
-	"special_bonus_unique_mars_spear_stun_duration"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "mars_spear"
-	}
-	"special_bonus_unique_mars_arena_of_blood_hp_regen"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "mars_arena_of_blood"
-	}
-	"special_bonus_unique_mars_rebuke_radius"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "mars_gods_rebuke"
-	}
-	"special_bonus_unique_mars_arena_cooldown"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "mars_arena_of_blood"
-	}
-	"special_bonus_unique_mars_dauntless_hpregen"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "mars_dauntless"
-	}
-
-	// Magnus
-	"special_bonus_unique_magnus"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "magnataur_shockwave"
-	}
-	"special_bonus_unique_magnus_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "magnataur_empower"
-	}
-	"special_bonus_unique_magnus_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "magnataur_reverse_polarity"
-	}
-	"special_bonus_unique_magnus_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "magnataur_skewer"
-	}
-	"special_bonus_unique_magnus_7"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "magnataur_skewer"
-	}
-	"special_bonus_unique_magnus_reverse_polarity_stats"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "magnataur_reverse_polarity"
-	}
-	"special_bonus_unique_magnus_skewer_damage_distance"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "magnataur_skewer"
-	}
-
-	// Medusa
-	"special_bonus_unique_medusa"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "medusa_stone_gaze"
-	}
-	"special_bonus_unique_medusa_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "medusa_split_shot"
-	}
-	"special_bonus_unique_medusa_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "medusa_mystic_snake"
-	}
-	"special_bonus_unique_medusa_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "medusa_mystic_snake"
-	}
-	"special_bonus_unique_medusa_8"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "medusa_stone_gaze"
-	}
-	"special_bonus_unique_medusa_gorgons_grasp_volleys"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "medusa_gorgon_grasp"
-	}
-	"special_bonus_unique_medusa_gorgons_grasp_radius"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "medusa_gorgon_grasp"
-	}
-
-	// Meepo
-	"special_bonus_unique_meepo_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "meepo_poof"
-	}
-	"special_bonus_unique_meepo_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "meepo_earthbind"
-	}
-	"special_bonus_unique_meepo_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "meepo_earthbind"
-	}
-	"special_bonus_unique_meepo_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "meepo_ransack"
-	}
-	"special_bonus_unique_meepo_poof_cast_point"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "meepo_poof"
-	}
-
-	// Mirana
-	"special_bonus_unique_mirana_1"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "mirana_leap"
-	}
-	"special_bonus_unique_mirana_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "mirana_arrow"
-	}
-	"special_bonus_unique_mirana_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "mirana_starfall"
-	}
-	"special_bonus_unique_mirana_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"
-		{
-			"1" "mirana_invis"
-			"2" "mirana_solar_flare"
-		}
-	}
-	"special_bonus_unique_mirana_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"
-		{
-			"1" "mirana_invis"
-			"2" "mirana_solar_flare"
-		}
-	}
-	"special_bonus_unique_mirana_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "mirana_leap"
-	}
-	"special_bonus_unique_mirana_7"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "mirana_starfall"
-	}
-
-	// Monkey King
-	"special_bonus_unique_monkey_king_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "monkey_king_jingu_mastery"
-	}
-	"special_bonus_unique_monkey_king_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "monkey_king_tree_dance"
-	}
-	"special_bonus_unique_monkey_king_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "monkey_king_wukongs_command"
-	}
-	"special_bonus_unique_monkey_king_7"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "monkey_king_tree_dance"
-	}
-	"special_bonus_unique_monkey_king_8"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "monkey_king_tree_dance"
-	}
-	"special_bonus_unique_monkey_king_9"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "monkey_king_boundless_strike"
-	}
-	"special_bonus_unique_monkey_king_10"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "monkey_king_boundless_strike"
-	}
-	"special_bonus_unique_monkey_king_11"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "monkey_king_jingu_mastery"
-	}
 
 	// Nyx Assassin
 	"special_bonus_unique_nyx"
@@ -5728,76 +5073,6 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility" 		"void_spirit_resonant_pulse"
-	}
-
-	// Marci
-	"special_bonus_unique_marci_grapple_damage"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" 		"marci_grapple"
-	}
-	"special_bonus_unique_marci_unleash_speed"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" 		"marci_unleash"
-	}
-	"special_bonus_unique_marci_grapple_stun_duration"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" 		"marci_companion_run"
-	}
-	"special_bonus_unique_marci_guardian_damage"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"
-		{
-			"1"		"marci_guardian"
-			"2"		"marci_bodyguard"
-		}
-	}
-	"special_bonus_unique_marci_unleash_extend_duration"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" 		"marci_unleash"
-	}
-	"special_bonus_unique_marci_dispose_slow"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" 		"marci_grapple"
-	}
-	"special_bonus_unique_marci_rebound_radius"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" 		"marci_companion_run"
-	}
-	"special_bonus_unique_marci_lunge_movespeed"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility" 		"marci_companion_run"
 	}
 
 	//=================================================================================================================
