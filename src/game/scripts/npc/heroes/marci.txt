@@ -1,0 +1,180 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Marci: Dispose
+	//=================================================================================================================
+	"marci_grapple"
+	{
+		"ReduxFlags"	"support"
+		"ReduxPerks"	"support | enemymoving"
+	}
+
+	//=================================================================================================================
+	// Marci: Unleashed
+	//=================================================================================================================
+	"marci_unleash"
+	{
+		"ReduxFlags"	"mobility | upgradeable"
+		"ReduxPerks"	"mobility | rage"
+		"ReduxCost"		"20"
+	}
+
+	//=================================================================================================================
+	// Marci: Rebound
+	//=================================================================================================================
+	"marci_companion_run"
+	{
+		"ReduxFlags"	"stun | support | mobility"
+		"ReduxPerks"	"support | mobility"
+	}
+
+	//=================================================================================================================
+	// Marci: Sidekick
+	//=================================================================================================================
+	"marci_guardian"
+	{
+		"ReduxFlags"	"support"
+		"ReduxPerks"	"support"
+	}
+
+	//=================================================================================================================
+	// Marci: Bodyguard
+	//=================================================================================================================
+	"marci_bodyguard"
+	{
+		"ReduxFlags"	"support"
+		"ReduxPerks"	"support"
+		"ReduxCost"		"20"
+	}
+
+	//=================================================================================================================
+	// Marci: Innate Courier Level
+	//=================================================================================================================
+	"marci_special_delivery"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"1"
+		"Innate"						"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"1.0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
+
+		"AbilityValues"
+		{
+			"AbilityCooldown"
+			{
+				"value"					"245.0"
+				"hero_levelup"			"-5"
+			}
+
+			"bonus_levels"				"3"
+			"courier_max_level"			"30"
+			"bonus_hp"					"3"
+			"bonus_hp_tooltip"			"1"
+		}
+	}
+
+
+	// Marci
+	"special_bonus_unique_marci_grapple_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"marci_grapple"
+	}
+	"special_bonus_unique_marci_unleash_speed"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"marci_unleash"
+	}
+	"special_bonus_unique_marci_grapple_stun_duration"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"marci_companion_run"
+	}
+	"special_bonus_unique_marci_guardian_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"
+		{
+			"1"		"marci_guardian"
+			"2"		"marci_bodyguard"
+		}
+	}
+	"special_bonus_unique_marci_guardian_lifesteal"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"
+		{
+			"1"		"marci_guardian"
+			"2"		"marci_bodyguard"
+		}
+	}
+	"special_bonus_unique_marci_guardian_strong_dispel"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"marci_bodyguard"
+	}
+	"special_bonus_unique_marci_unleash_extend_duration"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"marci_unleash"
+	}
+	"special_bonus_unique_marci_dispose_slow"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"marci_grapple"
+	}
+	"special_bonus_unique_marci_rebound_radius"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"marci_companion_run"
+	}
+	"special_bonus_unique_marci_lunge_movespeed"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"marci_companion_run"
+	}
+	"special_bonus_unique_marci_lunge_range"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility" 		"marci_companion_run"
+	}
+}
