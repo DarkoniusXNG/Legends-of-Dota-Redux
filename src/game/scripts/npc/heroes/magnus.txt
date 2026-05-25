@@ -1,0 +1,172 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Horn Toss (current Scepter ability)
+	//=================================================================================================================
+	"magnataur_horn_toss"
+	{
+		"ReduxFlags"			"stun | upgradeable"
+		"ReduxPerks"			"enemymoving"
+
+		"MaxLevel"                      "4"
+		"AbilityCooldown"               "30 25 20 15"
+		"AbilityManaCost"               "100"
+		"AbilityValues"
+		{
+			"damage"		"300 320 340 360"
+			"radius"
+			{
+				"value"			"325"
+				"affected_by_aoe_increase"	"1"
+			}
+			"air_duration"		"0.6"
+			"air_height"		"300"
+			"slow_duration"		"2"
+			"pull_offset"		"75"
+			"destination_offset"		"175"
+			"pull_angle"				"230"
+			"horn_toss_slow_pct"		"100"
+			"stun_duration"		"0.75 1.0 1.25 1.5"
+		}
+	}
+
+	//=================================================================================================================
+	// Shockwave
+	//=================================================================================================================
+	"magnataur_shockwave"
+	{
+		"ReduxPerks"	"skillshot | enemymoving | lightning"
+	}
+
+	//=================================================================================================================
+	// Empower
+	//=================================================================================================================
+	"magnataur_empower"
+	{
+		"ReduxFlags"	"aoe_attack | attack_modifier | physical | semi_passive | support"
+		"ReduxPerks"	"attack_modifier | physical | rage | support"
+		"ReduxCost"		"20"
+	}
+
+	//=================================================================================================================
+	// Skewer
+	//=================================================================================================================
+	"magnataur_skewer"
+	{
+		"ReduxFlags"	"mobility | stun"
+		"ReduxPerks"	"mobility | skillshot | enemymoving"
+	}
+
+	//=================================================================================================================
+	// Reverse Polarity
+	//=================================================================================================================
+	"magnataur_reverse_polarity"
+	{
+		"ReduxFlags"	"stun"
+		"ReduxPerks"	"enemymoving"
+		"ReduxBans"		"tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // long bkb piercing stun
+		"ReduxCost"		"20"
+	}
+
+	//=================================================================================================================
+	// Magnetic Horn (unreleased ability)
+	//=================================================================================================================
+	"magnus_magnetic_horn"
+	{
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "custom/npc_dota_hero_magnataur_perk"
+
+		"ReduxFlags"                    "doNotRandom"
+		"ReduxPerks"                    "enemymoving"
+
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"pull_duration"		"0.2"
+			"pull_distance"		"150 200 250 300"
+			"pull_radius"		"200 275 350 425"
+		}
+	}
+
+	//=================================================================================================================
+	// Solid Core (current Innate)
+	//=================================================================================================================
+	"magnataur_solid_core"
+	{
+		"ReduxFlags"                    "doNotRandom"
+	}
+
+	//=================================================================================================================
+	// Strength of Joelrak (unreleased shard ability)
+	//=================================================================================================================
+	"magnus_strength_of_joelrak"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"4"
+		"AbilityValues"
+		{
+			"strength_per_stack"				"6"
+			"max_stacks"						"10"
+			"stack_duration"					"12 16 20 24"
+		}
+	}
+
+	// talents
+	"special_bonus_unique_magnus"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "magnataur_shockwave"
+	}
+	"special_bonus_unique_magnus_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "magnataur_shockwave"
+	}
+	"special_bonus_unique_magnus_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "magnataur_reverse_polarity"
+	}
+	"special_bonus_unique_magnus_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "magnataur_skewer"
+	}
+	"special_bonus_unique_magnus_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "magnataur_skewer"
+	}
+	"special_bonus_unique_magnus_reverse_polarity_stats"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "magnataur_reverse_polarity"
+	}
+	"special_bonus_unique_magnus_skewer_damage_distance"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "magnataur_skewer"
+	}
+}

@@ -32,7 +32,7 @@
 
 		"MaxLevel"						"4"
 
-		"ReduxFlags"					"aoe_attack"
+		"ReduxFlags"					"aoe_attack | instant_attacks"
 		"ReduxPerks"					"nature | channeled"
 
 		"AbilityChannelTime"			"2.5 2.75 3.0 3.25"

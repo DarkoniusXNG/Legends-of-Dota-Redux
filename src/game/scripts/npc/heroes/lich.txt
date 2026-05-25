@@ -114,6 +114,14 @@
 
 		"TalentRequiredAbility"                                                   "lich_frost_shield"
 	}
+	"special_bonus_unique_lich_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "lich_chain_frost"
+	}
 	"special_bonus_unique_lich_6"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"

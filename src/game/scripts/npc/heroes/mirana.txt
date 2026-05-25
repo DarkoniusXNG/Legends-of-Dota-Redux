@@ -1,0 +1,197 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Sacred Arrow
+	//=================================================================================================================
+	"mirana_arrow"
+	{
+		"ReduxFlags"	"stun | upgradeable"
+		"ReduxPerks"	"skillshot | ranger"
+	}
+
+	//=================================================================================================================
+	// Moonlight Shadow
+	//=================================================================================================================
+	"mirana_invis"
+	{
+		"ReduxFlags"		"support | mobility | invis"
+		"ReduxPerks"		"support | mobility | invis"
+	}
+
+	//=================================================================================================================
+	// Solar Flare (old Facet Ultimate ability)
+	//=================================================================================================================
+	"mirana_solar_flare"
+	{
+		"ReduxFlags"					"support"
+		"ReduxPerks"					"support | light | fire"
+
+		"AbilityManaCost"				"125"
+
+		"AbilityValues"
+		{
+			"AbilityCooldown"
+			{
+					"value"			"100 90 80"
+					"special_bonus_unique_mirana_4"			"-30"
+			}
+			"smoothness"						"0.015"
+			"increase_rate"						"10 15 20"
+			"max_total_increase"				"70 110 150"
+			"day_vision_multiplier"				"0"
+			"ally_pct"							"50"
+			"duration"							"16 18 20"
+			"max_damage_time"					"6"
+			"evasion"
+			{
+				"value"			"0"
+				"special_bonus_unique_mirana_5"		"+20"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Leap
+	//=================================================================================================================
+	"mirana_leap"
+	{
+		"ReduxFlags"		"mobility"
+		"ReduxPerks"		"mobility | ranger"
+		"ReduxCost"			"10"
+	}
+
+	//=================================================================================================================
+	// Starstorm
+	//=================================================================================================================
+	"mirana_starfall"
+	{
+		"ReduxFlags"		"upgradeable"
+        "ReduxPerks"		"light"
+	}
+
+	//=================================================================================================================
+	// Selemene's Faithful (old Innate)
+	//=================================================================================================================
+	"mirana_selemenes_faithful"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"custom/npc_dota_hero_mirana_perk"
+
+		"MaxLevel"						"4"
+		"Innate"						"0"
+
+		"ReduxFlags"                  	"doNotRandom"
+
+		"AbilityValues"
+		{
+			"bonus_lotus"               "50 70 90 110"
+		}
+	}
+
+	//=================================================================================================================
+	// Nightveil (Unknown) TODO: add tooltip
+	//=================================================================================================================
+	"mirana_nightveil"
+	{
+		"AbilityBehavior"            	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"custom/npc_dota_hero_mirana_perk"
+
+		"MaxLevel"						"1"
+		"Innate"						"0"
+
+		"ReduxFlags"                  	"doNotRandom | invis"
+		"ReduxPerks"                    "invis"
+
+		"AbilityCharges"				"5"
+		"AbilityChargeRestoreTime"		"5"
+
+		"AbilityValues"
+		{
+			"fade_time"				"1.5"
+			"charges_per_level"		"0.5"
+		}
+	}
+
+	//=================================================================================================================
+	// Celestial Quiver (current Innate)
+	//=================================================================================================================
+	"mirana_celestial_quiver"
+	{
+		"ReduxFlags"                  	"attack_modifier"
+		"ReduxPerks"                  	"attack_modifier | autocast_basic | ranger"
+	}
+
+	// Talents
+	"special_bonus_unique_mirana_1"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"mirana_leap"
+	}
+	"special_bonus_unique_mirana_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"mirana_arrow"
+	}
+	"special_bonus_unique_mirana_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"mirana_starfall"
+	}
+	"special_bonus_unique_mirana_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"
+		{
+			"1" "mirana_invis"
+			"2" "mirana_solar_flare"
+		}
+	}
+	"special_bonus_unique_mirana_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"
+		{
+			"1" "mirana_invis"
+			"2" "mirana_solar_flare"
+		}
+	}
+	"special_bonus_unique_mirana_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"mirana_leap"
+	}
+	"special_bonus_unique_mirana_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"mirana_starfall"
+	}
+	"special_bonus_unique_mirana_quiver_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"mirana_celestial_quiver"
+	}
+}

@@ -42,7 +42,8 @@
 	//=================================================================================================================
 	"gyrocopter_side_gunner_spawn_ability"
 	{
-		"ReduxFlags"		"aoe_attack | upgradeable"
+		"ReduxFlags"		"aoe_attack | instant_attacks | upgradeable"
+		"ReduxPerks"        "scientific"
 
 		// General
 		//-------------------------------------------------------------------------------------------------------------

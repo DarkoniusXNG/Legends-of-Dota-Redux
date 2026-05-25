@@ -4,7 +4,7 @@
 	"drow_ranger_frost_arrows"
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | ice | autocast_basic | ranger | physical"
+		"ReduxPerks"                                                           "attack_modifier | autocast_basic | ice | physical | ranger"
 	}
 
 	"drow_ranger_wave_of_silence"
@@ -22,7 +22,7 @@
 	"drow_ranger_multishot"
 	{
 		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"                                                           "ranger | channeled | physical"
+		"ReduxPerks"                                                           "ranger | physical"
 	}
 
 	"drow_ranger_marksmanship"

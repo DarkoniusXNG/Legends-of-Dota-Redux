@@ -17,7 +17,7 @@
 
 	"dazzle_shadow_wave"
 	{
-		"ReduxFlags"                                                           "physical | support | upgradeable"
+		"ReduxFlags"                                                           "instant_attacks | physical | support | upgradeable"
 		"ReduxPerks"                                                           "physical | support"
 	}
 

@@ -3,7 +3,7 @@
 {
 	"hoodwink_acorn_shot"
 	{
-		"ReduxFlags"                                                           "physical"
+		"ReduxFlags"                                                           "instant_attacks | physical"
 		"ReduxPerks"                                                           "physical | nature"
 	}
 	"hoodwink_bushwhack"

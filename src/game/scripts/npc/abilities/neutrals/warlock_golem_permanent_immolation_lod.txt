@@ -20,7 +20,7 @@
 				"affected_by_aoe_increase"	"1"
 			}
         }
-        "ReduxFlags"                                                           "aoe_attack | dota_custom | underpowered"
+        "ReduxFlags"                                                           "dota_custom | underpowered"
         "ReduxPerks"                                                           "neutral | fire | aura"
     }
 }

@@ -1,133 +1,155 @@
-// Abilities for luna
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Luna: Lucent Beam
+	// Spear of Mars
 	//=================================================================================================================
-	"luna_lucent_beam"
+	"mars_spear"
 	{
-		"ReduxPerks"		"light"
 		"ReduxFlags"		"stun"
+		"ReduxPerks"		"enemymoving | skillshot"
 	}
 
 	//=================================================================================================================
-	// Luna: Lunar Orbit
+	// God's Rebuke
 	//=================================================================================================================
-	"luna_lunar_orbit"
+	"mars_gods_rebuke"
 	{
-		"ReduxFlags"                    "physical | tank"
-		"ReduxPerks"                    "physical"
-		"ReduxCost"                     "10" // because of the dmg reduction facet
-	}
-
-	//=================================================================================================================
-	// Luna: Moon Glaives
-	//=================================================================================================================
-	"luna_moon_glaive"
-	{
-		"ReduxFlags"		"aoe_attack | attack_modifier | physical"
-		"ReduxPerks"		"attack_modifier | physical"
-		"ReduxCost"			"20"
+		"ReduxFlags"	"aoe_attack | crit | instant_attacks"
+		"ReduxPerks"	"enemymoving"
 	}
 
 	//=================================================================================================================
-	// Luna: Lunar Blessing (Innate)
+	// Dauntless (current Innate)
 	//=================================================================================================================
-	"luna_lunar_blessing"
+	"mars_dauntless"
 	{
-		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "aura | support"
-		"ReduxCost"                                                            "40"
+		"ReduxFlags"	"tank"
 	}
 
 	//=================================================================================================================
-	// Luna: Eclipse
+	// Immovable (unknown) TODO: add tooltip
 	//=================================================================================================================
-	"luna_eclipse"
+	"mars_immovable"
 	{
-		"ReduxFlags"                                                           "upgradeable | doNotRandom"
-		"ReduxPerks"                                                           "light"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"MaxLevel"	"1"
+		"Innate"	"0"
+
+		"ReduxFlags"	"doNotRandom"
 	}
 
-	"special_bonus_unique_luna_1"
+	//=================================================================================================================
+	// Bulwark
+	//=================================================================================================================
+	"mars_bulwark"
+	{
+		"ReduxFlags"	"semi_passive | tank"
+	}
+
+	//=================================================================================================================
+	// Arena of Blood
+	//=================================================================================================================
+	"mars_arena_of_blood"
+	{
+		"ReduxPerks"	"enemymoving | blood | undead"
+	}
+
+	// Talents
+	"special_bonus_unique_mars_spear_bonus_damage"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"		"luna_lucent_beam"
+		"TalentRequiredAbility"			"mars_spear"
 	}
-
-	"special_bonus_unique_luna_2"
+	"special_bonus_unique_mars_gods_rebuke_extra_crit"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"		"luna_lucent_beam"
+		"TalentRequiredAbility"      	"mars_gods_rebuke"
 	}
-
-	"special_bonus_unique_luna_3"
+	"special_bonus_unique_mars_rebuke_cooldown"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"		"luna_lunar_blessing"
+		"TalentRequiredAbility"      	"mars_gods_rebuke"
 	}
-
-	"special_bonus_unique_luna_4"
+	"special_bonus_unique_mars_spear_stun_duration"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"		"luna_lucent_beam"
+		"TalentRequiredAbility"     	"mars_spear"
 	}
-
-	"special_bonus_unique_luna_5"
+	"special_bonus_unique_mars_arena_of_blood_hp_regen"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"		"luna_lucent_beam"
+		"TalentRequiredAbility"        	"mars_arena_of_blood"
 	}
-
-	"special_bonus_unique_luna_6"
+	"special_bonus_unique_mars_rebuke_radius"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"		"luna_eclipse"
+		"TalentRequiredAbility"       	"mars_gods_rebuke"
 	}
-
-	"special_bonus_unique_luna_7"
+	"special_bonus_unique_mars_arena_cooldown"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"		"luna_moon_glaive"
+		"TalentRequiredAbility"     	"mars_arena_of_blood"
 	}
-
-	"special_bonus_unique_luna_lunar_orbit_glaive_count"
+	"special_bonus_unique_mars_dauntless_hpregen"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"			"luna_lunar_orbit"
+		"TalentRequiredAbility"   		"mars_dauntless"
 	}
-
-	"special_bonus_unique_luna_lunar_orbit_speed_damage"
+	"special_bonus_unique_mars_bulwark_damage_reduction"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"			"luna_lunar_orbit"
+		"TalentRequiredAbility"   		"mars_bulwark"
+	}
+	"special_bonus_unique_mars_bulwark_redirect_chance"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"   		"mars_bulwark"
+	}
+	"special_bonus_unique_mars_bulwark_forced_movement_immunity"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"   		"mars_bulwark"
+	}
+	"special_bonus_unique_mars_arena_of_blood_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"     	"mars_arena_of_blood"
 	}
 }

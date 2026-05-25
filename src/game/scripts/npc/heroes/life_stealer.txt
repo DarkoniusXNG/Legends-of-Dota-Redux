@@ -69,8 +69,8 @@
 	//=================================================================================================================
 	"life_stealer_infest"
 	{
-		"ReduxFlags"		"support | mobility | upgradeable"
-		"ReduxPerks"		"support | mobility"
+		"ReduxFlags"		"instant_attacks | mobility | support | upgradeable"
+		"ReduxPerks"		"blood | mobility | support"
 		"ReduxCost"			"20"
 		"ReduxBans"			"nyx_assassin_burrow | nyx_assassin_burrow_redux"
 	}
@@ -213,4 +213,21 @@
 
 		"TalentRequiredAbility"			 "life_stealer_infest"
 	}
+	"special_bonus_unique_lifestealer_infest_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			 "life_stealer_infest"
+	}
+	"special_bonus_unique_lifestealer_rage_movespeed"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"life_stealer_rage"
+	}
+	
 }

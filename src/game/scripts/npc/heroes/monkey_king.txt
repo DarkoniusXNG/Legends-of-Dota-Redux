@@ -1,0 +1,153 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Boundless Strike
+	//=================================================================================================================
+	"monkey_king_boundless_strike"
+	{
+		"ReduxFlags"		"aoe_attack | crit | instant_attacks | stun"
+		//"ReduxPerks"		""
+		"ReduxCost"			"20"
+	}
+
+	//=================================================================================================================
+	// Mischief (current Innate)
+	//=================================================================================================================
+	"monkey_king_mischief"
+	{
+		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxPerks"                                                           "transformation"
+		"ReduxCost"                                                            "360"
+	}
+
+	//=================================================================================================================
+	// Revert Form (sub-ability of Mischief)
+	//=================================================================================================================
+	"monkey_king_untransform"
+	{
+		"ReduxFlags"		"doNotRandom"
+		"ReduxPerks"		"transformation"
+	}
+
+	//=================================================================================================================
+	// Tree Dance
+	//=================================================================================================================
+	"monkey_king_tree_dance"
+	{
+		"ReduxFlags"		"mobility"
+		"ReduxPerks"		"mobility | nature"
+	}
+
+	//=================================================================================================================
+	// Primal Spring
+	//=================================================================================================================
+	"monkey_king_primal_spring"
+	{
+		"ReduxFlags"	"doNotRandom | mobility"
+		"ReduxPerks"	"channeled | mobility | nature"
+	}
+
+	//=================================================================================================================
+	// Spring Early (sub-ability of Primal Spring)
+	//=================================================================================================================
+	"monkey_king_primal_spring_early"
+	{
+		"ReduxFlags"	"doNotRandom | mobility"
+		"ReduxPerks"	"channeled | mobility | nature"
+	}
+
+	//=================================================================================================================
+	// Wukong's Command
+	//=================================================================================================================
+	"monkey_king_wukongs_command"
+	{
+		"ReduxFlags"		"aoe_attack | doNotRandom | upgradeable"
+		//"ReduxPerks"		""
+		"ReduxBans"			"arc_warden_tempest_double | meepo_divided_we_stand" // lag
+		"ReduxCost"			"120" // Made single player ability because its laggy
+	}
+
+	//=================================================================================================================
+	// Jingu Mastery
+	//=================================================================================================================
+	"monkey_king_jingu_mastery"
+	{
+		"ReduxFlags"		"attack_modifier"
+		"ReduxPerks"		"attack_modifier"
+	}
+
+	//=================================================================================================================
+	// Changing of the Guard (sub-ability of Wukong's Command)
+	//=================================================================================================================
+	"monkey_king_transfiguration"
+	{
+		"ReduxFlags"		"doNotRandom"
+		"ReduxPerks"		"transformation"
+	}
+
+	// talents
+	"special_bonus_unique_monkey_king_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"     	"monkey_king_jingu_mastery"
+	}
+	"special_bonus_unique_monkey_king_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"monkey_king_tree_dance"
+	}
+	"special_bonus_unique_monkey_king_6"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"      	"monkey_king_wukongs_command"
+	}
+	"special_bonus_unique_monkey_king_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"      	"monkey_king_tree_dance"
+	}
+	"special_bonus_unique_monkey_king_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"monkey_king_primal_spring"
+	}
+	"special_bonus_unique_monkey_king_9"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"monkey_king_boundless_strike"
+	}
+	"special_bonus_unique_monkey_king_10"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"monkey_king_boundless_strike"
+	}
+	"special_bonus_unique_monkey_king_11"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"monkey_king_jingu_mastery"
+	}
+}

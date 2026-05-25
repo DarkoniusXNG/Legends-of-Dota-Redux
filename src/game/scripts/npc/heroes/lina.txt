@@ -134,7 +134,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "lina_combustion"
+		"TalentRequiredAbility"                                                   "lina_slow_burn"
 	}
 	"special_bonus_unique_lina_crit_debuff"
 	{
@@ -142,6 +142,6 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "lina_fiery_soul"
+		"TalentRequiredAbility"                                                   "lina_slow_burn"
 	}
 }

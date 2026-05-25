@@ -1,0 +1,163 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Cold Blooded (current Shard ability)
+	//=================================================================================================================
+	"medusa_cold_blooded"
+	{
+		"ReduxFlags"				    "doNotRandom | mana"
+		"ReduxPerks"                    "blood"
+
+		"MaxLevel"						"4"
+
+		"AbilityCooldown"				"12 10 8 6"
+
+		"AbilityValues"
+		{
+			"damage"		"0 70 140 210"
+			"stone_form_scepter_base_tooltip"		"1" // real value is in medusa_mystic_snake
+		}
+	}
+
+	//=================================================================================================================
+	// Split Shot
+	//=================================================================================================================
+	"medusa_split_shot"
+	{
+		"ReduxFlags"		"aoe_attack | attack_modifier | instant_attacks | semi_passive | upgradeable"
+		"ReduxPerks"		"attack_modifier | ranger"
+		"ReduxBans"			"holdout_multishot"
+		"ReduxCost"			"10"
+	}
+
+	//=================================================================================================================
+	// Mystic Snake
+	//=================================================================================================================
+	"medusa_mystic_snake"
+	{
+		"ReduxFlags"		"mana"
+	}
+
+	//=================================================================================================================
+	// Mana Shield (current Innate)
+	//=================================================================================================================
+	"medusa_mana_shield"
+	{
+		"ReduxFlags"		"tank | mana"
+		"ReduxCost"			"40"
+	}
+
+	//=================================================================================================================
+	// Stone Gaze
+	//=================================================================================================================
+	"medusa_stone_gaze"
+	{
+		"ReduxFlags"	"mobility | stun"
+		"ReduxPerks"	"mobility"
+	}
+
+	//=================================================================================================================
+	// Gorgon's Grasp
+	//=================================================================================================================
+	"medusa_gorgon_grasp"
+	{
+		"ReduxFlags"	"stun"
+		"ReduxPerks"	"skillshot"
+	}
+
+	//=================================================================================================================
+	// Undulation (old Facet)
+	//=================================================================================================================
+	"medusa_undulation"
+	{
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_medusa_perk"
+
+		"ReduxFlags"                                                           "doNotRandom | mobility"
+		"ReduxPerks"                                                           "mobility"
+		"ReduxCost"                                                            "10"
+
+		"MaxLevel"                                                             "4"
+
+		"AbilityValues"
+		{
+			"fixed_movespeed"				"310 350 390 430"
+			"stone_gaze_ms_tooltip_only"	"465 525 585 645" // 1.5 x fixed_movespeed
+		}
+	}
+
+	// Talents
+	"special_bonus_unique_medusa"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"medusa_stone_gaze"
+	}
+	"special_bonus_unique_medusa_2"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"medusa_split_shot"
+	}
+	"special_bonus_unique_medusa_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"    		"medusa_mystic_snake"
+	}
+	"special_bonus_unique_medusa_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"      	"medusa_mystic_snake"
+	}
+	"special_bonus_unique_medusa_8"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"medusa_stone_gaze"
+	}
+	"special_bonus_unique_medusa_gorgons_grasp_volleys"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"medusa_gorgon_grasp"
+	}
+	"special_bonus_unique_medusa_gorgons_grasp_radius"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"medusa_gorgon_grasp"
+	}
+	"special_bonus_unique_medusa_snake_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"      	"medusa_mystic_snake"
+	}
+	"special_bonus_unique_medusa_stone_gaze_cooldown"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"medusa_stone_gaze"
+	}
+}
+

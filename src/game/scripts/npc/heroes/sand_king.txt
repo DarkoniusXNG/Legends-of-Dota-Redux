@@ -17,7 +17,7 @@
 
 	"sandking_scorpion_strike"
 	{
-		"ReduxFlags"                                                           "aoe_attack | physical"
+		"ReduxFlags"                                                           "aoe_attack | instant_attacks | physical"
 		"ReduxPerks"                                                           "earth | physical | skillshot"
 	}
 

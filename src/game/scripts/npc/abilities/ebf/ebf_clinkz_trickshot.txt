@@ -21,7 +21,7 @@
             "particle"                                                     "particles/units/heroes/hero_clinkz/clinkz_strafe_fire.vpcf"
         }
 
-        "ReduxFlags"                                                           "aoe_attack | upgradeable"
+        "ReduxFlags"                                                           "aoe_attack | instant_attacks | upgradeable"
         "ReduxPerks"                                                           "ranger"
         "ReduxCost"                                                            "20"
     }

@@ -14,8 +14,8 @@
 	//=================================================================================================================
 	"kez_echo_slash"
 	{
-		"ReduxFlags"                                                           "mobility | physical | aoe_attack"
-		"ReduxPerks"                                                           "mobility | blades | physical | skillshot"
+		"ReduxFlags"                                                           "aoe_attack | instant_attacks | mobility"
+		"ReduxPerks"                                                           "blades | mobility | skillshot"
 	}
 
 	//=================================================================================================================
@@ -51,8 +51,8 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 
-		"ReduxFlags"                                                           "mobility | physical"
-		"ReduxPerks"                                                           "blades | mobility | physical | rage"
+		"ReduxFlags"                                                           "attack_modifier | instant_attacks | mobility"
+		"ReduxPerks"                                                           "attack_modifier | blades | mobility | rage"
 	}
 
 	//=================================================================================================================

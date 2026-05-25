@@ -16,8 +16,8 @@
 
 	"riki_tricks_of_the_trade"
 	{
-		"ReduxFlags"														   "mobility | aoe_attack | upgradeable | wtfAutoBan"
-		"ReduxPerks"                                                           "channeled | mobility"
+		"ReduxFlags"														   "mobility | aoe_attack | instant_attacks | physical | upgradeable | wtfAutoBan"
+		"ReduxPerks"                                                           "channeled | mobility | physical"
 		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux" // invulnerability
 	}
 
