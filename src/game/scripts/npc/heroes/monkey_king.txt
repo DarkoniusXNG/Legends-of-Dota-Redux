@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Monkey King: Boundless Strike
+	// Boundless Strike
 	//=================================================================================================================
 	"monkey_king_boundless_strike"
 	{
-		"ReduxFlags"		"stun | physical | crit | aoe_attack"
-		"ReduxPerks"		"physical"
+		"ReduxFlags"		"aoe_attack | crit | instant_attacks | stun"
+		//"ReduxPerks"		""
 		"ReduxCost"			"20"
 	}
 
 	//=================================================================================================================
-	// Monkey King: Mischief
+	// Mischief (current Innate)
 	//=================================================================================================================
 	"monkey_king_mischief"
 	{
@@ -21,7 +21,7 @@
 	}
 
 	//=================================================================================================================
-	// Monkey King: Un-Transform
+	// Revert Form (sub-ability of Mischief)
 	//=================================================================================================================
 	"monkey_king_untransform"
 	{
@@ -30,7 +30,7 @@
 	}
 
 	//=================================================================================================================
-	// Monkey King: Tree Dance
+	// Tree Dance
 	//=================================================================================================================
 	"monkey_king_tree_dance"
 	{
@@ -39,7 +39,7 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Primal Spring
+	// Primal Spring
 	//=================================================================================================================
 	"monkey_king_primal_spring"
 	{
@@ -48,7 +48,7 @@
 	}
 
 	//=================================================================================================================
-	// Monkey King: Primal Spring (Early)
+	// Spring Early (sub-ability of Primal Spring)
 	//=================================================================================================================
 	"monkey_king_primal_spring_early"
 	{
@@ -57,37 +57,35 @@
 	}
 
 	//=================================================================================================================
-	// Monkey King: Wukong's Command
+	// Wukong's Command
 	//=================================================================================================================
 	"monkey_king_wukongs_command"
 	{
-		"ReduxFlags"		"aoe_attack | doNotRandom | upgradeable | physical"
-		"ReduxPerks"		"physical"
+		"ReduxFlags"		"aoe_attack | doNotRandom | upgradeable"
+		//"ReduxPerks"		""
 		"ReduxBans"			"arc_warden_tempest_double | meepo_divided_we_stand" // lag
 		"ReduxCost"			"120" // Made single player ability because its laggy
 	}
-	
+
 	//=================================================================================================================
-	// Monkey King: Jingu Mastery
+	// Jingu Mastery
 	//=================================================================================================================
 	"monkey_king_jingu_mastery"
 	{
-		"ReduxFlags"		"attack_modifier | physical"
-		"ReduxPerks"		"attack_modifier | physical"
+		"ReduxFlags"		"attack_modifier"
+		"ReduxPerks"		"attack_modifier"
 	}
 
-
-
 	//=================================================================================================================
-	// Monkey King: Transfiguration (Fur army transform, Changing of the Guard)
+	// Changing of the Guard (sub-ability of Wukong's Command)
 	//=================================================================================================================
 	"monkey_king_transfiguration"
 	{
 		"ReduxFlags"		"doNotRandom"
 		"ReduxPerks"		"transformation"
 	}
-	
-	// Monkey King
+
+	// talents
 	"special_bonus_unique_monkey_king_2"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"

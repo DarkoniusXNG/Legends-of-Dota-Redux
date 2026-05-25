@@ -16,8 +16,8 @@
 
 	"tidehunter_anchor_smash"
 	{
-		"ReduxFlags"                                                           "physical | aoe_attack"
-		"ReduxPerks"                                                           "water | physical"
+		"ReduxFlags"                                                           "aoe_attack | instant_attacks | physical"
+		"ReduxPerks"                                                           "physical | water"
 		"ReduxCost"                                                            "10"
 	}
 

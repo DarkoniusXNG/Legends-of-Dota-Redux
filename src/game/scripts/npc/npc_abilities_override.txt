@@ -383,7 +383,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 
-		"ReduxPerks"                                                           "nature | transformation"
+		"ReduxFlags"                                                           "physical"
+		"ReduxPerks"                                                           "nature | physical | transformation"
 
 		"MaxLevel"						"3"
 
@@ -781,7 +782,7 @@
 
 	"clinkz_burning_barrage"
 	{
-		"ReduxFlags"					"aoe_attack"
+		"ReduxFlags"					"aoe_attack | instant_attacks"
 		"ReduxPerks"					"channeled | fire | skillshot"
 
 		"MaxLevel"						"4"
@@ -2155,7 +2156,7 @@
 	}
 	"puck_dream_coil"
 	{
-		"ReduxFlags"                                                           "stun | upgradeable"
+		"ReduxFlags"                                                           "instant_attacks | stun | upgradeable"
 	}
 
 	"pugna_life_drain"
@@ -2270,7 +2271,7 @@
 		"ReduxPerks"                                                           "lightning | summon_non_ult"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 	}
-	
+
 	"treant_living_armor"
 	{
 		"ReduxFlags"                                                           "support | tank"
@@ -2351,7 +2352,7 @@
 		"ReduxPerks"                                                           "mobility | blink"
 		"ReduxCost"                                                            "30"
 	}
-	
+
 
 	"void_spirit_dissimilate"
 	{
@@ -2501,7 +2502,7 @@
 		"ReduxPerks"                                                           "dragon | fire | mobility | self_damage"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}
-	
+
 	"nyx_assassin_spiked_carapace"
 	{
 		"ReduxFlags"                                                           "stun"
@@ -2517,7 +2518,7 @@
 
 	"puck_phase_shift"
 	{
-		"ReduxFlags"                                                           "wtfAutoBan"
+		"ReduxFlags"                                                           "instant_attacks | wtfAutoBan"
 		"ReduxPerks"                                                           "channeled"
 		"ReduxBans"                                                            "tinker_rearm" // invulnerability
 		"ReduxCost"                                                            "120"
@@ -2717,7 +2718,7 @@
 
 	"pangolier_swashbuckle"
 	{
-		"ReduxFlags"                                                           "mobility | physical | aoe_attack"
+		"ReduxFlags"                                                           "aoe_attack | instant_attacks | mobility | physical"
 		"ReduxPerks"                                                           "mobility | blades | physical | skillshot"
 		"ReduxBans"                                                            "ursa_fury_swipes | ursa_fury_swipes_lod | obsidian_destroyer_arcane_orb"
 	}
@@ -2737,7 +2738,7 @@
 
 	"pangolier_gyroshell"
 	{
-		"ReduxFlags"                                                           "mobility | stun | physical | aoe_attack"
+		"ReduxFlags"                                                           "mobility | stun | physical"
 		"ReduxPerks"                                                           "mobility | enemymoving | physical | transformation"
 	}
 

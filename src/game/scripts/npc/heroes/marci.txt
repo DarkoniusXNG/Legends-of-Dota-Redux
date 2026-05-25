@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Marci: Dispose
+	// Dispose
 	//=================================================================================================================
 	"marci_grapple"
 	{
@@ -10,7 +10,7 @@
 	}
 
 	//=================================================================================================================
-	// Marci: Unleashed
+	// Unleash
 	//=================================================================================================================
 	"marci_unleash"
 	{
@@ -20,7 +20,7 @@
 	}
 
 	//=================================================================================================================
-	// Marci: Rebound
+	// Rebound
 	//=================================================================================================================
 	"marci_companion_run"
 	{
@@ -29,58 +29,39 @@
 	}
 
 	//=================================================================================================================
-	// Marci: Sidekick
+	// Sidekick (old ability)
 	//=================================================================================================================
 	"marci_guardian"
 	{
-		"ReduxFlags"	"support"
-		"ReduxPerks"	"support"
+		"ReduxFlags"	"attack_modifier | semi_passive | support"
+		"ReduxPerks"	"attack_modifier | support"
 	}
 
 	//=================================================================================================================
-	// Marci: Bodyguard
+	// Bodyguard
 	//=================================================================================================================
 	"marci_bodyguard"
 	{
-		"ReduxFlags"	"support"
-		"ReduxPerks"	"support"
+		"ReduxFlags"	"attack_modifier | semi_passive | support"
+		"ReduxPerks"	"attack_modifier | support"
 		"ReduxCost"		"20"
 	}
 
 	//=================================================================================================================
-	// Marci: Innate Courier Level
+	// Special Delivery (current Innate)
 	//=================================================================================================================
 	"marci_special_delivery"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"						"1"
 		"Innate"						"1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"1.0"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
-
-		"AbilityValues"
-		{
-			"AbilityCooldown"
-			{
-				"value"					"245.0"
-				"hero_levelup"			"-5"
-			}
-
-			"bonus_levels"				"3"
-			"courier_max_level"			"30"
-			"bonus_hp"					"3"
-			"bonus_hp_tooltip"			"1"
-		}
+		"ReduxFlags"	"doNotRandom | support"
+		"ReduxPerks"	"support"
 	}
 
-
-	// Marci
+	// talents
 	"special_bonus_unique_marci_grapple_damage"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -121,7 +102,7 @@
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
+		//"BaseClass"						"special_bonus_base" // uncomment when they remove AbilityValues
 
 		"TalentRequiredAbility"
 		{

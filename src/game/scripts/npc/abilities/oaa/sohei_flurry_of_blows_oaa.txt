@@ -12,14 +12,13 @@
     "AbilityType"                                         "ABILITY_TYPE_ULTIMATE"
     "AbilityTextureName"                                  "custom/sohei_flurry_of_blows"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" // this is for UI tooltip
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // this is for UI tooltip
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" // this is for UI tooltip
-	"SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-	"ReduxFlags"						                  "mobility"
-	"ReduxPerks"                                          "mobility"
+    "ReduxFlags"                                          "instant_attacks | mobility"
+    "ReduxPerks"                                          "mobility"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

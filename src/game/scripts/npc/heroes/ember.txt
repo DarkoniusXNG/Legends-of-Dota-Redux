@@ -8,7 +8,7 @@
 
 	"ember_spirit_sleight_of_fist"
 	{
-		"ReduxFlags"		"aoe_attack"
+		"ReduxFlags"		"aoe_attack | instant_attacks"
 		"ReduxPerks"		"fire"
 		"ReduxCost"			"10"
 	}

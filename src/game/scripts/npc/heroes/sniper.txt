@@ -22,7 +22,7 @@
 
 	"sniper_assassinate"
 	{
-		"ReduxFlags"                                                           "stun | upgradeable"
+		"ReduxFlags"                                                           "instant_attacks | stun | upgradeable"
 		"ReduxPerks"                                                           "channeled | scientific"
 	}
 

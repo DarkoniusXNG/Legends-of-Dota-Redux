@@ -18,7 +18,7 @@
             "targets_scepter" "3"
         }
 
-        "ReduxFlags"                                                           "aoe_attack | upgradeable | doNotRandom"
+        "ReduxFlags"                                                           "aoe_attack | doNotRandom | instant_attacks | upgradeable"
         "ReduxPerks"                                                           "ranger"
         "ReduxCost"                                                            "120"
     }

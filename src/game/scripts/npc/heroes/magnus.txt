@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Magnataur: Horn Toss ( shard ability )
+	// Horn Toss (current Scepter ability)
 	//=================================================================================================================
 	"magnataur_horn_toss"
 	{
@@ -31,73 +31,34 @@
 	}
 
 	//=================================================================================================================
-	// Magnataur: Shockwave
+	// Shockwave
 	//=================================================================================================================
 	"magnataur_shockwave"
 	{
 		"ReduxPerks"	"skillshot | enemymoving | lightning"
 	}
-	
-	//=================================================================================================================
-	// Magnataur: Greater Shockwave (scepter ability)
-	//=================================================================================================================
-	"magnataur_greater_shockwave"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT  | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilitySound"					"Hero_ShadowShaman.SerpentWard"
-		"FightRecapLevel"				"1"
-		"HasScepterUpgrade"				"1"
-		"MaxLevel"						"1"
-		"IsGrantedByScepter"			"1"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1500"
-		"AbilityCastPoint"				"0.1"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
-		"AbilityValues"
-		{
-			"length"
-			{
-				"value" "1200"
-			}
-		}
-	}
 
 	//=================================================================================================================
-	// Magnataur: Empower
+	// Empower
 	//=================================================================================================================
 	"magnataur_empower"
 	{
-		"ReduxFlags"	"support | aoe_attack | attack_modifier | physical"
-		"ReduxPerks"	"support | attack_modifier | rage | physical"
+		"ReduxFlags"	"aoe_attack | attack_modifier | physical | semi_passive | support"
+		"ReduxPerks"	"attack_modifier | physical | rage | support"
 		"ReduxCost"		"20"
 	}
 
 	//=================================================================================================================
-	// Magnataur: Skewer
+	// Skewer
 	//=================================================================================================================
 	"magnataur_skewer"
 	{
-		"ReduxFlags"	"mobility"
+		"ReduxFlags"	"mobility | stun"
 		"ReduxPerks"	"mobility | skillshot | enemymoving"
 	}
-	
+
 	//=================================================================================================================
-	// Magnataur: Reverse Polarity
+	// Reverse Polarity
 	//=================================================================================================================
 	"magnataur_reverse_polarity"
 	{
@@ -108,7 +69,7 @@
 	}
 
 	//=================================================================================================================
-	// Magnus: Magnetic Horn
+	// Magnetic Horn (unreleased ability)
 	//=================================================================================================================
 	"magnus_magnetic_horn"
 	{
@@ -129,28 +90,15 @@
 	}
 
 	//=================================================================================================================
-	// Magnus: Solid Core
+	// Solid Core (current Innate)
 	//=================================================================================================================
 	"magnataur_solid_core"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_NONE"	
-		"Innate"						"1"
-		"MaxLevel"						"1"	
-		"IsBreakable"					"1"
-
-		"AbilityValues"
-		{
-			"knockback_reduction"			"50"
-			"slow_resistance"
-			{
-				"value"						"24"
-				"hero_levelup"				"1"
-			}
-		}		
+		"ReduxFlags"                    "doNotRandom"
 	}
+
 	//=================================================================================================================
-	// Ability: Magnus Strength of Joelrak (scepter)
+	// Strength of Joelrak (unreleased shard ability)
 	//=================================================================================================================
 	"magnus_strength_of_joelrak"
 	{
@@ -163,8 +111,8 @@
 			"stack_duration"					"12 16 20 24"
 		}
 	}
-	
-	// Magnus
+
+	// talents
 	"special_bonus_unique_magnus"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"

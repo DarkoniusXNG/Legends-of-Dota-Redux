@@ -29,8 +29,8 @@
 			}
 		}
 
-        "ReduxFlags"                                                           "aoe_attack | attack_modifier | doNotRandom"
-        "ReduxPerks"                                                           "attack_modifier | blood | dragon"
+        "ReduxFlags"                                                           "tank | doNotRandom"
+        "ReduxPerks"                                                           "blood | dragon"
         "ReduxCost"                                                            "120"
         "ReduxBans"                                                            "dragon_knight_dragon_blood"
     }

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Medusa: Cold Blooded ( shard ability )
+	// Cold Blooded (current Shard ability)
 	//=================================================================================================================
 	"medusa_cold_blooded"
 	{
@@ -9,35 +9,37 @@
 		"ReduxPerks"                    "blood"
 
 		"MaxLevel"						"4"
-		"AbilityCooldown"				"12 8 4 2"
+
+		"AbilityCooldown"				"12 10 8 6"
+
 		"AbilityValues"
 		{
 			"damage"		"0 70 140 210"
-			"stone_form_scepter_base_tooltip"		"1"		//taken from stone_form_scepter_base
+			"stone_form_scepter_base_tooltip"		"1" // real value is in medusa_mystic_snake
 		}
 	}
 
 	//=================================================================================================================
-	// Medusa: Split Shot
+	// Split Shot
 	//=================================================================================================================
 	"medusa_split_shot"
 	{
-		"ReduxFlags"		"aoe_attack | attack_modifier | semi_passive"
+		"ReduxFlags"		"aoe_attack | attack_modifier | instant_attacks | semi_passive | upgradeable"
 		"ReduxPerks"		"attack_modifier | ranger"
-		"ReduxCost"			"10"
 		"ReduxBans"			"holdout_multishot"
+		"ReduxCost"			"10"
 	}
 
 	//=================================================================================================================
-	// Medusa: Mystic Snake
+	// Mystic Snake
 	//=================================================================================================================
 	"medusa_mystic_snake"
 	{
 		"ReduxFlags"		"mana"
 	}
-	
+
 	//=================================================================================================================
-	// Medusa: Mana Shield
+	// Mana Shield (current Innate)
 	//=================================================================================================================
 	"medusa_mana_shield"
 	{
@@ -46,7 +48,7 @@
 	}
 
 	//=================================================================================================================
-	// Medusa: Stone Gaze
+	// Stone Gaze
 	//=================================================================================================================
 	"medusa_stone_gaze"
 	{
@@ -55,7 +57,7 @@
 	}
 
 	//=================================================================================================================
-	// Medusa: Gorgon's Grasp
+	// Gorgon's Grasp
 	//=================================================================================================================
 	"medusa_gorgon_grasp"
 	{
@@ -64,7 +66,7 @@
 	}
 
 	//=================================================================================================================
-	// Medusa: Fixed Movespeed Passive
+	// Undulation (old Facet)
 	//=================================================================================================================
 	"medusa_undulation"
 	{
@@ -74,17 +76,16 @@
 		"ReduxFlags"                                                           "doNotRandom | mobility"
 		"ReduxPerks"                                                           "mobility"
 		"ReduxCost"                                                            "10"
-		"MaxLevel"						"4"
+
+		"MaxLevel"                                                             "4"
 
 		"AbilityValues"
 		{
 			"fixed_movespeed"				"310 350 390 430"
-			"stone_gaze_ms_tooltip_only"	"465 585 651 718"
+			"stone_gaze_ms_tooltip_only"	"465 525 585 645" // 1.5 x fixed_movespeed
 		}
 	}
-	
-	
-	
+
 	// Talents
 	"special_bonus_unique_medusa"
 	{

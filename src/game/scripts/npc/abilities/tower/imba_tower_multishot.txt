@@ -13,7 +13,7 @@
             "bonus_range" "100 110 120"
         }
 
-        "ReduxFlags"                                                           "aoe_attack | attack_modifier"
+        "ReduxFlags"                                                           "aoe_attack | attack_modifier | instant_attacks"
         "ReduxPerks"                                                           "attack_modifier"
         "ReduxCost"                                                            "120"
 	}

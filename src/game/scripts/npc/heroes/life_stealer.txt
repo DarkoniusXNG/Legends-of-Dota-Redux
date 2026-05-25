@@ -69,8 +69,8 @@
 	//=================================================================================================================
 	"life_stealer_infest"
 	{
-		"ReduxFlags"		"support | mobility | upgradeable"
-		"ReduxPerks"		"support | mobility | blood"
+		"ReduxFlags"		"instant_attacks | mobility | support | upgradeable"
+		"ReduxPerks"		"blood | mobility | support"
 		"ReduxCost"			"20"
 		"ReduxBans"			"nyx_assassin_burrow | nyx_assassin_burrow_redux"
 	}

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Ability: Mirana Arrow (sacred arrow)
+	// Sacred Arrow
 	//=================================================================================================================
 	"mirana_arrow"
 	{
@@ -10,7 +10,7 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Mirana Invis
+	// Moonlight Shadow
 	//=================================================================================================================
 	"mirana_invis"
 	{
@@ -19,22 +19,21 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Solar Flare
+	// Solar Flare (old Facet Ultimate ability)
 	//=================================================================================================================
 	"mirana_solar_flare"
 	{
 		"ReduxFlags"					"support"
 		"ReduxPerks"					"support | light | fire"
-		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0.5 0.5 0.5"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+
 		"AbilityManaCost"				"125"
+
 		"AbilityValues"
 		{
-			"AbilityCooldown"				
+			"AbilityCooldown"
 			{
 					"value"			"100 90 80"
-					"special_bonus_unique_mirana_4"			"-30"				
+					"special_bonus_unique_mirana_4"			"-30"
 			}
 			"smoothness"						"0.015"
 			"increase_rate"						"10 15 20"
@@ -43,7 +42,7 @@
 			"ally_pct"							"50"
 			"duration"							"16 18 20"
 			"max_damage_time"					"6"
-			"evasion"		
+			"evasion"
 			{
 				"value"			"0"
 				"special_bonus_unique_mirana_5"		"+20"
@@ -52,7 +51,7 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Mirana Leap
+	// Leap
 	//=================================================================================================================
 	"mirana_leap"
 	{
@@ -60,9 +59,9 @@
 		"ReduxPerks"		"mobility | ranger"
 		"ReduxCost"			"10"
 	}
-	
+
 	//=================================================================================================================
-	// Ability: Mirana Starfall
+	// Starstorm
 	//=================================================================================================================
 	"mirana_starfall"
 	{
@@ -71,32 +70,37 @@
 	}
 
 	//=================================================================================================================
-	// Lotus Blessing
+	// Selemene's Faithful (old Innate)
 	//=================================================================================================================
 	"mirana_selemenes_faithful"
 	{
-		
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"custom/npc_dota_hero_mirana_perk"
 
-		"MaxLevel"						"1"
-		"Innate"						"1"
+		"MaxLevel"						"4"
+		"Innate"						"0"
+
+		"ReduxFlags"                  	"doNotRandom"
 
 		"AbilityValues"
 		{
-			"bonus_lotus"	"50"
+			"bonus_lotus"               "50 70 90 110"
 		}
 	}
 
 	//=================================================================================================================
-	// Nightveil
+	// Nightveil (Unknown) TODO: add tooltip
 	//=================================================================================================================
-	"mirana_nightveil"	// unknown
+	"mirana_nightveil"
 	{
 		"AbilityBehavior"            	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/npc_dota_hero_mirana_perk"
 
 		"MaxLevel"						"1"
 		"Innate"						"0"
+
+		"ReduxFlags"                  	"doNotRandom | invis"
+		"ReduxPerks"                    "invis"
 
 		"AbilityCharges"				"5"
 		"AbilityChargeRestoreTime"		"5"
@@ -106,55 +110,16 @@
 			"fade_time"				"1.5"
 			"charges_per_level"		"0.5"
 		}
-		
-		"ReduxFlags"                  	"doNotRandom"
 	}
 
 	//=================================================================================================================
-	//  Celestial Quiver
+	// Celestial Quiver (current Innate)
 	//=================================================================================================================
 	"mirana_celestial_quiver"
 	{
 		"ReduxFlags"                  	"attack_modifier"
 		"ReduxPerks"                  	"attack_modifier | autocast_basic | ranger"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"MaxLevel"						"1"
-		"Innate"						"1"
-		"AbilityCastRange"				"630"
-		"AbilityChargeRestoreTime"		"6.0"
-		"IsBreakable"					"1"
-		"HasShardUpgrade"				"1"
-		"EnableChargeDisplayOverride"	"1"
-		"AbilityValues"
-		{
-			"AbilityCharges"					
-			{
-				"value"							"2"
-				"hero_levelup"					"+1"
-				"levelup_interval"				"7"
-			}
-			"bonus_damage"					
-			{				
-				"value"												"5"
-				"hero_levelup"					    				"+3"
-				"special_bonus_unique_mirana_quiver_damage" 		"+50"
-				
-			}
-
-			"quiver_restore"
-			{
-				"value"					"0"
-				"special_bonus_shard"	"+3"
-			}
-		}
 	}
-
-
-
-
 
 	// Talents
 	"special_bonus_unique_mirana_1"
@@ -229,6 +194,4 @@
 
 		"TalentRequiredAbility"        	"mirana_celestial_quiver"
 	}
-
-	
 }

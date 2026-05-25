@@ -3,7 +3,7 @@
 {
 	"phantom_assassin_stifling_dagger"
 	{
-		"ReduxFlags"                                                           "physical"
+		"ReduxFlags"                                                           "instant_attacks | physical"
 		"ReduxPerks"                                                           "blades | dagger | physical"
 		"ReduxCost"                                                            "20"
 	}

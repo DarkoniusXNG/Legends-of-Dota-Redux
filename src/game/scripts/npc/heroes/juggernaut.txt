@@ -23,15 +23,15 @@
 
 	"juggernaut_omni_slash"
 	{
-		"ReduxFlags"                                                           "physical"
-		"ReduxPerks"                                                           "blades | physical"
+		"ReduxFlags"                                                           "instant_attacks"
+		"ReduxPerks"                                                           "blades"
 		"ReduxCost"                                                            "20"
 	}
 
 	"juggernaut_swift_slash"
 	{
-		"ReduxFlags"                                                           "upgradeable | physical | doNotRandom"
-		"ReduxPerks"                                                           "blades | physical"
+		"ReduxFlags"                                                           "doNotRandom | instant_attacks | upgradeable"
+		"ReduxPerks"                                                           "blades"
 
 		"MaxLevel"                      "4"
 		"AbilityCooldown"               "25 22 19 16"

@@ -10454,6 +10454,7 @@
 "lod_cat_disarm_break" "Disarm and Break"
 "lod_cat_dota_custom" "Dota Related Customs"
 "lod_cat_illusion" "Illusion"
+"lod_cat_instant_attacks"  "Procs Instant Attack"
 "lod_cat_invis" "Invisibility"
 "lod_cat_isUlt" "Ultimate Ability"
 "lod_cat_mana" "Mana"
