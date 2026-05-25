@@ -65,12 +65,12 @@ end
 --end
 
 function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:GetModifierPropertyRestorationAmplification()
-	return 0 - math.abs(self.heal_reduction)
+	return 0 - math.abs(self:GetStackCount())
 end
 
 function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:OnCreated(event)
 	self.max_heal_reduction = 80
-	self.heal_reduction = 0 -- initial value just to prevent errors
+
 	if IsServer() then
 		self.linkedmod = event.linkedmod
 		self:StartIntervalThink(0.1)
@@ -79,7 +79,7 @@ end
 
 function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:OnIntervalThink()
 	local parent = self:GetParent()
-	if not parent or parent:IsNull()
+	if not parent or parent:IsNull() then
 		self:StartIntervalThink(-1)
 		self:Destroy()
 		return
@@ -92,13 +92,15 @@ function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:OnIntervalTh
 		return
 	end
 
-	local number_of_mods = parent:FindAllModifiersByName(self:GetName())
+	local mods = parent:FindAllModifiersByName(self:GetName())
+	local number_of_mods = #mods
 	if number_of_mods == 0 then
-		-- Paradox
+		-- Paradox and prevent division by zero
 		return
 	end
 
-	self.heal_reduction = 100*(1 - ((1 - self.max_heal_reduction / 100) ^ (1/number_of_mods)))
+	local heal_reduction = 100*(1 - ((1 - self.max_heal_reduction / 100) ^ (1/number_of_mods)))
+	self:SetStackCount(math.floor(heal_reduction))
 end
 
 ---------------------------------------------------------------------------------------------------
