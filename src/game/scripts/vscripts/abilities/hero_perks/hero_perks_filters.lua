@@ -12,7 +12,7 @@ function heroPerksModifierFilter(filterTable)
   local caster_index = filterTable["entindex_caster_const"]
   local ability_index = filterTable["entindex_ability_const"]
   if not parent_index or not caster_index or not ability_index then
-      return filterTable
+    return filterTable
   end
 
   local caster = EntIndexToHScript( caster_index )

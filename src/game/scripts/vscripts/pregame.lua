@@ -2233,6 +2233,7 @@ function Pregame:onOptionChanged(eventSourceIndex, args)
     -- Ensure they have hosting privileges
     if isPlayerHost(player) then
         --Enabling these properties requires an agree by all players
+        --[[
         local voteRequiredOptions = {
             ["lodOptionBanningBlockTrollCombos"] = {
                 value = 0,
@@ -2244,12 +2245,9 @@ function Pregame:onOptionChanged(eventSourceIndex, args)
                 votingName = "lodVotingAdvancedOPAbilities"
             },
         }
+        ]]
 
-       -- if PlayerResource:GetSteamAccountID(playerID) == 43305444 or util:isSinglePlayerMode() then -- Baumi doesnt need votes to change options
-        -- Temporarily require voting for options because its broken
-        if true then
-            voteRequiredOptions = {}
-        end
+        local voteRequiredOptions = {}
 
         if voteRequiredOptions[optionName] and voteRequiredOptions[optionName].value == optionValue then
             self:setOption(optionName, voteRequiredOptions[optionName].value == 1 and 0 or 1)
@@ -3625,11 +3623,6 @@ function Pregame:buildDraftArrays()
             end
 
             -- check OP
-            if not self:isAllowed( abilityName ) then
-                shouldAdd = false
-            end
-
-            -- check misc
             if not self:isAllowed( abilityName ) then
                 shouldAdd = false
             end

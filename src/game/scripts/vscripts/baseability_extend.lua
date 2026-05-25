@@ -399,7 +399,7 @@ if IsServer() then
 			return false
 		end
 
-		return string.find(baseclass, "ability_lua") or string.find(baseclass, "ability_datadriven")
+		return string.find(baseclass, "ability_lua") or string.find(baseclass, "ability_datadriven") or string.find(baseclass, "item_lua") or string.find(baseclass, "item_datadriven")
 	end
 
 	-- Tells you if given spell is an innate

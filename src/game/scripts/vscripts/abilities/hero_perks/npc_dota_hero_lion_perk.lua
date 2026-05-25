@@ -34,9 +34,8 @@ function modifier_npc_dota_hero_lion_perk:DeclareFunctions()
 		MODIFIER_EVENT_ON_HERO_KILLED,
 	}
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_lion_perk:OnTakeDamage(keys)
-	if IsServer() then
+if IsServer() then
+	function modifier_npc_dota_hero_lion_perk:OnTakeDamage(keys)
 		local caster = self:GetCaster()
 		local ability = keys.inflictor
 		local target = keys.target
@@ -49,10 +48,8 @@ function modifier_npc_dota_hero_lion_perk:OnTakeDamage(keys)
 			end
 		end
 	end
-end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_lion_perk:OnHeroKilled(keys)
-	if IsServer() then
+
+	function modifier_npc_dota_hero_lion_perk:OnHeroKilled(keys)
 		local caster = self:GetCaster()
 		local target = keys.target
 		local attacker = keys.attacker

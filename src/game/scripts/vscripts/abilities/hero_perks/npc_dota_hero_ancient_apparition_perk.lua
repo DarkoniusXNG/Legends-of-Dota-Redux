@@ -23,17 +23,26 @@ end
 function modifier_npc_dota_hero_ancient_apparition_perk:GetTexture()
 	return "custom/npc_dota_hero_ancient_apparition_perk"
 end
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze", "abilities/hero_perks/npc_dota_hero_ancient_apparition_perk.lua", LUA_MODIFIER_MOTION_NONE )
---------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+LinkLuaModifier("modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze", "abilities/hero_perks/npc_dota_hero_ancient_apparition_perk.lua", LUA_MODIFIER_MOTION_NONE)
+
 modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze = modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze or class({})
---------------------------------------------------------------------------------------------------------
---    Modifier: modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze
+
+function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:IsHidden()
+	return true -- cleaner if MODIFIER_ATTRIBUTE_MULTIPLE is a thing
+end
+
+function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:IsDebuff()
+	return true
+end
 
 function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:IsPurgable()
-	return false
+	return false -- we remove this modifier when linked Ice debuff is removed
+end
+
+function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:RemoveOnDeath()
+	return true -- we remove this modifier on death for sure
 end
 
 function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:GetAttributes()
@@ -41,27 +50,27 @@ function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:GetAttribute
 end
 
 function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:GetTexture()
-	return "ancient_apparition_ice_blast"
+	return "custom/npc_dota_hero_ancient_apparition_perk"
 end
 
---------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:DeclareFunctions()
-  return {
-    --MODIFIER_PROPERTY_DISABLE_HEALING,
-	MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION,
-  }
+	return {
+		--MODIFIER_PROPERTY_DISABLE_HEALING,
+		MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION,
+	}
 end
 
 --function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:GetDisableHealing()
-  --return 1
+	--return 1
 --end
 
 function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:GetModifierPropertyRestorationAmplification()
-  return 0 - math.abs(self.heal_reduction)
+	return 0 - math.abs(self.heal_reduction)
 end
 
 function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:OnCreated(event)
-	self.heal_reduction = 80
+	self.max_heal_reduction = 80
+	self.heal_reduction = 0 -- initial value just to prevent errors
 	if IsServer() then
 		self.linkedmod = event.linkedmod
 		self:StartIntervalThink(0.1)
@@ -70,32 +79,50 @@ end
 
 function modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze:OnIntervalThink()
 	local parent = self:GetParent()
-	-- Remove this debuff if parent is not affected by ice debuff anymore
+	if not parent or parent:IsNull()
+		self:StartIntervalThink(-1)
+		self:Destroy()
+		return
+	end
+
+	-- Remove this debuff if parent is not affected by linked Ice debuff anymore
 	if not self.linkedmod or not parent:HasModifier(self.linkedmod) then
 		self:StartIntervalThink(-1)
 		self:Destroy()
+		return
 	end
+
+	local number_of_mods = parent:FindAllModifiersByName(self:GetName())
+	if number_of_mods == 0 then
+		-- Paradox
+		return
+	end
+
+	self.heal_reduction = 100*(1 - ((1 - self.max_heal_reduction / 100) ^ (1/number_of_mods)))
 end
---------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+-- Does not trigger on re-apply / refresh!
 function perkAncientApparition(filterTable)
-  local parent_index = filterTable["entindex_parent_const"]
-  local caster_index = filterTable["entindex_caster_const"]
-  local ability_index = filterTable["entindex_ability_const"]
-  local modifier_name = filterTable["name_const"]
-  if not parent_index or not caster_index or not ability_index then
-    return true
-  end
-  local parent = EntIndexToHScript( parent_index )
-  local caster = EntIndexToHScript( caster_index )
-  if parent:GetTeamNumber() == caster:GetTeamNumber() then return end
-  local ability = EntIndexToHScript( ability_index )
-  if ability then
-    if caster:HasModifier("modifier_npc_dota_hero_ancient_apparition_perk") and ability:HasAbilityFlag("ice") then
-      local modifierDuration = filterTable["duration"]
-      if modifierDuration == -1 then
-        modifierDuration = 3
-      end
-      parent:AddNewModifier(caster, nil, "modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze", {duration = modifierDuration, linkedmod = modifier_name})
-    end
-  end
+	local parent_index = filterTable["entindex_parent_const"]
+	local caster_index = filterTable["entindex_caster_const"]
+	local ability_index = filterTable["entindex_ability_const"]
+	local modifier_name = filterTable["name_const"]
+	if not parent_index or not caster_index or not ability_index then
+		return
+	end
+	local parent = EntIndexToHScript( parent_index )
+	local caster = EntIndexToHScript( caster_index )
+	if parent:GetTeamNumber() == caster:GetTeamNumber() then return end
+	local ability = EntIndexToHScript( ability_index )
+	if ability then
+		if caster:HasModifier("modifier_npc_dota_hero_ancient_apparition_perk") and ability:HasAbilityFlag("ice") then
+			--local modifierDuration = filterTable["duration"]
+			--if modifierDuration == -1 then
+				--modifierDuration = 3
+			--end
+			-- we dont use duration so auras can work too
+			parent:AddNewModifier(caster, nil, "modifier_npc_dota_hero_ancient_apparition_perk_heal_freeze", {linkedmod = modifier_name})
+		end
+	end
 end

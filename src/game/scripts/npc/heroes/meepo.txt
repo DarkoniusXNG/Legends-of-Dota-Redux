@@ -47,7 +47,7 @@
 
 		"ReduxFlags"                    "doNotRandom | tank"
 
-		"AbilityCooldown"				"90"
+		"AbilityCooldown"				"90 85 80 75"
 
 		"AbilityValues"
 		{
@@ -79,7 +79,7 @@
 
 		"AbilityValues"
 		{
-			"fling_damage"					"75 150 225 300"
+			"fling_damage"					"75 150 225 300" // rescaled
 			"fling_radius"
 			{
 				"value"				"300"
@@ -117,7 +117,7 @@
 	"meepo_pack_rat"
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		//"AbilityTextureName"                                                   "custom/npc_dota_hero_meepo_perk"
+		"AbilityTextureName"                                                   "custom/npc_dota_hero_meepo_perk"
 
 		"ReduxFlags"                                                           "doNotRandom"
 	}
@@ -136,7 +136,7 @@
 
 		"AbilityValues"
 		{
-			"fling_damage"					"50 100 150 200"
+			"fling_damage"					"100 175 250 325" // buffed
 			"fling_radius"
 			{
 				"value"				"300"
@@ -145,7 +145,7 @@
 			"fling_movespeed"				"900"
 			"fling_slow_duration"			"1.5 2.0 2.5 3"
 			"movement_slow"					"-30 -40 -50 -60"
-			"range"						"400 500 600 700"
+			"range"						"700 750 800 850" // buffed
 			"hold_duration"					"5"
 		}
 	}
@@ -157,7 +157,7 @@
 	{
 		"ReduxFlags"                                                           "doNotRandom"
 
-		"AbilityCastRange"				"400 500 600 700"
+		"AbilityCastRange"				"700 750 800 850" // buffed
 	}
 
 	//=================================================================================================================
