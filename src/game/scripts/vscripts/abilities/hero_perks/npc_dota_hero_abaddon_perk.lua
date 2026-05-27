@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Abaddon
---      Perk: Curse of Avernus free level + 2% Healing Amp for each level put in an Undead ability.
+--      Perk: Curse of Avernus free level + 2% Outgoing Healing Amp for each level put in an Undead ability.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_abaddon_perk = modifier_npc_dota_hero_abaddon_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -59,7 +59,7 @@ end
 function modifier_npc_dota_hero_abaddon_perk:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
-		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+		--MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
 	}
 end
 
@@ -67,6 +67,6 @@ function modifier_npc_dota_hero_abaddon_perk:GetModifierHealAmplify_PercentageSo
 	return self:GetStackCount()
 end
 
-function modifier_npc_dota_hero_abaddon_perk:GetModifierHealAmplify_PercentageTarget()
-	return self:GetStackCount()
-end
+--function modifier_npc_dota_hero_abaddon_perk:GetModifierHealAmplify_PercentageTarget()
+	--return self:GetStackCount()
+--end

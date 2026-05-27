@@ -3173,7 +3173,7 @@
 
 	"item_mask_of_madness"
 	{
-		"ReduxPerks"                                                           "rage"
+		"ReduxPerks"                                                           "rage | silence"
 	}
 	"item_satanic"
 	{

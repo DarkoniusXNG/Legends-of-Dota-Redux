@@ -65,7 +65,7 @@ end
 function modifier_flesh_heap_heal_amp:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    --MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
   }
 end
 
@@ -74,7 +74,7 @@ function modifier_flesh_heap_heal_amp:GetModifierHealAmplify_PercentageSource()
   return parent:GetModifierStackCount("modifier_pudge_custom_flesh_heap_kill_tracker", parent) * self.flesh_heap_amount
 end
 
-function modifier_flesh_heap_heal_amp:GetModifierHealAmplify_PercentageTarget()
-  local parent = self:GetParent()
-  return parent:GetModifierStackCount("modifier_pudge_custom_flesh_heap_kill_tracker", parent) * self.flesh_heap_amount
-end
+--function modifier_flesh_heap_heal_amp:GetModifierHealAmplify_PercentageTarget()
+  --local parent = self:GetParent()
+  --return parent:GetModifierStackCount("modifier_pudge_custom_flesh_heap_kill_tracker", parent) * self.flesh_heap_amount
+--end

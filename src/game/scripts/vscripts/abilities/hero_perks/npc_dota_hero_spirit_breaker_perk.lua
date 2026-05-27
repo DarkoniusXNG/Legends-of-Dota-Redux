@@ -29,23 +29,32 @@ end
 --    Modifier: modifier_npc_dota_hero_spirit_breaker_perk_break
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_spirit_breaker_perk_break = modifier_npc_dota_hero_spirit_breaker_perk_break or class({})
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_spirit_breaker_perk_break:CheckState()
-  return {
-    [MODIFIER_STATE_PASSIVES_DISABLED] = true,
-  }
-end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_spirit_breaker_perk_break:IsPurgable()
-  return false
-end
---------------------------------------------------------------------------------------------------------
+
 function modifier_npc_dota_hero_spirit_breaker_perk_break:IsHidden()
-  return false
+	return not self:GetParent():IsStunned()
 end
---------------------------------------------------------------------------------------------------------
+
+function modifier_npc_dota_hero_spirit_breaker_perk_break:IsDebuff()
+	return true
+end
+
+function modifier_npc_dota_hero_spirit_breaker_perk_break:IsPurgable()
+	return false
+end
+
+function modifier_npc_dota_hero_spirit_breaker_perk_break:RemoveOnDeath()
+	return true -- we remove this modifier on death for sure
+end
+
+function modifier_npc_dota_hero_spirit_breaker_perk_break:CheckState()
+	if self:GetParent():IsStunned() then
+		return {
+			[MODIFIER_STATE_PASSIVES_DISABLED] = true,
+		}
+	end
+	return {}
+end
+
 function modifier_npc_dota_hero_spirit_breaker_perk_break:GetTexture()
 	return "custom/npc_dota_hero_spirit_breaker_perk"
 end
@@ -58,20 +67,21 @@ function modifier_npc_dota_hero_spirit_breaker_perk_break:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
 end
 --------------------------------------------------------------------------------------------------------
+-- Does not trigger on re-apply / refresh!
 function perkSpaceCow(filterTable)
-  local parent_index = filterTable["entindex_parent_const"]
-  local caster_index = filterTable["entindex_caster_const"]
-  local ability_index = filterTable["entindex_ability_const"]
-  if not parent_index or not caster_index or not ability_index then
-    return true
-  end
-  local parent = EntIndexToHScript( parent_index )
-  local caster = EntIndexToHScript( caster_index )
-  local ability = EntIndexToHScript( ability_index )
-  if ability then
-    if caster:HasModifier("modifier_npc_dota_hero_spirit_breaker_perk") and ability:HasAbilityFlag("bash") and parent:GetTeamNumber() ~= caster:GetTeamNumber() and filterTable["duration"] ~= -1 then
-      local modifierDuration = filterTable["duration"]
-      parent:AddNewModifier(caster, nil,"modifier_npc_dota_hero_spirit_breaker_perk_break",{duration = modifierDuration})
-    end
-  end
+	local parent_index = filterTable["entindex_parent_const"]
+	local caster_index = filterTable["entindex_caster_const"]
+	local ability_index = filterTable["entindex_ability_const"]
+	if not parent_index or not caster_index or not ability_index then
+		return
+	end
+	local parent = EntIndexToHScript( parent_index )
+	local caster = EntIndexToHScript( caster_index )
+	local ability = EntIndexToHScript( ability_index )
+	if ability then
+		if caster:HasModifier("modifier_npc_dota_hero_spirit_breaker_perk") and ability:HasAbilityFlag("bash") and parent:GetTeamNumber() ~= caster:GetTeamNumber() and filterTable["duration"] > 0 then
+			local modifierDuration = filterTable["duration"]
+			parent:AddNewModifier(caster, nil, "modifier_npc_dota_hero_spirit_breaker_perk_break", {duration = modifierDuration})
+		end
+	end
 end

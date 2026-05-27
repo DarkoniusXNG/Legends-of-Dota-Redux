@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------------------------------
 --		Hero: Doom Bringer
---		Perk: Bonus damage with Demon spells. Silence spells also apply mute for 2 seconds.
+--		Perk: Bonus damage with Demon spells. Silence spells also apply mute for a few seconds.
 --------------------------------------------------------------------------------------------------------
 modifier_npc_dota_hero_doom_bringer_perk = modifier_npc_dota_hero_doom_bringer_perk or class({})
 --------------------------------------------------------------------------------------------------------
@@ -60,30 +60,40 @@ function modifier_npc_dota_hero_doom_perk_mute:IsPurgable()
 	return true
 end
 
+function modifier_npc_dota_hero_doom_perk_mute:RemoveOnDeath()
+	return true -- we remove this modifier on death for sure
+end
+
 function modifier_npc_dota_hero_doom_perk_mute:CheckState()
-  return {
-    [MODIFIER_STATE_MUTED] = self:GetParent():IsSilenced(),
-  }
+	if self:GetParent():IsSilenced() then
+		return {
+			[MODIFIER_STATE_MUTED] = true,
+		}
+	end
+	return {}
 end
 
 function modifier_npc_dota_hero_doom_perk_mute:GetTexture()
-  return "custom/npc_dota_hero_doom_bringer_perk"
+	return "custom/npc_dota_hero_doom_bringer_perk"
 end
---------------------------------------------------------------------------------------------------------
-function perkDoom(filterTable)  --ModifierGainedFilter
-  local parent_index = filterTable["entindex_parent_const"]
-  local caster_index = filterTable["entindex_caster_const"]
-  local ability_index = filterTable["entindex_ability_const"]
-  if not parent_index or not caster_index or not ability_index then
-    return true
-  end
-  local parent = EntIndexToHScript( parent_index )
-  local caster = EntIndexToHScript( caster_index )
-  local ability = EntIndexToHScript( ability_index )
-  if ability then
-    if caster:HasModifier("modifier_npc_dota_hero_doom_bringer_perk") and caster ~= parent and ability:HasAbilityFlag("silence") then
-      --local modifierDuration = filterTable["duration"]
-      parent:AddNewModifier(caster, ability, "modifier_npc_dota_hero_doom_perk_mute", {duration = 2})
-    end
-  end
+
+---------------------------------------------------------------------------------------------------
+-- Does not trigger on re-apply / refresh!
+function perkDoom(filterTable)
+	local parent_index = filterTable["entindex_parent_const"]
+	local caster_index = filterTable["entindex_caster_const"]
+	local ability_index = filterTable["entindex_ability_const"]
+	if not parent_index or not caster_index or not ability_index then
+		return
+	end
+	local parent = EntIndexToHScript( parent_index )
+	local caster = EntIndexToHScript( caster_index )
+	if parent:GetTeamNumber() == caster:GetTeamNumber() then return end
+	local ability = EntIndexToHScript( ability_index )
+	if ability then
+		if caster:HasModifier("modifier_npc_dota_hero_doom_bringer_perk") and ability:HasAbilityFlag("silence") then
+			--local modifierDuration = filterTable["duration"]
+			parent:AddNewModifier(caster, ability, "modifier_npc_dota_hero_doom_perk_mute", {duration = 2})
+		end
+	end
 end

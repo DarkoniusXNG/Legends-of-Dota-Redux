@@ -47,7 +47,7 @@
 	//=================================================================================================================
 	"arc_warden_spark_wraith"
 	{
-		"ReduxFlags"                                                           "upgradeable"
+		//"ReduxFlags"                                                           ""
 		"ReduxPerks"                                                           "lightning | trap | skillshot"
 	}
 

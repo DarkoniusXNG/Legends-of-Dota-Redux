@@ -49,7 +49,7 @@ function modifier_npc_dota_hero_omniknight_perk:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
-		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+		--MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
 	}
 end
 
@@ -61,6 +61,6 @@ function modifier_npc_dota_hero_omniknight_perk:GetModifierHealAmplify_Percentag
 	return self:GetStackCount() * 2
 end
 
-function modifier_npc_dota_hero_omniknight_perk:GetModifierHealAmplify_PercentageTarget()
-	return self:GetStackCount() * 2
-end
+--function modifier_npc_dota_hero_omniknight_perk:GetModifierHealAmplify_PercentageTarget()
+	--return self:GetStackCount() * 2
+--end
