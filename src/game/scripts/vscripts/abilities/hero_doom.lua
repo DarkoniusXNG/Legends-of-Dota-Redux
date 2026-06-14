@@ -4,6 +4,10 @@ function EatCreep ( keys )
 	local target = keys.target
 
 	if IsValidEntity(target) then
+		-- If cast through non-normal means
+		if target:IsRealHero() then
+			return
+		end
 		local health = target:GetHealth()
 		target:Kill(ability, caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_creep_eaten", {duration = health / 20})
@@ -19,14 +23,14 @@ function CreepGold ( keys )
 
 	if caster:IsAlive() then
 	    caster:ModifyGold(gold, false, 0)
-	    
+
 	    EmitSoundOnClient("General.Coins", player)
-	    
-	    local particleName = "particles/generic_gameplay/lasthit_coins.vpcf"		
+
+	    local particleName = "particles/generic_gameplay/lasthit_coins.vpcf"
 	    local particle = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN, caster)
 	    ParticleManager:SetParticleControl( particle, 0, caster:GetAbsOrigin() )
 	    ParticleManager:SetParticleControl( particle, 1, caster:GetAbsOrigin() )
-	
+
 	    local value = gold
 	    local symbol = 1 -- + Symbol
 	    local color = Vector(255, 200, 33) -- Gold
@@ -37,7 +41,7 @@ function CreepGold ( keys )
 	    ParticleManager:SetParticleControl( particle, 1, Vector( symbol, value, 0) )
 	    ParticleManager:SetParticleControl( particle, 2, Vector( lifetime, digits, 0) )
 	    ParticleManager:SetParticleControl( particle, 3, color )
-	end 
+	end
 end
 
 --[[Author: igo95862, Noya

@@ -56,8 +56,6 @@
 			"duration"			"6.0"
 			"burn_interval"			"0.5"
 			"linger_duration"			"2"
-
-		}
 		}
 	}
 

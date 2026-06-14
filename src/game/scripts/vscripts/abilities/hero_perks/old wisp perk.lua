@@ -29,10 +29,12 @@ end
 -- Add additional functions
 --------------------------------------------------------------------------------------------------------
 function modifier_npc_dota_hero_wisp_perk:OnCreated()
-  self.exceptionList = {lich_dark_ritual = true,
-						clinkz_death_pact = true,
-						enchantress_enchant = true,
-						chen_holy_persuasion = true}
+	self.exceptionList = {
+		lich_dark_ritual = true,
+		clinkz_death_pact = true,
+		enchantress_enchant = true,
+		chen_holy_persuasion = true,
+	}
 end
 
 

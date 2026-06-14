@@ -16,6 +16,7 @@
 	{
 		"ReduxFlags"		"support | mobility | invis"
 		"ReduxPerks"		"support | mobility | invis"
+		"ReduxCost"         "40"
 	}
 
 	//=================================================================================================================

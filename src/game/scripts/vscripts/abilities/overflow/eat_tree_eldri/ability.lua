@@ -8,24 +8,32 @@ function eat_tree_eldri:GetCastAnimation()
 end
 
 function eat_tree_eldri:OnSpellStart()
-	local treeMod = self:GetCaster():FindModifierByName("eat_tree_eldri_mod")
+	local caster = self:GetCaster()
+	local target = self:GetCursorTarget()
+	local location
+	if not target or target:IsNull() then
+		location = self:GetCursorPosition()
+	else
+		location = target:GetAbsOrigin()
+	end
+	local treeMod = caster:FindModifierByName("eat_tree_eldri_mod")
 	if treeMod then
-		local stacks = self:GetCaster():FindModifierByName("eat_tree_eldri_mod"):GetStackCount()
-		--print(stacks)
+		local stacks = treeMod:GetStackCount()
 		local cost = stacks * self:GetSpecialValueFor("mana_cost_per_stack")
-		local playersMana = self:GetCaster():GetMana()
-		if playersMana < cost then return end
-		self:GetCaster():SpendMana(cost, self)
-		SendOverheadEventMessage(nil, OVERHEAD_ALERT_MANA_LOSS, self:GetCaster(), cost, nil)
+		local caster_mana = caster:GetMana()
+		if caster_mana < cost then
+			return
+		end
+		caster:SpendMana(cost, self)
+		SendOverheadEventMessage(nil, OVERHEAD_ALERT_MANA_LOSS, caster, cost, nil)
 	end
 
-	--GridNav:DestroyTreesAroundPoint( self:GetCursorPosition() , 1, true)
-	local tree = GridNav:GetAllTreesAroundPoint(self:GetCursorPosition(), 1, true)[1]
+	local tree = GridNav:GetAllTreesAroundPoint(location, 1, true)[1]
 	if tree then
-		tree:CutDown(self:GetCaster():GetTeamNumber())
+		tree:CutDown(caster:GetTeamNumber())
 	end
 
-	EmitSoundOnLocationWithCaster( self:GetCaster():GetOrigin(), "Hero_Omniknight.GuardianAngel", self:GetCaster() )
-	self:GetCaster():AddNewModifier( self:GetCaster(), self, "eat_tree_eldri_mod", { duration = self:GetSpecialValueFor("duration") , stack = 1 } )
-	self:GetCaster():CalculateStatBonus(true)
+	EmitSoundOnLocationWithCaster(caster:GetOrigin(), "Hero_Omniknight.GuardianAngel", caster)
+	caster:AddNewModifier(caster, self, "eat_tree_eldri_mod", {duration = self:GetSpecialValueFor("duration") , stack = 1})
+	caster:CalculateStatBonus(true)
 end

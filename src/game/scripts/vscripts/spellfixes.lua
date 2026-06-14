@@ -299,7 +299,8 @@ ListenToGameEvent('dota_player_used_ability', function(keys)
                                     if target and IsTargetSpellCustom(keys.abilityname) then
                                         isaTargetSpell = true
 
-                                        targets = FindUnitsInRadius(target:GetTeam(),
+                                        targets = FindUnitsInRadius(
+                                            target:GetTeam(),
                                             target:GetOrigin(),
                                             nil,
                                             256,

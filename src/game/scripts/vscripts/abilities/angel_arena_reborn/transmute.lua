@@ -13,11 +13,12 @@ function Transmute( event )
 	if target_health < 1 then
 		return
 	end
-	
+
+	-- If cast through non-normal means
 	if target:IsRealHero() then
 		return
-	end	
-	
+	end
+
 	local gold_reward = hp_to_gold_percent*target_health
 
 	-- Sound

@@ -27,7 +27,7 @@ end
 function modifier_npc_dota_hero_witch_doctor_perk:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
-		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+		--MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
 	}
 end
 
@@ -39,6 +39,6 @@ function modifier_npc_dota_hero_witch_doctor_perk:GetModifierHealAmplify_Percent
 	return self.bonusHealPercent
 end
 
-function modifier_npc_dota_hero_witch_doctor_perk:GetModifierHealAmplify_PercentageTarget()
-	return self.bonusHealPercent
-end
+--function modifier_npc_dota_hero_witch_doctor_perk:GetModifierHealAmplify_PercentageTarget()
+	--return self.bonusHealPercent
+--end

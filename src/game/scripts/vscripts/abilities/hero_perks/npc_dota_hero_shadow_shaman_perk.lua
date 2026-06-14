@@ -33,7 +33,7 @@ function modifier_npc_dota_hero_shadow_shaman_perk:OnCreated()
   end
 end
 
-function modifier_npc_dota_hero_shadow_shaman_perk:DestroyOnExpire ()
+function modifier_npc_dota_hero_shadow_shaman_perk:DestroyOnExpire()
   return false
 end
 
@@ -59,7 +59,7 @@ function modifier_npc_dota_hero_shadow_shaman_perk:HexCaster (target,ability)
   self.cooldownReady = false
 end
 
-function modifier_npc_dota_hero_shadow_shaman_perk:OnIntervalThink ()
+function modifier_npc_dota_hero_shadow_shaman_perk:OnIntervalThink()
   if IsServer() then
     self.cooldownReady = true
     self:SetDuration(-1,true)

@@ -23,32 +23,25 @@ end
 function modifier_npc_dota_hero_venomancer_perk:GetTexture()
 	return "custom/npc_dota_hero_venomancer_perk"
 end
---------------------------------------------------------------------------------------------------------
-function modifier_npc_dota_hero_venomancer_perk:OnCreated()
-	if IsServer() then
-		local poisonDurationBonusPct = 40
-		self:GetCaster().poisonDurationBonus = poisonDurationBonusPct / 100
-	end
-end
 
---------------------------------------------------------------------------------------------------------
--- Add additional functions
---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+-- Does not trigger on re-apply / refresh!
 function perkVenomancer(filterTable)
-  local parent_index = filterTable["entindex_parent_const"]
-  local caster_index = filterTable["entindex_caster_const"]
-  local ability_index = filterTable["entindex_ability_const"]
-  if not parent_index or not caster_index or not ability_index then
-    return true
-  end
-  local parent = EntIndexToHScript( parent_index )
-  local caster = EntIndexToHScript( caster_index )
-  local ability = EntIndexToHScript( ability_index )
-  if ability then
-    if caster:HasModifier("modifier_npc_dota_hero_venomancer_perk") and ability:HasAbilityFlag("poison") and filterTable["duration"] ~= -1 then
-      local modifierDuration = filterTable["duration"]
-      local newDuration = modifierDuration + (modifierDuration * caster.poisonDurationBonus)
-      filterTable["duration"] = newDuration
-    end
-  end
+	local parent_index = filterTable["entindex_parent_const"]
+	local caster_index = filterTable["entindex_caster_const"]
+	local ability_index = filterTable["entindex_ability_const"]
+	if not parent_index or not caster_index or not ability_index then
+		return
+	end
+	local parent = EntIndexToHScript( parent_index )
+	local caster = EntIndexToHScript( caster_index )
+	if parent:GetTeamNumber() == caster:GetTeamNumber() then return end
+	local ability = EntIndexToHScript( ability_index )
+	if ability then
+		if caster:HasModifier("modifier_npc_dota_hero_venomancer_perk") and ability:HasAbilityFlag("poison") and filterTable["duration"] > 0 then
+			local modifierDuration = filterTable["duration"]
+			local newDuration = modifierDuration + (modifierDuration * 40/100)
+			filterTable["duration"] = newDuration
+		end
+	end
 end

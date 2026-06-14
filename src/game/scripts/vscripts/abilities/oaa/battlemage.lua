@@ -119,8 +119,10 @@ if IsServer() then
     if inflictor then
       local base_cast_range = inflictor:GetCastRange(unit_loc, damaged_unit) -- it could return a weird result for global range abilities
       local eff_cast_range = inflictor:GetEffectiveCastRange(unit_loc, damaged_unit) -- it could return a weird result for global range abilities
-      if base_cast_range and eff_cast_range and base_cast_range > 0 and eff_cast_range > 0 then
-        spell_cast_range = math.max(base_cast_range + attacker:GetCastRangeBonus(), eff_cast_range)
+      if base_cast_range and eff_cast_range then
+        if base_cast_range > 0 and eff_cast_range > 0 then
+          spell_cast_range = math.max(base_cast_range + attacker:GetCastRangeBonus(), eff_cast_range)
+        end
       end
     end
     -- Cap the distance just to prevent some global stuff with Mage Slayer and similar
