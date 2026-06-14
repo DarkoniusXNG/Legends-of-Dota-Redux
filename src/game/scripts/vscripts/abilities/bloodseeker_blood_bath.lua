@@ -32,7 +32,7 @@ function modifier_bloodseeker_blood_bath_t:DeclareFunctions()
   }
 end
 
-if IsServer()
+if IsServer() then
   function modifier_bloodseeker_blood_bath_t:OnDeath(keys)
     local killer = keys.attacker
     local dead = keys.unit

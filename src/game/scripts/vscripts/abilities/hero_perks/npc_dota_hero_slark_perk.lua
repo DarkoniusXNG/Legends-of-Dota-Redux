@@ -51,12 +51,26 @@ function modifier_npc_dota_hero_slark_perk:OnCreated()
 			bonus_ability:SetActivated(true)
 			bonus_ability:SetLevel(1)
 		end
-		self:StartIntervalThink(10)
+		self.cooldownTime = 10
+		self:StartIntervalThink(self.cooldownTime)
 	end
 end
 
+function modifier_npc_dota_hero_slark_perk:DestroyOnExpire()
+	return false
+end
+
 function modifier_npc_dota_hero_slark_perk:OnIntervalThink()
-	local hero = self:GetParent()
-	local ability = hero:FindAbilityByName("slark_dark_pact")
-	ability:OnSpellStart()
+	if IsServer() then
+		local parent = self:GetParent()
+		if not parent or parent:IsNull() then
+			return
+		end
+		local ability = parent:FindAbilityByName("slark_dark_pact")
+		if not ability or ability:IsNull() then
+			return
+		end
+		ability:OnSpellStart()
+		self:SetDuration(self.cooldownTime + 1/30, true)
+	end
 end
