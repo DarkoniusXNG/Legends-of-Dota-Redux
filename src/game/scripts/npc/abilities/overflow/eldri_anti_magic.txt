@@ -3,17 +3,18 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_lua"
+		"BaseClass"                     "ability_lua"
 		"ScriptFile"					"abilities/overflow/eldri_anti_magic/ability.lua"
 		"AbilityTextureName"			"custom/eldri_anti_magic"
-		"AbilityCastPoint"              "0.1"
-		"AbilityCooldown"               "39 36 33 30"
-		"AbilityManaCost"               "125"
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityCastRange"              "400"
 		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_TREE"
 		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+
+		"AbilityCastRange"              "400"
+		"AbilityCastPoint"              "0.1"
+		"AbilityCooldown"               "30 28 26 24"
+		"AbilityManaCost"               "120"
 
 		"ReduxFlags"					"stun"
 		"ReduxPerks"					"trap | nature"
@@ -27,14 +28,14 @@
 
 		"AbilityValues"
         {
-            "duration" "12.0"
+            "duration"                  "12.0"
             "radius"
 			{
-				"value"			"1200"
+				"value"                 "1200"
 				"affected_by_aoe_increase"	"1"
 			}
-            "d_damage" "50 70 90 110" // like Pugna ward base damage
-            "stun_duration" "0.25"
+            "d_damage"                  "50 100 150 200" // damage per spell cast
+            "stun_duration"             "0.25"
         }
 	}
 }

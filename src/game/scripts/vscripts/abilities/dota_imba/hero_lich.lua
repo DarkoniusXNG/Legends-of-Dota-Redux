@@ -458,7 +458,7 @@ function FrostNova(caster, ability, target, cold_front)
 
 					-- Determine location of nova
 					local location = caster_loc + direction * distance_per_nova * i
-					
+
 					-- Might save this for a future update (makes a circle instead of a line)
 					-- local location = target:GetAbsOrigin() + Vector(math.cos(math.rad(45 * i)), math.sin(math.rad(45 * i))) * (damage_radius + distance_per_nova)
 
@@ -540,10 +540,10 @@ function FrostNova(caster, ability, target, cold_front)
 				Timers:CreateTimer(creation_delay * i, function()
 
 					local chaos_variable = RandomInt(-15, 15)
-					
+
 					-- Might save this for a future update (makes a circle instead of a line)
 					local location = target_loc + Vector(math.cos(math.rad((angle * j) + deviation + chaos_variable)), math.sin(math.rad((angle * j) + deviation + chaos_variable))) * (i * ring_distance)
-					
+
 					location.z = GetGroundHeight(location, nil)
 
 					-- Apply particle effect
@@ -824,12 +824,12 @@ end
 function modifier_imba_frost_armor_buff:OnIntervalThink()
 	-- #8 Talent: Frost Armor is now an aura that slows nearby enemies in a small range around the target. The slow gets stronger each time the target is attacked.
 	-- Thinks updates stack counts for nearby enemies
-	
+
 	if self:GetCaster():IsNull() then
 		self:StartIntervalThink(-1)
 		return
 	end
-	
+
 	local enemies = FindUnitsInRadius(self.parent:GetTeamNumber(),
 		self.parent:GetAbsOrigin(),
 		nil,
@@ -875,7 +875,7 @@ function modifier_imba_frost_armor_buff:GetModifierPhysicalArmorBonus()
 	local armor_bonus = self.armor_bonus
 	if self.caster:HasModifier("modifier_special_bonus_imba_lich_5") then
 		local armor_bonus_talent = self.caster:GetModifierStackCount("modifier_special_bonus_imba_lich_5", self.caster)
-		
+
 		armor_bonus = armor_bonus + armor_bonus_talent
 	end
 
@@ -1248,6 +1248,11 @@ function imba_lich_dark_ritual:OnSpellStart()
 	-- If it was a sacrifice, continue.
 	if target ~= caster then
 
+		-- If cast through non-normal means
+		if target:IsRealHero() then
+			return
+		end
+
 		-- Get the target's XP bounty and current HP
 		local creep_xp = target:GetDeathXP()
 		local creep_hp = target:GetHealth()
@@ -1605,12 +1610,12 @@ function imba_lich_chain_frost:OnProjectileHit_ExtraData(target, location, extra
 
 			-- Bounce to a random enemy
 			local bounce_target = enemies[1]
-			
+
 			-- Add a check to heavily reduce bounces if near fountain for scepter ult to prevent massive chaining lag
 			if caster:HasScepter() and IsNearFountain(enemies[1]:GetAbsOrigin(), 1200) then
 				bounces_left = bounces_left - 10000
 			end
-			
+
 			local chain_frost_projectile
 			chain_frost_projectile = {Target = bounce_target,
 				Source = target,
@@ -1808,13 +1813,13 @@ end
 
 function imba_lich_frost_shield:OnSpellStart()
 	if not IsServer() then return end
-	
+
 	-- IMBAfication: Remnants of Ice Armor
 	local intellect 	= self:GetCaster():GetIntellect(false)
 	local armor_bonus 	= intellect * self:GetSpecialValueFor("int_armor_pct") / 100
 
 	EmitSoundOn("Hero_Lich.IceAge", self:GetCursorTarget())
-	
+
 	self:GetCursorTarget():AddNewModifier(self:GetCaster(), self, "modifier_imba_lich_frost_shield", {duration = self:GetSpecialValueFor("duration")}):SetStackCount(armor_bonus)
 end
 
@@ -1829,7 +1834,7 @@ function modifier_imba_lich_frost_shield:OnCreated()
 	self.ability	= self:GetAbility()
 	self.caster		= self:GetCaster()
 	self.parent 	= self:GetParent()
-	
+
 	-- AbilitySpecial
 	self.damage_reduction	= self.ability:GetSpecialValueFor("damage_reduction")
 	-- self.movement_slow		= self.ability:GetSpecialValueFor("movement_slow")
@@ -1850,16 +1855,16 @@ function modifier_imba_lich_frost_shield:OnCreated()
 
 	-- The remainder of the code only needs to be run server-side
 	if not IsServer() then return end
-	
+
 	-- Add the "encircling orb" particle
 	self.particle = ParticleManager:CreateParticle("particles/units/heroes/hero_lich/lich_ice_age.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 	ParticleManager:SetParticleControlEnt(self.particle, 1, self.parent, PATTACH_ABSORIGIN_FOLLOW, nil, self.parent:GetAbsOrigin(), true)
 	self:AddParticle(self.particle, false, false, -1, false, false)
-	
+
 	-- Add the frost armor particle
 	self.particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_lich/lich_frost_armor.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent)
 	self:AddParticle(self.particle2, false, false, -1, false, false)
-	
+
 	-- Doesn't implement the innate 60 second cooldown on voicelines so percentage chance is reduced from 75% to 60%
 	if self.caster:GetName() == "npc_dota_hero_lich" and RollPercentage(60) then
 		self.caster:EmitSound("lich_lich_ability_armor_0"..math.random(1,5))
@@ -1880,12 +1885,12 @@ function modifier_imba_lich_frost_shield:OnIntervalThink()
 	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_lich/lich_ice_age_dmg.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControlEnt(particle, 1, self.parent, PATTACH_ABSORIGIN_FOLLOW, nil, self.parent:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(particle, 2, Vector(self.radius, self.radius, self.radius))
-	
+
 	ParticleManager:ReleaseParticleIndex(particle)
-	
+
 	-- Emit tick sound
 	self.parent:EmitSound("Hero_Lich.IceAge.Tick")
-	
+
 	-- Get a table of all the enemies in radius of Frost Shield's pulse
 	local enemies = FindUnitsInRadius(self.caster:GetTeamNumber(),
 		self.parent:GetAbsOrigin(),
@@ -1896,10 +1901,10 @@ function modifier_imba_lich_frost_shield:OnIntervalThink()
 		DOTA_UNIT_TARGET_FLAG_NONE,
 		FIND_ANY_ORDER,
 		false)
-	
+
 	for _,enemy in pairs(enemies) do
 		enemy:EmitSound("Hero_Lich.IceAge.Damage")
-		
+
 		-- Deal damage
 		local damageTable = {
 			victim = enemy,
@@ -1909,9 +1914,9 @@ function modifier_imba_lich_frost_shield:OnIntervalThink()
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 			ability = self.ability
 		}
-		
+
 		ApplyDamage(damageTable)
-		
+
 		-- Apply the slow modifier
 		enemy:AddNewModifier(self.caster, self.ability, "modifier_imba_lich_frost_shield_slow", {duration = self.slow_duration})
 
@@ -1957,7 +1962,7 @@ end
 function modifier_imba_lich_frost_shield_slow:OnCreated()
 	-- Establish variables
 	self.ability	= self:GetAbility()
-	
+
 	-- AbilitySpecial
 	self.movement_slow		= self.ability:GetSpecialValueFor("movement_slow")
 end
@@ -2084,15 +2089,15 @@ function imba_lich_sinister_gaze:OnChannelFinish(bInterrupted)
 				local consumption_health = self.target:GetMaxHealth()
 
 				self.caster:AddNewModifier(self.caster, self, "modifier_imba_lich_sinister_gaze_bonus_health", {duration = self.soul_consumption_duration}):SetStackCount(consumption_health)
-				
+
 				self.caster:CalculateStatBonus(true)
-				
+
 				-- Sure takes a while to add that max health through the modifier...
 				-- Timers:CreateTimer(0.5, function()
 					self.caster:Heal(consumption_health, self.caster)
 					SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, self.caster, consumption_health, nil)
 				-- end)
-			
+
 			-- IMBAfication: Retaliatory Chains
 			elseif not self.caster:IsAlive() and not self.target:IsReincarnating() then
 				local retaliation_damage = self.caster:GetMaxHealth() * (self.retaliatory_chains_dmg_pct / 100)
@@ -2113,9 +2118,9 @@ function imba_lich_sinister_gaze:OnChannelFinish(bInterrupted)
 
 	Timers:CreateTimer(FrameTime(), function()
 		if not self.target:IsAlive() and (not self.target.IsReincarnating or (self.target.IsReincarnating and not self.target:IsReincarnating())) then
-		
+
 			local particle_name	= ""
-		
+
 			if self.target:GetTeam() == self.caster:GetTeam() then
 				particle_name = "particles/units/heroes/hero_lich/lich_dark_ritual.vpcf"
 			else
@@ -2163,7 +2168,7 @@ function modifier_imba_lich_sinister_gaze:OnCreated()
 	end
 
 	if not IsServer() then return end
-	
+
 	-- This is so errors don't pop up if the spell gets reflected
 	if self.caster:GetName() == "npc_dota_hero_lich" then
 		-- Particle attachments aren't perfect but they're good enough...I guess
@@ -2190,7 +2195,7 @@ function modifier_imba_lich_sinister_gaze:OnDestroy()
 	if not IsServer() then return end
 
 	self.parent:Interrupt()
-	
+
 	-- Why 100? IDK random number
 	GridNav:DestroyTreesAroundPoint(self.parent:GetAbsOrigin(), 100, false)
 

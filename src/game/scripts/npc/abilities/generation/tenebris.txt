@@ -338,6 +338,7 @@
 
         "ReduxFlags"                             "attack_modifier | physical | invis"
 		"ReduxPerks"                             "attack_modifier | autocast_basic | physical | invis"
+        "ReduxCost"                              "40"
 
         "AbilityTextureName"        "custom/tenebris_fade_strike"
 
