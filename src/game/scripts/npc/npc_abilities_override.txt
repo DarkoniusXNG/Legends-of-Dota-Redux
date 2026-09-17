@@ -134,7 +134,7 @@
 
 		"AbilityValues"
 		{
-			"xp_gain_rate"				"50 55 60 65"
+			"xp_gain_rate"				"50 75 100 125"
 		}
 	}
 
@@ -146,17 +146,17 @@
 
 		"MaxLevel"		"4"
 
-		"AbilityCooldown"				"120 110 100 90"
+		"AbilityCooldown"				"30"
 
 		"AbilityValues"
 		{
 			"duration"
 			{
-				"value" "6"
+				"value" "6 7 8 9"
 			}
 			"movement_speed"
 			{
-				"value" "50 55 60 65"
+				"value" "50 75 100 125"
 			}
 		}
 	}
@@ -174,8 +174,31 @@
 
 	"tusk_drinking_buddies"
 	{
-		"ReduxFlags"                                                           "mobility | support | physical"
-		"ReduxPerks"                                                           "mobility | support | physical"
+		"ReduxFlags"					"mobility | support | physical"
+		"ReduxPerks"					"mobility | support | physical"
+		"MaxLevel"						"4"
+		"AbilityManaCost"				"80"
+		"AbilityCooldown"				"14 13 12 11"
+		"AbilityValues"
+		{
+			"AbilityCastRange"			"1000"
+			"alt_cast_castrange_pct"	"50"
+			"buff_duration"				
+			{
+				"value"								"6.0"
+			}
+			"pull_duration"				"0.2"
+	
+			"min_distance"				"250"
+			"max_distance"				"1300"
+
+			"movespeed_bonus"			"25 30 35 40"
+			"armor_bonus"
+			{
+				"value"					"7 10 13 16"
+			}
+
+		}
 	}
 
 	"templar_assassin_third_eye"
@@ -216,7 +239,7 @@
 		{
 			"buff_duration"                                                    "20.0"
 			"refresh_duration"                                                 "10"
-			"absorb_per_damage_pct"                                            "40 45 55 60"
+			"absorb_per_damage_pct"                                            "40 50 60 70"
 			"return_projectile_speed"                                          "900"
 		}
 	}
@@ -228,7 +251,7 @@
 		"MaxLevel"						"4"
 		"AbilityValues"
 		{
-			"debuff_amp"				"15 20 25 30"
+			"debuff_amp"				"15 22 29 36"
 		}
 	}
 
@@ -282,7 +305,7 @@
 
 		"AbilityValues"
 		{
-			"spell_reflect_pct"			"20 22 24 26"
+			"spell_reflect_pct"			"20 25 30 35"
 			"radius"
 			{
 				"value"			"1200 1400 1600 1800"
@@ -304,7 +327,7 @@
 		"AbilityValues"
 		{
 			"spell_amplification"			"14 18 22 26"
-			"damage_reflected_to_self"		"21 20 19 18"
+			"damage_reflected_to_self"		"20"
 		}
 	}
 
@@ -325,7 +348,7 @@
 
 		"AbilityValues"
 		{
-			"knockback_amp"			"20 35 50 65"
+			"knockback_amp"			"20 40 60 80"
 		}
 	}
 
@@ -348,7 +371,7 @@
 			"strength_bonus"			"120"
 			"splash_pct"				"60 70 80"
 			"splash_radius"				"300"
-			"movement_speed"			"310 330 350"
+			"movement_speed"			"380"
 		}
 	}
 
@@ -382,7 +405,7 @@
 		{
 			"bash_chance"
 			{
-				"value" "7 9 11 13"
+				"value" "10 14 18 22"
 			}
 			"bonus_damage"
 			{
@@ -403,13 +426,13 @@
 		"ReduxPerks"                                                           "attack_modifier | bash | neutral"
 		"ReduxCost"                                                            "120"
 
-		"MaxLevel"						"1"
+		"MaxLevel"						"4"
 
 		"AbilityValues"
 		{
 			"bash_chance"
 			{
-				"value" "40"
+				"value" "10 20 30 40"
 			}
 			"bonus_damage"
 			{
@@ -554,7 +577,7 @@
 
 			"stack_gain_time"			"2.0"
 			"cooldown_speed_per_stack"	"2.0"
-			"linger_duration"			"2"
+			"linger_duration"			"4"
 		}
 	}
 
@@ -1036,7 +1059,7 @@
 		{
 			"bonus_dmg_pct"
 			{
-				"value" "60 75 90 105"
+				"value" "60 80 100 120"
 			}
 			"duration"
 			{
@@ -2148,8 +2171,8 @@
 
 	"weaver_time_lapse"
 	{
-		"ReduxFlags"                                                           "upgradeable | mobility | support"
-		"ReduxPerks"                                                           "mobility | support"
+		"ReduxFlags"                                                           "upgradeable | mobility"
+		"ReduxPerks"                                                           "mobility"
 	}
 
 	"shadow_demon_disruption"
@@ -2162,8 +2185,8 @@
 
 	"templar_assassin_psionic_trap"
 	{
-		"ReduxFlags"                                                           "invis | support | doNotRandom"
-		"ReduxPerks"                                                           "support | trap"
+		"ReduxFlags"                                                           "invis | doNotRandom"
+		"ReduxPerks"                                                           "trap"
 	}
 	"tusk_snowball"
 	{
