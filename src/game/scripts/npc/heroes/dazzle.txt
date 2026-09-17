@@ -23,8 +23,8 @@
 
 	"dazzle_nothl_projection"
 	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | undead"
+		// "ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "transformation | undead"
 	}
 
 	"dazzle_bad_juju"
@@ -37,8 +37,8 @@
 
 	"dazzle_good_juju"
 	{
-		"ReduxFlags"                                                           "cooldown | support | upgradeable"
-		"ReduxPerks"                                                           "support"
+		"ReduxFlags"                                                           "cooldown | upgradeable"
+		// "ReduxPerks"                                                           "support"
 
 		"AbilityValues"
 		{
