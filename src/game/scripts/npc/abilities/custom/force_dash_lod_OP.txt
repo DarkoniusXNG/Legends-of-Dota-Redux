@@ -75,8 +75,8 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "mobility"
-        "ReduxPerks"                                                           "mobility | enemymoving"
+        "ReduxFlags"                                                           "mobility | support"
+        "ReduxPerks"                                                           "mobility | enemymoving | support"
         "ReduxCost"                                                            "120"
         "ReduxBans"                                                            "force_dash_lod"
     }
