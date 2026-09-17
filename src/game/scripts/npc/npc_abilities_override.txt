@@ -65,6 +65,8 @@
 #base "heroes\natures_prophet.txt"
 #base "heroes\necrophos.txt"
 #base "heroes\night_stalker.txt"
+#base "heroes\nyx.txt"
+#base "heroes\obsidian_destroyer.txt"
 #base "heroes\ogre_magi.txt"
 #base "heroes\omniknight.txt"
 #base "heroes\oracle.txt"
@@ -114,58 +116,7 @@
 		"ReduxPerks"                                                           "water"
 	}
 
-	"nyx_assassin_neuro_sting" // current Innate
-	{
-		"ReduxFlags"                                                           "mana"
-		"ReduxPerks"                                                           "fire"
-		"ReduxCost"                                                            "30"
-	}
-
-	"nyx_assassin_nyxth_sense" // old Innate
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_nyx_assassin_perk"
-
-		"MaxLevel"                                                             "4"
-		"Innate"                                                               "0"
-
-		"ReduxFlags"                                                           "support | doNotRandom"
-		"ReduxPerks"                                                           "support"
-
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"		"400 500 600 700"
-				"affected_by_aoe_increase"	"1"
-			}
-		}
-	}
-
-	"obsidian_destroyer_objurgation"
-	{
-		"ReduxFlags"                                                           "mana | tank"
-		"ReduxCost"                                                            "10"
-	}
-
-	"obsidian_destroyer_ominous_discernment" // old Innate
-	{
-		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"                                                   "custom/npc_dota_hero_obsidian_destroyer_perk"
-
-		"MaxLevel"                                                             "4"
-		"Innate"                                                               "0"
-
-		"ReduxFlags"                                                           "mana"
-
-		"AbilityValues"
-		{
-			"bonus_max_mana_per_int"
-			{
-				"value"						"2.5 3.0 3.5 4.0"
-			}
-		}
-	}
+	
 
 	"spirit_breaker_bull_rush"
 	{
@@ -495,22 +446,7 @@
 		}
 	}
 
-	"nyx_assassin_innate_mana_burn"
-	{
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/npc_dota_hero_nyx_assassin_perk"
-
-		"ReduxFlags"                    "mana"
-		"ReduxPerks"                    "fire"
-		"ReduxCost"                     "30"
-
-		"MaxLevel"						"4"
-
-		"AbilityValues"
-		{
-			"mana_pct"		"15 18 21 24"
-		}
-	}
+	
 
 	"tusk_bitter_chill"
 	{
@@ -2144,10 +2080,6 @@
 		"ReduxCost"                                                            "120"
 	}
 
-	"obsidian_destroyer_sanity_eclipse"
-	{
-		"ReduxFlags"                                                           "mana"
-	}
 	"phoenix_supernova"
 	{
 		"ReduxFlags"                                                           "upgradeable | stun | cooldown"
@@ -2326,19 +2258,6 @@
 		"ReduxPerks"                                                           "water"
 	}
 
-	"obsidian_destroyer_astral_imprisonment"
-	{
-		"ReduxFlags"                                                           "stun | support | wtfAutoBan"
-		"ReduxPerks"                                                           "support"
-		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // trolling and invulnerability
-	}
-	"obsidian_destroyer_equilibrium"
-	{
-		"ReduxFlags"                                                           "mana"
-		"ReduxBanCategory"                                                     "ToggleSpells"
-		"ReduxBans"                                                            "medusa_mana_shield | storm_spirit_ball_lightning"
-		"ReduxCost"                                                            "40"
-	}
 	"troll_warlord_battle_trance"
 	{
 		"ReduxFlags"                                                           "wtfAutoBan"
@@ -2429,38 +2348,7 @@
 		"ReduxPerks"                                                           "mobility"
 		"ReduxCost"                                                            "10"
 	}
-	"nyx_assassin_vendetta"
-	{
-		"ReduxFlags"                                                           "mobility | invis"
-		"ReduxPerks"                                                           "mobility | invis"
-		"ReduxCost"                                                            "40"
-	}
-
-	"nyx_assassin_burrow"
-	{
-		"ReduxFlags"                    "invis | mana | tank | upgradeable | cooldown"
-		"ReduxPerks"                    "earth | invis | transformation"
-		"ReduxCost"                     "50"
-		"ReduxBans"                     "nyx_assassin_burrow_redux"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"MaxLevel"						"4"
-		"AbilityCastPoint"				"1.5 1.25 1.0 0.75"
-		"AbilityValues"
-		{
-			"health_regen_rate"		"1 1.5 2 2.5"
-			"mana_regen_rate"		"1 1.5 2 2.5"
-			"damage_reduction"			"40 45 50 55"
-			"cast_range"			"500 600 700 800"
-			"cooldown_reduction"			"25"
-			"carapace_radius"
-			{
-				"value"			"400"
-				"affected_by_aoe_increase"	"1"
-			}
-		}
-	}
-
+	
 	"slark_shadow_dance"
 	{
 		"ReduxFlags"                                                           "mobility | invis | wtfAutoBan"
@@ -2501,13 +2389,6 @@
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "dragon | fire | mobility | self_damage"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
-	}
-
-	"nyx_assassin_spiked_carapace"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "earth"
-		"ReduxCost"                                                            "10"
 	}
 
 	"phantom_lancer_phantom_edge"
@@ -2662,12 +2543,7 @@
 		"ReduxPerks"                                                           "attack_modifier | physical | autocast_basic"
 		"ReduxCost"                                                            "10"
 	}
-	"obsidian_destroyer_arcane_orb"
-	{
-		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "attack_modifier | autocast_basic"
-		"ReduxCost"                                                            "20"
-	}
+	
 	"phantom_lancer_juxtapose"
 	{
 		"ReduxFlags"                                                           "attack_modifier | upgradeable"
@@ -2695,12 +2571,6 @@
 	{
 		"ReduxFlags"                                                           "stun | physical | upgradeable"
 		"ReduxPerks"                                                           "water | physical"
-	}
-
-	"nyx_assassin_impale"
-	{
-		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "earth | skillshot"
 	}
 
 	"treant_overgrowth"
@@ -2774,11 +2644,7 @@
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 	}
 
-	// "nyx_assassin_mana_burn"
-	// {
-		// "ReduxFlags"                                                           "mana"
-		// "ReduxPerks"                                                           "fire"
-	// }
+
 
 
 	"phoenix_fire_spirits"
@@ -2838,10 +2704,7 @@
 		"ReduxPerks"                                                           "poison | skillshot | demon"
 	}
 
-	"nyx_assassin_jolt"
-	{
-		"ReduxPerks"                                                           "lightning"
-	}
+	
 
 	"slark_dark_pact"
 	{
@@ -2969,14 +2832,6 @@
 			}
 		}
 	}
-
-	// "obsidian_destroyer_essence_aura"
-	// {
-		// "ReduxFlags"			"mana | support"
-		// "ReduxPerks"			"aura | support"
-		// "ReduxCost"				"120"
-		// "ReduxBanCategory"		"ToggleSpells"
-	// }
 
 	"item_ancient_janggo"
 	{
@@ -3537,114 +3392,6 @@
 	}
 
 	// Talents
-
-	// Nyx Assassin
-	"special_bonus_unique_nyx"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "nyx_assassin_jolt"
-	}
-	"special_bonus_unique_nyx_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "nyx_assassin_impale"
-	}
-	"special_bonus_unique_nyx_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "nyx_assassin_impale"
-	}
-	"special_bonus_unique_nyx_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "nyx_assassin_spiked_carapace"
-	}
-	"special_bonus_unique_nyx_6"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "nyx_assassin_spiked_carapace"
-	}
-	"special_bonus_unique_nyx_vendetta_damage"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "nyx_assassin_vendetta"
-	}
-	"special_bonus_unique_nyx_jolt_cooldown"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "nyx_assassin_jolt"
-	}
-
-	// OD
-	"special_bonus_unique_outworld_devourer"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "obsidian_destroyer_arcane_orb"
-	}
-	"special_bonus_unique_outworld_devourer_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "obsidian_destroyer_astral_imprisonment"
-	}
-	"special_bonus_unique_outworld_devourer_3"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "obsidian_destroyer_equilibrium"
-	}
-	"special_bonus_unique_outworld_devourer_4"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "obsidian_destroyer_sanity_eclipse"
-	}
-	"special_bonus_unique_outworld_devourer_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "obsidian_destroyer_sanity_eclipse"
-	}
-	"special_bonus_unique_outworld_devourer_astral_castrange"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "obsidian_destroyer_astral_imprisonment"
-	}
 
 	// Phantom Lancer
 	"special_bonus_unique_phantom_lancer_4"
