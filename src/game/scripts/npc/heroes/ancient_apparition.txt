@@ -48,16 +48,16 @@
 		"ReduxPerks"                    "support | ice"
 		"MaxLevel"						"4"
 
-		"AbilityCastRange"				"800 1000 1200 1400"
+		"AbilityCastRange"				"1000"
 		"AbilityCooldown"				"30 28 26 24"
-		"AbilityDuration"				"4.0 4.0 4.0 4.0"
-		"AbilityManaCost"				"200"
+		"AbilityDuration"				"4.0"
+		"AbilityManaCost"				"150"
 		"AbilityValues"
 		{
-			"damage"			"25 50 75 100"
+			"damage"			"25 30 35 40"
 			"duration"			"5"
 			"health_degen"		"100"
-			"radius"			"800 1000 1200 1400"
+			"radius"			"800"
 		}
 	}
 
@@ -66,10 +66,10 @@
 	//=================================================================================================================
 	"ancient_apparition_bone_chill"
 	{
-		"ReduxFlags"                                                           "doNotRandom"
-		"ReduxPerks"                                                           "ice | undead"
-		"ReduxBans"                                                            "lina_slow_burn"
-		"ReduxCost"                                                            "40" // works with all magic spell dmg instances + scales per hero lvl
+		"ReduxFlags"		"doNotRandom"
+		"ReduxPerks"		"ice | undead"
+		"ReduxBans"			"lina_slow_burn"
+		"ReduxCost"			"40" // works with all magic spell dmg instances + scales per hero lvl
 	}
 
 	"special_bonus_unique_ancient_apparition_1"
@@ -78,7 +78,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "ancient_apparition_cold_feet"
+		"TalentRequiredAbility"			"ancient_apparition_cold_feet"
 	}
 
 	"special_bonus_unique_ancient_apparition_2"
@@ -87,7 +87,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "ancient_apparition_chilling_touch"
+		"TalentRequiredAbility"			"ancient_apparition_chilling_touch"
 	}
 
 	"special_bonus_unique_ancient_apparition_3"
@@ -96,7 +96,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "ancient_apparition_ice_vortex"
+		"TalentRequiredAbility"			"ancient_apparition_ice_vortex"
 	}
 
 	"special_bonus_unique_ancient_apparition_5"
@@ -105,7 +105,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "ancient_apparition_ice_blast"
+		"TalentRequiredAbility"			"ancient_apparition_ice_blast"
 	}
 
 	"special_bonus_unique_ancient_apparition_7"
@@ -114,7 +114,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "ancient_apparition_chilling_touch"
+		"TalentRequiredAbility"			"ancient_apparition_chilling_touch"
 	}
 
 	"special_bonus_unique_ancient_apparition_8"
@@ -123,7 +123,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "ancient_apparition_cold_feet"
+		"TalentRequiredAbility"			"ancient_apparition_death_rime"
 	}
 
 	"special_bonus_unique_ancient_apparition_ice_vortex_duration"
@@ -132,7 +132,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "ancient_apparition_ice_blast"
+		"TalentRequiredAbility"			"ancient_apparition_death_rime"
 	}
 
 	"special_bonus_unique_ancient_apparition_cold_feet_dps"
