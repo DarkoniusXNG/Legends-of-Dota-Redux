@@ -18,7 +18,7 @@
 		"AbilityTextureName"			"custom/lysander_grapeshot"
 
 		"ReduxFlags"					"physical | crit | stun | upgradeable"
-		"ReduxPerks"					"physical"
+		"ReduxPerks"					"physical | explosive"
 		"ReduxBans"						"earthshaker_enchant_totem"
 
 		// Casting
