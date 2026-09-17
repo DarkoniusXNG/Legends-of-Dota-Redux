@@ -54,7 +54,7 @@
 		}
         "ReduxCost"                                                            "120"
         "ReduxFlags"                                                           "support"
-        "ReduxPerks"                                                           "support | lightning | skillshot"
+        "ReduxPerks"                                                           "support | lightning"
         "ReduxBans"                                                            "disruptor_kinetic_field"
     }
 }
