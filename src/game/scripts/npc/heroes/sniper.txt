@@ -3,7 +3,7 @@
 {
 	"sniper_shrapnel"
 	{
-		"ReduxPerks"                                                           "explosive | scientific | skillshot"
+		"ReduxPerks"                                                           "explosive | scientific"
 		"ReduxCost"                                                            "10"
 	}
 
