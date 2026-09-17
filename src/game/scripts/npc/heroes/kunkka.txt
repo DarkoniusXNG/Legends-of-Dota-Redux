@@ -91,8 +91,8 @@
 	//=================================================================================================================
 	"kunkka_x_marks_the_spot"
 	{
-		"ReduxFlags"                                                           "mobility | stun"
-		"ReduxPerks"                                                           "mobility | enemymoving"
+		"ReduxFlags"                                                           "mobility | stun | support"
+		"ReduxPerks"                                                           "mobility | enemymoving | support"
 	}
 
 	//=================================================================================================================
@@ -100,8 +100,8 @@
 	//=================================================================================================================
 	"kunkka_return"
 	{
-		"ReduxFlags"                                                           "mobility | stun"
-		"ReduxPerks"                                                           "mobility | enemymoving"
+		"ReduxFlags"                                                           "mobility | stun | support | doNotRandom"
+		"ReduxPerks"                                                           "mobility | enemymoving | support"
 	}
 
 	//=================================================================================================================
