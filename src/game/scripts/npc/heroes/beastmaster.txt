@@ -29,8 +29,8 @@
 
 	"beastmaster_inner_beast" // current Innate
 	{
-		"ReduxFlags"                                                           "semi_passive | support"
-		"ReduxPerks"                                                           "aura | support"
+		"ReduxFlags"                                                           "semi_passive"
+		"ReduxPerks"                                                           "aura"
 		"ReduxCost"                                                            "10"
 	}
 
