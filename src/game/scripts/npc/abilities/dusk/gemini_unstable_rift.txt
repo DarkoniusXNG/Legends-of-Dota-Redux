@@ -101,7 +101,7 @@
 			}
 		}
 
-		"ReduxPerks"	"teleport"
-		"ReduxFlags"	""
+		"ReduxPerks"	"teleport | support"
+		"ReduxFlags"	"support"
 	}
 }
