@@ -90,11 +90,12 @@
 		"MaxLevel"                                                             "4"
 		"Innate"                                                               "0"
 
-		"ReduxFlags"                                                           "doNotRandom"
+		"ReduxFlags"			"doNotRandom | support"
+		"ReduxPerks"			"earth | skillshot | enemymoving | physical | support"
 
 		"AbilityValues"
 		{
-			"damage_bonus"			"100 120 140 160"
+			"damage_bonus"			"100 150 200 250"
 		}
 	}
 
