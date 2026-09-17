@@ -146,4 +146,13 @@
 
 		"TalentRequiredAbility"                                                   "necrolyte_ghost_shroud"
 	}
+
+	"special_bonus_unique_necrophos_reaper_scythe_damage_per_health"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "necrolyte_reapers_scythe"
+	}	
 }
