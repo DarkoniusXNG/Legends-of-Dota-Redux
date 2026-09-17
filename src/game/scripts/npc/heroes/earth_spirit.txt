@@ -5,8 +5,8 @@
 	//=================================================================================================================
 	"earth_spirit_boulder_smash"
 	{
-		"ReduxFlags"		"doNotRandom"
-		"ReduxPerks"		"earth | skillshot | enemymoving"
+		"ReduxFlags"		"doNotRandom | support"
+		"ReduxPerks"		"earth | skillshot | enemymoving | support"
 	}
 
 	//=================================================================================================================
