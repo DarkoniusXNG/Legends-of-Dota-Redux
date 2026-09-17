@@ -2,8 +2,8 @@
 {
 	"riki_smoke_screen"
 	{
-		"ReduxFlags"                                                           "support | silence"
-		"ReduxPerks"                                                           "support | silence"
+		"ReduxFlags"                                                           "silence"
+		"ReduxPerks"                                                           "silence"
 	}
 
 	"riki_blink_strike"
