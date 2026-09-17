@@ -122,4 +122,13 @@
 
 		"TalentRequiredAbility"                                                   "nevermore_frenzy"
 	}
+
+	"special_bonus_unique_nevermore_frenzy_max_collection_count"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "nevermore_frenzy"
+	}
 }
