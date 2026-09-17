@@ -128,7 +128,7 @@
 	"invoker_emp_ad"
 	{
 		"ReduxFlags"					"mana"
-		"ReduxPerks"					"drain | skillshot"
+		"ReduxPerks"					"drain"
 
 		"AbilityTextureName"            "invoker_emp_ad_png"
 		"AbilityCastRange"				"950"
@@ -348,7 +348,7 @@
 	//=================================================================================================================
 	"invoker_ice_wall_ad"
 	{
-		"ReduxPerks"                    "ice | skillshot"
+		"ReduxPerks"                    "ice"
 
 		"AbilityTextureName"            "invoker_ice_wall_ad_png"
 		"AbilityCooldown"				"23 21 19 17" // buffed
