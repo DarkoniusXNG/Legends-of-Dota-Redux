@@ -15,8 +15,8 @@
 
 	"warlock_upheaval"
 	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | channeled"
+		// "ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "channeled"
 	}
 
 	"warlock_rain_of_chaos"
