@@ -3,7 +3,8 @@
 {
 	"chen_penitence"
 	{
-		"ReduxPerks"                                                           "light"
+		"ReduxPerks"                                                           "light | support"
+		"ReduxFlags"                                                           "support"
 	}
 
 	"chen_zealot" // current Innate
