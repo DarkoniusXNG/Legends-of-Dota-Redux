@@ -63,9 +63,9 @@
 		{
 			"hp_regen_during_night_pct"
 			{
-				"value"								"20 25 30 35"
+				"value"								"20 35 50 65"
 			}
-			"hp_regen_during_day_pct"				"10 5 0 0"
+			"hp_regen_during_day_pct"				"0"
 			"affects_mana_regen"
 			{
 				"special_bonus_shard"				"1"
@@ -111,21 +111,15 @@
 		"TalentRequiredAbility"                                                   "night_stalker_darkness"
 	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
 	"special_bonus_unique_night_stalker_2"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "night_stalker_hunter_in_the_night"
+		"TalentRequiredAbility"                                                   "night_stalker_midnight_feast"
 	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
 	"special_bonus_unique_night_stalker_3"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -135,9 +129,6 @@
 		"TalentRequiredAbility"                                                   "night_stalker_darkness"
 	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
 	"special_bonus_unique_night_stalker_4"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -147,9 +138,6 @@
 		"TalentRequiredAbility"                                                   "night_stalker_void"
 	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
 	"special_bonus_unique_night_stalker_7"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -159,9 +147,6 @@
 		"TalentRequiredAbility"                                                   "night_stalker_darkness"
 	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
 	"special_bonus_unique_night_stalker_hunter_status_resist"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -171,10 +156,16 @@
 		"TalentRequiredAbility"                                                   "night_stalker_hunter_in_the_night"
 	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
 	"special_bonus_unique_night_stalker_crippling_fear_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "night_stalker_crippling_fear"
+	}
+
+	"special_bonus_unique_night_stalker_crippling_fear_radius"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
