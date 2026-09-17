@@ -36,8 +36,8 @@
 	//=================================================================================================================
 	"abaddon_frostmourne"
 	{
-		"ReduxFlags"                    "attack_modifier"
-		"ReduxPerks"                    "attack_modifier | ice | undead"
+		"ReduxFlags"                    "attack_modifier | support"
+		"ReduxPerks"                    "attack_modifier | ice | undead | support"
 		"ReduxCost"                     "10"
 	}
 
