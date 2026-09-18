@@ -12,7 +12,7 @@
 	{
 		"ReduxFlags"			"support | disarm_break"
 		"ReduxPerks"			"support"
-		"ReduxBans"			"tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // trolling
+		//"ReduxBans"			"tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // trolling
 	}
 
 	"oracle_purifying_flames"
@@ -23,7 +23,7 @@
 
 	"oracle_false_promise"
 	{
-		"ReduxFlags"			"support | upgradeable | wtfAutoBan"
+		"ReduxFlags"			"support | wtfAutoBan"
 		"ReduxPerks"			"support"
 		"ReduxBans"				"tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // invulnerability
 		"ReduxCost"				"30"
@@ -35,8 +35,10 @@
 		"ReduxPerks"			"support | water"
 
 		"MaxLevel"                      "4"
+
 		"AbilityCooldown"               "40 35 30 25"
 		"AbilityManaCost"               "150"
+
 		"AbilityValues"
 		{
 			"radius"
@@ -107,10 +109,11 @@
 	"oracle_diviners_deck"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"HasScepterUpgrade"				"1"
-		"MaxLevel"						"4"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FakeSubAbilityNames"			"oracle_diviners_deck_death;oracle_diviners_deck_the_fool;oracle_diviners_deck_the_world;oracle_diviners_deck_the_lovers;oracle_diviners_deck_the_tower"
+
+		"MaxLevel"						"1"
+		
+		"ReduxFlags"					"doNotRandom | upgradeable"
+
 		"AbilityValues"
 		{
 			"enabled"
@@ -128,9 +131,8 @@
 			"barrier_restore_time"	"7.0"
 		}
 	}
-	
 
-// Talents
+    // Talents
 	"special_bonus_unique_oracle"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -194,13 +196,5 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"			"oracle_false_promise"
-	}
-	"special_bonus_unique_oracle_damage_per_purge"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"			"oracle_fortunes_end"
 	}
 }

@@ -4,7 +4,7 @@
 	"lion_impale"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "earth | demon | skillshot" 
+		"ReduxPerks"                                                           "earth | demon" // not a skillshot because you can click on a unit to cast it
 		"ReduxCost"                                                            "30"
 	}
 

@@ -1,6 +1,5 @@
 "DOTAAbilities"
 {
-
 	//=================================================================================================================
 	// Ancient Apparition: Cold Feet
 	//=================================================================================================================
@@ -46,6 +45,7 @@
 	{
 		"ReduxFlags"                   	"support"
 		"ReduxPerks"                    "support | ice"
+
 		"MaxLevel"						"4"
 
 		"AbilityCastRange"				"1000"
@@ -132,7 +132,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"			"ancient_apparition_death_rime"
+		"TalentRequiredAbility"			"ancient_apparition_ice_blast"
 	}
 
 	"special_bonus_unique_ancient_apparition_cold_feet_dps"

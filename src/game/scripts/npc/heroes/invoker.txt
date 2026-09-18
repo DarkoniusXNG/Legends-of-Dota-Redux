@@ -128,7 +128,7 @@
 	"invoker_emp_ad"
 	{
 		"ReduxFlags"					"mana"
-		"ReduxPerks"					"drain"
+		"ReduxPerks"					"drain" // skillshot
 
 		"AbilityTextureName"            "invoker_emp_ad_png"
 		"AbilityCastRange"				"950"

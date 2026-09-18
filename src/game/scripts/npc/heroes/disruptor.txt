@@ -8,7 +8,6 @@
 
 	"disruptor_glimpse"
 	{
-		// "ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "enemymoving | lightning"
 		"ReduxCost"                                                            "10"
 	}

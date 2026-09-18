@@ -99,9 +99,7 @@
 		}
 	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
+	// Talents
 	"special_bonus_unique_night_stalker"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -136,15 +134,6 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"                                                   "night_stalker_void"
-	}
-
-	"special_bonus_unique_night_stalker_7"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "night_stalker_darkness"
 	}
 
 	"special_bonus_unique_night_stalker_hunter_status_resist"

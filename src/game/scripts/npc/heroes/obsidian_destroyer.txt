@@ -74,7 +74,7 @@
 	//=================================================================================================================
 	"obsidian_destroyer_objurgation"
 	{
-		"ReduxFlags" 		"mana | tank"
+		"ReduxFlags" 		"mana | tank | upgradeable"
 		"ReduxCost"			"10"
 	}
 
@@ -86,14 +86,6 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"       	"obsidian_destroyer_arcane_orb"
-	}
-	"special_bonus_unique_outworld_devourer_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"     	"obsidian_destroyer_astral_imprisonment"
 	}
 	"special_bonus_unique_outworld_devourer_3"
 	{
@@ -134,5 +126,13 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"        	"obsidian_destroyer_equilibrium"
+	}
+	"special_bonus_unique_outworld_devourer_barrier"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"obsidian_destroyer_objurgation"
 	}
 }

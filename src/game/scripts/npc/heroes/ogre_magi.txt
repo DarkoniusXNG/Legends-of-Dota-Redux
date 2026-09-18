@@ -48,7 +48,6 @@
 			"AbilityCooldown"
 			{
 				"value"										"7"
-				// "special_bonus_unique_ogre_magi_5"			"-1"
 			}
 			"stun_duration"		"1.2 1.4 1.6 1.8"
 			"multicast_delay"	"0.6"

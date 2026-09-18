@@ -70,6 +70,7 @@
 		"ReduxPerks"                   	"mobility | support | light"
 
 		"MaxLevel"						"4"
+
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"20 19 18 17"
@@ -128,14 +129,6 @@
 
 		"TalentRequiredAbility"         "omniknight_hammer_of_purity"
 	}
-	"special_bonus_unique_omniknight_5"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"         "omniknight_martyr"
-	}
 	"special_bonus_unique_omniknight_6"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -151,14 +144,6 @@
 		"BaseClass"						"special_bonus_base"
 
 		"TalentRequiredAbility"       	"omniknight_guardian_angel"
-	}
-	"special_bonus_unique_omniknight_guardian_angel_duration"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"      	"omniknight_guardian_angel"
 	}
 	"special_bonus_unique_omniknight_degen_aura_radius"
 	{
