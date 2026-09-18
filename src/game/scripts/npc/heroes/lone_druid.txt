@@ -61,7 +61,7 @@
 	{
 		"ReduxFlags"                    "stun"
 		"ReduxPerks"                    "nature"
-		"ReduxCost"                     "40"
+		"ReduxCost"                     "40" // high value low winrate
 	}
 
 	//"lone_druid_entangling_claws"

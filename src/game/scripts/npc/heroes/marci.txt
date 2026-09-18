@@ -16,7 +16,7 @@
 	{
 		"ReduxFlags"	"mobility | upgradeable"
 		"ReduxPerks"	"mobility | rage"
-		"ReduxCost"		"20"
+		"ReduxCost"		"30"
 	}
 
 	//=================================================================================================================

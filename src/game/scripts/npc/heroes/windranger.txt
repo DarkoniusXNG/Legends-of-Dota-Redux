@@ -23,7 +23,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "ranger"
-		"ReduxCost"                                                            "20"
+		"ReduxCost"                                                            "20" // good value low winrate
 	}
 
 	"windrunner_gale_force"

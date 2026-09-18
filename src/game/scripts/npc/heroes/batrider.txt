@@ -7,7 +7,7 @@
 	"batrider_sticky_napalm"
 	{
 		"ReduxPerks"                    "fire | scientific"
-		"ReduxCost"                     "50"
+		"ReduxCost"                     "40" // high value low winrate
 	}
 
 	//=================================================================================================================

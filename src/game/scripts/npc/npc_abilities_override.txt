@@ -2351,7 +2351,7 @@
 	}
 	"wisp_tether"
 	{
-		"ReduxFlags"                                                           "support | mobility"
+		"ReduxFlags"                                                           "instant_attacks | support | mobility"
 		"ReduxPerks"                                                           "support | light | mobility"
 		"ReduxBans"                                                            "spell_lab_symbiotic | life_stealer_infest"
 		"ReduxCost"                                                            "10"
@@ -2663,7 +2663,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"
 		"ReduxPerks"                                                           "attack_modifier | physical | autocast_basic"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "10" // good value low winrate
 	}
 
 	"phantom_lancer_juxtapose"
@@ -2677,7 +2677,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier"
 		"ReduxPerks"                                                           "attack_modifier | rage"
-		"ReduxCost"                                                            "20" // why people think this is bad?
+		"ReduxCost"                                                            "20" // good value low winrate
 	}
 
 	"undying_tombstone_zombie_deathstrike"
@@ -2698,7 +2698,7 @@
 	{
 		"ReduxFlags"                                                           "stun | tank | upgradeable | disarm_break"
 		"ReduxPerks"                                                           "nature"
-		"ReduxCost"                                                            "20"
+		"ReduxCost"                                                            "30"
 	}
 	"broodmother_spawn_spiderlings"
 	{
@@ -3112,7 +3112,7 @@
 	"ursa_overpower"
 	{
 		"ReduxPerks"                                                           "rage"
-		"ReduxCost"                                                            "30"
+		"ReduxCost"                                                            "30" // high value low winrate
 		"ReduxBans"                                                            "tusk_walrus_punch"
 	}
 
