@@ -23,8 +23,8 @@
 
 	"dazzle_nothl_projection"
 	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | undead"
+		"ReduxFlags"                                                           "summon"
+		"ReduxPerks"                                                           "transformation | undead"
 	}
 
 	"dazzle_bad_juju"
@@ -37,8 +37,7 @@
 
 	"dazzle_good_juju"
 	{
-		"ReduxFlags"                                                           "cooldown | support | upgradeable"
-		"ReduxPerks"                                                           "support"
+		"ReduxFlags"                                                           "cooldown | upgradeable"
 
 		"AbilityValues"
 		{
@@ -123,6 +122,8 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
+		"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "support"
 		"ReduxCost"                                                            "40" // works for any hero
 	}
 

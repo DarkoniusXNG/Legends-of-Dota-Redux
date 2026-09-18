@@ -63,7 +63,7 @@
 			"slow"	"20 30 40 50" // this needs to be improved
 		}
 
-		"ReduxPerks"														   "fire | enemymoving | skillshot"
+		"ReduxPerks"														   "fire | enemymoving | skillshot | scientific"
 		"ReduxCost"                                                            "120"
 		"ReduxBans"                                                            "batrider_flamebreak"
     }

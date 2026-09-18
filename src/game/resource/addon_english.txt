@@ -8570,7 +8570,7 @@
 "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_bonus_movespeed_pct_extra"   "%CAST ADDED BONUS SPEED:"
 "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_duration"                    "CAST ADDED SPEED DURATION:"
 "DOTA_Tooltip_ability_spirit_breaker_knockback_amp"                "Knockback Amplification"
-"DOTA_Tooltip_ability_spirit_breaker_knockback_amp_Description"    "Unknown what it does. Maybe improves the knockback distance for abilities that apply knockback or Nether Strike with Greater Bash?"
+"DOTA_Tooltip_ability_spirit_breaker_knockback_amp_Description"    "Improves the knockback distance for abilities that apply knockback."
 "DOTA_Tooltip_ability_spirit_breaker_knockback_amp_knockback_amp"  "%KNOCKBACK AMP:"
 "DOTA_Tooltip_ability_tidehunter_arm_of_the_deep"              "Tendrils of the Deep"
 "DOTA_Tooltip_ability_tidehunter_arm_of_the_deep_Description"  "Tidehunter unleashes a targeted slew of tentacles that damage and stun enemies within reach. The tentacles deal %damage_pct%%% of Ravage's damage and stun, with a range %range_pct%%% of Ravage's radius.<br><br><font color='#FF4949'>Warning:</font> Requires <font color='#70EA72'>Ravage</font> to work."

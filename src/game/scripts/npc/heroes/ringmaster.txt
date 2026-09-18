@@ -28,8 +28,8 @@
 			"start_offset"					"0"
 		}
 
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | light"
+		// "ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "light"
 	}
 
 	//=================================================================================================================

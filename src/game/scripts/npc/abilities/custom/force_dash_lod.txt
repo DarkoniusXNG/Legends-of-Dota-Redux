@@ -75,7 +75,7 @@
                 }
             }
         }
-        "ReduxFlags"                                                           "mobility"
-        "ReduxPerks"                                                           "mobility | enemymoving"
+        "ReduxFlags"                                                           "mobility | support"
+        "ReduxPerks"                                                           "mobility | enemymoving | support"
     }
 }

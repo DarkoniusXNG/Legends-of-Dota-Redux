@@ -51,19 +51,6 @@
 
 		"TalentRequiredAbility"                                                   "nevermore_necromastery"
 	}
-	"special_bonus_unique_nevermore_2"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"
-		{
-			"1" "nevermore_shadowraze1"
-			"2" "nevermore_shadowraze2"
-			"3" "nevermore_shadowraze3"
-		}
-	}
 	"special_bonus_unique_nevermore_3"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -115,6 +102,15 @@
 		}
 	}
 	"special_bonus_unique_nevermore_frenzy_castspeed"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "nevermore_frenzy"
+	}
+
+	"special_bonus_unique_nevermore_frenzy_max_collection_count"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"

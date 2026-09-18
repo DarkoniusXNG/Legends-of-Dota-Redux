@@ -4,7 +4,7 @@
 	"lion_impale"
 	{
 		"ReduxFlags"                                                           "stun"
-		"ReduxPerks"                                                           "earth | demon"
+		"ReduxPerks"                                                           "earth | demon" // not a skillshot because you can click on a unit to cast it
 		"ReduxCost"                                                            "30"
 	}
 
@@ -16,8 +16,8 @@
 
 	"lion_mana_drain"
 	{
-		"ReduxFlags"                                                           "mana"
-		"ReduxPerks"                                                           "channeled | demon | drain"
+		"ReduxFlags"                                                           "mana | support"
+		"ReduxPerks"                                                           "channeled | demon | drain | support"
 	}
 
 	"lion_finger_of_death"

@@ -10,7 +10,7 @@
 
 	"viper_nethertoxin"
 	{
-		"ReduxPerks"                                                           "poison | skillshot"
+		"ReduxPerks"                                                           "poison"
 	}
 
 	"viper_corrosive_skin"

@@ -9,8 +9,8 @@
 
 	"dark_seer_ion_shell"
 	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "light | lightning | support"
+		//"ReduxFlags"                                                           "support"
+		"ReduxPerks"                                                           "light | lightning"
 		"ReduxCost"                                                            "10"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
 	}

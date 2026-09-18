@@ -691,12 +691,12 @@
 			"AbilityCooldown"
 			{
 				"value"			"60"
-				"special_bonus_scepter"			"-10"
+				"special_bonus_scepter"			"-20"
 			}
 			"duration"
 			{
 				"value"		"9"
-				"special_bonus_scepter"			"+1.0"
+				"special_bonus_scepter"			"+2.0"
 			}
 			"radius"
 			{
@@ -707,12 +707,12 @@
 			"width"				"100"
 			"spear_damage"
 			{
-				"value"	"160 240 320"
+				"value"	"100"
 				"special_bonus_unique_mars_arena_of_blood_damage" "+70"
 			}
 			"formation_time"	"0.1"
-			"spear_distance_from_wall"	"400" // knockback
-			"spear_attack_interval"	"0.5"
+			"spear_distance_from_wall"	"600" // knockback
+			"spear_attack_interval"	"0.1"
 			"warrior_count"		"14" // do not change this
 			"first_warrior_angle"	"0.0"
 			"warrior_fade_min_dist"	"350.0"
@@ -748,7 +748,7 @@
 			}
 			"pierces_debuff_immunity"
 			{
-				"value" "0"
+				"value" "1"
 			}
 		}
     }

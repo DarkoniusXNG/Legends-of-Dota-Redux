@@ -16,7 +16,8 @@
         "AbilityCastPoint"              "0.3"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
         "AbilityProcsMagicStick"        "1"
-        "ReduxPerks"                                                           "explosive"
+
+        "ReduxPerks"					"explosive | scientific"
 
         "precache"
         {
@@ -91,9 +92,11 @@
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
         "AbilityCooldown"               "0"
         "AbilityManaCost"               "0"
-        "AbilityCastRange"              "1600 2000 2400"
+        "AbilityCastRange"              "1000 1500 2000"
         "AbilityCastPoint"              "0.0"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
+
+		"ReduxPerks"					"explosive | scientific"
 
         "AbilityValues"
         {
@@ -212,7 +215,7 @@
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
         "AbilityProcsMagicStick"        "1"
 
-        "ReduxPerks"                                                           "trap"
+        "ReduxPerks"					"trap | scientific"
 
         "precache"
         {
@@ -267,10 +270,10 @@
                 "affected_by_aoe_increase"	"1"
             }
             "transform_time"            "0.75 0.5 0.25"
-            "mortar_shot_range"         "1600 2000 2400" // important for other keen ability
+            "mortar_shot_range"         "1000 1500 2000" // same as AbilityCastRange of keen_commander_mortar_shot_siege
             "projectile_speed_bonus"    "1800"
             "attack_bonus"              "50 100 150"          // attack damage bonus
-            "attack_bonus_range"        "1500 2250 3000"
+            "attack_bonus_range"        "1000 1500 2000"
             "attack_min_range"          "300"
             "seconds_per_attack"        "2.5 2.2 1.9"   // base attack time
             "move_speed_slow"           "-100"            // mobility penalty
@@ -366,7 +369,6 @@
                     }
                 }
                 "OnAttackLanded"
-                // "%attack_damage" is set to the damage value before mitigation
                 {
                     "FireEffect"
                     {
@@ -406,7 +408,7 @@
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
 
-        "ReduxPerks"                    "attack_modifier | autocast_basic | physical"
+        "ReduxPerks"                    "attack_modifier | autocast_basic | physical | scientific"
         "ReduxFlags"                    "attack_modifier | physical"
 
         "AbilityCastRange"              "625"
@@ -427,10 +429,10 @@
                 "value"	"3"
                 "special_bonus_scepter"	"=0"
             }
-            "damage_per_second"             "24 32 40 48"
+            "damage_per_second"             "15 25 35 45"
             "duration"                      "7"
             "armor_reduction"               "-1.6 -2.4 -3.2 -4"
-            "scepter_dps_per_stack"         "10"
+            "scepter_dps_per_stack"         "15"
             "trigger_essence_aura"          "1"
         }
     }

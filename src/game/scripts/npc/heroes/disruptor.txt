@@ -8,19 +8,18 @@
 
 	"disruptor_glimpse"
 	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "enemymoving | lightning | support"
+		"ReduxPerks"                                                           "enemymoving | lightning"
 		"ReduxCost"                                                            "10"
 	}
 
 	"disruptor_kinetic_field"
 	{
-		"ReduxPerks"                                                           "lightning | skillshot"
+		"ReduxPerks"                                                           "lightning"
 	}
 
 	"disruptor_kinetic_fence"
 	{
-		"ReduxPerks"                                                           "lightning | skillshot"
+		"ReduxPerks"                                                           "lightning"
 	}
 
 	"disruptor_static_storm"

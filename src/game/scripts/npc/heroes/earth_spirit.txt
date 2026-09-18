@@ -5,8 +5,8 @@
 	//=================================================================================================================
 	"earth_spirit_boulder_smash"
 	{
-		"ReduxFlags"		"stun | doNotRandom"
-		"ReduxPerks"		"earth | skillshot | enemymoving"
+		"ReduxFlags"		"doNotRandom | support"
+		"ReduxPerks"		"earth | skillshot | enemymoving | support"
 	}
 
 	//=================================================================================================================
@@ -24,8 +24,8 @@
 	//=================================================================================================================
 	"earth_spirit_geomagnetic_grip"
 	{
-		"ReduxFlags"		"silence"
-		"ReduxPerks"		"earth | silence | skillshot"
+		"ReduxFlags"		"silence | support"
+		"ReduxPerks"		"earth | silence | skillshot | support"
 	}
 
 	//=================================================================================================================

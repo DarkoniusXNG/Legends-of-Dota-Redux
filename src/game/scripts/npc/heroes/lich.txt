@@ -51,8 +51,8 @@
 	//=================================================================================================================
 	"lich_death_charge"
 	{
-		"ReduxFlags"                                                           "doNotRandom | mana | support"
-		"ReduxPerks"                                                           "drain | ice | support | undead"
+		"ReduxFlags"                                                           "doNotRandom | mana"
+		"ReduxPerks"                                                           "drain | ice | undead"
 		//"ReduxCost"                                                            "10"
 	}
 

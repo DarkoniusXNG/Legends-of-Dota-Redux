@@ -1,0 +1,138 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	// Obsidian Destroyer: Arcane Orb
+	//=================================================================================================================
+	"obsidian_destroyer_arcane_orb"
+	{
+		"ReduxFlags"     		"attack_modifier"
+		"ReduxPerks"        	"attack_modifier | autocast_basic"
+		"ReduxCost"             "20"
+	}
+
+	"obsidian_destroyer_ominous_discernment" // old Innate
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"custom/npc_dota_hero_obsidian_destroyer_perk"
+
+		"MaxLevel"				"4"
+		"Innate"               	"0"
+
+		"ReduxFlags"         	"mana"
+
+		"AbilityValues"
+		{
+			"bonus_max_mana_per_int"
+			{
+				"value"			"2.5 3.0 3.5 4.0"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Obsidian Destroyer: Astral Imprisonment
+	//=================================================================================================================
+	"obsidian_destroyer_astral_imprisonment"
+	{
+		"ReduxFlags"			"stun | support | wtfAutoBan"
+		"ReduxPerks"           	"support"
+		"ReduxBans"         	"tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // trolling and invulnerability
+	}
+
+	//=================================================================================================================
+	// Obsidian Destroyer: Essence Aura
+	//=================================================================================================================
+	// "obsidian_destroyer_essence_aura"
+	// {
+		// "ReduxFlags"			"mana | support"
+		// "ReduxPerks"			"aura | support"
+		// "ReduxCost"				"120"
+		// "ReduxBanCategory"		"ToggleSpells"
+	// }
+
+	//=================================================================================================================
+	// Obsidian Destroyer: Equilibrium (Essence Flux)
+	//=================================================================================================================
+	"obsidian_destroyer_equilibrium"
+	{
+		"ReduxFlags"			"mana"
+		"ReduxBanCategory"  	"ToggleSpells"
+		"ReduxBans"           	"medusa_mana_shield | storm_spirit_ball_lightning"
+		"ReduxCost"          	"40"
+	}
+
+	//=================================================================================================================
+	// Obsidian Destroyer: Sanity's Eclipse
+	//=================================================================================================================
+	"obsidian_destroyer_sanity_eclipse"
+	{
+		"ReduxFlags"		"mana"
+	}
+
+	//=================================================================================================================
+	// Obsidian Destroyer: Objurgation
+	//=================================================================================================================
+	"obsidian_destroyer_objurgation"
+	{
+		"ReduxFlags" 		"mana | tank | upgradeable"
+		"ReduxCost"			"10"
+	}
+
+	// Talents
+	"special_bonus_unique_outworld_devourer"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"obsidian_destroyer_arcane_orb"
+	}
+	"special_bonus_unique_outworld_devourer_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"obsidian_destroyer_equilibrium"
+	}
+	"special_bonus_unique_outworld_devourer_4"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"         "obsidian_destroyer_astral_imprisonment"
+	}
+	"special_bonus_unique_outworld_devourer_5"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"       	"obsidian_destroyer_sanity_eclipse"
+	}
+	"special_bonus_unique_outworld_devourer_astral_castrange"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"      	"obsidian_destroyer_astral_imprisonment"
+	}
+	"special_bonus_unique_outworld_devourer_flux_restore"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"obsidian_destroyer_equilibrium"
+	}
+	"special_bonus_unique_outworld_devourer_barrier"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"        	"obsidian_destroyer_objurgation"
+	}
+}

@@ -3,40 +3,42 @@
 {
 	"oracle_fortunes_end"
 	{
-		"ReduxFlags"                                                           "support | stun"
-		"ReduxPerks"                                                           "channeled  | support"
-		"ReduxCost"                                                            "10"
+		"ReduxFlags"			"support | stun"
+		"ReduxPerks"			"channeled  | support"
+		"ReduxCost"				"10"
 	}
 
 	"oracle_fates_edict"
 	{
-		"ReduxFlags"                                                           "support | disarm_break"
-		"ReduxPerks"                                                           "support"
-		//"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // trolling
+		"ReduxFlags"			"support | disarm_break"
+		"ReduxPerks"			"support"
+		//"ReduxBans"			"tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // trolling
 	}
 
 	"oracle_purifying_flames"
 	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | fire"
+		"ReduxFlags"			"support"
+		"ReduxPerks"			"support | fire"
 	}
 
 	"oracle_false_promise"
 	{
-		"ReduxFlags"                                                           "support | upgradeable | wtfAutoBan"
-		"ReduxPerks"                                                           "support"
-		"ReduxBans"                                                            "tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // invulnerability
-		"ReduxCost"                                                            "30"
+		"ReduxFlags"			"support | wtfAutoBan"
+		"ReduxPerks"			"support"
+		"ReduxBans"				"tinker_rearm | dazzle_bad_juju_redux | arc_warden_tempest_double | meepo_divided_we_stand" // invulnerability
+		"ReduxCost"				"30"
 	}
 
 	"oracle_rain_of_destiny"
 	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | water"
+		"ReduxFlags"			"support"
+		"ReduxPerks"			"support | water"
 
 		"MaxLevel"                      "4"
+
 		"AbilityCooldown"               "40 35 30 25"
 		"AbilityManaCost"               "150"
+
 		"AbilityValues"
 		{
 			"radius"
@@ -51,7 +53,7 @@
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"tick_rate"             "1.0"
-			"heal_amp"              "20 25 30 35"
+			"heal_amp"              "15 20 25 30"
 		}
 	}
 
@@ -79,8 +81,8 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "custom/npc_dota_hero_oracle_perk"
 
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support"
+		"ReduxFlags"               		"support"
+		"ReduxPerks"                 	"support"
 
 		"MaxLevel"						"4"
 
@@ -97,17 +99,47 @@
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
-		"ReduxFlags"                                                           "doNotRandom | support"
-		"ReduxPerks"                                                           "support"
+		"ReduxFlags"					"doNotRandom | support"
+		"ReduxPerks"					"support"
 	}
 
+	//=================================================================================================================
+	// Oracle: Diviner's Deck
+	//=================================================================================================================
+	"oracle_diviners_deck"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"MaxLevel"						"1"
+		
+		"ReduxFlags"					"doNotRandom | upgradeable"
+
+		"AbilityValues"
+		{
+			"enabled"
+			{
+				"value"							"1"
+				// "special_bonus_scepter"			"+1"
+			}
+
+			"duration"				"90"
+			"spell_amplification"	"40"
+			"gold_bonus_pct"		"100"
+			"int_bonus_pct"			"150"
+			"heal_amplification"	"40"
+			"barrier_amount"		"400"
+			"barrier_restore_time"	"7.0"
+		}
+	}
+
+    // Talents
 	"special_bonus_unique_oracle"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "oracle_false_promise"
+		"TalentRequiredAbility"			"oracle_false_promise"
 	}
 	"special_bonus_unique_oracle_2"
 	{
@@ -115,7 +147,15 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "oracle_fortunes_end"
+		"TalentRequiredAbility"			"oracle_fortunes_end"
+	}
+	"special_bonus_unique_oracle_3"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"			"oracle_fortunes_end"
 	}
 	"special_bonus_unique_oracle_5"
 	{
@@ -123,7 +163,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "oracle_purifying_flames"
+		"TalentRequiredAbility"			"oracle_purifying_flames"
 	}
 	"special_bonus_unique_oracle_6"
 	{
@@ -131,7 +171,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "oracle_false_promise"
+		"TalentRequiredAbility"			"oracle_false_promise"
 	}
 	"special_bonus_unique_oracle_7"
 	{
@@ -139,7 +179,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "oracle_fortunes_end"
+		"TalentRequiredAbility"			"oracle_fortunes_end"
 	}
 	"special_bonus_unique_oracle_8"
 	{
@@ -147,7 +187,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "oracle_purifying_flames"
+		"TalentRequiredAbility"			"oracle_purifying_flames"
 	}
 	"special_bonus_unique_oracle_9"
 	{
@@ -155,14 +195,6 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"                                                   "oracle_false_promise"
-	}
-	"special_bonus_unique_oracle_damage_per_purge"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "oracle_fortunes_end"
+		"TalentRequiredAbility"			"oracle_false_promise"
 	}
 }

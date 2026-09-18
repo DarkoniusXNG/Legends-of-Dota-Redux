@@ -100,7 +100,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"        	"monkey_king_tree_dance"
+		"TalentRequiredAbility"        	"monkey_king_jingu_mastery"
 	}
 	"special_bonus_unique_monkey_king_6"
 	{

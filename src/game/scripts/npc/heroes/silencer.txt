@@ -4,7 +4,7 @@
 	"silencer_curse_of_the_silent"
 	{
 		"ReduxFlags"                                                           "wtfAutoBan"
-		"ReduxPerks"                                                           "skillshot"
+		// "ReduxPerks"                                                           "skillshot"
 	}
 
 	"silencer_glaives_of_wisdom"

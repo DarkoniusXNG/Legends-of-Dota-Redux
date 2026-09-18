@@ -6,7 +6,7 @@
 	//=================================================================================================================
 	"batrider_sticky_napalm"
 	{
-		"ReduxPerks"                    "fire"
+		"ReduxPerks"                    "fire | scientific"
 		"ReduxCost"                     "50"
 	}
 
@@ -32,7 +32,7 @@
 		"MaxLevel"                                                             "4"
 
 		"ReduxFlags"                                                           "doNotRandom | mobility"
-		"ReduxPerks"                                                           "enemymoving | mobility"
+		"ReduxPerks"                                                           "enemymoving | mobility | scientific"
 
 		"AbilityValues"
 		{

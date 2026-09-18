@@ -8,8 +8,8 @@
 
 	"zuus_lightning_bolt"
 	{
-		"ReduxFlags"                                                           "stun | support"
-		"ReduxPerks"                                                           "lightning | support"
+		"ReduxFlags"                                                           "stun"
+		"ReduxPerks"                                                           "lightning"
 	}
 
 	"zuus_heavenly_jump"
