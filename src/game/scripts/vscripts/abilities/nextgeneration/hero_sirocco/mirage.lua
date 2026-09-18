@@ -2,61 +2,42 @@ function mirage( keys )
   local caster = keys.caster
   local ability = keys.ability
   local target = keys.target
-  local unit_name = caster:GetUnitName()
+
   local duration = ability:GetLevelSpecialValueFor("duration", ability:GetLevel()-1)
   local outgoingDamage = ability:GetLevelSpecialValueFor("illusion_dealt", ability:GetLevel()-1)
   local incomingDamage = ability:GetLevelSpecialValueFor("illusion_taken", ability:GetLevel()-1)
+
+  local padding = caster:GetHullRadius()
   local position = caster:GetAbsOrigin()
-  local modifier_illusion_destroy = keys.modifier_illusion_destroy
+  local forwardVec = caster:GetForwardVector()
 
-  local HPMax = caster:GetMaxHealth()
-  local HPCur = caster:GetHealth()
-  local Mana = caster:GetMana()
+  local illu_table = {
+    outgoing_damage = outgoingDamage - 100,
+    incoming_damage = incomingDamage,
+    bounty_base = 0,
+    bounty_growth = 0,
+    outgoing_damage_structure = outgoingDamage - 100,
+    outgoing_damage_roshan = outgoingDamage - 100,
+    duration = duration,
+  }
 
-  local illusion = CreateUnitByName(unit_name, position, true, caster, nil, caster:GetTeamNumber())
-  illusion:SetPlayerID(caster:GetPlayerID())
-  illusion:SetOwner(caster)
+  -- Create an illusion of the caster where the caster is
+  local illusion = CreateIllusions(caster, caster, illu_table, 1, padding, false, false)[1]
+  FindClearSpaceForUnit(illusion, position, false)
 
-  local casterLevel = caster:GetLevel()
-  for i=1,casterLevel-1 do
-   illusion:HeroLevelUp(false)
-  end
+  -- Make the illusion face the same way as the caster
+  illusion:SetForwardVector(forwardVec)
 
-  illusion:SetAbilityPoints(0)
-  for abilitySlot = 0, caster:GetAbilityCount() - 1 do
-    local ability = caster:GetAbilityByIndex(abilitySlot)
-    if ability ~= nil then 
-      local abilityLevel = ability:GetLevel()
-      local abilityName = ability:GetAbilityName()
-      local illusionAbility = illusion:FindAbilityByName(abilityName)
-      if illusionAbility then
-        illusionAbility:SetLevel(abilityLevel)
-      end
-    end
-  end
+  -- Order the illusion to attack-move
+  local order = {
+    UnitIndex = illusion:entindex(),
+    OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+    --TargetIndex = target:entindex(),
+    Position = position,
+  }
 
-  for itemSlot=0,5 do
-    local item = caster:GetItemInSlot(itemSlot)
-    if item ~= nil then
-      local itemName = item:GetName()
-      local newItem = CreateItem(itemName, illusion, illusion)
-      illusion:AddItem(newItem)
-    end
-  end
+  ExecuteOrderFromTable(order)
 
-  illusion:SetPlayerID(caster:GetPlayerID())
-  illusion:SetControllableByPlayer(caster:GetPlayerID(), true)
-
+  -- Disjoint projectiles on caster
   ProjectileManager:ProjectileDodge(caster)
-
-  illusion:SetMaxHealth(HPMax)
-  illusion:SetHealth(HPCur)
-  illusion:SetMana(Mana)
-  illusion:MoveToTargetToAttack(target)
-
-  illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, outgoing_damage = outgoingDamage, incoming_damage = incomingDamage })
-
-  illusion:MakeIllusion()
-
-  
 end

@@ -49,7 +49,7 @@
 	{
 		"ReduxPerks"                                                           "fire"
 		"ReduxBans"                                                            "batrider_sticky_napalm"
-		"ReduxCost"                                                            "40" // works with all magic spell dmg
+		"ReduxCost"                                                            "50" // works with all magic spell dmg
 	}
 
 	//=================================================================================================================
