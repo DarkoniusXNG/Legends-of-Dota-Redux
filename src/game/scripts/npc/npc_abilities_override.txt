@@ -116,8 +116,6 @@
 		"ReduxPerks"                                                           "water"
 	}
 
-	
-
 	"spirit_breaker_bull_rush"
 	{
 		"ReduxFlags"                                                           "mobility"
@@ -142,11 +140,11 @@
 	{
 		"ReduxFlags"                                                           "mobility"
 		"ReduxPerks"                                                           "mobility"
-		"ReduxCost"                                                            "100"
+		"ReduxCost"                                                            "40"
 
 		"MaxLevel"		"4"
 
-		"AbilityCooldown"				"30"
+		"AbilityCooldown"				"30 26 22 18"
 
 		"AbilityValues"
 		{
@@ -174,21 +172,24 @@
 
 	"tusk_drinking_buddies"
 	{
-		"ReduxFlags"					"mobility | support | physical"
-		"ReduxPerks"					"mobility | support | physical"
+		"ReduxFlags"					"mobility | support"
+		"ReduxPerks"					"mobility | support"
+
 		"MaxLevel"						"4"
-		"AbilityManaCost"				"80"
+
 		"AbilityCooldown"				"14 13 12 11"
+		"AbilityManaCost"				"80"
+
 		"AbilityValues"
 		{
 			"AbilityCastRange"			"1000"
 			"alt_cast_castrange_pct"	"50"
-			"buff_duration"				
+			"buff_duration"
 			{
 				"value"								"6.0"
 			}
 			"pull_duration"				"0.2"
-	
+
 			"min_distance"				"250"
 			"max_distance"				"1300"
 
@@ -197,7 +198,6 @@
 			{
 				"value"					"7 10 13 16"
 			}
-
 		}
 	}
 
@@ -248,7 +248,9 @@
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE" // requires Enrage
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_ursa_perk"
+
 		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"debuff_amp"				"15 22 29 36"
@@ -270,8 +272,9 @@
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_shadow_demon_perk"
 
-		"MaxLevel"						"4"
-		"Innate"						"0"
+		"MaxLevel"                                                             "4"
+
+		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "doNotRandom | illusion"
 		"ReduxPerks"                                                           "illusion"
@@ -299,6 +302,7 @@
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_queenofpain_perk"
 
 		"MaxLevel"                                                             "4"
+
 		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "tank"
@@ -320,6 +324,7 @@
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_queenofpain_perk"
 
 		"MaxLevel"                                                             "4"
+
 		"Innate"                                                               "0"
 
 		"ReduxPerks"                                                           "self_damage"
@@ -391,21 +396,27 @@
 		{
 			"bonus_range"			"350" // do not change this
 			"base_attack_time"		"1.4 1.35 1.3 1.25"
+			"armor_per_interval"	"1.0"
+			"attack_speed_interval"	"30"
+			"armor_bonus_tooltip"
+			{
+				"dynamic_value"				"true"
+			}
 		}
 	}
 
 	"granite_golem_bash"
 	{
-		"ReduxFlags"                                                           "attack_modifier | bash | stun"
+		"ReduxFlags"                                                           "attack_modifier | bash | stun | doNotRandom"
 		"ReduxPerks"                                                           "attack_modifier | bash | neutral"
 
-		"MaxLevel"						"4"
+		"MaxLevel"                                                             "4"
 
 		"AbilityValues"
 		{
 			"bash_chance"
 			{
-				"value" "10 14 18 22"
+				"value" "7 10 13 16" // low chance and poor scaling because bashes usually have ReduxCost 120 and this one is an exception
 			}
 			"bonus_damage"
 			{
@@ -469,9 +480,7 @@
 		}
 	}
 
-	
-
-	"tusk_bitter_chill"
+	"tusk_bitter_chill" // current innate
 	{
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
@@ -563,6 +572,7 @@
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_visage_perk"
 
 		"MaxLevel"                                                             "4"
+
 		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "cooldown"
@@ -586,8 +596,6 @@
 		"ReduxPerks"                                                           "undead"
 	}
 
-
-
 	"undying_ceaseless_dirge"
 	{
 		"ReduxPerks"                                                           "undead"
@@ -602,11 +610,14 @@
 	{
 		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                                   "custom/npc_dota_hero_clinkz_perk"
-		"MaxLevel"						"4"
+
+		"MaxLevel"                                                             "4"
+
 		"Innate"                                                               "0"
 
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "undead"
+
 		"AbilityValues"
 		{
 			"skeleton_duration"
@@ -640,22 +651,24 @@
 
 	"clinkz_tar_bomb"
 	{
+		"ReduxFlags"                    "physical"
 		"ReduxPerks"                    "fire | attack_modifier | autocast_basic | physical"
+
 		"AbilityCastRange"				"1000"
 		"AbilityCooldown"				"6 5 4 3"
 		"AbilityManaCost"				"40 45 55 60"
+
 		"AbilityValues"
 		{
-
 			"radius"
 			{
-				"value"		"350"
+				"value"		"325"
 				"affected_by_aoe_increase"	"1"
 			}
 			"projectile_speed"					"2000"
 			"damage_bonus"
 			{
-				"value"					"30 40 50 60"
+				"value"					"20 35 50 65"
 			}
 			"ground_duration"				"5"
 			"slow_movement_speed"			"-20 -25 -30 -35"
@@ -692,6 +705,7 @@
 			"bonus_health_regen"					"3 5 7 9"
 			"radius"								"700 800 900 1000"
 			"bonus_gold"							"10"
+			"bonus_xp"								"3"
 			"bonus_magic_resistance_per_interval"	"4"
 			"maximum_intervals"						"15"
 			"total_magic_resistance"
@@ -711,8 +725,13 @@
 
 		"AbilityValues"
 		{
-			"aura_radius"			"1000"
+			"aura_radius"
+			{
+				"value"		"1000"
+				"affected_by_aoe_increase"	"1"
+			}
 			"aura_damage"			"60 75 90 105"
+			"aura_damage_per_upgrade"	"2"
 			"aura_interval"			"0.2"
 			"attack_timer_duration"		"10"
 		}
@@ -724,12 +743,17 @@
 		"ReduxPerks"                    "neutral | rage"
 
 		"MaxLevel"						"4"
+
 		"AbilityManaCost"				"0"
 		"AbilityCooldown"				"28 26 24 22"
 
 		"AbilityValues"
 		{
-			"radius"			"600"
+			"radius"
+			{
+				"value"		"600"
+				"affected_by_aoe_increase"	"1"
+			}
 			"damage"			"50 100 150 200"
 			"damage_pct"		"25"
 			"duration"          "12"
@@ -745,10 +769,11 @@
 		"ReduxPerks"					"channeled | fire | skillshot"
 
 		"MaxLevel"						"4"
-		"AbilityCastPoint"				"0.2"
+
 		"AbilityChannelTime"			"2.0"
 		"AbilityCooldown"				"17 16 15 14"
 		"AbilityManaCost"				"40"
+
 		"AbilityValues"
 		{
 			"wave_count"			"6"
@@ -760,7 +785,6 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"archers_use_barrage"		"0"
-
 		}
 	}
 
@@ -773,8 +797,18 @@
 
 		"AbilityValues"
 		{
-			"passive_reflection_pct"			"50 60 70 80"
-			"passive_reflection_bonus_per_interval"		"2"
+			"passive_reflection_pct"					"30 40 50 60"
+			"passive_reflection_bonus_per_interval"		"1.5"
+			"passive_reflection_base"					"0"
+			"passive_reflection_base_per_interval"		"0"
+			"radius"
+			{
+				"value"		"1200"
+				"affected_by_aoe_increase"	"1"
+			}
+			"speed"							"700"
+			"wave_interval"					"1.0"
+			"preview_duration"				"0.8"
 		}
 	}
 
@@ -787,10 +821,11 @@
 
 		"AbilityValues"
 		{
-			"damage_absorb"		"500 1000 1500 2000"
-			"absorb_bonus_per_interval"	"20"
-			"regen_per_second"	"40 50 60 70"
-			"regen_bonus_per_interval"	"3.5"
+			"damage_absorb"                                                    "500 1000 1500 2000" // nerfed intentionally
+			"absorb_bonus_per_interval"                                        "50"
+			"regen_per_second"                                                 "20 30 40 50"
+			"regen_bonus_per_interval"                                         "5"
+			"status_resistance"                                                "25 26 27 28"
 		}
 	}
 
@@ -800,7 +835,8 @@
 		"ReduxPerks"                                                           "neutral"
 		"ReduxCost"                                                            "120"
 
-		"MaxLevel"		"4"
+		"MaxLevel"                      "4"
+
 		"AbilityCooldown"				"60 50 40 30"
 		"AbilityValues"
 		{
@@ -816,10 +852,11 @@
 		"ReduxPerks"                    "water"
 
 		"MaxLevel"						"4"
+
 		"AbilityCastRange"				"1100"
-		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"9"
 		"AbilityManaCost"				"50"
+
 		"AbilityValues"
 		{
 			"slow_duration"
@@ -889,7 +926,9 @@
 		"ReduxPerks"                                                           "attack_modifier | physical | neutral | autocast_basic"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityCooldown"				"15 12 9 6"
+
 		"AbilityValues"
 		{
 			"duration"
@@ -916,7 +955,9 @@
 		"ReduxPerks"                                                           "dragon | fire | neutral"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityCooldown"													   "15 14 13 12"
+
 		"AbilityValues"
 		{
 			"radius"
@@ -936,15 +977,17 @@
 		"ReduxPerks"                                                           "support | neutral | lightning"
 
 		"MaxLevel"                                                             "4"
-		"AbilityManaCost"                                                      "120 60 30 0"
-		"AbilityCastRange"													   "350 500 650 800"
+
+		"AbilityManaCost"                                                      "120 110 100 90" // buffed
+		"AbilityCastRange"													   "350 450 550 650" // buffed
+
 		"AbilityValues"
 		{
 			"purge_rate"
 			{
 				"value" "5"
 			}
-			"duration"
+			"duration" // slow duration, cd is 3s
 			{
 				"value" "5 6 7 8"
 			}
@@ -962,6 +1005,7 @@
 		"ReduxCost"                                                            "120"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityCooldown"               "15.0 12.0 9.0 6.0"
 	}
 
@@ -972,6 +1016,7 @@
 		"ReduxCost"                                                            "120"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityValues"
 		{
 			"bash_chance"
@@ -995,10 +1040,12 @@
 		"ReduxPerks"                                                           "neutral | lightning"
 
 		"MaxLevel"                      "4"
+
 		"AbilityCooldown"				"18.0 13.5 9.0 4.5"		// trying to make Mana Burn viable as a "Hero" ability, not creep
+
 		"AbilityValues"
 		{
-			"burn_amount"			"20 40 60 80"
+			"burn_amount"			"20 40 60 80" // buffed
 			"int_multiplier"		"1 1.5 2 2.5"
 		}
 	}
@@ -1008,8 +1055,10 @@
 		"ReduxPerks"                                                           "neutral | lightning"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityDamage"                                                        "150 200 250 350"
-		"AbilityCooldown"				"12.0 11.0 10.0 9.0"
+		"AbilityCooldown"                                                      "12 11 10 9"
+
 		"AbilityValues"
 		{
 			"radius"
@@ -1029,7 +1078,9 @@
 		"ReduxPerks"                                                           "support | neutral | rage"
 
 		"MaxLevel"						"4"
+
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"AbilityValues"
 		{
 			"bonus_aspd"
@@ -1054,7 +1105,9 @@
 		"ReduxPerks"                                                           "support | neutral | rage"
 
 		"MaxLevel"						"4"
+
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"AbilityValues"
 		{
 			"bonus_dmg_pct"
@@ -1079,8 +1132,10 @@
 		"ReduxPerks"                                                           "neutral | earth"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityCooldown"                                                      "12 11 10 9"
 		"AbilityDamage"														   "50 100 175 250"
+
 		"AbilityValues"
 		{
 			"radius"
@@ -1099,6 +1154,7 @@
 		"ReduxPerks"                                                           "attack_modifier | neutral | poison"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityValues"
 		{
 			"damage_per_second"
@@ -1125,7 +1181,9 @@
 		"ReduxPerks"                                                           "neutral | earth"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityCooldown"                                                      "10 9 8 7"
+
 		"AbilityValues"
 		{
 			"radius"
@@ -1133,13 +1191,9 @@
 				"value" "350"
 				"affected_by_aoe_increase"	"1"
 			}
-			"slow_duration_hero"
+			"slow_duration"
 			{
 				"value" "4 4.25 4.5 4.75"
-			}
-			"slow_duration_unit"
-			{
-				"value" "8 8.5 9 9.5"
 			}
 			"slow_amount"
 			{
@@ -1153,6 +1207,10 @@
 			{
 				"value" "10 15 20 25"
 			}
+			"damage_bonus_creeps"
+			{
+				"value"	"100"
+			}
 		}
 	}
 
@@ -1162,7 +1220,9 @@
 		"ReduxPerks"	"neutral | support | aura"
 
 		"MaxLevel"                      "4"
+
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
 		"AbilityValues"
 		{
 			"bonus_magical_armor"
@@ -1187,6 +1247,7 @@
 		"ReduxPerks"                                                           "attack_modifier | poison"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityValues"
 		{
 			"movement_speed"		"-6 -9 -12 -15"
@@ -1201,13 +1262,14 @@
 		"ReduxPerks"	"neutral | support | aura"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityValues"
 		{
 			"speed_bonus"
 			{
 				"value" "25 28 31 34"
 			}
-			"accuracy"
+			"accuracy" // buffed
 			{
 				"value" "40 45 50 55"
 			}
@@ -1225,11 +1287,12 @@
 		"ReduxPerks"                                                           "support | neutral | aura"
 
 		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"mana_regen"
 			{
-				"value" "1.75 4.5 7.0 9.5"
+				"value" "1.75 4.5 7.0 9.5" // buffed
 			}
 			"radius"
 			{
@@ -1249,10 +1312,12 @@
 		"ReduxPerks"                    "support | neutral"
 
 		"MaxLevel"						"4"
+
 		"AbilityCastRange"				"350 450 550 650"
 		"AbilityCastPoint"				"0.5"
 		"AbilityCooldown"				"10 8 6 4"
 		"AbilityManaCost"				"60"
+
 		"AbilityValues"
 		{
 			"health"
@@ -1268,6 +1333,7 @@
 		"ReduxPerks"                                                           "support | neutral | aura"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityValues"
 		{
 			"health_regen"
@@ -1287,9 +1353,11 @@
 		"ReduxPerks"                                                           "neutral | skillshot"
 
 		"MaxLevel"                                                             "4"
-		"AbilityCastRange"                                                     "1380 1680 1980 2280"
+
+		"AbilityCastRange"                                                     "1760" // radius_start + radius_end + distance
 		"AbilityDamage"                                                        "150 200 250 300"
 		"AbilityManaCost"                                                      "100"
+
 		"AbilityValues"
 		{
 			"speed"					"900"
@@ -1300,20 +1368,22 @@
 			}
 			"radius_end"
 			{
-				"value"								"200 275 350 425"
+				"value"								"200"
 				"affected_by_aoe_increase"			"1"
 			}
-			"distance"				"1380 1680 1980 2280"
+			"distance"				"1380"
 		}
 	}
 
-	"enraged_wildkin_tornado"
+	"enraged_wildkin_tornado" // dmg of this ability is defined in tornado_tempest
 	{
 		"ReduxFlags"                                                           "doNotRandom"
 		"ReduxPerks"                                                           "neutral | channeled | nature"
 
 		"MaxLevel"						"4"
-		"AbilityCastRange"				"500 900 1300 1700"
+
+		"AbilityCastRange"				"500 900 1300 1700" // buffed
+		"AbilityCooldown"				"32 30 28 26" // buffed
 	}
 
 	"enraged_wildkin_hurricane"
@@ -1322,10 +1392,12 @@
 		"ReduxPerks"	"neutral | enemymoving | support | nature"
 
 		"MaxLevel"						"4"
+
 		"AbilityCastRange"				"400 600 800 1000"
 		"AbilityCastPoint"				"0"
 		"AbilityCooldown"				"30.0 23.0 16.0 9.0"
 		"AbilityManaCost"				"100 90 80 70"
+
 		"AbilityValues"
 		{
 			"distance"
@@ -1340,6 +1412,7 @@
 		"ReduxPerks"	"aura | neutral" // not support because it affects enemies
 
 		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"armor_reduction"	"3 4 5 6"
@@ -1356,6 +1429,7 @@
 		"ReduxPerks"	"aura | dragon | neutral" // not support because it affects enemies
 
 		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"spell_amp"			"5 10 15 20"
@@ -1373,6 +1447,7 @@
 		"ReduxPerks"	"support | aura | neutral"
 
 		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"bonus_cdr"			"10 14 18 22"
@@ -1390,6 +1465,7 @@
 		"ReduxPerks"	                "attack_modifier | neutral"
 
 		"MaxLevel"						"4"
+
 		"AbilityCooldown"				"9 7 5 3"
 	}
 
@@ -1399,7 +1475,9 @@
 		"ReduxPerks"	        "attack_modifier | neutral"
 
 		"MaxLevel"				"4"
+
 		"AbilityCooldown"		"10 9 8 6"
+
 		"AbilityValues"
 		{
 			"duration"
@@ -1415,9 +1493,11 @@
 		"ReduxPerks"	"neutral | mobility"
 
 		"MaxLevel"						"4"
+
 		"AbilityCastPoint"				"1.5 1.0 0.5 0.0"
 		"AbilityCooldown"				"10 9 8 7"
 		"AbilityManaCost"				"20"
+
 		"AbilityValues"
 		{
 			"move_speed_penalty"
@@ -1434,9 +1514,10 @@
 	"kobold_tunneler_prospecting"
 	{
 		"ReduxFlags"		"support"
-		"ReduxPerks"		"support | aura | neutral"
+		"ReduxPerks"		"support | aura | neutral | gold"
 
 		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"gpm_aura"
@@ -1457,6 +1538,7 @@
 		"ReduxPerks"	"support | aura | neutral"
 
 		"MaxLevel"				"4"
+
 		"AbilityValues"
 		{
 			"heal_amp"
@@ -1477,9 +1559,11 @@
 		"ReduxPerks"                                                           "silence | neutral | undead"
 
 		"MaxLevel"				"4"
+
 		"AbilityCastRange"		"600 700 800 900"
 		"AbilityCooldown"		"15 13 11 7"
 		"AbilityManaCost"		"75"
+
 		"AbilityValues"
 		{
 			"projectile_speed"	"500 600 700 800"
@@ -1493,6 +1577,7 @@
 		"ReduxPerks"		"support | aura | neutral | undead"
 
 		"MaxLevel"				"4"
+
 		"AbilityValues"
 		{
 			"radius"
@@ -1512,9 +1597,11 @@
 		"ReduxPerks"		"neutral | rage"
 
 		"MaxLevel"						"4"
+
 		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"16.0 15.0 14.0 13.0"
 		"AbilityManaCost"				"50"
+
 		"AbilityValues"
 		{
 			"radius"
@@ -1533,9 +1620,11 @@
 		"ReduxPerks"		"neutral | skillshot | channeled"
 
 		"MaxLevel"						"4"
+
 		"AbilityCastPoint"				"2.8 2.1 1.4 0.7"
 		"AbilityCooldown"				"12.0 11.0 10.0 9.0"
 		"AbilityManaCost"				"0"
+
 		"AbilityValues"
 		{
 			"radius"
@@ -1554,10 +1643,12 @@
 		"ReduxPerks"                                                           "neutral | nature"
 
 		"MaxLevel"						"4"
+
 		"AbilityCooldown"				"15 14 13 12"
 		"AbilityCastRange"				"575 625 675 725"
 		"AbilityCastPoint"				"0.2"
 		"AbilityManaCost"				"100 110 120 130"
+
 		"AbilityValues"
 		{
 			"damage"		"100 150 200 250"
@@ -1571,10 +1662,11 @@
 
 	"kobold_taskmaster_speed_aura"
 	{
-		"ReduxFlags"                                                           "support"
-		"ReduxPerks"                                                           "support | neutral | aura"
+		"ReduxFlags"                                                           "mobility | support"
+		"ReduxPerks"                                                           "mobility | support | neutral | aura"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityValues"
 		{
 			"bonus_movement_speed"
@@ -1595,6 +1687,7 @@
 		"ReduxPerks"                                                           "earth | support | neutral | aura"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityValues"
 		{
 			"bonus_hp"
@@ -1615,9 +1708,11 @@
 		"ReduxCost"                                                            "40"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityCastRange"				"700 725 750 800"
 		"AbilityCooldown"				"30 25 20 15"
 		"AbilityManaCost"				"100 95 90 80"
+
 		"AbilityValues"
 		{
 			"duration"				"8"
@@ -1628,10 +1723,11 @@
 
 	"enraged_wildkin_toughness_aura"
 	{
-		"ReduxFlags"                                                           "support"
+		"ReduxFlags"                                                           "support | tank"
 		"ReduxPerks"                                                           "support | neutral | aura"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityValues"
 		{
 			"bonus_armor"
@@ -1684,9 +1780,11 @@
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain and lag
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityCastPoint"                                                     "0.3"
 		"AbilityCooldown"                                                      "20.0 16.0 12.0 8.0"
 		"AbilityManaCost"                                                      "50"
+
 		"AbilityValues"
 		{
 			"duration"				"35.0"
@@ -1702,9 +1800,11 @@
 		"ReduxPerks"                                                           "neutral"
 
 		"MaxLevel"                     	"4"
+
 		"AbilityCastRange"				"550 625 700 825"
 		"AbilityCooldown"				"15.0 14.0 13.0 12.0"
 		"AbilityManaCost"               "75"
+
 		"AbilityValues"
 		{
 			"duration"
@@ -1720,10 +1820,11 @@
 
 	"blue_dragonspawn_overseer_devotion_aura"
 	{
-		"ReduxFlags"                                                           "support"
+		"ReduxFlags"                                                           "support | tank"
 		"ReduxPerks"                                                           "aura | dragon | neutral | support"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityValues"
 		{
 			"bonus_armor"
@@ -1744,6 +1845,7 @@
 		"ReduxPerks"                                                           "support | neutral | aura"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityValues"
 		{
 			"bonus_attack_speed"
@@ -1763,7 +1865,9 @@
 		"ReduxPerks"                                                           "neutral | lightning"
 
 		"MaxLevel"                      "4"
+
 		"AbilityManaCost"				"60 70 80 90"
+
 		"AbilityValues"
 		{
 			"initial_damage"
@@ -1791,10 +1895,11 @@
 
 	"black_dragon_dragonhide_aura"
 	{
-		"ReduxFlags"                                                           "support"
+		"ReduxFlags"                                                           "support | tank"
 		"ReduxPerks"                                                           "aura | dragon | neutral | support"
 
 		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"bonus_armor"
@@ -1815,7 +1920,9 @@
 		"ReduxPerks"                                                           "support | neutral | ice"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityTextureName"                                                   "custom/ice_armor_lod"
+
 		"AbilityValues"
 		{
 			"armor_bonus"
@@ -1847,6 +1954,7 @@
 		"ReduxPerks"                                                           "support | neutral | rage"
 
 		"MaxLevel"                      "4"
+
 		"AbilityValues"
 		{
 			"attackspeed_bonus"
@@ -1867,6 +1975,7 @@
 		"ReduxCost"                                                            "20"
 
 		"MaxLevel"                      "4"
+
 		"AbilityValues"
 		{
 			"bonus_damage_pct"	"20 25 30 35"
@@ -1885,6 +1994,7 @@
 		"ReduxCost"			"10"
 
 		"MaxLevel"			"4"
+
 		"AbilityValues"
 		{
 			"lifesteal"
@@ -1910,6 +2020,7 @@
 		"ReduxCost"                                                            "80"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityValues"
 		{
 			"range"
@@ -1924,9 +2035,10 @@
 	"ghost_frost_attack"
 	{
 		"ReduxFlags"                                                           "attack_modifier"
-		"ReduxPerks"                                                           "neutral | attack_modifier | ice | undead"
+		"ReduxPerks"                                                           "attack_modifier | ice | neutral | undead"
 
 		"MaxLevel"                                                             "4"
+
 		"AbilityValues"
 		{
 			"movespeed_slow"
@@ -1946,14 +2058,30 @@
 
 	"giant_wolf_critical_strike"
 	{
-		"ReduxFlags"                                                           "crit | attack_modifier | doNotRandom"
-		"ReduxPerks"                                                           "neutral | attack_modifier"
+		"ReduxFlags"                                                           "attack_modifier | crit | doNotRandom"
+		"ReduxPerks"                                                           "attack_modifier | neutral"
+
+		"MaxLevel"                                                             "1"
+
+		"AbilityValues"
+		{
+			"crit_chance"
+			{
+				"value" "20" // putting more values does not work
+			}
+			"crit_mult"
+			{
+				"value" "200"
+			}
+		}
 	}
 
 	"alpha_wolf_critical_strike"
 	{
-		"ReduxFlags"                                                           "crit | attack_modifier | doNotRandom"
-		"ReduxPerks"                                                           "neutral | attack_modifier"
+		"ReduxFlags"                                                           "attack_modifier | crit | doNotRandom"
+		"ReduxPerks"                                                           "attack_modifier | neutral"
+
+		"MaxLevel"                                                             "4"
 	}
 
 	"spawnlord_master_stomp"
@@ -1962,8 +2090,10 @@
 		"ReduxPerks"                    "neutral | physical | earth"
 
 		"MaxLevel"      				"4"
+
 		"AbilityCastPoint"				"0.4 0.3 0.2 0.1"
 		"AbilityCooldown"				"12.0 11.0 10.0 9.0"
+
 		"AbilityValues"
 		{
 			"radius"
@@ -1991,8 +2121,10 @@
 		"ReduxFlags"                                                           "stun"
 		"ReduxPerks"                                                           "neutral | earth"
 
-		"MaxLevel"  "4"
+		"MaxLevel"                                                             "4"
+
 		"AbilityCooldown"				"30 24 18 12"
+
 		"AbilityValues"
 		{
 			"damage"					"75 150 225 300"
@@ -2007,7 +2139,9 @@
 		"ReduxPerks"                                                           "neutral | earth"
 
 		"MaxLevel"						"4"
+
 		"AbilityDamage"					"250 280 310 340"
+
 		"AbilityValues"
 		{
 			"radius"
@@ -2028,6 +2162,7 @@
 		"ReduxPerks"                                                           "dragon | neutral"
 
 		"MaxLevel"                      "1"
+
 		"AbilityValues"
 		{
 			"evasion_chance_pct"
@@ -2043,6 +2178,7 @@
 		"ReduxPerks"                                                           "dragon | neutral"
 
 		"MaxLevel"                      "1"
+
 		"AbilityValues"
 		{
 			"evasion_chance_pct"
@@ -2063,8 +2199,10 @@
 		"MaxLevel"                      "4"
 
 		"AbilityCastRange"				"350 400 450 500"
-		"AbilityCharges"				"3"
-		"AbilityChargeRestoreTime"		"55.0 50.0 45.0 40.0"
+		"AbilityCharges"				"2"
+		"AbilityChargeRestoreTime"		"135 100 65 30"
+		"AbilityManaCost"				"30"
+
 		"AbilityValues"
 		{
 			"vision_aoe"
@@ -2074,7 +2212,7 @@
 			}
 
 			"hits_to_kill"					"2"
-			"duration"						"300 360 420 480"
+			"duration"						"360 380 400 420"
 			"max_eyes"						"0"
 		}
 	}
@@ -2082,8 +2220,11 @@
 	"visage_summon_familiars_stone_form"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
+
 		"MaxLevel"                                                             "4"
+
 		"AbilityCooldown"                                                      "11 10 9 8"
+
 		"AbilityValues"
 		{
 			"stun_radius"
@@ -2099,7 +2240,7 @@
 		}
 
 		"ReduxFlags"                                                           "tank | stun | doNotRandom"
-		"ReduxPerks"                                                           "skillshot"
+		"ReduxPerks"                                                           "earth"
 		"ReduxCost"                                                            "120"
 	}
 
@@ -2109,6 +2250,7 @@
 		"ReduxPerks"                                                           "fire | transformation"
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // trolling and invulnerability
 	}
+
 	"puck_dream_coil"
 	{
 		"ReduxFlags"                                                           "instant_attacks | stun | upgradeable"
@@ -2131,11 +2273,13 @@
 		"ReduxFlags"                                                           "upgradeable"
 		"ReduxPerks"                                                           "demon"
 	}
+
 	"shadow_demon_demonic_cleanse"
 	{
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "demon | support"
 	}
+
 	"shadow_demon_disseminate"
 	{
 		"ReduxFlags"                                                           "support | tank"
@@ -2154,6 +2298,7 @@
 		"ReduxPerks"                                                           "drain | skillshot | undead"
 		"ReduxCost"                                                            "20"
 	}
+
 	"ursa_enrage"
 	{
 		"ReduxFlags"                                                           "upgradeable | tank | wtfAutoBan"
@@ -2371,7 +2516,7 @@
 		"ReduxPerks"                                                           "mobility"
 		"ReduxCost"                                                            "10"
 	}
-	
+
 	"slark_shadow_dance"
 	{
 		"ReduxFlags"                                                           "mobility | invis | wtfAutoBan"
@@ -2481,52 +2626,6 @@
 		"ReduxCost"                                                            "10"
 	}
 
-	// Remove cooldown reduction talents
-	"special_bonus_cooldown_reduction_8"
-	{
-		"TalentRequiredAbility"                                                   "do_not_give_talent"
-	}
-
-	"special_bonus_cooldown_reduction_10"
-	{
-		"TalentRequiredAbility"                                                   "do_not_give_talent"
-	}
-
-	"special_bonus_cooldown_reduction_12"
-	{
-		"TalentRequiredAbility"                                                   "do_not_give_talent"
-	}
-
-	"special_bonus_cooldown_reduction_15"
-	{
-		"TalentRequiredAbility"                                                   "do_not_give_talent"
-	}
-
-	"special_bonus_cooldown_reduction_20"
-	{
-		"TalentRequiredAbility"                                                   "do_not_give_talent"
-	}
-
-	"special_bonus_cooldown_reduction_25"
-	{
-		"TalentRequiredAbility"                                                   "do_not_give_talent"
-	}
-
-	"special_bonus_cooldown_reduction_30"
-	{
-		"TalentRequiredAbility"                                                   "do_not_give_talent"
-	}
-
-	"special_bonus_cooldown_reduction_40"
-	{
-		"TalentRequiredAbility"                                                   "do_not_give_talent"
-	}
-
-	"special_bonus_cooldown_reduction_50"
-	{
-		"TalentRequiredAbility"                                                   "do_not_give_talent"
-	}
-
 	"ursa_fury_swipes"
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"
@@ -2566,7 +2665,7 @@
 		"ReduxPerks"                                                           "attack_modifier | physical | autocast_basic"
 		"ReduxCost"                                                            "10"
 	}
-	
+
 	"phantom_lancer_juxtapose"
 	{
 		"ReduxFlags"                                                           "attack_modifier | upgradeable"
@@ -2581,13 +2680,12 @@
 		"ReduxCost"                                                            "20" // why people think this is bad?
 	}
 
-
-
 	"undying_tombstone_zombie_deathstrike"
 	{
-		"MaxLevel"                                                             "4"
 		"ReduxFlags"                                                           "attack_modifier | doNotRandom"
 		"ReduxPerks"                                                           "attack_modifier | undead"
+
+		"MaxLevel"                                                             "4"
 	}
 
 	"slardar_slithereen_crush"
@@ -2667,9 +2765,6 @@
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 	}
 
-
-
-
 	"phoenix_fire_spirits"
 	{
 		"ReduxPerks"                                                           "fire | self_damage | skillshot"
@@ -2727,8 +2822,6 @@
 		"ReduxPerks"                                                           "poison | skillshot | demon"
 	}
 
-	
-
 	"slark_dark_pact"
 	{
 		"ReduxPerks"                                                           "water | self_damage"
@@ -2749,9 +2842,9 @@
 		"ReduxFlags"						"doNotRandom"
 		"ReduxPerks"                        "scientific"
 	}
+
 	"shredder_whirling_death"
 	{
-		//"ReduxFlags"                                                           ""
 		"ReduxPerks"                                                           "scientific"
 		"ReduxCost"                                                            "10"
 	}
@@ -2845,7 +2938,9 @@
 	{
 		"ReduxFlags"                                                           "support"
 		"ReduxPerks"                                                           "support | aura | neutral"
+
 		"MaxLevel"						"4"
+
 		"AbilityValues"
 		{
 			"radius"
@@ -2866,7 +2961,7 @@
 	}
 	"item_bloodstone"
 	{
-		"ReduxPerks"                                                           "blood"
+		"ReduxPerks"                                                           "aura | blood"
 	}
 	"item_shivas_guard"
 	{
@@ -2890,7 +2985,7 @@
 	}
 	"item_holy_locket"
 	{
-		"ReduxPerks"                                                           "aura | support"
+		"ReduxPerks"                                                           "support"
 	}
 	"item_urn_of_shadows"
 	{
@@ -2960,6 +3055,10 @@
 	{
 		"ReduxPerks"                                                           "support"
 	}
+	"item_crellas_crozier"
+	{
+		"ReduxPerks"                                                           "aura | support"
+	}
 
 	"queenofpain_shadow_strike"
 	{
@@ -3007,39 +3106,7 @@
 	}
 	"item_wind_waker"
 	{
-		"ReduxPerks"                                                           "support"
-	}
-	"item_flask"
-	{
-		"ReduxPerks"                                                           "self_consumable"
-	}
-	"item_clarity"
-	{
-		"ReduxPerks"                                                           "self_consumable"
-	}
-	"item_enchanted_mango"
-	{
-		"ReduxPerks"                                                           "self_consumable"
-	}
-	"item_faerie_fire"
-	{
-		"ReduxPerks"                                                           "self_consumable"
-	}
-	"item_ward_observer"
-	{
-		"ReduxPerks"                                                           "limited"
-	}
-	"item_gem"
-	{
-		"ReduxPerks"                                                           "limited"
-	}
-	"item_smoke_of_deceit"
-	{
-		"ReduxPerks"                                                           "self_consumable | limited"
-	}
-	"item_infused_raindrop"
-	{
-		"ReduxPerks"                                                           "limited"
+		"ReduxPerks"                                                           "support | nature"
 	}
 
 	"ursa_overpower"
@@ -3067,11 +3134,14 @@
 	{
 		"ReduxPerks"                                                           "mobility | trap | channeled | teleport"
 		"ReduxFlags"                                                           "mobility | doNotRandom"
+
 		"MaxLevel"						"4"
+
 		"AbilityCastPoint"				"0.2"
 		"AbilityChannelTime"			"1.5 1.25 1.0 0.75"
 		"AbilityCooldown"				"10 9 8 7"
 		"AbilityManaCost"				"50"
+
 		"AbilityValues"
 		{
 			"extra_damage"						"300 350 400 450"
@@ -3124,8 +3194,10 @@
 		"ReduxPerks"                    "fire"
 
 		"MaxLevel"						"4"
+
 		"AbilityCooldown"				"20 19 18 17"
 		"AbilityManaCost"				"100"
+
 		"AbilityValues"
 		{
 			"damage_per_second"		"70 80 90 100"
@@ -3145,7 +3217,6 @@
 			"debuff_linger_duration"	"2.0"
 		}
 	}
-
 
 	"tusk_tag_team"
 	{
@@ -3167,13 +3238,15 @@
 
 	"spirit_breaker_planar_pocket"
 	{
-		"ReduxFlags"                    "support | tank | upgradeable"
+		"ReduxFlags"                    "support | tank"
 		"ReduxPerks"                    "support"
 
 		"MaxLevel"						"4"
-		"AbilityCastRange"				"900"
-		"AbilityCooldown"				"20 18 16 14"
-		"AbilityManaCost"				"75"
+
+		"AbilityCastRange"				"700 800 900 1000"
+		"AbilityCooldown"				"30 26 22 18"
+		"AbilityManaCost"				"100"
+
 		"AbilityValues"
 		{
 			"radius"
@@ -3182,7 +3255,8 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"duration"				"6 7 8 9"
-			"magic_resistance"		"75 80 85 90"
+			"magic_resistance"		"40 50 60 70"
+			"break_distance"		"900"
 		}
 	}
 
@@ -3190,6 +3264,8 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier | doNotRandom"
 		"ReduxPerks"                                                           "attack_modifier | fire"
+
+		"AbilityBehavior"                                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	}
 
 	"slark_depth_shroud"
@@ -3200,8 +3276,10 @@
 		"ReduxCost"                                                            "40"
 
 		"MaxLevel"                      "4"
+
 		"AbilityCooldown"               "75 65 55 45"
 		"AbilityManaCost"               "75"
+
 		"AbilityValues"
 		{
 			"duration"
@@ -3210,7 +3288,7 @@
 			}
 			"radius"
 			{
-				"value"			"250 300 350 400"
+				"value"			"225 275 325 375"
 				"affected_by_aoe_increase"	"1"
 			}
 		}
@@ -3222,9 +3300,11 @@
 		"ReduxPerks"                    "trap"
 
 		"MaxLevel"                      "4"
+
 		"AbilityCharges"                "2"
 		"AbilityChargeRestoreTime"      "30 25 20 15"
-		"AbilityManaCost"               "100"
+		"AbilityManaCost"               "70 75 80 85"
+
 		"AbilityValues"
 		{
 			"formation_delay"       "2.0"
@@ -3243,15 +3323,16 @@
 		}
 	}
 
-
 	"troll_warlord_rampage"
 	{
 		"ReduxFlags"                    "support | doNotRandom"
 		"ReduxPerks"                    "support | rage"
 
 		"MaxLevel"						"4"
+
 		"AbilityCooldown"				"80 60 40 20"
 		"AbilityManaCost"				"75"
+
 		"AbilityValues"
 		{
 			"attack_speed"
@@ -3274,13 +3355,15 @@
 		"ReduxPerks"					"demon | self_damage | rage"
 
 		"MaxLevel"                      "4"
-		"AbilityCooldown"               "60 55 50 45"
+
+		"AbilityCooldown"               "45 40 35 30"
 		"AbilityManaCost"               "0"
+
 		"AbilityValues"
 		{
 			"berserk_bonus_attack_speed"		"100"
-			"berserk_bonus_movement_speed"				"100"
-			"duration"		"30"
+			"berserk_bonus_movement_speed"				"60"
+			"duration"		"25"
 			"hp_regen"		"20 25 30 35"
 			"radius"
 			{
@@ -3292,7 +3375,7 @@
 				"value"					"20"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
 			}
-			"reflection_pct"			"50 75 100 125"
+			"reflection_pct"			"0 25 50 75"
 		}
 	}
 
@@ -3302,8 +3385,10 @@
 		"ReduxPerks"					"demon | enemymoving"
 
 		"MaxLevel"                      "4"
+
 		"AbilityCooldown"               "90 80 70 60"
 		"AbilityManaCost"               "75"
+
 		"AbilityValues"
 		{
 			"fear_duration"		"2.0 2.2 2.4 2.6"
@@ -3315,7 +3400,7 @@
 			"damage"			"200 250 300 350"
 			"scepter_speed"				"1000"
 			"scepter_spawn_delay"		"0.6"
-			"scepter_meta_duration"		"10 14 18 22"
+			"scepter_meta_duration"		"15 16 17 18"
 		}
 	}
 
@@ -3326,43 +3411,23 @@
 		"ReduxBans"                                                            "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // lag
 
 		"MaxLevel"						"4"
-		"AbilityCooldown"				"80 65 50 35"
+
+		"AbilityCooldown"				"70 65 60 55"
 		"AbilityManaCost"				"150"
+
 		"AbilityValues"
 		{
-			"range"			"1300"
-			"count"			"5"
-			"spawn_interval"	"0.5 0.4 0.3 0.2"
+			"range"			"900"
+			"count"			"6"
+			"spawn_interval"	"0.4 0.3 0.2 0.1"
 		}
 	}
 
-	"visage_silent_as_the_grave"
+	"visage_silent_as_the_grave" // current innate
 	{
 		"ReduxFlags"	"mobility | invis | upgradeable"
 		"ReduxPerks"	"mobility | invis | undead"
-
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"45 35 25 15"
-		"AbilityManaCost"				"115"
-		"AbilityValues"
-		{
-			"bonus_duration"
-			{
-				"value" "4 5 6 7"
-			}
-			"bonus_damage"
-			{
-				"value" "20"
-			}
-			"invis_duration"
-			{
-				"value" "30"
-			}
-			"movespeed_bonus"
-			{
-				"value" "20 25 30 35"
-			}
-		}
+		"ReduxCost"     "40"
 	}
 
 	"void_spirit_aether_remnant"
@@ -3381,6 +3446,7 @@
 		"ReduxPerks"					"enemymoving"
 
 		"MaxLevel"						"4"
+
 		"AbilityCooldown"				"40 32 24 16"
 
 		"AbilityValues"
@@ -3410,7 +3476,7 @@
 			"duration"				"2.25"
 			"jump_recover_time"		"0.25"
 			"rollup_bounce_duration"				"0.75"
-			"magic_resistance"				"60"
+			"magic_resistance"				"80"
 		}
 	}
 
@@ -4337,11 +4403,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 
-		"TalentRequiredAbility"
-		{
-			"1"		"tusk_tag_team"
-			"2"		"tusk_drinking_buddies"
-		}
+		"TalentRequiredAbility"                                                   "tusk_tag_team"
 	}
 	"special_bonus_unique_tusk_4"
 	{
@@ -4785,8 +4847,6 @@
 
 		"TalentRequiredAbility"                                                   "broodmother_spin_web"
 	}
-
-
 
 	// Void Spirit
 	"special_bonus_unique_void_spirit_1"

@@ -15,15 +15,15 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		
+
 		"AbilityTextureName"			"custom/hawkeye_detonator_dart"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"900"
 		"AbilityCastPoint"				"0.2"
-		
-		// Time		
+
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"60 50 40"
 
@@ -39,13 +39,13 @@
             "ticks" "3"
             "initial_damage" "100"
             "tick_time" "1.00"
-            "radius"				
+            "radius"
 			{
 				"value"	"600"
 				"affected_by_aoe_increase"	"1"
 			}
         }
-		
+
 		"precache"
 		{
 			"particle"  "particles/units/heroes/hero_phoenix/phoenix_supernova_reborn.vpcf"
@@ -57,6 +57,5 @@
 		}
 
 		"ReduxPerks"	"scientific | explosive"
-		// "ReduxFlags"	""
 	}
 }

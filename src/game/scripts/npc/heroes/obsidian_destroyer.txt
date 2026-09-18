@@ -10,9 +10,6 @@
 		"ReduxCost"             "20"
 	}
 
-	//=================================================================================================================
-	// Skywrath: Innate Max Mana Per Int
-	//=================================================================================================================
 	"obsidian_destroyer_ominous_discernment" // old Innate
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -31,7 +28,6 @@
 			}
 		}
 	}
-
 
 	//=================================================================================================================
 	// Obsidian Destroyer: Astral Imprisonment
@@ -81,8 +77,7 @@
 		"ReduxFlags" 		"mana | tank"
 		"ReduxCost"			"10"
 	}
-	
-	
+
 	// Talents
 	"special_bonus_unique_outworld_devourer"
 	{

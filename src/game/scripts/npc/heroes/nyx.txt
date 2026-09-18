@@ -5,7 +5,7 @@
 		"ReduxFlags"		"stun"
 		"ReduxPerks"		"earth | skillshot"
 	}
-	
+
 	// "nyx_assassin_mana_burn"
 	// {
 		// "ReduxFlags"		"mana"
@@ -14,9 +14,10 @@
 
 	"nyx_assassin_jolt"
 	{
+		"ReduxFlags"		"mana"
 		"ReduxPerks"		"lightning"
 	}
-	
+
 	"nyx_assassin_spiked_carapace"
 	{
 		"ReduxFlags"		"stun"
@@ -106,8 +107,7 @@
 		"ReduxPerks"			"fire"
 		"ReduxCost"				"30"
 	}
-	
-	
+
 	// Talents
 	"special_bonus_unique_nyx"
 	{
