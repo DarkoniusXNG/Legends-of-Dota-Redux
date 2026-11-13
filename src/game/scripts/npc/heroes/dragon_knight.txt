@@ -18,7 +18,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier | upgradeable"
 		"ReduxPerks"                                                           "attack_modifier | dragon | transformation"
-		"ReduxCost"                                                            "10"
+		"ReduxCost"                                                            "30"
 	}
 
 	"dragon_knight_dragon_tail"

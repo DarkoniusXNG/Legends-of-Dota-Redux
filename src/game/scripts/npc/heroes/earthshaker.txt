@@ -12,7 +12,7 @@
 	{
 		"ReduxFlags"                                                           "upgradeable"
 		"ReduxPerks"                                                           "earth"
-		"ReduxCost"                                                            "40"
+		"ReduxCost"                                                            "40" // high value low winrate
 	}
 
 	"earthshaker_aftershock"

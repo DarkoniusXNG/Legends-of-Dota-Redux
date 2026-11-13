@@ -200,11 +200,12 @@
 
         "ReduxFlags"                    "illusion | invis"
         "ReduxPerks"                    "illusion | invis"
+        "ReduxCost"                     "40"
 
-        "AbilityCastRange"              "600"
+        "AbilityCastRange"              "600 650 700 750"
         "AbilityCastPoint"              "0.3"
 
-        "AbilityCooldown"               "10.0 8.0 6.0 4.0"
+        "AbilityCooldown"               "10 9 8 7"
         "AbilityProcsMagicStick"        "1"
 
         "precache"
@@ -221,10 +222,8 @@
         "AbilityValues"
         {
             "duration" "10"
-            "illusion_taken" "100"
-            "illusion_dealt" "-25"
-            "illusion_taken_tt" "200"
-            "illusion_dealt_tt" "75"
+            "illusion_taken" "200"
+            "illusion_dealt" "45 55 65 75"
         }
 
         "OnSpellStart"
@@ -338,7 +337,7 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityTextureName"            "custom/dehydration_aura"
-		
+
         "AbilityCastRange"              "%aoe"
 
         "ReduxPerks"                    "aura"

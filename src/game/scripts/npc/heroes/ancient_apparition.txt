@@ -34,7 +34,7 @@
 	{
 		"ReduxFlags"                    "wtfAutoBan"
 		"ReduxPerks"                    "ice | skillshot"
-		"ReduxCost"                     "20"
+		"ReduxCost"                     "30"
 		"ReduxBans"                     "tinker_rearm | arc_warden_tempest_double | meepo_divided_we_stand" // sitting in fountain
 	}
 

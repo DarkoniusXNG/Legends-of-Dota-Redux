@@ -33,7 +33,6 @@
 	//=================================================================================================================
 	"gyrocopter_call_down"
 	{
-		//"ReduxFlags"		""
 		"ReduxPerks"		"scientific | skillshot | explosive"
 	}
 

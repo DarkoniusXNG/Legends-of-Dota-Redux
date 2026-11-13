@@ -25,7 +25,7 @@
 	{
 		"ReduxFlags"                                                           "attack_modifier | mobility"
 		"ReduxPerks"                                                           "attack_modifier | mobility | demon"
-		"ReduxCost"                                                            "30"
+		"ReduxCost"                                                            "40"
 	}
 
 	//=================================================================================================================

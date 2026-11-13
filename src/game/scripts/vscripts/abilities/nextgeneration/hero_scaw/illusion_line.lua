@@ -14,6 +14,7 @@ function CreateIllusionLine( keys )
 	local distance = (point - origin):Length2D()
 	local location = origin + forwardVec * distance
 	local sideVec = caster:GetRightVector()
+	local padding = caster:GetHullRadius()
 
 	local randomPos = RandomInt(1,5)
 	if caster:HasModifier("modifier_spirit_realm") then randomPos = 0 end
@@ -83,9 +84,10 @@ function CreateIllusionLine( keys )
 			})
 		end
 
-		for j = 1, 5 do
+		local number_of_illusions = 5
+		for j = 1, number_of_illusions do
 			if randomPos ~= j then
-				illusion[j] = CreateIllusions(caster, caster, illu_table, 1, caster:GetHullRadius(), false, false)[1]
+				illusion[j] = CreateIllusions(caster, caster, illu_table, 1, padding, false, false)[j]
 
 				--make sure this unit actually has stats
 				if illusion[j].GetStrength then

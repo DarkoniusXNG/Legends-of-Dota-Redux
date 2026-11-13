@@ -75,14 +75,7 @@
 		"ReduxPerks"                                                           "gold"
 	}
 
-	"special_bonus_unique_witch_doctor_1"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-		"TalentRequiredAbility"                                                   "witch_doctor_death_ward"
-	}
+	// Talents
 	"special_bonus_unique_witch_doctor_2"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -124,6 +117,14 @@
 		"TalentRequiredAbility"                                                   "witch_doctor_paralyzing_cask"
 	}
 	"special_bonus_unique_witch_doctor_7"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+
+		"TalentRequiredAbility"                                                   "witch_doctor_maledict"
+	}
+	"special_bonus_unique_witch_doctor_maledict_spread"
 	{
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"

@@ -34,7 +34,7 @@
 	{
 		"ReduxFlags"		"upgradeable | silence"
 		"ReduxPerks"		"silence"
-		"ReduxCost"			"70"
+		"ReduxCost"			"70" // scales per kill
 		"ReduxBans"			"spell_lab_symbiotic"
 	}
 

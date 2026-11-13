@@ -10,8 +10,8 @@
 	"sniper_headshot"
 	{
 		"ReduxFlags"                                                           "attack_modifier | physical"
-		"ReduxPerks"                                                           "attack_modifier | physical"
-		"ReduxCost"                                                            "10"
+		"ReduxPerks"                                                           "attack_modifier | enemymoving | physical"
+		//"ReduxCost"                                                            "10"
 	}
 
 	"sniper_take_aim"

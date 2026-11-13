@@ -83,6 +83,7 @@ local item_builds = {
 		"item_reaver",
 		"item_hyperstone",
 		"item_black_king_bar",
+		"item_ultimate_scepter",
 	},
 	npc_dota_hero_chaos_knight = { -- rightclick carry
 		"item_bracer",
@@ -153,6 +154,7 @@ local item_builds = {
 		"item_black_king_bar",
 		"item_platemail",
 		"item_soul_booster",
+		"item_ultimate_scepter", -- changes ability behaviour
 	},
 	npc_dota_hero_jakiro = { -- support
 		"item_arcane_boots",
@@ -173,6 +175,7 @@ local item_builds = {
 		"item_demon_edge",
 		"item_abyssal_blade",
 		--"item_eagle",
+		"item_ultimate_scepter", -- adds new ability
 	},
 	npc_dota_hero_kunkka = {
 		"item_bracer",
@@ -192,6 +195,7 @@ local item_builds = {
 		"item_blink",
 		"item_platemail",
 		"item_mystic_staff",
+		"item_ultimate_scepter", -- changes ability behaviour
 	},
 	npc_dota_hero_lina = {
 		"item_null_talisman",
@@ -201,6 +205,7 @@ local item_builds = {
 		"item_black_king_bar",
 		"item_lesser_crit",
 		"item_satanic",
+		"item_ultimate_scepter", -- adds new ability
 	},
 	npc_dota_hero_lion = { -- support
 		"item_tranquil_boots",
@@ -219,14 +224,14 @@ local item_builds = {
 		"item_yasha",
 		"item_black_king_bar",
 		"item_lesser_crit",
-		--"item_ultimate_scepter",
+		"item_ultimate_scepter", -- changes ability behaviour
 		"item_eagle",
 	},
 	npc_dota_hero_necrolyte = { -- caster carry
 		"item_null_talisman",
 		"item_arcane_boots",
 		"item_reaver",
-		--"item_relic",
+		"item_relic",
 		"item_ultimate_scepter",
 		"item_pipe",
 		"item_sange",
@@ -261,7 +266,7 @@ local item_builds = {
 		"item_aether_lens",
 		"item_aeon_disk",
 		"item_mystic_staff",
-		"item_ultimate_scepter",
+		"item_ultimate_scepter", -- adds new ability
 		"item_soul_booster",
 	},
 	npc_dota_hero_phantom_assassin = { -- rightclick carry
@@ -273,6 +278,7 @@ local item_builds = {
 		"item_desolator",
 		"item_nullifier",
 		"item_satanic",
+		"item_ultimate_scepter", -- adds new ability
 	},
 	npc_dota_hero_pudge = { -- caster carry
 		"item_bracer",
@@ -310,7 +316,7 @@ local item_builds = {
 		--"item_radiance",
 		"item_sange",
 		"item_assault",
-		--"item_ultimate_scepter",
+		--"item_ultimate_scepter", -- lags the game
 		"item_blade_mail",
 	},
 	npc_dota_hero_skywrath_mage = { -- support
@@ -350,6 +356,7 @@ local item_builds = {
 		"item_vladmir",
 		"item_platemail",
 		"item_reaver",
+		"item_ultimate_scepter", -- changes ability behaviour
 	},
 	npc_dota_hero_tiny = {
 		"item_bracer",
@@ -359,10 +366,11 @@ local item_builds = {
 		"item_black_king_bar",
 		"item_hyperstone",
 		"item_lesser_crit",
+		"item_ultimate_scepter", -- adds new ability
 	},
 	npc_dota_hero_vengefulspirit = {
 		"item_power_treads",
-		"item_ultimate_scepter",
+		--"item_ultimate_scepter", -- crashes the game?
 		"item_dragon_lance",
 		"item_vladmir",
 		"item_yasha",
@@ -378,6 +386,7 @@ local item_builds = {
 		"item_skadi",
 		"item_veil_of_discord",
 		"item_witch_blade",
+		"item_ultimate_scepter", -- adds new ability
 	},
 	npc_dota_hero_warlock = { -- support
 		"item_magic_wand",
@@ -417,6 +426,7 @@ local item_builds = {
 		"item_aether_lens",
 		"item_soul_booster",
 		"item_refresher",
+		"item_ultimate_scepter", -- adds new ability
 	},
 }
 
@@ -490,51 +500,51 @@ local items_to_sell = {
 	--item_blades_of_attack = 1,
 	--item_blight_stone = 1,
 	--item_blitz_knuckles = 1,
-	item_blood_grenade = 1,
+	--item_blood_grenade = 1, -- uncomment if vanilla bots
 	--item_boots = 1,
 	--item_boots_of_elves = 1,
-	item_branches = 1,
+	--item_branches = 1, -- uncomment if vanilla bots
 	--item_broadsword = 1,
 	--item_buckler = 1,
 	--item_chainmail = 1,
-	item_circlet = 1,
-	item_clarity = 1,
+	--item_circlet = 1, -- uncomment if vanilla bots
+	--item_clarity = 1, -- uncomment if vanilla bots
 	--item_claymore = 1,
 	--item_crown = 1,
 	--item_diadem = 1,
 	item_dust = OptionManager and OptionManager:GetOption('banInvis') >= 2,
-	item_flask = 1,
-	item_gauntlets = 1,
+	--item_flask = 1, -- uncomment if vanilla bots
+	--item_gauntlets = 1, -- uncomment if vanilla bots
 	item_gem = OptionManager and OptionManager:GetOption('banInvis') == 3,
 	--item_gloves = 1,
 	--item_helm_of_iron_will = 1,
 	--item_javelin = 1,
-	item_magic_stick = 1,
-	item_mantle = 1,
+	--item_magic_stick = 1, -- uncomment if vanilla bots
+	--item_mantle = 1, -- uncomment if vanilla bots
 	--item_mithril_hammer = 1,
 	--item_ogre_axe = 1,
 	--item_quelling_blade = 1,
 	--item_recipe_angels_demise = 1,
 	--item_recipe_arcane_boots = 1,
 	--item_recipe_armlet = 1,
-	item_recipe_guardian_greaves = 1,
-	item_recipe_greater_crit = 1,
-	item_recipe_harpoon = 1,
-	item_recipe_holy_locket = 1,
-	item_recipe_magic_wand = 1,
-	item_recipe_travel_boots = 1,
+	--item_recipe_guardian_greaves = 1, -- uncomment if vanilla bots
+	--item_recipe_greater_crit = 1, -- uncomment if vanilla bots
+	--item_recipe_harpoon = 1, -- uncomment if vanilla bots
+	--item_recipe_holy_locket = 1, -- uncomment if vanilla bots
+	--item_recipe_magic_wand = 1, -- uncomment if vanilla bots
+	--item_recipe_travel_boots = 1, -- uncomment if vanilla bots
 	--item_ring_of_basilius = 1,
-	item_ring_of_protection = 1,
-	item_ring_of_regen = 1,
+	--item_ring_of_protection = 1, -- uncomment if vanilla bots
+	--item_ring_of_regen = 1, -- uncomment if vanilla bots
 	--item_robe = 1,
-	item_slippers = 1,
+	--item_slippers = 1, -- uncomment if vanilla bots
 	--item_staff_of_wizardry = 1,
 	item_tango = 1,
 	--item_tiara_of_selemene = 1,
-	item_wind_lace = 1,
+	--item_wind_lace = 1, -- uncomment if vanilla bots
 }
 
--- Items that should be sold in lategame
+-- Items that should be sold in lategame - UNUSED
 local junk_to_sell = {
 	--item_belt_of_strength = 1,
 	--item_blade_of_alacrity = 1,
@@ -588,6 +598,8 @@ local duplicates = {
 	item_bloodstone = 1,
 	item_bloodthorn = 1,
 	item_boots_of_bearing = 1,
+	item_consecrated_wraps = 1,
+	item_crellas_crozier = 1,
 	item_crimson_guard = 1,
 	item_cyclone = 1,
 	item_dagon = 1,
@@ -608,6 +620,7 @@ local duplicates = {
 	item_heavens_halberd = 1,
 	item_holy_locket = 1,
 	item_hurricane_pike = 1,
+	item_hydras_breath = 1,
 	item_invis_sword = 1,
 	item_kaya = 1,
 	item_kaya_and_sange = 1,
@@ -618,7 +631,7 @@ local duplicates = {
 	--item_manta = 1,
 	item_mask_of_madness = 1,
 	item_mekansm = 1,
-	--item_meteor_hammer = 1,
+	item_meteor_hammer = 1, -- comment this if added to forbidden lists
 	item_mjollnir = 1,
 	item_monkey_king_bar = 1,
 	item_nullifier = 1,
@@ -639,7 +652,7 @@ local duplicates = {
 	item_satanic = 1,
 	item_sheepstick = 1,
 	item_shivas_guard = 1,
-	--item_silver_edge = 1,
+	item_silver_edge = 1, -- comment this if added to forbidden lists
 	item_skadi = 1,
 	item_solar_crest = 1,
 	item_sphere = 1,
@@ -664,9 +677,9 @@ local forbidden_melee = {
 	item_hurricane_pike = 1,
 	item_hydras_breath = 1,
 	item_manta = 1, -- lags
-	item_meteor_hammer = 1, -- bots never use this
+	--item_meteor_hammer = 1, -- bots never use this
 	item_recipe_hurricane_pike = 1,
-	item_silver_edge = 1, -- there are better items
+	--item_silver_edge = 1,
 	item_specialists_array = 1,
 }
 
@@ -678,12 +691,12 @@ local forbidden_ranged = {
 	item_echo_sabre = 1,
 	item_harpoon = 1,
 	item_manta = 1, -- lags
-	item_meteor_hammer = 1, -- bots never use this
+	--item_meteor_hammer = 1, -- bots never use this
 	item_radiance = 1,
 	item_recipe_abyssal_blade = 1,
 	item_recipe_crimson_guard = 1,
 	item_recipe_harpoon = 1,
-	item_silver_edge = 1, -- there are better items
+	--item_silver_edge = 1,
 	item_vanguard = 1,
 }
 
@@ -696,8 +709,10 @@ local forbidden_strength = {
 local forbidden_rightclick_carry = {
 	item_aeon_disk = 1,
 	item_aether_lens = 1,
-	--item_blade_mail = 1,
+	item_blade_mail = 1,
 	item_bloodstone = 1,
+	item_consecrated_wraps = 1,
+	item_crellas_crozier = 1,
 	item_crimson_guard = 1,
 	item_cyclone = 1,
 	--item_eternal_shroud = 1,
@@ -755,6 +770,7 @@ local forbidden_support = {
 	item_greater_crit = 1,
 	item_harpoon = 1,
 	item_heart = 1,
+	item_hydras_breath = 1,
 	item_invis_sword = 1,
 	item_lesser_crit = 1,
 	item_maelstrom = 1,
@@ -803,6 +819,7 @@ local forbidden_casters = {
 	item_echo_sabre = 1,
 	item_greater_crit = 1,
 	item_harpoon = 1,
+	item_hydras_breath = 1,
 	item_invis_sword = 1,
 	item_lesser_crit = 1,
 	item_maelstrom = 1, --
@@ -854,6 +871,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
     end
   end
 
+  --[[ 
   local purchased = false
   for _, item_name in ipairs(item_builds[name]) do
     local item = parent:FindItemByName(item_name)
@@ -939,6 +957,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
       break
     end
   end
+  ]]
 
   -- Remove duplicates
   for slot1 = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
@@ -1004,7 +1023,15 @@ function modifier_bot_lod_redux:OnIntervalThink()
       local item = parent:GetItemInSlot(slot)
       if item then
         local item_name = item:GetAbilityName()
-        if low_lvl_boots[item_name] then
+		-- Remove all boots
+		if low_lvl_boots[item_name] then
+          print("Removing boots: "..tostring(item_name).." at "..tostring(GetSystemTime()).." ("..tostring(GameRules:GetDOTATime(false, false))..") from "..name)
+          local gold_value = GetItemCost(item_name)
+          parent:ModifyGold(gold_value, true, DOTA_ModifyGold_SellItem)
+          item:RemoveSelf()
+		end
+        --[[
+		if low_lvl_boots[item_name] then
           local has_it_in_build = false
           for _, item_name_in_build in ipairs(item_builds[name]) do
             if item_name_in_build == item_name then
@@ -1019,11 +1046,19 @@ function modifier_bot_lod_redux:OnIntervalThink()
             item:RemoveSelf()
           end
         end
+		]]
       end
     end
+	-- Add boots from the build
+	for _, item_name_in_build in ipairs(item_builds[name]) do
+      if low_lvl_boots[item_name_in_build] then
+	    parent:AddItemByName(item_name_in_build)
+	  end
+	end
     self.alreadyfixedmultipleboots = true
   end
 
+  --[[
   if GameRules:GetDOTATime(false, false) >= 20*60 then
     -- self.alreadyfixedmultipleboots = false
     for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
@@ -1057,6 +1092,7 @@ function modifier_bot_lod_redux:OnIntervalThink()
       end
     end
   end
+  ]]
 end
 
 function modifier_bot_lod_redux:HasRoomForItemCustom()
