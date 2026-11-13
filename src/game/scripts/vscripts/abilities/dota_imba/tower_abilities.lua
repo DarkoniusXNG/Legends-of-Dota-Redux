@@ -2208,6 +2208,7 @@ end
 
 function modifier_imba_tower_essence_drain_aura_buff:OnAttackLanded( keys )
 	if IsServer() then
+		local parent = self:GetParent()
 		local attacker = keys.attacker
 		local target = keys.target
 
@@ -2219,20 +2220,20 @@ function modifier_imba_tower_essence_drain_aura_buff:OnAttackLanded( keys )
 		local protective_instinct_stacks = self.caster:GetModifierStackCount("modifier_imba_tower_protective_instinct", self.caster)
 
 		-- Only apply if the parent is the attacker and the victim is on the opposite team
-		if (self.parent == attacker) and (attacker:GetTeamNumber() ~= target:GetTeamNumber()) and target:IsRealHero() then
+		if (parent == attacker) and (attacker:GetTeamNumber() ~= target:GetTeamNumber()) and target:IsRealHero() then
 
 			-- Apply effect
 			local particle_drain_fx = ParticleManager:CreateParticle(self.particle_drain, PATTACH_ABSORIGIN, target)
 			ParticleManager:SetParticleControl(particle_drain_fx, 0, target:GetAbsOrigin())
-			ParticleManager:SetParticleControl(particle_drain_fx, 1, self.parent:GetAbsOrigin())
-			ParticleManager:SetParticleControl(particle_drain_fx, 2, self.parent:GetAbsOrigin())
-			ParticleManager:SetParticleControl(particle_drain_fx, 3, self.parent:GetAbsOrigin())
+			ParticleManager:SetParticleControl(particle_drain_fx, 1, parent:GetAbsOrigin())
+			ParticleManager:SetParticleControl(particle_drain_fx, 2, parent:GetAbsOrigin())
+			ParticleManager:SetParticleControl(particle_drain_fx, 3, parent:GetAbsOrigin())
 			ParticleManager:ReleaseParticleIndex(particle_drain_fx)
 
 			-- Calculate duration
 			local total_duration = self.duration + self.duration_per_protective * protective_instinct_stacks
 
-			-- Add debuff modifier to the enemy Increment stack count and refresh
+			-- Add debuff modifier to the enemy
 			local drain_debuff_handler
 			if not target:HasModifier(self.modifier_debuff) then
 				drain_debuff_handler = target:AddNewModifier(self.caster, self.ability, self.modifier_debuff, {duration = total_duration})
@@ -2241,19 +2242,24 @@ function modifier_imba_tower_essence_drain_aura_buff:OnAttackLanded( keys )
 			end
 
 			-- Increase stacks and refresh
-			drain_debuff_handler:IncrementStackCount()
-			drain_debuff_handler:ForceRefresh()
-
-			-- Add buff modifier to the attacker.
-			if not self.parent:HasModifier(self.modifier_buff) then
-				self.parent:AddNewModifier(self.caster, self.ability, self.modifier_buff, {duration = total_duration})
+			if drain_debuff_handler then
+				drain_debuff_handler:IncrementStackCount()
+				drain_debuff_handler:ForceRefresh()
 			end
 
-			local drain_buff_handler = self.parent:FindModifierByName(self.modifier_buff)
+			-- Add buff modifier to the attacker
+			local drain_buff_handler
+			if not parent:HasModifier(self.modifier_buff) then
+				drain_buff_handler = parent:AddNewModifier(self.caster, self.ability, self.modifier_buff, {duration = total_duration})
+			else
+				drain_buff_handler = parent:FindModifierByName(self.modifier_buff)
+			end
 
 			-- Increase stacks and refresh
-			drain_buff_handler:IncrementStackCount()
-			drain_buff_handler:ForceRefresh()
+			if drain_buff_handler then
+				drain_buff_handler:IncrementStackCount()
+				drain_buff_handler:ForceRefresh()
+			end
 		end
 	end
 end
