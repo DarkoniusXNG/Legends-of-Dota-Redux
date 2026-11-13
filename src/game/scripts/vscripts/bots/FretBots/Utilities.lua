@@ -229,7 +229,11 @@ end
 
 -- returns html encoding to change the text of msg the appropriate color
 function Utilities:ColorString(msg, color)
-	return "<font color='"..color.."'>"..msg..'</font>'
+	if color then
+		return "<font color='"..color.."'>"..msg..'</font>'
+	else
+		return "<font color='red'>"..msg..'</font>'
+	end
 end
 
 -- Gets a random sound from a table
